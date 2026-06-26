@@ -47,7 +47,7 @@ A source-span reference shared across engines.
 Fields:
 
 - `id`
-- `source_engine`: `qualitative_coding` or `process_tracing`
+- `source_engine`: `qualitative_coding`, `process_tracing`, or `theory_forge`
 - `source_artifact_path`
 - `doc_id`
 - `start_char`
@@ -70,7 +70,8 @@ Fields:
 - `source_anchor_ids`
 - `description`
 - `evidence_kind`: `coded_passage`, `claim_support`, `claim_contrary`,
-  `process_trace_evidence`, `absence_finding`, `source_gap`, `quant_indicator`
+  `process_trace_evidence`, `absence_finding`, `source_gap`, `quant_indicator`,
+  `theory_operationalization`
 - `semantic_tags`
 - `code_ids`
 - `entity_ids`
@@ -151,6 +152,32 @@ Fields:
 - `export_manifest`
 - `claim_limits`
 
+### TheoryOperationalizationArtifact
+
+Future workbench-safe view of a `theory-forge` theory artifact. This is a broad
+stub until a real Theory Forge fixture exists.
+
+Fields:
+
+- `id`
+- `schema_version`
+- `theory_id`
+- `producer_commit`
+- `source_schema_ref`
+- `compiled_manifest_ref`
+- `constructs`
+- `mechanisms`
+- `hypotheses`
+- `observables`
+- `measures`
+- `assumptions`
+- `scope_conditions`
+- `uncertainties`
+- `validation_obligations`
+- `compiled_function_refs`
+- `limitations`
+- `provenance`
+
 ## Adapter Stubs
 
 ### QC to Workbench
@@ -196,3 +223,26 @@ Allowed failures:
 - no source packet where one is required by the workbench mode;
 - unresolved evidence quote that cannot be mapped to a source anchor.
 
+### Theory Forge to Workbench
+
+Input: future `theory-forge` `TheoryOperationalizationArtifact` export.
+
+Output:
+
+- `AnalyticAssertion` from mechanisms, hypotheses, constructs, latent
+  constructs, and theory-provided causal edges.
+- `EvidenceRecord` only for operationalization/validation obligations, not as
+  source evidence proving that a claim is true.
+- `MethodOutputRef` to schema, compiled manifest, compiled functions, and
+  validation artifacts.
+- optional links to `CausalHypothesisSet` candidates when the theory artifact
+  explicitly defines rival hypotheses or observable implications.
+
+Allowed failures:
+
+- missing schema or manifest provenance;
+- stale or non-green compiled artifact;
+- ambiguous v14/v15 schema version;
+- theory artifact presented as empirical evidence rather than
+  operationalization context;
+- dependency on AC runtime or untracked compiled output.

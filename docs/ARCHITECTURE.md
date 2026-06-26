@@ -1,11 +1,13 @@
 # Mixed Methods Workbench Architecture
 
 Status: planning scaffold
-Updated: 2026-06-25
+Updated: 2026-06-26
 
 This document applies the design-plan protocol to a future
 `mixed_methods_workbench` that composes `qualitative_coding` and
-`process_tracing` as method engines.
+`process_tracing` as method engines. `theory-forge` is tracked as a future
+theory-operationalization artifact producer, not as a current runtime
+dependency.
 
 ## 0. Frame
 
@@ -29,6 +31,9 @@ At the workbench level, success means:
   claims without conflating their estimands;
 - future cross-case causal/statistical tooling can plug in through explicit
   eligibility contracts.
+- future theory operationalizations can enter as explicit constructs,
+  mechanisms, hypotheses, observables, assumptions, and scope conditions without
+  pretending generated theory is validated evidence.
 
 Failure means:
 
@@ -48,6 +53,8 @@ Failure means:
 - Human review remains a first-class mode, but not the only source of rigor.
 - Do not claim methodological validity or beyond-SOTA performance from the
   scaffold. This is architecture and planning only.
+- Do not route the workbench through `theory-forge` AC backends. Theory Forge
+  integration starts as an artifact dependency subplan.
 
 ### Borrow vs Build
 
@@ -55,6 +62,7 @@ Failure means:
 |---|---|---|
 | Qualitative coding, claim ledger, QDA export | Borrow `qualitative_coding` | It already owns broad qualitative research state and review surfaces. |
 | Process tracing, Bayesian support update | Borrow `process_tracing` | It already owns coherent causal inference contracts and deterministic math. |
+| Theory operationalization | Borrow future `theory-forge` export | It owns paper -> theory schema/compile artifacts; the workbench should consume only a stable operationalization artifact. |
 | Shared source/evidence/claim contracts | Build in workbench or future shared library | This is the integration seam and must be explicit. |
 | Web retrieval | Borrow `open_web_retrieval` later | Retrieval is already shared infra; do not reimplement. |
 | LLM calls | Borrow `llm_client` through engines | The workbench should not bypass engine-level observability. |
@@ -77,6 +85,7 @@ remain authoritative for their own local behavior and claim discipline.
 | Workbench boundaries and method-engine seams | Deductive | Specify component boundaries and typed contracts now. |
 | Shared evidence/source/claim contracts | Deductive with narrow stubs | Define broad but truthful integration types; validate with fixtures. |
 | QC/PT artifact adapter mappings | Hybrid | Field-level mappings are knowable; quote/anchor recovery behavior must be instrumented. |
+| Theory Forge operationalization artifact | Dependency subplan | Define only a broad stub until one real green theory export exists. |
 | Mixed-methods synthesis quality | Exploratory | Build readouts and review mockups before thresholds. |
 | Causal/abductive model generation from qualitative patterns | Exploratory -> gated | Start with candidate generation/readout; promote stable model shapes later. |
 | UI/workbench review experience | Hybrid | Static demo-mode mockup first; use real fixtures before live machinery. |
@@ -109,6 +118,7 @@ failure modes, then promote stable contracts.
 - No live engine orchestration.
 - No repo merge.
 - No new LLM prompts.
+- No live Theory Forge or AC backend orchestration.
 - No causal effect estimation.
 - No claim that the workbench already produces PhD-level research.
 
@@ -119,6 +129,7 @@ flowchart LR
   subgraph External["Method engines and shared dependencies"]
     QC["qualitative_coding\nProjectState JSON, exports, review APIs"]
     PT["process_tracing\nresult.json, source packet, report.html"]
+    TF["theory-forge\nfuture TheoryOperationalizationArtifact"]
     LLM["llm_client\nused by engines"]
     Web["open_web_retrieval\nfuture source acquisition"]
     Causal["Causal/statistical engines\nfuture cross-case adapters"]
@@ -136,6 +147,8 @@ flowchart LR
 
   QC -->|"QC ProjectState artifact"| Adapters
   PT -->|"PT result/source packet artifacts"| Adapters
+  TF -. "future theory operationalization artifact" .-> Registry
+  TF -. "future constructs/mechanisms/hypotheses" .-> Contracts
   Adapters -->|"normalized shared contracts"| Contracts
   Registry -->|"question + scope + estimand"| Synth
   Contracts -->|"evidence/assertions/patterns/hypotheses"| Synth
@@ -355,6 +368,35 @@ reference.
 
 Promotion: update exact PT mapping rules and include the fixture in Slice 1.
 
+### Dependency Subplan: Theory Forge Operationalization Artifact
+
+Blocks: any theory-enhanced mixed-methods slice.
+
+Known stub: Input is a future `theory-forge` export. Output is a workbench-safe
+artifact containing constructs, mechanisms, hypotheses, observables, measures,
+assumptions, scope conditions, uncertainties, validation obligations, and
+compiled artifact references.
+
+Unknowns:
+
+- Whether the canonical producer is a v14 schema, v15 schema, compiled manifest,
+  or new export composed from those.
+- Which current theory is green enough to become the first fixture.
+- How generated theory, theory operationalization, and compiled analysis code
+  should map into the workbench domain model without becoming causal evidence.
+
+Instrument: run the readiness subplan in
+`docs/plans/002_engine_stability_and_integration_readiness.md`, pick one real
+Theory Forge artifact, and draft a `TheoryOperationalizationArtifact` contract
+from real fields.
+
+Readout: one artifact validates and can be linked to workbench evidence and
+hypothesis objects without importing Theory Forge internals or requiring any AC
+runtime.
+
+Promotion: update boundary/domain/data-flow diagrams and shared contracts before
+starting a theory-enhanced workbench slice.
+
 ### Dependency Subplan: Mixed-Methods Synthesis Quality
 
 Blocks: any claim that the workbench produces high-quality integrated research
@@ -420,4 +462,3 @@ formal adapter.
 | Dashboard-only shell | Review page cannot trace evidence to methods and caveats. | Rework mockup around research workflow path. |
 | Premature repo merge | Work starts by moving engine code. | Stop and require a slice plan proving the boundary. |
 | Fake quality threshold | Plan asserts PhD quality without a readout/validation path. | Move to concern register and define an exploratory instrument. |
-

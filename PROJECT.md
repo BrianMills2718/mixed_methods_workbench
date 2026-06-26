@@ -19,6 +19,10 @@ repos:
   source packets, rival hypotheses, diagnostic evidence, likelihood vectors,
   deterministic Bayesian comparative support, absence checks, source coverage,
   and process-tracing reports.
+- `~/projects/theory-forge` is a future theory-operationalization producer, not a
+  current workbench dependency: it may later supply constructs, mechanisms,
+  hypotheses, observables, measures, assumptions, scope conditions, and compiled
+  metadata through a typed artifact.
 
 ## Product Thesis
 
@@ -48,6 +52,7 @@ repo and does not claim to produce research outputs.
 - `docs/adr/0001_method_engines_not_monorepo.md` - decision to compose method
   engines through contracts before any repo merge.
 - `contracts/shared_contracts.md` - initial cross-engine contract sketch.
+- `docs/plans/002_engine_stability_and_integration_readiness.md` - current
+  blocker/gap plan before any workbench build-out.
 - `docs/plans/001_walking_skeleton.md` - first vertical slice plan.
 - `docs/CONCERNS.md` - live concern register.
-

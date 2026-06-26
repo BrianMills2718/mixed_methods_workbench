@@ -8,11 +8,11 @@ Start here:
 1. `PROJECT.md`
 2. `docs/ARCHITECTURE.md`
 3. `contracts/shared_contracts.md`
-4. `docs/plans/001_walking_skeleton.md`
-5. `docs/CONCERNS.md`
+4. `docs/plans/002_engine_stability_and_integration_readiness.md`
+5. `docs/plans/001_walking_skeleton.md`
+6. `docs/CONCERNS.md`
 
-This is not yet an implementation repo. The first intended slice is a
-fixture-backed walking skeleton that normalizes one completed
-`qualitative_coding` artifact and one completed `process_tracing` artifact into
-a shared workbench synthesis payload.
-
+This is not yet an implementation repo. The walking skeleton is currently
+blocked by engine readiness: `qualitative_coding`, `process_tracing`, and future
+`theory-forge` integration need stable export artifacts before the workbench
+should build adapters or UI.

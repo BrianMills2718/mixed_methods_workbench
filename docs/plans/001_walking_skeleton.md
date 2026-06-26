@@ -1,7 +1,14 @@
 # Plan 001: Fixture-Backed Walking Skeleton
 
-Status: planned
+Status: blocked by engine readiness
 Created: 2026-06-25
+Blocked By: `docs/plans/002_engine_stability_and_integration_readiness.md`
+
+Do not execute this walking skeleton until the readiness gates in Plan 002 pass
+for the engines included in the slice. The minimum gate for the original QC/PT
+scope is a canonical QC export fixture and a versioned PT export fixture. Theory
+Forge is not required for the original QC/PT walking skeleton unless the slice is
+explicitly expanded into a theory-enhanced workbench payload.
 
 ## Outcome
 
@@ -98,4 +105,3 @@ files are committed in whichever repo owns the scaffold.
    library that maps one QC project state into shared contracts.
 3. PT adapter hardening: implement a typed package that maps one PT result into
    shared contracts.
-

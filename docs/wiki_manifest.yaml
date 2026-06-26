@@ -9,3 +9,7 @@ publish:
     type: ProjectOverview
     title: Claude
     tags: [portfolio, mixed_methods_workbench]
+  - path: docs/plans/002_engine_stability_and_integration_readiness.md
+    type: Plan
+    title: Engine Stability And Integration Readiness
+    tags: [portfolio, mixed_methods_workbench, integration]
