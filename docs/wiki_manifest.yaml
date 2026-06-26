@@ -13,3 +13,7 @@ publish:
     type: Plan
     title: Engine Stability And Integration Readiness
     tags: [portfolio, mixed_methods_workbench, integration]
+  - path: docs/IMPLEMENTING_AGENT_NOTES.md
+    type: ProjectOverview
+    title: Implementing Agent Notes
+    tags: [portfolio, mixed_methods_workbench, integration]
