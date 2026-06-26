@@ -12,11 +12,11 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Any
+import argparse
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-FIXTURE_DIR = REPO_ROOT / "examples" / "fixtures" / "workbench_contract_v1"
-MANIFEST = FIXTURE_DIR / "manifest.json"
+DEFAULT_FIXTURE_DIR = REPO_ROOT / "examples" / "fixtures" / "workbench_contract_v1"
 
 FORBIDDEN_INFERENCE_FIELDS = {
     "probability_of_truth",
@@ -45,7 +45,21 @@ REQUIRED_FILES = {
 
 def main() -> None:
     """Run all fixture checks and fail loudly on the first invalid condition."""
-    manifest = _read_json(MANIFEST)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--fixture-dir",
+        type=Path,
+        default=DEFAULT_FIXTURE_DIR,
+        help="Fixture directory containing manifest.json and contract JSON files.",
+    )
+    args = parser.parse_args()
+    validate_fixture_dir(args.fixture_dir)
+    print("Fixture contract validation passed.")
+
+
+def validate_fixture_dir(fixture_dir: Path) -> None:
+    """Validate one fixture directory."""
+    manifest = _read_json(fixture_dir / "manifest.json")
     _require(manifest.get("schema_version") == 1, "manifest schema_version must be 1")
     _require(
         manifest.get("artifact_status") == "synthetic_contract_fixture",
@@ -59,23 +73,21 @@ def main() -> None:
     _require(not missing, f"manifest missing required fixture files: {missing}")
 
     for entry in files:
-        _validate_manifest_entry(entry)
+        _validate_manifest_entry(fixture_dir, entry)
 
-    synthesis = _read_json(FIXTURE_DIR / "workbench_synthesis_stub.json")
+    synthesis = _read_json(fixture_dir / "workbench_synthesis_stub.json")
     _validate_synthesis(synthesis)
 
     for path in REQUIRED_FILES:
-        payload = _read_json(FIXTURE_DIR / path)
+        payload = _read_json(fixture_dir / path)
         _assert_no_forbidden_fields(payload, path)
 
-    print("Fixture contract validation passed.")
 
-
-def _validate_manifest_entry(entry: Any) -> None:
+def _validate_manifest_entry(fixture_dir: Path, entry: Any) -> None:
     _require(isinstance(entry, dict), "manifest file entries must be objects")
     relative_path = entry.get("path")
     _require(isinstance(relative_path, str) and relative_path, "file entry path is required")
-    path = FIXTURE_DIR / relative_path
+    path = fixture_dir / relative_path
     _require(path.is_file(), f"fixture file does not exist: {relative_path}")
     expected_hash = entry.get("sha256")
     _require(isinstance(expected_hash, str) and len(expected_hash) == 64, f"{relative_path} needs sha256")

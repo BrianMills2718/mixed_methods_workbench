@@ -1,0 +1,130 @@
+{
+  "summary": {
+    "total": 8,
+    "grade_a": 2,
+    "grade_b": 0,
+    "grade_c": 1,
+    "grade_d": 5,
+    "grade_f": 0,
+    "overall_grade": "D",
+    "notes": "Current coverage proves a synthetic contract seam, not real engine readiness."
+  },
+  "requirements": [
+    {
+      "id": "W1-contract-stub",
+      "name": "Executable workbench contract stub",
+      "success_criteria": [
+        "synthetic QC/PT/TF/synthesis fixtures exist",
+        "manifest records hashes and evidence grades",
+        "make check validates the fixtures"
+      ],
+      "evidence_class": "test",
+      "evidence_grade": "A",
+      "evidence_notes": "`make check` validates fixture structure and runs negative controls.",
+      "required_class_for_closure": "test",
+      "negative_control": "scripts/check_fixture_negative_controls.py",
+      "next_step": "Keep in check; replace synthetic rows only after engine-produced fixtures exist."
+    },
+    {
+      "id": "QCX-real-fixture",
+      "name": "Canonical qualitative coding export fixture",
+      "success_criteria": [
+        "real QC fixture includes source scope, hashes, anchors, claims, patterns/candidates, caveats",
+        "fixture rejects process-tracing inference fields",
+        "producer commit and validation command are recorded"
+      ],
+      "evidence_class": "doc",
+      "evidence_grade": "D",
+      "evidence_notes": "Engine-local Plan #242 exists, but no real QC fixture is committed here.",
+      "required_class_for_closure": "schema_validated",
+      "negative_control": null,
+      "next_step": "Generate a real QC handoff fixture in qualitative_coding, then import/hash it here."
+    },
+    {
+      "id": "PTX-real-fixture",
+      "name": "Canonical process tracing export v1 fixture",
+      "success_criteria": [
+        "real PT fixture exposes source scope, hypotheses, comparative support, absence findings, verdicts, metadata, caveats",
+        "fixture validates without parsing internal result.json",
+        "producer commit and validation command are recorded"
+      ],
+      "evidence_class": "doc",
+      "evidence_grade": "D",
+      "evidence_notes": "Engine-local Plan #7 exists, but pt_export_v1 is not implemented or committed here.",
+      "required_class_for_closure": "schema_validated",
+      "negative_control": null,
+      "next_step": "Implement/generate pt_export_v1 in process_tracing, then import/hash it here."
+    },
+    {
+      "id": "TFX-real-fixture",
+      "name": "Canonical Theory Forge operationalization fixture",
+      "success_criteria": [
+        "real Theory Forge fixture exposes constructs, mechanisms, hypotheses, observables, assumptions, scope conditions, uncertainties, validation obligations",
+        "fixture validates without AC runtime",
+        "producer commit and validation command are recorded"
+      ],
+      "evidence_class": "doc",
+      "evidence_grade": "D",
+      "evidence_notes": "Engine-local Plan #108 exists, but no real TheoryOperationalizationArtifact is committed here.",
+      "required_class_for_closure": "schema_validated",
+      "negative_control": null,
+      "next_step": "Produce a known-green Theory Forge operationalization export, then import/hash it here."
+    },
+    {
+      "id": "W2-fixture-inventory",
+      "name": "Fixture inventory and evidence grades",
+      "success_criteria": [
+        "every current fixture has source command, hash, engine commit, caveats, and evidence grade",
+        "coverage report names weak rows and closure path"
+      ],
+      "evidence_class": "test",
+      "evidence_grade": "A",
+      "evidence_notes": "Synthetic fixtures have hashes and grades; this report names missing real-engine evidence.",
+      "required_class_for_closure": "test",
+      "negative_control": "scripts/check_fixture_negative_controls.py",
+      "next_step": "Regenerate report after each real fixture replacement."
+    },
+    {
+      "id": "W3-real-synthesis-payload",
+      "name": "Fixture-backed workbench synthesis payload",
+      "success_criteria": [
+        "payload uses real engine fixtures, not synthetic placeholder rows",
+        "payload preserves evidence anchors, scope, estimands, method outputs, caveats, and provenance"
+      ],
+      "evidence_class": "fixture",
+      "evidence_grade": "C",
+      "evidence_notes": "Synthetic synthesis payload validates structurally; it is not generated from real engine artifacts.",
+      "required_class_for_closure": "schema_validated",
+      "negative_control": "scripts/check_fixture_negative_controls.py",
+      "next_step": "Replace synthetic inputs with real QC/PT fixtures and rerun validation."
+    },
+    {
+      "id": "W4-static-review-shell",
+      "name": "Static review shell over real fixture payload",
+      "success_criteria": [
+        "reviewer can trace question to source scope, evidence, QC claim/pattern, PT support, and caveat",
+        "review artifact hides none of the method boundaries"
+      ],
+      "evidence_class": "doc",
+      "evidence_grade": "D",
+      "evidence_notes": "Planned in Plan 001, but no static review shell exists.",
+      "required_class_for_closure": "fixture",
+      "negative_control": null,
+      "next_step": "Build only after real QC/PT fixtures replace synthetic contract rows."
+    },
+    {
+      "id": "MM1-synthesis-quality",
+      "name": "Mixed-methods synthesis quality gates",
+      "success_criteria": [
+        "human/agent review identifies stable failure modes",
+        "quality gates are based on fixture readouts, not invented thresholds"
+      ],
+      "evidence_class": "doc",
+      "evidence_grade": "D",
+      "evidence_notes": "Exploratory surface; no reviewed real payload exists yet.",
+      "required_class_for_closure": "observed",
+      "negative_control": null,
+      "next_step": "Run adversarial review after W4 exists over real fixtures."
+    }
+  ]
+}

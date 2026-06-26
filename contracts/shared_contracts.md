@@ -30,11 +30,21 @@ The validator enforces structural traceability, artifact hashes, synthetic
 status, evidence grades, claim limits, and a shared forbidden-field list for
 method-boundary mistakes such as generic confidence, posterior probability of
 truth, likelihood vectors in the QC fixture, or unversioned support fields.
+Negative controls live in `scripts/check_fixture_negative_controls.py` and run
+as part of `make check`.
 
 Evidence grade: `C-synthetic-contract-only`. These fixtures license only the
 claim that the workbench has an executable target seam. They do not license any
 claim about real engine readiness, research quality, methodological validity, or
 mixed-methods synthesis quality.
+
+Coverage report:
+
+```bash
+make coverage
+```
+
+This writes `docs/coverage_report.md` and `docs/coverage_report.json`.
 
 ## Core Types
 

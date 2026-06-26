@@ -173,8 +173,8 @@ flowchart TD
 | QCX | QC export fixture | `qualitative_coding` | E0 | partial | One canonical artifact exports scope, hashes, anchors, claims, patterns/candidates, caveats, and rejects causal inference fields. | strict handoff validation plus fixture manifest | QC can supply workbench evidence inputs, not causal proof. |
 | PTX | PT export v1 | `process_tracing` | E0 | planned | Versioned export exposes source scope, hypotheses, comparative support, absence findings, verdicts, run metadata, and caveats without raw internals. | `pt_export_v1.json` fixture and tests | PT results can be consumed without internal coupling. |
 | TFX | Theory operationalization export v1 | `theory-forge` | E0 | planned | One stable artifact exposes theory constructs, mechanisms, hypotheses, observables, measures, assumptions, scope conditions, uncertainties, validation obligations, and compiled metadata. | one exported artifact from a current green theory plus schema validation | Theory can enter workbench as an inspectable operationalization, not as validated truth. |
-| W1 | Executable workbench contracts | `mixed_methods_workbench` | QCX, PTX; optionally TFX | markdown only | Pydantic producer/consumer models and JSON Schema validate all selected fixtures. | contract tests and schema fixtures | Workbench has enforceable seams. |
-| W2 | Fixture inventory and evidence grades | `mixed_methods_workbench` | W1 | planned | Every fixture has source command, hash, engine commit, caveats, and evidence grade. | coverage report / fixture manifest | Readiness is visible before enforcement. |
+| W1 | Executable workbench contracts | `mixed_methods_workbench` | QCX, PTX; optionally TFX | contract stub | Pydantic producer/consumer models and JSON Schema validate all selected fixtures. | synthetic fixture validator plus negative controls | Workbench has an enforceable synthetic seam, not real engine readiness. |
+| W2 | Fixture inventory and evidence grades | `mixed_methods_workbench` | W1 | baseline report | Every fixture has source command, hash, engine commit, caveats, and evidence grade. | `docs/coverage_report.md` / `docs/coverage_report.json` | Readiness is visible before enforcement. |
 | W3 | Workbench synthesis payload | `mixed_methods_workbench` | W2 | planned | One payload preserves evidence anchors, scope, estimands, method outputs, caveats, and provenance. | fixture-backed JSON plus validation | A static integrated payload exists. |
 | W4 | Static review shell | `mixed_methods_workbench` | W3 | planned | Reviewer can trace question -> source scope -> evidence -> QC claim/pattern -> PT support -> caveat without reading raw engine JSON. | static HTML/Markdown review artifact | Review workflow exists over fixtures. |
 | MM1 | Mixed-methods synthesis quality gates | `mixed_methods_workbench` | W4 | exploratory | Human/agent review identifies failure modes and stable quality criteria from real fixture payloads. | adversarial review notes and concern dispositions | Limited synthesis-quality claims for evaluated cases only. |
@@ -189,6 +189,11 @@ contracts and `make check` validation. This upgrades W1 from markdown-only to a
 contract-stub state, but it does not satisfy QCX, PTX, or TFX. The fixtures are
 graded `C-synthetic-contract-only` and must be replaced by real engine-produced
 fixtures before Plan 001 can execute.
+
+`docs/coverage_report.md` is the current W2 baseline. It grades W1 and W2 as
+tested synthetic scaffolding, W3 as synthetic fixture-only, and QCX/PTX/TFX/W4
+/MM1 as still blocked by missing real evidence. Do not promote any D row into
+`make check` until its negative control exists.
 
 ### Dependency Subplan: QC Export Fixture
 
