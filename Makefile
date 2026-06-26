@@ -12,6 +12,13 @@ SHELL := /bin/bash
 status:  ## Show git status
 	@git status --short --branch
 
+.PHONY: validate-fixtures check
+
+validate-fixtures:  ## Validate synthetic fixture contract files
+	@python3 scripts/validate_fixtures.py
+
+check: validate-fixtures  ## Run all current repo checks
+
 # ─── Help ────────────────────────────────────────────────────────────────
 
 .PHONY: help

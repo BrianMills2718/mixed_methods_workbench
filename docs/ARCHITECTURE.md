@@ -452,6 +452,8 @@ formal adapter.
 - The plan distinguishes descriptive qualitative support, comparative
   process-tracing support, and population causal effects.
 - Open exploratory surfaces have readouts rather than invented thresholds.
+- Synthetic contract fixtures exist and validate with `make check`, while
+  remaining explicitly marked as non-evidence scaffolding.
 
 ## 9. Failure Table
 
@@ -462,3 +464,4 @@ formal adapter.
 | Dashboard-only shell | Review page cannot trace evidence to methods and caveats. | Rework mockup around research workflow path. |
 | Premature repo merge | Work starts by moving engine code. | Stop and require a slice plan proving the boundary. |
 | Fake quality threshold | Plan asserts PhD quality without a readout/validation path. | Move to concern register and define an exploratory instrument. |
+| Synthetic fixture mistaken for readiness evidence | Fixture has no explicit status, grade, or claim limits. | Fail validation unless `artifact_status` and `C-synthetic-contract-only` grade are present. |

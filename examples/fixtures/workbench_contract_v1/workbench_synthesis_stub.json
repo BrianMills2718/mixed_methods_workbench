@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "artifact_status": "synthetic_contract_fixture",
+  "id": "synthesis_synthetic_001",
+  "method_context": "mixed_methods_synthesis",
+  "research_question": {
+    "id": "rq_synthetic_001",
+    "text": "Why did the focal organization adopt the contested strategy?",
+    "outcome_or_phenomenon": "strategy adoption",
+    "scope_id": "scope_synthetic_001",
+    "estimand_kind": "not_applicable"
+  },
+  "source_scope": {
+    "id": "scope_synthetic_001",
+    "case_or_corpus_name": "synthetic contract corpus and case",
+    "population_or_case_universe": "none; synthetic fixture",
+    "source_selection_rule": "invented rows for contract validation only",
+    "known_gaps": [
+      "no real QC project state",
+      "no real PT source packet",
+      "no real Theory Forge artifact"
+    ],
+    "claim_limits": [
+      "synthetic fixture only",
+      "do not use as evidence"
+    ]
+  },
+  "source_anchors": [
+    {
+      "id": "anchor_qc_synth_001",
+      "source_engine": "qualitative_coding",
+      "source_artifact_path": "qc_handoff_stub.json",
+      "doc_id": "doc_qc_synth_001",
+      "start_char": 0,
+      "end_char": 64,
+      "quote_text": "Synthetic respondent describes defensive adaptation.",
+      "quote_hash": "pending-real-quote"
+    },
+    {
+      "id": "anchor_pt_synth_001",
+      "source_engine": "process_tracing",
+      "source_artifact_path": "pt_export_stub.json",
+      "doc_id": "doc_pt_synth_001",
+      "source_marker": "synthetic-source-marker"
+    }
+  ],
+  "evidence_records": [
+    {
+      "id": "ev_qc_synth_001",
+      "evidence_kind": "coded_passage",
+      "description": "Synthetic coded passage supporting a qualitative claim.",
+      "source_anchor_ids": [
+        "anchor_qc_synth_001"
+      ],
+      "limitations": [
+        "synthetic fixture only"
+      ]
+    },
+    {
+      "id": "ev_pt_synth_001",
+      "evidence_kind": "process_trace_evidence",
+      "description": "Synthetic process-tracing observation for contract shape only.",
+      "source_anchor_ids": [
+        "anchor_pt_synth_001"
+      ],
+      "hypothesis_ids": [
+        "h_synth_resource_pressure",
+        "h_synth_residual"
+      ],
+      "limitations": [
+        "synthetic comparative-support placeholder only"
+      ]
+    },
+    {
+      "id": "ev_theory_synth_001",
+      "evidence_kind": "theory_operationalization",
+      "description": "Synthetic theory operationalization context.",
+      "source_anchor_ids": [],
+      "limitations": [
+        "not empirical evidence"
+      ]
+    }
+  ],
+  "analytic_assertions": [
+    {
+      "id": "assert_qc_synth_001",
+      "assertion_kind": "qualitative_claim",
+      "text": "Participants frame the strategy as defensive adaptation.",
+      "estimand_kind": "interpretive_claim",
+      "scope_id": "scope_synthetic_001",
+      "supporting_evidence_ids": [
+        "ev_qc_synth_001"
+      ],
+      "contrary_evidence_ids": [],
+      "status": "needs_review"
+    },
+    {
+      "id": "assert_pt_h_synth_resource_pressure",
+      "assertion_kind": "causal_hypothesis",
+      "text": "Leadership adopted the strategy in response to resource pressure.",
+      "estimand_kind": "comparative_explanatory_support",
+      "scope_id": "scope_synthetic_001",
+      "supporting_evidence_ids": [
+        "ev_pt_synth_001"
+      ],
+      "contrary_evidence_ids": [],
+      "status": "needs_review"
+    },
+    {
+      "id": "assert_theory_synth_001",
+      "assertion_kind": "latent_construct",
+      "text": "Resource pressure is an operationalized construct for future review.",
+      "estimand_kind": "generative_theory_model",
+      "scope_id": "scope_synthetic_001",
+      "supporting_evidence_ids": [
+        "ev_theory_synth_001"
+      ],
+      "contrary_evidence_ids": [],
+      "status": "draft"
+    }
+  ],
+  "pattern_findings": [
+    {
+      "id": "pattern_qc_synth_001",
+      "pattern_kind": "co_occurrence",
+      "summary": "Synthetic pattern linking resource pressure language and adaptation framing.",
+      "source_evidence_ids": [
+        "ev_qc_synth_001"
+      ],
+      "causal_interpretation_status": "descriptive_only"
+    }
+  ],
+  "causal_hypothesis_sets": [
+    {
+      "id": "chs_synth_001",
+      "research_question_id": "rq_synthetic_001",
+      "hypotheses": [
+        {
+          "id": "h_synth_resource_pressure",
+          "label": "resource pressure explanation"
+        },
+        {
+          "id": "h_synth_residual",
+          "label": "residual explanation"
+        }
+      ],
+      "residual_hypothesis_id": "h_synth_residual",
+      "observable_predictions": [
+        "real fixture must replace this synthetic observable"
+      ],
+      "origin_pattern_ids": [
+        "pattern_qc_synth_001"
+      ],
+      "origin_claim_ids": [
+        "assert_qc_synth_001"
+      ]
+    }
+  ],
+  "theory_operationalizations": [
+    {
+      "id": "theory_op_synth_001",
+      "source_artifact_path": "theory_operationalization_stub.json",
+      "theory_id": "synthetic_resource_dependence_placeholder",
+      "limitations": [
+        "not empirical evidence"
+      ]
+    }
+  ],
+  "method_outputs": [
+    {
+      "engine": "qualitative_coding",
+      "artifact_path": "qc_handoff_stub.json",
+      "schema_version": 1,
+      "artifact_status": "synthetic_contract_fixture"
+    },
+    {
+      "engine": "process_tracing",
+      "artifact_path": "pt_export_stub.json",
+      "schema_version": 1,
+      "artifact_status": "synthetic_contract_fixture"
+    },
+    {
+      "engine": "theory-forge",
+      "artifact_path": "theory_operationalization_stub.json",
+      "schema_version": 1,
+      "artifact_status": "synthetic_contract_fixture"
+    }
+  ],
+  "claim_limits": [
+    "This is a synthetic contract fixture only.",
+    "Do not report population causal effects from this payload.",
+    "Do not treat qualitative claim support, process-tracing comparative support, or theory operationalization as one confidence metric."
+  ],
+  "caveats": [
+    "No live engine output is included.",
+    "Replace each input artifact with validated engine-produced fixtures before Plan 001 execution."
+  ]
+}

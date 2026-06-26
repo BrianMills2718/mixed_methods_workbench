@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "package_type": "process_tracing.pt_export",
+  "artifact_status": "synthetic_contract_fixture",
+  "producer": {
+    "repo": "process_tracing",
+    "commit": "pending-real-fixture",
+    "source_plan": "docs/plans/007_workbench_export_v1.md"
+  },
+  "source_scope": {
+    "id": "scope_synthetic_001",
+    "case_or_corpus_name": "synthetic process tracing case",
+    "source_selection_rule": "invented rows for contract validation only",
+    "known_gaps": [
+      "no real source packet"
+    ],
+    "claim_limits": [
+      "synthetic fixture only",
+      "not process-tracing evidence"
+    ]
+  },
+  "hypotheses": [
+    {
+      "id": "h_synth_resource_pressure",
+      "label": "resource pressure explanation",
+      "status": "candidate"
+    },
+    {
+      "id": "h_synth_residual",
+      "label": "residual explanation",
+      "status": "residual"
+    }
+  ],
+  "evidence_records": [
+    {
+      "id": "ev_pt_synth_001",
+      "description": "Synthetic observation that the contested strategy followed a budget shock.",
+      "source_marker": "synthetic-source-marker",
+      "hypothesis_ids": [
+        "h_synth_resource_pressure",
+        "h_synth_residual"
+      ],
+      "limitations": [
+        "synthetic comparative-support placeholder only"
+      ]
+    }
+  ],
+  "support_summary": {
+    "support_view": "ordinal_placeholder",
+    "supported_hypothesis_ids": [
+      "h_synth_resource_pressure"
+    ],
+    "caveats": [
+      "Do not interpret this synthetic support view as probability of truth."
+    ]
+  },
+  "caveats": [
+    "Synthetic contract fixture only.",
+    "Comparative support is method-specific and not a generic confidence score."
+  ]
+}

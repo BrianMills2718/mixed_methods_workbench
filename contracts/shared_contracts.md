@@ -4,6 +4,38 @@ This is a planning contract, not final implementation code. Producer models
 should eventually be Pydantic models with `extra="forbid"`; consumer models
 should tolerate compatible future extension with `extra="ignore"`.
 
+## Executable Synthetic Fixture Contract
+
+The first machine-readable contract target lives under
+`examples/fixtures/workbench_contract_v1/`.
+
+Files:
+
+- `qc_handoff_stub.json` - synthetic placeholder for the future QC fixture.
+- `pt_export_stub.json` - synthetic placeholder for the future PT export.
+- `theory_operationalization_stub.json` - synthetic placeholder for the future
+  Theory Forge artifact.
+- `workbench_synthesis_stub.json` - synthetic integrated payload that exercises
+  the shared contract shape.
+- `manifest.json` - file hashes, evidence grade, claim limits, and replacement
+  gates.
+
+Validation:
+
+```bash
+make validate-fixtures
+```
+
+The validator enforces structural traceability, artifact hashes, synthetic
+status, evidence grades, claim limits, and a shared forbidden-field list for
+method-boundary mistakes such as generic confidence, posterior probability of
+truth, likelihood vectors in the QC fixture, or unversioned support fields.
+
+Evidence grade: `C-synthetic-contract-only`. These fixtures license only the
+claim that the workbench has an executable target seam. They do not license any
+claim about real engine readiness, research quality, methodological validity, or
+mixed-methods synthesis quality.
+
 ## Core Types
 
 ### ResearchQuestion

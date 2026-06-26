@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "artifact_status": "synthetic_contract_fixture",
+  "created": "2026-06-26",
+  "purpose": "Executable contract target for future engine-produced mixed-methods workbench fixtures.",
+  "claim_limits": [
+    "Synthetic fixture only.",
+    "Not qualitative evidence.",
+    "Not process-tracing evidence.",
+    "Not Theory Forge validation evidence.",
+    "Not mixed-methods synthesis evidence."
+  ],
+  "files": [
+    {
+      "path": "qc_handoff_stub.json",
+      "sha256": "e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470",
+      "evidence_grade": "C-synthetic-contract-only"
+    },
+    {
+      "path": "pt_export_stub.json",
+      "sha256": "d0e4231295b0c649d8b092feea1f598183d544a7ff6ad8f4c12903082ce82bda",
+      "evidence_grade": "C-synthetic-contract-only"
+    },
+    {
+      "path": "theory_operationalization_stub.json",
+      "sha256": "e5aea43ccc837e2b1009177b62ac42f7aad773c47d303bcf425fe8df27b8020a",
+      "evidence_grade": "C-synthetic-contract-only"
+    },
+    {
+      "path": "workbench_synthesis_stub.json",
+      "sha256": "b655b3fa0f39fea0118b78d27a5a7d3160d019a7bf5cc8ba64f181ccb6464c29",
+      "evidence_grade": "C-synthetic-contract-only"
+    }
+  ],
+  "replacement_gates": [
+    "Each real engine fixture records producer repo, producer commit, source command, package hash, caveats, and validation result.",
+    "Real QC fixture validates as a strict QC handoff package and contains no process-tracing inference fields.",
+    "Real PT fixture validates as pt_export_v1 and does not require parsing internal result.json.",
+    "Real Theory Forge fixture validates as TheoryOperationalizationArtifact and does not require AC runtime."
+  ]
+}

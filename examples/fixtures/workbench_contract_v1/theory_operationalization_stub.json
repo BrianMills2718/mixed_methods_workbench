@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "package_type": "theory_forge.theory_operationalization",
+  "artifact_status": "synthetic_contract_fixture",
+  "producer": {
+    "repo": "theory-forge",
+    "commit": "pending-real-fixture",
+    "source_plan": "docs/plans/108_mixed_methods_operationalization_export.md"
+  },
+  "theory_id": "synthetic_resource_dependence_placeholder",
+  "source_schema_ref": "pending-real-theory-schema",
+  "compiled_manifest_ref": "pending-real-compiled-manifest",
+  "constructs": [
+    {
+      "id": "construct_resource_pressure",
+      "label": "resource pressure",
+      "definition": "Synthetic construct for contract validation only."
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "mechanism_defensive_adaptation",
+      "label": "defensive adaptation",
+      "summary": "Synthetic mechanism connecting pressure to strategy adoption."
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "theory_hypothesis_synth_001",
+      "text": "Organizations under resource pressure may adopt defensive strategies."
+    }
+  ],
+  "observables": [
+    {
+      "id": "observable_budget_shock_language",
+      "label": "budget shock language"
+    }
+  ],
+  "assumptions": [
+    "Synthetic placeholder only."
+  ],
+  "scope_conditions": [
+    "No real scope conditions validated."
+  ],
+  "uncertainties": [
+    "Real Theory Forge export shape is pending."
+  ],
+  "validation_obligations": [
+    "Replace with a known-green Theory Forge artifact before theory-enhanced workbench slices."
+  ],
+  "compiled_function_refs": [],
+  "limitations": [
+    "Theory operationalization is not empirical support."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "package_type": "qualitative_coding.process_tracing_handoff",
+  "artifact_status": "synthetic_contract_fixture",
+  "producer": {
+    "repo": "qualitative_coding",
+    "commit": "pending-real-fixture",
+    "source_plan": "docs/plans/MIXED_METHODS_WORKBENCH_EXPORT_FIXTURE.md"
+  },
+  "corpus_scope": {
+    "id": "scope_synthetic_001",
+    "case_or_corpus_name": "synthetic contract corpus",
+    "source_selection_rule": "invented rows for contract validation only",
+    "claim_limits": [
+      "synthetic fixture only",
+      "not empirical qualitative evidence"
+    ]
+  },
+  "documents": [
+    {
+      "doc_id": "doc_qc_synth_001",
+      "name": "synthetic interview excerpt",
+      "content_sha256": "pending-real-source",
+      "char_count": 128
+    }
+  ],
+  "anchors": [
+    {
+      "anchor_id": "anchor_qc_synth_001",
+      "source_object_type": "analytic_claim",
+      "source_object_id": "claim_qc_synth_001",
+      "doc_id": "doc_qc_synth_001",
+      "start_char": 0,
+      "end_char": 64,
+      "quote_text": "Synthetic respondent describes defensive adaptation.",
+      "quote_hash": "pending-real-quote"
+    }
+  ],
+  "observed_patterns": [
+    {
+      "id": "pattern_qc_synth_001",
+      "pattern_kind": "co_occurrence",
+      "summary": "Synthetic pattern linking resource pressure language and adaptation framing.",
+      "support_anchor_ids": [
+        "anchor_qc_synth_001"
+      ],
+      "causal_interpretation_status": "descriptive_only"
+    }
+  ],
+  "analytic_claims": [
+    {
+      "id": "claim_qc_synth_001",
+      "claim_kind": "qualitative_claim",
+      "claim_text": "Participants frame the strategy as defensive adaptation.",
+      "supporting_anchor_ids": [
+        "anchor_qc_synth_001"
+      ],
+      "contrary_anchor_ids": [],
+      "support_status": "needs_review"
+    }
+  ],
+  "caveats": [
+    "Synthetic contract fixture only.",
+    "No likelihood vectors, Bayesian updates, posteriors, or comparative support are included.",
+    "Qualitative claim support is not causal proof."
+  ]
+}

@@ -182,6 +182,14 @@ flowchart TD
 
 ## Dependency Subplans
 
+### Current Local Contract Stub
+
+`examples/fixtures/workbench_contract_v1/` now provides synthetic fixture
+contracts and `make check` validation. This upgrades W1 from markdown-only to a
+contract-stub state, but it does not satisfy QCX, PTX, or TFX. The fixtures are
+graded `C-synthetic-contract-only` and must be replaced by real engine-produced
+fixtures before Plan 001 can execute.
+
 ### Dependency Subplan: QC Export Fixture
 
 Blocks: `W1`, `W2`, and any QC side of Plan 001.
