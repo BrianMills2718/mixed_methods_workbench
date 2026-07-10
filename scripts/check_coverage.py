@@ -7,7 +7,7 @@ import argparse
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -41,12 +41,15 @@ REQUIREMENTS: list[Requirement] = [
             "manifest records hashes and evidence grades",
             "make check validates the fixtures",
         ],
-        evidence_class="test",
-        evidence_grade="A",
-        evidence_notes="`make check` validates fixture structure and runs negative controls.",
-        required_class_for_closure="test",
+        evidence_class="fixture",
+        evidence_grade="C",
+        evidence_notes=(
+            "Synthetic JSON fixtures and targeted validator checks demonstrate a candidate seam; "
+            "they are not schema-validated producer contracts."
+        ),
+        required_class_for_closure="test + real producer fixtures",
         negative_control="scripts/check_fixture_negative_controls.py",
-        next_step="Keep in check; replace synthetic rows only after engine-produced fixtures exist.",
+        next_step="Replace ad hoc validation with typed producer/consumer schemas and real engine fixtures.",
     ),
     Requirement(
         id="QCX-real-fixture",
@@ -100,12 +103,15 @@ REQUIREMENTS: list[Requirement] = [
             "every current fixture has source command, hash, engine commit, caveats, and evidence grade",
             "coverage report names weak rows and closure path",
         ],
-        evidence_class="test",
-        evidence_grade="A",
-        evidence_notes="Synthetic fixtures have hashes and grades; this report names missing real-engine evidence.",
+        evidence_class="missing",
+        evidence_grade="F",
+        evidence_notes=(
+            "The manifest hashes files but does not record per-fixture source commands, real producer "
+            "commits, validation results, or complete caveats; pending placeholders are not evidence."
+        ),
         required_class_for_closure="test",
-        negative_control="scripts/check_fixture_negative_controls.py",
-        next_step="Regenerate report after each real fixture replacement.",
+        negative_control=None,
+        next_step="Define and validate a provenance-complete manifest, then populate it from real exports.",
     ),
     Requirement(
         id="W3-real-synthesis-payload",
@@ -168,7 +174,7 @@ def main() -> None:
         print(REPORT_MD.read_text(encoding="utf-8"))
 
 
-def _build_report() -> dict:
+def _build_report() -> dict[str, Any]:
     rows = [asdict(requirement) for requirement in REQUIREMENTS]
     counts = {grade: 0 for grade in ["A", "B", "C", "D", "F"]}
     for requirement in REQUIREMENTS:
@@ -196,7 +202,7 @@ def _overall_grade(counts: dict[str, int]) -> str:
     return "A"
 
 
-def _render_markdown(report: dict) -> str:
+def _render_markdown(report: dict[str, Any]) -> str:
     summary = report["summary"]
     rows = report["requirements"]
     total = summary["total"]

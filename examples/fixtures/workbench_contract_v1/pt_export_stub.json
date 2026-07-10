@@ -47,6 +47,13 @@
   ],
   "support_summary": {
     "support_view": "ordinal_placeholder",
+    "comparative_support": {
+      "kind": "ordinal_placeholder",
+      "ranked_hypothesis_ids": [
+        "h_synth_resource_pressure",
+        "h_synth_residual"
+      ]
+    },
     "supported_hypothesis_ids": [
       "h_synth_resource_pressure"
     ],

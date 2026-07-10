@@ -18,7 +18,7 @@
     },
     {
       "path": "pt_export_stub.json",
-      "sha256": "d0e4231295b0c649d8b092feea1f598183d544a7ff6ad8f4c12903082ce82bda",
+      "sha256": "7b4b32cabf4066ba22aaec87342681cf242745abb5eddacff85c01958a36cebd",
       "evidence_grade": "C-synthetic-contract-only"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "path": "workbench_synthesis_stub.json",
-      "sha256": "b655b3fa0f39fea0118b78d27a5a7d3160d019a7bf5cc8ba64f181ccb6464c29",
+      "sha256": "729d77a5d42102f5299221ab059e52e2fab26b4ea37c658ab1ad0eefcdcea9a2",
       "evidence_grade": "C-synthetic-contract-only"
     }
   ],

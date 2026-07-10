@@ -2,7 +2,7 @@
   "schema_version": 1,
   "artifact_status": "synthetic_contract_fixture",
   "id": "synthesis_synthetic_001",
-  "method_context": "mixed_methods_synthesis",
+  "method_context": "multi_method_qualitative_review",
   "research_question": {
     "id": "rq_synthetic_001",
     "text": "Why did the focal organization adopt the contested strategy?",
@@ -70,15 +70,6 @@
       "limitations": [
         "synthetic comparative-support placeholder only"
       ]
-    },
-    {
-      "id": "ev_theory_synth_001",
-      "evidence_kind": "theory_operationalization",
-      "description": "Synthetic theory operationalization context.",
-      "source_anchor_ids": [],
-      "limitations": [
-        "not empirical evidence"
-      ]
     }
   ],
   "analytic_assertions": [
@@ -105,18 +96,6 @@
       ],
       "contrary_evidence_ids": [],
       "status": "needs_review"
-    },
-    {
-      "id": "assert_theory_synth_001",
-      "assertion_kind": "latent_construct",
-      "text": "Resource pressure is an operationalized construct for future review.",
-      "estimand_kind": "generative_theory_model",
-      "scope_id": "scope_synthetic_001",
-      "supporting_evidence_ids": [
-        "ev_theory_synth_001"
-      ],
-      "contrary_evidence_ids": [],
-      "status": "draft"
     }
   ],
   "pattern_findings": [

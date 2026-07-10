@@ -1,12 +1,12 @@
 {
   "summary": {
     "total": 8,
-    "grade_a": 2,
+    "grade_a": 0,
     "grade_b": 0,
-    "grade_c": 1,
+    "grade_c": 2,
     "grade_d": 5,
-    "grade_f": 0,
-    "overall_grade": "D",
+    "grade_f": 1,
+    "overall_grade": "F",
     "notes": "Current coverage proves a synthetic contract seam, not real engine readiness."
   },
   "requirements": [
@@ -18,12 +18,12 @@
         "manifest records hashes and evidence grades",
         "make check validates the fixtures"
       ],
-      "evidence_class": "test",
-      "evidence_grade": "A",
-      "evidence_notes": "`make check` validates fixture structure and runs negative controls.",
-      "required_class_for_closure": "test",
+      "evidence_class": "fixture",
+      "evidence_grade": "C",
+      "evidence_notes": "Synthetic JSON fixtures and targeted validator checks demonstrate a candidate seam; they are not schema-validated producer contracts.",
+      "required_class_for_closure": "test + real producer fixtures",
       "negative_control": "scripts/check_fixture_negative_controls.py",
-      "next_step": "Keep in check; replace synthetic rows only after engine-produced fixtures exist."
+      "next_step": "Replace ad hoc validation with typed producer/consumer schemas and real engine fixtures."
     },
     {
       "id": "QCX-real-fixture",
@@ -77,12 +77,12 @@
         "every current fixture has source command, hash, engine commit, caveats, and evidence grade",
         "coverage report names weak rows and closure path"
       ],
-      "evidence_class": "test",
-      "evidence_grade": "A",
-      "evidence_notes": "Synthetic fixtures have hashes and grades; this report names missing real-engine evidence.",
+      "evidence_class": "missing",
+      "evidence_grade": "F",
+      "evidence_notes": "The manifest hashes files but does not record per-fixture source commands, real producer commits, validation results, or complete caveats; pending placeholders are not evidence.",
       "required_class_for_closure": "test",
-      "negative_control": "scripts/check_fixture_negative_controls.py",
-      "next_step": "Regenerate report after each real fixture replacement."
+      "negative_control": null,
+      "next_step": "Define and validate a provenance-complete manifest, then populate it from real exports."
     },
     {
       "id": "W3-real-synthesis-payload",

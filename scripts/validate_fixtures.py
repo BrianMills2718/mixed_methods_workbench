@@ -8,19 +8,24 @@ future engine-produced fixtures must replace.
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
-from typing import Any
-import argparse
+from typing import Any, cast
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FIXTURE_DIR = REPO_ROOT / "examples" / "fixtures" / "workbench_contract_v1"
 
-FORBIDDEN_INFERENCE_FIELDS = {
+FORBIDDEN_GENERIC_FIELDS = {
     "probability_of_truth",
     "truth_probability",
+    "confidence_score",
+    "generic_confidence",
+}
+
+QC_FORBIDDEN_INFERENCE_FIELDS = FORBIDDEN_GENERIC_FIELDS | {
     "posterior",
     "final_posterior",
     "hypothesis_posterior",
@@ -31,8 +36,6 @@ FORBIDDEN_INFERENCE_FIELDS = {
     "likelihood_vectors",
     "evidence_likelihoods",
     "comparative_support",
-    "confidence_score",
-    "generic_confidence",
 }
 
 REQUIRED_FILES = {
@@ -67,7 +70,8 @@ def validate_fixture_dir(fixture_dir: Path) -> None:
     )
 
     files = manifest.get("files")
-    _require(isinstance(files, list), "manifest files must be a list")
+    if not isinstance(files, list):
+        raise SystemExit("ERROR: manifest files must be a list")
     seen = {entry.get("path") for entry in files if isinstance(entry, dict)}
     missing = sorted(REQUIRED_FILES - seen)
     _require(not missing, f"manifest missing required fixture files: {missing}")
@@ -80,13 +84,24 @@ def validate_fixture_dir(fixture_dir: Path) -> None:
 
     for path in REQUIRED_FILES:
         payload = _read_json(fixture_dir / path)
-        _assert_no_forbidden_fields(payload, path)
+        forbidden_fields = (
+            QC_FORBIDDEN_INFERENCE_FIELDS
+            if path == "qc_handoff_stub.json"
+            else FORBIDDEN_GENERIC_FIELDS
+        )
+        _assert_no_forbidden_fields(payload, path, forbidden_fields)
 
 
-def _validate_manifest_entry(fixture_dir: Path, entry: Any) -> None:
-    _require(isinstance(entry, dict), "manifest file entries must be objects")
+def _validate_manifest_entry(fixture_dir: Path, entry: object) -> None:
+    if not isinstance(entry, dict):
+        raise SystemExit("ERROR: manifest file entries must be objects")
     relative_path = entry.get("path")
-    _require(isinstance(relative_path, str) and relative_path, "file entry path is required")
+    _require(
+        isinstance(relative_path, str) and bool(relative_path),
+        "file entry path is required",
+    )
+    if not isinstance(relative_path, str):
+        raise AssertionError("relative_path was narrowed above")
     path = fixture_dir / relative_path
     _require(path.is_file(), f"fixture file does not exist: {relative_path}")
     expected_hash = entry.get("sha256")
@@ -103,7 +118,10 @@ def _validate_manifest_entry(fixture_dir: Path, entry: Any) -> None:
 def _validate_synthesis(payload: dict[str, Any]) -> None:
     _require(payload.get("schema_version") == 1, "synthesis schema_version must be 1")
     _require(payload.get("artifact_status") == "synthetic_contract_fixture", "synthesis must be synthetic")
-    _require(payload.get("method_context") == "mixed_methods_synthesis", "method_context mismatch")
+    _require(
+        payload.get("method_context") == "multi_method_qualitative_review",
+        "method_context mismatch",
+    )
 
     anchors = _index(payload, "source_anchors")
     evidence = _index(payload, "evidence_records")
@@ -111,21 +129,39 @@ def _validate_synthesis(payload: dict[str, Any]) -> None:
     patterns = _index(payload, "pattern_findings")
     hypothesis_sets = _index(payload, "causal_hypothesis_sets")
 
-    _require(anchors, "synthesis must contain source anchors")
-    _require(evidence, "synthesis must contain evidence records")
-    _require(assertions, "synthesis must contain analytic assertions")
-    _require(patterns, "synthesis must contain pattern findings")
-    _require(hypothesis_sets, "synthesis must contain causal hypothesis sets")
+    _require(bool(anchors), "synthesis must contain source anchors")
+    _require(bool(evidence), "synthesis must contain evidence records")
+    _require(bool(assertions), "synthesis must contain analytic assertions")
+    _require(bool(patterns), "synthesis must contain pattern findings")
+    _require(bool(hypothesis_sets), "synthesis must contain causal hypothesis sets")
 
     for record in evidence.values():
-        for anchor_id in record.get("source_anchor_ids", []):
+        _require(
+            record.get("evidence_kind") != "theory_operationalization",
+            "theory operationalization cannot be empirical evidence",
+        )
+        anchor_ids = record.get("source_anchor_ids", [])
+        _require(isinstance(anchor_ids, list), "source_anchor_ids must be a list")
+        if not isinstance(anchor_ids, list):
+            raise AssertionError("anchor_ids was narrowed above")
+        for anchor_id in anchor_ids:
             _require(anchor_id in anchors, f"evidence references missing anchor: {anchor_id}")
 
     for assertion in assertions.values():
+        _require(
+            assertion.get("assertion_kind") not in {"latent_construct", "causal_edge"},
+            "theory object cannot be an analytic assertion",
+        )
         _require("estimand_kind" in assertion, f"assertion lacks estimand_kind: {assertion.get('id')}")
-        for evidence_id in assertion.get("supporting_evidence_ids", []):
+        supporting_ids = assertion.get("supporting_evidence_ids", [])
+        contrary_ids = assertion.get("contrary_evidence_ids", [])
+        _require(isinstance(supporting_ids, list), "supporting_evidence_ids must be a list")
+        _require(isinstance(contrary_ids, list), "contrary_evidence_ids must be a list")
+        if not isinstance(supporting_ids, list) or not isinstance(contrary_ids, list):
+            raise AssertionError("evidence id lists were narrowed above")
+        for evidence_id in supporting_ids:
             _require(evidence_id in evidence, f"assertion references missing evidence: {evidence_id}")
-        for evidence_id in assertion.get("contrary_evidence_ids", []):
+        for evidence_id in contrary_ids:
             _require(evidence_id in evidence, f"assertion references missing contrary evidence: {evidence_id}")
 
     for pattern in patterns.values():
@@ -140,7 +176,12 @@ def _validate_synthesis(payload: dict[str, Any]) -> None:
         )
 
     claim_limits = payload.get("claim_limits")
-    _require(isinstance(claim_limits, list) and claim_limits, "claim_limits are required")
+    _require(
+        isinstance(claim_limits, list) and bool(claim_limits),
+        "claim_limits are required",
+    )
+    if not isinstance(claim_limits, list):
+        raise AssertionError("claim_limits was narrowed above")
     _require(
         any("synthetic" in str(limit).lower() for limit in claim_limits),
         "claim_limits must say the fixture is synthetic",
@@ -149,33 +190,39 @@ def _validate_synthesis(payload: dict[str, Any]) -> None:
 
 def _index(payload: dict[str, Any], key: str) -> dict[str, dict[str, Any]]:
     rows = payload.get(key)
-    _require(isinstance(rows, list), f"{key} must be a list")
+    if not isinstance(rows, list):
+        raise SystemExit(f"ERROR: {key} must be a list")
     indexed: dict[str, dict[str, Any]] = {}
     for row in rows:
-        _require(isinstance(row, dict), f"{key} rows must be objects")
+        if not isinstance(row, dict):
+            raise SystemExit(f"ERROR: {key} rows must be objects")
         row_id = row.get("id")
-        _require(isinstance(row_id, str) and row_id, f"{key} row missing id")
+        _require(isinstance(row_id, str) and bool(row_id), f"{key} row missing id")
+        if not isinstance(row_id, str):
+            raise AssertionError("row_id was narrowed above")
         _require(row_id not in indexed, f"duplicate id in {key}: {row_id}")
         indexed[row_id] = row
     return indexed
 
 
-def _assert_no_forbidden_fields(value: Any, path: str) -> None:
+def _assert_no_forbidden_fields(value: Any, path: str, forbidden_fields: set[str]) -> None:
+    """Reject boundary-specific category errors without banning valid PT output."""
     if isinstance(value, dict):
         for key, child in value.items():
-            _require(key not in FORBIDDEN_INFERENCE_FIELDS, f"{path} contains forbidden field: {key}")
-            _assert_no_forbidden_fields(child, path)
+            _require(key not in forbidden_fields, f"{path} contains forbidden field: {key}")
+            _assert_no_forbidden_fields(child, path, forbidden_fields)
     elif isinstance(value, list):
         for child in value:
-            _assert_no_forbidden_fields(child, path)
+            _assert_no_forbidden_fields(child, path, forbidden_fields)
 
 
 def _read_json(path: Path) -> dict[str, Any]:
     _require(path.is_file(), f"missing JSON file: {path}")
     with path.open("r", encoding="utf-8") as handle:
-        payload = json.load(handle)
-    _require(isinstance(payload, dict), f"JSON root must be an object: {path}")
-    return payload
+        payload: object = json.load(handle)
+    if not isinstance(payload, dict):
+        raise SystemExit(f"ERROR: JSON root must be an object: {path}")
+    return cast(dict[str, Any], payload)
 
 
 def _require(condition: bool, message: str) -> None:
