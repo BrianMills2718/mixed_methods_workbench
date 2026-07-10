@@ -1,17 +1,31 @@
-# Plan 003: Integration, Versioning, and Clean-State Recovery
+# Detailed Future Integration and Versioning Blueprint (Planning File 003)
 
-Status: active — canonical execution authority for versions 0.0 and 0.1
+Status: documentation only — future proposal, not authorized for execution
 Created: 2026-07-09
-Supersedes for sequencing: `docs/plans/002_engine_stability_and_integration_readiness.md`
-Unblocks and reframes: `docs/plans/001_walking_skeleton.md`
+Supersedes for future-sequence planning:
+`docs/plans/002_engine_stability_and_integration_readiness.md`
+Would reframe `docs/plans/001_walking_skeleton.md` if implementation is later
+authorized.
 
-## Mission
+## How to Read This File
+
+“003” only means this was the third planning file created in the repository. It
+is not product version 0.3 and it does not mean “do this next.” This document
+records a detailed possible implementation sequence so future work does not
+begin from ambiguity.
+
+The currently authorized scope is documentation clarification only. None of the
+work items, slices, acceptance criteria, upstream tasks, case choices, or
+version gates below may be executed without a separate instruction from Brian
+to begin a named implementation slice. See `docs/PLANNING_STATUS.md`.
+
+## Future Implementation Mission
 
 Preserve the complete text-centered mixed-methods north star while moving the
 ecosystem into a trustworthy clean state and delivering the first thin, real,
 methodologically honest integration slice.
 
-The plan succeeds when:
+Future implementation would succeed when:
 
 1. evidence grades and repository checks tell the truth;
 2. engine boundaries and artifact versions are explicit;
@@ -21,20 +35,22 @@ The plan succeeds when:
    qualitative-quantitative mixed methods; and
 5. the next versions have dependency skeletons without speculative schemas.
 
-## Modality
+## Future Modality
 
-This work is hybrid.
+The eventual implementation would be hybrid.
 
 | Surface | Mode | Treatment |
 |---|---|---|
-| Evidence grades, hashes, schema versions, repo hygiene | Deductive | Specify and test now. |
-| Method boundaries and category distinctions | Deductive | Encode in contracts and negative controls. |
+| Evidence grades, hashes, schema versions, repo hygiene | Deductive | Specify and test before relying on them. |
+| Method boundaries and category distinctions | Deductive | Encode during an authorized implementation slice. |
 | QC/PT real artifact mappings | Hybrid | Specify required semantics; learn field mappings from real fixtures. |
 | Reviewer usability and synthesis quality | Exploratory | Build a static readout, observe failures, then promote stable gates. |
 | Full method portfolio | Dependency skeleton | Preserve scope and ownership; do not implement generic abstractions. |
 | Quantitative-text engine | Exploratory dependency decision | Select the first design and established tools before extracting an engine. |
 
-## Decisions Already Made
+## Confirmed Direction and Provisional Choices
+
+Confirmed direction:
 
 - The project remains broad; releases remain thin.
 - Product versions, producer-schema versions, and method-profile versions are
@@ -44,16 +60,22 @@ This work is hybrid.
   reporting, and the compatibility manifest.
 - Theory operationalizations are context/design objects, never
   `EmpiricalEvidence`.
-- The first real case is a public 18 Brumaire corpus/source packet unless a
-  documented licensing or source-recovery failure blocks it.
 - Version 0.1 integrates QC and PT and is labeled multi-method qualitative.
-- Version 0.4 is the first release allowed to claim mixed methods; it begins with
-  an exploratory-sequential qual-to-quant design.
-- Grounded Research and Theory Forge integrate after 0.1 and can proceed in
-  parallel.
+- Version 0.4 is the first release allowed to claim mixed methods.
 - `research_v3` is not on the critical path until its active-versus-archived
   ownership conflict is resolved by ADR.
 - AC-family compile agents are not workbench runtime dependencies.
+
+Provisional recommendations to confirm before implementation:
+
+- Use a public 18 Brumaire corpus/source packet as the first real case because
+  it can reuse the strongest current PT case without sensitive interview data.
+- Integrate Grounded Research and Theory Forge after the first QC/PT slice and
+  allow their work to proceed in parallel.
+- Start genuine mixed-methods integration with an exploratory-sequential
+  qualitative-to-quantitative design.
+- Use established quantitative-text libraries behind one narrow adapter before
+  deciding whether a shared quantitative-text engine is warranted.
 
 ## Requirements → Boundaries → Domain → Contracts → Schema
 
@@ -227,12 +249,12 @@ Work:
   PT can export method-specific comparative support;
 - add controls for missing source identity, empty/malformed claim limits,
   generic confidence, unsupported schema major, and theory-as-evidence;
-- replace ad hoc recursive checks with typed schema validation in the next
-  implementation increment.
+- replace ad hoc recursive checks with typed schema validation in a future
+  authorized implementation increment.
 
-Current first repair: the hash-neutral, expected-diagnostic controls and
-producer-scoped inference rule are implemented in this plan's opening change.
-The additional schema controls remain the next 0.0 implementation increment.
+Existing scaffold state: hash-neutral, expected-diagnostic controls and the
+producer-scoped inference rule already exist. The additional schema controls
+remain future requirements; this planning pass does not authorize them.
 
 ### Slice 0B — Make Coverage Honest
 
@@ -254,7 +276,7 @@ Work:
   separate theory/context collection;
 - add the artifact version envelope and compatibility policy;
 - update architecture diagrams and the synthetic fixtures;
-- mark Plan 002 historical and Plan 003 canonical;
+- mark Plan 002 historical and this blueprint canonical for future sequencing;
 - label Plan 001/version 0.1 as multi-method qualitative;
 - remove stale engine-readiness claims and record current upstream plan IDs.
 

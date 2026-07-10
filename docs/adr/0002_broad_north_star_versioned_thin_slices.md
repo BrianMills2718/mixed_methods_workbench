@@ -3,6 +3,10 @@
 Status: accepted
 Date: 2026-07-09
 
+Current-phase note: this ADR governs how future implementation should be
+structured. It does not activate a release or authorize implementation; see
+`docs/PLANNING_STATUS.md`.
+
 ## Context
 
 The intended product is deliberately broader than a qualitative-coding tool, a

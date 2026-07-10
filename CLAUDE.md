@@ -3,9 +3,10 @@
 This is the integration authority for a broad text-centered mixed-methods
 workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/plans/003_integration_versioning_and_clean_state.md` before planning or
-implementation. Do not move code from an engine into this repo unless an ADR and
-slice plan explicitly require it.
+`docs/PLANNING_STATUS.md` before planning. The default current mode is
+documentation-only. Do not begin implementation merely because a roadmap or
+future slice exists, and do not move code from an engine into this repo unless
+Brian explicitly authorizes a named implementation slice.
 
 ## Operating Rules
 
@@ -16,6 +17,8 @@ slice plan explicitly require it.
   `theory-forge`, and a future quantitative-text adapter as producers with their
   own invariants and claim discipline.
 - Do not claim this workbench is implemented until a vertical slice exists.
+- No implementation version is currently active. Plans 001 and 003 describe
+  future work and do not authorize it.
 - Every cross-repo seam must use Pydantic-style typed contracts; no raw `dict`
   or ad hoc JSON at durable boundaries.
 - Preserve method distinctions:
@@ -56,5 +59,6 @@ make coverage
 - `~/projects/theory-forge/CLAUDE.md`
 - `~/projects/theory-forge/docs/adr/0003-ac14-integration-deferred.md`
 - `docs/ROADMAP.md`
+- `docs/PLANNING_STATUS.md`
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md`
 - `docs/plans/003_integration_versioning_and_clean_state.md`

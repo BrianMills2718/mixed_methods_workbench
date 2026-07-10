@@ -1,6 +1,6 @@
-# Implementing Agent Notes
+# Future Implementing Agent Notes
 
-Status: historical implementation note; Plan 003 is canonical
+Status: future reference only — no implementation is currently authorized
 
 This file captures high-confidence work and larger repo-local notes from the
 2026-06-26 worktree review. It is intentionally conservative: the workbench is
@@ -8,18 +8,17 @@ not ready for adapters, UI, or live engine orchestration.
 
 ## High-Confidence Work Now
 
-These are safe because they reduce ambiguity without coupling repos:
+For the current documentation-only phase:
 
-- Keep `docs/plans/001_walking_skeleton.md` blocked until Plan 003 version 0.0
-  and upstream export gates pass.
-- Use `docs/plans/003_integration_versioning_and_clean_state.md` as the
-  sequencing authority. Plan 002 is historical.
+- Keep `docs/plans/001_walking_skeleton.md` marked as a future proposal.
+- Use `docs/PLANNING_STATUS.md` for the current authorization boundary and the
+  detailed blueprint only for future sequencing. Plan 002 is historical.
 - Keep `docs/CONCERNS.md` current when new engine-readiness facts appear.
 - Preserve `examples/integration_payload_mockup.md` as invented example data
   until real fixture exports exist.
 - Do not import engine internals into this repo.
 - Do not build a workbench UI or adapters until QC and PT exports are versioned
-  and fixture-backed.
+  and fixture-backed **and** Brian has explicitly authorized implementation.
 
 ## Repo-Local Notes For Later Implementing Agents
 

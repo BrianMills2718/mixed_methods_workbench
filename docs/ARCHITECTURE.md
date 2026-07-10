@@ -1,6 +1,6 @@
 # Mixed Methods Workbench Architecture
 
-Status: initial version 0.1 architecture; subordinate to the canonical roadmap
+Status: preliminary future architecture; documentation only
 Updated: 2026-07-09
 
 > Sequencing and full-scope authority now live in `docs/ROADMAP.md`,
@@ -8,7 +8,8 @@ Updated: 2026-07-09
 > `docs/plans/003_integration_versioning_and_clean_state.md`. This document
 > retains the narrower QC/PT walking-skeleton architecture. Its QC/PT result is
 > multi-method qualitative research, not yet qualitative-quantitative mixed
-> methods.
+> methods. It is not authorization to implement the design; current scope is in
+> `docs/PLANNING_STATUS.md`.
 
 This document applies the design-plan protocol to a future
 `mixed_methods_workbench` that composes `qualitative_coding` and
@@ -83,8 +84,9 @@ Failure means:
 
 ### Clean Docs Note
 
-The roadmap and Plan 003 are the current sequencing authority. Existing engine
-repos remain authoritative for their own local behavior and claim discipline.
+The roadmap and detailed blueprint describe future sequencing. The planning
+status document defines current authorized work. Existing engine repos remain
+authoritative for their own local behavior and claim discipline.
 
 ## 1. Modality Split
 

@@ -6,20 +6,22 @@ mixed-methods research workbench delivered through versioned thin slices.
 Start here:
 
 1. `PROJECT.md`
-2. `docs/ROADMAP.md`
-3. `docs/MIXED_METHODS_CAPABILITY_MAP.md`
-4. `docs/plans/003_integration_versioning_and_clean_state.md`
-5. `docs/ARCHITECTURE.md`
-6. `contracts/shared_contracts.md`
-7. `docs/coverage_report.md`
-8. `docs/CONCERNS.md`
+2. `docs/PLANNING_STATUS.md`
+3. `docs/ROADMAP.md`
+4. `docs/MIXED_METHODS_CAPABILITY_MAP.md`
+5. `docs/plans/003_integration_versioning_and_clean_state.md`
+6. `docs/ARCHITECTURE.md`
+7. `contracts/shared_contracts.md`
+8. `docs/coverage_report.md`
+9. `docs/CONCERNS.md`
 
-This is not yet a live workbench. Version 0.0 is truth and clean-state recovery;
-version 0.1 is the first real QC/PT review slice. That slice is deliberately
-labeled multi-method qualitative research. The first genuine
-qualitative-quantitative mixed-methods release is planned for version 0.4.
+The current phase is documentation and planning only. No implementation version
+is active or authorized. The roadmap describes a possible future sequence:
+version 0.0 would establish a trustworthy engineering baseline, version 0.1
+would be the first real QC/PT review slice, and version 0.4 would be the first
+genuine qualitative-quantitative mixed-methods release.
 
-Current executable check:
+Current scaffold documentation/fixture check:
 
 ```bash
 make check

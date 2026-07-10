@@ -27,15 +27,16 @@
 > `theory-forge`, `ac14`, `ac15`, `qualitative_coding`, `process_tracing`, and
 > `investigations`.
 >
-> Status: superseded for sequencing by Plan 003; retained as historical evidence
+> Status: historical evidence; not a current work queue
 
 Created: 2026-06-26
 
 Blocks: `docs/plans/001_walking_skeleton.md`
 
-> Current engine state, version order, clean-state definition, and release gates
-> live in `docs/plans/003_integration_versioning_and_clean_state.md`. Do not use
-> this June assessment as current worktree evidence.
+> The future sequence and clean-state proposal live in
+> `docs/plans/003_integration_versioning_and_clean_state.md`. Neither document
+> authorizes implementation. Do not use this June assessment as current
+> worktree evidence.
 
 ## Outcome
 

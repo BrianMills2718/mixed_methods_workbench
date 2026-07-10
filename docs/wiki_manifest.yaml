@@ -13,14 +13,18 @@ publish:
     type: Roadmap
     title: Mixed Methods Workbench Roadmap
     tags: [portfolio, mixed_methods_workbench, strategy, integration]
+  - path: docs/PLANNING_STATUS.md
+    type: ProjectOverview
+    title: Current Planning Status
+    tags: [portfolio, mixed_methods_workbench, planning, current]
   - path: docs/MIXED_METHODS_CAPABILITY_MAP.md
     type: ProjectOverview
     title: Mixed Methods Capability Map
     tags: [portfolio, mixed_methods_workbench, methodology, capabilities]
   - path: docs/plans/003_integration_versioning_and_clean_state.md
     type: Plan
-    title: Integration Versioning And Clean State
-    tags: [portfolio, mixed_methods_workbench, integration, active]
+    title: Detailed Future Integration And Versioning Blueprint
+    tags: [portfolio, mixed_methods_workbench, integration, future]
   - path: docs/plans/002_engine_stability_and_integration_readiness.md
     type: Plan
     title: Engine Stability And Integration Readiness

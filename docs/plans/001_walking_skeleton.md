@@ -1,19 +1,22 @@
 # Plan 001: Version 0.1 Fixture-Backed Multi-Method Qualitative Skeleton
 
-Status: blocked by version 0.0 and real engine exports
+Status: future proposal — not authorized for execution
 Created: 2026-06-25
-Blocked By: `docs/plans/003_integration_versioning_and_clean_state.md`
+Future prerequisites: documentation approval, a fresh state review, explicit
+implementation authorization, and the gates described in the detailed future
+integration blueprint.
 
-Do not execute this walking skeleton until the version 0.0 gates in Plan 003 pass
-for the engines included in the slice. The minimum gate for the original QC/PT
-scope is a canonical QC export fixture and a versioned PT export fixture. Theory
-Forge is not required for the original QC/PT walking skeleton unless the slice is
-explicitly expanded into a theory-enhanced workbench payload.
+Do not execute this walking skeleton merely because it exists. If Brian later
+authorizes this slice, first revalidate the repository and engine state and then
+apply the future gates in
+`docs/plans/003_integration_versioning_and_clean_state.md`. The minimum proposed
+gate for the original QC/PT scope is a canonical QC export fixture and a
+versioned PT export fixture.
 
 This slice is multi-method qualitative research. It must not be described as a
 true mixed-methods release because it does not yet integrate a quantitative
-strand. Plan 003 selects a public 18 Brumaire case and records the upstream
-execution order.
+strand. The detailed future blueprint recommends, but does not commit the
+project to, a public 18 Brumaire case.
 
 ## Outcome
 

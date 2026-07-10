@@ -1,9 +1,11 @@
 # Shared Contract Sketch
 
-This is a planning contract, not final implementation code. The canonical
-domain and versioning decisions are in Plan 003. Producer models
-should eventually be Pydantic models with `extra="forbid"`; consumer models
-should tolerate compatible future extension with `extra="ignore"`.
+This is a planning sketch, not a production contract or implementation task.
+The proposed domain and versioning decisions are in the detailed future
+integration blueprint. Producer models should eventually be Pydantic models
+with `extra="forbid"`; consumer models should tolerate compatible future
+extension with `extra="ignore"`. `docs/PLANNING_STATUS.md` explicitly blocks
+implementation until Brian authorizes a named slice.
 
 ## Executable Synthetic Fixture Contract
 

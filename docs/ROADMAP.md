@@ -1,7 +1,14 @@
 # Mixed Methods Workbench Roadmap
 
-Status: canonical strategy and sequencing authority
+Status: canonical future strategy; documentation only, no release is active
 Updated: 2026-07-09
+
+## Current Phase
+
+The project is currently clarifying plans and documentation. This roadmap is a
+proposed future release sequence, not an active schedule or authorization to
+implement any version. `docs/PLANNING_STATUS.md` is authoritative about what
+work is allowed now.
 
 ## North Star
 
@@ -83,10 +90,12 @@ It does not have live engine integration.
 Purpose: prove that the workbench can integrate real qualitative coding and
 process tracing without flattening their methods.
 
-Canonical case: a public, conflict-rich 18 Brumaire source packet, selected to
-reuse the strongest process-tracing case while avoiding sensitive interview
-data. If source licensing or anchor recovery fails the gate, the plan must name
-a replacement public case rather than silently switching to synthetic data.
+Proposed first case: a public, conflict-rich 18 Brumaire source packet. This is
+a planning recommendation because it could reuse the strongest process-tracing
+case while avoiding sensitive interview data; it must be confirmed during a
+fresh pre-implementation review. If source licensing or anchor recovery fails,
+the future implementation plan must name a replacement public case rather than
+silently switching to synthetic data.
 
 Thin slice:
 
@@ -153,7 +162,7 @@ compiled.
 Purpose: cross the methodological boundary from multiple qualitative methods to
 intentional qualitative-quantitative integration.
 
-Pre-made design choice: begin with an **exploratory sequential** design. Use
+Recommended first design: begin with an **exploratory sequential** design. Use
 qualitative categories and anchored examples to define a quantitative coding or
 measurement instrument; apply and validate it on a held-out text set; merge the
 results in a joint display; and write bounded meta-inferences with explicit
@@ -167,7 +176,8 @@ qualitative construct discovery -> reviewed measurement specification
 -> convergence/divergence review -> meta-inference
 ```
 
-Unresolved dependency that must be decided before execution: ownership of the
+Unresolved dependency that must be decided before any authorized implementation:
+ownership of the
 quantitative-text adapter/engine. The default is to use established libraries
 behind a narrow project-specific adapter for the first real design, and extract
 a shared engine only after the slice reveals a stable interface.
@@ -379,11 +389,13 @@ neutral.
 7. Do not call any version mixed methods without an explicit qualitative-
    quantitative integration operation and meta-inference.
 
-## Immediate Work
+## Future Implementation Entry Point
 
-The next executable authority is
-`docs/plans/003_integration_versioning_and_clean_state.md`. It details 0.0 and
-0.1; later versions remain skeletons until their entry gates are reached.
+If Brian later authorizes implementation, the detailed starting blueprint is
+`docs/plans/003_integration_versioning_and_clean_state.md`. It describes the
+proposed 0.0 and 0.1 phases; it does not activate them. Later versions remain
+skeletons until their entry gates are reached and their choices are reviewed
+against then-current evidence.
 
 ## Methodological Basis
 

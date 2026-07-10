@@ -28,9 +28,10 @@ prematurely merging their repos:
   adjudication engine: it may accept contested claim bundles and return
   independent analyses, verification actions, disagreement classifications,
   and human-reviewable dispositions.
-- quantitative text analysis has no settled engine owner. Version 0.4 will use
-  established libraries behind a narrow adapter for one real
-  exploratory-sequential design before considering shared-engine extraction.
+- quantitative text analysis has no settled engine owner. The roadmap
+  provisionally recommends established libraries behind a narrow adapter for
+  one real exploratory-sequential design before considering shared-engine
+  extraction.
 
 ## Product Thesis
 
@@ -55,24 +56,27 @@ agents, and researchers.
 
 Planning scaffold with an initial synthetic verification surface. The evidence
 baseline is 0 A, 0 B, 2 C, 5 D, and 1 F. It does not claim live engine
-integration or research outputs. Version 0.0 is active; version 0.1 remains
-blocked on real QC/PT exports and completion of the 0.0 truth gates.
+integration or research outputs. The current phase is documentation only; no
+implementation version is active or authorized. See `docs/PLANNING_STATUS.md`
+for the boundary between current planning and future implementation.
 
 ## Canonical Docs
 
 - `docs/ROADMAP.md` - north star, release ladder, dependencies, and critical
-  path.
+  path for future implementation.
+- `docs/PLANNING_STATUS.md` - what work is and is not authorized in the current
+  phase.
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md` - complete methodological/product scope
   and ownership gaps.
-- `docs/plans/003_integration_versioning_and_clean_state.md` - active executable
-  plan for versions 0.0 and 0.1.
+- `docs/plans/003_integration_versioning_and_clean_state.md` - detailed future
+  implementation blueprint for versions 0.0 and 0.1; not a current task list.
 - `docs/ARCHITECTURE.md` - initial QC/PT architecture artifact, subordinate to
-  the current roadmap and Plan 003 where they differ.
+  the current planning status and roadmap where they differ.
 - `docs/adr/0001_method_engines_not_monorepo.md` - decision to compose method
   engines through contracts before any repo merge.
 - `contracts/shared_contracts.md` - initial cross-engine contract sketch.
 - `docs/plans/002_engine_stability_and_integration_readiness.md` - historical
   dependency assessment retained for provenance.
 - `docs/plans/001_walking_skeleton.md` - version 0.1 vertical-slice detail,
-  reframed by Plan 003.
+  retained as a future proposal.
 - `docs/CONCERNS.md` - live concern register.

@@ -1,7 +1,10 @@
 # Text-Centered Mixed-Methods Capability Map
 
-Status: canonical scope and ownership inventory
+Status: canonical future scope inventory; documentation only
 Updated: 2026-07-09
+
+This map records eventual coverage and planning gaps. It does not activate or
+authorize implementation; see `docs/PLANNING_STATUS.md`.
 
 ## Purpose
 
