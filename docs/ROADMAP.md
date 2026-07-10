@@ -403,6 +403,11 @@ proposed 0.0 and 0.1 phases; it does not activate them. Later versions remain
 skeletons until their entry gates are reached and their choices are reviewed
 against then-current evidence.
 
+The required future entry gate is `docs/PRE_IMPLEMENTATION_CHECKLIST.md`. It
+turns a named authorization into a current implementation plan, fresh state
+review, evidence baseline, dependency check, and stop-condition list before any
+code or upstream work begins.
+
 ## Methodological Basis
 
 The roadmap treats mixed methods as intentional integration, not mere

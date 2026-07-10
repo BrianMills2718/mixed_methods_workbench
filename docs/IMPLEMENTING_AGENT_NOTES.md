@@ -13,6 +13,9 @@ For the current documentation-only phase:
 - Keep `docs/plans/001_walking_skeleton.md` marked as a future proposal.
 - Use `docs/PLANNING_STATUS.md` for the current authorization boundary and the
   detailed blueprint only for future sequencing. Plan 002 is historical.
+- If Brian later authorizes implementation, run
+  `docs/PRE_IMPLEMENTATION_CHECKLIST.md` before creating code, adapters,
+  schemas, APIs, UI, or upstream tasks.
 - Keep `docs/CONCERNS.md` current when new engine-readiness facts appear.
 - Preserve `examples/integration_payload_mockup.md` as invented example data
   until real fixture exports exist.
@@ -90,7 +93,8 @@ exist:
 ## Readiness Trigger
 
 A future workbench implementation agent may resume Plan 001 only when the
-included engine exports each provide:
+pre-implementation checklist has passed and the included engine exports each
+provide:
 
 - `schema_version`;
 - producer repo and commit;

@@ -9,12 +9,13 @@ Start here:
 2. `docs/PLANNING_STATUS.md`
 3. `docs/ROADMAP.md`
 4. `docs/CAPABILITY_DEPENDENCY_GRAPH.md`
-5. `docs/MIXED_METHODS_CAPABILITY_MAP.md`
-6. `docs/plans/003_integration_versioning_and_clean_state.md`
-7. `docs/ARCHITECTURE.md`
-8. `contracts/shared_contracts.md`
-9. `docs/coverage_report.md`
-10. `docs/CONCERNS.md`
+5. `docs/PRE_IMPLEMENTATION_CHECKLIST.md`
+6. `docs/MIXED_METHODS_CAPABILITY_MAP.md`
+7. `docs/plans/003_integration_versioning_and_clean_state.md`
+8. `docs/ARCHITECTURE.md`
+9. `contracts/shared_contracts.md`
+10. `docs/coverage_report.md`
+11. `docs/CONCERNS.md`
 
 The current phase is documentation and planning only. No implementation version
 is active or authorized. The roadmap describes a possible future sequence:

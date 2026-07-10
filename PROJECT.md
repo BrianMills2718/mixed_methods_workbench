@@ -68,6 +68,8 @@ for the boundary between current planning and future implementation.
   phase.
 - `docs/CAPABILITY_DEPENDENCY_GRAPH.md` - capability ordering, dependencies,
   success criteria, verification artifacts, and claim-licensing gates.
+- `docs/PRE_IMPLEMENTATION_CHECKLIST.md` - required fresh-state review and
+  current-plan gate before any future authorized implementation slice.
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md` - complete methodological/product scope
   and ownership gaps.
 - `docs/plans/003_integration_versioning_and_clean_state.md` - detailed future

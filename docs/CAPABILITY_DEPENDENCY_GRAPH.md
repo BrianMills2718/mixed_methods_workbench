@@ -13,6 +13,8 @@ Use this with:
 
 - `docs/PLANNING_STATUS.md` for current authorization;
 - `docs/ROADMAP.md` for the release ladder and critical path;
+- `docs/PRE_IMPLEMENTATION_CHECKLIST.md` for the future entry gate after a
+  named implementation authorization;
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md` for full methodological scope;
 - `docs/plans/003_integration_versioning_and_clean_state.md` for detailed
   future 0.0 and 0.1 planning.
@@ -97,7 +99,7 @@ may progress in either order after `MM`, but both feed `OPS` and the eventual
 
 Before future implementation starts, the selected slice must name which row it
 advances and confirm that its dependencies still hold. The first required gate
-is always a fresh state review.
+is always the fresh state review in `docs/PRE_IMPLEMENTATION_CHECKLIST.md`.
 
 Known stop points:
 
@@ -117,6 +119,7 @@ Known stop points:
 
 > Sources: `README.md`; `PROJECT.md`; `CLAUDE.md`;
 > `docs/PLANNING_STATUS.md`; `docs/ROADMAP.md`;
+> `docs/PRE_IMPLEMENTATION_CHECKLIST.md`;
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`; `docs/CONCERNS.md`;
 > `docs/ARCHITECTURE.md`; `docs/IMPLEMENTING_AGENT_NOTES.md`;
 > `docs/coverage_report.md`; `docs/wiki_manifest.yaml`;

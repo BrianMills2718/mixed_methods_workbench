@@ -3,6 +3,7 @@
 This is the integration authority for a broad text-centered mixed-methods
 workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
+`docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
 `docs/PLANNING_STATUS.md` before planning. The default current mode is
 documentation-only. Do not begin implementation merely because a roadmap or
@@ -61,6 +62,7 @@ make coverage
 - `~/projects/theory-forge/docs/adr/0003-ac14-integration-deferred.md`
 - `docs/ROADMAP.md`
 - `docs/CAPABILITY_DEPENDENCY_GRAPH.md`
+- `docs/PRE_IMPLEMENTATION_CHECKLIST.md`
 - `docs/PLANNING_STATUS.md`
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md`
 - `docs/plans/003_integration_versioning_and_clean_state.md`
