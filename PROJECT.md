@@ -66,6 +66,8 @@ for the boundary between current planning and future implementation.
   path for future implementation.
 - `docs/PLANNING_STATUS.md` - what work is and is not authorized in the current
   phase.
+- `docs/CAPABILITY_DEPENDENCY_GRAPH.md` - capability ordering, dependencies,
+  success criteria, verification artifacts, and claim-licensing gates.
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md` - complete methodological/product scope
   and ownership gaps.
 - `docs/plans/003_integration_versioning_and_clean_state.md` - detailed future

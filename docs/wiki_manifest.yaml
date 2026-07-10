@@ -13,6 +13,10 @@ publish:
     type: Roadmap
     title: Mixed Methods Workbench Roadmap
     tags: [portfolio, mixed_methods_workbench, strategy, integration]
+  - path: docs/CAPABILITY_DEPENDENCY_GRAPH.md
+    type: Roadmap
+    title: Mixed Methods Capability Dependency Graph
+    tags: [portfolio, mixed_methods_workbench, strategy, dependencies]
   - path: docs/PLANNING_STATUS.md
     type: ProjectOverview
     title: Current Planning Status

@@ -1,7 +1,7 @@
 # Current Planning Status
 
 Status: canonical current-phase guide
-Updated: 2026-07-09
+Updated: 2026-07-10
 
 ## Current Phase: Documentation Only
 
@@ -57,6 +57,7 @@ order. It is not a current task list.
 | `docs/PLANNING_STATUS.md` | What work is authorized now? | Canonical current-phase boundary. |
 | `docs/MIXED_METHODS_CAPABILITY_MAP.md` | What must the eventual product cover? | Canonical scope inventory. |
 | `docs/ROADMAP.md` | In what future release order should that scope be pursued? | Canonical future sequence, not an active schedule. |
+| `docs/CAPABILITY_DEPENDENCY_GRAPH.md` | What must be true before later capabilities may become product claims? | Canonical sequencing and claim-licensing aid, not an active task list. |
 | `docs/plans/003_integration_versioning_and_clean_state.md` | What would the first future implementation phases require? | Detailed future blueprint; not authorized. |
 | `docs/ARCHITECTURE.md` | What does the initial QC/PT concept look like? | Preliminary architecture, subject to revalidation. |
 | `contracts/shared_contracts.md` | What might cross-engine artifacts contain? | Contract sketch only, not a production schema. |
@@ -84,6 +85,7 @@ Planning readiness does not mean implementation readiness.
 > Sources: `README.md`; `PROJECT.md`; `CLAUDE.md`;
 > `contracts/shared_contracts.md`; `docs/ARCHITECTURE.md`;
 > `docs/CONCERNS.md`; `docs/IMPLEMENTING_AGENT_NOTES.md`;
+> `docs/CAPABILITY_DEPENDENCY_GRAPH.md`;
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`; `docs/ROADMAP.md`;
 > `docs/adr/0001_method_engines_not_monorepo.md`;
 > `docs/adr/0002_broad_north_star_versioned_thin_slices.md`;
@@ -98,4 +100,5 @@ Planning readiness does not mean implementation readiness.
 > machine-readable mirrors/fixtures and contain no additional planning-authority
 > statements.
 >
-> Status: current-phase clarification requested by Brian on 2026-07-09.
+> Status: current-phase clarification requested by Brian on 2026-07-09 and
+> extended with a claim-licensing dependency graph on 2026-07-10.

@@ -1,7 +1,7 @@
 # Mixed Methods Workbench Roadmap
 
 Status: canonical future strategy; documentation only, no release is active
-Updated: 2026-07-09
+Updated: 2026-07-10
 
 ## Current Phase
 
@@ -56,7 +56,9 @@ designs, not from adding generic buttons.
 | G6. Demonstrated SOTA or beyond-SOTA value | The system is faster or more rigorous on named tasks without hiding methodological failures. | F | Multi-domain benchmark with expert review, held-out cases, negative controls, and trace evaluation. |
 
 The detailed capability inventory and ownership map is in
-`docs/MIXED_METHODS_CAPABILITY_MAP.md`.
+`docs/MIXED_METHODS_CAPABILITY_MAP.md`. The claim-licensing dependency table
+that states what each capability must prove before becoming a product claim is
+in `docs/CAPABILITY_DEPENDENCY_GRAPH.md`.
 
 ## Version Ladder
 
@@ -281,6 +283,10 @@ methodologically governed research system:
   direction at the decisions each actor handles best.
 
 ## Dependency Graph and Critical Path
+
+This section is the high-level release graph. The full capability table with
+owner, dependency, success criteria, verification artifact, and claim licensed
+is `docs/CAPABILITY_DEPENDENCY_GRAPH.md`.
 
 ```mermaid
 flowchart TD
