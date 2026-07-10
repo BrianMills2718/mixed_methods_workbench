@@ -1,36 +1,48 @@
 # Mixed Methods Workbench
 
-This is a planning scaffold for a future qualitative and mixed-methods research
-workbench. It composes `qualitative_coding` and `process_tracing` as method
-engines through typed contracts. It may later consume `theory-forge` theory
-operationalization artifacts, but Theory Forge is not a current runtime
-dependency. Do not move code from any engine into this repo until a slice plan
-explicitly requires it.
+This is the integration authority for a broad text-centered mixed-methods
+workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
+`docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
+`docs/plans/003_integration_versioning_and_clean_state.md` before planning or
+implementation. Do not move code from an engine into this repo unless an ADR and
+slice plan explicitly require it.
 
 ## Operating Rules
 
-- Keep this repo as the integration authority: product frame, boundaries,
-  shared contracts, roadmap, and concern register.
-- Treat `qualitative_coding`, `process_tracing`, and future `theory-forge`
-  integration as dependencies with their own invariants and claim discipline.
+- Keep this repo as the integration authority: study/product frame, method
+  boundaries, consumer contracts, version compatibility, integration policy,
+  roadmap, and concern register.
+- Treat `qualitative_coding`, `process_tracing`, `grounded-research`, future
+  `theory-forge`, and a future quantitative-text adapter as producers with their
+  own invariants and claim discipline.
 - Do not claim this workbench is implemented until a vertical slice exists.
 - Every cross-repo seam must use Pydantic-style typed contracts; no raw `dict`
   or ad hoc JSON at durable boundaries.
 - Preserve method distinctions:
   - qualitative coding discovers and anchors patterns/claims in a corpus;
   - process tracing tests rival causal explanations within a source scope;
-  - mixed-methods synthesis bridges evidence, patterns, hypotheses, and
-    quantitative causal/model-selection tools without conflating estimands.
+  - theory operationalization guides analysis but is not empirical evidence;
+  - mixed-methods integration intentionally connects, builds, merges, or embeds
+    qualitative and quantitative strands and produces bounded meta-inferences.
 - Do not flatten process tracing into generic qualitative coding, and do not
   force all qualitative work into process-tracing hypothesis tests.
+- Do not call QC plus PT “mixed methods”; version 0.1 is multi-method
+  qualitative. Version 0.4 is the first planned true mixed-methods slice.
+- Producers own strict export schemas. Workbench adapters own permissive,
+  compatible consumers. Fail on unsupported major versions.
+- Synthetic fixtures license at most C-grade shape claims.
 
 ## Commands
 
-No implementation commands yet. Initial repo checks are documentation-only:
+Current scaffold checks:
 
 ```bash
-find . -name '*.md' -maxdepth 4 -print
+make help
+make check
+make coverage
 ```
+
+`make check` is not an engine-readiness or methodological-validity gate.
 
 ## References
 
@@ -39,6 +51,10 @@ find . -name '*.md' -maxdepth 4 -print
 - `~/projects/process_tracing/CLAUDE.md`
 - `~/projects/process_tracing/docs/PROJECT_THEORY_AND_GOALS.md`
 - `~/projects/process_tracing/docs/SOTA_PLUS_TARGET_ARCHITECTURE.md`
+- `~/projects/grounded-research/CLAUDE.md`
+- `~/projects/grounded-research/docs/ROADMAP.md`
 - `~/projects/theory-forge/CLAUDE.md`
 - `~/projects/theory-forge/docs/adr/0003-ac14-integration-deferred.md`
-- `docs/plans/002_engine_stability_and_integration_readiness.md`
+- `docs/ROADMAP.md`
+- `docs/MIXED_METHODS_CAPABILITY_MAP.md`
+- `docs/plans/003_integration_versioning_and_clean_state.md`

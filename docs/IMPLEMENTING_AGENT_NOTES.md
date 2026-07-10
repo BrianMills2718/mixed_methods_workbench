@@ -1,7 +1,6 @@
 # Implementing Agent Notes
 
-Status: planning note - do not treat this as authorization to build the
-workbench.
+Status: historical implementation note; Plan 003 is canonical
 
 This file captures high-confidence work and larger repo-local notes from the
 2026-06-26 worktree review. It is intentionally conservative: the workbench is
@@ -11,10 +10,10 @@ not ready for adapters, UI, or live engine orchestration.
 
 These are safe because they reduce ambiguity without coupling repos:
 
-- Keep `docs/plans/001_walking_skeleton.md` blocked until Plan 002 readiness
-  gates pass.
-- Keep `docs/plans/002_engine_stability_and_integration_readiness.md` as the
-  sequencing authority for workbench integration.
+- Keep `docs/plans/001_walking_skeleton.md` blocked until Plan 003 version 0.0
+  and upstream export gates pass.
+- Use `docs/plans/003_integration_versioning_and_clean_state.md` as the
+  sequencing authority. Plan 002 is historical.
 - Keep `docs/CONCERNS.md` current when new engine-readiness facts appear.
 - Preserve `examples/integration_payload_mockup.md` as invented example data
   until real fixture exports exist.

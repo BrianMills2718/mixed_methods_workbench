@@ -1,6 +1,7 @@
 # Shared Contract Sketch
 
-This is a planning contract, not final implementation code. Producer models
+This is a planning contract, not final implementation code. The canonical
+domain and versioning decisions are in Plan 003. Producer models
 should eventually be Pydantic models with `extra="forbid"`; consumer models
 should tolerate compatible future extension with `extra="ignore"`.
 
@@ -57,7 +58,9 @@ Fields:
 - `id`: stable workbench identifier.
 - `text`: research question.
 - `method_context`: one of `qualitative_coding`, `grounded_theory`,
-  `process_tracing`, `mixed_methods_synthesis`, `cross_case_causal`.
+  `process_tracing`, `multi_method_qualitative_review`,
+  `mixed_methods_synthesis`, `cross_case_causal`. The mixed-methods value
+  requires an intentional qualitative-quantitative integration design.
 - `outcome_or_phenomenon`: bounded outcome, phenomenon, or case focus.
 - `scope_id`: links to `SourceScope`.
 - `estimand_kind`: one of `descriptive_pattern`, `interpretive_claim`,
@@ -98,7 +101,8 @@ Fields:
 - `quote_hash`
 - `segment_id`
 - `source_marker`
-- `confidence`
+- `anchor_resolution_status`: explicit state such as `exact_offset`,
+  `source_marker_only`, or `unresolved`; never a generic confidence score.
 
 ### EvidenceRecord
 
@@ -112,8 +116,7 @@ Fields:
 - `source_anchor_ids`
 - `description`
 - `evidence_kind`: `coded_passage`, `claim_support`, `claim_contrary`,
-  `process_trace_evidence`, `absence_finding`, `source_gap`, `quant_indicator`,
-  `theory_operationalization`
+  `process_trace_evidence`, `absence_finding`, `source_gap`, `quant_indicator`
 - `semantic_tags`
 - `code_ids`
 - `entity_ids`
@@ -124,15 +127,16 @@ Fields:
 
 ### AnalyticAssertion
 
-Shared assertion type for claims, hypotheses, findings, and generated theory
-components. Method-specific details remain in extension payloads.
+Shared empirical/analytic assertion type for claims, hypotheses, and findings.
+Theory constructs and mechanisms remain in `TheoryOperationalizationArtifact`
+and link to assertions through explicit `guides`, `operationalizes`, or
+`challenged_by` relationships.
 
 Fields:
 
 - `id`
 - `assertion_kind`: `qualitative_claim`, `theme`, `gt_category`,
-  `causal_hypothesis`, `process_tracing_verdict`, `latent_construct`,
-  `causal_edge`, `mixed_methods_finding`
+  `causal_hypothesis`, `process_tracing_verdict`, `mixed_methods_finding`
 - `text`
 - `scope_id`
 - `supporting_evidence_ids`
@@ -189,6 +193,8 @@ Fields:
 - `analytic_assertions`
 - `pattern_findings`
 - `causal_hypothesis_sets`
+- `theory_operationalizations`
+- `theory_links`
 - `method_outputs`
 - `review_state`
 - `export_manifest`
@@ -271,10 +277,10 @@ Input: future `theory-forge` `TheoryOperationalizationArtifact` export.
 
 Output:
 
-- `AnalyticAssertion` from mechanisms, hypotheses, constructs, latent
-  constructs, and theory-provided causal edges.
-- `EvidenceRecord` only for operationalization/validation obligations, not as
-  source evidence proving that a claim is true.
+- `TheoryOperationalizationArtifact` with constructs, mechanisms, hypotheses,
+  observables, measures, assumptions, scope, and validation obligations.
+- typed links from theory objects to empirical hypotheses, measures, or claims;
+  these links guide or record challenges and never supply empirical support.
 - `MethodOutputRef` to schema, compiled manifest, compiled functions, and
   validation artifacts.
 - optional links to `CausalHypothesisSet` candidates when the theory artifact

@@ -1,7 +1,14 @@
 # Mixed Methods Workbench Architecture
 
-Status: planning scaffold
-Updated: 2026-06-26
+Status: initial version 0.1 architecture; subordinate to the canonical roadmap
+Updated: 2026-07-09
+
+> Sequencing and full-scope authority now live in `docs/ROADMAP.md`,
+> `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
+> `docs/plans/003_integration_versioning_and_clean_state.md`. This document
+> retains the narrower QC/PT walking-skeleton architecture. Its QC/PT result is
+> multi-method qualitative research, not yet qualitative-quantitative mixed
+> methods.
 
 This document applies the design-plan protocol to a future
 `mixed_methods_workbench` that composes `qualitative_coding` and
@@ -72,11 +79,12 @@ Failure means:
 ### ADRs
 
 - `docs/adr/0001_method_engines_not_monorepo.md`
+- `docs/adr/0002_broad_north_star_versioned_thin_slices.md`
 
 ### Clean Docs Note
 
-This scaffold is the current integration authority. The existing engine repos
-remain authoritative for their own local behavior and claim discipline.
+The roadmap and Plan 003 are the current sequencing authority. Existing engine
+repos remain authoritative for their own local behavior and claim discipline.
 
 ## 1. Modality Split
 

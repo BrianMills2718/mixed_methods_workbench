@@ -1,18 +1,18 @@
 # Integration Payload Mockup
 
-This mockup shows the intended cross-engine payload shape using abbreviated
-representative values. Slice 1 must replace these with fixture-backed values
-from real completed local runs.
+This historical mockup shows an abbreviated QC/PT payload shape. It is invented,
+not evidence, and represents multi-method qualitative review rather than true
+mixed methods. Version 0.1 must replace it with values from real, pinned exports.
 
 ```json
 {
   "research_question": {
     "id": "rq_001",
     "text": "Why did the focal organization adopt the contested strategy?",
-    "method_context": "mixed_methods_synthesis",
+    "method_context": "multi_method_qualitative_review",
     "outcome_or_phenomenon": "strategy adoption",
     "scope_id": "scope_001",
-    "estimand_kind": "generative_theory_model"
+    "estimand_kind": "not_applicable"
   },
   "source_scope": {
     "id": "scope_001",
@@ -45,6 +45,7 @@ from real completed local runs.
       "id": "assert_qc_001",
       "assertion_kind": "qualitative_claim",
       "text": "Participants frame the strategy as defensive adaptation.",
+      "estimand_kind": "interpretive_claim",
       "supporting_evidence_ids": ["ev_qc_001"],
       "status": "needs_review"
     },
@@ -52,6 +53,7 @@ from real completed local runs.
       "id": "assert_pt_h1",
       "assertion_kind": "causal_hypothesis",
       "text": "Leadership adopted the strategy in response to resource pressure.",
+      "estimand_kind": "comparative_explanatory_support",
       "supporting_evidence_ids": ["ev_pt_001"],
       "status": "supported_within_scope"
     }
@@ -62,4 +64,3 @@ from real completed local runs.
   ]
 }
 ```
-

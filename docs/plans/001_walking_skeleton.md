@@ -1,14 +1,19 @@
-# Plan 001: Fixture-Backed Walking Skeleton
+# Plan 001: Version 0.1 Fixture-Backed Multi-Method Qualitative Skeleton
 
-Status: blocked by engine readiness
+Status: blocked by version 0.0 and real engine exports
 Created: 2026-06-25
-Blocked By: `docs/plans/002_engine_stability_and_integration_readiness.md`
+Blocked By: `docs/plans/003_integration_versioning_and_clean_state.md`
 
-Do not execute this walking skeleton until the readiness gates in Plan 002 pass
+Do not execute this walking skeleton until the version 0.0 gates in Plan 003 pass
 for the engines included in the slice. The minimum gate for the original QC/PT
 scope is a canonical QC export fixture and a versioned PT export fixture. Theory
 Forge is not required for the original QC/PT walking skeleton unless the slice is
 explicitly expanded into a theory-enhanced workbench payload.
+
+This slice is multi-method qualitative research. It must not be described as a
+true mixed-methods release because it does not yet integrate a quantitative
+strand. Plan 003 selects a public 18 Brumaire case and records the upstream
+execution order.
 
 ## Outcome
 

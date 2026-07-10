@@ -9,10 +9,22 @@ publish:
     type: ProjectOverview
     title: Claude
     tags: [portfolio, mixed_methods_workbench]
+  - path: docs/ROADMAP.md
+    type: Roadmap
+    title: Mixed Methods Workbench Roadmap
+    tags: [portfolio, mixed_methods_workbench, strategy, integration]
+  - path: docs/MIXED_METHODS_CAPABILITY_MAP.md
+    type: ProjectOverview
+    title: Mixed Methods Capability Map
+    tags: [portfolio, mixed_methods_workbench, methodology, capabilities]
+  - path: docs/plans/003_integration_versioning_and_clean_state.md
+    type: Plan
+    title: Integration Versioning And Clean State
+    tags: [portfolio, mixed_methods_workbench, integration, active]
   - path: docs/plans/002_engine_stability_and_integration_readiness.md
     type: Plan
     title: Engine Stability And Integration Readiness
-    tags: [portfolio, mixed_methods_workbench, integration]
+    tags: [portfolio, mixed_methods_workbench, integration, historical]
   - path: docs/IMPLEMENTING_AGENT_NOTES.md
     type: ProjectOverview
     title: Implementing Agent Notes

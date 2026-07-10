@@ -8,8 +8,9 @@ artifacts: qualitative codes, grounded claims, rival explanations, causal
 support assessments, negative cases, source-scope caveats, review packets, and
 publishable exports.
 
-The workbench should use existing engines rather than prematurely merging their
-repos:
+The broad north star is preserved through the version ladder in
+`docs/ROADMAP.md`. The workbench should compose existing engines rather than
+prematurely merging their repos:
 
 - `~/projects/qualitative_coding` supplies the qualitative evidence substrate:
   ingestion, coding, span grounding, segment universe, claim ledger,
@@ -23,6 +24,13 @@ repos:
   current workbench dependency: it may later supply constructs, mechanisms,
   hypotheses, observables, measures, assumptions, scope conditions, and compiled
   metadata through a typed artifact.
+- `~/projects/grounded-research` is the future disagreement and evidence-
+  adjudication engine: it may accept contested claim bundles and return
+  independent analyses, verification actions, disagreement classifications,
+  and human-reviewable dispositions.
+- quantitative text analysis has no settled engine owner. Version 0.4 will use
+  established libraries behind a narrow adapter for one real
+  exploratory-sequential design before considering shared-engine extraction.
 
 ## Product Thesis
 
@@ -36,23 +44,35 @@ Qualitative and mixed-methods research is constrained by two bottlenecks:
 
 The workbench should automate the labor-intensive parts with LLMs and
 programmatic verification while making quantitative and causal methods available
-inside the same research workflow. The target is beyond-SOTA research automation
-across the integrated bundle, not a narrower "LLM coding tool" or a single
-method implementation.
+inside the same research workflow. The target is beyond-SOTA research
+infrastructure across the integrated bundle, not a narrower "LLM coding tool"
+or a single method implementation. The defensible frontier is rigorous
+cross-method provenance, contradiction-seeking, adaptive source/sampling
+decisions, and a disciplined division of labor among programmatic checks,
+agents, and researchers.
 
 ## Current Status
 
-Planning scaffold only. This repo records the integration frame, architecture,
-contracts, concern register, and slice roadmap. It is not yet an implementation
-repo and does not claim to produce research outputs.
+Planning scaffold with an initial synthetic verification surface. The evidence
+baseline is 0 A, 0 B, 2 C, 5 D, and 1 F. It does not claim live engine
+integration or research outputs. Version 0.0 is active; version 0.1 remains
+blocked on real QC/PT exports and completion of the 0.0 truth gates.
 
 ## Canonical Docs
 
-- `docs/ARCHITECTURE.md` - design-plan artifact for the workbench shell.
+- `docs/ROADMAP.md` - north star, release ladder, dependencies, and critical
+  path.
+- `docs/MIXED_METHODS_CAPABILITY_MAP.md` - complete methodological/product scope
+  and ownership gaps.
+- `docs/plans/003_integration_versioning_and_clean_state.md` - active executable
+  plan for versions 0.0 and 0.1.
+- `docs/ARCHITECTURE.md` - initial QC/PT architecture artifact, subordinate to
+  the current roadmap and Plan 003 where they differ.
 - `docs/adr/0001_method_engines_not_monorepo.md` - decision to compose method
   engines through contracts before any repo merge.
 - `contracts/shared_contracts.md` - initial cross-engine contract sketch.
-- `docs/plans/002_engine_stability_and_integration_readiness.md` - current
-  blocker/gap plan before any workbench build-out.
-- `docs/plans/001_walking_skeleton.md` - first vertical slice plan.
+- `docs/plans/002_engine_stability_and_integration_readiness.md` - historical
+  dependency assessment retained for provenance.
+- `docs/plans/001_walking_skeleton.md` - version 0.1 vertical-slice detail,
+  reframed by Plan 003.
 - `docs/CONCERNS.md` - live concern register.
