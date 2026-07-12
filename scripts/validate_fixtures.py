@@ -11,12 +11,20 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
+import subprocess
+from datetime import datetime
 from pathlib import Path
 from typing import Any, cast
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FIXTURE_DIR = REPO_ROOT / "examples" / "fixtures" / "workbench_contract_v1"
+MANIFEST_NAME = "manifest.json"
+MANIFEST_SCHEMA_VERSION = 2
+SUPPORTED_ORIGIN_KIND = "workbench_synthetic"
+AUTHORING_REPOSITORY = "mixed_methods_workbench"
+VALIDATOR_RELATIVE_PATH = Path("scripts/validate_fixtures.py")
 
 FORBIDDEN_GENERIC_FIELDS = {
     "probability_of_truth",
@@ -60,10 +68,22 @@ def main() -> None:
     print("Fixture contract validation passed.")
 
 
-def validate_fixture_dir(fixture_dir: Path) -> None:
-    """Validate one fixture directory."""
-    manifest = _read_json(fixture_dir / "manifest.json")
-    _require(manifest.get("schema_version") == 1, "manifest schema_version must be 1")
+def validate_fixture_dir(
+    fixture_dir: Path,
+    *,
+    verify_repository_provenance: bool = True,
+) -> None:
+    """Validate one fixture directory and its recoverable source evidence.
+
+    Repository provenance may be disabled only by semantic negative controls
+    whose temporary byte mutation cannot exist in Git. Production validation
+    always uses the default and verifies the exact last-content commit.
+    """
+    manifest = _read_json(fixture_dir / MANIFEST_NAME)
+    _require(
+        manifest.get("schema_version") == MANIFEST_SCHEMA_VERSION,
+        f"manifest schema_version must be {MANIFEST_SCHEMA_VERSION}",
+    )
     _require(
         manifest.get("artifact_status") == "synthetic_contract_fixture",
         "manifest artifact_status must mark fixtures as synthetic_contract_fixture",
@@ -72,12 +92,43 @@ def validate_fixture_dir(fixture_dir: Path) -> None:
     files = manifest.get("files")
     if not isinstance(files, list):
         raise SystemExit("ERROR: manifest files must be a list")
-    seen = {entry.get("path") for entry in files if isinstance(entry, dict)}
-    missing = sorted(REQUIRED_FILES - seen)
-    _require(not missing, f"manifest missing required fixture files: {missing}")
+
+    listed_paths = [_manifest_entry_path(entry) for entry in files]
+    duplicate_paths = sorted(
+        path for path in set(listed_paths) if listed_paths.count(path) > 1
+    )
+    _require(not duplicate_paths, f"manifest has duplicate file entries: {duplicate_paths}")
+
+    actual_paths = {
+        path.name
+        for path in fixture_dir.glob("*.json")
+        if path.name != MANIFEST_NAME
+    }
+    listed_path_set = set(listed_paths)
+    missing_required = sorted(REQUIRED_FILES - actual_paths)
+    _require(
+        not missing_required,
+        f"fixture directory missing required files: {missing_required}",
+    )
+    unlisted = sorted(actual_paths - listed_path_set)
+    _require(not unlisted, f"manifest has unlisted JSON fixture files: {unlisted}")
+    listed_missing = sorted(listed_path_set - actual_paths)
+    _require(
+        not listed_missing,
+        f"manifest lists missing JSON fixture files: {listed_missing}",
+    )
+
+    entry_hashes: dict[str, str] = {}
 
     for entry in files:
-        _validate_manifest_entry(fixture_dir, entry)
+        relative_path, actual_hash = _validate_manifest_entry(
+            fixture_dir,
+            entry,
+            verify_repository_provenance=verify_repository_provenance,
+        )
+        entry_hashes[relative_path] = actual_hash
+
+    _validate_validation_observation(manifest, entry_hashes)
 
     synthesis = _read_json(fixture_dir / "workbench_synthesis_stub.json")
     _validate_synthesis(synthesis)
@@ -92,7 +143,8 @@ def validate_fixture_dir(fixture_dir: Path) -> None:
         _assert_no_forbidden_fields(payload, path, forbidden_fields)
 
 
-def _validate_manifest_entry(fixture_dir: Path, entry: object) -> None:
+def _manifest_entry_path(entry: object) -> str:
+    """Return one safe manifest path before inventory set comparison."""
     if not isinstance(entry, dict):
         raise SystemExit("ERROR: manifest file entries must be objects")
     relative_path = entry.get("path")
@@ -102,10 +154,33 @@ def _validate_manifest_entry(fixture_dir: Path, entry: object) -> None:
     )
     if not isinstance(relative_path, str):
         raise AssertionError("relative_path was narrowed above")
+    _require(
+        Path(relative_path).name == relative_path
+        and relative_path.endswith(".json")
+        and relative_path != MANIFEST_NAME,
+        f"file entry path must be a fixture JSON filename: {relative_path}",
+    )
+    return relative_path
+
+
+def _validate_manifest_entry(
+    fixture_dir: Path,
+    entry: object,
+    *,
+    verify_repository_provenance: bool,
+) -> tuple[str, str]:
+    """Validate one synthetic entry and return its current content identity."""
+    relative_path = _manifest_entry_path(entry)
+    if not isinstance(entry, dict):
+        raise AssertionError("entry was narrowed by _manifest_entry_path")
     path = fixture_dir / relative_path
     _require(path.is_file(), f"fixture file does not exist: {relative_path}")
     expected_hash = entry.get("sha256")
-    _require(isinstance(expected_hash, str) and len(expected_hash) == 64, f"{relative_path} needs sha256")
+    _require(
+        isinstance(expected_hash, str)
+        and re.fullmatch(r"[0-9a-f]{64}", expected_hash) is not None,
+        f"{relative_path} needs lowercase sha256",
+    )
     actual_hash = hashlib.sha256(path.read_bytes()).hexdigest()
     _require(actual_hash == expected_hash, f"{relative_path} hash mismatch: {actual_hash}")
     evidence_grade = entry.get("evidence_grade")
@@ -113,6 +188,184 @@ def _validate_manifest_entry(fixture_dir: Path, entry: object) -> None:
         evidence_grade == "C-synthetic-contract-only",
         f"{relative_path} evidence_grade must be C-synthetic-contract-only",
     )
+    _validate_synthetic_origin(
+        entry,
+        relative_path=relative_path,
+        current_hash=actual_hash,
+        verify_repository_provenance=verify_repository_provenance,
+    )
+    return relative_path, actual_hash
+
+
+def _validate_synthetic_origin(
+    entry: dict[str, Any],
+    *,
+    relative_path: str,
+    current_hash: str,
+    verify_repository_provenance: bool,
+) -> None:
+    """Require truthful, Git-recoverable provenance for a synthetic fixture."""
+    origin_kind = entry.get("origin_kind")
+    _require(
+        origin_kind == SUPPORTED_ORIGIN_KIND,
+        f"{relative_path} origin_kind must be {SUPPORTED_ORIGIN_KIND}",
+    )
+    _require(
+        entry.get("authoring_repository") == AUTHORING_REPOSITORY,
+        f"{relative_path} authoring_repository must be {AUTHORING_REPOSITORY}",
+    )
+    _require(
+        entry.get("creation_method") == "hand_authored_synthetic_contract_fixture",
+        f"{relative_path} creation_method must identify hand-authored synthetic data",
+    )
+    intended_invariant = entry.get("intended_invariant")
+    _require(
+        isinstance(intended_invariant, str) and bool(intended_invariant.strip()),
+        f"{relative_path} intended_invariant is required",
+    )
+    claim_limits = entry.get("claim_limits")
+    _require(
+        isinstance(claim_limits, list)
+        and bool(claim_limits)
+        and all(isinstance(limit, str) and bool(limit.strip()) for limit in claim_limits),
+        f"{relative_path} claim_limits must be a non-empty string list",
+    )
+    if not isinstance(claim_limits, list):
+        raise AssertionError("claim_limits was narrowed above")
+    normalized_limits = " ".join(str(limit).lower() for limit in claim_limits)
+    _require(
+        "synthetic" in normalized_limits and "not" in normalized_limits,
+        f"{relative_path} claim_limits must disclose synthetic status and exclusions",
+    )
+
+    canonical_fixture_dir = DEFAULT_FIXTURE_DIR.relative_to(REPO_ROOT)
+    expected_authoring_path = (canonical_fixture_dir / relative_path).as_posix()
+    authoring_path = entry.get("authoring_path")
+    _require(
+        authoring_path == expected_authoring_path,
+        f"{relative_path} authoring_path must be {expected_authoring_path}",
+    )
+    last_content_commit = entry.get("last_content_commit")
+    _require(
+        isinstance(last_content_commit, str)
+        and re.fullmatch(r"[0-9a-f]{40}", last_content_commit) is not None,
+        f"{relative_path} last_content_commit must be a full Git commit",
+    )
+    if not isinstance(last_content_commit, str):
+        raise AssertionError("last_content_commit was narrowed above")
+    expected_recovery_command = f"git show {last_content_commit}:{expected_authoring_path}"
+    _require(
+        entry.get("recovery_command") == expected_recovery_command,
+        f"{relative_path} recovery_command must be {expected_recovery_command}",
+    )
+
+    if not verify_repository_provenance:
+        return
+
+    observed_last_commit = _run_git_text(
+        "log",
+        "-1",
+        "--format=%H",
+        "--",
+        expected_authoring_path,
+    ).strip()
+    _require(
+        observed_last_commit == last_content_commit,
+        f"{relative_path} last_content_commit mismatch: {observed_last_commit}",
+    )
+    recovered_bytes = _run_git_bytes(
+        "show",
+        f"{last_content_commit}:{expected_authoring_path}",
+    )
+    recovered_hash = hashlib.sha256(recovered_bytes).hexdigest()
+    _require(
+        recovered_hash == current_hash,
+        f"{relative_path} recovered Git bytes hash mismatch: {recovered_hash}",
+    )
+
+
+def _validate_validation_observation(
+    manifest: dict[str, Any],
+    entry_hashes: dict[str, str],
+) -> None:
+    """Bind the stored validation observation to current files and validator."""
+    observation = manifest.get("validation_observation")
+    _require(
+        isinstance(observation, dict),
+        "manifest validation_observation must be an object",
+    )
+    if not isinstance(observation, dict):
+        raise AssertionError("observation was narrowed above")
+    _require(
+        observation.get("command") == "python3 scripts/validate_fixtures.py",
+        "validation_observation command mismatch",
+    )
+    _require(
+        observation.get("negative_control_command")
+        == "python3 scripts/check_fixture_negative_controls.py",
+        "validation_observation negative_control_command mismatch",
+    )
+    _require(
+        observation.get("validator_path") == VALIDATOR_RELATIVE_PATH.as_posix(),
+        "validation_observation validator_path mismatch",
+    )
+    expected_validator_hash = observation.get("validator_sha256")
+    _require(
+        isinstance(expected_validator_hash, str)
+        and re.fullmatch(r"[0-9a-f]{64}", expected_validator_hash) is not None,
+        "validation_observation validator_sha256 is required",
+    )
+    validator_hash = hashlib.sha256(
+        (REPO_ROOT / VALIDATOR_RELATIVE_PATH).read_bytes()
+    ).hexdigest()
+    _require(
+        validator_hash == expected_validator_hash,
+        f"validation_observation validator hash mismatch: {validator_hash}",
+    )
+    _require(
+        observation.get("validated_file_hashes") == entry_hashes,
+        "validation_observation file hashes do not match current manifest entries",
+    )
+    _require(
+        observation.get("result") == "pass",
+        "validation_observation result must be pass",
+    )
+    observed_at = observation.get("observed_at")
+    _require(
+        isinstance(observed_at, str) and _is_timezone_aware_iso8601(observed_at),
+        "validation_observation observed_at must be timezone-aware ISO 8601",
+    )
+
+
+def _is_timezone_aware_iso8601(value: str) -> bool:
+    """Return whether a timestamp parses and contains an explicit UTC offset."""
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        return False
+    return parsed.tzinfo is not None
+
+
+def _run_git_text(*args: str) -> str:
+    """Run one read-only Git command and return text or fail loudly."""
+    result = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), *args],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return result.stdout
+
+
+def _run_git_bytes(*args: str) -> bytes:
+    """Run one read-only Git command and return exact bytes or fail loudly."""
+    result = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), *args],
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    return result.stdout
 
 
 def _validate_synthesis(payload: dict[str, Any]) -> None:

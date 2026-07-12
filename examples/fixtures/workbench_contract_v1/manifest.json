@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "artifact_status": "synthetic_contract_fixture",
   "created": "2026-06-26",
   "purpose": "Executable contract target for future engine-produced mixed-methods workbench fixtures.",
@@ -14,24 +14,86 @@
     {
       "path": "qc_handoff_stub.json",
       "sha256": "e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470",
-      "evidence_grade": "C-synthetic-contract-only"
+      "evidence_grade": "C-synthetic-contract-only",
+      "origin_kind": "workbench_synthetic",
+      "authoring_repository": "mixed_methods_workbench",
+      "last_content_commit": "98b5310c864c8b5cf441583b23f5bc00d0bee647",
+      "authoring_path": "examples/fixtures/workbench_contract_v1/qc_handoff_stub.json",
+      "recovery_command": "git show 98b5310c864c8b5cf441583b23f5bc00d0bee647:examples/fixtures/workbench_contract_v1/qc_handoff_stub.json",
+      "creation_method": "hand_authored_synthetic_contract_fixture",
+      "intended_invariant": "Qualitative handoff shape remains synthetic and excludes process-tracing inference fields.",
+      "claim_limits": [
+        "Synthetic contract shape only.",
+        "Not a qualitative_coding engine export.",
+        "Not qualitative or mixed-methods evidence."
+      ]
     },
     {
       "path": "pt_export_stub.json",
       "sha256": "7b4b32cabf4066ba22aaec87342681cf242745abb5eddacff85c01958a36cebd",
-      "evidence_grade": "C-synthetic-contract-only"
+      "evidence_grade": "C-synthetic-contract-only",
+      "origin_kind": "workbench_synthetic",
+      "authoring_repository": "mixed_methods_workbench",
+      "last_content_commit": "bc22b9044979746195db1350cdf0cff56742f4cb",
+      "authoring_path": "examples/fixtures/workbench_contract_v1/pt_export_stub.json",
+      "recovery_command": "git show bc22b9044979746195db1350cdf0cff56742f4cb:examples/fixtures/workbench_contract_v1/pt_export_stub.json",
+      "creation_method": "hand_authored_synthetic_contract_fixture",
+      "intended_invariant": "Process-tracing comparative support remains method-scoped and source caveats remain visible.",
+      "claim_limits": [
+        "Synthetic contract shape only.",
+        "Not a process_tracing engine export.",
+        "Not process-tracing or mixed-methods evidence."
+      ]
     },
     {
       "path": "theory_operationalization_stub.json",
       "sha256": "e5aea43ccc837e2b1009177b62ac42f7aad773c47d303bcf425fe8df27b8020a",
-      "evidence_grade": "C-synthetic-contract-only"
+      "evidence_grade": "C-synthetic-contract-only",
+      "origin_kind": "workbench_synthetic",
+      "authoring_repository": "mixed_methods_workbench",
+      "last_content_commit": "98b5310c864c8b5cf441583b23f5bc00d0bee647",
+      "authoring_path": "examples/fixtures/workbench_contract_v1/theory_operationalization_stub.json",
+      "recovery_command": "git show 98b5310c864c8b5cf441583b23f5bc00d0bee647:examples/fixtures/workbench_contract_v1/theory_operationalization_stub.json",
+      "creation_method": "hand_authored_synthetic_contract_fixture",
+      "intended_invariant": "Theory operationalization remains context and a test obligation rather than empirical evidence.",
+      "claim_limits": [
+        "Synthetic contract shape only.",
+        "Not a theory-forge engine export.",
+        "Not theory validation or empirical evidence."
+      ]
     },
     {
       "path": "workbench_synthesis_stub.json",
       "sha256": "729d77a5d42102f5299221ab059e52e2fab26b4ea37c658ab1ad0eefcdcea9a2",
-      "evidence_grade": "C-synthetic-contract-only"
+      "evidence_grade": "C-synthetic-contract-only",
+      "origin_kind": "workbench_synthetic",
+      "authoring_repository": "mixed_methods_workbench",
+      "last_content_commit": "bc22b9044979746195db1350cdf0cff56742f4cb",
+      "authoring_path": "examples/fixtures/workbench_contract_v1/workbench_synthesis_stub.json",
+      "recovery_command": "git show bc22b9044979746195db1350cdf0cff56742f4cb:examples/fixtures/workbench_contract_v1/workbench_synthesis_stub.json",
+      "creation_method": "hand_authored_synthetic_contract_fixture",
+      "intended_invariant": "Synthetic QC and PT assertions remain traceable without being mislabeled as qualitative-quantitative mixed methods.",
+      "claim_limits": [
+        "Synthetic contract shape only.",
+        "Not generated from real engine exports.",
+        "Not research-quality or mixed-methods synthesis evidence."
+      ]
     }
   ],
+  "validation_observation": {
+    "command": "python3 scripts/validate_fixtures.py",
+    "negative_control_command": "python3 scripts/check_fixture_negative_controls.py",
+    "validator_path": "scripts/validate_fixtures.py",
+    "validator_sha256": "561029f9663cf3b1101a8774e80f15a2486d3f6916f6a7f1b99144d1fd43c726",
+    "observed_at": "2026-07-12T13:06:02-07:00",
+    "result": "pass",
+    "validated_file_hashes": {
+      "qc_handoff_stub.json": "e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470",
+      "pt_export_stub.json": "7b4b32cabf4066ba22aaec87342681cf242745abb5eddacff85c01958a36cebd",
+      "theory_operationalization_stub.json": "e5aea43ccc837e2b1009177b62ac42f7aad773c47d303bcf425fe8df27b8020a",
+      "workbench_synthesis_stub.json": "729d77a5d42102f5299221ab059e52e2fab26b4ea37c658ab1ad0eefcdcea9a2"
+    }
+  },
   "replacement_gates": [
     "Each real engine fixture records producer repo, producer commit, source command, package hash, caveats, and validation result.",
     "Real QC fixture validates as a strict QC handoff package and contains no process-tracing inference fields.",

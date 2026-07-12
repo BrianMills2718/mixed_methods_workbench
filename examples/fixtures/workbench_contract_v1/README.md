@@ -15,6 +15,17 @@ Replacement rule: real fixtures must replace these only after the producing
 engine records the source command, producer commit, package hash, caveats, and
 validation result.
 
+The current entries use `origin_kind: workbench_synthetic`. Each entry records
+the exact last Git commit that changed its bytes, a recovery command, the
+invariant it exercises, file-specific claim limits, and a C-only evidence
+grade. This is truthful provenance for hand-authored test data; it is not a
+stand-in for an engine commit.
+
+The manifest inventory covers every JSON artifact in this directory except the
+manifest itself. Validation checks both directions, verifies current bytes
+against the exact Git blob, and binds its observation to the current validator
+and file hashes.
+
 Validation:
 
 ```bash

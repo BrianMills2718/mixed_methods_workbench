@@ -66,7 +66,10 @@ def _control_fails(name: str, mutate: Mutation, expected_error: str) -> bool:
         shutil.copytree(DEFAULT_FIXTURE_DIR, fixture_dir)
         mutate(fixture_dir)
         try:
-            validate_fixture_dir(fixture_dir)
+            validate_fixture_dir(
+                fixture_dir,
+                verify_repository_provenance=False,
+            )
         except SystemExit as error:
             return expected_error in str(error)
         return False
@@ -144,9 +147,13 @@ def _refresh_manifest_hash(fixture_dir: Path, fixture_name: str) -> None:
     manifest = _read_json(manifest_path)
     for entry in manifest["files"]:
         if entry["path"] == fixture_name:
-            entry["sha256"] = hashlib.sha256(
+            fixture_hash = hashlib.sha256(
                 (fixture_dir / fixture_name).read_bytes()
             ).hexdigest()
+            entry["sha256"] = fixture_hash
+            manifest["validation_observation"]["validated_file_hashes"][
+                fixture_name
+            ] = fixture_hash
             _write_json(manifest_path, manifest)
             return
     raise KeyError(f"Manifest does not inventory fixture: {fixture_name}")
