@@ -73,6 +73,14 @@ publish:
     type: Plan
     title: DEMO Method-Core Review Packet Mockup
     tags: [portfolio, mixed_methods_workbench, planning, mockup, demo]
+  - path: docs/plans/demo_c1_local_contract_fixture_implementation.md
+    type: Plan
+    title: DEMO-C1 Local Contract and Fixture Implementation
+    tags: [portfolio, mixed_methods_workbench, planning, future, demo]
+  - path: docs/demo_c1_coverage_baseline.md
+    type: EvidenceReport
+    title: DEMO-C1 Coverage Baseline
+    tags: [portfolio, mixed_methods_workbench, evidence, coverage, demo]
   - path: docs/plans/002_engine_stability_and_integration_readiness.md
     type: Plan
     title: Engine Stability And Integration Readiness

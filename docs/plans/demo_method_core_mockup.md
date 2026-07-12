@@ -1,6 +1,6 @@
 # DEMO Method-Core Review Packet Mockup
 
-Status: synthetic planning mockup — awaiting approval  
+Status: synthetic planning mockup — approved by Brian on 2026-07-12
 Claim limit: software/interface proposal only; not empirical evidence, full
 grounded theory, mixed methods, or a SOTA result.
 
@@ -103,7 +103,6 @@ comparable and unmistakably different.
 
 ## Approval
 
-Please approve this as the target review journey or identify what should change.
-Approval licenses contract/fixture implementation planning only; producer
-repository work still requires separately named authorization.
-
+Brian approved this target review journey on 2026-07-12. The approval licenses
+the `DEMO-C1` contract/fixture implementation plan; implementation and producer
+repository work retain their separate authorization boundaries.

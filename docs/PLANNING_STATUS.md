@@ -18,8 +18,11 @@ Brian's 2026-07-12 “ok proceed,” given directly after the handoff named a
 `DEMO` slice as the next action, activates `DEMO` planning in
 `docs/plans/current_demo_method_core.md`. It authorizes local requirements,
 boundary/domain/contract planning, a notebook, and a static cross-seam mockup.
-The plan's mockup-approval gate blocks adapters, generators, APIs, UI, schema
-implementation, live runs, and producer-repository mutation.
+Brian approved that mockup on 2026-07-12. The approval closes the design-review
+gate and licenses the `DEMO-C1` implementation plan; it does not itself
+authorize implementation. The next exact boundary is documented in
+`docs/plans/demo_c1_local_contract_fixture_implementation.md`. Producer
+repositories remain separately authorized.
 
 ## Completed Authorization: T0-PROV
 
@@ -115,7 +118,9 @@ order. It is not a current task list.
 | `docs/decisions/2026-07-12-first-governed-case.md` | What case/source-use options and evidence should Brian decide? | Source-backed decision brief; recommendation only, not a selected case or GOV authorization. |
 | `docs/decisions/2026-07-12-first-quantitative-text-strand.md` | What first QT task/owner pattern should Brian decide? | Source-backed decision brief; recommendation only, not a construct, owner assignment, or QT authorization. |
 | `docs/plans/current_t0_truthful_fixture_inventory.md` | What did the bounded T0 provenance slice require and prove? | Completed implementation/evidence record; no longer active authority. |
-| `docs/plans/current_demo_method_core.md` | What does the currently authorized DEMO planning slice specify and what blocks implementation? | Active local plan; mockup approval and separate producer authorization required. |
+| `docs/plans/current_demo_method_core.md` | What did the authorized DEMO planning slice specify and what blocks implementation? | Approved local journey; `DEMO-C1` and producer work remain separately authorized. |
+| `docs/plans/demo_c1_local_contract_fixture_implementation.md` | What exact local typed-contract/fixture slice is ready next? | Ready for named authorization; not active. |
+| `docs/demo_c1_coverage_baseline.md` | What DEMO-C1 requirements have evidence before enforcement? | Visibility baseline: 8 D/doc, no enforced gates. |
 | `docs/plans/001_walking_skeleton.md` | What was the original first-slice proposal? | Future proposal, not authorized. |
 | `docs/plans/002_engine_stability_and_integration_readiness.md` | What did the June 2026 dependency review find? | Historical evidence, not current state. |
 

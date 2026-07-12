@@ -56,10 +56,12 @@ GT-I dependency subplan are in `docs/plans/current_demo_method_core.md`. The
 review journey is rendered in `docs/plans/demo_method_core_mockup.md` and
 `notebooks/demo_method_core_plan.ipynb`.
 
-The mockup approval gate now blocks implementation. The evidence-backed owner
-recommendation is `qualitative_coding`, labeled grounded-theory-inspired until
-real theoretical sampling and D8 expert evidence license anything stronger.
-Producer mutation remains separately authorized.
+Brian approved the mockup on 2026-07-12. The exact next slice is
+`DEMO-C1`, specified in
+`docs/plans/demo_c1_local_contract_fixture_implementation.md`. Its pre-gate
+coverage report is `docs/demo_c1_coverage_baseline.md`: 8 D/doc rows, no
+enforced gates. `DEMO-C1` still needs explicit named implementation
+authorization. Producer mutation remains separately authorized.
 
 ## Required Reading
 

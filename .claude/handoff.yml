@@ -1,15 +1,15 @@
 updated: "2026-07-12T18:30:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
-status: active
+status: blocked
 current_mode: documentation_only
-blocked_on: demo_mockup_approval_before_implementation
+blocked_on: named_demo_c1_implementation_authorization
 git_commit: "pending"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md"
-summary: "DEMO planning is active. The requirements, boundaries, domain model, contract stubs, notebook journey, GT-I dependency subplan, and static three-method review mockup are complete. No implementation is active."
-next_action: "Brian reviews docs/plans/demo_method_core_mockup.md and approves it or requests revisions. Approval licenses contract/fixture implementation planning only; producer mutations remain separately authorized."
+summary: "Brian approved the DEMO mockup. DEMO-C1 now has an exact local typed-contract/fixture plan and an honest 8-D coverage baseline. No implementation is active."
+next_action: "Brian explicitly authorizes 'DEMO-C1' to implement local typed synthetic contracts, fixtures, assembly, and both-sign controls. Producer repos remain out of scope."
 
 completed:
   - "Reconciled the roadmap, dependency graph, capability map, checklist, concern register, long-term goal, and handoff under ADR 0004."
@@ -20,10 +20,10 @@ completed:
   - "Preserved T0-PROV evidence: W2 A, fixture shapes C, broader T0/program F."
 
 decisions_required:
-  - id: D-MOCKUP
+  - id: D-C1
     priority: critical
-    summary: "Approve or revise the DEMO method-core review packet mockup."
-    blocks: [DEMO-IMPLEMENTATION, QC-D, PT-D, GT-D, CORE-D]
+    summary: "Authorize the named DEMO-C1 local implementation slice."
+    blocks: [DEMO-C1]
   - id: D-GT
     priority: high
     summary: "Approve qualitative_coding as the GT-inspired producer; full-GT language remains prohibited pending G3/G4 evidence."
@@ -38,7 +38,7 @@ decisions_required:
     blocks: [GOV, CORE-V]
 
 warnings:
-  - "DEMO planning is active, but no implementation slice or product version is active."
+  - "The DEMO mockup is approved, but no implementation slice or product version is active."
   - "Synthetic/open demo evidence licenses software behavior only, never empirical or method-validity claims."
   - "Do not call QC/PT/GT mixed methods; genuine mixed methods begins with explicit qual-quant integration."
   - "Do not mutate producer repos or build adapters/API/UI without named authorization and a fresh entry gate."

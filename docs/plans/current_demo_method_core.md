@@ -1,6 +1,6 @@
 # Current Plan: DEMO Method-Core Contract and Review Mockup
 
-Status: active planning; implementation blocked on mockup approval  
+Status: approved planning journey; implementation not yet authorized
 Authorized by: Brian, “ok proceed,” 2026-07-12, in direct response to the
 named `DEMO` next action  
 Capability rows: `DEMO`, then dependency preparation for `QC-D`, `PT-D`,
@@ -215,7 +215,7 @@ schema, compatible consumer, fixture, loss tests, and negative controls.
 | D1 | Exact authorization, scope, and non-goals recorded | D → D/doc | Pass when this plan and status agree. |
 | D2 | Requirements derive boundaries, domain objects, and contract stubs in order | F → D/doc | Pass when diagrams/tables resolve every named seam without invented internals. |
 | D3 | GT ownership is evidence-backed and honestly named GT-inspired | F → D/doc | Pass when QC evidence and limitations are cited; no full-GT claim remains. |
-| D4 | Static review packet makes the three methods distinguishable and source-steppable | F → C/fixture after approval | Planning pass requires mockup; C requires Brian's recorded approval. |
+| D4 | Static review packet makes the three methods distinguishable and source-steppable | D/doc | Brian approved the static mockup on 2026-07-12; runtime fixture evidence does not exist yet. |
 | D5 | Failure taxonomy covers unsupported version, missing anchor/residual, leakage, aggregation, and overclaim | F → D/doc | Pass when each has a planned negative control and fail-loud result. |
 | D6 | No producer or implementation mutation occurred | observed workspace check → A/test for scope only | Pass when repo diff is documentation/notebook only and producer HEADs remain unchanged. |
 
@@ -263,10 +263,10 @@ Done when: all three fixture lanes pass and no producer-internal parsing exists.
 The cross-seam mockup is `docs/plans/demo_method_core_mockup.md`; the full phase
 journey is `notebooks/demo_method_core_plan.ipynb`.
 
-Gate status: **awaiting Brian approval**. No generator, adapter, API, or UI
-implementation begins until approval is recorded here, unless Brian explicitly
-overrides this warned gate. Continuing without approval risks hardening the
-wrong method objects and review workflow.
+Gate status: **approved by Brian on 2026-07-12**. This approves the target
+review journey and closes the human mockup gate. It does not by itself
+authorize the separately named `DEMO-C1` local contract/fixture implementation
+slice or any producer-repository mutation.
 
 ## Verification
 
@@ -282,4 +282,3 @@ git -C ~/projects/process_tracing rev-parse HEAD
 
 Expected: all scaffold checks remain green; evidence grades do not move;
 changes are planning artifacts only; producer HEADs remain unchanged.
-
