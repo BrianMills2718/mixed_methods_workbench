@@ -3,7 +3,7 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-07-12
 
-## Current Phase: Documentation-Only; No Active Implementation Slice
+## Current Phase: Active DEMO Planning; No Active Implementation Slice
 
 The current task is to clarify and reconcile the project's strategy,
 methodological scope, architecture, dependencies, version order, decisions, and
@@ -13,6 +13,13 @@ No product implementation phase, numbered release, or local implementation
 slice is active. No engine integration, adapter, API, UI, schema migration, or
 upstream-engine task is authorized by these documents alone. The completed
 `T0-PROV` evidence does not authorize another T0 item.
+
+Brian's 2026-07-12 “ok proceed,” given directly after the handoff named a
+`DEMO` slice as the next action, activates `DEMO` planning in
+`docs/plans/current_demo_method_core.md`. It authorizes local requirements,
+boundary/domain/contract planning, a notebook, and a static cross-seam mockup.
+The plan's mockup-approval gate blocks adapters, generators, APIs, UI, schema
+implementation, live runs, and producer-repository mutation.
 
 ## Completed Authorization: T0-PROV
 
@@ -108,6 +115,7 @@ order. It is not a current task list.
 | `docs/decisions/2026-07-12-first-governed-case.md` | What case/source-use options and evidence should Brian decide? | Source-backed decision brief; recommendation only, not a selected case or GOV authorization. |
 | `docs/decisions/2026-07-12-first-quantitative-text-strand.md` | What first QT task/owner pattern should Brian decide? | Source-backed decision brief; recommendation only, not a construct, owner assignment, or QT authorization. |
 | `docs/plans/current_t0_truthful_fixture_inventory.md` | What did the bounded T0 provenance slice require and prove? | Completed implementation/evidence record; no longer active authority. |
+| `docs/plans/current_demo_method_core.md` | What does the currently authorized DEMO planning slice specify and what blocks implementation? | Active local plan; mockup approval and separate producer authorization required. |
 | `docs/plans/001_walking_skeleton.md` | What was the original first-slice proposal? | Future proposal, not authorized. |
 | `docs/plans/002_engine_stability_and_integration_readiness.md` | What did the June 2026 dependency review find? | Historical evidence, not current state. |
 

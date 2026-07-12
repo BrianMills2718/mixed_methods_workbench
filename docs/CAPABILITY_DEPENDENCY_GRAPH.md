@@ -71,7 +71,7 @@ parallel, but `GOV` blocks observed empirical claims, not the controlled demo.
 | DEMO | Controlled demo packet; workbench | T0 | F | Small synthetic or rights-clear sources, expected method signals, source anchors, and software-only claim limits are fixed. | Software behavior can be demonstrated, not empirical validity. |
 | QC-D | Qualitative coding lane; `qualitative_coding` | DEMO | D | Native export preserves denominator, anchors, codes/categories, claims, memos, review, provenance, and limits. | QC workflow is inspectable on the demo. |
 | PT-D | Process tracing lane; `process_tracing` | DEMO | D | Native export preserves rivals, evidence/absence findings, diagnosticity, sensitivity, verdict language, provenance, and limits. | PT workflow is inspectable on the demo. |
-| GT-D | Grounded theory lane; owner unresolved | DEMO | D | Constant comparison, memos, category development, negative cases, theoretical sampling decisions, and adequacy/saturation argument are traceable. | GT workflow is inspectable on the demo; this is not `grounded-research`. |
+| GT-D | Grounded-theory-inspired lane; `qualitative_coding` | DEMO | D; producer substrate implemented, full-GT gates missing | Constant comparison, memos, category development, negative cases, sampling suggestions/decisions, and adequacy limits are traceable without claiming saturation. | GT-inspired workflow is inspectable on the demo; this is not full GT or `grounded-research`. |
 | CORE-D | Integrated qualitative review; workbench | QC-D, PT-D, GT-D | F | One packet compares method-specific findings without converting them to a generic score and steps down to sources. | The method core is demonstrably useful. |
 | OC-PROJ | Governed assertion projection; OntoCanon + adapter | CORE-D | D, reviewed implementation evidence external to repo | Only selected reviewed findings project to versioned, source-bound assertions; round-trip references preserve native authority. | Shared governed identity/linkage is available. |
 | DIG-RET | Graph/evidence navigation; DIGIMON + adapter | OC-PROJ | D, bounded mainline provider observed externally | Retrieval and graph views cite governed passages and native findings; exact supported commit/contract is pinned. | Optional cross-document navigation is available. |
@@ -89,7 +89,9 @@ parallel, but `GOV` blocks observed empirical claims, not the controlled demo.
 ## Human Decision Gates
 
 - Authorize a named `DEMO` planning/implementation slice before any code.
-- Resolve GT producer ownership and its method profile before `GT-D`.
+- Approve `qualitative_coding` as the GT-I producer and keep the lane
+  `grounded-theory-inspired` until populated theoretical-sampling and D8 expert
+  evidence license a stronger claim.
 - Pin an OntoCanon/DIGIMON contract and released commit before depending on
   those optional branches; do not target an unmerged DIGIMON worktree.
 - Approve theory-library inclusion rules, academic-search sources, and the

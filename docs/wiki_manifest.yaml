@@ -65,6 +65,14 @@ publish:
     type: Plan
     title: Completed T0 Truthful Fixture Inventory
     tags: [portfolio, mixed_methods_workbench, planning, evidence, completed]
+  - path: docs/plans/current_demo_method_core.md
+    type: Plan
+    title: Current DEMO Method-Core Plan
+    tags: [portfolio, mixed_methods_workbench, planning, current, demo]
+  - path: docs/plans/demo_method_core_mockup.md
+    type: Plan
+    title: DEMO Method-Core Review Packet Mockup
+    tags: [portfolio, mixed_methods_workbench, planning, mockup, demo]
   - path: docs/plans/002_engine_stability_and_integration_readiness.md
     type: Plan
     title: Engine Stability And Integration Readiness

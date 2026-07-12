@@ -1,15 +1,15 @@
 updated: "2026-07-12T18:30:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
-status: blocked
+status: active
 current_mode: documentation_only
-blocked_on: named_demo_slice_authorization_and_gt_owner
+blocked_on: demo_mockup_approval_before_implementation
 git_commit: "pending"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md"
-summary: "Canonical plans now use a demo-first QC/PT/GT core, optional OntoCanon/DIGIMON infrastructure, source-backed theory recommendation, full Theory Forge formalize/compile/run seams, later final-corpus governance, then QT and genuine mixed-methods integration. No implementation is active."
-next_action: "If Brian wants implementation planning to begin, authorize a named DEMO slice. Its first unresolved design decision is the grounded-theory producer/profile; final validation corpus selection remains deferred."
+summary: "DEMO planning is active. The requirements, boundaries, domain model, contract stubs, notebook journey, GT-I dependency subplan, and static three-method review mockup are complete. No implementation is active."
+next_action: "Brian reviews docs/plans/demo_method_core_mockup.md and approves it or requests revisions. Approval licenses contract/fixture implementation planning only; producer mutations remain separately authorized."
 
 completed:
   - "Reconciled the roadmap, dependency graph, capability map, checklist, concern register, long-term goal, and handoff under ADR 0004."
@@ -20,13 +20,13 @@ completed:
   - "Preserved T0-PROV evidence: W2 A, fixture shapes C, broader T0/program F."
 
 decisions_required:
-  - id: D-DEMO
+  - id: D-MOCKUP
     priority: critical
-    summary: "Authorize a named controlled demonstration slice before implementation."
-    blocks: [DEMO, QC-D, PT-D, GT-D, CORE-D]
+    summary: "Approve or revise the DEMO method-core review packet mockup."
+    blocks: [DEMO-IMPLEMENTATION, QC-D, PT-D, GT-D, CORE-D]
   - id: D-GT
-    priority: critical
-    summary: "Select the grounded-theory producer/owner and method profile."
+    priority: high
+    summary: "Approve qualitative_coding as the GT-inspired producer; full-GT language remains prohibited pending G3/G4 evidence."
     blocks: [GT-D, CORE-D]
   - id: D-TREC
     priority: high
@@ -38,7 +38,7 @@ decisions_required:
     blocks: [GOV, CORE-V]
 
 warnings:
-  - "No implementation slice or product version is active."
+  - "DEMO planning is active, but no implementation slice or product version is active."
   - "Synthetic/open demo evidence licenses software behavior only, never empirical or method-validity claims."
   - "Do not call QC/PT/GT mixed methods; genuine mixed methods begins with explicit qual-quant integration."
   - "Do not mutate producer repos or build adapters/API/UI without named authorization and a fresh entry gate."

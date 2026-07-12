@@ -48,12 +48,18 @@ not a selected case. Governance is still mandatory before empirical claims.
 fixture shapes are C, legacy scaffold coverage is overall D, and broader T0 and
 program evidence remain F. The planning rewrite does not move those grades.
 
-## Next Authorized Boundary
+## Current DEMO Planning Boundary
 
-Nothing is currently authorized for implementation. If Brian wants to move
-forward, he should authorize a named `DEMO` slice. The first design stop inside
-that slice is grounded-theory ownership/profile. Final corpus, quantitative
-construct, and Theory Forge export authorization remain later decisions.
+Brian's “ok proceed” activated the named `DEMO` planning slice. The current
+requirements, diagrams, contract stubs, failure modes, evidence criteria, and
+GT-I dependency subplan are in `docs/plans/current_demo_method_core.md`. The
+review journey is rendered in `docs/plans/demo_method_core_mockup.md` and
+`notebooks/demo_method_core_plan.ipynb`.
+
+The mockup approval gate now blocks implementation. The evidence-backed owner
+recommendation is `qualitative_coding`, labeled grounded-theory-inspired until
+real theoretical sampling and D8 expert evidence license anything stronger.
+Producer mutation remains separately authorized.
 
 ## Required Reading
 
