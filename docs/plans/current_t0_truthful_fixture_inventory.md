@@ -1,7 +1,7 @@
 # Current Plan: T0-PROV Truthful Fixture Inventory
 
-Status: authorized and ready for implementation after this plan's documentation
-review passes
+Status: authorized; implementation and adversarial remediation complete,
+pending immutable-commit sign-off
 Date: 2026-07-12
 Capability row: `T0` subcriterion `T0-PROV`
 Coverage row: legacy ID `W2-fixture-inventory`
@@ -100,6 +100,11 @@ The manifest also records one observation bound to the same bytes:
 
 ```text
 command
+control_commands
+control_sha256
+control_result = pass
+evidence_deriver_path
+evidence_deriver_sha256
 validator_path
 validator_sha256
 observed_at
@@ -110,14 +115,24 @@ validated_file_hashes[path] = entry.sha256
 This stored assertion cannot license itself. `make coverage` must first execute
 the validator and inventory negative controls, and the coverage program must
 derive W2 from the current manifest, current fixture bytes, current validator
-bytes, and Git history. A stale recorded observation fails.
+bytes, current control and evidence-deriver bytes, and Git history. A stale
+recorded observation fails.
+
+Freshness is licensed by that live re-execution, not by the age of the stored
+timestamp. `observed_at` is historical provenance: it must be timezone-aware,
+must not predate manifest creation, and must not be in the future. There is no
+arbitrary maximum-age threshold because every coverage derivation reruns the
+current validator over current bytes.
 
 ### Inventory boundary
 
-The inventory is exhaustive over every JSON artifact in
+The inventory is exhaustive, at any depth and with case-insensitive `.json`
+extension matching, over every JSON-like artifact in
 `examples/fixtures/workbench_contract_v1/` except `manifest.json` itself. An
 unlisted extra JSON file and a listed missing file both fail. The manifest is
-excluded to avoid self-hash recursion.
+excluded to avoid self-hash recursion. Symlinks are rejected so traversal has
+one unambiguous boundary; malformed JSON and duplicate object keys also fail
+with normalized diagnostics.
 
 ## Acceptance Criteria and Evidence
 
@@ -127,8 +142,8 @@ excluded to avoid self-hash recursion.
 | T0P-2 | Every current JSON artifact except the manifest is listed exactly once; no extra/missing/unlisted artifact passes. | F | A | Real directory scan plus missing-entry and unlisted-extra controls asserting exact diagnostics. |
 | T0P-3 | Every entry truthfully declares synthetic origin, invariant, file-specific claim limits, and C grade. | F | A | Validator plus missing-origin, unsupported-origin, missing-limit, and grade-escalation controls. |
 | T0P-4 | Each current byte sequence is recoverable from its exact last-content Git commit and path. | F | A | Live `git log`/`git show` checks plus wrong-commit and changed-byte controls. |
-| T0P-5 | Validation metadata is bound to the same file and validator hashes and is re-executed before coverage generation. | F | A | Fresh positive run plus stale file-hash and stale-validator-hash controls. |
-| T0P-6 | W2 grade and notes are computed from evidence rather than a fixed grade declaration. | F | A | Evidence-present readout is A; a temporary evidence-removal control derives F with the intended diagnostic. |
+| T0P-5 | Validation metadata is bound to the same file, validator, control, and evidence-deriver hashes and is re-executed before coverage generation. | F | A | Fresh positive run plus stale file, validator, control, and evidence-deriver hash controls. |
+| T0P-6 | W2 grade and notes are computed from evidence rather than a fixed grade declaration. | F | A | Evidence-present readout is A; temporary missing-evidence and malformed-JSON lanes both render a complete report with W2/overall F and the intended diagnostic. |
 | T0P-7 | Promotion remains bounded: fixtures stay C, T0 remains partial, overall report has unresolved D rows, and no producer/SOTA wording appears. | C/F | A for containment | Assertions over generated JSON/Markdown plus adversarial documentation review. |
 
 An A for T0P/W2 is possible because its bounded claim has direct Git source
@@ -160,9 +175,10 @@ capability into these commits.
 |---|---|---|
 | Git recovery fails for unchanged fixture | Wrong commit/path or dirty fixture bytes. | Use `git log -1 -- <path>` and compare `git show` bytes; never substitute current HEAD. |
 | Semantic control fails at provenance first | Test mutation changed bytes without neutralizing the source-only gate. | Explicitly disable repository-provenance verification only in that semantic test helper; retain hash and validation binding and test provenance separately. |
-| Unlisted artifact passes | Directory boundary is based on a fixed required set. | Compare actual `*.json - manifest.json` with the manifest set in both directions. |
+| Unlisted artifact passes | Directory boundary is based on a fixed required set or case-sensitive glob. | Compare every recursively discovered case-variant `.json` artifact except `manifest.json` with the manifest set in both directions. |
 | W2 remains A after evidence removal | Grade is still declarative or stale. | Move the predicate into one evidence-assessment function and have the control call the same function. |
-| Stored `result=pass` is sufficient by itself | Self-attestation is being trusted. | Require fresh validator/control execution as Make prerequisites and derive from current bytes/history. |
+| Coverage aborts on malformed evidence | Parser failures bypass the evidence-grade surface. | Normalize parse failures and assert the complete report renders W2/overall F. |
+| Stored `result=pass` is sufficient by itself | Self-attestation is being trusted. | Bind every evidence program by hash, execute the controls inside live derivation, and derive from current bytes/history. |
 | Existing fixture grade rises above C | Inventory proof is being confused with real-content proof. | Fail loudly and restore `C-synthetic-contract-only`. |
 | Change requires engine semantics or real producer data | Slice crossed into W1/QCX/PTX/TFX. | Stop that change and author a separately authorized plan. |
 
@@ -192,11 +208,14 @@ Expected after implementation:
 The reviewer must try at least:
 
 - unlisted extra JSON;
+- nested case-variant/dotfile JSON, symlinks, malformed JSON, and duplicate keys;
 - duplicate and missing manifest entry;
 - missing and unsupported `origin_kind`;
 - current HEAD substituted for exact last-content commit;
 - a commit/path whose recovered bytes differ;
 - stale validation file hash and stale validator hash;
+- stale control and evidence-deriver hashes;
+- alternate or unknown claim-bearing fields;
 - `result=pass` with a broken fixture;
 - evidence grade changed to A;
 - direct call to coverage after evidence removal;

@@ -5,10 +5,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
+import tempfile
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Literal
 
+from check_fixture_negative_controls import run_negative_controls
 from validate_fixtures import DEFAULT_FIXTURE_DIR, validate_fixture_dir
 
 
@@ -173,11 +176,13 @@ def main() -> None:
         print(_render_markdown(report), end="")
 
 
-def build_report() -> dict[str, Any]:
+def build_report(
+    fixture_dir: Path = DEFAULT_FIXTURE_DIR,
+) -> dict[str, Any]:
     """Build the complete coverage report from static and derived evidence."""
     requirements = [
         *REQUIREMENTS[:4],
-        derive_fixture_inventory_requirement(),
+        derive_fixture_inventory_requirement(fixture_dir),
         *REQUIREMENTS[4:],
     ]
     rows = [asdict(requirement) for requirement in requirements]
@@ -254,8 +259,8 @@ def derive_fixture_inventory_requirement(
     success_criteria = [
         "every current JSON fixture is listed exactly once and no extra artifact is omitted",
         "every fixture records its hash, synthetic origin, exact last-content Git commit, recovery command, invariant, claim limits, and C grade",
-        "the validation observation matches current fixture and validator bytes",
-        "coverage changes to F when required inventory evidence is removed",
+        "the validation observation matches current fixture, validator, control, and evidence-deriver bytes",
+        "coverage remains renderable and changes to F when required inventory evidence is missing or malformed",
     ]
     negative_control = (
         "scripts/check_fixture_negative_controls.py + "
@@ -279,6 +284,9 @@ def derive_fixture_inventory_requirement(
             ),
         )
 
+    verified_control_count = run_negative_controls(emit_diagnostics=False)
+    coverage_control_diagnostic = run_w2_evidence_removal_control()
+    malformed_control_diagnostic = run_w2_malformed_json_control()
     manifest_path = fixture_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     files = manifest["files"]
@@ -292,7 +300,10 @@ def derive_fixture_inventory_requirement(
         evidence_notes=(
             f"Live validation proved {len(files)} exhaustively inventoried synthetic "
             f"fixtures recoverable from {len(distinct_commits)} exact last-content "
-            "Git commits; file and validator hashes match the recorded observation. "
+            "Git commits; all recorded evidence-apparatus hashes match current bytes. "
+            f"All {verified_control_count} hash-bound fixture controls executed. "
+            f"The evidence-removal control reached: {coverage_control_diagnostic}. "
+            f"The malformed-JSON control reached: {malformed_control_diagnostic}. "
             "This A applies only to inventory provenance; fixture contents remain C."
         ),
         required_class_for_closure="test (met for synthetic inventory only)",
@@ -302,6 +313,69 @@ def derive_fixture_inventory_requirement(
             "QCX/PTX/TFX requirements and require separately authorized slices."
         ),
     )
+
+
+def run_w2_evidence_removal_control() -> str:
+    """Remove required evidence and prove the public W2 derivation returns F."""
+    with tempfile.TemporaryDirectory(prefix="mmw-coverage-missing-evidence-") as temp_dir:
+        fixture_dir = Path(temp_dir) / "fixture"
+        shutil.copytree(DEFAULT_FIXTURE_DIR, fixture_dir)
+        manifest_path = fixture_dir / "manifest.json"
+        manifest: object = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if not isinstance(manifest, dict):
+            raise TypeError("Expected object-root fixture manifest")
+        del manifest["validation_observation"]
+        manifest_path.write_text(
+            json.dumps(manifest, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        return _assert_invalid_w2_report(
+            fixture_dir,
+            expected="manifest validation_observation must be an object",
+            control_name="evidence-removal",
+        )
+
+
+def run_w2_malformed_json_control() -> str:
+    """Corrupt manifest syntax and prove the complete report still renders W2 F."""
+    with tempfile.TemporaryDirectory(prefix="mmw-coverage-malformed-json-") as temp_dir:
+        fixture_dir = Path(temp_dir) / "fixture"
+        shutil.copytree(DEFAULT_FIXTURE_DIR, fixture_dir)
+        (fixture_dir / "manifest.json").write_text(
+            '{"schema_version": 2,\n',
+            encoding="utf-8",
+        )
+        return _assert_invalid_w2_report(
+            fixture_dir,
+            expected="invalid JSON in manifest.json",
+            control_name="malformed-JSON",
+        )
+
+
+def _assert_invalid_w2_report(
+    fixture_dir: Path,
+    *,
+    expected: str,
+    control_name: str,
+) -> str:
+    """Require an invalid fixture lane to yield a complete report with W2 F."""
+    report = build_report(fixture_dir)
+    requirement = next(
+        row for row in report["requirements"] if row["id"] == "W2-fixture-inventory"
+    )
+    notes = requirement["evidence_notes"]
+    summary = report["summary"]
+    if (
+        requirement["evidence_grade"] != "F"
+        or expected not in notes
+        or summary["grade_f"] != 1
+        or summary["overall_grade"] != "F"
+    ):
+        raise SystemExit(
+            f"ERROR: W2 {control_name} control did not render the intended F report: "
+            f"grade={requirement['evidence_grade']}; summary={summary}; notes={notes}"
+        )
+    return f"F — {notes}"
 
 
 def _overall_grade(counts: dict[str, int]) -> str:

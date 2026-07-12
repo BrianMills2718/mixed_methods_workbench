@@ -76,12 +76,12 @@
       "success_criteria": [
         "every current JSON fixture is listed exactly once and no extra artifact is omitted",
         "every fixture records its hash, synthetic origin, exact last-content Git commit, recovery command, invariant, claim limits, and C grade",
-        "the validation observation matches current fixture and validator bytes",
-        "coverage changes to F when required inventory evidence is removed"
+        "the validation observation matches current fixture, validator, control, and evidence-deriver bytes",
+        "coverage remains renderable and changes to F when required inventory evidence is missing or malformed"
       ],
       "evidence_class": "test",
       "evidence_grade": "A",
-      "evidence_notes": "Live validation proved 4 exhaustively inventoried synthetic fixtures recoverable from 2 exact last-content Git commits; file and validator hashes match the recorded observation. This A applies only to inventory provenance; fixture contents remain C.",
+      "evidence_notes": "Live validation proved 4 exhaustively inventoried synthetic fixtures recoverable from 2 exact last-content Git commits; all recorded evidence-apparatus hashes match current bytes. All 40 hash-bound fixture controls executed. The evidence-removal control reached: F \u2014 Live inventory evidence failed: ERROR: manifest validation_observation must be an object. The malformed-JSON control reached: F \u2014 Live inventory evidence failed: ERROR: invalid JSON in manifest.json: Expecting property name enclosed in double quotes at line 2 column 1. This A applies only to inventory provenance; fixture contents remain C.",
       "required_class_for_closure": "test (met for synthetic inventory only)",
       "negative_control": "scripts/check_fixture_negative_controls.py + scripts/check_coverage_negative_controls.py",
       "next_step": "Keep the inventory current. Real engine exports remain separate QCX/PTX/TFX requirements and require separately authorized slices."

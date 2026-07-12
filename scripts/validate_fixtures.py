@@ -26,6 +26,59 @@ SUPPORTED_ORIGIN_KIND = "workbench_synthetic"
 AUTHORING_REPOSITORY = "mixed_methods_workbench"
 VALIDATOR_RELATIVE_PATH = Path("scripts/validate_fixtures.py")
 
+MANIFEST_ALLOWED_FIELDS = {
+    "schema_version",
+    "artifact_status",
+    "created",
+    "purpose",
+    "claim_limits",
+    "files",
+    "validation_observation",
+    "replacement_gates",
+}
+MANIFEST_ENTRY_ALLOWED_FIELDS = {
+    "path",
+    "sha256",
+    "evidence_grade",
+    "origin_kind",
+    "authoring_repository",
+    "last_content_commit",
+    "authoring_path",
+    "recovery_command",
+    "creation_method",
+    "intended_invariant",
+    "claim_limits",
+}
+VALIDATION_OBSERVATION_ALLOWED_FIELDS = {
+    "command",
+    "control_commands",
+    "control_sha256",
+    "control_result",
+    "evidence_deriver_path",
+    "evidence_deriver_sha256",
+    "validator_path",
+    "validator_sha256",
+    "observed_at",
+    "result",
+    "validated_file_hashes",
+}
+
+CONTROL_RELATIVE_PATHS = (
+    Path("scripts/check_fixture_negative_controls.py"),
+    Path("scripts/check_coverage_negative_controls.py"),
+)
+EXPECTED_CONTROL_COMMANDS = [
+    "python3 scripts/check_fixture_negative_controls.py",
+    "python3 scripts/check_coverage_negative_controls.py",
+]
+EVIDENCE_DERIVER_RELATIVE_PATH = Path("scripts/check_coverage.py")
+
+EXPECTED_MANIFEST_CREATED = "2026-06-26"
+EXPECTED_MANIFEST_PURPOSE = (
+    "Executable contract target for future engine-produced mixed-methods "
+    "workbench fixtures."
+)
+
 EXPECTED_INVARIANTS = {
     "qc_handoff_stub.json": (
         "Qualitative handoff shape remains synthetic and excludes "
@@ -74,6 +127,13 @@ EXPECTED_MANIFEST_CLAIM_LIMITS = [
     "Not process-tracing evidence.",
     "Not Theory Forge validation evidence.",
     "Not mixed-methods synthesis evidence.",
+]
+
+EXPECTED_REPLACEMENT_GATES = [
+    "Each real engine fixture records producer repo, producer commit, source command, package hash, caveats, and validation result.",
+    "Real QC fixture validates as a strict QC handoff package and contains no process-tracing inference fields.",
+    "Real PT fixture validates as pt_export_v1 and does not require parsing internal result.json.",
+    "Real Theory Forge fixture validates as TheoryOperationalizationArtifact and does not require AC runtime.",
 ]
 
 FORBIDDEN_GENERIC_FIELDS = {
@@ -130,6 +190,7 @@ def validate_fixture_dir(
     always uses the default and verifies the exact last-content commit.
     """
     manifest = _read_json(fixture_dir / MANIFEST_NAME)
+    _require_only_fields(manifest, MANIFEST_ALLOWED_FIELDS, "manifest")
     _require(
         manifest.get("schema_version") == MANIFEST_SCHEMA_VERSION,
         f"manifest schema_version must be {MANIFEST_SCHEMA_VERSION}",
@@ -139,8 +200,20 @@ def validate_fixture_dir(
         "manifest artifact_status must mark fixtures as synthetic_contract_fixture",
     )
     _require(
+        manifest.get("created") == EXPECTED_MANIFEST_CREATED,
+        f"manifest created must be {EXPECTED_MANIFEST_CREATED}",
+    )
+    _require(
+        manifest.get("purpose") == EXPECTED_MANIFEST_PURPOSE,
+        "manifest purpose must match the reviewed synthetic contract purpose",
+    )
+    _require(
         manifest.get("claim_limits") == EXPECTED_MANIFEST_CLAIM_LIMITS,
         "manifest claim_limits must match the reviewed synthetic-only exclusions",
+    )
+    _require(
+        manifest.get("replacement_gates") == EXPECTED_REPLACEMENT_GATES,
+        "manifest replacement_gates must match the reviewed real-export boundaries",
     )
 
     files = manifest.get("files")
@@ -153,10 +226,21 @@ def validate_fixture_dir(
     )
     _require(not duplicate_paths, f"manifest has duplicate file entries: {duplicate_paths}")
 
+    symlink_paths = sorted(
+        path.relative_to(fixture_dir).as_posix()
+        for path in fixture_dir.rglob("*")
+        if path.is_symlink()
+    )
+    _require(
+        not symlink_paths,
+        f"fixture directory contains unsupported symlinks: {symlink_paths}",
+    )
     actual_paths = {
         path.relative_to(fixture_dir).as_posix()
-        for path in fixture_dir.rglob("*.json")
-        if path != fixture_dir / MANIFEST_NAME
+        for path in fixture_dir.rglob("*")
+        if path.is_file()
+        and path.name.casefold().endswith(".json")
+        and path != fixture_dir / MANIFEST_NAME
     }
     listed_path_set = set(listed_paths)
     missing_required = sorted(REQUIRED_FILES - actual_paths)
@@ -201,6 +285,7 @@ def _manifest_entry_path(entry: object) -> str:
     """Return one safe manifest path before inventory set comparison."""
     if not isinstance(entry, dict):
         raise SystemExit("ERROR: manifest file entries must be objects")
+    _require_only_fields(entry, MANIFEST_ENTRY_ALLOWED_FIELDS, "manifest file entry")
     relative_path = entry.get("path")
     _require(
         isinstance(relative_path, str) and bool(relative_path),
@@ -359,14 +444,18 @@ def _validate_validation_observation(
     )
     if not isinstance(observation, dict):
         raise AssertionError("observation was narrowed above")
+    _require_only_fields(
+        observation,
+        VALIDATION_OBSERVATION_ALLOWED_FIELDS,
+        "validation_observation",
+    )
     _require(
         observation.get("command") == "python3 scripts/validate_fixtures.py",
         "validation_observation command mismatch",
     )
     _require(
-        observation.get("negative_control_command")
-        == "python3 scripts/check_fixture_negative_controls.py",
-        "validation_observation negative_control_command mismatch",
+        observation.get("control_commands") == EXPECTED_CONTROL_COMMANDS,
+        "validation_observation control_commands mismatch",
     )
     _require(
         observation.get("validator_path") == VALIDATOR_RELATIVE_PATH.as_posix(),
@@ -384,6 +473,30 @@ def _validate_validation_observation(
     _require(
         validator_hash == expected_validator_hash,
         f"validation_observation validator hash mismatch: {validator_hash}",
+    )
+    expected_control_hashes = {
+        path.as_posix(): hashlib.sha256((REPO_ROOT / path).read_bytes()).hexdigest()
+        for path in CONTROL_RELATIVE_PATHS
+    }
+    _require(
+        observation.get("control_sha256") == expected_control_hashes,
+        "validation_observation control hashes do not match current control scripts",
+    )
+    _require(
+        observation.get("control_result") == "pass",
+        "validation_observation control_result must be pass",
+    )
+    _require(
+        observation.get("evidence_deriver_path")
+        == EVIDENCE_DERIVER_RELATIVE_PATH.as_posix(),
+        "validation_observation evidence_deriver_path mismatch",
+    )
+    expected_deriver_hash = hashlib.sha256(
+        (REPO_ROOT / EVIDENCE_DERIVER_RELATIVE_PATH).read_bytes()
+    ).hexdigest()
+    _require(
+        observation.get("evidence_deriver_sha256") == expected_deriver_hash,
+        "validation_observation evidence deriver hash does not match current code",
     )
     _require(
         observation.get("validated_file_hashes") == entry_hashes,
@@ -410,6 +523,13 @@ def _validate_validation_observation(
     _require(
         parsed_observed_at <= datetime.now(timezone.utc),
         "validation_observation observed_at must not be in the future",
+    )
+    manifest_created_at = datetime.fromisoformat(
+        f"{EXPECTED_MANIFEST_CREATED}T00:00:00+00:00"
+    )
+    _require(
+        parsed_observed_at >= manifest_created_at,
+        "validation_observation observed_at must not predate manifest creation",
     )
 
 
@@ -444,6 +564,19 @@ def _run_git_bytes(*args: str) -> bytes:
         stderr=subprocess.PIPE,
     )
     return result.stdout
+
+
+def _require_only_fields(
+    payload: dict[str, Any],
+    allowed_fields: set[str],
+    context: str,
+) -> None:
+    """Reject undeclared fields so alternate claim surfaces cannot bypass review."""
+    unknown_fields = sorted(set(payload) - allowed_fields)
+    _require(
+        not unknown_fields,
+        f"{context} contains unknown fields: {unknown_fields}",
+    )
 
 
 def _validate_synthesis(payload: dict[str, Any]) -> None:
@@ -548,12 +681,35 @@ def _assert_no_forbidden_fields(value: Any, path: str, forbidden_fields: set[str
 
 
 def _read_json(path: Path) -> dict[str, Any]:
+    """Read one object-root JSON file with stable fail-loud diagnostics."""
     _require(path.is_file(), f"missing JSON file: {path}")
-    with path.open("r", encoding="utf-8") as handle:
-        payload: object = json.load(handle)
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            payload: object = json.load(
+                handle,
+                object_pairs_hook=_reject_duplicate_json_keys,
+            )
+    except json.JSONDecodeError as error:
+        raise SystemExit(
+            f"ERROR: invalid JSON in {path.name}: {error.msg} "
+            f"at line {error.lineno} column {error.colno}"
+        ) from error
+    except UnicodeDecodeError as error:
+        raise SystemExit(
+            f"ERROR: invalid UTF-8 JSON in {path.name}: byte {error.start}"
+        ) from error
     if not isinstance(payload, dict):
         raise SystemExit(f"ERROR: JSON root must be an object: {path}")
     return cast(dict[str, Any], payload)
+
+
+def _reject_duplicate_json_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Build one JSON object while rejecting ambiguous duplicate keys."""
+    payload: dict[str, Any] = {}
+    for key, value in pairs:
+        _require(key not in payload, f"duplicate JSON key: {key}")
+        payload[key] = value
+    return payload
 
 
 def _require(condition: bool, message: str) -> None:

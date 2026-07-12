@@ -18,8 +18,8 @@ from validate_fixtures import DEFAULT_FIXTURE_DIR, REPO_ROOT, validate_fixture_d
 Mutation = Callable[[Path], None]
 
 
-def main() -> None:
-    """Confirm known-invalid fixture mutations fail validation."""
+def run_negative_controls(*, emit_diagnostics: bool = True) -> int:
+    """Run every fixture control and return the executed control count."""
     controls: list[tuple[str, Mutation, str, bool]] = [
         (
             "forbidden_generic_confidence",
@@ -65,6 +65,18 @@ def main() -> None:
             False,
         ),
         (
+            "uppercase_nested_unlisted_json_artifact",
+            _add_uppercase_nested_unlisted_json_artifact,
+            "manifest has unlisted JSON fixture files: ['two/levels/rogue.JSON']",
+            False,
+        ),
+        (
+            "dotfile_json_artifact",
+            _add_dotfile_json_artifact,
+            "manifest has unlisted JSON fixture files: ['.JSON']",
+            False,
+        ),
+        (
             "missing_manifest_entry",
             _remove_manifest_entry,
             "manifest has unlisted JSON fixture files: ['qc_handoff_stub.json']",
@@ -80,6 +92,24 @@ def main() -> None:
             "duplicate_manifest_entry",
             _duplicate_manifest_entry,
             "manifest has duplicate file entries: ['qc_handoff_stub.json']",
+            False,
+        ),
+        (
+            "duplicate_json_key",
+            _add_duplicate_json_key,
+            "duplicate JSON key: purpose",
+            False,
+        ),
+        (
+            "malformed_manifest_json",
+            _malform_manifest_json,
+            "invalid JSON in manifest.json",
+            False,
+        ),
+        (
+            "fixture_directory_symlink",
+            _add_fixture_directory_symlink,
+            "fixture directory contains unsupported symlinks: ['linked']",
             False,
         ),
         (
@@ -113,6 +143,12 @@ def main() -> None:
             False,
         ),
         (
+            "second_entry_generic_claim_limits",
+            _replace_second_entry_limits_with_generic_exclusions,
+            "pt_export_stub.json claim_limits must match its reviewed file-specific exclusions",
+            False,
+        ),
+        (
             "contradictory_claim_limits",
             _replace_limits_with_contradiction,
             "claim_limits must match its reviewed file-specific exclusions",
@@ -134,6 +170,30 @@ def main() -> None:
             "manifest_claim_escalation",
             _escalate_manifest_claims,
             "manifest claim_limits must match the reviewed synthetic-only exclusions",
+            False,
+        ),
+        (
+            "manifest_purpose_escalation",
+            _escalate_manifest_purpose,
+            "manifest purpose must match the reviewed synthetic contract purpose",
+            False,
+        ),
+        (
+            "manifest_replacement_gate_escalation",
+            _escalate_replacement_gate,
+            "manifest replacement_gates must match the reviewed real-export boundaries",
+            False,
+        ),
+        (
+            "entry_unknown_readiness_claim",
+            _add_entry_readiness_claim,
+            "manifest file entry contains unknown fields: ['readiness_claim']",
+            False,
+        ),
+        (
+            "manifest_unknown_readiness_claim",
+            _add_manifest_readiness_claim,
+            "manifest contains unknown fields: ['readiness_claim']",
             False,
         ),
         (
@@ -161,6 +221,24 @@ def main() -> None:
             False,
         ),
         (
+            "stale_control_hash",
+            _stale_control_hash,
+            "validation_observation control hashes do not match current control scripts",
+            False,
+        ),
+        (
+            "missing_control_result",
+            _remove_control_result,
+            "validation_observation control_result must be pass",
+            False,
+        ),
+        (
+            "stale_evidence_deriver_hash",
+            _stale_evidence_deriver_hash,
+            "validation_observation evidence deriver hash does not match current code",
+            False,
+        ),
+        (
             "missing_validation_observation",
             _remove_validation_observation,
             "manifest validation_observation must be an object",
@@ -172,6 +250,12 @@ def main() -> None:
             "validation_observation observed_at must not be in the future",
             False,
         ),
+        (
+            "predates_manifest_validation_observation",
+            _set_predates_manifest_validation_observation,
+            "validation_observation observed_at must not predate manifest creation",
+            False,
+        ),
     ]
     for name, mutate, expected_error, verify_repository_provenance in controls:
         diagnostic = _run_control(
@@ -180,9 +264,17 @@ def main() -> None:
             expected_error,
             verify_repository_provenance=verify_repository_provenance,
         )
-        print(f"PASS {name}: {diagnostic}")
+        if emit_diagnostics:
+            print(f"PASS {name}: {diagnostic}")
 
-    print(f"Fixture negative controls passed ({len(controls)} controls).")
+    if emit_diagnostics:
+        print(f"Fixture negative controls passed ({len(controls)} controls).")
+    return len(controls)
+
+
+def main() -> None:
+    """Confirm known-invalid fixture mutations fail validation."""
+    run_negative_controls()
 
 
 def _run_control(
@@ -256,6 +348,18 @@ def _add_nested_unlisted_json_artifact(fixture_dir: Path) -> None:
     _write_json(nested_dir / "unlisted.json", {"synthetic": True})
 
 
+def _add_uppercase_nested_unlisted_json_artifact(fixture_dir: Path) -> None:
+    """Add a deeply nested case-variant JSON artifact outside the inventory."""
+    nested_dir = fixture_dir / "two" / "levels"
+    nested_dir.mkdir(parents=True)
+    _write_json(nested_dir / "rogue.JSON", {"synthetic": True})
+
+
+def _add_dotfile_json_artifact(fixture_dir: Path) -> None:
+    """Add a case-variant JSON dotfile whose suffix API returns empty."""
+    _write_json(fixture_dir / ".JSON", {"synthetic": True})
+
+
 def _remove_manifest_entry(fixture_dir: Path) -> None:
     """Remove one real artifact entry while leaving its file in place."""
     path = fixture_dir / "manifest.json"
@@ -282,6 +386,30 @@ def _duplicate_manifest_entry(fixture_dir: Path) -> None:
     payload = _read_json(path)
     payload["files"].append(dict(payload["files"][0]))
     _write_json(path, payload)
+
+
+def _add_duplicate_json_key(fixture_dir: Path) -> None:
+    """Create an ambiguous manifest with two purpose keys."""
+    path = fixture_dir / "manifest.json"
+    text = path.read_text(encoding="utf-8")
+    duplicate = '  "purpose": "This proves SOTA readiness.",\n'
+    path.write_text(
+        text.replace('  "purpose":', duplicate + '  "purpose":', 1),
+        encoding="utf-8",
+    )
+
+
+def _malform_manifest_json(fixture_dir: Path) -> None:
+    """Break JSON syntax so parse failures follow the public error contract."""
+    path = fixture_dir / "manifest.json"
+    path.write_text('{"schema_version": 2,\n', encoding="utf-8")
+
+
+def _add_fixture_directory_symlink(fixture_dir: Path) -> None:
+    """Add a symlink so inventory traversal semantics cannot be ambiguous."""
+    target = fixture_dir / "symlink-target"
+    target.mkdir()
+    (fixture_dir / "linked").symlink_to(target, target_is_directory=True)
 
 
 def _remove_origin_kind(fixture_dir: Path) -> None:
@@ -317,6 +445,18 @@ def _replace_limits_with_generic_exclusions(fixture_dir: Path) -> None:
     """Replace reviewed file-specific limits with generic valid-looking prose."""
     _mutate_first_entry(
         fixture_dir,
+        lambda entry: entry.__setitem__(
+            "claim_limits",
+            ["Synthetic fixture only.", "Not real evidence."],
+        ),
+    )
+
+
+def _replace_second_entry_limits_with_generic_exclusions(fixture_dir: Path) -> None:
+    """Apply the generic-limit held-out to a non-first manifest entry."""
+    _mutate_entry(
+        fixture_dir,
+        "pt_export_stub.json",
         lambda entry: entry.__setitem__(
             "claim_limits",
             ["Synthetic fixture only.", "Not real evidence."],
@@ -364,6 +504,43 @@ def _escalate_manifest_claims(fixture_dir: Path) -> None:
     _write_json(path, payload)
 
 
+def _escalate_manifest_purpose(fixture_dir: Path) -> None:
+    """Replace the reviewed purpose with a product-readiness claim."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["purpose"] = (
+        "This proves mixed-methods engine readiness and SOTA quality."
+    )
+    _write_json(path, payload)
+
+
+def _escalate_replacement_gate(fixture_dir: Path) -> None:
+    """Replace a future boundary with an unsupported current-ready assertion."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["replacement_gates"][0] = "All producers are ready now."
+    _write_json(path, payload)
+
+
+def _add_entry_readiness_claim(fixture_dir: Path) -> None:
+    """Add an undeclared claim surface to one file entry."""
+    _mutate_first_entry(
+        fixture_dir,
+        lambda entry: entry.__setitem__(
+            "readiness_claim",
+            "This is a real process-tracing export.",
+        ),
+    )
+
+
+def _add_manifest_readiness_claim(fixture_dir: Path) -> None:
+    """Add an undeclared claim surface to the manifest envelope."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["readiness_claim"] = "This workbench is SOTA."
+    _write_json(path, payload)
+
+
 def _replace_content_commit_with_head(fixture_dir: Path) -> None:
     """Substitute arbitrary current HEAD for the exact content commit."""
     head = subprocess.run(
@@ -407,6 +584,33 @@ def _stale_validator_hash(fixture_dir: Path) -> None:
     _write_json(path, payload)
 
 
+def _stale_control_hash(fixture_dir: Path) -> None:
+    """Make the observation refer to different negative-control code."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    first_control = sorted(
+        payload["validation_observation"]["control_sha256"]
+    )[0]
+    payload["validation_observation"]["control_sha256"][first_control] = "0" * 64
+    _write_json(path, payload)
+
+
+def _remove_control_result(fixture_dir: Path) -> None:
+    """Remove the recorded result for the hash-bound control programs."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    del payload["validation_observation"]["control_result"]
+    _write_json(path, payload)
+
+
+def _stale_evidence_deriver_hash(fixture_dir: Path) -> None:
+    """Make the observation refer to different coverage-derivation code."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["validation_observation"]["evidence_deriver_sha256"] = "0" * 64
+    _write_json(path, payload)
+
+
 def _remove_validation_observation(fixture_dir: Path) -> None:
     """Remove the byte-bound validation observation entirely."""
     path = fixture_dir / "manifest.json"
@@ -423,15 +627,36 @@ def _set_future_validation_observation(fixture_dir: Path) -> None:
     _write_json(path, payload)
 
 
+def _set_predates_manifest_validation_observation(fixture_dir: Path) -> None:
+    """Set a valid timestamp that predates the manifest itself."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["validation_observation"]["observed_at"] = "2000-01-01T00:00:00+00:00"
+    _write_json(path, payload)
+
+
 def _mutate_first_entry(
     fixture_dir: Path,
     mutate: Callable[[dict[str, Any]], object],
 ) -> None:
     """Apply one manifest-only mutation to the first fixture entry."""
+    _mutate_entry(fixture_dir, "qc_handoff_stub.json", mutate)
+
+
+def _mutate_entry(
+    fixture_dir: Path,
+    fixture_name: str,
+    mutate: Callable[[dict[str, Any]], object],
+) -> None:
+    """Apply one manifest-only mutation to a named fixture entry."""
     path = fixture_dir / "manifest.json"
     payload = _read_json(path)
-    mutate(payload["files"][0])
-    _write_json(path, payload)
+    for entry in payload["files"]:
+        if entry["path"] == fixture_name:
+            mutate(entry)
+            _write_json(path, payload)
+            return
+    raise KeyError(f"Manifest does not inventory fixture: {fixture_name}")
 
 
 def _add_theory_as_evidence(fixture_dir: Path) -> None:

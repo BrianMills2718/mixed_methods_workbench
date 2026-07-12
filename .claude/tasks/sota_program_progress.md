@@ -27,10 +27,10 @@ Bring the workbench to independently verified state-of-the-art-or-beyond capabil
 
 ## Current Phase
 
-Phase 1: the investigation, long-term goal map, SOTA scorecard, authority
-reconciliation, ADR 0003, and current `T0-PROV` plan are drafted. Verify and
-commit this documentation increment before implementing the manifest/coverage
-slice.
+Phase 2: `T0-PROV` implementation and three rounds of adversarial remediation
+are complete. The final read-only code/evidence review is PASS. Freeze the
+current patch in an immutable commit, then obtain a fresh independent decision
+sign-off before closing only W2/T0-PROV.
 
 ## Completed
 
@@ -56,17 +56,32 @@ slice.
   and wrote an acceptance-graded current implementation plan.
 - Ran a fresh independent adversarial plan audit and dispositioned its seven
   findings in the canonical docs/plan.
+- Verified, committed, and pushed the planning/research authority increment as
+  `52be50e`, followed by four thin T0-PROV implementation commits.
+- Made every synthetic fixture Git-recoverable from its exact last-content
+  commit and bound the observation to current fixture, validator, control, and
+  evidence-deriver bytes.
+- Added 40 fixture controls plus missing-evidence, malformed-JSON,
+  stale-report, and composed-interface controls; W2 derives A only on the valid
+  lane and a complete F report on invalid evidence lanes.
+- Dispositioned independent rejections covering recursive/case-variant
+  inventory, semantic/alternate claims, non-first entries, timestamps,
+  self-healing reports, evidence-apparatus integrity, symlinks, duplicate keys,
+  and malformed input.
+- Recorded the verification-process findings on the pushed project-meta branch
+  `verification-gap-mmw-t0-prov-20260712` at `240b2831` without touching its
+  dirty shared checkout.
 
 ## Next
 
-1. Verify document links/YAML, run `make check`, reproduce baseline coverage,
-   and commit/push the documentation increment.
-2. Implement `T0-PROV` in thin commits: manifest truth, fail-loud validation,
-   discriminating controls, then evidence-derived W2 coverage.
-3. Obtain an independent code/evidence audit, disposition findings, regenerate
-   reports, update concerns/progress, and merge/push a clean verified lane.
-4. Continue docs-safe preparation for GOV and the quantitative-text decision;
-   do not mutate producers or begin 0.1 without a new named authorization.
+1. Commit and push the final T0-PROV evidence-apparatus hardening patch.
+2. Obtain a fresh commit-pinned independent sign-off with hostile held-outs.
+3. If signed, record the immutable decision artifact, reconcile status,
+   concerns, scorecard, handoff, and generated coverage, then merge the clean
+   lane. If rejected, repair the newly observed failure class and repeat.
+4. Continue only documentation-safe preparation for GOV and the
+   quantitative-text decision; do not mutate producers or begin 0.1 without a
+   new named authorization.
 
 ## Blockers / Stop Conditions
 

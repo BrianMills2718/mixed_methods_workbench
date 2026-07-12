@@ -82,10 +82,20 @@
   ],
   "validation_observation": {
     "command": "python3 scripts/validate_fixtures.py",
-    "negative_control_command": "python3 scripts/check_fixture_negative_controls.py",
+    "control_commands": [
+      "python3 scripts/check_fixture_negative_controls.py",
+      "python3 scripts/check_coverage_negative_controls.py"
+    ],
+    "control_sha256": {
+      "scripts/check_fixture_negative_controls.py": "b5060c7d7b3263e06eea7569769a77ff6c35fbb7ed8a7f9696540ad7481294d2",
+      "scripts/check_coverage_negative_controls.py": "e01e38a1bfebd720ea11446f59a4e999154f498320f19c67aa09405057ca65c8"
+    },
+    "control_result": "pass",
+    "evidence_deriver_path": "scripts/check_coverage.py",
+    "evidence_deriver_sha256": "a457f93e23a5fbc56552613449298d807cd8cdc9b4fe70057e6695d87fc5fd7a",
     "validator_path": "scripts/validate_fixtures.py",
-    "validator_sha256": "06cd7693854c61aff74820936c4f9f784d8374bb9f4dfc7a6d0ed606491da110",
-    "observed_at": "2026-07-12T13:24:46-07:00",
+    "validator_sha256": "cd51511a543b3c781ece48389591d03b7e0af84bfe20918740a40607fa0ef117",
+    "observed_at": "2026-07-12T14:02:16-07:00",
     "result": "pass",
     "validated_file_hashes": {
       "qc_handoff_stub.json": "e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470",
