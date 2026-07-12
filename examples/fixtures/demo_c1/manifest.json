@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "artifact_status": "synthetic_demo_fixture",
+  "authoring_repository": "mixed_methods_workbench",
+  "files": [
+    {
+      "path": "packet.json",
+      "sha256": "19d5aca42e2c8351768e56cb73a9fec882b33e5e4a629956a70c332dc60bd9c4",
+      "origin_kind": "workbench_synthetic",
+      "evidence_grade": "C-synthetic-contract-only",
+      "intended_invariant": "One stable synthetic source universe binds all three method lanes.",
+      "claim_limits": ["Not a real corpus.", "Not empirical evidence."]
+    },
+    {
+      "path": "qc.json",
+      "sha256": "c56beb855baf27b8097d1621de05e393e8ef2c197271bd5aad6ff9072d12ebee",
+      "origin_kind": "workbench_synthetic",
+      "evidence_grade": "C-synthetic-contract-only",
+      "intended_invariant": "QC interpretations remain anchored and contain no PT inference fields.",
+      "claim_limits": ["Not a qualitative_coding export.", "Not qualitative evidence."]
+    },
+    {
+      "path": "pt.json",
+      "sha256": "bf04a580292acf3a313567d076c55f22836428b7c5ebd915f9b6a3419fed530f",
+      "origin_kind": "workbench_synthetic",
+      "evidence_grade": "C-synthetic-contract-only",
+      "intended_invariant": "PT preserves rival comparative support without probability-of-truth language.",
+      "claim_limits": ["Not a process_tracing export.", "Not process-tracing evidence."]
+    },
+    {
+      "path": "gt_inspired.json",
+      "sha256": "c31bbde9254f6cc1916eeb4bc01dd1d825b5e9f6ca4b3382749a2bc00e72bb51",
+      "origin_kind": "workbench_synthetic",
+      "evidence_grade": "C-synthetic-contract-only",
+      "intended_invariant": "GT-inspired development remains traceable without full-GT or saturation claims.",
+      "claim_limits": ["Not a qualitative_coding export.", "Not full grounded theory."]
+    },
+    {
+      "path": "links.json",
+      "sha256": "e993ee010032339a881c6a1ffe87a187da20f1a6943d942dace3aee030f6f735",
+      "origin_kind": "workbench_synthetic",
+      "evidence_grade": "C-synthetic-contract-only",
+      "intended_invariant": "Cross-method links remain neutral references rather than evidentiary aggregation.",
+      "claim_limits": ["Not mixed-methods integration.", "No generic confidence score."]
+    }
+  ],
+  "validation_commands": [
+    "make validate-demo-fixtures",
+    "make validate-demo-controls"
+  ],
+  "claim_limits": [
+    "Synthetic demonstration only.",
+    "Not empirical evidence.",
+    "Not methodological-validity evidence.",
+    "Not mixed-methods evidence."
+  ]
+}

@@ -1,7 +1,7 @@
 # DEMO-C1 Coverage Baseline
 
 Generated: 2026-07-12  
-Status: visibility only; no DEMO-C1 gates are enforced
+Status: historical pre-implementation visibility baseline
 
 ## Grade Distribution
 
@@ -43,3 +43,6 @@ order stated by `docs/plans/demo_c1_local_contract_fixture_implementation.md`.
 Promotion must follow D → C/fixture → schema-validated/B where applicable →
 A/test; no grade moves merely because the mockup was approved.
 
+`DEMO-C1` was subsequently authorized and completed. The current generated
+state is in `docs/coverage_report.md`; these eight rows are now A/test for
+synthetic contract behavior only.

@@ -56,12 +56,13 @@ GT-I dependency subplan are in `docs/plans/current_demo_method_core.md`. The
 review journey is rendered in `docs/plans/demo_method_core_mockup.md` and
 `notebooks/demo_method_core_plan.ipynb`.
 
-Brian approved the mockup on 2026-07-12. The exact next slice is
-`DEMO-C1`, specified in
-`docs/plans/demo_c1_local_contract_fixture_implementation.md`. Its pre-gate
-coverage report is `docs/demo_c1_coverage_baseline.md`: 8 D/doc rows, no
-enforced gates. `DEMO-C1` still needs explicit named implementation
-authorization. Producer mutation remains separately authorized.
+Brian authorized and DEMO-C1 completed on 2026-07-12. The local workbench now
+has strict producer-shaped and permissive consumer Pydantic contracts, a
+three-document Harbor fixture, separate QC/PT/GT-I lanes, neutral links, typed
+review assembly, exact manifest hashes, CLI/Make surfaces, and 9 positive plus
+17 negative controls. The eight DEMO-C1 rows are A/test for synthetic contract
+behavior only; fixture content remains C and producer/method evidence did not
+move. Producer mutation remains separately authorized.
 
 ## Required Reading
 

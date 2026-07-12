@@ -145,6 +145,97 @@ REQUIREMENTS: list[Requirement] = [
     ),
 ]
 
+DEMO_REQUIREMENTS: list[Requirement] = [
+    Requirement(
+        id="DEMO-C1-packet",
+        name="Controlled demo packet identity and source step-down",
+        success_criteria=["exact hashes, offsets, packet bindings, and claim limits validate"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Pydantic source contracts plus positive and hash/offset/binding controls run in make check.",
+        required_class_for_closure="test (met for synthetic contract behavior only)",
+        negative_control="tests/test_demo_negative_controls.py::test_wrong_segment_hash_reaches_hash_invariant",
+        next_step="Replace the synthetic packet only after a separately governed validation corpus is selected.",
+    ),
+    Requirement(
+        id="DEMO-C1-qc",
+        name="Method-distinct qualitative coding contract",
+        success_criteria=["QC retains denominator, anchors, contrary evidence, and no PT inference fields"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Strict QC shape and compatible consumer pass positive, leakage, anchor, and version controls.",
+        required_class_for_closure="test (met for synthetic contract behavior only)",
+        negative_control="tests/test_demo_negative_controls.py::test_qc_rejects_process_tracing_comparative_support",
+        next_step="Obtain a producer-owned strict QC export in a separately authorized slice.",
+    ),
+    Requirement(
+        id="DEMO-C1-pt",
+        name="Method-distinct process-tracing contract",
+        success_criteria=["PT retains rivals, residual, evidence, comparative support, sensitivity, and caveats"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Strict PT shape passes residual, truth-probability, source-step-down, and binding controls.",
+        required_class_for_closure="test (met for synthetic contract behavior only)",
+        negative_control="tests/test_demo_negative_controls.py::test_pt_requires_exactly_one_residual",
+        next_step="Obtain producer-owned pt_export_v1 in a separately authorized slice.",
+    ),
+    Requirement(
+        id="DEMO-C1-gt-inspired",
+        name="Method-distinct grounded-theory-inspired contract",
+        success_criteria=["GT-I retains comparison, category, memo, adequacy, sampling, and method limits"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Strict GT-I shape passes comparison-step-down and no-full-GT/no-saturation controls.",
+        required_class_for_closure="test (met for GT-inspired synthetic contract behavior only)",
+        negative_control="tests/test_demo_negative_controls.py::test_gt_rejects_saturated_field",
+        next_step="Authorize a producer inventory/export slice; do not promote to full GT without G3/G4 evidence.",
+    ),
+    Requirement(
+        id="DEMO-C1-links",
+        name="Neutral cross-method links",
+        success_criteria=["links use approved neutral kinds and resolve to native objects"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Four approved link kinds assemble; evidentiary-support and unknown-target controls fail.",
+        required_class_for_closure="test (met for synthetic contract behavior only)",
+        negative_control="tests/test_demo_negative_controls.py::test_link_rejects_evidentiary_support_relationship",
+        next_step="Evaluate link usefulness with researchers before expanding relationship vocabulary.",
+    ),
+    Requirement(
+        id="DEMO-C1-review",
+        name="Three-lane core review packet",
+        success_criteria=["one packet preserves three lanes, links, step-down, and synthetic-only limits"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Typed assembly produces the approved journey without generic confidence or lane flattening.",
+        required_class_for_closure="test (met for synthetic contract behavior only)",
+        negative_control="tests/test_demo_negative_controls.py::test_foreign_packet_binding_reaches_binding_invariant",
+        next_step="Add a review UI/API only in a separately authorized slice.",
+    ),
+    Requirement(
+        id="DEMO-C1-agent-interface",
+        name="Agent-drivable DEMO validation and assembly",
+        success_criteria=["CLI and Make targets return JSON or invariant-specific nonzero failures"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="make validate-demo-fixtures, validate-demo-controls, assemble-demo-review, and strict mypy run in make check.",
+        required_class_for_closure="test (met for local synthetic operation only)",
+        negative_control="tests/test_demo_negative_controls.py",
+        next_step="Preserve JSON/API parity if an interactive review surface is later authorized.",
+    ),
+    Requirement(
+        id="DEMO-C1-provenance",
+        name="Exhaustive DEMO fixture provenance inventory",
+        success_criteria=["manifest lists every payload once with exact hashes, origin, grade, invariant, and limits"],
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes="Manifest validation and stale-hash/unlisted-payload controls run in make check.",
+        required_class_for_closure="test (met for synthetic inventory only)",
+        negative_control="tests/test_demo_negative_controls.py::test_manifest_stale_hash_reaches_named_file_invariant",
+        next_step="Record producer commits and generation commands when real exports replace synthetic shapes.",
+    ),
+]
+
 
 def main() -> None:
     """Generate JSON or Markdown coverage output."""
@@ -184,6 +275,7 @@ def build_report(
         *REQUIREMENTS[:4],
         derive_fixture_inventory_requirement(fixture_dir),
         *REQUIREMENTS[4:],
+        *DEMO_REQUIREMENTS,
     ]
     rows = [asdict(requirement) for requirement in requirements]
     counts = {grade: 0 for grade in ["A", "B", "C", "D", "F"]}
@@ -199,7 +291,7 @@ def build_report(
             "grade_d": counts["D"],
             "grade_f": counts["F"],
             "overall_grade": _overall_grade(counts),
-            "notes": "Current coverage proves a synthetic contract seam, not real engine readiness.",
+            "notes": "DEMO-C1 has tested synthetic contract behavior; real engine readiness and method validity remain unproved.",
         },
         "requirements": rows,
     }

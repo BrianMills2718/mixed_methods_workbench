@@ -6,9 +6,9 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
 `docs/PLANNING_STATUS.md` before planning. The current mode is
-documentation-only; no implementation slice is active. `T0-PROV` was completed
-and independently signed off for W2 inventory provenance only, and did not
-close T0/0.0. Do not begin implementation merely because a roadmap or future
+documentation-only; no implementation slice is active. `T0-PROV` and local
+`DEMO-C1` are completed bounded slices and do not close producer readiness or
+method validity. Do not begin implementation merely because a roadmap or future
 slice exists, and do not move code from an engine into this repo unless Brian
 explicitly authorizes a named implementation slice.
 
@@ -39,6 +39,9 @@ explicitly authorizes a named implementation slice.
 - Producers own strict export schemas. Workbench adapters own permissive,
   compatible consumers. Fail on unsupported major versions.
 - Synthetic fixtures license at most C-grade shape claims.
+- DEMO-C1 synthetic contract behavior may be A/test while its payload content
+  remains C; its package is under `src/mixed_methods_workbench/`, fixtures under
+  `examples/fixtures/demo_c1/`, and tests under `tests/`.
 
 ## Commands
 
@@ -48,6 +51,9 @@ Current scaffold checks:
 make help
 make check
 make coverage
+make validate-demo-fixtures
+make validate-demo-controls
+make assemble-demo-review
 ```
 
 `make check` is not an engine-readiness or methodological-validity gate.

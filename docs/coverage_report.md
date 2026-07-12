@@ -8,10 +8,10 @@ This report grades current evidence for readiness requirements. It does not clai
 
 | Grade | Count | Percent |
 |---|---:|---:|
-| A | 1 | 12% |
+| A | 9 | 56% |
 | B | 0 | 0% |
-| C | 2 | 25% |
-| D | 5 | 62% |
+| C | 2 | 12% |
+| D | 5 | 31% |
 | F | 0 | 0% |
 
 Overall grade: **D**
@@ -28,6 +28,14 @@ Overall grade: **D**
 | W3-real-synthesis-payload | Fixture-backed workbench synthesis payload | C | fixture | Synthetic synthesis payload validates structurally; it is not generated from real engine artifacts. | schema_validated |
 | W4-static-review-shell | Static review shell over real fixture payload | D | doc | Planned in Plan 001, but no static review shell exists. | fixture |
 | MM1-synthesis-quality | Mixed-methods synthesis quality gates | D | doc | Exploratory surface; no reviewed real payload exists yet. | observed |
+| DEMO-C1-packet | Controlled demo packet identity and source step-down | A | test | Pydantic source contracts plus positive and hash/offset/binding controls run in make check. | test (met for synthetic contract behavior only) |
+| DEMO-C1-qc | Method-distinct qualitative coding contract | A | test | Strict QC shape and compatible consumer pass positive, leakage, anchor, and version controls. | test (met for synthetic contract behavior only) |
+| DEMO-C1-pt | Method-distinct process-tracing contract | A | test | Strict PT shape passes residual, truth-probability, source-step-down, and binding controls. | test (met for synthetic contract behavior only) |
+| DEMO-C1-gt-inspired | Method-distinct grounded-theory-inspired contract | A | test | Strict GT-I shape passes comparison-step-down and no-full-GT/no-saturation controls. | test (met for GT-inspired synthetic contract behavior only) |
+| DEMO-C1-links | Neutral cross-method links | A | test | Four approved link kinds assemble; evidentiary-support and unknown-target controls fail. | test (met for synthetic contract behavior only) |
+| DEMO-C1-review | Three-lane core review packet | A | test | Typed assembly produces the approved journey without generic confidence or lane flattening. | test (met for synthetic contract behavior only) |
+| DEMO-C1-agent-interface | Agent-drivable DEMO validation and assembly | A | test | make validate-demo-fixtures, validate-demo-controls, assemble-demo-review, and strict mypy run in make check. | test (met for local synthetic operation only) |
+| DEMO-C1-provenance | Exhaustive DEMO fixture provenance inventory | A | test | Manifest validation and stale-hash/unlisted-payload controls run in make check. | test (met for synthetic inventory only) |
 
 ## Rows Needing Review
 

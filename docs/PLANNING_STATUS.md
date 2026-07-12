@@ -3,7 +3,7 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-07-12
 
-## Current Phase: Active DEMO Planning; No Active Implementation Slice
+## Current Phase: DEMO-C1 Complete; No Active Implementation Slice
 
 The current task is to clarify and reconcile the project's strategy,
 methodological scope, architecture, dependencies, version order, decisions, and
@@ -14,15 +14,13 @@ slice is active. No engine integration, adapter, API, UI, schema migration, or
 upstream-engine task is authorized by these documents alone. The completed
 `T0-PROV` evidence does not authorize another T0 item.
 
-Brian's 2026-07-12 “ok proceed,” given directly after the handoff named a
-`DEMO` slice as the next action, activates `DEMO` planning in
-`docs/plans/current_demo_method_core.md`. It authorizes local requirements,
-boundary/domain/contract planning, a notebook, and a static cross-seam mockup.
-Brian approved that mockup on 2026-07-12. The approval closes the design-review
-gate and licenses the `DEMO-C1` implementation plan; it does not itself
-authorize implementation. The next exact boundary is documented in
-`docs/plans/demo_c1_local_contract_fixture_implementation.md`. Producer
-repositories remain separately authorized.
+Brian's 2026-07-12 “proceed,” given directly after the exact `DEMO-C1`
+authorization request, authorized the local fixture implementation documented
+in `docs/plans/demo_c1_local_contract_fixture_implementation.md`. It is
+complete: typed synthetic QC/PT/GT-I contracts, assembly, CLI/Make surfaces,
+fixture provenance, and both-sign controls are present. Producer repositories,
+live runs, API/UI, final-corpus selection, and later capabilities remain
+separately authorized.
 
 ## Completed Authorization: T0-PROV
 
@@ -119,7 +117,7 @@ order. It is not a current task list.
 | `docs/decisions/2026-07-12-first-quantitative-text-strand.md` | What first QT task/owner pattern should Brian decide? | Source-backed decision brief; recommendation only, not a construct, owner assignment, or QT authorization. |
 | `docs/plans/current_t0_truthful_fixture_inventory.md` | What did the bounded T0 provenance slice require and prove? | Completed implementation/evidence record; no longer active authority. |
 | `docs/plans/current_demo_method_core.md` | What did the authorized DEMO planning slice specify and what blocks implementation? | Approved local journey; `DEMO-C1` and producer work remain separately authorized. |
-| `docs/plans/demo_c1_local_contract_fixture_implementation.md` | What exact local typed-contract/fixture slice is ready next? | Ready for named authorization; not active. |
+| `docs/plans/demo_c1_local_contract_fixture_implementation.md` | What did the local typed-contract/fixture slice implement and prove? | Completed DEMO-C1 record; synthetic contract claims only. |
 | `docs/demo_c1_coverage_baseline.md` | What DEMO-C1 requirements have evidence before enforcement? | Visibility baseline: 8 D/doc, no enforced gates. |
 | `docs/plans/001_walking_skeleton.md` | What was the original first-slice proposal? | Future proposal, not authorized. |
 | `docs/plans/002_engine_stability_and_integration_readiness.md` | What did the June 2026 dependency review find? | Historical evidence, not current state. |

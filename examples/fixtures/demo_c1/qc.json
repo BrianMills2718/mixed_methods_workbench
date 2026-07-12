@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "artifact_status": "synthetic_demo_fixture",
+  "packet_id": "harbor-demo-v1",
+  "producer": "mixed_methods_workbench synthetic QC shape",
+  "method": "qualitative_coding",
+  "corpus_segment_ids": ["seg-memo-01", "seg-log-01", "seg-interview-01"],
+  "claims": [
+    {
+      "claim_id": "qc-claim-07",
+      "text": "Staff frame relocation as defensive adaptation while formal records also invoke safety and budget pressure.",
+      "supporting_segment_ids": ["seg-interview-01", "seg-memo-01"],
+      "contrary_segment_ids": ["seg-log-01"],
+      "review_status": "needs_human_review"
+    }
+  ],
+  "patterns": [
+    {
+      "pattern_id": "qc-pattern-02",
+      "summary": "The packet contains competing fiscal, safety, and adaptation frames.",
+      "segment_ids": ["seg-memo-01", "seg-log-01", "seg-interview-01"],
+      "interpretation": "descriptive_only"
+    }
+  ],
+  "memo_ids": ["qc-memo-01"],
+  "claim_limits": [
+    "Synthetic QC shape only.",
+    "No process-tracing comparative support.",
+    "Qualitative interpretation is not causal proof."
+  ]
+}

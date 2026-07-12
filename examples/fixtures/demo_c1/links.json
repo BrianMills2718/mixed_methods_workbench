@@ -1,0 +1,30 @@
+[
+  {
+    "link_id": "link-01",
+    "source": {"method": "qualitative_coding", "object_id": "qc-claim-07"},
+    "relationship": "addresses",
+    "target": {"method": "process_tracing", "object_id": "pt-h1"},
+    "reviewer_meaning": "The participant framing suggests an explanation to test but does not support it automatically."
+  },
+  {
+    "link_id": "link-02",
+    "source": {"method": "process_tracing", "object_id": "pt-ev-04"},
+    "relationship": "challenges",
+    "target": {"method": "qualitative_coding", "object_id": "qc-claim-07"},
+    "reviewer_meaning": "The timing qualifies a causal reading without invalidating the observed framing."
+  },
+  {
+    "link_id": "link-03",
+    "source": {"method": "grounded_theory_inspired", "object_id": "gt-cat-03"},
+    "relationship": "contextualizes",
+    "target": {"method": "process_tracing", "object_id": "pt-h2"},
+    "reviewer_meaning": "The provisional category suggests a relationship for further comparison, not causal evidence."
+  },
+  {
+    "link_id": "link-04",
+    "source": {"method": "grounded_theory_inspired", "object_id": "gt-memo-05"},
+    "relationship": "unresolved",
+    "target": {"method": "qualitative_coding", "object_id": "qc-pattern-02"},
+    "reviewer_meaning": "The relationship remains unresolved until another synthetic source is added."
+  }
+]

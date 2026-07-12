@@ -1,6 +1,6 @@
 # DEMO-C1: Local Typed Contract and Fixture Implementation
 
-Status: ready for authorization; not active  
+Status: completed locally; producer integration not authorized
 Parent: `docs/plans/current_demo_method_core.md`  
 Mockup: approved by Brian on 2026-07-12  
 Target capability: `DEMO`, preparing but not closing `QC-D`, `PT-D`, `GT-D`,
@@ -121,7 +121,7 @@ nonzero exit.
 
 ## Verification
 
-Planned commands after authorization:
+Verification commands:
 
 ```bash
 make demo-coverage
@@ -134,10 +134,20 @@ mypy --strict src tests
 git diff --check
 ```
 
+Observed 2026-07-12:
+
+- 9 positive controls and 17 invariant-specific negative controls passed;
+- strict mypy and Ruff passed;
+- CLI/Make validation and JSON assembly passed;
+- `make check` passed with the prior 41 fixture controls, 3 coverage controls,
+  and the DEMO-C1 controls;
+- coverage contains 8 A/test DEMO-C1 rows, limited to synthetic contract
+  behavior; overall coverage remains D because real producer/review rows remain
+  weak.
+
 ## Stop Conditions
 
 - Brian has not explicitly authorized `DEMO-C1` implementation.
 - A required change touches `qualitative_coding` or `process_tracing`.
 - A proposed schema would assert fields not evidenced by the producer review.
 - The approved mockup must materially change rather than merely be implemented.
-

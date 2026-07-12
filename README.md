@@ -20,13 +20,10 @@ Start here:
 13. `docs/coverage_report.md`
 14. `docs/CONCERNS.md`
 
-The current phase is documentation and planning; no implementation slice,
-engine integration, or product version is active. `T0-PROV` is completed and
-independently signed off for W2 inventory provenance only. It did not close or
-activate version 0.0. The roadmap describes a possible future sequence:
-version 0.0 would establish a trustworthy engineering baseline, version 0.1
-would be the first real QC/PT review slice, and version 0.4 would be the first
-genuine qualitative-quantitative mixed-methods release.
+No implementation slice, engine integration, or product version is currently
+active. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1
+proves typed synthetic contract behavior for separate QC, PT, and grounded-
+theory-inspired lanes; it does not prove producer readiness or method validity.
 
 Current scaffold documentation/fixture check:
 
@@ -34,10 +31,19 @@ Current scaffold documentation/fixture check:
 make check
 ```
 
-This validates C-grade synthetic contract shapes plus the A-grade bounded
-fixture-inventory controls. Current executable coverage is 1 A, 0 B, 2 C, 5 D,
-and 0 F; overall D. It does not validate live engine readiness, typed producer
-schemas, research quality, or mixed-methods integration.
+This validates the legacy fixture controls plus the DEMO-C1 typed fixtures,
+assembly, strict type checks, and both-sign controls. It does not validate live
+engine readiness, real producer schemas, research quality, or mixed-methods
+integration.
+
+Agent-drivable DEMO commands:
+
+```bash
+make validate-demo-fixtures
+make validate-demo-controls
+make assemble-demo-review
+make test-demo
+```
 
 To refresh the readiness evidence grades:
 

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "artifact_status": "synthetic_demo_fixture",
+  "packet_id": "harbor-demo-v1",
+  "producer": "mixed_methods_workbench synthetic PT shape",
+  "method": "process_tracing",
+  "hypotheses": [
+    {"hypothesis_id": "pt-h1", "label": "Resource pressure accelerated adoption", "is_residual": false},
+    {"hypothesis_id": "pt-h2", "label": "A pre-existing safety program drove adoption", "is_residual": false},
+    {"hypothesis_id": "pt-h3", "label": "Residual or other explanation", "is_residual": true}
+  ],
+  "evidence": [
+    {
+      "evidence_id": "pt-ev-04",
+      "description": "The dated safety recommendation precedes the recorded budget shock.",
+      "segment_ids": ["seg-log-01", "seg-memo-01"],
+      "hypothesis_ids": ["pt-h1", "pt-h2", "pt-h3"]
+    }
+  ],
+  "comparative_support": {
+    "ranked_hypothesis_ids": ["pt-h2", "pt-h1", "pt-h3"],
+    "sensitivity": "high",
+    "verdict": "Within this synthetic packet, the safety explanation has stronger comparative support; missing procurement records limit the result."
+  },
+  "source_gaps": ["Fictional procurement records are absent."],
+  "claim_limits": [
+    "Synthetic PT shape only.",
+    "Comparative support is not probability of truth.",
+    "No population causal effect is estimated."
+  ]
+}

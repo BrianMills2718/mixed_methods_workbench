@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "artifact_status": "synthetic_demo_fixture",
+  "packet_id": "harbor-demo-v1",
+  "producer": "mixed_methods_workbench synthetic GT-inspired shape",
+  "method": "grounded_theory_inspired",
+  "categories": [
+    {
+      "category_id": "gt-cat-03",
+      "label": "Organizational threat translation",
+      "properties": ["source of threat", "internal translator", "urgency", "action type"],
+      "dimensions": ["fiscal to physical", "anticipatory to reactive"],
+      "supporting_segment_ids": ["seg-interview-01", "seg-memo-01", "seg-log-01"],
+      "comparison_trace": [
+        {"iteration": 1, "segment_id": "seg-interview-01", "action": "created", "note": "Defensive adaptation suggested a threat-response category."},
+        {"iteration": 2, "segment_id": "seg-memo-01", "action": "revised", "note": "Fiscal pressure added a threat-source dimension."},
+        {"iteration": 3, "segment_id": "seg-log-01", "action": "narrowed", "note": "Earlier safety timing separated translation from simple reaction."}
+      ],
+      "adequacy_status": "developing",
+      "adequacy_gaps": ["Only one passage currently represents the anticipatory safety dimension."]
+    }
+  ],
+  "memos": [
+    {
+      "memo_id": "gt-memo-05",
+      "text": "Safety and budget language may translate a broader sense of organizational vulnerability.",
+      "category_ids": ["gt-cat-03"],
+      "segment_ids": ["seg-memo-01", "seg-log-01", "seg-interview-01"]
+    }
+  ],
+  "next_sampling_suggestions": [
+    "Seek fictional board minutes that predate both the budget shock and relocation instruction."
+  ],
+  "methodological_limits": [
+    "Not full grounded theory.",
+    "Category adequacy diagnostics are not saturation proof."
+  ],
+  "claim_limits": [
+    "Synthetic GT-inspired shape only.",
+    "No theoretical sampling was executed.",
+    "No substantive theory is validated."
+  ]
+}
