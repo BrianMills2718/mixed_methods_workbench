@@ -3,19 +3,18 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-07-12
 
-## Current Phase: Documentation First, with One T0 Subslice Authorized
+## Current Phase: Documentation-Only; No Active Implementation Slice
 
 The current task is to clarify and reconcile the project's strategy,
 methodological scope, architecture, dependencies, version order, decisions, and
 open questions so future implementation can begin from a coherent plan.
 
-No product implementation phase or numbered release is active. No engine
-integration, adapter, API, UI, schema migration, or upstream-engine task is
-authorized by these documents alone. One local evidence-baseline subslice is
-currently authorized: `T0-PROV`, corresponding to coverage row
-`W2-fixture-inventory`.
+No product implementation phase, numbered release, or local implementation
+slice is active. No engine integration, adapter, API, UI, schema migration, or
+upstream-engine task is authorized by these documents alone. The completed
+`T0-PROV` evidence does not authorize another T0 item.
 
-## Active Authorization: T0-PROV
+## Completed Authorization: T0-PROV
 
 The user supplied the prior handoff, including the exact next action:
 
@@ -33,10 +32,15 @@ subslice after investigation and planning. The canonical authorization record,
 scope, evidence target, and failure modes are in
 `docs/plans/current_t0_truthful_fixture_inventory.md`.
 
-This exception does **not** close or authorize all of T0/0.0. It does not permit
-producer-repository changes, real exports, production schemas, adapters, UI,
-APIs, evaluation machinery, a 0.1 case, or a SOTA claim. Every later slice still
-requires separate named authorization.
+The bounded slice was independently signed off at evaluated commit
+`f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a`; the decision record is
+`docs/runs/2026-07-12-t0-prov-eval-signoff.md`. W2 inventory provenance is
+A/test, while fixture contents remain C and broader T0 remains partial/F.
+
+This completed exception does **not** close or authorize all of T0/0.0. It does
+not permit producer-repository changes, real exports, production schemas,
+adapters, UI, APIs, evaluation machinery, a 0.1 case, or a SOTA claim. Every
+later slice still requires separate named authorization.
 
 Current work may:
 
@@ -47,8 +51,6 @@ Current work may:
   decisions;
 - make the documentation legible to a future implementing agent and to a
   non-coding reviewer.
-- implement and verify only the current `T0-PROV` fixture-inventory subslice in
-  this repository.
 
 Current work must not:
 
@@ -61,7 +63,7 @@ Current work must not:
 - interpret a roadmap sequence, acceptance criterion, or “future next step” as
   authorization to execute it.
 
-Implementation beyond `T0-PROV` begins only after Brian explicitly authorizes a
+Any further implementation begins only after Brian explicitly authorizes a
 named slice or asks to move that slice from planning into implementation. At
 that point, the first action is a fresh state review: confirm upstream status,
 revisit open decisions, turn the selected future slice into a current
@@ -94,7 +96,7 @@ order. It is not a current task list.
 | `docs/coverage_report.md` | What does the existing synthetic scaffold actually prove? | Evidence baseline only. |
 | `docs/SOTA_EVIDENCE_SCORECARD.md` | What external floors and proof would license bounded SOTA claims? | Current visibility artifact, not an enforcement gate. |
 | `plan/goals/2026-07-12-sota-or-beyond.md` | What long-term outcomes, dependencies, and completion conditions govern the program? | Active long-term goal map; it does not authorize later rows. |
-| `docs/plans/current_t0_truthful_fixture_inventory.md` | What exact local T0 subslice is authorized now? | Current implementation authority for `T0-PROV` only. |
+| `docs/plans/current_t0_truthful_fixture_inventory.md` | What did the bounded T0 provenance slice require and prove? | Completed implementation/evidence record; no longer active authority. |
 | `docs/plans/001_walking_skeleton.md` | What was the original first-slice proposal? | Future proposal, not authorized. |
 | `docs/plans/002_engine_stability_and_integration_readiness.md` | What did the June 2026 dependency review find? | Historical evidence, not current state. |
 
@@ -139,4 +141,4 @@ Planning readiness does not mean implementation readiness.
 >
 > Status: current-phase clarification requested by Brian on 2026-07-09,
 > extended with claim-licensing controls on 2026-07-10, and updated with the
-> exact `T0-PROV` authorization boundary on 2026-07-12.
+> exact `T0-PROV` authorization boundary and independent closure on 2026-07-12.

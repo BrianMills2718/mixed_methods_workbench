@@ -1,7 +1,7 @@
 # Goal: A Validated SOTA-or-Beyond Mixed Methods Workbench
 
 Created: 2026-07-12
-Status: active long-term program; only `T0-PROV` is currently authorized for implementation
+Status: active long-term program; no implementation slice is currently authorized
 Owner: `mixed_methods_workbench` for integration; producer owners retain their own invariants
 
 ## North Star
@@ -52,13 +52,14 @@ No average score can close these goals. Every applicable floor must pass.
 - explicit separation of QC, PT, theory, quantitative effects, and
   mixed-methods meta-inference;
 - executable synthetic fixtures with targeted negative controls;
-- an honest overall F coverage baseline;
+- independently signed W2 inventory provenance with evidence-derived coverage;
+- an honest overall F program scorecard alongside bounded scaffold coverage;
 - producer implementations that can seed future exports;
 - a current external and incumbent landscape review.
 
 ### Needed
 
-- evidence-derived coverage and truthful synthetic/real provenance;
+- remaining typed-contract, readiness-manifest, and real-export T0 evidence;
 - study/source governance and a licensed first public case;
 - strict producer-owned QC and PT exports and compatible consumers;
 - one real multi-method qualitative reviewer packet;
@@ -141,7 +142,7 @@ Each work package is a thin end-to-end claim increment, not a component dump.
 
 | WP | Thin slice | Entry | Exit/readout | Authority now |
 |---|---|---|---|---|
-| WP0 | Truthful synthetic provenance and evidence-derived inventory | Current scaffold | W2 changes when evidence changes; exact negative control fires; fixture grades stay ≤C; T0 remains partial | Authorized as `T0-PROV` |
+| WP0 | Truthful synthetic provenance and evidence-derived inventory | Current scaffold | W2 changes when evidence changes; exact negative control fires; fixture grades stay ≤C; T0 remains partial | Completed and independently signed off as `T0-PROV` |
 | WP1 | Govern one public source packet | WP0 | Protocol, source IDs/hashes, license/sensitivity/access, selection/gaps, and claim limits pass review | Planning only |
 | WP2 | Strict QC and PT exports | WP1 plus separate producer authorization | Producer schemas, real fixtures, commands, hashes, compatibility and loss tests | Not authorized |
 | WP3 | One real QC/PT reviewer packet | WP2 | Question -> source -> QC claim -> PT rival/support -> caveat is inspectable; method-boundary controls pass | Not authorized |
@@ -209,7 +210,7 @@ The long-term goal is complete only when the transcript and repository show:
 ## `/goal` Invocation
 
 ```text
-/goal Bring mixed_methods_workbench to an independently validated SOTA-or-beyond state across its declared text-centered mixed-methods release scope. Preserve method boundaries: QC discovers/anchors patterns; PT compares rival within-case explanations; theory guides but is not evidence; mixed methods requires explicit qual-quant integration and bounded meta-inference. Work dependency-first in thin, versioned slices. Before each slice, refresh repo/producers/claims, record its named authorization, acceptance evidence and failure modes, update docs/concerns, and stop only for an irreversible shared-state action or a genuine undecided architectural choice. Use producer-owned strict Pydantic exports and permissive compatible workbench consumers; never parse engine internals. Advance evidence honestly doc->fixture->schema_validated->test->observed; synthetic evidence is at most C. Publish coverage and known-positive/known-negative controls before enforcement. Treat analytic quality as method/task/domain specific; instrument exploratory surfaces rather than invent universal thresholds. Every released result must preserve source/governance/run/reviewer provenance and claim limits, support clean replay, and have typed human/agent operation parity. Before any benchmark decision or SOTA claim, freeze an immutable mandatory scope, strongest relevant incumbents plus human/simple baselines, primary dimensions, margins, power/noise rationale, multiplicity controls, and sealed-case custodian; prohibit post-result scope shrinkage; use held-out evidence/raw traces and independent sign-off with rejection authority. Continue safe authorized work autonomously, commit and push every verified increment, and keep the program tracker current. Done only when: all declared V10 capabilities have owners/contracts/current evidence/limits; real observed qualitative, PT, quantitative-text, and explicit qual-quant paths exist; a third party clean-room reproduces the release; API/UI/CLI/agent parity is tested; an independent fresh comparison shows non-inferiority on every claimed dimension and a meaningful predeclared gain on at least one; one adaptive next-source/case/analysis experiment beats a non-adaptive baseline within fixed governance and method-fidelity floors; unsupported or expired areas are explicit; and all changes are reviewed, verified, committed, pushed, and clean. Current authorization is only T0-PROV truthful synthetic provenance plus evidence-derived W2 inventory in mixed_methods_workbench; it does not close T0, and producer repos/later slices remain read-only until separately named.
+/goal Bring mixed_methods_workbench to an independently validated SOTA-or-beyond state across its declared text-centered mixed-methods release scope. Preserve method boundaries: QC discovers/anchors patterns; PT compares rival within-case explanations; theory guides but is not evidence; mixed methods requires explicit qual-quant integration and bounded meta-inference. Work dependency-first in thin, versioned slices. Before each slice, refresh repo/producers/claims, record its named authorization, acceptance evidence and failure modes, update docs/concerns, and stop only for an irreversible shared-state action or a genuine undecided architectural choice. Use producer-owned strict Pydantic exports and permissive compatible workbench consumers; never parse engine internals. Advance evidence honestly doc->fixture->schema_validated->test->observed; synthetic evidence is at most C. Publish coverage and known-positive/known-negative controls before enforcement. Treat analytic quality as method/task/domain specific; instrument exploratory surfaces rather than invent universal thresholds. Every released result must preserve source/governance/run/reviewer provenance and claim limits, support clean replay, and have typed human/agent operation parity. Before any benchmark decision or SOTA claim, freeze an immutable mandatory scope, strongest relevant incumbents plus human/simple baselines, primary dimensions, margins, power/noise rationale, multiplicity controls, and sealed-case custodian; prohibit post-result scope shrinkage; use held-out evidence/raw traces and independent sign-off with rejection authority. Continue safe authorized work autonomously, commit and push every verified increment, and keep the program tracker current. Done only when: all declared V10 capabilities have owners/contracts/current evidence/limits; real observed qualitative, PT, quantitative-text, and explicit qual-quant paths exist; a third party clean-room reproduces the release; API/UI/CLI/agent parity is tested; an independent fresh comparison shows non-inferiority on every claimed dimension and a meaningful predeclared gain on at least one; one adaptive next-source/case/analysis experiment beats a non-adaptive baseline within fixed governance and method-fidelity floors; unsupported or expired areas are explicit; and all changes are reviewed, verified, committed, pushed, and clean. T0-PROV/W2 is completed and signed off; it did not close T0, no implementation slice is currently authorized, and producer repos/later slices remain read-only until separately named.
 ```
 
 ## Currency

@@ -54,12 +54,13 @@ agents, and researchers.
 
 ## Current Status
 
-Planning scaffold with an initial synthetic verification surface. The baseline
-before `T0-PROV` is 0 A, 0 B, 2 C, 5 D, and 1 F. It does not claim live engine
-integration or research outputs. The default phase is documentation; only the
-local `T0-PROV` provenance-inventory subcriterion is authorized, and no product
-version or engine integration is active. See `docs/PLANNING_STATUS.md` for the
-exact boundary.
+Planning scaffold with an initial synthetic verification surface. Current
+executable coverage is 1 A, 0 B, 2 C, 5 D, and 0 F; overall D. The A applies
+only to independently signed W2 inventory provenance at
+`docs/runs/2026-07-12-t0-prov-eval-signoff.md`; fixture contents remain C and
+broader T0/program evidence remains F. No product version, engine integration,
+or implementation slice is active. See `docs/PLANNING_STATUS.md` for the exact
+boundary.
 
 ## Canonical Docs
 
@@ -79,8 +80,8 @@ exact boundary.
   and ownership gaps.
 - `docs/plans/003_integration_versioning_and_clean_state.md` - detailed future
   implementation blueprint for versions 0.0 and 0.1; not a current task list.
-- `docs/plans/current_t0_truthful_fixture_inventory.md` - current authority and
-  executable plan for the `T0-PROV` subslice only.
+- `docs/plans/current_t0_truthful_fixture_inventory.md` - completed bounded
+  plan and evidence record for the `T0-PROV` subslice only.
 - `docs/ARCHITECTURE.md` - initial QC/PT architecture artifact, subordinate to
   the current planning status and roadmap where they differ.
 - `docs/adr/0001_method_engines_not_monorepo.md` - decision to compose method

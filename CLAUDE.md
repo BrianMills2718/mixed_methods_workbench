@@ -5,10 +5,10 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/PLANNING_STATUS.md` before planning. The default current mode is
-documentation-only. The only active exception is local `T0-PROV`, defined by
-`docs/plans/current_t0_truthful_fixture_inventory.md`; it does not activate all
-of T0/0.0. Do not begin other implementation merely because a roadmap or future
+`docs/PLANNING_STATUS.md` before planning. The current mode is
+documentation-only; no implementation slice is active. `T0-PROV` was completed
+and independently signed off for W2 inventory provenance only, and did not
+close T0/0.0. Do not begin implementation merely because a roadmap or future
 slice exists, and do not move code from an engine into this repo unless Brian
 explicitly authorizes a named implementation slice.
 
@@ -21,9 +21,9 @@ explicitly authorizes a named implementation slice.
   `theory-forge`, and a future quantitative-text adapter as producers with their
   own invariants and claim discipline.
 - Do not claim this workbench is implemented until a vertical slice exists.
-- No implementation version is currently active. Only the `T0-PROV`
-  provenance-inventory subcriterion is authorized. Plans 001 and 003 describe
-  future work and do not authorize it.
+- No implementation version or slice is currently active. Completed
+  `T0-PROV` evidence does not authorize another T0 item. Plans 001 and 003
+  describe future work and do not authorize it.
 - Every cross-repo seam must use Pydantic-style typed contracts; no raw `dict`
   or ad hoc JSON at durable boundaries.
 - Preserve method distinctions:

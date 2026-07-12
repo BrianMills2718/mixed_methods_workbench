@@ -27,10 +27,10 @@ Bring the workbench to independently verified state-of-the-art-or-beyond capabil
 
 ## Current Phase
 
-Phase 2: `T0-PROV` implementation and three rounds of adversarial remediation
-are complete. The final read-only code/evidence review is PASS. Freeze the
-current patch in an immutable commit, then obtain a fresh independent decision
-sign-off before closing only W2/T0-PROV.
+Phase 3: `T0-PROV` / WP0 is completed and independently signed off at commit
+`f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a`. Reconcile the documentation-only
+authority surfaces, verify and merge the clean lane, then stop at the genuine
+GOV/case, quantitative-text, and producer-authorization decisions.
 
 ## Completed
 
@@ -57,7 +57,7 @@ sign-off before closing only W2/T0-PROV.
 - Ran a fresh independent adversarial plan audit and dispositioned its seven
   findings in the canonical docs/plan.
 - Verified, committed, and pushed the planning/research authority increment as
-  `52be50e`, followed by four thin T0-PROV implementation commits.
+  `52be50e`, followed by six thin T0-PROV implementation commits.
 - Made every synthetic fixture Git-recoverable from its exact last-content
   commit and bound the observation to current fixture, validator, control, and
   evidence-deriver bytes.
@@ -69,22 +69,23 @@ sign-off before closing only W2/T0-PROV.
   self-healing reports, evidence-apparatus integrity, interior and root
   symlinks, duplicate keys, and malformed input.
 - Recorded the verification-process findings on the pushed project-meta branch
-  `verification-gap-mmw-t0-prov-20260712` at `240b2831` without touching its
+  `verification-gap-mmw-t0-prov-20260712` at `5baf598e` without touching its
   dirty shared checkout.
+- Obtained fresh independent five-gate sign-off on `f26bc6a` after 41
+  evaluator-owned hostile checks; the immutable decision is recorded in
+  `docs/runs/2026-07-12-t0-prov-eval-signoff.md`.
 
 ## Next
 
-1. Commit and push the final T0-PROV evidence-apparatus hardening patch.
-2. Obtain a fresh commit-pinned independent sign-off with hostile held-outs.
-3. If signed, record the immutable decision artifact, reconcile status,
-   concerns, scorecard, handoff, and generated coverage, then merge the clean
-   lane. If rejected, repair the newly observed failure class and repeat.
-4. Continue only documentation-safe preparation for GOV and the
-   quantitative-text decision; do not mutate producers or begin 0.1 without a
-   new named authorization.
+1. Verify the sign-off/status/handoff closure without changing evaluated
+   evidence bytes; commit and push it.
+2. Fast-forward the verified lane to `main`, push, and leave a clean handoff.
+3. Resume only after Brian selects/authorizes a named next slice. The critical
+   decisions are the first governed case/source license, quantitative-text
+   task/owner, and producer-repository permissions.
 
 ## Blockers / Stop Conditions
 
-- Only `T0-PROV` is authorized. Every other implementation row remains blocked
-  on named authorization.
+- No implementation slice is active. Every further row requires named
+  authorization.
 - The first public case, quantitative-text owner/task, Theory Forge export authority, and Grounded Research role are genuine future architectural decisions unless evidence resolves a safe default.

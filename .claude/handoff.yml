@@ -1,106 +1,71 @@
-updated: "2026-07-12T11:37:04-07:00"
+updated: "2026-07-12T14:35:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
 status: active
-git_commit: "fce654e"
+current_mode: documentation_only
+blocked_on: human_architecture_decision
+git_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 git_branch: main
-summary: "Completed the documentation-only integration investigation and left an explicit dependency-ordered takeover plan."
-next_action: "Run the fresh-state checks in docs/PRE_IMPLEMENTATION_CHECKLIST.md, then close capability T0's provenance-complete fixture-inventory gap without starting engine integration."
+evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
+decision_record: "docs/runs/2026-07-12-t0-prov-eval-signoff.md"
+summary: "Completed and independently signed off T0-PROV/W2 inventory provenance; no implementation slice is active."
+next_action: "Obtain Brian's first public case/source-use decision and named GOV authorization, or another explicitly named slice; remain documentation-only until then."
 
 completed:
-  - "Established documentation-only planning authority and separated future plans from implementation permission (60b72f2)."
-  - "Mapped the broad mixed-methods north star and release ladder (efde0a5)."
-  - "Added the claim-licensing capability dependency graph (ad5de78)."
-  - "Added the future implementation entry checklist and stop conditions (fce654e)."
-  - "Added discriminating synthetic contract controls and corrected evidence grades; current coverage is 0 A, 0 B, 2 C, 5 D, 1 F (bc22b90)."
-  - "Recorded engine-local future plans for QC Plan 242, PT Plan 7, and Theory Forge Plan 108; AC15 is explicitly optional and non-blocking."
+  - "Investigated repository authority, producer readiness, and external/incumbent SOTA evidence."
+  - "Created the active long-term goal, dependency map, risk-ordered work packages, and SOTA evidence scorecard."
+  - "Reconciled governance order and claim-scoped Grounded Research/Theory Forge roles."
+  - "Implemented truthful synthetic provenance, exact Git recovery, exhaustive inventory, evidence-apparatus binding, and evidence-derived coverage."
+  - "Passed 41 fixture controls, 3 coverage controls, composed-interface checks, and a fresh independent five-gate sign-off at f26bc6a."
+  - "Current legacy coverage is 1 A, 0 B, 2 C, 5 D, 0 F; overall D. Fixture shapes remain C and broader T0/program evidence remains F."
 
-uncertainties:
-  - id: U1
+decisions_required:
+  - id: D1
+    priority: critical
+    summary: "Select the first public case and permitted source use."
+    context: "The proposed 18 Brumaire packet is not confirmed. Decide corpus scope, licensing, sensitivity/publication constraints, source hashes, anchor recovery, and claim limits."
+    blocks: [GOV, QC, PT, R01]
+  - id: D2
+    priority: critical
+    summary: "Select the first quantitative-text task and owner."
+    context: "Choose the construct, population/use, held-out protocol, measurement or annotation instrument, baseline, uncertainty/error analysis, and owning adapter/repo."
+    blocks: [QT, MM]
+  - id: D3
     priority: high
-    summary: "The first public case and source-governance terms are not confirmed."
-    context: "The roadmap recommends a public 18 Brumaire packet, but a future implementation agent must confirm licensing, source hashes, anchor recoverability, corpus denominator, and acceptable publication scope."
-    blocking: "GOV, real QC/PT fixtures, and release 0.1."
-  - id: U2
-    priority: high
-    summary: "The canonical qualitative-coding export shape is not selected or proven."
-    context: "Recheck qualitative_coding Plans 239, 241, and 242 plus current worktree/test state. Decide whether the strict QC-to-PT handoff is sufficient or whether a separate workbench-safe export is required."
-    blocking: "QC and release 0.1."
-  - id: U3
-    priority: high
-    summary: "Process Tracing has no proven pt_export_v1 fixture."
-    context: "Recheck process_tracing Plan 7, repo-local make/check runtime, source-marker or quote-offset availability, comparative-support representation, and the disposition of any untracked workbench directory before implementing in that repo."
-    blocking: "PT and release 0.1."
-  - id: U4
-    priority: medium
-    summary: "Theory Forge's canonical export and current health remain unresolved."
-    context: "Before release 0.3, reconcile v14/v15 and roadmap/handoff drift, identify one known-green theory, and derive TheoryOperationalizationArtifact from real schema or manifest fields. Keep theory context distinct from empirical evidence."
-    blocking: "TF and release 0.3; it does not block release 0.1."
-  - id: U5
-    priority: high
-    summary: "No quantitative-text adapter owner or first task has been chosen."
-    context: "Before release 0.4, choose one exploratory-sequential quantitative text task, established libraries, held-out evaluation design, leakage controls, and an owning repo or adapter boundary."
-    blocking: "QT and the first genuine mixed-methods claim."
-  - id: U6
-    priority: medium
-    summary: "Grounded Research's workbench validity and research_v3 ownership are unresolved."
-    context: "Evaluate Grounded Research on workbench contested-claim cases rather than inheriting its internal benchmark claims. Keep research_v3 off the critical path until active-versus-archived ownership is resolved by ADR."
-    blocking: "GR and release 0.2; neither blocks release 0.1."
+    summary: "Authorize producer-owned QC and PT export slices when GOV is ready."
+    context: "QC Plan 242 and PT Plan 7 are plans only. Each producer mutation requires a separate named authorization and fresh entry review."
+    blocks: [QC, PT, R01]
 
 pending:
-  - id: P0
-    priority: high
-    effort: small
-    summary: "Close the truthful-baseline fixture inventory gap."
-    details: "Capability T0 is still overall F because the manifest lacks per-fixture source commands, real producer commits, validation results, complete caveats, and a negative control for that provenance invariant. Work only within mixed_methods_workbench, preserve synthetic-only labels, and do not imply engine readiness."
   - id: P1
     priority: high
-    effort: medium
-    summary: "Prepare and validate one real qualitative-coding export in qualitative_coding."
-    details: "Only after that repo's active claims, memory, plans, worktree, and checks are freshly reviewed. The export must include governed source scope, denominator, anchors, codes/categories, claims, patterns or candidate explanations, review state, provenance, caveats, schema version, producer commit, and negative controls; it must exclude PT inference fields."
+    summary: "Govern one real public source packet after D1 and named authorization."
   - id: P2
     priority: high
-    effort: large
-    summary: "Implement and validate pt_export_v1 in process_tracing."
-    details: "Only in the owning repo and after a fresh readiness check. Fix the repo-local verification surface and dirty/untracked state first; then provide source packet identity, rival hypotheses, evidence and absence findings, comparative support, sensitivity, verdict language, caveats, run metadata, versioning, provenance, fixture, and invariant-specific negative controls."
+    summary: "Create strict producer-owned QC and pt_export_v1 artifacts after GOV and D3."
   - id: P3
     priority: high
-    effort: medium
-    summary: "Import and pin real QC/PT fixtures after producer exports exist."
-    details: "Record source paths and hashes, producer repos/commits, producer validation commands/results, supported schema majors, source governance, caveats, and licensed claims. Replace synthetic synthesis evidence only after both real fixtures validate."
+    summary: "Build one real multi-method qualitative reviewer packet after GOV/QC/PT."
   - id: P4
     priority: high
-    effort: large
-    summary: "Seek explicit authorization and plan the named release 0.1 slice."
-    details: "Do not begin from this handoff alone. After QC, PT, GOV, and T0 pass, Brian must explicitly authorize a named capability row or release slice. Create a current implementation plan using docs/PRE_IMPLEMENTATION_CHECKLIST.md before typed contracts, adapters, reviewer packet, API, or UI work."
+    summary: "Validate the chosen quantitative-text strand after D2."
   - id: P5
-    priority: medium
-    effort: large
-    summary: "Stabilize one real Theory Forge operationalization export for release 0.3."
-    details: "Execute Theory Forge Plan 108 only after an engine-local health investigation. AC15 is not required. A later AC15 pilot may test TheoryOperationalizationArtifact to structured blueprint to generated artifact judged by Theory Forge tests, but it must remain optional and outside workbench runtime."
-  - id: P6
-    priority: medium
-    effort: large
-    summary: "Plan the first quantitative-text strand before release 0.4."
-    details: "Select an owner, task, protocol, held-out set, measurement or annotation instrument, validation metrics, error analysis, uncertainty representation, and item-level links to qualitative constructs. This is required before the product may claim mixed methods."
-  - id: P7
-    priority: low
-    effort: large
-    summary: "Defer later capability ladder work until prerequisite releases are observed."
-    details: "Grounded Research adjudication, additional integration designs, causal/comparative bridges, method profiles, responsible operations, interoperability, and comparative SOTA evaluation remain future dependency rows. Revalidate external SOTA at benchmark-design time."
+    priority: high
+    summary: "Integrate qual and quant explicitly before any mixed-methods claim."
 
 warnings:
-  - "Documentation-only mode is active. This handoff does not authorize implementation in this repo or any producer repo."
-  - "Synthetic fixtures license at most C-grade shape claims and are not engine-readiness evidence."
-  - "Do not call QC plus PT mixed methods; release 0.1 is multi-method qualitative. Release 0.4 is the first planned qualitative-quantitative mixed-methods claim."
-  - "Do not import producer internals, parse process_tracing result.json, or move engine code into this repo; consume versioned artifacts through typed producer/consumer contracts."
+  - "No implementation slice or product version is active."
+  - "T0-PROV/W2 A licenses only synthetic inventory provenance; fixture contents remain C and broader T0 remains F."
+  - "Do not call QC plus PT mixed methods; release 0.1 is multi-method qualitative."
+  - "Do not mutate producer repos, create real fixtures, or build adapters/API/UI without a named authorization and fresh entry gate."
   - "Do not treat generated theory as empirical evidence or AC15 as a workbench prerequisite."
-  - "Do not build adapters, synthesis, API, UI, or a static review shell before real QC/PT fixtures and explicit named-slice authorization."
 
 sanity_checks:
   - cmd: "make check"
-    expect: "Fixture contract validation and six targeted negative controls pass."
+    expect: "Fixture validation, 41 fixture controls, 3 coverage controls, and interface checks pass."
   - cmd: "make coverage"
-    expect: "Coverage remains honest; current baseline is 0 A, 0 B, 2 C, 5 D, 1 F until new evidence is added."
+    expect: "Legacy coverage is 1 A, 0 B, 2 C, 5 D, 0 F; overall D; W2 A is inventory-only."
+  - cmd: "make coverage-json"
+    expect: "One pure JSON document matching docs/coverage_report.json without modifying reports."
   - cmd: "git status --short"
     expect: "No output on a clean handoff checkout."

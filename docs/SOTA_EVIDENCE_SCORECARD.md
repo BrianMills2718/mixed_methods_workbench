@@ -12,8 +12,9 @@ the applicable external floor, the comparison target, and the proof required
 for each declared capability family.
 
 The executable scaffold coverage remains separately reported by
-`make coverage` as 0 A, 0 B, 2 C, 5 D, and 1 F. This broader program scorecard
-does not replace that report and is not yet generated from runtime evidence.
+`make coverage` as 1 A, 0 B, 2 C, 5 D, and 0 F; overall D. This broader program
+scorecard does not replace that report and is not yet generated from runtime
+evidence.
 
 ## Evidence Grades
 
@@ -73,7 +74,7 @@ The benchmark protocol must also:
 
 | ID | Capability family | Current evidence and grade | Contemporary floor / incumbent | Required A-grade evidence | Claim limit now |
 |---|---|---|---|---|---|
-| T0 | Truthful evidence baseline | **F** — useful synthetic controls exist, but inventory provenance is incomplete and coverage rows are declared in code. | Evidence must change when its proof changes; negative controls must reach the intended invariant. | Derived evidence ledger, exact positive/negative controls, source-bound evidence, independent audit. | Scaffold only; no engine readiness. |
+| T0 | Truthful evidence baseline | **F** — W2 inventory provenance is independently signed A, but typed contracts, a readiness manifest, real-export provenance, and other T0 criteria remain incomplete. | Evidence must change when its proof changes; negative controls must reach the intended invariant. | Derived evidence ledger, exact positive/negative controls, source-bound evidence, independent audit. | Scaffold only; no engine readiness. |
 | SCOPE | Frozen claim and benchmark scope | **D** — the broad product scope exists, but no finite benchmark profile or N/A adjudication is frozen. | Scope, exclusions, baselines, dimensions, margins, power, multiplicity, and custodianship must be fixed before results. | Signed preregistration, immutable profile hash, independent N/A approval, sealed-case custody, post-run scope-drift control. | No comparison claim may be designed by subtraction after results. |
 | GOV | Study, source, rights, and community governance | **D** — requirements appear in plans, not a real governed bundle. | FAIR plus appropriate CARE/consent/license/access limits; source selection and gaps must bound claims. | Real source manifest, review decisions, access layers, deliberate invalid cases, observed release review. | No real corpus is approved. |
 | QUAL | Methodologically faithful qualitative analysis | **D** — upstream capability exists; no real workbench export or method-profile evaluation. | Method-specific validity, anchored evidence, memo/decision lineage, negative cases; no universal reliability rule. | Real producer export, method profile, expert-reviewed frozen case, planted anchor/method failures, error analysis. | No workbench qualitative-analysis claim. |
@@ -153,8 +154,7 @@ The full annotated bibliography and evidence limits are in
 
 ## Next Promotion
 
-Only `T0-PROV` / coverage row W2 is presently eligible for promotion. W2 moves
-from F to A only when its truthful provenance and evidence-derived inventory
-pass exact controls. That bounded promotion does not close or automatically
-regrade the broader T0 capability and does not change any producer, method,
-mixed-methods, or SOTA row.
+`T0-PROV` / coverage row W2 is completed and independently signed A/test for
+inventory provenance only. No capability-family promotion is currently active.
+The broader T0 capability remains F, and no producer, method, mixed-methods, or
+SOTA row changed.

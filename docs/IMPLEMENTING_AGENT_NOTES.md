@@ -1,6 +1,6 @@
 # Future Implementing Agent Notes
 
-Status: future integration reference — only local `T0-PROV` is currently authorized
+Status: future integration reference — no implementation slice is active
 
 This file captures high-confidence work and larger repo-local notes from the
 2026-06-26 worktree review. It is intentionally conservative: the workbench is
@@ -13,8 +13,9 @@ For the current documentation-first phase:
 - Keep `docs/plans/001_walking_skeleton.md` marked as a future proposal.
 - Use `docs/PLANNING_STATUS.md` for the current authorization boundary and the
   detailed blueprint only for future sequencing. Plan 002 is historical.
-- Execute only `docs/plans/current_t0_truthful_fixture_inventory.md`; its W2
-  inventory proof does not authorize another T0 item, engine work, or adapters.
+- Treat `docs/plans/current_t0_truthful_fixture_inventory.md` as a completed
+  bounded evidence record; its W2 proof does not authorize another T0 item,
+  engine work, or adapters.
 - If Brian later authorizes another implementation slice, run
   `docs/PRE_IMPLEMENTATION_CHECKLIST.md` before creating code, adapters,
   schemas, APIs, UI, or upstream tasks.

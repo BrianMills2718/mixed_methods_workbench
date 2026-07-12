@@ -20,10 +20,10 @@ Start here:
 13. `docs/coverage_report.md`
 14. `docs/CONCERNS.md`
 
-The default phase is documentation and planning. One local evidence-baseline
-subslice, `T0-PROV`, is authorized; it does not close or activate version 0.0.
-No engine integration or product version is active. The roadmap describes a
-possible future sequence:
+The current phase is documentation and planning; no implementation slice,
+engine integration, or product version is active. `T0-PROV` is completed and
+independently signed off for W2 inventory provenance only. It did not close or
+activate version 0.0. The roadmap describes a possible future sequence:
 version 0.0 would establish a trustworthy engineering baseline, version 0.1
 would be the first real QC/PT review slice, and version 0.4 would be the first
 genuine qualitative-quantitative mixed-methods release.
@@ -34,9 +34,10 @@ Current scaffold documentation/fixture check:
 make check
 ```
 
-This validates only a synthetic contract shape and discriminating controls. It
-does not validate live engine readiness, typed producer schemas, research
-quality, or mixed-methods integration.
+This validates C-grade synthetic contract shapes plus the A-grade bounded
+fixture-inventory controls. Current executable coverage is 1 A, 0 B, 2 C, 5 D,
+and 0 F; overall D. It does not validate live engine readiness, typed producer
+schemas, research quality, or mixed-methods integration.
 
 To refresh the readiness evidence grades:
 

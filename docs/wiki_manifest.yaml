@@ -33,6 +33,14 @@ publish:
     type: EvidenceReport
     title: SOTA Evidence Scorecard
     tags: [portfolio, mixed_methods_workbench, evidence, evaluation, current]
+  - path: docs/coverage_report.md
+    type: EvidenceReport
+    title: Executable Scaffold Coverage
+    tags: [portfolio, mixed_methods_workbench, evidence, coverage, current]
+  - path: docs/runs/2026-07-12-t0-prov-eval-signoff.md
+    type: EvidenceReport
+    title: T0-PROV Independent Evaluation Sign-Off
+    tags: [portfolio, mixed_methods_workbench, evidence, evaluation, completed]
   - path: docs/CONCERNS.md
     type: ConcernRegister
     title: Mixed Methods Workbench Concerns
@@ -47,8 +55,8 @@ publish:
     tags: [portfolio, mixed_methods_workbench, integration, future]
   - path: docs/plans/current_t0_truthful_fixture_inventory.md
     type: Plan
-    title: Current T0 Truthful Fixture Inventory
-    tags: [portfolio, mixed_methods_workbench, planning, evidence, current]
+    title: Completed T0 Truthful Fixture Inventory
+    tags: [portfolio, mixed_methods_workbench, planning, evidence, completed]
   - path: docs/plans/002_engine_stability_and_integration_readiness.md
     type: Plan
     title: Engine Stability And Integration Readiness

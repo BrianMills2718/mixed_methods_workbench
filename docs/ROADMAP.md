@@ -48,7 +48,7 @@ designs, not from adding generic buttons.
 
 | Goal | Researcher-visible outcome | Current evidence | 1.0 condition |
 |---|---|---|---|
-| G1. Trustworthy evidence from text | Every claim traces to governed sources, anchors, transformations, and review decisions. | C/F scaffold evidence | Observed real projects with adversarial provenance failures caught. |
+| G1. Trustworthy evidence from text | Every claim traces to governed sources, anchors, transformations, and review decisions. | W2 A for inventory provenance; synthetic shapes C; broader T0 F | Observed real projects with adversarial provenance failures caught. |
 | G2. Methodologically faithful qualitative analysis | Researchers can use appropriate coding, comparison, memoing, negative-case, and theory-building workflows. | Upstream implementation exists; workbench integration is D | One validated path plus extensible method profiles. |
 | G3. Causal and theoretical reasoning without conflation | Rival explanations, mechanisms, observables, and theory context remain distinguishable from empirical evidence and effects. | PT implemented but export planned; TF export planned | PT and theory artifacts integrated with method-specific inference semantics. |
 | G4. Genuine mixed-methods integration | Qualitative and quantitative strands are connected, built, merged, or embedded into reviewable meta-inferences. | F | One observed design, joint display, contradiction disposition, and integration-quality review. |
@@ -420,11 +420,13 @@ neutral.
 
 ## Future Implementation Entry Point
 
-Brian's 2026-07-12 instruction narrowly authorizes the handoff's named
-`T0-PROV` provenance-inventory subcriterion (coverage row W2) in this
-repository. Passing it does not close T0/0.0. Its current implementation plan
-is `docs/plans/current_t0_truthful_fixture_inventory.md`. The remaining 0.0
-work, producer changes, 0.1 integration, and later rows are not activated.
+Brian's 2026-07-12 instruction narrowly authorized the handoff's named
+`T0-PROV` provenance-inventory subcriterion (coverage row W2). It is completed
+and independently signed off at A/test for inventory provenance only; it did
+not close T0/0.0. Its completed evidence plan is
+`docs/plans/current_t0_truthful_fixture_inventory.md`. No implementation slice
+is active; remaining 0.0 work, producer changes, 0.1 integration, and later
+rows are not activated.
 
 For later authorization, the detailed starting blueprint is
 `docs/plans/003_integration_versioning_and_clean_state.md`. Later versions

@@ -1,7 +1,6 @@
-# Current Plan: T0-PROV Truthful Fixture Inventory
+# Completed Plan: T0-PROV Truthful Fixture Inventory
 
-Status: authorized; implementation and adversarial remediation complete,
-pending immutable-commit sign-off
+Status: completed and independently signed off
 Date: 2026-07-12
 Capability row: `T0` subcriterion `T0-PROV`
 Coverage row: legacy ID `W2-fixture-inventory`
@@ -15,6 +14,16 @@ method engines or that all of T0/0.0 is complete.
 One-sentence outcome: changing, omitting, inventing, or failing to inventory the
 provenance evidence changes the W2 result and fails for the intended reason,
 while every underlying fixture remains C-grade synthetic evidence.
+
+## Closure Record
+
+- Evaluated commit: `f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a`.
+- Independent decision: **SIGNED-OFF**.
+- Decision artifact: `docs/runs/2026-07-12-t0-prov-eval-signoff.md`.
+- Final scaffold coverage: 1 A, 0 B, 2 C, 5 D, 0 F; overall D.
+- Licensed scope: W2 synthetic inventory provenance only. Fixture contents
+  remain C; broader T0/0.0 and the program score remain F; no later slice is
+  authorized.
 
 ## Authorization Record
 
@@ -136,15 +145,15 @@ with normalized diagnostics.
 
 ## Acceptance Criteria and Evidence
 
-| ID | Pass condition | Current | Target | Verification |
+| ID | Pass condition | Final evidence | Closure | Verification |
 |---|---|---:|---:|---|
-| T0P-1 | Canonical status records the exact authorization and limits it to this repo/subcriterion. | D/conflicting | D/current and reviewed | Documentation audit and exact-text comparison. |
-| T0P-2 | Every current JSON artifact except the manifest is listed exactly once; no extra/missing/unlisted artifact passes. | F | A | Real directory scan plus missing-entry and unlisted-extra controls asserting exact diagnostics. |
-| T0P-3 | Every entry truthfully declares synthetic origin, invariant, file-specific claim limits, and C grade. | F | A | Validator plus missing-origin, unsupported-origin, missing-limit, and grade-escalation controls. |
-| T0P-4 | Each current byte sequence is recoverable from its exact last-content Git commit and path. | F | A | Live `git log`/`git show` checks plus wrong-commit and changed-byte controls. |
-| T0P-5 | Validation metadata is bound to the same file, validator, control, and evidence-deriver hashes and is re-executed before coverage generation. | F | A | Fresh positive run plus stale file, validator, control, and evidence-deriver hash controls. |
-| T0P-6 | W2 grade and notes are computed from evidence rather than a fixed grade declaration. | F | A | Evidence-present readout is A; temporary missing-evidence and malformed-JSON lanes both render a complete report with W2/overall F and the intended diagnostic. |
-| T0P-7 | Promotion remains bounded: fixtures stay C, T0 remains partial, overall report has unresolved D rows, and no producer/SOTA wording appears. | C/F | A for containment | Assertions over generated JSON/Markdown plus adversarial documentation review. |
+| T0P-1 | Canonical status records the exact authorization and limits it to this repo/subcriterion. | D/current and reviewed | Achieved | Documentation audit and exact-text comparison. |
+| T0P-2 | Every current JSON artifact except the manifest is listed exactly once; no extra/missing/unlisted artifact passes. | A/test | Achieved | Real directory scan plus missing-entry and unlisted-extra controls asserting exact diagnostics. |
+| T0P-3 | Every entry truthfully declares synthetic origin, invariant, file-specific claim limits, and C grade. | A/test | Achieved | Validator plus missing-origin, unsupported-origin, missing-limit, and grade-escalation controls. |
+| T0P-4 | Each current byte sequence is recoverable from its exact last-content Git commit and path. | A/test | Achieved | Live `git log`/`git show` checks plus wrong-commit and changed-byte controls. |
+| T0P-5 | Validation metadata is bound to the same file, validator, control, and evidence-deriver hashes and is re-executed before coverage generation. | A/test | Achieved | Fresh positive run plus stale file, validator, control, and evidence-deriver hash controls. |
+| T0P-6 | W2 grade and notes are computed from evidence rather than a fixed grade declaration. | A/test | Achieved | Evidence-present readout is A; temporary missing-evidence and malformed-JSON lanes both render a complete report with W2/overall F and the intended diagnostic. |
+| T0P-7 | Promotion remains bounded: fixtures stay C, T0 remains partial, overall report has unresolved D rows, and no producer/SOTA wording appears. | A/test for containment | Achieved | Assertions over generated JSON/Markdown plus adversarial documentation review. |
 
 An A for T0P/W2 is possible because its bounded claim has direct Git source
 evidence and discriminating runtime tests. It says nothing about the truth of
@@ -152,7 +161,7 @@ synthetic research content. Passing W2 removes the single F row in the current
 eight-row scaffold report, but it does not close T0 or 0.0; the expected overall
 grade becomes D while the two fixture-shape rows remain C.
 
-## Implementation Slices
+## Implemented Slices
 
 1. **Manifest truth:** add the current synthetic-origin and validation metadata
    without changing fixture payloads.
@@ -193,7 +202,7 @@ git diff --check
 git status --short --branch
 ```
 
-Expected after implementation:
+Final readout:
 
 - fixture validation passes;
 - every negative control reports its full count and passes only by catching the
