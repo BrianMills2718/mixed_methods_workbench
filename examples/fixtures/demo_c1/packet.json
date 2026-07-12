@@ -8,6 +8,8 @@
       "document_id": "memo-01",
       "title": "Fictional leadership memo",
       "source_kind": "leadership_memo",
+      "content": "Budget reductions require relocation before the next quarter.",
+      "content_sha256": "ff9130714b7a92a5ef5bf28864cbc2027334b367de88d4616ba84128b5c1a430",
       "segments": [
         {
           "segment_id": "seg-memo-01",
@@ -23,6 +25,8 @@
       "document_id": "log-01",
       "title": "Fictional implementation log",
       "source_kind": "implementation_log",
+      "content": "The safety review recommended relocation before the budget shock.",
+      "content_sha256": "943f7e3ebb89df1b05a0bd2995919149385e89ab625f6288590e95c483f1019d",
       "segments": [
         {
           "segment_id": "seg-log-01",
@@ -38,6 +42,8 @@
       "document_id": "interview-01",
       "title": "Fictional staff interview",
       "source_kind": "staff_interview",
+      "content": "Staff described relocation as a defensive adaptation to uncertainty.",
+      "content_sha256": "c1d56371155a70919bb900905ef7139edb459bde2a963f898d17b632fa5a3a71",
       "segments": [
         {
           "segment_id": "seg-interview-01",

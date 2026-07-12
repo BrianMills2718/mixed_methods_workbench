@@ -159,33 +159,39 @@ DEMO_REQUIREMENTS: list[Requirement] = [
     ),
     Requirement(
         id="DEMO-C1-qc",
-        name="Method-distinct qualitative coding contract",
-        success_criteria=["QC retains denominator, anchors, contrary evidence, and no PT inference fields"],
+        name="Structurally distinct qualitative coding contract",
+        success_criteria=[
+            "QC retains denominator, anchors, contrary evidence, no PT fields, and non-authoritative prose status"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="Strict QC shape and compatible consumer pass positive, leakage, anchor, and version controls.",
+        evidence_notes="Strict QC shape and compatible consumer pass field-leakage, identity, anchor, version, and prose-status controls; prose meaning is not programmatically validated.",
         required_class_for_closure="test (met for synthetic contract behavior only)",
         negative_control="tests/test_demo_negative_controls.py::test_qc_rejects_process_tracing_comparative_support",
         next_step="Obtain a producer-owned strict QC export in a separately authorized slice.",
     ),
     Requirement(
         id="DEMO-C1-pt",
-        name="Method-distinct process-tracing contract",
-        success_criteria=["PT retains rivals, residual, evidence, comparative support, sensitivity, and caveats"],
+        name="Structurally distinct process-tracing contract",
+        success_criteria=[
+            "PT retains unique rivals/residual/evidence/ranking/sensitivity and non-authoritative verdict prose"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="Strict PT shape passes residual, truth-probability, source-step-down, and binding controls.",
+        evidence_notes="Strict PT shape passes rival/residual/ranking/reference, source-step-down, binding, and prose-status controls; verdict meaning is not programmatically validated.",
         required_class_for_closure="test (met for synthetic contract behavior only)",
         negative_control="tests/test_demo_negative_controls.py::test_pt_requires_exactly_one_residual",
         next_step="Obtain producer-owned pt_export_v1 in a separately authorized slice.",
     ),
     Requirement(
         id="DEMO-C1-gt-inspired",
-        name="Method-distinct grounded-theory-inspired contract",
-        success_criteria=["GT-I retains comparison, category, memo, adequacy, sampling, and method limits"],
+        name="Structurally distinct grounded-theory-inspired contract",
+        success_criteria=[
+            "GT-I retains ordered comparison, category/memo identity, adequacy, sampling, exact limits, and non-authoritative prose status"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="Strict GT-I shape passes comparison-step-down and no-full-GT/no-saturation controls.",
+        evidence_notes="Strict GT-I shape passes comparison sequence/step-down, identity, exact method-limit, and prose-status controls; memo/category meaning is not programmatically validated.",
         required_class_for_closure="test (met for GT-inspired synthetic contract behavior only)",
         negative_control="tests/test_demo_negative_controls.py::test_gt_rejects_saturated_field",
         next_step="Authorize a producer inventory/export slice; do not promote to full GT without G3/G4 evidence.",
@@ -193,10 +199,12 @@ DEMO_REQUIREMENTS: list[Requirement] = [
     Requirement(
         id="DEMO-C1-links",
         name="Neutral cross-method links",
-        success_criteria=["links use approved neutral kinds and resolve to native objects"],
+        success_criteria=[
+            "links cross methods, identify native object kinds, use approved relationship enums, resolve targets, and mark prose non-authoritative"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="Four approved link kinds assemble; evidentiary-support and unknown-target controls fail.",
+        evidence_notes="Four relationship enums assemble with cross-method and method+object-kind identity; same-method, unsupported-kind, and unknown-target controls fail. Reviewer prose is non-authoritative.",
         required_class_for_closure="test (met for synthetic contract behavior only)",
         negative_control="tests/test_demo_negative_controls.py::test_link_rejects_evidentiary_support_relationship",
         next_step="Evaluate link usefulness with researchers before expanding relationship vocabulary.",
@@ -204,10 +212,12 @@ DEMO_REQUIREMENTS: list[Requirement] = [
     Requirement(
         id="DEMO-C1-review",
         name="Three-lane core review packet",
-        success_criteria=["one packet preserves three lanes, links, step-down, and synthetic-only limits"],
+        success_criteria=[
+            "one packet preserves three lanes, links, step-down, and synthetic-only limits"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="Typed assembly produces the approved journey without generic confidence or lane flattening.",
+        evidence_notes="Typed assembly produces three distinct structural lanes, exact step-down, closed claim limits, and non-authoritative prose markers without a generic score.",
         required_class_for_closure="test (met for synthetic contract behavior only)",
         negative_control="tests/test_demo_negative_controls.py::test_foreign_packet_binding_reaches_binding_invariant",
         next_step="Add a review UI/API only in a separately authorized slice.",
@@ -215,10 +225,12 @@ DEMO_REQUIREMENTS: list[Requirement] = [
     Requirement(
         id="DEMO-C1-agent-interface",
         name="Agent-drivable DEMO validation and assembly",
-        success_criteria=["CLI and Make targets return JSON or invariant-specific nonzero failures"],
+        success_criteria=[
+            "CLI and Make targets return JSON or invariant-specific nonzero failures"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="make validate-demo-fixtures, validate-demo-controls, assemble-demo-review, and strict mypy run in make check.",
+        evidence_notes="Make validation/assembly and strict mypy run in make check; subprocess controls execute both valid and invariant-specific invalid CLI paths.",
         required_class_for_closure="test (met for local synthetic operation only)",
         negative_control="tests/test_demo_negative_controls.py",
         next_step="Preserve JSON/API parity if an interactive review surface is later authorized.",
@@ -226,10 +238,12 @@ DEMO_REQUIREMENTS: list[Requirement] = [
     Requirement(
         id="DEMO-C1-provenance",
         name="Exhaustive DEMO fixture provenance inventory",
-        success_criteria=["manifest lists every payload once with exact hashes, origin, grade, invariant, and limits"],
+        success_criteria=[
+            "manifest lists every payload once with exact hashes, origin, grade, invariant, and limits"
+        ],
         evidence_class="test",
         evidence_grade="A",
-        evidence_notes="Manifest validation and stale-hash/unlisted-payload controls run in make check.",
+        evidence_notes="Manifest validation enforces the exact five-file inventory, hashes, origin, invariants, commands, and closed claim limits; stale/unlisted/case-variant/symlink/escalation controls run in make check.",
         required_class_for_closure="test (met for synthetic inventory only)",
         negative_control="tests/test_demo_negative_controls.py::test_manifest_stale_hash_reaches_named_file_invariant",
         next_step="Record producer commits and generation commands when real exports replace synthetic shapes.",
@@ -328,14 +342,11 @@ def check_generated_reports(
             stale.append(str(path))
     if stale:
         relative = [
-            str(Path(path).relative_to(REPO_ROOT))
-            if Path(path).is_relative_to(REPO_ROOT)
-            else path
+            str(Path(path).relative_to(REPO_ROOT)) if Path(path).is_relative_to(REPO_ROOT) else path
             for path in stale
         ]
         raise SystemExit(
-            "ERROR: generated coverage reports are stale or missing: "
-            f"{relative}; run make coverage"
+            f"ERROR: generated coverage reports are stale or missing: {relative}; run make coverage"
         )
 
 
@@ -355,8 +366,7 @@ def derive_fixture_inventory_requirement(
         "coverage remains renderable and changes to F when required inventory evidence is missing or malformed",
     ]
     negative_control = (
-        "scripts/check_fixture_negative_controls.py + "
-        "scripts/check_coverage_negative_controls.py"
+        "scripts/check_fixture_negative_controls.py + scripts/check_coverage_negative_controls.py"
     )
     try:
         validate_fixture_dir(fixture_dir)
@@ -452,9 +462,7 @@ def _assert_invalid_w2_report(
 ) -> str:
     """Require an invalid fixture lane to yield a complete report with W2 F."""
     report = build_report(fixture_dir)
-    requirement = next(
-        row for row in report["requirements"] if row["id"] == "W2-fixture-inventory"
-    )
+    requirement = next(row for row in report["requirements"] if row["id"] == "W2-fixture-inventory")
     notes = requirement["evidence_notes"]
     summary = report["summary"]
     if (
@@ -494,20 +502,28 @@ def _render_markdown(report: dict[str, Any]) -> str:
         "| Grade | Count | Percent |",
         "|---|---:|---:|",
     ]
-    for grade, key in [("A", "grade_a"), ("B", "grade_b"), ("C", "grade_c"), ("D", "grade_d"), ("F", "grade_f")]:
+    for grade, key in [
+        ("A", "grade_a"),
+        ("B", "grade_b"),
+        ("C", "grade_c"),
+        ("D", "grade_d"),
+        ("F", "grade_f"),
+    ]:
         count = summary[key]
         percent = int(round((count / total) * 100))
         lines.append(f"| {grade} | {count} | {percent}% |")
 
-    lines.extend([
-        "",
-        f"Overall grade: **{summary['overall_grade']}**",
-        "",
-        "## Requirements",
-        "",
-        "| ID | Requirement | Grade | Evidence class | Evidence notes | Closes when |",
-        "|---|---|---|---|---|---|",
-    ])
+    lines.extend(
+        [
+            "",
+            f"Overall grade: **{summary['overall_grade']}**",
+            "",
+            "## Requirements",
+            "",
+            "| ID | Requirement | Grade | Evidence class | Evidence notes | Closes when |",
+            "|---|---|---|---|---|---|",
+        ]
+    )
     for row in rows:
         lines.append(
             "| {id} | {name} | {evidence_grade} | {evidence_class} | {evidence_notes} | {required_class_for_closure} |".format(
@@ -516,34 +532,44 @@ def _render_markdown(report: dict[str, Any]) -> str:
         )
 
     weak_rows = [row for row in rows if row["evidence_grade"] in {"D", "F"}]
-    lines.extend([
-        "",
-        "## Rows Needing Review",
-        "",
-    ])
+    lines.extend(
+        [
+            "",
+            "## Rows Needing Review",
+            "",
+        ]
+    )
     for row in weak_rows:
         lines.append(f"- `{row['id']}`: {row['next_step']}")
 
-    missing_negative = [row for row in rows if row["negative_control"] is None and row["evidence_grade"] in {"C", "D", "F"}]
-    lines.extend([
-        "",
-        "## Missing Negative Controls",
-        "",
-    ])
+    missing_negative = [
+        row
+        for row in rows
+        if row["negative_control"] is None and row["evidence_grade"] in {"C", "D", "F"}
+    ]
+    lines.extend(
+        [
+            "",
+            "## Missing Negative Controls",
+            "",
+        ]
+    )
     for row in missing_negative:
         lines.append(f"- `{row['id']}`: add a negative control before enforcing this requirement.")
 
-    lines.extend([
-        "",
-        "## What Closes The Weakest Rows",
-        "",
-        "1. Generate a real QC handoff fixture and import/hash it here.",
-        "2. Generate a real `pt_export_v1` fixture and import/hash it here.",
-        "3. Generate a real Theory Forge operationalization fixture only after a known-green theory is selected.",
-        "4. Replace the synthetic synthesis payload with one built from real fixtures.",
-        "5. Build the static review shell only after the real payload exists.",
-        "",
-    ])
+    lines.extend(
+        [
+            "",
+            "## What Closes The Weakest Rows",
+            "",
+            "1. Generate a real QC handoff fixture and import/hash it here.",
+            "2. Generate a real `pt_export_v1` fixture and import/hash it here.",
+            "3. Generate a real Theory Forge operationalization fixture only after a known-green theory is selected.",
+            "4. Replace the synthetic synthesis payload with one built from real fixtures.",
+            "5. Build the static review shell only after the real payload exists.",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 

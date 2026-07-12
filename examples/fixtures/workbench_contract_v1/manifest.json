@@ -92,7 +92,7 @@
     },
     "control_result": "pass",
     "evidence_deriver_path": "scripts/check_coverage.py",
-    "evidence_deriver_sha256": "9f9636b1868dedba6a75625eb4088e06bd9eb43e090168d084d89a3121c3f11e",
+    "evidence_deriver_sha256": "68801b792c3600d8a6c5c788896da7baac12fd668c1e6a959615a0794e408838",
     "validator_path": "scripts/validate_fixtures.py",
     "validator_sha256": "44d512185783b4b4348904531c046de666f4974d9951d7f649f1b5a7b3de592c",
     "observed_at": "2026-07-12T14:22:37-07:00",

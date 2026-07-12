@@ -4,6 +4,7 @@
   "packet_id": "harbor-demo-v1",
   "producer": "mixed_methods_workbench synthetic PT shape",
   "method": "process_tracing",
+  "prose_status": "synthetic_non_authoritative_human_review_required",
   "hypotheses": [
     {"hypothesis_id": "pt-h1", "label": "Resource pressure accelerated adoption", "is_residual": false},
     {"hypothesis_id": "pt-h2", "label": "A pre-existing safety program drove adoption", "is_residual": false},

@@ -4,6 +4,7 @@
   "packet_id": "harbor-demo-v1",
   "producer": "mixed_methods_workbench synthetic GT-inspired shape",
   "method": "grounded_theory_inspired",
+  "prose_status": "synthetic_non_authoritative_human_review_required",
   "categories": [
     {
       "category_id": "gt-cat-03",

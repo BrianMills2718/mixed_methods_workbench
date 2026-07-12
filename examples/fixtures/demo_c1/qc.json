@@ -4,6 +4,7 @@
   "packet_id": "harbor-demo-v1",
   "producer": "mixed_methods_workbench synthetic QC shape",
   "method": "qualitative_coding",
+  "prose_status": "synthetic_non_authoritative_human_review_required",
   "corpus_segment_ids": ["seg-memo-01", "seg-log-01", "seg-interview-01"],
   "claims": [
     {

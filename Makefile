@@ -12,7 +12,7 @@ SHELL := /bin/bash
 status:  ## Show git status
 	@git status --short --branch
 
-.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts validate-demo-fixtures validate-demo-controls assemble-demo-review test-demo typecheck-demo coverage coverage-json check
+.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts validate-demo-fixtures validate-demo-controls assemble-demo-review test-demo typecheck-demo demo-coverage coverage coverage-json check
 
 validate-fixtures:  ## Validate synthetic fixture contract files
 	@python3 scripts/validate_fixtures.py
@@ -44,6 +44,9 @@ test-demo:  ## Run all DEMO-C1 tests
 
 typecheck-demo:  ## Type-check the DEMO-C1 package strictly
 	@mypy --strict src/mixed_methods_workbench
+
+demo-coverage:  ## Regenerate coverage including DEMO-C1 rows
+	@python3 scripts/check_coverage.py --write-reports --format markdown
 
 coverage:  ## Generate human-readable coverage report
 	@python3 scripts/check_coverage.py --write-reports --format markdown

@@ -3,13 +3,19 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
 from mixed_methods_workbench.assemble import assemble_core_demo_review
 from mixed_methods_workbench.io import load_demo_inputs, validate_demo_manifest, write_review_json
 from mixed_methods_workbench.models import CompatibleQCView
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_controlled_packet_has_exact_three_segment_universe() -> None:
@@ -81,6 +87,21 @@ def test_compatible_consumer_ignores_future_extra_field() -> None:
     assert view.claims[0].claim_id == "qc-claim-07"
 
 
+def test_open_prose_is_explicitly_non_authoritative() -> None:
+    """Prove open annotations cannot silently become validated method conclusions."""
+    packet, qc_export, pt_export, gt_export, links = load_demo_inputs()
+    qc_export.claims[0].text = "Evidence better supports H2 than H1."
+    pt_export.comparative_support.verdict = "H2 is almost certainly true."
+    gt_export.memos[0].text = "Sampling was sufficient and no new categories emerged."
+    review = assemble_core_demo_review(packet, qc_export, pt_export, gt_export, links)
+    expected = "synthetic_non_authoritative_human_review_required"
+    assert review.prose_status == expected
+    assert review.qc.prose_status == expected
+    assert review.pt.prose_status == expected
+    assert review.gt_inspired.prose_status == expected
+    assert {link.reviewer_meaning_status for link in review.links} == {expected}
+
+
 def test_review_writer_requires_explicit_force_to_overwrite(tmp_path: Path) -> None:
     """Prove derived evidence is not silently replaced by repeated agent commands."""
     output = tmp_path / "review.json"
@@ -100,3 +121,19 @@ def test_review_writer_refuses_symlink_even_with_force(tmp_path: Path) -> None:
     with pytest.raises(FileExistsError, match="refusing to write through"):
         write_review_json(output, '{"protected": false}', force=True)
     assert json.loads(target.read_text(encoding="utf-8")) == {"protected": True}
+
+
+def test_cli_validate_positive_control_uses_real_agent_surface() -> None:
+    """Prove the documented CLI surface runs the complete positive journey."""
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(REPO_ROOT / "src")
+    result = subprocess.run(
+        [sys.executable, "-m", "mixed_methods_workbench.cli", "validate"],
+        cwd=REPO_ROOT,
+        env=env,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0
+    assert result.stdout == "DEMO-C1 fixtures and review assembly passed.\n"

@@ -10,12 +10,71 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 SHA256_PATTERN = r"^[0-9a-f]{64}$"
-DEMO_LIMITS = {
-    "Synthetic demonstration only.",
-    "Not empirical evidence.",
-    "Not methodological-validity evidence.",
-    "Not mixed-methods evidence.",
+DEMO_LIMITS = frozenset(
+    {
+        "Synthetic demonstration only.",
+        "Not empirical evidence.",
+        "Not methodological-validity evidence.",
+        "Not mixed-methods evidence.",
+    }
+)
+QC_LIMITS = frozenset(
+    {
+        "Synthetic QC shape only.",
+        "No process-tracing comparative support.",
+        "Qualitative interpretation is not causal proof.",
+    }
+)
+PT_LIMITS = frozenset(
+    {
+        "Synthetic PT shape only.",
+        "Comparative support is not probability of truth.",
+        "No population causal effect is estimated.",
+    }
+)
+GT_LIMITS = frozenset(
+    {
+        "Synthetic GT-inspired shape only.",
+        "No theoretical sampling was executed.",
+        "No substantive theory is validated.",
+    }
+)
+GT_METHOD_LIMITS = frozenset(
+    {
+        "Not full grounded theory.",
+        "Category adequacy diagnostics are not saturation proof.",
+    }
+)
+MANIFEST_COMMANDS = (
+    "make validate-demo-fixtures",
+    "make validate-demo-controls",
+)
+MANIFEST_INVARIANTS = {
+    "packet.json": "One stable synthetic source universe binds all three method lanes.",
+    "qc.json": "QC interpretations remain anchored and contain no PT inference fields.",
+    "pt.json": "PT preserves rival comparative support without probability-of-truth language.",
+    "gt_inspired.json": (
+        "GT-inspired development remains traceable without full-GT or saturation claims."
+    ),
+    "links.json": (
+        "Cross-method links remain neutral references rather than evidentiary aggregation."
+    ),
 }
+MANIFEST_ENTRY_LIMITS = {
+    "packet.json": frozenset({"Not a real corpus.", "Not empirical evidence."}),
+    "qc.json": frozenset({"Not a qualitative_coding export.", "Not qualitative evidence."}),
+    "pt.json": frozenset({"Not a process_tracing export.", "Not process-tracing evidence."}),
+    "gt_inspired.json": frozenset(
+        {"Not a qualitative_coding export.", "Not full grounded theory."}
+    ),
+    "links.json": frozenset({"Not mixed-methods integration.", "No generic confidence score."}),
+}
+
+
+def _require_exact_strings(actual: list[str], expected: frozenset[str], context: str) -> None:
+    """Reject missing, duplicate, or escalatory prose on a closed claim boundary."""
+    if len(actual) != len(expected) or set(actual) != expected:
+        raise ValueError(f"{context} must exactly match its reviewed claim boundary")
 
 
 class StrictModel(BaseModel):
@@ -57,6 +116,8 @@ class DemoDocument(StrictModel):
     document_id: str = Field(min_length=1)
     title: str = Field(min_length=1)
     source_kind: Literal["leadership_memo", "staff_interview", "implementation_log"]
+    content: str = Field(min_length=1)
+    content_sha256: str = Field(pattern=SHA256_PATTERN)
     segments: list[SourceSegment] = Field(min_length=1)
 
     @model_validator(mode="after")
@@ -67,6 +128,12 @@ class DemoDocument(StrictModel):
             raise ValueError("document segment IDs must be unique")
         if any(segment.document_id != self.document_id for segment in self.segments):
             raise ValueError("segment document_id must match its containing document")
+        digest = hashlib.sha256(self.content.encode("utf-8")).hexdigest()
+        if digest != self.content_sha256:
+            raise ValueError("document content_sha256 must match the exact content bytes")
+        for segment in self.segments:
+            if self.content[segment.start_char : segment.end_char] != segment.text:
+                raise ValueError("segment offsets must resolve to exact text in document content")
         return self
 
 
@@ -91,8 +158,7 @@ class ControlledDemoPacket(StrictModel):
         ]
         if len(segment_ids) != len(set(segment_ids)):
             raise ValueError("demo segment IDs must be globally unique")
-        if not DEMO_LIMITS.issubset(set(self.claim_limits)):
-            raise ValueError("demo packet must carry every required synthetic claim limit")
+        _require_exact_strings(self.claim_limits, DEMO_LIMITS, "demo packet claim_limits")
         return self
 
     def segment_ids(self) -> set[str]:
@@ -131,8 +197,19 @@ class DemoFixtureManifest(StrictModel):
             path = PurePosixPath(raw_path)
             if path.is_absolute() or len(path.parts) != 1 or path.suffix.casefold() != ".json":
                 raise ValueError("DEMO-C1 manifest paths must be flat relative JSON filenames")
-        if not DEMO_LIMITS.issubset(set(self.claim_limits)):
-            raise ValueError("DEMO-C1 manifest must carry every synthetic claim limit")
+        if set(paths) != set(MANIFEST_INVARIANTS):
+            raise ValueError("DEMO-C1 manifest must list the reviewed five-file payload exactly")
+        for entry in self.files:
+            if entry.intended_invariant != MANIFEST_INVARIANTS[entry.path]:
+                raise ValueError(f"DEMO-C1 manifest invariant mismatch: {entry.path}")
+            _require_exact_strings(
+                entry.claim_limits,
+                MANIFEST_ENTRY_LIMITS[entry.path],
+                f"DEMO-C1 manifest claim_limits for {entry.path}",
+            )
+        if tuple(self.validation_commands) != MANIFEST_COMMANDS:
+            raise ValueError("DEMO-C1 manifest validation_commands must match reviewed commands")
+        _require_exact_strings(self.claim_limits, DEMO_LIMITS, "DEMO-C1 manifest claim_limits")
         return self
 
 
@@ -143,6 +220,7 @@ class MethodEnvelope(StrictModel):
     artifact_status: Literal["synthetic_demo_fixture"]
     packet_id: str = Field(min_length=1)
     producer: str = Field(min_length=1)
+    prose_status: Literal["synthetic_non_authoritative_human_review_required"]
     claim_limits: list[str] = Field(min_length=1)
 
 
@@ -173,6 +251,18 @@ class StrictQCExport(MethodEnvelope):
     claims: list[QCClaim] = Field(min_length=1)
     patterns: list[QCPattern] = Field(min_length=1)
     memo_ids: list[str] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_qc_claim_discipline(self) -> StrictQCExport:
+        """Close structural QC claims while marking all open prose non-authoritative."""
+        _require_exact_strings(self.claim_limits, QC_LIMITS, "QC claim_limits")
+        claim_ids = [claim.claim_id for claim in self.claims]
+        pattern_ids = [pattern.pattern_id for pattern in self.patterns]
+        if len(claim_ids) != len(set(claim_ids)):
+            raise ValueError("QC claim IDs must be unique within their native object kind")
+        if len(pattern_ids) != len(set(pattern_ids)):
+            raise ValueError("QC pattern IDs must be unique within their native object kind")
+        return self
 
 
 class RivalHypothesis(StrictModel):
@@ -218,14 +308,22 @@ class StrictPTExport(MethodEnvelope):
         if sum(hypothesis.is_residual for hypothesis in self.hypotheses) != 1:
             raise ValueError("PT export must contain exactly one residual hypothesis")
         id_set = set(ids)
-        if set(self.comparative_support.ranked_hypothesis_ids) != id_set:
+        ranking = self.comparative_support.ranked_hypothesis_ids
+        if (
+            len(ranking) != len(id_set)
+            or len(ranking) != len(set(ranking))
+            or set(ranking) != id_set
+        ):
             raise ValueError("PT comparative ranking must contain every rival exactly once")
         for evidence in self.evidence:
+            if len(evidence.hypothesis_ids) != len(set(evidence.hypothesis_ids)):
+                raise ValueError("PT evidence hypothesis references must be unique")
             if not set(evidence.hypothesis_ids).issubset(id_set):
                 raise ValueError("PT evidence references an unknown hypothesis")
-        forbidden = ("probability of truth", "percent probability", "% probability")
-        if any(term in self.comparative_support.verdict.lower() for term in forbidden):
-            raise ValueError("PT verdict must not state probability of truth")
+        evidence_ids = [evidence.evidence_id for evidence in self.evidence]
+        if len(evidence_ids) != len(set(evidence_ids)):
+            raise ValueError("PT evidence IDs must be unique within their native object kind")
+        _require_exact_strings(self.claim_limits, PT_LIMITS, "PT claim_limits")
         return self
 
 
@@ -250,6 +348,14 @@ class GTCategory(StrictModel):
     adequacy_status: Literal["underdeveloped", "developing", "adequate"]
     adequacy_gaps: list[str]
 
+    @model_validator(mode="after")
+    def validate_comparison_sequence(self) -> GTCategory:
+        """Reject duplicated or discontinuous iterations that fake comparison provenance."""
+        iterations = [item.iteration for item in self.comparison_trace]
+        if iterations != list(range(1, len(iterations) + 1)):
+            raise ValueError("GT comparison iterations must be unique, ordered, and contiguous")
+        return self
+
 
 class GTMemo(StrictModel):
     """Attach an interpretive memo to categories and exact comparison passages."""
@@ -272,18 +378,21 @@ class StrictGTInspiredExport(MethodEnvelope):
     @model_validator(mode="after")
     def validate_gt_claim_discipline(self) -> StrictGTInspiredExport:
         """Require explicit limits and coherent category/memo comparison provenance."""
-        required = {
-            "Not full grounded theory.",
-            "Category adequacy diagnostics are not saturation proof.",
-        }
-        if not required.issubset(set(self.methodological_limits)):
-            raise ValueError("GT-inspired export must state no-full-GT and no-saturation limits")
+        _require_exact_strings(
+            self.methodological_limits,
+            GT_METHOD_LIMITS,
+            "GT-inspired methodological_limits",
+        )
+        _require_exact_strings(self.claim_limits, GT_LIMITS, "GT-inspired claim_limits")
         category_ids = {category.category_id for category in self.categories}
         if len(category_ids) != len(self.categories):
             raise ValueError("GT category IDs must be unique")
         for memo in self.memos:
             if not set(memo.category_ids).issubset(category_ids):
                 raise ValueError("GT memo references an unknown category")
+        memo_ids = [memo.memo_id for memo in self.memos]
+        if len(memo_ids) != len(set(memo_ids)):
+            raise ValueError("GT memo IDs must be unique within their native object kind")
         return self
 
 
@@ -293,6 +402,7 @@ class CompatibleQCView(CompatibleModel):
     schema_version: Literal[1]
     packet_id: str
     method: Literal["qualitative_coding"]
+    prose_status: Literal["synthetic_non_authoritative_human_review_required"]
     claims: list[QCClaim]
     patterns: list[QCPattern]
     claim_limits: list[str]
@@ -304,6 +414,7 @@ class CompatiblePTView(CompatibleModel):
     schema_version: Literal[1]
     packet_id: str
     method: Literal["process_tracing"]
+    prose_status: Literal["synthetic_non_authoritative_human_review_required"]
     hypotheses: list[RivalHypothesis]
     evidence: list[PTEvidence]
     comparative_support: ComparativeSupport
@@ -317,6 +428,7 @@ class CompatibleGTInspiredView(CompatibleModel):
     schema_version: Literal[1]
     packet_id: str
     method: Literal["grounded_theory_inspired"]
+    prose_status: Literal["synthetic_non_authoritative_human_review_required"]
     categories: list[GTCategory]
     memos: list[GTMemo]
     next_sampling_suggestions: list[str]
@@ -328,7 +440,27 @@ class ObjectRef(StrictModel):
     """Identify one native method object without copying or rewriting it."""
 
     method: Literal["qualitative_coding", "process_tracing", "grounded_theory_inspired"]
+    object_kind: Literal[
+        "qc_claim",
+        "qc_pattern",
+        "pt_hypothesis",
+        "pt_evidence",
+        "gt_category",
+        "gt_memo",
+    ]
     object_id: str = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_method_kind_pair(self) -> ObjectRef:
+        """Prevent a native ID from being interpreted as the wrong object kind."""
+        allowed = {
+            "qualitative_coding": {"qc_claim", "qc_pattern"},
+            "process_tracing": {"pt_hypothesis", "pt_evidence"},
+            "grounded_theory_inspired": {"gt_category", "gt_memo"},
+        }
+        if self.object_kind not in allowed[self.method]:
+            raise ValueError("native object_kind is incompatible with its method")
+        return self
 
 
 class CrossMethodLink(StrictModel):
@@ -339,6 +471,14 @@ class CrossMethodLink(StrictModel):
     relationship: Literal["addresses", "challenges", "contextualizes", "unresolved"]
     target: ObjectRef
     reviewer_meaning: str = Field(min_length=1)
+    reviewer_meaning_status: Literal["synthetic_non_authoritative_human_review_required"]
+
+    @model_validator(mode="after")
+    def validate_cross_method_boundary(self) -> CrossMethodLink:
+        """Require genuinely cross-method endpoints; prose remains non-authoritative."""
+        if self.source.method == self.target.method:
+            raise ValueError("cross-method link endpoints must use different methods")
+        return self
 
 
 class CoreDemoReviewPacket(StrictModel):
@@ -351,6 +491,7 @@ class CoreDemoReviewPacket(StrictModel):
     pt: CompatiblePTView
     gt_inspired: CompatibleGTInspiredView
     links: list[CrossMethodLink] = Field(min_length=1)
+    prose_status: Literal["synthetic_non_authoritative_human_review_required"]
     claim_limits: list[str] = Field(min_length=4)
 
     @model_validator(mode="after")
@@ -364,6 +505,17 @@ class CoreDemoReviewPacket(StrictModel):
         }
         if len(packet_ids) != 1:
             raise ValueError("all review lanes must bind to the same controlled packet")
-        if not DEMO_LIMITS.issubset(set(self.claim_limits)):
-            raise ValueError("review packet must carry every required synthetic claim limit")
+        _require_exact_strings(self.claim_limits, DEMO_LIMITS, "review packet claim_limits")
+        _require_exact_strings(
+            self.packet.claim_limits,
+            DEMO_LIMITS,
+            "review source packet claim_limits",
+        )
+        _require_exact_strings(self.qc.claim_limits, QC_LIMITS, "review QC claim_limits")
+        _require_exact_strings(self.pt.claim_limits, PT_LIMITS, "review PT claim_limits")
+        _require_exact_strings(
+            self.gt_inspired.claim_limits,
+            GT_LIMITS,
+            "review GT-inspired claim_limits",
+        )
         return self

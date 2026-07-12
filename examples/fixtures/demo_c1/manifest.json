@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "packet.json",
-      "sha256": "19d5aca42e2c8351768e56cb73a9fec882b33e5e4a629956a70c332dc60bd9c4",
+      "sha256": "240053991587761ab6636a0e68b9b0ac4e43959cc28c0632888c52234485ac25",
       "origin_kind": "workbench_synthetic",
       "evidence_grade": "C-synthetic-contract-only",
       "intended_invariant": "One stable synthetic source universe binds all three method lanes.",
@@ -13,7 +13,7 @@
     },
     {
       "path": "qc.json",
-      "sha256": "c56beb855baf27b8097d1621de05e393e8ef2c197271bd5aad6ff9072d12ebee",
+      "sha256": "d5abbe7c9334f4553fbf7c4366f6e4c349257e6faa33db49ad6a85c39df9c74a",
       "origin_kind": "workbench_synthetic",
       "evidence_grade": "C-synthetic-contract-only",
       "intended_invariant": "QC interpretations remain anchored and contain no PT inference fields.",
@@ -21,7 +21,7 @@
     },
     {
       "path": "pt.json",
-      "sha256": "bf04a580292acf3a313567d076c55f22836428b7c5ebd915f9b6a3419fed530f",
+      "sha256": "88427010309006a9e2e0b2e06eb8c311c830198c280dedba89924160b7fb6479",
       "origin_kind": "workbench_synthetic",
       "evidence_grade": "C-synthetic-contract-only",
       "intended_invariant": "PT preserves rival comparative support without probability-of-truth language.",
@@ -29,7 +29,7 @@
     },
     {
       "path": "gt_inspired.json",
-      "sha256": "c31bbde9254f6cc1916eeb4bc01dd1d825b5e9f6ca4b3382749a2bc00e72bb51",
+      "sha256": "a9233888fa8a05494c746cccad47aceaf1d109d91e7ca250079d7cb62223c983",
       "origin_kind": "workbench_synthetic",
       "evidence_grade": "C-synthetic-contract-only",
       "intended_invariant": "GT-inspired development remains traceable without full-GT or saturation claims.",
@@ -37,7 +37,7 @@
     },
     {
       "path": "links.json",
-      "sha256": "e993ee010032339a881c6a1ffe87a187da20f1a6943d942dace3aee030f6f735",
+      "sha256": "33ff2507dd9f49bfc45c62bc4c2cb9f4408e9340bc3b95675471008008efa48d",
       "origin_kind": "workbench_synthetic",
       "evidence_grade": "C-synthetic-contract-only",
       "intended_invariant": "Cross-method links remain neutral references rather than evidentiary aggregation.",

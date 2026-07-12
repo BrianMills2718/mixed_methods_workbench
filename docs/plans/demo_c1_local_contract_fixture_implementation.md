@@ -40,18 +40,20 @@ Out of scope:
 
 ## Derived Schema Boundary
 
-The approved domain model yields four modules rather than one universal model:
+The approved domain model is implemented in three focused modules:
 
 ```text
-demo_packet.py       ControlledDemoPacket, documents, segments, anchors
-method_exports.py    strict QC/PT/GT-I synthetic producer-shaped exports
-review_packet.py     compatible views, CrossMethodLink, CoreDemoReviewPacket
-assemble.py          validation/linking/assembly functions and typed failures
+models.py    packet, strict method, compatible review, link, and manifest contracts
+assemble.py  cross-contract validation/linking and review assembly
+io.py        typed fixture loading, exhaustive manifest validation, safe output
 ```
 
 Producer-shaped models use `extra="forbid"`. Workbench-compatible consumer
 models use `extra="ignore"` but still reject unsupported major versions and
-missing required semantics. Every public module/class/function has a why-focused
+missing required structural semantics. Open explanatory prose is explicitly
+`synthetic_non_authoritative_human_review_required`; programmatic validation
+does not pretend to establish its methodological meaning. Every public
+module/class/function has a why-focused
 docstring. No raw `dict`, `Any`, or `**kwargs` crosses a seam.
 
 ## Runtime Backward Pass
@@ -68,27 +70,29 @@ Runtime preconditions:
 
 - all inputs bind to the same packet ID and supported major version;
 - all cited anchors and native objects exist;
-- QC contains no PT comparative inference;
-- PT has at least two rivals including exactly one residual and avoids
-  probability-of-truth semantics;
-- GT-I carries explicit no-saturation/full-GT limitations and comparison
-  provenance;
+- QC has no PT inference fields; its open prose is non-authoritative;
+- PT has at least two unique rivals, exactly one residual, unique evidence
+  references, and a complete non-duplicated ranking; verdict prose is
+  non-authoritative;
+- GT-I carries exact no-saturation/full-GT limitations, ordered comparison
+  provenance, and non-authoritative memo/category prose;
 - links use only `addresses`, `challenges`, `contextualizes`, `unresolved`;
 - no generic score or empirical status exists anywhere in the final payload.
 
 Offline outputs: versioned JSON fixtures with exact hashes and a manifest
-recording synthetic origin, generator/validation commands, claim limits, and
-current content commit after stabilization.
+recording synthetic origin, validation commands, exact claim limits, and
+content hashes. The enclosing Git commit is the provenance record; the manifest
+does not embed a self-referential commit hash.
 
 ## Acceptance Criteria
 
 | ID | Criterion | Required evidence | Positive control | Negative control |
 |---|---|---|---|---|
 | C1 | Controlled packet hashes/anchors/bindings validate | A/test | approved Harbor fixture | wrong hash, bad offset, foreign packet ID |
-| C2 | QC remains qualitative and source-traceable | A/test | QC Harbor fixture | PT comparative-support field, missing contrary/support anchor |
-| C3 | PT retains rival-comparison semantics | A/test | PT Harbor fixture | missing residual, one hypothesis, truth probability wording |
-| C4 | GT-I exposes development without saturation overclaim | A/test | GT-I Harbor fixture | missing comparison provenance, `saturated=true`, full-GT claim |
-| C5 | Links are neutral, typed, and target real native objects | A/test | approved four-link set | `supports`, numeric weight, unknown target |
+| C2 | QC structure is method-distinct and source-traceable; prose is non-authoritative | A/test | QC Harbor fixture | PT field, duplicate native ID, missing anchor |
+| C3 | PT structure retains a unique rival set, residual, evidence references, ranking, and sensitivity; prose is non-authoritative | A/test | PT Harbor fixture | missing residual, duplicate rival/ranking/reference |
+| C4 | GT-I structure exposes ordered development and exact method limits; prose is non-authoritative | A/test | GT-I Harbor fixture | duplicate iteration, `saturated=true`, missing exact limits |
+| C5 | Links are cross-method, typed by native object kind, and target real objects; explanatory prose is non-authoritative | A/test | approved four-link set | `supports`, same-method endpoints, wrong kind, unknown target |
 | C6 | Review packet keeps three method views and exact step-down | A/test | assembled approved packet | missing lane, missing native/source reference, generic confidence |
 | C7 | CLI/Make surface is agent-drivable and fail-loud | A/test | validate/assemble commands exit 0 | invalid fixture exits nonzero with invariant-specific diagnostic |
 | C8 | Fixture provenance and claim limits are exhaustive | A/test | manifest inventory | unlisted file, stale hash, empirical claim escalation |
@@ -136,7 +140,7 @@ git diff --check
 
 Observed 2026-07-12:
 
-- 9 positive controls and 17 invariant-specific negative controls passed;
+- all positive controls and invariant-specific negative controls passed;
 - strict mypy and Ruff passed;
 - CLI/Make validation and JSON assembly passed;
 - `make check` passed with the prior 41 fixture controls, 3 coverage controls,

@@ -47,6 +47,7 @@ def assemble_core_demo_review(
         pt=CompatiblePTView.model_validate(pt_export.model_dump()),
         gt_inspired=CompatibleGTInspiredView.model_validate(gt_export.model_dump()),
         links=links,
+        prose_status="synthetic_non_authoritative_human_review_required",
         claim_limits=sorted(DEMO_LIMITS),
     )
 
@@ -94,22 +95,25 @@ def _validate_links(
     if len(link_ids) != len(set(link_ids)):
         raise ValueError("cross-method link IDs must be unique")
     objects = {
-        "qualitative_coding": {
-            *(claim.claim_id for claim in qc_export.claims),
-            *(pattern.pattern_id for pattern in qc_export.patterns),
+        ("qualitative_coding", "qc_claim"): {claim.claim_id for claim in qc_export.claims},
+        ("qualitative_coding", "qc_pattern"): {
+            pattern.pattern_id for pattern in qc_export.patterns
         },
-        "process_tracing": {
-            *(hypothesis.hypothesis_id for hypothesis in pt_export.hypotheses),
-            *(evidence.evidence_id for evidence in pt_export.evidence),
+        ("process_tracing", "pt_hypothesis"): {
+            hypothesis.hypothesis_id for hypothesis in pt_export.hypotheses
         },
-        "grounded_theory_inspired": {
-            *(category.category_id for category in gt_export.categories),
-            *(memo.memo_id for memo in gt_export.memos),
+        ("process_tracing", "pt_evidence"): {
+            evidence.evidence_id for evidence in pt_export.evidence
         },
+        ("grounded_theory_inspired", "gt_category"): {
+            category.category_id for category in gt_export.categories
+        },
+        ("grounded_theory_inspired", "gt_memo"): {memo.memo_id for memo in gt_export.memos},
     }
     for link in links:
         for ref in (link.source, link.target):
-            if ref.object_id not in objects[ref.method]:
+            if ref.object_id not in objects[(ref.method, ref.object_kind)]:
                 raise ValueError(
-                    f"cross-method link references unknown {ref.method} object {ref.object_id}"
+                    "cross-method link references unknown "
+                    f"{ref.method}/{ref.object_kind} object {ref.object_id}"
                 )

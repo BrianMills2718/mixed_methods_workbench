@@ -8,7 +8,7 @@ git_commit: "pending"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md"
-summary: "DEMO-C1 is implemented locally: typed Pydantic QC/PT/GT-I synthetic contracts, exact source step-down, neutral links, review assembly, CLI/Make surfaces, manifest, and 26 both-sign controls pass. Producer repos remain untouched."
+summary: "DEMO-C1 is implemented locally: typed Pydantic QC/PT/GT-I synthetic contracts, exact source step-down, typed cross-method links, non-authoritative prose markers, review assembly, CLI/Make surfaces, manifest, and both-sign controls. Producer repos remain untouched."
 next_action: "Choose and separately authorize producer-owned export work, preferably the GT-inspired populated-object inventory/export dependency subplan before adapters."
 
 completed:

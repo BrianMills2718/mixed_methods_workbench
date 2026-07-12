@@ -59,8 +59,9 @@ review journey is rendered in `docs/plans/demo_method_core_mockup.md` and
 Brian authorized and DEMO-C1 completed on 2026-07-12. The local workbench now
 has strict producer-shaped and permissive consumer Pydantic contracts, a
 three-document Harbor fixture, separate QC/PT/GT-I lanes, neutral links, typed
-review assembly, exact manifest hashes, CLI/Make surfaces, and 9 positive plus
-17 negative controls. The eight DEMO-C1 rows are A/test for synthetic contract
+review assembly, exact manifest hashes, CLI/Make surfaces, and both-sign
+controls. Open analytic prose is explicitly non-authoritative and requires
+human review. The eight DEMO-C1 rows are A/test for structural synthetic contract
 behavior only; fixture content remains C and producer/method evidence did not
 move. Producer mutation remains separately authorized.
 
