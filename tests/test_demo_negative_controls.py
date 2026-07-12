@@ -71,6 +71,31 @@ def test_qc_rejects_process_tracing_comparative_support() -> None:
         StrictQCExport.model_validate(raw)
 
 
+def test_qc_rejects_duplicate_corpus_denominator() -> None:
+    """Reject a duplicated denominator row that set comparison would otherwise hide."""
+    raw = _json("qc.json")
+    raw["corpus_segment_ids"] = [
+        "seg-memo-01",
+        "seg-log-01",
+        "seg-interview-01",
+        "seg-interview-01",
+    ]
+    with pytest.raises(ValidationError, match="corpus_segment_ids must contain unique"):
+        StrictQCExport.model_validate(raw)
+
+
+def test_qc_rejects_duplicate_supporting_anchor() -> None:
+    """Reject a repeated claim anchor before review packet set aggregation."""
+    raw = _json("qc.json")
+    raw["claims"][0]["supporting_segment_ids"] = [  # type: ignore[index]
+        "seg-interview-01",
+        "seg-memo-01",
+        "seg-memo-01",
+    ]
+    with pytest.raises(ValidationError, match="supporting_segment_ids must contain unique"):
+        StrictQCExport.model_validate(raw)
+
+
 def test_qc_unknown_anchor_reaches_step_down_invariant() -> None:
     """Reject a QC claim that cannot step down to the controlled packet."""
     packet, qc_export, pt_export, gt_export, links = load_demo_inputs()
@@ -107,7 +132,15 @@ def test_pt_rejects_duplicate_hypothesis_references_in_evidence() -> None:
     """Reject repeated rival references that satisfy minimum length only by duplication."""
     raw = _json("pt.json")
     raw["evidence"][0]["hypothesis_ids"] = ["pt-h1", "pt-h1"]  # type: ignore[index]
-    with pytest.raises(ValidationError, match="hypothesis references must be unique"):
+    with pytest.raises(ValidationError, match="hypothesis_ids must contain unique"):
+        StrictPTExport.model_validate(raw)
+
+
+def test_pt_rejects_duplicate_source_references_in_evidence() -> None:
+    """Reject a repeated evidence passage before source step-down set aggregation."""
+    raw = _json("pt.json")
+    raw["evidence"][0]["segment_ids"] = ["seg-log-01", "seg-log-01"]  # type: ignore[index]
+    with pytest.raises(ValidationError, match="PT evidence segment_ids must contain unique"):
         StrictPTExport.model_validate(raw)
 
 
@@ -141,6 +174,27 @@ def test_gt_rejects_duplicate_comparison_iteration() -> None:
     raw = _json("gt_inspired.json")
     raw["categories"][0]["comparison_trace"][1]["iteration"] = 1  # type: ignore[index]
     with pytest.raises(ValidationError, match="unique, ordered, and contiguous"):
+        StrictGTInspiredExport.model_validate(raw)
+
+
+def test_gt_rejects_duplicate_category_support_reference() -> None:
+    """Reject a repeated category passage before source step-down aggregation."""
+    raw = _json("gt_inspired.json")
+    raw["categories"][0]["supporting_segment_ids"] = [  # type: ignore[index]
+        "seg-interview-01",
+        "seg-memo-01",
+        "seg-log-01",
+        "seg-log-01",
+    ]
+    with pytest.raises(ValidationError, match="supporting_segment_ids must contain unique"):
+        StrictGTInspiredExport.model_validate(raw)
+
+
+def test_gt_rejects_duplicate_memo_native_references() -> None:
+    """Reject repeated category and passage identities inside a GT memo."""
+    raw = _json("gt_inspired.json")
+    raw["memos"][0]["category_ids"] = ["gt-cat-03", "gt-cat-03"]  # type: ignore[index]
+    with pytest.raises(ValidationError, match="GT memo category_ids must contain unique"):
         StrictGTInspiredExport.model_validate(raw)
 
 

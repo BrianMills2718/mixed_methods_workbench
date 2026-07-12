@@ -77,6 +77,12 @@ def _require_exact_strings(actual: list[str], expected: frozenset[str], context:
         raise ValueError(f"{context} must exactly match its reviewed claim boundary")
 
 
+def _require_unique(values: list[str], context: str) -> None:
+    """Reject duplicate identities before downstream set operations can hide them."""
+    if len(values) != len(set(values)):
+        raise ValueError(f"{context} must contain unique references")
+
+
 class StrictModel(BaseModel):
     """Reject producer-shaped fields that the reviewed contract did not authorize."""
 
@@ -233,6 +239,16 @@ class QCClaim(StrictModel):
     contrary_segment_ids: list[str]
     review_status: Literal["needs_human_review", "retained", "revised", "rejected"]
 
+    @model_validator(mode="after")
+    def validate_anchor_identity(self) -> QCClaim:
+        """Reject duplicated or simultaneously supporting/contrary source anchors."""
+        _require_unique(self.supporting_segment_ids, "QC supporting_segment_ids")
+        _require_unique(self.contrary_segment_ids, "QC contrary_segment_ids")
+        overlap = set(self.supporting_segment_ids) & set(self.contrary_segment_ids)
+        if overlap:
+            raise ValueError("QC support and contrary segment references must be disjoint")
+        return self
+
 
 class QCPattern(StrictModel):
     """Describe a recurring or contrasting framing without causal inference."""
@@ -241,6 +257,12 @@ class QCPattern(StrictModel):
     summary: str = Field(min_length=1)
     segment_ids: list[str] = Field(min_length=1)
     interpretation: Literal["descriptive_only"]
+
+    @model_validator(mode="after")
+    def validate_segment_identity(self) -> QCPattern:
+        """Reject duplicated pattern support references before aggregation."""
+        _require_unique(self.segment_ids, "QC pattern segment_ids")
+        return self
 
 
 class StrictQCExport(MethodEnvelope):
@@ -256,6 +278,8 @@ class StrictQCExport(MethodEnvelope):
     def validate_qc_claim_discipline(self) -> StrictQCExport:
         """Close structural QC claims while marking all open prose non-authoritative."""
         _require_exact_strings(self.claim_limits, QC_LIMITS, "QC claim_limits")
+        _require_unique(self.corpus_segment_ids, "QC corpus_segment_ids")
+        _require_unique(self.memo_ids, "QC memo_ids")
         claim_ids = [claim.claim_id for claim in self.claims]
         pattern_ids = [pattern.pattern_id for pattern in self.patterns]
         if len(claim_ids) != len(set(claim_ids)):
@@ -280,6 +304,13 @@ class PTEvidence(StrictModel):
     description: str = Field(min_length=1)
     segment_ids: list[str] = Field(min_length=1)
     hypothesis_ids: list[str] = Field(min_length=2)
+
+    @model_validator(mode="after")
+    def validate_reference_identity(self) -> PTEvidence:
+        """Reject duplicated source or rival references on one observation."""
+        _require_unique(self.segment_ids, "PT evidence segment_ids")
+        _require_unique(self.hypothesis_ids, "PT evidence hypothesis_ids")
+        return self
 
 
 class ComparativeSupport(StrictModel):
@@ -316,8 +347,6 @@ class StrictPTExport(MethodEnvelope):
         ):
             raise ValueError("PT comparative ranking must contain every rival exactly once")
         for evidence in self.evidence:
-            if len(evidence.hypothesis_ids) != len(set(evidence.hypothesis_ids)):
-                raise ValueError("PT evidence hypothesis references must be unique")
             if not set(evidence.hypothesis_ids).issubset(id_set):
                 raise ValueError("PT evidence references an unknown hypothesis")
         evidence_ids = [evidence.evidence_id for evidence in self.evidence]
@@ -351,6 +380,9 @@ class GTCategory(StrictModel):
     @model_validator(mode="after")
     def validate_comparison_sequence(self) -> GTCategory:
         """Reject duplicated or discontinuous iterations that fake comparison provenance."""
+        _require_unique(self.properties, "GT category properties")
+        _require_unique(self.dimensions, "GT category dimensions")
+        _require_unique(self.supporting_segment_ids, "GT category supporting_segment_ids")
         iterations = [item.iteration for item in self.comparison_trace]
         if iterations != list(range(1, len(iterations) + 1)):
             raise ValueError("GT comparison iterations must be unique, ordered, and contiguous")
@@ -364,6 +396,13 @@ class GTMemo(StrictModel):
     text: str = Field(min_length=1)
     category_ids: list[str] = Field(min_length=1)
     segment_ids: list[str] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_reference_identity(self) -> GTMemo:
+        """Reject duplicate category or source references in one analytic memo."""
+        _require_unique(self.category_ids, "GT memo category_ids")
+        _require_unique(self.segment_ids, "GT memo segment_ids")
+        return self
 
 
 class StrictGTInspiredExport(MethodEnvelope):
