@@ -189,6 +189,10 @@ def validate_fixture_dir(
     whose temporary byte mutation cannot exist in Git. Production validation
     always uses the default and verifies the exact last-content commit.
     """
+    _require(
+        not fixture_dir.is_symlink(),
+        "fixture directory root must not be a symlink",
+    )
     manifest = _read_json(fixture_dir / MANIFEST_NAME)
     _require_only_fields(manifest, MANIFEST_ALLOWED_FIELDS, "manifest")
     _require(

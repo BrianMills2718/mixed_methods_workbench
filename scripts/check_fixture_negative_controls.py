@@ -113,6 +113,12 @@ def run_negative_controls(*, emit_diagnostics: bool = True) -> int:
             False,
         ),
         (
+            "fixture_directory_root_symlink",
+            _replace_fixture_root_with_symlink,
+            "fixture directory root must not be a symlink",
+            False,
+        ),
+        (
             "missing_origin_kind",
             _remove_origin_kind,
             "origin_kind must be workbench_synthetic",
@@ -410,6 +416,13 @@ def _add_fixture_directory_symlink(fixture_dir: Path) -> None:
     target = fixture_dir / "symlink-target"
     target.mkdir()
     (fixture_dir / "linked").symlink_to(target, target_is_directory=True)
+
+
+def _replace_fixture_root_with_symlink(fixture_dir: Path) -> None:
+    """Replace the traversal root itself with a symlink to identical bytes."""
+    target = fixture_dir.with_name(f"{fixture_dir.name}-root-target")
+    fixture_dir.rename(target)
+    fixture_dir.symlink_to(target, target_is_directory=True)
 
 
 def _remove_origin_kind(fixture_dir: Path) -> None:

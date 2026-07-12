@@ -87,15 +87,15 @@
       "python3 scripts/check_coverage_negative_controls.py"
     ],
     "control_sha256": {
-      "scripts/check_fixture_negative_controls.py": "b5060c7d7b3263e06eea7569769a77ff6c35fbb7ed8a7f9696540ad7481294d2",
+      "scripts/check_fixture_negative_controls.py": "3cfd5de41bfac02def5d9dd45f68c0db83ad72d992ab780388de8b2d5282e39f",
       "scripts/check_coverage_negative_controls.py": "e01e38a1bfebd720ea11446f59a4e999154f498320f19c67aa09405057ca65c8"
     },
     "control_result": "pass",
     "evidence_deriver_path": "scripts/check_coverage.py",
     "evidence_deriver_sha256": "a457f93e23a5fbc56552613449298d807cd8cdc9b4fe70057e6695d87fc5fd7a",
     "validator_path": "scripts/validate_fixtures.py",
-    "validator_sha256": "cd51511a543b3c781ece48389591d03b7e0af84bfe20918740a40607fa0ef117",
-    "observed_at": "2026-07-12T14:02:16-07:00",
+    "validator_sha256": "44d512185783b4b4348904531c046de666f4974d9951d7f649f1b5a7b3de592c",
+    "observed_at": "2026-07-12T14:22:37-07:00",
     "result": "pass",
     "validated_file_hashes": {
       "qc_handoff_stub.json": "e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470",

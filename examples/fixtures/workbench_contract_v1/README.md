@@ -26,7 +26,7 @@ in this directory except the manifest itself. Validation rejects symlinks,
 malformed or duplicate-key JSON, checks the inventory in both directions,
 verifies current bytes against the exact Git blob, and binds its observation to
 the current files, validator, negative-control programs, and evidence deriver.
-Coverage reruns all 40 fixture controls plus missing- and malformed-evidence
+Coverage reruns all 41 fixture controls plus missing- and malformed-evidence
 controls before licensing A for inventory provenance alone.
 
 Validation:

@@ -61,13 +61,13 @@ sign-off before closing only W2/T0-PROV.
 - Made every synthetic fixture Git-recoverable from its exact last-content
   commit and bound the observation to current fixture, validator, control, and
   evidence-deriver bytes.
-- Added 40 fixture controls plus missing-evidence, malformed-JSON,
+- Added 41 fixture controls plus missing-evidence, malformed-JSON,
   stale-report, and composed-interface controls; W2 derives A only on the valid
   lane and a complete F report on invalid evidence lanes.
 - Dispositioned independent rejections covering recursive/case-variant
   inventory, semantic/alternate claims, non-first entries, timestamps,
-  self-healing reports, evidence-apparatus integrity, symlinks, duplicate keys,
-  and malformed input.
+  self-healing reports, evidence-apparatus integrity, interior and root
+  symlinks, duplicate keys, and malformed input.
 - Recorded the verification-process findings on the pushed project-meta branch
   `verification-gap-mmw-t0-prov-20260712` at `240b2831` without touching its
   dirty shared checkout.
