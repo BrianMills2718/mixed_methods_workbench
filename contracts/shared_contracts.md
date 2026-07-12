@@ -254,7 +254,9 @@ Allowed failures:
 
 ### Process Tracing to Workbench
 
-Input: `process_tracing` `result.json` plus optional source packet.
+Input: a future producer-owned, versioned `ProcessTracingExport` that names its
+governed source packet. The workbench must not parse internal `result.json`,
+import `pt.schemas`, or infer this contract from reports.
 
 Output:
 
@@ -268,7 +270,7 @@ Output:
 
 Allowed failures:
 
-- missing result/report pair;
+- missing or unsupported export/schema version;
 - source hash mismatch;
 - no source packet where one is required by the workbench mode;
 - unresolved evidence quote that cannot be mapped to a source anchor.

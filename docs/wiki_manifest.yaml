@@ -25,6 +25,18 @@ publish:
     type: ProjectOverview
     title: Current Planning Status
     tags: [portfolio, mixed_methods_workbench, planning, current]
+  - path: plan/goals/2026-07-12-sota-or-beyond.md
+    type: Goal
+    title: SOTA-or-Beyond Long-Term Goal
+    tags: [portfolio, mixed_methods_workbench, strategy, goal, current]
+  - path: docs/SOTA_EVIDENCE_SCORECARD.md
+    type: EvidenceReport
+    title: SOTA Evidence Scorecard
+    tags: [portfolio, mixed_methods_workbench, evidence, evaluation, current]
+  - path: docs/CONCERNS.md
+    type: ConcernRegister
+    title: Mixed Methods Workbench Concerns
+    tags: [portfolio, mixed_methods_workbench, risk, current]
   - path: docs/MIXED_METHODS_CAPABILITY_MAP.md
     type: ProjectOverview
     title: Mixed Methods Capability Map
@@ -33,6 +45,10 @@ publish:
     type: Plan
     title: Detailed Future Integration And Versioning Blueprint
     tags: [portfolio, mixed_methods_workbench, integration, future]
+  - path: docs/plans/current_t0_truthful_fixture_inventory.md
+    type: Plan
+    title: Current T0 Truthful Fixture Inventory
+    tags: [portfolio, mixed_methods_workbench, planning, evidence, current]
   - path: docs/plans/002_engine_stability_and_integration_readiness.md
     type: Plan
     title: Engine Stability And Integration Readiness
@@ -41,3 +57,15 @@ publish:
     type: ProjectOverview
     title: Implementing Agent Notes
     tags: [portfolio, mixed_methods_workbench, integration]
+  - path: docs/adr/0001_method_engines_not_monorepo.md
+    type: ArchitectureDecision
+    title: Method Engines Remain Separate Repositories
+    tags: [portfolio, mixed_methods_workbench, architecture, decision]
+  - path: docs/adr/0002_broad_north_star_versioned_thin_slices.md
+    type: ArchitectureDecision
+    title: Broad North Star Through Thin Slices
+    tags: [portfolio, mixed_methods_workbench, architecture, decision]
+  - path: docs/adr/0003_mixed_methods_minimum_and_optional_enhancers.md
+    type: ArchitectureDecision
+    title: Mixed-Methods Minimum and Optional Enhancers
+    tags: [portfolio, mixed_methods_workbench, architecture, decision, current]

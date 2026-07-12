@@ -6,9 +6,11 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
 `docs/PLANNING_STATUS.md` before planning. The default current mode is
-documentation-only. Do not begin implementation merely because a roadmap or
-future slice exists, and do not move code from an engine into this repo unless
-Brian explicitly authorizes a named implementation slice.
+documentation-only. The only active exception is local `T0-PROV`, defined by
+`docs/plans/current_t0_truthful_fixture_inventory.md`; it does not activate all
+of T0/0.0. Do not begin other implementation merely because a roadmap or future
+slice exists, and do not move code from an engine into this repo unless Brian
+explicitly authorizes a named implementation slice.
 
 ## Operating Rules
 
@@ -19,7 +21,8 @@ Brian explicitly authorizes a named implementation slice.
   `theory-forge`, and a future quantitative-text adapter as producers with their
   own invariants and claim discipline.
 - Do not claim this workbench is implemented until a vertical slice exists.
-- No implementation version is currently active. Plans 001 and 003 describe
+- No implementation version is currently active. Only the `T0-PROV`
+  provenance-inventory subcriterion is authorized. Plans 001 and 003 describe
   future work and do not authorize it.
 - Every cross-repo seam must use Pydantic-style typed contracts; no raw `dict`
   or ad hoc JSON at durable boundaries.
@@ -64,5 +67,8 @@ make coverage
 - `docs/CAPABILITY_DEPENDENCY_GRAPH.md`
 - `docs/PRE_IMPLEMENTATION_CHECKLIST.md`
 - `docs/PLANNING_STATUS.md`
+- `plan/goals/2026-07-12-sota-or-beyond.md`
+- `docs/SOTA_EVIDENCE_SCORECARD.md`
 - `docs/MIXED_METHODS_CAPABILITY_MAP.md`
+- `docs/plans/current_t0_truthful_fixture_inventory.md`
 - `docs/plans/003_integration_versioning_and_clean_state.md`

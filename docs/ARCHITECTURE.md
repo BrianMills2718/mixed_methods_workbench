@@ -1,7 +1,7 @@
 # Mixed Methods Workbench Architecture
 
 Status: preliminary future architecture; documentation only
-Updated: 2026-07-09
+Updated: 2026-07-12
 
 > Sequencing and full-scope authority now live in `docs/ROADMAP.md`,
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
@@ -138,7 +138,7 @@ failure modes, then promote stable contracts.
 flowchart LR
   subgraph External["Method engines and shared dependencies"]
     QC["qualitative_coding\nProjectState JSON, exports, review APIs"]
-    PT["process_tracing\nresult.json, source packet, report.html"]
+    PT["process_tracing\nfuture versioned ProcessTracingExport"]
     TF["theory-forge\nfuture TheoryOperationalizationArtifact"]
     LLM["llm_client\nused by engines"]
     Web["open_web_retrieval\nfuture source acquisition"]
@@ -358,9 +358,11 @@ and use that fixture in the Slice 1 demo payload.
 
 Blocks: Slice 1 adapter readout.
 
-Known stub: Input is a `process_tracing` `result.json` plus optional source
-packet. Output is a partial `SharedContractBundle` with source scope, evidence,
-hypotheses, and comparative-support references.
+Known stub: Input is a future producer-owned, versioned
+`ProcessTracingExport` with a governed source-packet identity. Output is a
+partial `SharedContractBundle` with source scope, evidence, hypotheses, and
+comparative-support references. Internal `result.json`, `pt.schemas`, and
+report files are explicitly not workbench seams.
 
 Unknowns:
 
@@ -368,9 +370,10 @@ Unknowns:
 - Whether evidence `source_text` can be reliably mapped to source anchors with
   offsets or must initially use source markers only.
 
-Instrument: regenerate the public French Revolution/Directory case, run
-`make audit-result`, then inspect evidence/source-packet fields for anchor
-mapping.
+Instrument: after a separately authorized producer slice implements the PT
+export, generate one public case through the producer command, validate it in
+the PT repository, then inspect only the exported evidence/source fields for
+marker- or offset-level anchor mapping.
 
 Readout: one fixture produces at least one evidence record, one causal
 hypothesis set, one source-scope caveat, and one comparative-support method

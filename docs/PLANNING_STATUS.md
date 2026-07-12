@@ -1,17 +1,42 @@
 # Current Planning Status
 
-Status: canonical current-phase guide
-Updated: 2026-07-10
+Status: canonical current-phase and authorization guide
+Updated: 2026-07-12
 
-## Current Phase: Documentation Only
+## Current Phase: Documentation First, with One T0 Subslice Authorized
 
 The current task is to clarify and reconcile the project's strategy,
 methodological scope, architecture, dependencies, version order, decisions, and
 open questions so future implementation can begin from a coherent plan.
 
-No product implementation phase is active. No numbered version, engine-integration
-slice, adapter, API, UI, schema migration, or upstream-engine task is authorized
-for execution by these documents alone.
+No product implementation phase or numbered release is active. No engine
+integration, adapter, API, UI, schema migration, or upstream-engine task is
+authorized by these documents alone. One local evidence-baseline subslice is
+currently authorized: `T0-PROV`, corresponding to coverage row
+`W2-fixture-inventory`.
+
+## Active Authorization: T0-PROV
+
+The user supplied the prior handoff, including the exact next action:
+
+> “close the T0 provenance-complete fixture inventory gap without starting
+> engine integration.”
+
+The user's current instruction then said exactly:
+
+> “please inveistgae and set up clear long term plans then proceed until the
+> mixed method work bench is sota or beyond in all areas”
+
+The handoff alone is not authority. The direct phrase “then proceed,” applied to
+the supplied named next action, authorizes the local T0 provenance-inventory
+subslice after investigation and planning. The canonical authorization record,
+scope, evidence target, and failure modes are in
+`docs/plans/current_t0_truthful_fixture_inventory.md`.
+
+This exception does **not** close or authorize all of T0/0.0. It does not permit
+producer-repository changes, real exports, production schemas, adapters, UI,
+APIs, evaluation machinery, a 0.1 case, or a SOTA claim. Every later slice still
+requires separate named authorization.
 
 Current work may:
 
@@ -22,10 +47,13 @@ Current work may:
   decisions;
 - make the documentation legible to a future implementing agent and to a
   non-coding reviewer.
+- implement and verify only the current `T0-PROV` fixture-inventory subslice in
+  this repository.
 
 Current work must not:
 
-- start version 0.0, 0.1, or any later implementation slice;
+- start any other version 0.0 work, version 0.1, or a later implementation
+  slice;
 - modify `qualitative_coding`, `process_tracing`, `grounded-research`,
   `theory-forge`, or another dependency for this workbench;
 - build adapters, production schemas, orchestration, APIs, UI, evaluation
@@ -33,11 +61,11 @@ Current work must not:
 - interpret a roadmap sequence, acceptance criterion, or “future next step” as
   authorization to execute it.
 
-Implementation begins only after Brian explicitly authorizes a named slice or
-asks to move from planning into implementation. At that point, the first action
-is a fresh state review: confirm upstream status, revisit open decisions, turn
-the selected future slice into a current implementation plan, and record its
-acceptance evidence.
+Implementation beyond `T0-PROV` begins only after Brian explicitly authorizes a
+named slice or asks to move that slice from planning into implementation. At
+that point, the first action is a fresh state review: confirm upstream status,
+revisit open decisions, turn the selected future slice into a current
+implementation plan, and record its acceptance evidence.
 
 ## What “Plan 003” Means
 
@@ -64,6 +92,9 @@ order. It is not a current task list.
 | `contracts/shared_contracts.md` | What might cross-engine artifacts contain? | Contract sketch only, not a production schema. |
 | `docs/CONCERNS.md` | What risks and unresolved decisions must remain visible? | Live planning concern register. |
 | `docs/coverage_report.md` | What does the existing synthetic scaffold actually prove? | Evidence baseline only. |
+| `docs/SOTA_EVIDENCE_SCORECARD.md` | What external floors and proof would license bounded SOTA claims? | Current visibility artifact, not an enforcement gate. |
+| `plan/goals/2026-07-12-sota-or-beyond.md` | What long-term outcomes, dependencies, and completion conditions govern the program? | Active long-term goal map; it does not authorize later rows. |
+| `docs/plans/current_t0_truthful_fixture_inventory.md` | What exact local T0 subslice is authorized now? | Current implementation authority for `T0-PROV` only. |
 | `docs/plans/001_walking_skeleton.md` | What was the original first-slice proposal? | Future proposal, not authorized. |
 | `docs/plans/002_engine_stability_and_integration_readiness.md` | What did the June 2026 dependency review find? | Historical evidence, not current state. |
 
@@ -91,9 +122,13 @@ Planning readiness does not mean implementation readiness.
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`; `docs/ROADMAP.md`;
 > `docs/adr/0001_method_engines_not_monorepo.md`;
 > `docs/adr/0002_broad_north_star_versioned_thin_slices.md`;
+> `docs/adr/0003_mixed_methods_minimum_and_optional_enhancers.md`;
+> `docs/SOTA_EVIDENCE_SCORECARD.md`;
 > `docs/coverage_report.md`; `docs/plans/001_walking_skeleton.md`;
 > `docs/plans/002_engine_stability_and_integration_readiness.md`;
 > `docs/plans/003_integration_versioning_and_clean_state.md`;
+> `plan/goals/2026-07-12-sota-or-beyond.md`;
+> `~/projects/investigations/mixed_methods_workbench/2026-07-12-sota-program-baseline.md`;
 > `docs/wiki_manifest.yaml`;
 > `examples/fixtures/workbench_contract_v1/README.md`;
 > `examples/integration_payload_mockup.md`.
@@ -102,6 +137,6 @@ Planning readiness does not mean implementation readiness.
 > machine-readable mirrors/fixtures and contain no additional planning-authority
 > statements.
 >
-> Status: current-phase clarification requested by Brian on 2026-07-09 and
-> extended with a claim-licensing dependency graph and pre-implementation
-> checklist on 2026-07-10.
+> Status: current-phase clarification requested by Brian on 2026-07-09,
+> extended with claim-licensing controls on 2026-07-10, and updated with the
+> exact `T0-PROV` authorization boundary on 2026-07-12.

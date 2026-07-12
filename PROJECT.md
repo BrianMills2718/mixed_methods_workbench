@@ -54,11 +54,12 @@ agents, and researchers.
 
 ## Current Status
 
-Planning scaffold with an initial synthetic verification surface. The evidence
-baseline is 0 A, 0 B, 2 C, 5 D, and 1 F. It does not claim live engine
-integration or research outputs. The current phase is documentation only; no
-implementation version is active or authorized. See `docs/PLANNING_STATUS.md`
-for the boundary between current planning and future implementation.
+Planning scaffold with an initial synthetic verification surface. The baseline
+before `T0-PROV` is 0 A, 0 B, 2 C, 5 D, and 1 F. It does not claim live engine
+integration or research outputs. The default phase is documentation; only the
+local `T0-PROV` provenance-inventory subcriterion is authorized, and no product
+version or engine integration is active. See `docs/PLANNING_STATUS.md` for the
+exact boundary.
 
 ## Canonical Docs
 
@@ -66,6 +67,10 @@ for the boundary between current planning and future implementation.
   path for future implementation.
 - `docs/PLANNING_STATUS.md` - what work is and is not authorized in the current
   phase.
+- `plan/goals/2026-07-12-sota-or-beyond.md` - active long-term outcomes,
+  dependency map, work packages, and transcript-demonstrable completion rule.
+- `docs/SOTA_EVIDENCE_SCORECARD.md` - current external floors, incumbent
+  baselines, evidence grades, and bounded SOTA claim rule.
 - `docs/CAPABILITY_DEPENDENCY_GRAPH.md` - capability ordering, dependencies,
   success criteria, verification artifacts, and claim-licensing gates.
 - `docs/PRE_IMPLEMENTATION_CHECKLIST.md` - required fresh-state review and
@@ -74,10 +79,14 @@ for the boundary between current planning and future implementation.
   and ownership gaps.
 - `docs/plans/003_integration_versioning_and_clean_state.md` - detailed future
   implementation blueprint for versions 0.0 and 0.1; not a current task list.
+- `docs/plans/current_t0_truthful_fixture_inventory.md` - current authority and
+  executable plan for the `T0-PROV` subslice only.
 - `docs/ARCHITECTURE.md` - initial QC/PT architecture artifact, subordinate to
   the current planning status and roadmap where they differ.
 - `docs/adr/0001_method_engines_not_monorepo.md` - decision to compose method
   engines through contracts before any repo merge.
+- `docs/adr/0003_mixed_methods_minimum_and_optional_enhancers.md` - claim-scoped
+  GR/TF dependency decision.
 - `contracts/shared_contracts.md` - initial cross-engine contract sketch.
 - `docs/plans/002_engine_stability_and_integration_readiness.md` - historical
   dependency assessment retained for provenance.

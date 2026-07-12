@@ -1,6 +1,6 @@
 # Future Implementing Agent Notes
 
-Status: future reference only — no implementation is currently authorized
+Status: future integration reference — only local `T0-PROV` is currently authorized
 
 This file captures high-confidence work and larger repo-local notes from the
 2026-06-26 worktree review. It is intentionally conservative: the workbench is
@@ -8,12 +8,14 @@ not ready for adapters, UI, or live engine orchestration.
 
 ## High-Confidence Work Now
 
-For the current documentation-only phase:
+For the current documentation-first phase:
 
 - Keep `docs/plans/001_walking_skeleton.md` marked as a future proposal.
 - Use `docs/PLANNING_STATUS.md` for the current authorization boundary and the
   detailed blueprint only for future sequencing. Plan 002 is historical.
-- If Brian later authorizes implementation, run
+- Execute only `docs/plans/current_t0_truthful_fixture_inventory.md`; its W2
+  inventory proof does not authorize another T0 item, engine work, or adapters.
+- If Brian later authorizes another implementation slice, run
   `docs/PRE_IMPLEMENTATION_CHECKLIST.md` before creating code, adapters,
   schemas, APIs, UI, or upstream tasks.
 - Keep `docs/CONCERNS.md` current when new engine-readiness facts appear.
@@ -27,9 +29,11 @@ For the current documentation-only phase:
 
 ### `qualitative_coding`
 
-Consider a small repo-local slice that:
+After a separately named producer authorization, consider a small repo-local
+slice that:
 
-- records the current dirty worktree status before claiming readiness;
+- refreshes and records repository state before claiming readiness (QC was
+  clean in the read-only 2026-07-12 snapshot);
 - selects one canonical QC export fixture for the workbench;
 - validates that fixture with the strict QC handoff/export command;
 - records source hashes, producer commit, scope, anchors, claims,
@@ -40,7 +44,8 @@ Do not add likelihood vectors, posteriors, or comparative-support fields to QC.
 
 ### `process_tracing`
 
-Consider a repo-local slice that:
+After a separately named producer authorization, consider a repo-local slice
+that:
 
 - fixes the documented `make check` runtime surface so it uses repo-local Python;
 - decides the fate of untracked `workbench/`;
@@ -53,10 +58,10 @@ Do not ask the workbench to parse `result.json` or import `pt.schemas`.
 
 ### `theory-forge`
 
-Consider a repo-local readiness investigation before any integration work:
+The 2026-07-12 read-only investigation found a clean v14 runtime and tested
+optional v15 extension but no workbench export. Before any integration work:
 
-- resolve current health/check status;
-- reconcile v14/v15 and roadmap/HANDOFF drift;
+- refresh current health/check status and version authority;
 - identify one green theory that can produce a real fixture;
 - draft a `TheoryOperationalizationArtifact` from real schema/manifest fields;
 - keep AC8/AC11/AC14/AC15 paths out of the mixed-methods runtime.

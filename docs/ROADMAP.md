@@ -1,7 +1,7 @@
 # Mixed Methods Workbench Roadmap
 
 Status: canonical future strategy; documentation only, no release is active
-Updated: 2026-07-10
+Updated: 2026-07-12
 
 ## Current Phase
 
@@ -58,7 +58,10 @@ designs, not from adding generic buttons.
 The detailed capability inventory and ownership map is in
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`. The claim-licensing dependency table
 that states what each capability must prove before becoming a product claim is
-in `docs/CAPABILITY_DEPENDENCY_GRAPH.md`.
+in `docs/CAPABILITY_DEPENDENCY_GRAPH.md`. The active long-term goal and current
+external comparison baseline are in
+`plan/goals/2026-07-12-sota-or-beyond.md` and
+`docs/SOTA_EVIDENCE_SCORECARD.md`.
 
 ## Version Ladder
 
@@ -139,6 +142,11 @@ benchmarks.
 Release claim: the workbench can expose and resolve evidence disputes with
 provenance on evaluated cases.
 
+Scheduling note: this is a parallel method-scoped enhancement after 0.1, not a
+universal prerequisite for the first qualitative-quantitative mixed-methods
+design. Any release that claims automated adjudication must still pass this
+gate; see ADR 0003.
+
 ### 0.3 — Theory-Guided Analysis and Revision
 
 Purpose: connect empirical analysis to explicit constructs, mechanisms,
@@ -158,6 +166,11 @@ Primary dependency: Theory Forge Plan 108 plus one known-green, real
 Release claim: theory can guide and be revised by analysis. Theory objects are
 not counted as supporting evidence merely because they were generated or
 compiled.
+
+Scheduling note: this is a parallel method-scoped enhancement after 0.1, not a
+universal prerequisite for the first mixed-methods design. It remains required
+for the current 1.0 profile because that profile declares theory
+operationalization; see ADR 0003.
 
 ### 0.4 — First Genuine Mixed-Methods Design
 
@@ -183,6 +196,11 @@ ownership of the
 quantitative-text adapter/engine. The default is to use established libraries
 behind a narrow project-specific adapter for the first real design, and extract
 a shared engine only after the slice reveals a stable interface.
+
+Minimum claim dependencies are `R01` plus the governed `QT` strand. Grounded
+Research and Theory Forge are required only if this named study also claims
+adjudication or theory operationalization. They are not constitutive of mixed
+methods.
 
 Release claim: one evaluated exploratory-sequential mixed-methods design exists.
 No causal-effect claim is licensed without a separate identification design.
@@ -291,6 +309,7 @@ is `docs/CAPABILITY_DEPENDENCY_GRAPH.md`.
 ```mermaid
 flowchart TD
   T0["0.0 Truth and clean-state recovery"]
+  GOV["Governed public source packet"]
   QC["QC methodology + sanitizer + real export"]
   PT["PT checks + versioned export"]
   W01["0.1 QC/PT real review slice"]
@@ -309,26 +328,30 @@ flowchart TD
   EVAL["Cross-domain observed benchmark"]
   W10["1.0"]
 
-  T0 --> QC
-  T0 --> PT
+  T0 --> GOV
+  GOV --> QC
+  GOV --> PT
   QC --> W01
   PT --> W01
   W01 --> GR --> W02
   W01 --> TF --> W03
-  W02 --> W04
-  W03 --> W04
-  QT --> W04
+  W01 --> QT --> W04
   W04 --> DES --> W05
   W04 --> CAUSAL --> W06
   W05 --> PORT
   W06 --> PORT
+  W02 -. "when adjudication is claimed" .-> EVAL
+  W03 --> EVAL
   PORT --> W07 --> EVAL --> W10
 ```
 
-The critical path is `0.0 -> QC export + PT export -> 0.1 -> quantitative-text
-decision -> 0.4 -> portfolio/evaluation -> 1.0`. Grounded Research and Theory
-Forge can progress in parallel after 0.1 and both must be integrated before
-0.4 is promoted.
+The critical path is `0.0 -> governed public source packet -> QC export + PT
+export -> 0.1 -> quantitative-text decision -> 0.4 -> portfolio/evaluation ->
+1.0`. Grounded Research and Theory
+Forge can progress in parallel after 0.1 and do not block 0.4. The current 1.0
+profile declares theory operationalization, so the Theory Forge branch must
+join before the 1.0 evaluation. Grounded Research joins only if automated
+adjudication is included in the release claim.
 
 `research_v3` is not on the critical path. Its current docs disagree about
 whether it is active or archived. Until an ADR resolves that conflict, treat it
@@ -397,11 +420,16 @@ neutral.
 
 ## Future Implementation Entry Point
 
-If Brian later authorizes implementation, the detailed starting blueprint is
-`docs/plans/003_integration_versioning_and_clean_state.md`. It describes the
-proposed 0.0 and 0.1 phases; it does not activate them. Later versions remain
-skeletons until their entry gates are reached and their choices are reviewed
-against then-current evidence.
+Brian's 2026-07-12 instruction narrowly authorizes the handoff's named
+`T0-PROV` provenance-inventory subcriterion (coverage row W2) in this
+repository. Passing it does not close T0/0.0. Its current implementation plan
+is `docs/plans/current_t0_truthful_fixture_inventory.md`. The remaining 0.0
+work, producer changes, 0.1 integration, and later rows are not activated.
+
+For later authorization, the detailed starting blueprint is
+`docs/plans/003_integration_versioning_and_clean_state.md`. Later versions
+remain skeletons until their entry gates are reached and their choices are
+reviewed against then-current evidence.
 
 The required future entry gate is `docs/PRE_IMPLEMENTATION_CHECKLIST.md`. It
 turns a named authorization into a current implementation plan, fresh state
@@ -422,3 +450,7 @@ at design, collection, analysis, and interpretation:
 Text-analysis claims require explicit validation and uncertainty rather than
 face-valid output: <https://unstats.un.org/unsd/trade/events/2014/Beijing/documents/socialmedia/Grimmer%20and%20Stuart%20-%202013.pdf> and
 <https://doi.org/10.1080/19312458.2023.2285765>.
+
+The refreshed 2026-07-12 methodological, standards, and incumbent baseline is
+recorded with evidence limits in `docs/SOTA_EVIDENCE_SCORECARD.md` and
+`.claude/tasks/research_sota_landscape.md`.

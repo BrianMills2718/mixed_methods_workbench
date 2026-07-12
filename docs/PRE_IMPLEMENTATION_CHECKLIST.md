@@ -1,7 +1,7 @@
 # Pre-Implementation Checklist
 
 Status: canonical future entry gate; documentation only
-Updated: 2026-07-10
+Updated: 2026-07-12
 
 ## Purpose
 
@@ -112,8 +112,10 @@ slice by dependency truth:
 2. If `T0` is incomplete, start with truth/clean-state recovery.
 3. If `R01` is requested but `QC`, `PT`, or `GOV` is missing, resolve the missing
    producer/governance dependency first.
-4. If `MM` or version 0.4 is requested, do not start until `R01`, `GR`, `TF`,
-   and `QT` are either satisfied or explicitly narrowed by Brian.
+4. If `MM` or version 0.4 is requested, do not start until `R01` and `QT` are
+   satisfied. Require `GR` or `TF` only when the named design claims
+   adjudication or theory operationalization. The current V10 profile still
+   requires TF before its evaluation; see ADR 0003.
 5. If a SOTA or beyond-SOTA claim is requested, refresh external SOTA and
    incumbent baselines before designing the benchmark.
 
@@ -127,13 +129,15 @@ slice by dependency truth:
 > `docs/coverage_report.md`;
 > `docs/adr/0001_method_engines_not_monorepo.md`;
 > `docs/adr/0002_broad_north_star_versioned_thin_slices.md`;
+> `docs/adr/0003_mixed_methods_minimum_and_optional_enhancers.md`;
 > `docs/plans/001_walking_skeleton.md`;
 > `docs/plans/002_engine_stability_and_integration_readiness.md`;
 > `docs/plans/003_integration_versioning_and_clean_state.md`;
 > `contracts/shared_contracts.md`;
 > `examples/integration_payload_mockup.md`;
 > `examples/fixtures/workbench_contract_v1/README.md`;
-> `docs/wiki_manifest.yaml`.
+> `docs/wiki_manifest.yaml`;
+> `~/projects/investigations/mixed_methods_workbench/2026-07-12-sota-program-baseline.md`.
 >
 > Not consulted: JSON fixture files and generated JSON coverage, because this
 > checklist is an authorization and planning-control document rather than a

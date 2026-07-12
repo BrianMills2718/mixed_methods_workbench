@@ -1,7 +1,7 @@
 # Capability Dependency Graph
 
 Status: canonical sequencing aid; documentation only, no release is active
-Updated: 2026-07-10
+Updated: 2026-07-12
 
 ## Purpose
 
@@ -45,21 +45,21 @@ flowchart TD
 
   AUTH --> T0
   T0 --> GOV
-  T0 --> QC
-  T0 --> PT
+  GOV --> QC
+  GOV --> PT
   GOV --> R01
   QC --> R01
   PT --> R01
   R01 --> GR
   R01 --> TF
   R01 --> QT
-  GR --> MM
-  TF --> MM
   QT --> MM
   MM --> DES
   MM --> CAUSAL
   DES --> OPS
   CAUSAL --> OPS
+  TF --> EVAL
+  GR -. "when claimed" .-> EVAL
   OPS --> EVAL
   EVAL --> V10
 ```
@@ -67,19 +67,21 @@ flowchart TD
 Critical path:
 
 ```text
-AUTH -> T0 -> GOV + QC + PT -> R01 -> QT + GR + TF -> MM -> OPS -> EVAL -> V10
+AUTH -> T0 -> GOV -> QC + PT -> R01 -> QT -> MM -> OPS -> EVAL -> V10
 ```
 
-`GR` and `TF` can progress in parallel after `R01`. `QT` is the highest-risk
-missing owner before the first true mixed-methods release. `DES` and `CAUSAL`
-may progress in either order after `MM`, but both feed `OPS` and the eventual
-1.0 evaluation gate.
+`GR` and `TF` can progress in parallel after `R01`, but neither is a universal
+prerequisite for `MM`; see ADR 0003. `QT` is the highest-risk missing owner
+before the first true mixed-methods release. `DES` and `CAUSAL` may progress in
+either order after `MM`, but both feed `OPS`. The current 1.0 profile declares
+theory operationalization, so `TF` must join the evaluation path before `V10`.
+`GR` joins that path only for releases that claim automated adjudication.
 
 ## Capability Table
 
 | ID | Capability | Owner | Depends on | Current status | Current evidence | Success criteria | Verification artifact | Claim licensed |
 |---|---|---|---|---|---|---|---|---|
-| AUTH | Current planning authority | `mixed_methods_workbench` | none | documented | D, document review | Planning docs distinguish current facts, future proposals, and implementation authorization. | Documentation review plus `docs/PLANNING_STATUS.md`. | The project is in documentation-only planning mode. |
+| AUTH | Current planning authority | `mixed_methods_workbench` | none | documented | D, document review | Planning docs distinguish current facts, future proposals, and implementation authorization. | Documentation review plus `docs/PLANNING_STATUS.md`. | The default is documentation-only; only the explicitly recorded `T0-PROV` subslice is active. |
 | T0 | Truthful evidence baseline | `mixed_methods_workbench` | AUTH | partial scaffold | F overall; C fixture controls, F inventory gap | Synthetic controls are discriminating, evidence grades are honest, and readiness gaps fail visibly. | `make check`, `make coverage`, coverage report, negative controls. | The repo has a truthful planning/fixture baseline, not live engine readiness. |
 | GOV | Study and source governance baseline | Workbench plus producer exports | T0 | planned | F overall; D prose, no real source manifest | Protocol, corpus/source identity, source hashes, licensing/sensitivity caveats, and claim limits are present for the first case. | Future `ResearchBundle` manifest and source governance checks. | Workbench artifacts can be bounded to a governed source scope. |
 | QC | Qualitative export fixture | `qualitative_coding` | T0, GOV | documented dependency | D, upstream plan only | One real export provides corpus denominator, anchors, codes/categories, claims, patterns, memos/review state, provenance, and claim limits without PT inference fields. | Engine-local strict export validation, pinned fixture, negative controls, producer commit. | QC can supply qualitative evidence and claims for one evaluated case. |
@@ -88,11 +90,11 @@ may progress in either order after `MM`, but both feed `OPS` and the eventual
 | GR | Disagreement adjudication | `grounded-research` plus workbench seam | R01 | planned dependency | D, planned seam only | Contested claims become a `ClaimDisputeBundle`; independent analyses, verification actions, disagreement types, and human dispositions return as `AdjudicationResult`. | Workbench case evaluation, human dispositions, seam tests. | The workbench can expose and disposition evidence disputes for evaluated cases. |
 | TF | Theory operationalization | `theory-forge` plus workbench seam | R01 | planned dependency | D, planned seam only | One known-green export provides constructs, mechanisms, hypotheses, observables, measures, assumptions, scope conditions, uncertainties, validation obligations, and provenance. | Schema-validated `TheoryOperationalizationArtifact` from a real theory export. | Theory can guide and be challenged by analysis without being counted as empirical evidence. |
 | QT | Quantitative text strand | Unresolved first adapter owner | R01, GOV, QC | blocked by owner decision | F, owner missing | A selected quantitative text task has a protocol, held-out set, measurement or annotation instrument, validation metrics, error analysis, uncertainty, and item-level links to qualitative constructs. | Adapter fixture, held-out evaluation, leakage controls, measurement/error report. | A quantitative text strand can be integrated for one named design. |
-| MM | First true mixed-methods design | `mixed_methods_workbench` plus QT/GR/TF as needed | R01, QT, GR, TF | blocked | F, no qual-quant integration evidence | Qualitative and quantitative strands are connected, built, merged, or embedded; joint display, strand-relationship classification, contradiction disposition, and bounded meta-inference exist. | Exploratory-sequential review packet, integration controls, human/agent review. | Version 0.4 may claim one evaluated qualitative-quantitative mixed-methods design. |
+| MM | First true mixed-methods design | `mixed_methods_workbench` plus QT; GR/TF only when the named design uses them | R01, QT | blocked | F, no qual-quant integration evidence | Qualitative and quantitative strands are connected, built, merged, embedded, or transformed; joint display or equivalent, strand-relationship classification, contradiction disposition, and bounded meta-inference exist. | Exploratory-sequential review packet, integration controls, human/agent review. | Version 0.4 may claim one evaluated qualitative-quantitative mixed-methods design. |
 | DES | Additional integration designs and exchange | Workbench | MM | skeleton | F overall; D roadmap only | Convergent, explanatory sequential, and embedded designs each have explicit timing, priority, integration operations, and exchange/export obligations. | Design-specific fixtures, REFI-QDA/tabular export tests, reporting-profile checks. | The product supports multiple named integration designs without flattening them. |
 | CAUSAL | Causal/comparative bridges | Workbench plus PT and quantitative adapters | MM | skeleton | F overall; D roadmap only | Nested analysis, QCA/fsQCA, text-as-treatment/mediator/outcome/confounder, and cross-case bridges declare estimands, identification assumptions, measurement error, and scope. | Eligibility notebooks, adapter fixtures, causal assumption checks, rejected-case controls. | The product can bridge within-case and cross-case analysis with explicit limits. |
 | OPS | Method profiles and responsible operations | Workbench plus producers | DES, CAUSAL | skeleton | F overall; D scope inventory only | Method profiles declare valid operations, evidence obligations, forbidden claims, reporting requirements, governance, roles, privacy, translation, retention, drift, and API parity. | Profile tests, governance metadata checks, review queues, export bundle validation. | Broader method support is profile-specific rather than a universal quality score. |
-| EVAL | Comparative SOTA benchmark | Workbench plus independent reviewers | OPS | absent | F, no benchmark | Multiple domains, languages, source genres, held-out cases, planted failures, negative controls, trace evaluation, expert rubrics, incumbent baselines, ablations, labor/time/cost, and drift checks are observed. | Frozen benchmark package, expert review records, trace-eval results, ablation report. | Bounded SOTA or beyond-SOTA claims are evidence-backed for named tasks and domains. |
+| EVAL | Comparative SOTA benchmark | Workbench plus independent reviewers | OPS, TF for the current V10 profile; GR only if claimed | absent | F, no benchmark | Multiple domains, languages, source genres, held-out cases, planted failures, negative controls, trace evaluation, expert rubrics, incumbent baselines, ablations, labor/time/cost, and drift checks are observed. | Frozen benchmark package, expert review records, trace-eval results, ablation report. | Bounded SOTA or beyond-SOTA claims are evidence-backed for named tasks and domains. |
 | V10 | Validated 1.0 workbench | Workbench release bundle | EVAL | future | F, depends on unbuilt gates | Goals G1-G6 in `docs/ROADMAP.md` meet their 1.0 conditions for named designs and domains, with unsupported methods documented. | Release bundle, compatibility manifest, benchmark results, known-limits report. | The project can claim a validated text-centered mixed-methods workbench for the supported scope. |
 
 ## Decision Gates
@@ -107,9 +109,11 @@ Known stop points:
 - `R01`: confirm the first public case and source licensing before replacing
   invented fixtures.
 - `GR`: evaluate Grounded Research on workbench claims rather than inheriting a
-  general validity claim from its own benchmarks.
+  general validity claim from its own benchmarks; require it only when the
+  selected release claims automated adjudication.
 - `TF`: select one known-green Theory Forge export before designing a hard
-  workbench schema.
+  workbench schema. It does not block the first `MM` case, but it does block the
+  current V10 profile's theory-operationalization claim.
 - `research_v3`: keep off the critical path until its active-versus-archived
   role is resolved by ADR.
 - `EVAL`: refresh external SOTA and incumbent baselines at benchmark design
@@ -125,6 +129,7 @@ Known stop points:
 > `docs/coverage_report.md`; `docs/wiki_manifest.yaml`;
 > `docs/adr/0001_method_engines_not_monorepo.md`;
 > `docs/adr/0002_broad_north_star_versioned_thin_slices.md`;
+> `docs/adr/0003_mixed_methods_minimum_and_optional_enhancers.md`;
 > `docs/plans/001_walking_skeleton.md`;
 > `docs/plans/002_engine_stability_and_integration_readiness.md`;
 > `docs/plans/003_integration_versioning_and_clean_state.md`;
@@ -134,6 +139,7 @@ Known stop points:
 >
 > Not consulted: JSON fixture files and generated JSON coverage, because they
 > are machine-readable scaffold evidence rather than planning-authority text.
-> External SOTA sources were not refreshed for this document; the benchmark row
-> explicitly requires a fresh external SOTA and incumbent-baseline review before
-> any SOTA claim is made.
+> `~/projects/investigations/mixed_methods_workbench/2026-07-12-sota-program-baseline.md` and
+> `docs/SOTA_EVIDENCE_SCORECARD.md` provide the 2026-07-12 external refresh.
+> The benchmark row still requires another refresh before any SOTA decision or
+> public claim.
