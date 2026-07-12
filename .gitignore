@@ -5,5 +5,5 @@ __pycache__/
 output/
 dist/
 build/
+worktrees/
 *.pyc
-
