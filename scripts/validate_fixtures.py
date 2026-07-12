@@ -13,7 +13,7 @@ import hashlib
 import json
 import re
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, cast
 
@@ -25,6 +25,56 @@ MANIFEST_SCHEMA_VERSION = 2
 SUPPORTED_ORIGIN_KIND = "workbench_synthetic"
 AUTHORING_REPOSITORY = "mixed_methods_workbench"
 VALIDATOR_RELATIVE_PATH = Path("scripts/validate_fixtures.py")
+
+EXPECTED_INVARIANTS = {
+    "qc_handoff_stub.json": (
+        "Qualitative handoff shape remains synthetic and excludes "
+        "process-tracing inference fields."
+    ),
+    "pt_export_stub.json": (
+        "Process-tracing comparative support remains method-scoped and source "
+        "caveats remain visible."
+    ),
+    "theory_operationalization_stub.json": (
+        "Theory operationalization remains context and a test obligation "
+        "rather than empirical evidence."
+    ),
+    "workbench_synthesis_stub.json": (
+        "Synthetic QC and PT assertions remain traceable without being "
+        "mislabeled as qualitative-quantitative mixed methods."
+    ),
+}
+
+EXPECTED_CLAIM_LIMITS = {
+    "qc_handoff_stub.json": [
+        "Synthetic contract shape only.",
+        "Not a qualitative_coding engine export.",
+        "Not qualitative or mixed-methods evidence.",
+    ],
+    "pt_export_stub.json": [
+        "Synthetic contract shape only.",
+        "Not a process_tracing engine export.",
+        "Not process-tracing or mixed-methods evidence.",
+    ],
+    "theory_operationalization_stub.json": [
+        "Synthetic contract shape only.",
+        "Not a theory-forge engine export.",
+        "Not theory validation or empirical evidence.",
+    ],
+    "workbench_synthesis_stub.json": [
+        "Synthetic contract shape only.",
+        "Not generated from real engine exports.",
+        "Not research-quality or mixed-methods synthesis evidence.",
+    ],
+}
+
+EXPECTED_MANIFEST_CLAIM_LIMITS = [
+    "Synthetic fixture only.",
+    "Not qualitative evidence.",
+    "Not process-tracing evidence.",
+    "Not Theory Forge validation evidence.",
+    "Not mixed-methods synthesis evidence.",
+]
 
 FORBIDDEN_GENERIC_FIELDS = {
     "probability_of_truth",
@@ -88,6 +138,10 @@ def validate_fixture_dir(
         manifest.get("artifact_status") == "synthetic_contract_fixture",
         "manifest artifact_status must mark fixtures as synthetic_contract_fixture",
     )
+    _require(
+        manifest.get("claim_limits") == EXPECTED_MANIFEST_CLAIM_LIMITS,
+        "manifest claim_limits must match the reviewed synthetic-only exclusions",
+    )
 
     files = manifest.get("files")
     if not isinstance(files, list):
@@ -100,9 +154,9 @@ def validate_fixture_dir(
     _require(not duplicate_paths, f"manifest has duplicate file entries: {duplicate_paths}")
 
     actual_paths = {
-        path.name
-        for path in fixture_dir.glob("*.json")
-        if path.name != MANIFEST_NAME
+        path.relative_to(fixture_dir).as_posix()
+        for path in fixture_dir.rglob("*.json")
+        if path != fixture_dir / MANIFEST_NAME
     }
     listed_path_set = set(listed_paths)
     missing_required = sorted(REQUIRED_FILES - actual_paths)
@@ -223,6 +277,10 @@ def _validate_synthetic_origin(
         isinstance(intended_invariant, str) and bool(intended_invariant.strip()),
         f"{relative_path} intended_invariant is required",
     )
+    _require(
+        intended_invariant == EXPECTED_INVARIANTS.get(relative_path),
+        f"{relative_path} intended_invariant must match its reviewed file-specific invariant",
+    )
     claim_limits = entry.get("claim_limits")
     _require(
         isinstance(claim_limits, list)
@@ -232,10 +290,15 @@ def _validate_synthetic_origin(
     )
     if not isinstance(claim_limits, list):
         raise AssertionError("claim_limits was narrowed above")
-    normalized_limits = " ".join(str(limit).lower() for limit in claim_limits)
+    normalized_limits = [str(limit).strip().casefold() for limit in claim_limits]
     _require(
-        "synthetic" in normalized_limits and "not" in normalized_limits,
-        f"{relative_path} claim_limits must disclose synthetic status and exclusions",
+        any(limit.startswith("synthetic ") for limit in normalized_limits)
+        and any(limit.startswith("not ") for limit in normalized_limits),
+        f"{relative_path} claim_limits must disclose synthetic status and an explicit Not exclusion",
+    )
+    _require(
+        claim_limits == EXPECTED_CLAIM_LIMITS.get(relative_path),
+        f"{relative_path} claim_limits must match its reviewed file-specific exclusions",
     )
 
     canonical_fixture_dir = DEFAULT_FIXTURE_DIR.relative_to(REPO_ROOT)
@@ -332,18 +395,33 @@ def _validate_validation_observation(
     )
     observed_at = observation.get("observed_at")
     _require(
-        isinstance(observed_at, str) and _is_timezone_aware_iso8601(observed_at),
+        isinstance(observed_at, str),
         "validation_observation observed_at must be timezone-aware ISO 8601",
+    )
+    if not isinstance(observed_at, str):
+        raise AssertionError("observed_at was narrowed above")
+    parsed_observed_at = _parse_timezone_aware_iso8601(observed_at)
+    _require(
+        parsed_observed_at is not None,
+        "validation_observation observed_at must be timezone-aware ISO 8601",
+    )
+    if parsed_observed_at is None:
+        raise AssertionError("parsed_observed_at was narrowed above")
+    _require(
+        parsed_observed_at <= datetime.now(timezone.utc),
+        "validation_observation observed_at must not be in the future",
     )
 
 
-def _is_timezone_aware_iso8601(value: str) -> bool:
-    """Return whether a timestamp parses and contains an explicit UTC offset."""
+def _parse_timezone_aware_iso8601(value: str) -> datetime | None:
+    """Parse a timestamp only when it contains an explicit UTC offset."""
     try:
         parsed = datetime.fromisoformat(value)
     except ValueError:
-        return False
-    return parsed.tzinfo is not None
+        return None
+    if parsed.tzinfo is None:
+        return None
+    return parsed.astimezone(timezone.utc)
 
 
 def _run_git_text(*args: str) -> str:

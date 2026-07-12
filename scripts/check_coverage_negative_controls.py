@@ -9,7 +9,11 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from check_coverage import derive_fixture_inventory_requirement
+from check_coverage import (
+    build_report,
+    check_generated_reports,
+    derive_fixture_inventory_requirement,
+)
 from validate_fixtures import DEFAULT_FIXTURE_DIR
 
 
@@ -40,7 +44,30 @@ def main() -> None:
             )
         print(f"PASS w2_evidence_removed: {negative.evidence_notes}")
 
-    print("Coverage negative controls passed (1 control).")
+    with tempfile.TemporaryDirectory(prefix="mmw-coverage-stale-report-") as temp_dir:
+        temp_path = Path(temp_dir)
+        report_md = temp_path / "coverage_report.md"
+        report_json = temp_path / "coverage_report.json"
+        report_md.write_text("stale markdown\n", encoding="utf-8")
+        report_json.write_text('{"stale": true}\n', encoding="utf-8")
+        try:
+            check_generated_reports(
+                build_report(),
+                report_md=report_md,
+                report_json=report_json,
+            )
+        except SystemExit as error:
+            expected = "generated coverage reports are stale or missing"
+            if expected not in str(error):
+                raise SystemExit(
+                    "ERROR: stale-report control reached wrong diagnostic: "
+                    f"{error}"
+                ) from error
+            print(f"PASS stale_generated_reports: {error}")
+        else:
+            raise SystemExit("ERROR: stale generated coverage reports passed")
+
+    print("Coverage negative controls passed (2 controls).")
 
 
 def _read_json(path: Path) -> dict[str, Any]:

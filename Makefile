@@ -12,7 +12,7 @@ SHELL := /bin/bash
 status:  ## Show git status
 	@git status --short --branch
 
-.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls coverage coverage-json check
+.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts _coverage-prereqs coverage coverage-json check
 
 validate-fixtures:  ## Validate synthetic fixture contract files
 	@python3 scripts/validate_fixtures.py
@@ -23,13 +23,24 @@ validate-negative-controls:  ## Verify fixture validator catches known-invalid c
 validate-coverage-negative-controls:  ## Verify coverage grade changes when evidence is removed
 	@python3 scripts/check_coverage_negative_controls.py
 
-coverage: validate-fixtures validate-negative-controls validate-coverage-negative-controls  ## Generate human-readable coverage report
-	@python3 scripts/check_coverage.py --format markdown
+validate-generated-coverage: _coverage-prereqs  ## Fail when tracked coverage reports are stale
+	@python3 scripts/check_coverage.py --check-reports --format json >/dev/null
 
-coverage-json: validate-fixtures validate-negative-controls validate-coverage-negative-controls  ## Generate machine-readable coverage report
+validate-interface-contracts: validate-generated-coverage  ## Verify machine-facing Make output contracts
+	@python3 scripts/check_make_interface_contracts.py
+
+_coverage-prereqs:
+	@python3 scripts/validate_fixtures.py >/dev/null
+	@python3 scripts/check_fixture_negative_controls.py >/dev/null
+	@python3 scripts/check_coverage_negative_controls.py >/dev/null
+
+coverage: _coverage-prereqs  ## Generate human-readable coverage report
+	@python3 scripts/check_coverage.py --write-reports --format markdown
+
+coverage-json: _coverage-prereqs  ## Print machine-readable coverage without changing files
 	@python3 scripts/check_coverage.py --format json
 
-check: validate-fixtures validate-negative-controls validate-coverage-negative-controls  ## Run all current repo checks
+check: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts  ## Run all current repo checks
 
 # ─── Help ────────────────────────────────────────────────────────────────
 

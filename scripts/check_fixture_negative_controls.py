@@ -59,6 +59,12 @@ def main() -> None:
             False,
         ),
         (
+            "nested_unlisted_json_artifact",
+            _add_nested_unlisted_json_artifact,
+            "manifest has unlisted JSON fixture files: ['nested/unlisted.json']",
+            False,
+        ),
+        (
             "missing_manifest_entry",
             _remove_manifest_entry,
             "manifest has unlisted JSON fixture files: ['qc_handoff_stub.json']",
@@ -95,9 +101,39 @@ def main() -> None:
             False,
         ),
         (
+            "not_substring_is_not_exclusion",
+            _replace_limits_with_not_substring,
+            "claim_limits must disclose synthetic status and an explicit Not exclusion",
+            False,
+        ),
+        (
+            "generic_claim_limits",
+            _replace_limits_with_generic_exclusions,
+            "claim_limits must match its reviewed file-specific exclusions",
+            False,
+        ),
+        (
+            "contradictory_claim_limits",
+            _replace_limits_with_contradiction,
+            "claim_limits must match its reviewed file-specific exclusions",
+            False,
+        ),
+        (
+            "generic_intended_invariant",
+            _replace_invariant_with_generic_text,
+            "intended_invariant must match its reviewed file-specific invariant",
+            False,
+        ),
+        (
             "synthetic_grade_escalation",
             _escalate_synthetic_grade,
             "evidence_grade must be C-synthetic-contract-only",
+            False,
+        ),
+        (
+            "manifest_claim_escalation",
+            _escalate_manifest_claims,
+            "manifest claim_limits must match the reviewed synthetic-only exclusions",
             False,
         ),
         (
@@ -128,6 +164,12 @@ def main() -> None:
             "missing_validation_observation",
             _remove_validation_observation,
             "manifest validation_observation must be an object",
+            False,
+        ),
+        (
+            "future_validation_observation",
+            _set_future_validation_observation,
+            "validation_observation observed_at must not be in the future",
             False,
         ),
     ]
@@ -207,6 +249,13 @@ def _add_unlisted_json_artifact(fixture_dir: Path) -> None:
     _write_json(fixture_dir / "unlisted_stub.json", {"synthetic": True})
 
 
+def _add_nested_unlisted_json_artifact(fixture_dir: Path) -> None:
+    """Add an unlisted JSON artifact below the fixture root."""
+    nested_dir = fixture_dir / "nested"
+    nested_dir.mkdir()
+    _write_json(nested_dir / "unlisted.json", {"synthetic": True})
+
+
 def _remove_manifest_entry(fixture_dir: Path) -> None:
     """Remove one real artifact entry while leaving its file in place."""
     path = fixture_dir / "manifest.json"
@@ -253,12 +302,66 @@ def _remove_claim_limits(fixture_dir: Path) -> None:
     _mutate_first_entry(fixture_dir, lambda entry: entry.pop("claim_limits"))
 
 
+def _replace_limits_with_not_substring(fixture_dir: Path) -> None:
+    """Use a word containing 'not' without an explicit exclusion statement."""
+    _mutate_first_entry(
+        fixture_dir,
+        lambda entry: entry.__setitem__(
+            "claim_limits",
+            ["Synthetic notebook shape only."],
+        ),
+    )
+
+
+def _replace_limits_with_generic_exclusions(fixture_dir: Path) -> None:
+    """Replace reviewed file-specific limits with generic valid-looking prose."""
+    _mutate_first_entry(
+        fixture_dir,
+        lambda entry: entry.__setitem__(
+            "claim_limits",
+            ["Synthetic fixture only.", "Not real evidence."],
+        ),
+    )
+
+
+def _replace_limits_with_contradiction(fixture_dir: Path) -> None:
+    """Combine a synthetic declaration with a contradictory exclusion."""
+    _mutate_first_entry(
+        fixture_dir,
+        lambda entry: entry.__setitem__(
+            "claim_limits",
+            ["Synthetic fixture only.", "Not synthetic."],
+        ),
+    )
+
+
+def _replace_invariant_with_generic_text(fixture_dir: Path) -> None:
+    """Replace a reviewed per-file invariant with generic non-empty text."""
+    _mutate_first_entry(
+        fixture_dir,
+        lambda entry: entry.__setitem__(
+            "intended_invariant",
+            "Synthetic fixture remains valid.",
+        ),
+    )
+
+
 def _escalate_synthetic_grade(fixture_dir: Path) -> None:
     """Attempt to promote synthetic shape evidence above C."""
     _mutate_first_entry(
         fixture_dir,
         lambda entry: entry.__setitem__("evidence_grade", "A"),
     )
+
+
+def _escalate_manifest_claims(fixture_dir: Path) -> None:
+    """Replace global exclusions with an unsupported readiness claim."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["claim_limits"] = [
+        "This proves SOTA mixed-methods engine readiness."
+    ]
+    _write_json(path, payload)
 
 
 def _replace_content_commit_with_head(fixture_dir: Path) -> None:
@@ -309,6 +412,14 @@ def _remove_validation_observation(fixture_dir: Path) -> None:
     path = fixture_dir / "manifest.json"
     payload = _read_json(path)
     del payload["validation_observation"]
+    _write_json(path, payload)
+
+
+def _set_future_validation_observation(fixture_dir: Path) -> None:
+    """Move an otherwise valid observation into the future."""
+    path = fixture_dir / "manifest.json"
+    payload = _read_json(path)
+    payload["validation_observation"]["observed_at"] = "2099-01-01T00:00:00+00:00"
     _write_json(path, payload)
 
 

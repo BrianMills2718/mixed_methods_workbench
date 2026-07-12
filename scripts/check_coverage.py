@@ -147,19 +147,34 @@ def main() -> None:
     """Generate JSON or Markdown coverage output."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--format", choices=["json", "markdown"], default="markdown")
+    parser.add_argument(
+        "--write-reports",
+        action="store_true",
+        help="Write both tracked coverage reports before printing the selected format.",
+    )
+    parser.add_argument(
+        "--check-reports",
+        action="store_true",
+        help="Fail if either tracked coverage report differs from derived evidence.",
+    )
     args = parser.parse_args()
+    if args.write_reports and args.check_reports:
+        parser.error("--write-reports and --check-reports are mutually exclusive")
 
-    report = _build_report()
-    REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    REPORT_MD.write_text(_render_markdown(report), encoding="utf-8")
+    report = build_report()
+    if args.write_reports:
+        write_generated_reports(report)
+    if args.check_reports:
+        check_generated_reports(report)
 
     if args.format == "json":
         print(json.dumps(report, indent=2))
     else:
-        print(REPORT_MD.read_text(encoding="utf-8"))
+        print(_render_markdown(report), end="")
 
 
-def _build_report() -> dict[str, Any]:
+def build_report() -> dict[str, Any]:
+    """Build the complete coverage report from static and derived evidence."""
     requirements = [
         *REQUIREMENTS[:4],
         derive_fixture_inventory_requirement(),
@@ -183,6 +198,48 @@ def _build_report() -> dict[str, Any]:
         },
         "requirements": rows,
     }
+
+
+def write_generated_reports(
+    report: dict[str, Any],
+    *,
+    report_md: Path = REPORT_MD,
+    report_json: Path = REPORT_JSON,
+) -> None:
+    """Write both deterministic report views only when explicitly requested."""
+    report_json.write_text(
+        json.dumps(report, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    report_md.write_text(_render_markdown(report), encoding="utf-8")
+
+
+def check_generated_reports(
+    report: dict[str, Any],
+    *,
+    report_md: Path = REPORT_MD,
+    report_json: Path = REPORT_JSON,
+) -> None:
+    """Fail loudly when either tracked report is missing or stale."""
+    expected = {
+        report_md: _render_markdown(report),
+        report_json: json.dumps(report, indent=2) + "\n",
+    }
+    stale: list[str] = []
+    for path, expected_text in expected.items():
+        if not path.is_file() or path.read_text(encoding="utf-8") != expected_text:
+            stale.append(str(path))
+    if stale:
+        relative = [
+            str(Path(path).relative_to(REPO_ROOT))
+            if Path(path).is_relative_to(REPO_ROOT)
+            else path
+            for path in stale
+        ]
+        raise SystemExit(
+            "ERROR: generated coverage reports are stale or missing: "
+            f"{relative}; run make coverage"
+        )
 
 
 def derive_fixture_inventory_requirement(

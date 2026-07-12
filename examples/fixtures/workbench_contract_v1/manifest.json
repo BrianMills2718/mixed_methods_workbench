@@ -84,8 +84,8 @@
     "command": "python3 scripts/validate_fixtures.py",
     "negative_control_command": "python3 scripts/check_fixture_negative_controls.py",
     "validator_path": "scripts/validate_fixtures.py",
-    "validator_sha256": "561029f9663cf3b1101a8774e80f15a2486d3f6916f6a7f1b99144d1fd43c726",
-    "observed_at": "2026-07-12T13:06:02-07:00",
+    "validator_sha256": "06cd7693854c61aff74820936c4f9f784d8374bb9f4dfc7a6d0ed606491da110",
+    "observed_at": "2026-07-12T13:24:46-07:00",
     "result": "pass",
     "validated_file_hashes": {
       "qc_handoff_stub.json": "e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470",
