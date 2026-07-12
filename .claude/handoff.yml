@@ -1,0 +1,106 @@
+updated: "2026-07-12T11:37:04-07:00"
+project: mixed_methods_workbench
+scope: ecosystem
+status: active
+git_commit: "fce654e"
+git_branch: main
+summary: "Completed the documentation-only integration investigation and left an explicit dependency-ordered takeover plan."
+next_action: "Run the fresh-state checks in docs/PRE_IMPLEMENTATION_CHECKLIST.md, then close capability T0's provenance-complete fixture-inventory gap without starting engine integration."
+
+completed:
+  - "Established documentation-only planning authority and separated future plans from implementation permission (60b72f2)."
+  - "Mapped the broad mixed-methods north star and release ladder (efde0a5)."
+  - "Added the claim-licensing capability dependency graph (ad5de78)."
+  - "Added the future implementation entry checklist and stop conditions (fce654e)."
+  - "Added discriminating synthetic contract controls and corrected evidence grades; current coverage is 0 A, 0 B, 2 C, 5 D, 1 F (bc22b90)."
+  - "Recorded engine-local future plans for QC Plan 242, PT Plan 7, and Theory Forge Plan 108; AC15 is explicitly optional and non-blocking."
+
+uncertainties:
+  - id: U1
+    priority: high
+    summary: "The first public case and source-governance terms are not confirmed."
+    context: "The roadmap recommends a public 18 Brumaire packet, but a future implementation agent must confirm licensing, source hashes, anchor recoverability, corpus denominator, and acceptable publication scope."
+    blocking: "GOV, real QC/PT fixtures, and release 0.1."
+  - id: U2
+    priority: high
+    summary: "The canonical qualitative-coding export shape is not selected or proven."
+    context: "Recheck qualitative_coding Plans 239, 241, and 242 plus current worktree/test state. Decide whether the strict QC-to-PT handoff is sufficient or whether a separate workbench-safe export is required."
+    blocking: "QC and release 0.1."
+  - id: U3
+    priority: high
+    summary: "Process Tracing has no proven pt_export_v1 fixture."
+    context: "Recheck process_tracing Plan 7, repo-local make/check runtime, source-marker or quote-offset availability, comparative-support representation, and the disposition of any untracked workbench directory before implementing in that repo."
+    blocking: "PT and release 0.1."
+  - id: U4
+    priority: medium
+    summary: "Theory Forge's canonical export and current health remain unresolved."
+    context: "Before release 0.3, reconcile v14/v15 and roadmap/handoff drift, identify one known-green theory, and derive TheoryOperationalizationArtifact from real schema or manifest fields. Keep theory context distinct from empirical evidence."
+    blocking: "TF and release 0.3; it does not block release 0.1."
+  - id: U5
+    priority: high
+    summary: "No quantitative-text adapter owner or first task has been chosen."
+    context: "Before release 0.4, choose one exploratory-sequential quantitative text task, established libraries, held-out evaluation design, leakage controls, and an owning repo or adapter boundary."
+    blocking: "QT and the first genuine mixed-methods claim."
+  - id: U6
+    priority: medium
+    summary: "Grounded Research's workbench validity and research_v3 ownership are unresolved."
+    context: "Evaluate Grounded Research on workbench contested-claim cases rather than inheriting its internal benchmark claims. Keep research_v3 off the critical path until active-versus-archived ownership is resolved by ADR."
+    blocking: "GR and release 0.2; neither blocks release 0.1."
+
+pending:
+  - id: P0
+    priority: high
+    effort: small
+    summary: "Close the truthful-baseline fixture inventory gap."
+    details: "Capability T0 is still overall F because the manifest lacks per-fixture source commands, real producer commits, validation results, complete caveats, and a negative control for that provenance invariant. Work only within mixed_methods_workbench, preserve synthetic-only labels, and do not imply engine readiness."
+  - id: P1
+    priority: high
+    effort: medium
+    summary: "Prepare and validate one real qualitative-coding export in qualitative_coding."
+    details: "Only after that repo's active claims, memory, plans, worktree, and checks are freshly reviewed. The export must include governed source scope, denominator, anchors, codes/categories, claims, patterns or candidate explanations, review state, provenance, caveats, schema version, producer commit, and negative controls; it must exclude PT inference fields."
+  - id: P2
+    priority: high
+    effort: large
+    summary: "Implement and validate pt_export_v1 in process_tracing."
+    details: "Only in the owning repo and after a fresh readiness check. Fix the repo-local verification surface and dirty/untracked state first; then provide source packet identity, rival hypotheses, evidence and absence findings, comparative support, sensitivity, verdict language, caveats, run metadata, versioning, provenance, fixture, and invariant-specific negative controls."
+  - id: P3
+    priority: high
+    effort: medium
+    summary: "Import and pin real QC/PT fixtures after producer exports exist."
+    details: "Record source paths and hashes, producer repos/commits, producer validation commands/results, supported schema majors, source governance, caveats, and licensed claims. Replace synthetic synthesis evidence only after both real fixtures validate."
+  - id: P4
+    priority: high
+    effort: large
+    summary: "Seek explicit authorization and plan the named release 0.1 slice."
+    details: "Do not begin from this handoff alone. After QC, PT, GOV, and T0 pass, Brian must explicitly authorize a named capability row or release slice. Create a current implementation plan using docs/PRE_IMPLEMENTATION_CHECKLIST.md before typed contracts, adapters, reviewer packet, API, or UI work."
+  - id: P5
+    priority: medium
+    effort: large
+    summary: "Stabilize one real Theory Forge operationalization export for release 0.3."
+    details: "Execute Theory Forge Plan 108 only after an engine-local health investigation. AC15 is not required. A later AC15 pilot may test TheoryOperationalizationArtifact to structured blueprint to generated artifact judged by Theory Forge tests, but it must remain optional and outside workbench runtime."
+  - id: P6
+    priority: medium
+    effort: large
+    summary: "Plan the first quantitative-text strand before release 0.4."
+    details: "Select an owner, task, protocol, held-out set, measurement or annotation instrument, validation metrics, error analysis, uncertainty representation, and item-level links to qualitative constructs. This is required before the product may claim mixed methods."
+  - id: P7
+    priority: low
+    effort: large
+    summary: "Defer later capability ladder work until prerequisite releases are observed."
+    details: "Grounded Research adjudication, additional integration designs, causal/comparative bridges, method profiles, responsible operations, interoperability, and comparative SOTA evaluation remain future dependency rows. Revalidate external SOTA at benchmark-design time."
+
+warnings:
+  - "Documentation-only mode is active. This handoff does not authorize implementation in this repo or any producer repo."
+  - "Synthetic fixtures license at most C-grade shape claims and are not engine-readiness evidence."
+  - "Do not call QC plus PT mixed methods; release 0.1 is multi-method qualitative. Release 0.4 is the first planned qualitative-quantitative mixed-methods claim."
+  - "Do not import producer internals, parse process_tracing result.json, or move engine code into this repo; consume versioned artifacts through typed producer/consumer contracts."
+  - "Do not treat generated theory as empirical evidence or AC15 as a workbench prerequisite."
+  - "Do not build adapters, synthesis, API, UI, or a static review shell before real QC/PT fixtures and explicit named-slice authorization."
+
+sanity_checks:
+  - cmd: "make check"
+    expect: "Fixture contract validation and six targeted negative controls pass."
+  - cmd: "make coverage"
+    expect: "Coverage remains honest; current baseline is 0 A, 0 B, 2 C, 5 D, 1 F until new evidence is added."
+  - cmd: "git status --short"
+    expect: "No output on a clean handoff checkout."
