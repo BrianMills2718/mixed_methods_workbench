@@ -1,76 +1,56 @@
-updated: "2026-07-12T15:25:00-07:00"
+updated: "2026-07-12T18:30:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
 status: blocked
 current_mode: documentation_only
-blocked_on: human_architecture_decision
-git_commit: "dc33a92377910bdbbdda6bdcc56537fd8ea3d82b"
+blocked_on: named_demo_slice_authorization_and_gt_owner
+git_commit: "pending"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
-decision_record: "docs/runs/2026-07-12-t0-prov-eval-signoff.md"
-summary: "Completed and independently audited GOV/case and QT task/owner decision briefs; no case, construct, owner, or implementation slice is selected."
-next_action: "To resume the recommended path, Brian states: 'Select FRUS, approve the QT pattern, and authorize the governance-only GOV-FRUS-CMC slice.' Any narrower decision resumes only the work it explicitly authorizes."
+decision_record: "docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md"
+summary: "Canonical plans now use a demo-first QC/PT/GT core, optional OntoCanon/DIGIMON infrastructure, source-backed theory recommendation, full Theory Forge formalize/compile/run seams, later final-corpus governance, then QT and genuine mixed-methods integration. No implementation is active."
+next_action: "If Brian wants implementation planning to begin, authorize a named DEMO slice. Its first unresolved design decision is the grounded-theory producer/profile; final validation corpus selection remains deferred."
 
 completed:
-  - "Investigated repository authority, producer readiness, and external/incumbent SOTA evidence."
-  - "Created the active long-term goal, dependency map, risk-ordered work packages, and SOTA evidence scorecard."
-  - "Reconciled governance order and claim-scoped Grounded Research/Theory Forge roles."
-  - "Implemented truthful synthetic provenance, exact Git recovery, exhaustive inventory, evidence-apparatus binding, and evidence-derived coverage."
-  - "Passed 41 fixture controls, 3 coverage controls, composed-interface checks, and a fresh independent five-gate sign-off at f26bc6a."
-  - "Current legacy coverage is 1 A, 0 B, 2 C, 5 D, 0 F; overall D. Fixture shapes remain C and broader T0/program evidence remains F."
-  - "Audited the current Brumaire derivative and recommended bounded frus1961-63v11 as the stronger first governed source universe."
-  - "Recommended a case-derived prevalence/distribution QT task with dictionary and regularized supervised baselines through a narrow workbench-owned adapter."
-  - "Independent adversarial audit passed after catching and correcting one false deterministic duplicate observation. GOV/QT grades did not move."
+  - "Reconciled the roadmap, dependency graph, capability map, checklist, concern register, long-term goal, and handoff under ADR 0004."
+  - "Distinguished grounded theory from the grounded-research adjudication project."
+  - "Defined OntoCanon as optional governed assertion/provenance infrastructure and DIGIMON as optional graph/retrieval infrastructure; method-native artifacts remain authoritative."
+  - "Defined theory recommendation as curated-library and academic-search first, LLM-leads only, with human selection."
+  - "Corrected Theory Forge to paper -> formal schema -> compiled theory-specific pipeline -> staged run; identified separate operationalization and run exports."
+  - "Preserved T0-PROV evidence: W2 A, fixture shapes C, broader T0/program F."
 
 decisions_required:
-  - id: D1
+  - id: D-DEMO
     priority: critical
-    summary: "Select the first public case and permitted source use."
-    context: "Choose bounded frus1961-63v11 (recommended) or require a rights-clean Brumaire rebuild. The current Brumaire derivative is rejected as a governed corpus. A choice is not GOV implementation authorization."
-    blocks: [GOV, QC, PT, R01]
-  - id: D2
+    summary: "Authorize a named controlled demonstration slice before implementation."
+    blocks: [DEMO, QC-D, PT-D, GT-D, CORE-D]
+  - id: D-GT
     priority: critical
-    summary: "Select the first quantitative-text task and owner."
-    context: "Approve/reject the recommended case-derived prevalence/distribution task and narrow workbench-owned adapter. The exact construct, instrument, thresholds, and model wait for GOV/R01 feasibility evidence."
-    blocks: [QT, MM]
-  - id: D3
+    summary: "Select the grounded-theory producer/owner and method profile."
+    blocks: [GT-D, CORE-D]
+  - id: D-TREC
     priority: high
-    summary: "Authorize producer-owned QC and PT export slices when GOV is ready."
-    context: "QC Plan 242 and PT Plan 7 are plans only. Each producer mutation requires a separate named authorization and fresh entry review."
-    blocks: [QC, PT, R01]
-
-pending:
-  - id: P1
-    priority: high
-    summary: "Govern one real public source packet after D1 and named authorization."
-  - id: P2
-    priority: high
-    summary: "Create strict producer-owned QC and pt_export_v1 artifacts after GOV and D3."
-  - id: P3
-    priority: high
-    summary: "Build one real multi-method qualitative reviewer packet after GOV/QC/PT."
-  - id: P4
-    priority: high
-    summary: "Validate the chosen quantitative-text strand after D2."
-  - id: P5
-    priority: high
-    summary: "Integrate qual and quant explicitly before any mixed-methods claim."
+    summary: "Approve theory-library governance, academic-search sources, and human selection rules."
+    blocks: [TREC]
+  - id: D-GOV
+    priority: later
+    summary: "Select the final validation corpus after CORE-D passes; FRUS remains a candidate, not a selection."
+    blocks: [GOV, CORE-V]
 
 warnings:
-  - "The persistent SOTA goal is formally blocked after three consecutive audits found the same human architecture and authorization boundary; this is not a capability-completion claim."
   - "No implementation slice or product version is active."
-  - "T0-PROV/W2 A licenses only synthetic inventory provenance; fixture contents remain C and broader T0 remains F."
-  - "Do not call QC plus PT mixed methods; release 0.1 is multi-method qualitative."
-  - "Do not mutate producer repos, create real fixtures, or build adapters/API/UI without a named authorization and fresh entry gate."
-  - "Do not treat generated theory as empirical evidence or AC15 as a workbench prerequisite."
-  - "The prepared research-fact verification-gap entry still needs appending after active project-meta shared-log claim codex_project-meta_plan0137-report-vgap-20260712 is released."
+  - "Synthetic/open demo evidence licenses software behavior only, never empirical or method-validity claims."
+  - "Do not call QC/PT/GT mixed methods; genuine mixed methods begins with explicit qual-quant integration."
+  - "Do not mutate producer repos or build adapters/API/UI without named authorization and a fresh entry gate."
+  - "Do not replace method-native artifacts with OntoCanon assertions or treat DIGIMON retrieval as method inference."
+  - "Do not use uncited LLM recall as a theory record or reduce Theory Forge to static constructs/mechanisms."
 
 sanity_checks:
   - cmd: "make check"
     expect: "Fixture validation, 41 fixture controls, 3 coverage controls, and interface checks pass."
   - cmd: "make coverage"
-    expect: "Legacy coverage is 1 A, 0 B, 2 C, 5 D, 0 F; overall D; W2 A is inventory-only."
+    expect: "Legacy coverage remains 1 A, 0 B, 2 C, 5 D, 0 F; overall D."
   - cmd: "make coverage-json"
-    expect: "One pure JSON document matching docs/coverage_report.json without modifying reports."
+    expect: "Pure JSON output matches docs/coverage_report.json."
   - cmd: "git status --short"
     expect: "No output on a clean handoff checkout."

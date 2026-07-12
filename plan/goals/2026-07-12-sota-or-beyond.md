@@ -64,9 +64,16 @@ No average score can close these goals. Every applicable floor must pass.
 ### Needed
 
 - remaining typed-contract, readiness-manifest, and real-export T0 evidence;
-- study/source governance and a licensed first public case;
-- strict producer-owned QC and PT exports and compatible consumers;
-- one real multi-method qualitative reviewer packet;
+- a controlled software-only demonstration packet;
+- strict producer-owned QC and PT exports, a method-faithful GT owner/export,
+  and compatible consumers;
+- one demo multi-method qualitative reviewer packet before final corpus choice;
+- optional OntoCanon projection and DIGIMON evidence navigation over reviewed
+  findings, without replacing native artifacts;
+- a governed, source-backed theory recommender with human selection;
+- separate Theory Forge operationalization and executed-run exports;
+- study/source governance and a licensed validation corpus selected after the
+  demo, followed by observed core-method validation;
 - a selected quantitative-text task, construct, corpus, owner, and held-out
   evaluation;
 - one observed true mixed-methods design;
@@ -81,51 +88,28 @@ a decision or authorization.
 
 ```mermaid
 flowchart TD
-  AUTH["◐ AUTH planning authority"]
-  T0["◐ T0 truthful evidence baseline"]
-  GOV["○ GOV study/source governance"]
-  QC["○ QC strict real export"]
-  PT["○ PT strict real export"]
-  R01["○ R01 real multi-method qualitative case"]
-  QT["⛔ QT owner + validated text measure"]
-  MM["○ MM first true qual-quant design"]
-  GR["◐ GR optional adjudication"]
-  TF["◐ TF optional theory operationalization"]
-  PORT["○ PORT method profiles + interchange + operations"]
-  API["○ API typed human/agent parity"]
-  EVAL["○ EVAL independent comparative benchmark"]
-  ADAPT["○ ADAPT discriminating-next-step loop"]
-  V10["○ V10 bounded validated release"]
-  V2X["○ V2X beyond-SOTA program completion"]
-
-  AUTH --> T0
-  T0 --> GOV
-  GOV --> QC
-  GOV --> PT
-  GOV --> R01
-  QC --> R01
-  PT --> R01
-  R01 --> QT
-  QT --> MM
-  R01 -. "optional claim" .-> GR
-  R01 -. "optional claim" .-> TF
-  MM --> PORT
-  MM --> API
-  GR -. "when used" .-> PORT
-  TF -. "when used" .-> PORT
-  PORT --> EVAL
-  API --> EVAL
-  TF --> EVAL
-  GR -. "when claimed" .-> EVAL
-  EVAL --> V10
-  V10 --> ADAPT
-  ADAPT --> V2X
+  AUTH["◐ AUTH"] --> T0["◐ T0 truthful baseline"]
+  T0 --> DEMO["○ controlled demo packet"]
+  DEMO --> QC["○ QC demo"]
+  DEMO --> PT["○ PT demo"]
+  DEMO --> GT["⛔ GT demo owner/profile"]
+  QC --> CORE["○ integrated qualitative demo"]
+  PT --> CORE
+  GT --> CORE
+  CORE -.-> OC["○ optional OntoCanon projection"] --> DIG["○ optional DIGIMON navigation"]
+  CORE --> REC["○ theory recommender"] --> TFS["○ TF operationalization"] --> TFR["○ TF run export"]
+  CORE --> GOV["⛔ final corpus governance"] --> COREV["○ observed core validation"]
+  TFR --> COREV
+  COREV --> QT["⛔ validated text measure"] --> MM["○ true qual-quant design"]
+  MM --> PORT["○ portfolio + API + operations"] --> EVAL["○ independent benchmark"] --> V10["○ validated release"]
+  V10 --> ADAPT["○ adaptive loop"] --> V2X["○ beyond-SOTA completion"]
 ```
 
 Critical path to the validated 1.0 release:
 
 ```text
-AUTH -> T0 -> GOV -> QC + PT -> R01 -> QT -> MM -> PORT + API -> EVAL -> V10
+AUTH -> T0 -> DEMO -> QC + PT + GT -> CORE-D -> TREC -> TF-SPEC -> TF-RUN
+-> GOV -> CORE-V -> QT -> MM -> PORT + API -> EVAL -> V10
 ```
 
 Post-1.0 frontier path for this broader program goal:
@@ -134,11 +118,11 @@ Post-1.0 frontier path for this broader program goal:
 EVAL + V10 -> ADAPT -> V2X
 ```
 
-Grounded Research and Theory Forge are parallel enhancers. A release that
-claims their capabilities must pass their gates; a minimal qual–quant mixed-
-methods design does not require them. The current V10 profile declares theory
-operationalization, so TF must rejoin before its evaluation; GR rejoins only if
-automated adjudication is claimed.
+OntoCanon/DIGIMON are optional infrastructure branches. Grounded Research is an
+optional adjudication service and is not grounded theory. A minimal qual–quant
+mixed-methods claim need not use Theory Forge, but the planned full product
+sequence includes source-backed theory recommendation and both Theory Forge
+export seams before final validation. See ADR 0004.
 
 ## Risk-Ordered Work Packages
 
@@ -147,14 +131,16 @@ Each work package is a thin end-to-end claim increment, not a component dump.
 | WP | Thin slice | Entry | Exit/readout | Authority now |
 |---|---|---|---|---|
 | WP0 | Truthful synthetic provenance and evidence-derived inventory | Current scaffold | W2 changes when evidence changes; exact negative control fires; fixture grades stay ≤C; T0 remains partial | Completed and independently signed off as `T0-PROV` |
-| WP1 | Govern one public source packet | WP0 plus Brian's case choice and named authorization | Protocol, source IDs/hashes, license/sensitivity/access, selection/gaps, and claim limits pass review | Blocked on decision; FRUS recommended |
-| WP2 | Strict QC and PT exports | WP1 plus separate producer authorization | Producer schemas, real fixtures, commands, hashes, compatibility and loss tests | Not authorized |
-| WP3 | One real QC/PT reviewer packet | WP2 | Question -> source -> QC claim -> PT rival/support -> caveat is inspectable; method-boundary controls pass | Not authorized |
-| WP4 | Validated quantitative-text strand | WP3 plus Brian's task/owner pattern and exact construct decisions | Construct/use specification, grouped held-out result, dictionary and regularized supervised baselines, uncertainty, error slices, item links | Blocked on decision; conditional prevalence/distribution task and workbench owner recommended |
-| WP5 | One exploratory-sequential mixed-methods case | WP4 | Explicit build/merge operation, joint display, divergence resolution, bounded meta-inference, expert review | Not authorized |
-| WP6 | Portfolio, governance, exchange, and agent parity | WP5 | Named design/method profiles, REFI/tabular loss tests, reproducible bundle, typed API parity | Not authorized |
-| WP7 | Independent SOTA evaluation | WP6 | Refreshed incumbents, sealed cases, controls, ablations, uncertainty, clean-room replay, independent sign-off | Not authorized |
-| WP8 | Adaptive beyond-SOTA experiment | WP7 | Next-source/case/analysis policy beats a non-adaptive baseline within fixed safety and fidelity floors | Not authorized |
+| WP1 | Controlled demo packet | WP0 plus named authorization | Small synthetic/rights-clear sources, expected signals, anchors, and software-only claim limits pass | Not authorized |
+| WP2 | Separate QC/PT/GT demo lanes | WP1 plus producer/profile authorization | Method-native outputs and method-specific negative controls pass; GT ownership is explicit | Blocked on GT owner and named authorization |
+| WP3 | Integrated qualitative demo review | WP2 | Question -> source -> distinct QC/PT/GT findings -> disagreement/caveat is inspectable without a generic score | Not authorized |
+| WP4 | Optional governed knowledge/navigation | WP3 | Selected findings round-trip through OntoCanon and pinned DIGIMON evidence views to native artifacts/sources | Not authorized; optional branch |
+| WP5 | Theory recommendation and Theory Forge application | WP3; WP4 optional | Cited shortlist, human decision, frozen operationalization, and typed staged run are reviewable | Blocked on governance/export decisions |
+| WP6 | Governed corpus and observed core validation | WP3 and WP5 for full profile | Rights/scope/denominator pass; real QC/PT/GT findings and theory challenges survive method-specific review | Final corpus deliberately deferred |
+| WP7 | Validated quantitative-text strand | WP6 plus task/owner/construct decisions | Held-out baselines, uncertainty, leakage controls, errors, and item links pass | Later decision |
+| WP8 | One explicit mixed-methods case | WP7 | Build/merge operation, joint display, divergence resolution, bounded meta-inference, expert review | Not authorized |
+| WP9 | Portfolio, governance, exchange, and agent parity | WP8 | Named profiles, exchange loss tests, reproducible bundle, typed API parity | Not authorized |
+| WP10 | Independent SOTA evaluation and adaptive frontier | WP9 | Frozen incumbents/cases plus independent sign-off; adaptive policy later beats non-adaptive baseline within floors | Not authorized |
 
 ## Evidence and Decision Rules
 
@@ -180,13 +166,13 @@ Each work package is a thin end-to-end claim increment, not a component dump.
 
 Only these current decisions cannot be safely inferred:
 
-1. whether to select bounded `frus1961-63v11` for the first public case or
-   require a rights-clean Brumaire rebuild;
-2. whether to approve a case-derived prevalence/distribution task through a
-   narrow workbench-owned adapter, followed by the exact construct after its
-   feasibility readout;
-3. future permission for each producer-repository slice;
-4. the final benchmark's sealed-case custodian and public-claim threshold.
+1. whether to authorize the named controlled `DEMO` slice;
+2. which producer/owner and method profile supply grounded theory;
+3. theory-library/search governance and human selection rules;
+4. later, which final validation corpus to govern (FRUS remains a candidate);
+5. later, the quantitative-text task, owner, and exact construct;
+6. future permission for each producer-repository slice and the final
+   benchmark's sealed-case custodian/public-claim threshold.
 
 All documentation, investigation, negative-control design, and reversible local
 work within an already named slice should continue without pausing.

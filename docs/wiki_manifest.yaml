@@ -85,3 +85,7 @@ publish:
     type: ArchitectureDecision
     title: Mixed-Methods Minimum and Optional Enhancers
     tags: [portfolio, mixed_methods_workbench, architecture, decision, current]
+  - path: docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md
+    type: ArchitectureDecision
+    title: Demo-First Method Core and Knowledge Infrastructure
+    tags: [portfolio, mixed_methods_workbench, architecture, decision, current]

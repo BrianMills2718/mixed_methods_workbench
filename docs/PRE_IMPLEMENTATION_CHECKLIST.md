@@ -47,7 +47,7 @@ explicitly a dependency-resolution slice for that item.
 |---|---|---|---|
 | 1 | Authorization boundary | Exact user instruction names the slice or asks to move from planning into implementation. | Stop; keep work documentation-only. |
 | 2 | Current repo state | `mixed_methods_workbench` has recorded branch, HEAD, upstream, clean/dirty state, and active coordination claims. | Record the blocker; do not build on ambiguous state. |
-| 3 | Authority order | `docs/PLANNING_STATUS.md`, `docs/ROADMAP.md`, `docs/CAPABILITY_DEPENDENCY_GRAPH.md`, this checklist, and the relevant plan do not conflict. | Fix docs first or mark stale material superseded. |
+| 3 | Authority order | ADR 0004, `docs/PLANNING_STATUS.md`, `docs/ROADMAP.md`, `docs/CAPABILITY_DEPENDENCY_GRAPH.md`, this checklist, and the relevant plan do not conflict. | Fix docs first or mark stale material superseded. |
 | 4 | Capability dependency row | The selected row and all dependency rows have current evidence, success criteria, verification artifact, and claim licensed. | Create a dependency-resolution plan instead of implementing downstream work. |
 | 5 | Upstream freshness | Every producer repo in scope has current status, active-claim check, relevant plan/doc review, verification command result, and commit recorded. | Repair or plan in the owning repo; do not consume stale evidence. |
 | 6 | Evidence baseline | `make check`, `make coverage`, and relevant manifest/check commands have been run or explicitly marked unavailable with reason. | Do not promote evidence grades or enforce gates. |
@@ -110,13 +110,16 @@ slice by dependency truth:
 
 1. If `AUTH` or planning authority is unclear, repair documentation only.
 2. If `T0` is incomplete, start with truth/clean-state recovery.
-3. If `R01` is requested but `QC`, `PT`, or `GOV` is missing, resolve the missing
-   producer/governance dependency first.
-4. If `MM` or version 0.4 is requested, do not start until `R01` and `QT` are
-   satisfied. Require `GR` or `TF` only when the named design claims
-   adjudication or theory operationalization. The current V10 profile still
-   requires TF before its evaluation; see ADR 0003.
-5. If a SOTA or beyond-SOTA claim is requested, refresh external SOTA and
+3. If the method-core demo is requested, resolve `DEMO`, `QC-D`, `PT-D`, and
+   `GT-D` in dependency order. The demonstration packet may be synthetic or
+   rights-clear and licenses software behavior only.
+4. Do not make final corpus selection a demo entry gate. Require `GOV` before
+   `CORE-V` or any empirical/method-validity claim.
+5. If `MM` is requested, do not start until `CORE-V` and `QT` are satisfied.
+   Require Grounded Research only when adjudication is claimed. A minimal MM
+   design need not use Theory Forge, while the current full-product sequence
+   includes `TREC`, `TF-SPEC`, and `TF-RUN`; see ADRs 0003 and 0004.
+6. If a SOTA or beyond-SOTA claim is requested, refresh external SOTA and
    incumbent baselines before designing the benchmark.
 
 ## Sources Consulted

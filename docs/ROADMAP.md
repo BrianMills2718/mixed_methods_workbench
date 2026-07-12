@@ -90,91 +90,93 @@ Required outcomes:
 Release claim: the project has a truthful planning and verification baseline.
 It does not have live engine integration.
 
-### 0.1 — Auditable Multi-Method Qualitative Case Review
+### 0.1 — Controlled Core-Method Demonstration
 
-Purpose: prove that the workbench can integrate real qualitative coding and
-process tracing without flattening their methods.
-
-Current decision recommendation: use the State Department's
-`frus1961-63v11` Cuban Missile Crisis volume as the first source universe, with
-the question bounded to U.S. decision-making and recorded diplomatic exchange.
-The current 18 Brumaire derivative is rejected as a governed corpus because its
-source-object denominator, rights, and original-span anchors are incomplete; a
-rights-clean rebuild remains a fallback. Brian must select the case before a
-separately named governance-only slice can begin. See
-`docs/decisions/2026-07-12-first-governed-case.md`.
+Purpose: prove the workbench workflow before asking a final empirical corpus
+to carry product risk.
 
 Thin slice:
 
 ```text
-public corpus -> qualitative coding export -> process-tracing export
--> linked claim/hypothesis review -> source-to-caveat reviewer packet
+small synthetic/rights-clear packet
+-> separate QC + PT + grounded-theory native outputs
+-> method-aware comparison -> source-to-caveat reviewer packet
 ```
 
-Dependencies:
+QC discovers and anchors patterns; PT compares rival within-case explanations;
+GT uses constant comparison, memoing, category development, theoretical
+sampling decisions, and an explicit adequacy/saturation argument. GT is not
+the `grounded-research` project. The three outputs remain distinct and no
+generic confidence score combines them.
 
-1. `qualitative_coding`: methodology realignment (Plan 241), source sanitizer
-   (Plan 239), then real workbench export fixture (Plan 242).
-2. `process_tracing`: clean the repo check surface and untracked workbench
-   state, then implement versioned workbench export (Plan 7).
-3. Workbench: typed producer/consumer contracts, compatibility manifest, real
-   fixture adapter, static review artifact, and boundary controls.
+Release claim: the software can demonstrate an inspectable multi-method
+qualitative workflow. Synthetic/open demonstration evidence does not establish
+method validity or an empirical finding.
 
-Release claim: an auditable **multi-method qualitative** workflow exists for one
-evaluated case. It is not yet a qualitative-quantitative mixed-methods system.
+### 0.2 — Governed Knowledge and Evidence Navigation
 
-### 0.2 — Disagreement and Evidence Adjudication
-
-Purpose: make conflict, uncertainty, and verification first-class rather than
-letting a single synthesis hide them.
+Purpose: reuse shared knowledge infrastructure without making it the authority
+for method inference.
 
 Thin slice:
 
 ```text
-contested claims from 0.1 -> adjudication request -> independent analyses
--> claim/dispute ledger -> human disposition -> revised reviewer packet
+reviewed method-native findings -> optional OntoCanon assertion projection
+-> DIGIMON graph/evidence navigation -> original source and native artifact
 ```
 
-Primary dependency: `grounded-research`, consumed as an adjudication service
-through a versioned `ClaimDisputeBundle -> AdjudicationResult` seam. Its current
-mechanical pipeline is useful, but general methodological validity must be
-evaluated on workbench cases rather than inherited from narrow internal
-benchmarks.
+OntoCanon owns governed assertions, ontology packs, identity, provenance,
+review/promotion, and exports. DIGIMON owns graph/index projections, retrieval,
+ranking, and analytics. Both are optional: QC/PT/GT lanes must remain useful
+without a graph, and every projection retains a round trip to its native source
+of truth. Target only a pinned, supported DIGIMON contract—not an unmerged
+branch.
 
-Release claim: the workbench can expose and resolve evidence disputes with
-provenance on evaluated cases.
+Release claim: reviewed findings can be linked and navigated through governed
+knowledge infrastructure without flattening their method semantics.
 
-Scheduling note: this is a parallel method-scoped enhancement after 0.1, not a
-universal prerequisite for the first qualitative-quantitative mixed-methods
-design. Any release that claims automated adjudication must still pass this
-gate; see ADR 0003.
+### 0.3 — Theory Recommendation and Executable Theory Application
 
-### 0.3 — Theory-Guided Analysis and Revision
-
-Purpose: connect empirical analysis to explicit constructs, mechanisms,
-hypotheses, observables, measures, assumptions, and scope conditions.
+Purpose: help a researcher find, select, formalize, compile, run, and challenge
+relevant theory after the core methods have demonstrated useful signals.
 
 Thin slice:
 
 ```text
-real Theory Forge operationalization -> study protocol context
--> QC/PT links to observables and hypotheses -> empirical challenges
--> theory revision proposal with unresolved obligations
+method findings -> curated theory library + academic search
+-> cited candidate shortlist -> human selection
+-> Theory Forge schema -> compiled theory-specific pipeline
+-> staged run -> grounded review and challenge
 ```
 
-Primary dependency: Theory Forge Plan 108 plus one known-green, real
-`TheoryOperationalizationArtifact` fixture.
+LLM knowledge may propose search leads but cannot create an uncited theory
+record. Theory Forge is a compile-and-run engine, not a mechanism/observable
+form. The workbench consumes a frozen `TheoryOperationalizationArtifact` and a
+future typed `TheoryApplicationRun`; it does not call compiler internals.
 
-Release claim: theory can guide and be revised by analysis. Theory objects are
-not counted as supporting evidence merely because they were generated or
-compiled.
+Release claim: a human-approved theory can guide a traceable staged analysis
+and be challenged by empirical work. Neither the theory schema nor generated
+run is itself empirical support.
 
-Scheduling note: this is a parallel method-scoped enhancement after 0.1, not a
-universal prerequisite for the first mixed-methods design. It remains required
-for the current 1.0 profile because that profile declares theory
-operationalization; see ADR 0003.
+### 0.4 — Governed Real-Core Validation
 
-### 0.4 — First Genuine Mixed-Methods Design
+Purpose: choose the final corpus using lessons from the demonstration, then
+test QC, PT, and GT on a rights- and scope-governed real source universe.
+
+The existing FRUS Cuban Missile Crisis recommendation remains a later
+validation candidate. It is not selected by this roadmap. Corpus identity,
+denominator, rights, hashes, sensitivity, study protocol, and claim limits must
+pass before observed runs begin.
+
+Release claim: the qualitative method core works on one evaluated real case
+with method-specific review. It is still not qualitative-quantitative mixed
+methods.
+
+`grounded-research` adjudication may join here through a typed contested-claim
+seam when that capability is explicitly claimed; it is not GT and is not a
+universal truth oracle.
+
+### 0.5 — First Genuine Mixed-Methods Design
 
 Purpose: cross the methodological boundary from multiple qualitative methods to
 intentional qualitative-quantitative integration.
@@ -203,15 +205,15 @@ engine only after at least a second real slice reveals a stable interface.
 Brian must approve the task/owner pattern and later the exact construct. See
 `docs/decisions/2026-07-12-first-quantitative-text-strand.md`.
 
-Minimum claim dependencies are `R01` plus the governed `QT` strand. Grounded
-Research and Theory Forge are required only if this named study also claims
-adjudication or theory operationalization. They are not constitutive of mixed
-methods.
+Minimum claim dependencies are the observed `CORE-V` method core plus the
+governed `QT` strand. Grounded Research is required only if the named study
+claims automated adjudication. Theory Forge is in the planned full-product
+sequence but is not constitutive of mixed methods; see ADRs 0003 and 0004.
 
 Release claim: one evaluated exploratory-sequential mixed-methods design exists.
 No causal-effect claim is licensed without a separate identification design.
 
-### 0.5 — Multiple Integration Designs and Interoperability
+### 0.6 — Multiple Integration Designs and Interoperability
 
 Purpose: expand from one design to a small portfolio without losing depth.
 
@@ -229,7 +231,7 @@ Add, in risk order:
 Release claim: researchers can choose among several explicit integration
 designs and exchange work with established research software.
 
-### 0.6 — Causal and Comparative Mixed Methods
+### 0.7 — Causal and Comparative Mixed Methods
 
 Purpose: bridge within-case evidence to cross-case analysis without pretending
 that one substitutes for the other.
@@ -246,7 +248,7 @@ Thin slices:
 Release claim: named causal/comparative designs are supported with explicit
 estimands, case-selection logic, measurement error, and identification limits.
 
-### 0.7 — Method Portfolio and Responsible Research Operations
+### 0.8 — Method Portfolio and Responsible Research Operations
 
 Purpose: broaden qualitative and text-analytic coverage through versioned method
 profiles and harden the product for real research teams.
@@ -265,7 +267,7 @@ model/prompt drift, audit retention, and reproducible export bundles.
 Release claim: a broader set of traditions is supported through explicit,
 method-specific obligations rather than a universal quality score.
 
-### 0.8 — SOTA Evaluation and Product Hardening
+### 0.9 — SOTA Evaluation and Product Hardening
 
 Purpose: determine where the integrated system is actually competitive and
 where human or methodological limits remain.
@@ -315,49 +317,56 @@ is `docs/CAPABILITY_DEPENDENCY_GRAPH.md`.
 ```mermaid
 flowchart TD
   T0["0.0 Truth and clean-state recovery"]
-  GOV["Governed public source packet"]
-  QC["QC methodology + sanitizer + real export"]
-  PT["PT checks + versioned export"]
-  W01["0.1 QC/PT real review slice"]
-  GR["Grounded Research adjudication seam"]
-  W02["0.2 Disagreement/adjudication"]
-  TF["Theory Forge real operationalization export"]
-  W03["0.3 Theory-guided revision"]
+  DEMO["Controlled demo packet"]
+  QC["QC demo lane"]
+  PT["PT demo lane"]
+  GT["GT demo lane"]
+  W01["0.1 core-method demonstration"]
+  OC["0.2 OntoCanon projection"]
+  DIG["DIGIMON evidence navigation"]
+  REC["Source-backed theory recommender"]
+  TF["Theory Forge spec + run exports"]
+  W03["0.3 executable theory application"]
+  GOV["Final corpus selection/governance"]
+  W04["0.4 observed core validation"]
   QT["Quantitative text owner + validated instrument"]
-  W04["0.4 First true mixed-methods design"]
+  W05["0.5 first true mixed-methods design"]
   DES["Additional integration designs + exchange"]
-  W05["0.5 Multi-design/interoperability"]
+  W06["0.6 multi-design/interoperability"]
   CAUSAL["Cross-case/causal adapters"]
-  W06["0.6 Causal/comparative mixed methods"]
+  W07["0.7 causal/comparative mixed methods"]
   PORT["Method profiles + responsible operations"]
-  W07["0.7 Portfolio"]
+  W08["0.8 portfolio"]
   EVAL["Cross-domain observed benchmark"]
   W10["1.0"]
 
-  T0 --> GOV
-  GOV --> QC
-  GOV --> PT
+  T0 --> DEMO
+  DEMO --> QC
+  DEMO --> PT
+  DEMO --> GT
   QC --> W01
   PT --> W01
-  W01 --> GR --> W02
-  W01 --> TF --> W03
-  W01 --> QT --> W04
-  W04 --> DES --> W05
-  W04 --> CAUSAL --> W06
-  W05 --> PORT
+  GT --> W01
+  W01 -. "reviewed projections" .-> OC --> DIG
+  W01 --> REC --> TF --> W03
+  W01 --> GOV --> W04
+  W03 --> W04
+  W04 --> QT --> W05
+  W05 --> DES --> W06
+  W05 --> CAUSAL --> W07
   W06 --> PORT
-  W02 -. "when adjudication is claimed" .-> EVAL
+  W07 --> PORT
   W03 --> EVAL
-  PORT --> W07 --> EVAL --> W10
+  PORT --> W08 --> EVAL --> W10
 ```
 
-The critical path is `0.0 -> governed public source packet -> QC export + PT
-export -> 0.1 -> quantitative-text decision -> 0.4 -> portfolio/evaluation ->
-1.0`. Grounded Research and Theory
-Forge can progress in parallel after 0.1 and do not block 0.4. The current 1.0
-profile declares theory operationalization, so the Theory Forge branch must
-join before the 1.0 evaluation. Grounded Research joins only if automated
-adjudication is included in the release claim.
+The full-profile critical path is `0.0 -> controlled demo -> QC + PT + GT ->
+0.1 -> theory recommender -> Theory Forge spec + run -> final corpus governance
+-> 0.4 -> quantitative text -> 0.5 -> portfolio/evaluation -> 1.0`.
+OntoCanon/DIGIMON are optional infrastructure branches. A smaller mixed-methods
+claim can omit Theory Forge when it makes no theory capability claim, but the
+planned full profile includes it. Grounded Research joins only when automated
+adjudication is claimed.
 
 `research_v3` is not on the critical path. Its current docs disagree about
 whether it is active or archived. Until an ADR resolves that conflict, treat it

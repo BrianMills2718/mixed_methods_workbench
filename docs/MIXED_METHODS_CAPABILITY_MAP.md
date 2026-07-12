@@ -61,7 +61,7 @@ analysis.
 |---|---|---:|---|
 | Codebook thematic/content analysis | Codebook, exhaustive or declared partial denominator, coding, reconciliation, claims, negative cases. | D workbench; upstream strong | 0.1 |
 | Reflexive thematic analysis | Researcher subjectivity, recursive theme development, reflexive memos; no mechanical consensus requirement. | F | 0.7 |
-| Grounded theory | Constant comparison, theoretical coding, memoing, theoretical sampling, category development, adequacy/saturation argument. | D workbench; upstream partial/implemented | 0.2–0.7 |
+| Grounded theory | Constant comparison, theoretical coding, memoing, theoretical sampling, category development, negative cases, and an adequacy/saturation argument. This is not the `grounded-research` adjudication project. | Owner unresolved; D planning evidence | 0.1 demo, 0.4 validation |
 | Framework analysis | Matrix indexed by cases and analytic categories with within/cross-case review. | F | 0.5–0.7 |
 | Narrative analysis | Plot, temporality, voice, positioning, and case-level coherence. | F | 0.7+ |
 | Discourse/critical discourse analysis | Language, power, ideology, intertextuality, and contextual interpretation. | F | 0.7+ |
@@ -79,16 +79,16 @@ theoretical-sampling runs, and a workbench-safe export.
 
 | Capability | Minimum validity obligation | Owner | Current grade | Target |
 |---|---|---|---:|---|
-| Descriptive counts and case/code matrices | Declared denominator, missingness, weighting, and uncertainty where sampled. | Decision pending; recommended narrow workbench adapter | F | 0.4 |
+| Descriptive counts and case/code matrices | Declared denominator, missingness, weighting, and uncertainty where sampled. | Decision pending; recommended narrow workbench adapter | F | 0.5 |
 | Dictionary/lexicon measurement | Construct validity, context/polysemy checks, language/domain transfer. | Decision pending; recommended narrow workbench adapter | F | 0.5 |
-| Supervised classification/annotation | Label protocol, grouped train/held-out split, class balance, error analysis, calibration, measurement error. | Decision pending; recommended narrow workbench adapter | F | 0.4 |
+| Supervised classification/annotation | Label protocol, grouped train/held-out split, class balance, error analysis, calibration, measurement error. | Decision pending; recommended narrow workbench adapter | F | 0.5 |
 | Embeddings, clustering, and topic models | Stability, sensitivity, interpretability, held-out/generalization checks; no topic-as-truth shortcut. | Unresolved adapter | F | 0.5–0.7 |
 | Semantic scaling/positioning | Construct anchors, identification, uncertainty, robustness. | Unresolved adapter | F | 0.6+ |
 | Event, sequence, temporal, network, and relational text analysis | Extraction validity, temporal/source uncertainty, dependence, coverage. | PT/shared adapters | F workbench | 0.6 |
 | Multilingual computational text | Cross-language measurement invariance and translation/model effects. | Unresolved adapter | F | 0.7+ |
 
 Strategic decision: do not create a generic quantitative-text engine in advance.
-For 0.4, the current decision brief recommends measuring the prevalence or
+For 0.5, the current decision brief recommends measuring the prevalence or
 ordered distribution of one observable, case-supported QC category through
 established libraries behind a narrow workbench adapter. It requires a
 dictionary/count and regularized supervised comparison and treats
@@ -119,12 +119,14 @@ not reasons to duplicate PT logic in the workbench.
 
 | Capability | Required distinction | Owner | Current grade | Target |
 |---|---|---|---:|---|
-| Theory extraction/representation | What a source theory claims, with provenance. | Theory Forge | D workbench | 0.3 |
-| Constructs, mechanisms, hypotheses, observables, measures | Operationalization context and test obligations. | Theory Forge | D | 0.3 |
+| Theory candidate discovery and recommendation | Search a governed library and academic sources; use LLM knowledge only for candidate/query leads; retain citations, inclusion/rejection rationale, and human approval. | Workbench + research services + researcher | F | 0.3 |
+| Theory extraction/representation | What a selected source theory claims, with provenance. | Theory Forge | D workbench | 0.3 |
+| Constructs, mechanisms, hypotheses, observables, measures | Formal schema plus operationalization context and test obligations. | Theory Forge | D | 0.3 |
 | Scope conditions and assumptions | Bounds where a theory may apply. | Theory Forge + researcher | D | 0.3 |
 | Empirical linkage | Evidence challenges/supports a prediction under a method; theory is not evidence. | Workbench | F | 0.3 |
 | Theory building and revision | Patterns, negative cases, rival mechanisms, and failed predictions alter the theory graph transparently. | Workbench + QC/PT/TF | F | 0.3–0.6 |
-| Compiled analytic functions | Optional implementation aid, not validation. | Theory Forge | D | post-0.3 |
+| Compiled theory-specific pipeline | Schema-derived extraction, deterministic transformations, orchestration, qualitative stages, mechanisms, uncertainty, and validation. Compilation is not validation. | Theory Forge | D external implementation evidence | 0.3 |
+| Executed theory application | Versioned staged run with inputs, anchors, stage outputs/errors, model/prompt/schema/manifest versions, uncertainty, and claim limits. | Theory Forge producer export + workbench consumer | F; stable export absent | 0.3 |
 
 ### 7. Mixed-Methods Integration
 
@@ -132,15 +134,15 @@ This family is the product's core differentiator and its largest current gap.
 
 | Capability | Meaning | Current grade | Target |
 |---|---|---:|---|
-| Connecting | One strand's results determine sampling or cases for another. | F | 0.4–0.5 |
-| Building | One strand creates an instrument, variables, prompts, or hypotheses for another. | F | 0.4 |
-| Merging | Independently analyzed strands are compared or combined. | F | 0.4–0.5 |
+| Connecting | One strand's results determine sampling or cases for another. | F | 0.5–0.6 |
+| Building | One strand creates an instrument, variables, prompts, or hypotheses for another. | F | 0.5 |
+| Merging | Independently analyzed strands are compared or combined. | F | 0.5–0.6 |
 | Embedding | A secondary strand answers a bounded question inside a primary design. | F | 0.5 |
-| Quantitizing/qualitizing | Transformations preserve assumptions, provenance, and information loss. | F | 0.4–0.5 |
-| Joint displays | Cases/categories/estimates/evidence align in an inspectable analytic display. | F | 0.4 |
-| Convergence, complementarity, divergence, silence | Strand relationships are classified rather than averaged away. | F | 0.4 |
-| Meta-inference | Integrated conclusion states evidence, logic, scope, uncertainty, and unresolved contradictions. | F | 0.4 |
-| Integration fit/legitimation | Review whether the integration design and inference are warranted. | F | 0.4–0.8 |
+| Quantitizing/qualitizing | Transformations preserve assumptions, provenance, and information loss. | F | 0.5–0.6 |
+| Joint displays | Cases/categories/estimates/evidence align in an inspectable analytic display. | F | 0.5 |
+| Convergence, complementarity, divergence, silence | Strand relationships are classified rather than averaged away. | F | 0.5 |
+| Meta-inference | Integrated conclusion states evidence, logic, scope, uncertainty, and unresolved contradictions. | F | 0.5 |
+| Integration fit/legitimation | Review whether the integration design and inference are warranted. | F | 0.5–0.9 |
 | Iterative feedback | Later results can revise sampling, coding, measurement, source design, or theory. | F | 0.5–2.x |
 
 ### 8. Review, Reflexivity, and Human/Agent Governance
@@ -193,6 +195,8 @@ when a vertical slice has real fixture and API evidence.
 | `process_tracing` | Rival-hypothesis PT inference, source scope/coverage, absence analysis, strict PT exports. | Qualitative coding or population causal effects. |
 | `grounded-research` | Independent analyst/adjudication workflow, claim/dispute ledger, verification results. | Universal truth oracle or generic workbench state. |
 | `theory-forge` | Theory extraction, operationalization, validation obligations, optional compiled metadata. | Empirical evidence or causal verdicts. |
+| OntoCanon | Governed assertion/ontology-pack lifecycle, identity, provenance, review/promotion, source-bound exports. | QC/PT/GT inference or replacement of native method artifacts. |
+| DIGIMON | Graph/index projection, retrieval, ranking, traversal, analytics, evidence navigation. | Method-native inference or authority over source claims. |
 | Quantitative text adapter, owner unresolved | First design's measurement/classification/estimate artifacts. | Universal text-method abstraction before real slices. |
 | Shared infra | `llm_client`, `open_web_retrieval`, `trace_eval`, `prompt_eval`, narrow `data_contracts`. | Project-specific workflows. |
 

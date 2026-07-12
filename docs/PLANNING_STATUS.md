@@ -52,6 +52,14 @@ Current work may:
 - make the documentation legible to a future implementing agent and to a
   non-coding reviewer.
 
+Brian's 2026-07-12 direction authorized a documentation-only reconciliation of
+the long-term capability order. ADR 0004 now makes the controlled QC/PT/GT
+demonstration the first future functional slice, defers final corpus selection
+until after that demonstration, assigns OntoCanon and DIGIMON optional
+infrastructure roles, and places source-backed theory recommendation before
+Theory Forge's formalize/compile/run workflow. This changes future sequencing;
+it does not activate any implementation slice.
+
 Current work must not:
 
 - start any other version 0.0 work, version 0.1, or a later implementation
@@ -85,6 +93,7 @@ order. It is not a current task list.
 |---|---|---|
 | `PROJECT.md` | Why should this project exist? | Canonical product thesis. |
 | `docs/PLANNING_STATUS.md` | What work is authorized now? | Canonical current-phase boundary. |
+| `docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md` | Why is the program now demo-first, and what do OntoCanon, DIGIMON, theory recommendation, and Theory Forge own? | Canonical architecture/order decision; not implementation authority. |
 | `docs/MIXED_METHODS_CAPABILITY_MAP.md` | What must the eventual product cover? | Canonical scope inventory. |
 | `docs/ROADMAP.md` | In what future release order should that scope be pursued? | Canonical future sequence, not an active schedule. |
 | `docs/CAPABILITY_DEPENDENCY_GRAPH.md` | What must be true before later capabilities may become product claims? | Canonical sequencing and claim-licensing aid, not an active task list. |
