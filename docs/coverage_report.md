@@ -8,13 +8,13 @@ This report grades current evidence for readiness requirements. It does not clai
 
 | Grade | Count | Percent |
 |---|---:|---:|
-| A | 0 | 0% |
+| A | 1 | 12% |
 | B | 0 | 0% |
 | C | 2 | 25% |
 | D | 5 | 62% |
-| F | 1 | 12% |
+| F | 0 | 0% |
 
-Overall grade: **F**
+Overall grade: **D**
 
 ## Requirements
 
@@ -24,7 +24,7 @@ Overall grade: **F**
 | QCX-real-fixture | Canonical qualitative coding export fixture | D | doc | Engine-local Plan #242 exists, but no real QC fixture is committed here. | schema_validated |
 | PTX-real-fixture | Canonical process tracing export v1 fixture | D | doc | Engine-local Plan #7 exists, but pt_export_v1 is not implemented or committed here. | schema_validated |
 | TFX-real-fixture | Canonical Theory Forge operationalization fixture | D | doc | Engine-local Plan #108 exists, but no real TheoryOperationalizationArtifact is committed here. | schema_validated |
-| W2-fixture-inventory | Fixture inventory and evidence grades | F | missing | The manifest hashes files but does not record per-fixture source commands, real producer commits, validation results, or complete caveats; pending placeholders are not evidence. | test |
+| W2-fixture-inventory | Synthetic fixture provenance inventory | A | test | Live validation proved 4 exhaustively inventoried synthetic fixtures recoverable from 2 exact last-content Git commits; file and validator hashes match the recorded observation. This A applies only to inventory provenance; fixture contents remain C. | test (met for synthetic inventory only) |
 | W3-real-synthesis-payload | Fixture-backed workbench synthesis payload | C | fixture | Synthetic synthesis payload validates structurally; it is not generated from real engine artifacts. | schema_validated |
 | W4-static-review-shell | Static review shell over real fixture payload | D | doc | Planned in Plan 001, but no static review shell exists. | fixture |
 | MM1-synthesis-quality | Mixed-methods synthesis quality gates | D | doc | Exploratory surface; no reviewed real payload exists yet. | observed |
@@ -34,7 +34,6 @@ Overall grade: **F**
 - `QCX-real-fixture`: Generate a real QC handoff fixture in qualitative_coding, then import/hash it here.
 - `PTX-real-fixture`: Implement/generate pt_export_v1 in process_tracing, then import/hash it here.
 - `TFX-real-fixture`: Produce a known-green Theory Forge operationalization export, then import/hash it here.
-- `W2-fixture-inventory`: Define and validate a provenance-complete manifest, then populate it from real exports.
 - `W4-static-review-shell`: Build only after real QC/PT fixtures replace synthetic contract rows.
 - `MM1-synthesis-quality`: Run adversarial review after W4 exists over real fixtures.
 
@@ -43,7 +42,6 @@ Overall grade: **F**
 - `QCX-real-fixture`: add a negative control before enforcing this requirement.
 - `PTX-real-fixture`: add a negative control before enforcing this requirement.
 - `TFX-real-fixture`: add a negative control before enforcing this requirement.
-- `W2-fixture-inventory`: add a negative control before enforcing this requirement.
 - `W4-static-review-shell`: add a negative control before enforcing this requirement.
 - `MM1-synthesis-quality`: add a negative control before enforcing this requirement.
 

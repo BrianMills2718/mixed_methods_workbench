@@ -9,6 +9,8 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Literal
 
+from validate_fixtures import DEFAULT_FIXTURE_DIR, validate_fixture_dir
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 REPORT_MD = REPO_ROOT / "docs" / "coverage_report.md"
@@ -97,23 +99,6 @@ REQUIREMENTS: list[Requirement] = [
         next_step="Produce a known-green Theory Forge operationalization export, then import/hash it here.",
     ),
     Requirement(
-        id="W2-fixture-inventory",
-        name="Fixture inventory and evidence grades",
-        success_criteria=[
-            "every current fixture has source command, hash, engine commit, caveats, and evidence grade",
-            "coverage report names weak rows and closure path",
-        ],
-        evidence_class="missing",
-        evidence_grade="F",
-        evidence_notes=(
-            "The manifest hashes files but does not record per-fixture source commands, real producer "
-            "commits, validation results, or complete caveats; pending placeholders are not evidence."
-        ),
-        required_class_for_closure="test",
-        negative_control=None,
-        next_step="Define and validate a provenance-complete manifest, then populate it from real exports.",
-    ),
-    Requirement(
         id="W3-real-synthesis-payload",
         name="Fixture-backed workbench synthesis payload",
         success_criteria=[
@@ -175,11 +160,16 @@ def main() -> None:
 
 
 def _build_report() -> dict[str, Any]:
-    rows = [asdict(requirement) for requirement in REQUIREMENTS]
+    requirements = [
+        *REQUIREMENTS[:4],
+        derive_fixture_inventory_requirement(),
+        *REQUIREMENTS[4:],
+    ]
+    rows = [asdict(requirement) for requirement in requirements]
     counts = {grade: 0 for grade in ["A", "B", "C", "D", "F"]}
-    for requirement in REQUIREMENTS:
+    for requirement in requirements:
         counts[requirement.evidence_grade] += 1
-    total = len(REQUIREMENTS)
+    total = len(requirements)
     return {
         "summary": {
             "total": total,
@@ -193,6 +183,68 @@ def _build_report() -> dict[str, Any]:
         },
         "requirements": rows,
     }
+
+
+def derive_fixture_inventory_requirement(
+    fixture_dir: Path = DEFAULT_FIXTURE_DIR,
+) -> Requirement:
+    """Derive W2 from current bytes, Git provenance, and live validation.
+
+    Failure remains visible as an F row rather than aborting report generation.
+    The bounded A claim concerns inventory provenance only; it never promotes
+    the synthetic fixture contents above C.
+    """
+    success_criteria = [
+        "every current JSON fixture is listed exactly once and no extra artifact is omitted",
+        "every fixture records its hash, synthetic origin, exact last-content Git commit, recovery command, invariant, claim limits, and C grade",
+        "the validation observation matches current fixture and validator bytes",
+        "coverage changes to F when required inventory evidence is removed",
+    ]
+    negative_control = (
+        "scripts/check_fixture_negative_controls.py + "
+        "scripts/check_coverage_negative_controls.py"
+    )
+    try:
+        validate_fixture_dir(fixture_dir)
+    except SystemExit as error:
+        return Requirement(
+            id="W2-fixture-inventory",
+            name="Synthetic fixture provenance inventory",
+            success_criteria=success_criteria,
+            evidence_class="missing",
+            evidence_grade="F",
+            evidence_notes=f"Live inventory evidence failed: {error}",
+            required_class_for_closure="test",
+            negative_control=negative_control,
+            next_step=(
+                "Repair the exact failed provenance/validation evidence; do not "
+                "substitute engine provenance for hand-authored synthetic data."
+            ),
+        )
+
+    manifest_path = fixture_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    files = manifest["files"]
+    distinct_commits = sorted({entry["last_content_commit"] for entry in files})
+    return Requirement(
+        id="W2-fixture-inventory",
+        name="Synthetic fixture provenance inventory",
+        success_criteria=success_criteria,
+        evidence_class="test",
+        evidence_grade="A",
+        evidence_notes=(
+            f"Live validation proved {len(files)} exhaustively inventoried synthetic "
+            f"fixtures recoverable from {len(distinct_commits)} exact last-content "
+            "Git commits; file and validator hashes match the recorded observation. "
+            "This A applies only to inventory provenance; fixture contents remain C."
+        ),
+        required_class_for_closure="test (met for synthetic inventory only)",
+        negative_control=negative_control,
+        next_step=(
+            "Keep the inventory current. Real engine exports remain separate "
+            "QCX/PTX/TFX requirements and require separately authorized slices."
+        ),
+    )
 
 
 def _overall_grade(counts: dict[str, int]) -> str:

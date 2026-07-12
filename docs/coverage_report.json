@@ -1,12 +1,12 @@
 {
   "summary": {
     "total": 8,
-    "grade_a": 0,
+    "grade_a": 1,
     "grade_b": 0,
     "grade_c": 2,
     "grade_d": 5,
-    "grade_f": 1,
-    "overall_grade": "F",
+    "grade_f": 0,
+    "overall_grade": "D",
     "notes": "Current coverage proves a synthetic contract seam, not real engine readiness."
   },
   "requirements": [
@@ -72,17 +72,19 @@
     },
     {
       "id": "W2-fixture-inventory",
-      "name": "Fixture inventory and evidence grades",
+      "name": "Synthetic fixture provenance inventory",
       "success_criteria": [
-        "every current fixture has source command, hash, engine commit, caveats, and evidence grade",
-        "coverage report names weak rows and closure path"
+        "every current JSON fixture is listed exactly once and no extra artifact is omitted",
+        "every fixture records its hash, synthetic origin, exact last-content Git commit, recovery command, invariant, claim limits, and C grade",
+        "the validation observation matches current fixture and validator bytes",
+        "coverage changes to F when required inventory evidence is removed"
       ],
-      "evidence_class": "missing",
-      "evidence_grade": "F",
-      "evidence_notes": "The manifest hashes files but does not record per-fixture source commands, real producer commits, validation results, or complete caveats; pending placeholders are not evidence.",
-      "required_class_for_closure": "test",
-      "negative_control": null,
-      "next_step": "Define and validate a provenance-complete manifest, then populate it from real exports."
+      "evidence_class": "test",
+      "evidence_grade": "A",
+      "evidence_notes": "Live validation proved 4 exhaustively inventoried synthetic fixtures recoverable from 2 exact last-content Git commits; file and validator hashes match the recorded observation. This A applies only to inventory provenance; fixture contents remain C.",
+      "required_class_for_closure": "test (met for synthetic inventory only)",
+      "negative_control": "scripts/check_fixture_negative_controls.py + scripts/check_coverage_negative_controls.py",
+      "next_step": "Keep the inventory current. Real engine exports remain separate QCX/PTX/TFX requirements and require separately authorized slices."
     },
     {
       "id": "W3-real-synthesis-payload",
