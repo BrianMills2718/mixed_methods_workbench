@@ -32,7 +32,10 @@ Phase 4: source-backed GOV/case and quantitative-text decision research is
 completed at `dc33a92377910bdbbdda6bdcc56537fd8ea3d82b` and independently
 audited PASS after one false deterministic observation was corrected. No case,
 QT task/owner, producer mutation, or implementation slice is selected. Stop at
-Brian's two architecture decisions and any later named authorization.
+Brian's two architecture decisions and any later named authorization. After
+three consecutive continuation audits reached this same boundary, the
+persistent goal is formally blocked rather than left active; it is not complete,
+and no capability or evidence grade moved.
 
 ## Completed
 
@@ -99,15 +102,18 @@ Brian's two architecture decisions and any later named authorization.
 
 ## Next
 
-1. Brian chooses bounded `frus1961-63v11` or requires a rights-clean Brumaire
+1. To resume the full recommended path, Brian states: “Select FRUS, approve the
+   QT pattern, and authorize the governance-only GOV-FRUS-CMC slice.” A narrower
+   decision resumes only the work it explicitly authorizes.
+2. Brian chooses bounded `frus1961-63v11` or requires a rights-clean Brumaire
    rebuild. The recommendation is FRUS; neither option is selected yet.
-2. Brian approves or rejects the conditional QT task/owner pattern: one
+3. Brian approves or rejects the conditional QT task/owner pattern: one
    case-derived prevalence/distribution measure through a narrow workbench
    adapter, with the exact construct decided only after feasibility evidence.
-3. If Brian selects FRUS and explicitly authorizes `GOV-FRUS-CMC`, run the
+4. If Brian selects FRUS and explicitly authorizes `GOV-FRUS-CMC`, run the
    pre-implementation checklist for a governance-only source-bundle slice. Do
    not begin QC/PT or adapters in that authorization.
-4. Append the prepared verification-gap entry when the active shared-log claim
+5. Append the prepared verification-gap entry when the active shared-log claim
    is released.
 
 ## Blockers / Stop Conditions

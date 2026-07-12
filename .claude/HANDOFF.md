@@ -27,6 +27,11 @@ Brumaire derivative, and a case-derived prevalence/distribution QT task through
 a narrow workbench-owned adapter. Recommendations are not decisions or
 authorizations; GOV and QT remain F.
 
+The persistent SOTA goal is formally **blocked**, not complete. Three
+consecutive continuation audits reached the same human architecture and named
+authorization boundary without new authority. No capability or evidence grade
+moved when the goal was parked.
+
 ## Completed This Program Increment
 
 - Investigated current repository authority, all prior research artifacts,
@@ -67,6 +72,11 @@ Brian must choose or authorize the next named slice. The critical decisions are:
    authorization to mutate those repositories or produce workbench exports.
 4. Later TF/GR roles: choose one known-green theory and evaluate adjudication
    on workbench cases only when a named release claims those capabilities.
+
+To resume all currently decision-ready work on the recommended path, Brian can
+state exactly: **“Select FRUS, approve the QT pattern, and authorize the
+governance-only GOV-FRUS-CMC slice.”** A narrower response is also valid and
+resumes only the decision or work it explicitly authorizes.
 
 ## Dependency-Ordered Next Work
 

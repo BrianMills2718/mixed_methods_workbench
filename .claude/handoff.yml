@@ -1,7 +1,7 @@
 updated: "2026-07-12T15:25:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
-status: active
+status: blocked
 current_mode: documentation_only
 blocked_on: human_architecture_decision
 git_commit: "dc33a92377910bdbbdda6bdcc56537fd8ea3d82b"
@@ -9,7 +9,7 @@ git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/runs/2026-07-12-t0-prov-eval-signoff.md"
 summary: "Completed and independently audited GOV/case and QT task/owner decision briefs; no case, construct, owner, or implementation slice is selected."
-next_action: "Brian decides bounded FRUS versus a rights-clean Brumaire rebuild and approves/rejects the conditional QT task/owner pattern; remain documentation-only until a separately named slice is authorized."
+next_action: "To resume the recommended path, Brian states: 'Select FRUS, approve the QT pattern, and authorize the governance-only GOV-FRUS-CMC slice.' Any narrower decision resumes only the work it explicitly authorizes."
 
 completed:
   - "Investigated repository authority, producer readiness, and external/incumbent SOTA evidence."
@@ -57,6 +57,7 @@ pending:
     summary: "Integrate qual and quant explicitly before any mixed-methods claim."
 
 warnings:
+  - "The persistent SOTA goal is formally blocked after three consecutive audits found the same human architecture and authorization boundary; this is not a capability-completion claim."
   - "No implementation slice or product version is active."
   - "T0-PROV/W2 A licenses only synthetic inventory provenance; fixture contents remain C and broader T0 remains F."
   - "Do not call QC plus PT mixed methods; release 0.1 is multi-method qualitative."
