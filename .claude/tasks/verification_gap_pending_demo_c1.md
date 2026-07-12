@@ -1,6 +1,6 @@
 # Pending Verification-Gap Entry: DEMO-C1 Open-Prose and Boundary Matrix
 
-Destination: `~/projects/project-meta/verification_gap_log.md`  
+Destination: `~/projects/project-meta/verification_gap_log.md`
 Status: pending because active claim
 `codex_project-meta_plan0137-report-vgap-20260712` currently owns that shared
 append-only file.
@@ -40,4 +40,3 @@ non-authoritative/human-review status; never claim regexes establish semantic
 method fidelity. Exercise the real CLI/Make failure surface, not only the model
 validator. This recurs in the shared missing-negative-control and partial-scope
 corpus, so no duplicate policy proposal is recommended.
-
