@@ -1,8 +1,11 @@
 # T0-PROV Independent Evaluation Sign-Off
 
-Decision date: 2026-07-12  
-Evaluated commit: `f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a`  
-Decision: **SIGNED-OFF**  
+Decision date: 2026-07-12
+
+Evaluated commit: `f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a`
+
+Decision: **SIGNED-OFF**
+
 Scope: `T0-PROV` / legacy coverage row `W2-fixture-inventory` only
 
 ## Licensed Claim
