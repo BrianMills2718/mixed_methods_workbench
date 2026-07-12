@@ -1,15 +1,15 @@
-updated: "2026-07-12T14:35:00-07:00"
+updated: "2026-07-12T15:25:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
 status: active
 current_mode: documentation_only
 blocked_on: human_architecture_decision
-git_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
+git_commit: "dc33a92377910bdbbdda6bdcc56537fd8ea3d82b"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/runs/2026-07-12-t0-prov-eval-signoff.md"
-summary: "Completed and independently signed off T0-PROV/W2 inventory provenance; no implementation slice is active."
-next_action: "Obtain Brian's first public case/source-use decision and named GOV authorization, or another explicitly named slice; remain documentation-only until then."
+summary: "Completed and independently audited GOV/case and QT task/owner decision briefs; no case, construct, owner, or implementation slice is selected."
+next_action: "Brian decides bounded FRUS versus a rights-clean Brumaire rebuild and approves/rejects the conditional QT task/owner pattern; remain documentation-only until a separately named slice is authorized."
 
 completed:
   - "Investigated repository authority, producer readiness, and external/incumbent SOTA evidence."
@@ -18,17 +18,20 @@ completed:
   - "Implemented truthful synthetic provenance, exact Git recovery, exhaustive inventory, evidence-apparatus binding, and evidence-derived coverage."
   - "Passed 41 fixture controls, 3 coverage controls, composed-interface checks, and a fresh independent five-gate sign-off at f26bc6a."
   - "Current legacy coverage is 1 A, 0 B, 2 C, 5 D, 0 F; overall D. Fixture shapes remain C and broader T0/program evidence remains F."
+  - "Audited the current Brumaire derivative and recommended bounded frus1961-63v11 as the stronger first governed source universe."
+  - "Recommended a case-derived prevalence/distribution QT task with dictionary and regularized supervised baselines through a narrow workbench-owned adapter."
+  - "Independent adversarial audit passed after catching and correcting one false deterministic duplicate observation. GOV/QT grades did not move."
 
 decisions_required:
   - id: D1
     priority: critical
     summary: "Select the first public case and permitted source use."
-    context: "The proposed 18 Brumaire packet is not confirmed. Decide corpus scope, licensing, sensitivity/publication constraints, source hashes, anchor recovery, and claim limits."
+    context: "Choose bounded frus1961-63v11 (recommended) or require a rights-clean Brumaire rebuild. The current Brumaire derivative is rejected as a governed corpus. A choice is not GOV implementation authorization."
     blocks: [GOV, QC, PT, R01]
   - id: D2
     priority: critical
     summary: "Select the first quantitative-text task and owner."
-    context: "Choose the construct, population/use, held-out protocol, measurement or annotation instrument, baseline, uncertainty/error analysis, and owning adapter/repo."
+    context: "Approve/reject the recommended case-derived prevalence/distribution task and narrow workbench-owned adapter. The exact construct, instrument, thresholds, and model wait for GOV/R01 feasibility evidence."
     blocks: [QT, MM]
   - id: D3
     priority: high
@@ -59,6 +62,7 @@ warnings:
   - "Do not call QC plus PT mixed methods; release 0.1 is multi-method qualitative."
   - "Do not mutate producer repos, create real fixtures, or build adapters/API/UI without a named authorization and fresh entry gate."
   - "Do not treat generated theory as empirical evidence or AC15 as a workbench prerequisite."
+  - "The prepared research-fact verification-gap entry still needs appending after active project-meta shared-log claim codex_project-meta_plan0137-report-vgap-20260712 is released."
 
 sanity_checks:
   - cmd: "make check"

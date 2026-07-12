@@ -21,6 +21,12 @@ decision is bounded to synthetic fixture inventory provenance:
 Decision record:
 `docs/runs/2026-07-12-t0-prov-eval-signoff.md`.
 
+Two source-backed decision briefs are now independently audited and ready for
+Brian. They recommend bounded `frus1961-63v11` over the current ungovernable
+Brumaire derivative, and a case-derived prevalence/distribution QT task through
+a narrow workbench-owned adapter. Recommendations are not decisions or
+authorizations; GOV and QT remain F.
+
 ## Completed This Program Increment
 
 - Investigated current repository authority, all prior research artifacts,
@@ -36,17 +42,27 @@ Decision record:
   interface controls.
 - Preserved every failed independent audit in the verification-gap corpus; the
   final independent five-gate decision is SIGNED-OFF.
+- Audited the proposed Brumaire corpus at source/edition/host level and compared
+  FRUS and Challenger alternatives. The current Brumaire derivative is rejected
+  for GOV; bounded FRUS is the recommended source universe.
+- Compared dictionary, supervised, ordinal, topic/embedding, and owner options.
+  The recommended QT pattern is construct-first, grouped held-out, item-linked,
+  and workbench-owned for the first slice.
+- Authored and independently audited the two decision briefs. One false
+  duplicate observation was caught, corrected, and rechecked before commit.
 
 ## Genuine Stop Decisions
 
 No further implementation can be safely inferred from the broad SOTA goal.
 Brian must choose or authorize the next named slice. The critical decisions are:
 
-1. First public case and permitted source use: the proposed 18 Brumaire packet
-   is not confirmed; licensing, corpus denominator, hashes, anchors,
-   sensitivity, and publication scope determine GOV and all real fixtures.
-2. First quantitative-text task and owner: no construct, held-out protocol,
-   measurement instrument, or adapter boundary is selected.
+1. First public case and permitted source use: select bounded
+   `frus1961-63v11` (recommended), or require a rights-clean Brumaire rebuild.
+   The current Brumaire derivative cannot be the governed corpus.
+2. First quantitative-text task and owner: approve or reject the recommended
+   case-derived prevalence/distribution task and narrow workbench-owned adapter.
+   The exact construct remains deferred until the governed case and feasibility
+   readout exist.
 3. Producer permissions: QC Plan 242 and PT Plan 7 are future plans, not
    authorization to mutate those repositories or produce workbench exports.
 4. Later TF/GR roles: choose one known-green theory and evaluate adjudication
@@ -54,8 +70,9 @@ Brian must choose or authorize the next named slice. The critical decisions are:
 
 ## Dependency-Ordered Next Work
 
-1. Obtain Brian's source-case/source-use decision and named GOV authorization.
-2. In that slice, create a real governed `ResearchBundle`/source manifest with
+1. Obtain Brian's D1 case/source and D2 QT task/owner-pattern decisions.
+2. Only if separately authorized as `GOV-FRUS-CMC`, create a real governed
+   `ResearchBundle`/source manifest with
    source IDs and hashes, denominator, rights/sensitivity, anchor recovery,
    gaps, and claim limits.
 3. Separately authorize producer-owned strict QC and `pt_export_v1` slices;
@@ -71,14 +88,16 @@ slice and the full `docs/PRE_IMPLEMENTATION_CHECKLIST.md` entry gate.
 
 ## Required Reading
 
-1. `docs/PLANNING_STATUS.md`
-2. `plan/goals/2026-07-12-sota-or-beyond.md`
-3. `docs/SOTA_EVIDENCE_SCORECARD.md`
-4. `docs/CAPABILITY_DEPENDENCY_GRAPH.md`
-5. `docs/PRE_IMPLEMENTATION_CHECKLIST.md`
-6. `docs/CONCERNS.md`
-7. `docs/runs/2026-07-12-t0-prov-eval-signoff.md`
-8. `docs/plans/current_t0_truthful_fixture_inventory.md`
+1. `docs/decisions/2026-07-12-first-governed-case.md`
+2. `docs/decisions/2026-07-12-first-quantitative-text-strand.md`
+3. `docs/PLANNING_STATUS.md`
+4. `plan/goals/2026-07-12-sota-or-beyond.md`
+5. `docs/SOTA_EVIDENCE_SCORECARD.md`
+6. `docs/CAPABILITY_DEPENDENCY_GRAPH.md`
+7. `docs/PRE_IMPLEMENTATION_CHECKLIST.md`
+8. `docs/CONCERNS.md`
+9. `docs/runs/2026-07-12-t0-prov-eval-signoff.md`
+10. `docs/plans/current_t0_truthful_fixture_inventory.md`
 
 ## Sanity Checks
 

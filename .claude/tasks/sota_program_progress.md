@@ -23,14 +23,16 @@ Bring the workbench to independently verified state-of-the-art-or-beyond capabil
 - QC plus PT is multi-method qualitative, not mixed methods.
 - Synthetic fixtures license at most C-grade shape claims.
 - No universal “quality” or “SOTA” score; use method-, task-, and domain-specific evidence.
-- Work remains on `goal-sota-program` until a verified slice is merged and cleaned.
+- Work uses an in-repo worktree until each verified documentation or
+  implementation increment is merged and cleaned.
 
 ## Current Phase
 
-Phase 3: `T0-PROV` / WP0 is completed and independently signed off at commit
-`f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a`. Reconcile the documentation-only
-authority surfaces, verify and merge the clean lane, then stop at the genuine
-GOV/case, quantitative-text, and producer-authorization decisions.
+Phase 4: source-backed GOV/case and quantitative-text decision research is
+completed at `dc33a92377910bdbbdda6bdcc56537fd8ea3d82b` and independently
+audited PASS after one false deterministic observation was corrected. No case,
+QT task/owner, producer mutation, or implementation slice is selected. Stop at
+Brian's two architecture decisions and any later named authorization.
 
 ## Completed
 
@@ -69,23 +71,51 @@ GOV/case, quantitative-text, and producer-authorization decisions.
   self-healing reports, evidence-apparatus integrity, interior and root
   symlinks, duplicate keys, and malformed input.
 - Recorded the verification-process findings on the pushed project-meta branch
-  `verification-gap-mmw-t0-prov-20260712` at `5baf598e` without touching its
+  `verification-gap-mmw-t0-prov-20260712` at `d3f167b0` without touching its
   dirty shared checkout.
 - Obtained fresh independent five-gate sign-off on `f26bc6a` after 41
   evaluator-owned hostile checks; the immutable decision is recorded in
   `docs/runs/2026-07-12-t0-prov-eval-signoff.md`.
+- Read every prior research/session artifact before synthesis and completed
+  primary-source case/governance and quantitative-text task/owner reports.
+- Audited the current 18 Brumaire derivative source by source; rejected it as a
+  governed corpus and recommended bounded `frus1961-63v11` as the stronger
+  public-domain/CC0, canonical-TEI source universe.
+- Recommended a case-derived prevalence/distribution task, mandatory
+  dictionary and regularized supervised baselines, grouped held-out evidence,
+  and a narrow workbench-owned adapter; topic/embedding output remains
+  discovery, not the first measure.
+- Authored two decision briefs with explicit acceptance evidence, negative
+  controls, failure modes, exact decision wording, and no grade promotion or
+  implementation implication.
+- Obtained an independent adversarial PASS across source claims, authorization,
+  method boundaries, evidence grades, links, YAML, and canonical consistency.
+  The audit first rejected a false duplicate observation; the fact and its
+  control rationale were corrected and directly rechecked.
+- Prepared the required shared verification-gap entry, but did not append it
+  because active coordination claim
+  `codex_project-meta_plan0137-report-vgap-20260712` exclusively names the
+  shared log.
 
 ## Next
 
-1. Verify the sign-off/status/handoff closure without changing evaluated
-   evidence bytes; commit and push it.
-2. Fast-forward the verified lane to `main`, push, and leave a clean handoff.
-3. Resume only after Brian selects/authorizes a named next slice. The critical
-   decisions are the first governed case/source license, quantitative-text
-   task/owner, and producer-repository permissions.
+1. Brian chooses bounded `frus1961-63v11` or requires a rights-clean Brumaire
+   rebuild. The recommendation is FRUS; neither option is selected yet.
+2. Brian approves or rejects the conditional QT task/owner pattern: one
+   case-derived prevalence/distribution measure through a narrow workbench
+   adapter, with the exact construct decided only after feasibility evidence.
+3. If Brian selects FRUS and explicitly authorizes `GOV-FRUS-CMC`, run the
+   pre-implementation checklist for a governance-only source-bundle slice. Do
+   not begin QC/PT or adapters in that authorization.
+4. Append the prepared verification-gap entry when the active shared-log claim
+   is released.
 
 ## Blockers / Stop Conditions
 
 - No implementation slice is active. Every further row requires named
   authorization.
-- The first public case, quantitative-text owner/task, Theory Forge export authority, and Grounded Research role are genuine future architectural decisions unless evidence resolves a safe default.
+- D1 case/source choice, D2 QT task/owner pattern, and D3 producer permissions
+  are genuine human stop decisions. Exact FRUS subcorpus, QT construct,
+  thresholds, and model remain future evidence-based choices.
+- Theory Forge export authority and Grounded Research's first evaluated role
+  remain claim-scoped future decisions, not blockers for the first MM design.
