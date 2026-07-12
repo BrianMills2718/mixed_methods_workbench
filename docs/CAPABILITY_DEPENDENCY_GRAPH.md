@@ -83,13 +83,13 @@ theory operationalization, so `TF` must join the evaluation path before `V10`.
 |---|---|---|---|---|---|---|---|---|
 | AUTH | Current planning authority | `mixed_methods_workbench` | none | documented | D, document review | Planning docs distinguish current facts, future proposals, and implementation authorization. | Documentation review plus `docs/PLANNING_STATUS.md`. | The current mode is documentation-only with no active implementation slice; completed T0-PROV is historical evidence. |
 | T0 | Truthful evidence baseline | `mixed_methods_workbench` | AUTH | partial scaffold | F overall; W2 A for synthetic inventory provenance, fixture shapes C, remaining T0 criteria incomplete | Synthetic controls are discriminating, evidence grades are honest, and readiness gaps fail visibly. | `make check`, `make coverage`, coverage report, negative controls. | The repo has a truthful planning/fixture baseline, not live engine readiness. |
-| GOV | Study and source governance baseline | Workbench plus producer exports | T0 | planned | F overall; D prose, no real source manifest | Protocol, corpus/source identity, source hashes, licensing/sensitivity caveats, and claim limits are present for the first case. | Future `ResearchBundle` manifest and source governance checks. | Workbench artifacts can be bounded to a governed source scope. |
+| GOV | Study and source governance baseline | Workbench plus producer exports | T0 | decision brief complete; blocked on case selection and named authorization | F overall; D source-backed options, no real source manifest | Protocol, corpus/source identity, source hashes, licensing/sensitivity caveats, and claim limits are present for the selected first case. | Future `ResearchBundle` manifest and source governance checks. | Workbench artifacts can be bounded to a governed source scope. |
 | QC | Qualitative export fixture | `qualitative_coding` | T0, GOV | documented dependency | D, upstream plan only | One real export provides corpus denominator, anchors, codes/categories, claims, patterns, memos/review state, provenance, and claim limits without PT inference fields. | Engine-local strict export validation, pinned fixture, negative controls, producer commit. | QC can supply qualitative evidence and claims for one evaluated case. |
 | PT | Process tracing export | `process_tracing` | T0, GOV | documented dependency | D, upstream plan only | One versioned export provides source packet identity, rival hypotheses, evidence/absence findings, comparative support, sensitivity, verdict language, caveats, and run metadata without internal coupling. | `pt_export_v1` fixture, tests, source packet hashes, producer commit. | PT can supply within-case comparative support for one evaluated case. |
 | R01 | Multi-method qualitative reviewer packet | `mixed_methods_workbench` | QC, PT, GOV | future proposal | D, proposal only | A reviewer can trace question -> source scope -> QC claim/pattern -> PT hypothesis/support -> caveat over real pinned exports. | Static reviewer packet, contract tests, adversarial method-boundary review. | Version 0.1 may claim auditable multi-method qualitative review for one case. |
 | GR | Disagreement adjudication | `grounded-research` plus workbench seam | R01 | planned dependency | D, planned seam only | Contested claims become a `ClaimDisputeBundle`; independent analyses, verification actions, disagreement types, and human dispositions return as `AdjudicationResult`. | Workbench case evaluation, human dispositions, seam tests. | The workbench can expose and disposition evidence disputes for evaluated cases. |
 | TF | Theory operationalization | `theory-forge` plus workbench seam | R01 | planned dependency | D, planned seam only | One known-green export provides constructs, mechanisms, hypotheses, observables, measures, assumptions, scope conditions, uncertainties, validation obligations, and provenance. | Schema-validated `TheoryOperationalizationArtifact` from a real theory export. | Theory can guide and be challenged by analysis without being counted as empirical evidence. |
-| QT | Quantitative text strand | Unresolved first adapter owner | R01, GOV, QC | blocked by owner decision | F, owner missing | A selected quantitative text task has a protocol, held-out set, measurement or annotation instrument, validation metrics, error analysis, uncertainty, and item-level links to qualitative constructs. | Adapter fixture, held-out evaluation, leakage controls, measurement/error report. | A quantitative text strand can be integrated for one named design. |
+| QT | Quantitative text strand | Decision pending; recommended narrow `mixed_methods_workbench` adapter | R01, GOV, QC | decision brief complete; blocked on task/owner approval, case evidence, and exact construct | F, owner/task not approved; D source-backed options | A selected quantitative text task has a protocol, grouped held-out set, measurement or annotation instrument, transparent baselines, validation metrics, error analysis, uncertainty, and item-level links to qualitative constructs. | Adapter fixture, held-out evaluation, leakage controls, measurement/error report. | A quantitative text strand can be integrated for one named design. |
 | MM | First true mixed-methods design | `mixed_methods_workbench` plus QT; GR/TF only when the named design uses them | R01, QT | blocked | F, no qual-quant integration evidence | Qualitative and quantitative strands are connected, built, merged, embedded, or transformed; joint display or equivalent, strand-relationship classification, contradiction disposition, and bounded meta-inference exist. | Exploratory-sequential review packet, integration controls, human/agent review. | Version 0.4 may claim one evaluated qualitative-quantitative mixed-methods design. |
 | DES | Additional integration designs and exchange | Workbench | MM | skeleton | F overall; D roadmap only | Convergent, explanatory sequential, and embedded designs each have explicit timing, priority, integration operations, and exchange/export obligations. | Design-specific fixtures, REFI-QDA/tabular export tests, reporting-profile checks. | The product supports multiple named integration designs without flattening them. |
 | CAUSAL | Causal/comparative bridges | Workbench plus PT and quantitative adapters | MM | skeleton | F overall; D roadmap only | Nested analysis, QCA/fsQCA, text-as-treatment/mediator/outcome/confounder, and cross-case bridges declare estimands, identification assumptions, measurement error, and scope. | Eligibility notebooks, adapter fixtures, causal assumption checks, rejected-case controls. | The product can bridge within-case and cross-case analysis with explicit limits. |
@@ -105,9 +105,11 @@ is always the fresh state review in `docs/PRE_IMPLEMENTATION_CHECKLIST.md`.
 
 Known stop points:
 
-- `QT`: select the first quantitative text task and adapter owner before 0.4.
-- `R01`: confirm the first public case and source licensing before replacing
-  invented fixtures.
+- `QT`: approve the task/owner pattern, then select the exact case-supported
+  construct after its feasibility readout and before 0.4.
+- `R01`: select bounded FRUS or require a rights-clean Brumaire rebuild before
+  replacing invented fixtures. The decision brief recommendation is not GOV
+  authorization.
 - `GR`: evaluate Grounded Research on workbench claims rather than inheriting a
   general validity claim from its own benchmarks; require it only when the
   selected release claims automated adjudication.
@@ -123,6 +125,8 @@ Known stop points:
 
 > Sources: `README.md`; `PROJECT.md`; `CLAUDE.md`;
 > `docs/PLANNING_STATUS.md`; `docs/ROADMAP.md`;
+> `docs/decisions/2026-07-12-first-governed-case.md`;
+> `docs/decisions/2026-07-12-first-quantitative-text-strand.md`;
 > `docs/PRE_IMPLEMENTATION_CHECKLIST.md`;
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`; `docs/CONCERNS.md`;
 > `docs/ARCHITECTURE.md`; `docs/IMPLEMENTING_AGENT_NOTES.md`;

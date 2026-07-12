@@ -33,6 +33,14 @@ publish:
     type: EvidenceReport
     title: SOTA Evidence Scorecard
     tags: [portfolio, mixed_methods_workbench, evidence, evaluation, current]
+  - path: docs/decisions/2026-07-12-first-governed-case.md
+    type: Plan
+    title: First Governed Public Case Decision Brief
+    tags: [portfolio, mixed_methods_workbench, planning, decision, governance]
+  - path: docs/decisions/2026-07-12-first-quantitative-text-strand.md
+    type: Plan
+    title: First Quantitative Text Strand Decision Brief
+    tags: [portfolio, mixed_methods_workbench, planning, decision, quantitative_text]
   - path: docs/coverage_report.md
     type: EvidenceReport
     title: Executable Scaffold Coverage

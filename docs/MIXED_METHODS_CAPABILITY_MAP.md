@@ -1,7 +1,7 @@
 # Text-Centered Mixed-Methods Capability Map
 
 Status: canonical future scope inventory; documentation only
-Updated: 2026-07-09
+Updated: 2026-07-12
 
 This map records eventual coverage and planning gaps. It does not activate or
 authorize implementation; see `docs/PLANNING_STATUS.md`.
@@ -79,19 +79,24 @@ theoretical-sampling runs, and a workbench-safe export.
 
 | Capability | Minimum validity obligation | Owner | Current grade | Target |
 |---|---|---|---:|---|
-| Descriptive counts and case/code matrices | Declared denominator, missingness, weighting, and uncertainty where sampled. | Unresolved adapter | F | 0.4 |
-| Dictionary/lexicon measurement | Construct validity, context/polysemy checks, language/domain transfer. | Unresolved adapter | F | 0.5 |
-| Supervised classification/annotation | Label protocol, train/held-out split, class balance, error analysis, calibration, measurement error. | Unresolved adapter | F | 0.4 |
+| Descriptive counts and case/code matrices | Declared denominator, missingness, weighting, and uncertainty where sampled. | Decision pending; recommended narrow workbench adapter | F | 0.4 |
+| Dictionary/lexicon measurement | Construct validity, context/polysemy checks, language/domain transfer. | Decision pending; recommended narrow workbench adapter | F | 0.5 |
+| Supervised classification/annotation | Label protocol, grouped train/held-out split, class balance, error analysis, calibration, measurement error. | Decision pending; recommended narrow workbench adapter | F | 0.4 |
 | Embeddings, clustering, and topic models | Stability, sensitivity, interpretability, held-out/generalization checks; no topic-as-truth shortcut. | Unresolved adapter | F | 0.5–0.7 |
 | Semantic scaling/positioning | Construct anchors, identification, uncertainty, robustness. | Unresolved adapter | F | 0.6+ |
 | Event, sequence, temporal, network, and relational text analysis | Extraction validity, temporal/source uncertainty, dependence, coverage. | PT/shared adapters | F workbench | 0.6 |
 | Multilingual computational text | Cross-language measurement invariance and translation/model effects. | Unresolved adapter | F | 0.7+ |
 
 Strategic decision: do not create a generic quantitative-text engine in advance.
-For 0.4, use established libraries behind a narrow adapter for the selected
-exploratory-sequential design. Extract shared infrastructure only after a second
-slice demonstrates a stable boundary. The owner is nevertheless a formal F-grade
-gap and must be assigned before 0.4 begins.
+For 0.4, the current decision brief recommends measuring the prevalence or
+ordered distribution of one observable, case-supported QC category through
+established libraries behind a narrow workbench adapter. It requires a
+dictionary/count and regularized supervised comparison and treats
+topic/embedding output as discovery rather than the first measure. Extract
+shared infrastructure only after a second slice demonstrates a stable boundary.
+Brian must still approve the task/owner pattern and later the exact construct;
+the owner remains a formal F-grade gap until then. See
+`docs/decisions/2026-07-12-first-quantitative-text-strand.md`.
 
 ### 5. Causal and Comparative Inference
 

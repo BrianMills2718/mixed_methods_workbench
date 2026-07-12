@@ -95,12 +95,14 @@ It does not have live engine integration.
 Purpose: prove that the workbench can integrate real qualitative coding and
 process tracing without flattening their methods.
 
-Proposed first case: a public, conflict-rich 18 Brumaire source packet. This is
-a planning recommendation because it could reuse the strongest process-tracing
-case while avoiding sensitive interview data; it must be confirmed during a
-fresh pre-implementation review. If source licensing or anchor recovery fails,
-the future implementation plan must name a replacement public case rather than
-silently switching to synthetic data.
+Current decision recommendation: use the State Department's
+`frus1961-63v11` Cuban Missile Crisis volume as the first source universe, with
+the question bounded to U.S. decision-making and recorded diplomatic exchange.
+The current 18 Brumaire derivative is rejected as a governed corpus because its
+source-object denominator, rights, and original-span anchors are incomplete; a
+rights-clean rebuild remains a fallback. Brian must select the case before a
+separately named governance-only slice can begin. See
+`docs/decisions/2026-07-12-first-governed-case.md`.
 
 Thin slice:
 
@@ -191,11 +193,15 @@ qualitative construct discovery -> reviewed measurement specification
 -> convergence/divergence review -> meta-inference
 ```
 
-Unresolved dependency that must be decided before any authorized implementation:
-ownership of the
-quantitative-text adapter/engine. The default is to use established libraries
-behind a narrow project-specific adapter for the first real design, and extract
-a shared engine only after the slice reveals a stable interface.
+Current decision recommendation: estimate the prevalence or ordered
+distribution of one observable, case-supported QC category. Require a
+transparent dictionary/count and regularized supervised comparison; choose the
+primary instrument only after a grouped, leakage-safe feasibility readout; and
+keep topic/embedding output out of the first measure. The first adapter should
+be narrow and workbench-owned around established libraries. Extract a shared
+engine only after at least a second real slice reveals a stable interface.
+Brian must approve the task/owner pattern and later the exact construct. See
+`docs/decisions/2026-07-12-first-quantitative-text-strand.md`.
 
 Minimum claim dependencies are `R01` plus the governed `QT` strand. Grounded
 Research and Theory Forge are required only if this named study also claims

@@ -23,11 +23,15 @@ This goal is derived from:
 - `.claude/tasks/research_artifact_authority.md`;
 - `.claude/tasks/research_producer_readiness.md`;
 - `.claude/tasks/research_sota_landscape.md`;
+- `.claude/tasks/research_gov_case_options.md` and
+  `.claude/tasks/research_qt_first_task_options.md`;
 - `PROJECT.md`, `docs/MIXED_METHODS_CAPABILITY_MAP.md`, `docs/ROADMAP.md`,
   `docs/CAPABILITY_DEPENDENCY_GRAPH.md`, `docs/PLANNING_STATUS.md`, and
   `docs/PRE_IMPLEMENTATION_CHECKLIST.md`;
-- the exact producer and external source inventories recorded in the three
-  research reports above.
+- `docs/decisions/2026-07-12-first-governed-case.md` and
+  `docs/decisions/2026-07-12-first-quantitative-text-strand.md`;
+- the exact producer and external source inventories recorded in the research
+  reports above.
 
 ## Goal Map
 
@@ -143,10 +147,10 @@ Each work package is a thin end-to-end claim increment, not a component dump.
 | WP | Thin slice | Entry | Exit/readout | Authority now |
 |---|---|---|---|---|
 | WP0 | Truthful synthetic provenance and evidence-derived inventory | Current scaffold | W2 changes when evidence changes; exact negative control fires; fixture grades stay ≤C; T0 remains partial | Completed and independently signed off as `T0-PROV` |
-| WP1 | Govern one public source packet | WP0 | Protocol, source IDs/hashes, license/sensitivity/access, selection/gaps, and claim limits pass review | Planning only |
+| WP1 | Govern one public source packet | WP0 plus Brian's case choice and named authorization | Protocol, source IDs/hashes, license/sensitivity/access, selection/gaps, and claim limits pass review | Blocked on decision; FRUS recommended |
 | WP2 | Strict QC and PT exports | WP1 plus separate producer authorization | Producer schemas, real fixtures, commands, hashes, compatibility and loss tests | Not authorized |
 | WP3 | One real QC/PT reviewer packet | WP2 | Question -> source -> QC claim -> PT rival/support -> caveat is inspectable; method-boundary controls pass | Not authorized |
-| WP4 | Validated quantitative-text strand | WP3 plus owner/task decision | Construct/use specification, held-out result, simple baseline, uncertainty, error slices, item links | Blocked on decision |
+| WP4 | Validated quantitative-text strand | WP3 plus Brian's task/owner pattern and exact construct decisions | Construct/use specification, grouped held-out result, dictionary and regularized supervised baselines, uncertainty, error slices, item links | Blocked on decision; conditional prevalence/distribution task and workbench owner recommended |
 | WP5 | One exploratory-sequential mixed-methods case | WP4 | Explicit build/merge operation, joint display, divergence resolution, bounded meta-inference, expert review | Not authorized |
 | WP6 | Portfolio, governance, exchange, and agent parity | WP5 | Named design/method profiles, REFI/tabular loss tests, reproducible bundle, typed API parity | Not authorized |
 | WP7 | Independent SOTA evaluation | WP6 | Refreshed incumbents, sealed cases, controls, ablations, uncertainty, clean-room replay, independent sign-off | Not authorized |
@@ -176,8 +180,11 @@ Each work package is a thin end-to-end claim increment, not a component dump.
 
 Only these current decisions cannot be safely inferred:
 
-1. the first public 0.1 case and its permitted source use;
-2. the first quantitative-text task and owner;
+1. whether to select bounded `frus1961-63v11` for the first public case or
+   require a rights-clean Brumaire rebuild;
+2. whether to approve a case-derived prevalence/distribution task through a
+   narrow workbench-owned adapter, followed by the exact construct after its
+   feasibility readout;
 3. future permission for each producer-repository slice;
 4. the final benchmark's sealed-case custodian and public-claim threshold.
 

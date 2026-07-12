@@ -96,6 +96,8 @@ order. It is not a current task list.
 | `docs/coverage_report.md` | What does the existing synthetic scaffold actually prove? | Evidence baseline only. |
 | `docs/SOTA_EVIDENCE_SCORECARD.md` | What external floors and proof would license bounded SOTA claims? | Current visibility artifact, not an enforcement gate. |
 | `plan/goals/2026-07-12-sota-or-beyond.md` | What long-term outcomes, dependencies, and completion conditions govern the program? | Active long-term goal map; it does not authorize later rows. |
+| `docs/decisions/2026-07-12-first-governed-case.md` | What case/source-use options and evidence should Brian decide? | Source-backed decision brief; recommendation only, not a selected case or GOV authorization. |
+| `docs/decisions/2026-07-12-first-quantitative-text-strand.md` | What first QT task/owner pattern should Brian decide? | Source-backed decision brief; recommendation only, not a construct, owner assignment, or QT authorization. |
 | `docs/plans/current_t0_truthful_fixture_inventory.md` | What did the bounded T0 provenance slice require and prove? | Completed implementation/evidence record; no longer active authority. |
 | `docs/plans/001_walking_skeleton.md` | What was the original first-slice proposal? | Future proposal, not authorized. |
 | `docs/plans/002_engine_stability_and_integration_readiness.md` | What did the June 2026 dependency review find? | Historical evidence, not current state. |
@@ -121,6 +123,8 @@ Planning readiness does not mean implementation readiness.
 > `docs/CONCERNS.md`; `docs/IMPLEMENTING_AGENT_NOTES.md`;
 > `docs/CAPABILITY_DEPENDENCY_GRAPH.md`;
 > `docs/PRE_IMPLEMENTATION_CHECKLIST.md`;
+> `docs/decisions/2026-07-12-first-governed-case.md`;
+> `docs/decisions/2026-07-12-first-quantitative-text-strand.md`;
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`; `docs/ROADMAP.md`;
 > `docs/adr/0001_method_engines_not_monorepo.md`;
 > `docs/adr/0002_broad_north_star_versioned_thin_slices.md`;
