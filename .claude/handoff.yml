@@ -8,7 +8,7 @@ git_commit: "pending"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md"
-summary: "DEMO-C1 is implemented locally: typed Pydantic QC/PT/GT-I synthetic contracts, exact source step-down, typed cross-method links, non-authoritative prose markers, review assembly, CLI/Make surfaces, manifest, and both-sign controls. Producer repos remain untouched."
+summary: "DEMO-C1 is implemented and independently accepted at 6a8e0b5: typed Pydantic QC/PT/GT-I synthetic structural contracts, exact source step-down, typed cross-method links, non-authoritative prose markers, review assembly, CLI/Make surfaces, manifest, and both-sign controls. Producer repos remain untouched."
 next_action: "Choose and separately authorize producer-owned export work, preferably the GT-inspired populated-object inventory/export dependency subplan before adapters."
 
 completed:
@@ -39,6 +39,7 @@ decisions_required:
 
 warnings:
   - "DEMO-C1 is complete, but no producer integration slice or product version is active."
+  - "DEMO-C1 A/test grades apply only to synthetic structural contract behavior; fixture content remains C and open prose remains non-authoritative."
   - "Synthetic/open demo evidence licenses software behavior only, never empirical or method-validity claims."
   - "Do not call QC/PT/GT mixed methods; genuine mixed methods begins with explicit qual-quant integration."
   - "Do not mutate producer repos or build adapters/API/UI without named authorization and a fresh entry gate."

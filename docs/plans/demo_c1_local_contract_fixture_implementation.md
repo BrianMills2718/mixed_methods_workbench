@@ -148,6 +148,9 @@ Observed 2026-07-12:
 - coverage contains 8 A/test DEMO-C1 rows, limited to synthetic contract
   behavior; overall coverage remains D because real producer/review rows remain
   weak.
+- independent re-audit passed exact implementation commit `6a8e0b5` after 41
+  repository tests and a separate 37-mutation held-out matrix; decision record:
+  `docs/runs/2026-07-12-demo-c1-independent-audit.md`.
 
 ## Stop Conditions
 

@@ -49,6 +49,10 @@ publish:
     type: EvidenceReport
     title: T0-PROV Independent Evaluation Sign-Off
     tags: [portfolio, mixed_methods_workbench, evidence, evaluation, completed]
+  - path: docs/runs/2026-07-12-demo-c1-independent-audit.md
+    type: EvidenceReport
+    title: DEMO-C1 Independent Audit
+    tags: [portfolio, mixed_methods_workbench, evidence, evaluation, demo, completed]
   - path: docs/CONCERNS.md
     type: ConcernRegister
     title: Mixed Methods Workbench Concerns

@@ -63,7 +63,9 @@ review assembly, exact manifest hashes, CLI/Make surfaces, and both-sign
 controls. Open analytic prose is explicitly non-authoritative and requires
 human review. The eight DEMO-C1 rows are A/test for structural synthetic contract
 behavior only; fixture content remains C and producer/method evidence did not
-move. Producer mutation remains separately authorized.
+move. Exact commit `6a8e0b5` passed independent re-audit with 41 repository
+tests and 37 held-out invalid mutations. Producer mutation remains separately
+authorized.
 
 ## Required Reading
 
