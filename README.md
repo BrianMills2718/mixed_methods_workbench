@@ -20,6 +20,12 @@ Start here:
 13. `docs/coverage_report.md`
 14. `docs/CONCERNS.md`
 
+Reference material:
+
+- `docs/reference/RAND_POLICY_METHODS_TAXONOMY.md` — historical 73-entry
+  policy-research methods taxonomy preserved from `rand_ai_analysis`, with
+  source lineage and use limits.
+
 No implementation slice, engine integration, or product version is currently
 active. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1
 proves typed synthetic contract behavior for separate QC, PT, and grounded-
