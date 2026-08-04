@@ -61,6 +61,10 @@ publish:
     type: ProjectOverview
     title: Mixed Methods Capability Map
     tags: [portfolio, mixed_methods_workbench, methodology, capabilities]
+  - path: docs/reference/RAND_POLICY_METHODS_TAXONOMY.md
+    type: Reference
+    title: RAND Policy-Research Methods Taxonomy
+    tags: [portfolio, mixed_methods_workbench, methodology, taxonomy, provenance]
   - path: docs/plans/003_integration_versioning_and_clean_state.md
     type: Plan
     title: Detailed Future Integration And Versioning Blueprint
