@@ -20,8 +20,8 @@ prematurely merging their repos:
   source packets, rival hypotheses, diagnostic evidence, likelihood vectors,
   deterministic Bayesian comparative support, absence checks, source coverage,
   and process-tracing reports.
-- `~/projects/theory-forge` is a future theory-operationalization producer, not a
-  current workbench dependency: it may later supply constructs, mechanisms,
+- `~/projects/theory-forge` is a future theory-operationalization producer, not
+  a current workbench dependency: it may later supply constructs, mechanisms,
   hypotheses, observables, measures, assumptions, scope conditions, and compiled
   metadata through a typed artifact.
 - `~/projects/grounded-research` is the future disagreement and evidence-
@@ -54,13 +54,15 @@ agents, and researchers.
 
 ## Current Status
 
-Planning scaffold with an initial synthetic verification surface. Current
+Planning scaffold with an initial synthetic verification surface and one
+explicitly authorized local question-first methodology dashboard prototype.
+Current
 executable coverage is 1 A, 0 B, 2 C, 5 D, and 0 F; overall D. The A applies
 only to independently signed W2 inventory provenance at
 `docs/runs/2026-07-12-t0-prov-eval-signoff.md`; fixture contents remain C and
-broader T0/program evidence remains F. No product version, engine integration,
-or implementation slice is active. See `docs/PLANNING_STATUS.md` for the exact
-boundary.
+broader T0/program evidence remains F. `METHOD-DASH-C1` is a local planning and
+comprehension surface, not engine integration, empirical method evidence, or a
+product-version promotion. See `docs/PLANNING_STATUS.md` for the exact boundary.
 
 ## Canonical Docs
 

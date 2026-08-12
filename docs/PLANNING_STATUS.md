@@ -1,9 +1,26 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-07-12
+Updated: 2026-08-12
 
-## Current Phase: DEMO-C1 Complete; No Active Implementation Slice
+## Current Phase: METHOD-DASH-C1 Implemented; Local Review Pending
+
+Brian's 2026-08-12 approval explicitly authorized a bounded dashboard-shaped
+methodology increment. The active slice is
+[`method_dash_c1.md`](plans/method_dash_c1.md): a local question-first study
+planner over the reviewed analytic-method atlas and think-tank research spine.
+
+This slice added typed method profiles, transparent route construction, a local
+browser surface, matching JSON operations, focused tests, and exact run/review
+instructions inside this repository. It does not call or modify producer
+engines, adopt a universal method ontology, create a shared production
+contract, deploy a service, or claim automated substantive method selection.
+
+This section supersedes the older blanket documentation-only pause only for
+`METHOD-DASH-C1`. All other implementation remains outside the current
+authorization.
+
+## Prior Phase: DEMO-C1 Complete; No Active Implementation Slice
 
 The current task is to clarify and reconcile the project's strategy,
 methodological scope, architecture, dependencies, version order, decisions, and
@@ -98,7 +115,8 @@ order. It is not a current task list.
 ## How the Documents Fit Together
 
 | Document | Question it answers | Current authority |
-|---|---|---|
+| --- | --- | --- |
+| `docs/plans/method_dash_c1.md` | What does the active local methodology dashboard prototype implement and explicitly exclude? | Active bounded implementation authority for `METHOD-DASH-C1` only. |
 | `PROJECT.md` | Why should this project exist? | Canonical product thesis. |
 | `docs/PLANNING_STATUS.md` | What work is authorized now? | Canonical current-phase boundary. |
 | `docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md` | Why is the program now demo-first, and what do OntoCanon, DIGIMON, theory recommendation, and Theory Forge own? | Canonical architecture/order decision; not implementation authority. |

@@ -27,9 +27,32 @@ Reference material:
   source lineage and use limits.
 
 No implementation slice, engine integration, or product version is currently
-active. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1
+active beyond the explicitly authorized local `METHOD-DASH-C1` review
+prototype. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1
 proves typed synthetic contract behavior for separate QC, PT, and grounded-
 theory-inspired lanes; it does not prove producer readiness or method validity.
+
+## Question-first methodology dashboard
+
+Brian authorized `METHOD-DASH-C1` on 2026-08-12 as a bounded local prototype.
+It turns the methodology atlas into a researcher-facing entry point: enter a
+question, select multiple analytical aims, starting point, scope, and available
+evidence, then inspect several explainable method paths and a policy-research
+workflow. It does not call method engines or select one universally best
+method.
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -e '.[dev]'
+make method-dashboard PYTHON=.venv/bin/python
+# open http://127.0.0.1:8765
+```
+
+Focused checks:
+
+```bash
+make test-method-dashboard PYTHON=.venv/bin/python
+```
 
 Current scaffold documentation/fixture check:
 

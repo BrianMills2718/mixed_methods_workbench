@@ -7,3 +7,4 @@ dist/
 build/
 worktrees/
 *.pyc
+*.egg-info/

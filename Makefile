@@ -3,6 +3,7 @@
 # Usage: make help
 
 SHELL := /bin/bash
+PYTHON ?= python3
 .DEFAULT_GOAL := help
 
 # ─── Status ──────────────────────────────────────────────────────────────
@@ -12,7 +13,7 @@ SHELL := /bin/bash
 status:  ## Show git status
 	@git status --short --branch
 
-.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts validate-demo-fixtures validate-demo-controls assemble-demo-review test-demo typecheck-demo demo-coverage coverage coverage-json check
+.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts validate-demo-fixtures validate-demo-controls assemble-demo-review test-demo typecheck-demo method-dashboard test-method-dashboard demo-coverage coverage coverage-json check
 
 validate-fixtures:  ## Validate synthetic fixture contract files
 	@python3 scripts/validate_fixtures.py
@@ -44,6 +45,12 @@ test-demo:  ## Run all DEMO-C1 tests
 
 typecheck-demo:  ## Type-check the DEMO-C1 package strictly
 	@mypy --strict src/mixed_methods_workbench
+
+method-dashboard:  ## Run the local METHOD-DASH-C1 review dashboard
+	@PYTHONPATH=src $(PYTHON) -m mixed_methods_workbench.method_dashboard_server
+
+test-method-dashboard:  ## Run focused question-first routing and dashboard checks
+	@PYTHONPATH=src $(PYTHON) -m pytest -q tests/test_method_dashboard.py
 
 demo-coverage:  ## Regenerate coverage including DEMO-C1 rows
 	@python3 scripts/check_coverage.py --write-reports --format markdown
