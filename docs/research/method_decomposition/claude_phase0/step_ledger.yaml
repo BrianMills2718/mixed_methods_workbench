@@ -1,0 +1,1494 @@
+# Phase 0 step ledger — independent candidate, rev 5.1
+# status: independent_candidate (not yet compared against ac27ab2)
+# Produced without inspecting ac27ab2's rows/edges/findings (rev 5.1 §0.1).
+# See sources.md for frozen methodology sources and pilot_frame-equivalent
+# variant freezes (embedded per-method below as `variant`/`use_case`/
+# `excluded_variants` header blocks, since §8.2 requires this freeze for
+# every Phase 0 workflow, not only the Phase 1 pilot set).
+#
+# Field notes:
+# - operation_kind frozen from sources BEFORE code inspection where an
+#   ideal existed (qc_grounded_theory, pt_core_rival_explanation,
+#   pt_source_acquisition, theory_forge_cpt_choices13k,
+#   mist_trail_policy_appraisal). theory_forge_compile_apply has no
+#   authoritative source (see sources.md §4); every operation there is
+#   runtime_delivery by that absence, not by reclassification after
+#   mapping. No operation_kind was changed after mapping to code in any
+#   method (§5.0a guard 3: pre/post-mapping share is identical).
+# - evidence_basis cites the frozen source (sources.md) for analytic /
+#   methodological_support rows; runtime_delivery rows note "not
+#   method-specified; engineering".
+# - Two code realizations of the SAME ideal operation are recorded as
+#   separate rows only where their execution_status genuinely diverges
+#   (pt_source_acquisition screen/admit); this is flagged explicitly in
+#   reality_check.md rather than silently double-counted in the abort gate.
+
+methods_frozen:
+  - method_id: qc_grounded_theory
+    variant: >-
+      Fixed-corpus grounded theory blending Straussian systematic coding
+      (open/axial/selective coding via the conditions-actions/interactions-
+      consequences paradigm) with Charmaz-style constructivist memo-writing
+      and constant comparison, as implemented in QC's "Super Qualitative
+      Analysis" fixed-corpus mode.
+    use_case: >-
+      The Open Science fixed-corpus grounded-theory workflow referenced in
+      QC's own "Current adoption boundary" (docs/METHODS_AND_THEORY.md) and
+      the P5 public-demo example threaded through process_tracing_handoff
+      and the theory-test-return fixture.
+    excluded_variants:
+      - classic Glaserian grounded theory with true theoretical sampling
+        (new-data collection guided by the emerging theory) — QC is
+        fixed-corpus and cannot fetch new data
+      - full multi-project neutral-theory-carrier representation (repo's
+        own docs mark this experimental, not part of the fixed-corpus mode)
+
+  - method_id: pt_core_rival_explanation
+    variant: >-
+      Single-case rival-explanation process tracing: Van Evera-style
+      diagnostic-test labeling over an explicit Bayesian core in the
+      narrative/likelihoodist tradition (Fairfield & Charman), within-case
+      only.
+    use_case: >-
+      The repository's shipped single-case pipeline (pt/pipeline.py
+      _run_core_passes). Exact case identity not independently confirmed by
+      the inspecting agent in this pass — recorded as a material
+      uncertainty in reality_check.md.
+    excluded_variants:
+      - cross-case / formal-model bridge (pt/pass_binarize.py, pt/cq_bridge.py,
+        pt/multi_pipeline.py — CausalQueries integration) — out of scope;
+        rev 5.1 §8 names only the single-case core workflow
+      - Beach & Pedersen-style process tracing — not cited or implemented
+        in this repository
+
+  - method_id: pt_source_acquisition
+    variant: >-
+      Interactive, single-case-companion targeted source retrieval,
+      screening, and admission loop (pt/acquisition_session.py and
+      siblings) feeding the single-case core workflow.
+    use_case: >-
+      The "targeted source evaluation" loop described in PT's own
+      docs/METHODOLOGY.md: freeze hypotheses -> retrieve for a declared
+      evidence need -> review -> admit -> reassess.
+    excluded_variants:
+      - the separate bulk comparative-case-study "revolution" corpus
+        pipeline (pt/revolution_*.py) — structurally distinct, LLM-judged
+        screening with independent review; noted in the ledger as an
+        alternate implementation of the same ideal operation, but excluded
+        from this workflow's denominator because rev 5.1 §8 names the
+        single-case companion specifically
+
+  - method_id: theory_forge_compile_apply
+    variant: >-
+      Generic paper -> schema (v14, additively v15) -> agent-driven
+      codegen -> pytest-gated verification -> staged run pipeline.
+    use_case: "Any of the ~66 Phase-1 theory schemas compiled by this pipeline."
+    excluded_variants:
+      - none — this workflow is not compared against a methodology ideal at
+        all per rev 5.1 §8 and sources.md §4
+
+  - method_id: theory_forge_cpt_choices13k
+    variant: >-
+      Cumulative Prospect Theory (Tversky & Kahneman 1992 rank-dependent
+      formulation) applied with fixed literature population parameters,
+      scored as binary majority-choice classification accuracy (not
+      individual-level probability prediction) against expected value on a
+      pinned Choices13k subset.
+    use_case: >-
+      The 1,049-row declared filter subset / 1,009-row both-scored subset
+      from the pinned jcpeterson/choices13k commit 821ae7e8..., per
+      evidence/cpt_choices13k/.
+    excluded_variants:
+      - individual-level parameter fitting / calibration to Choices13k —
+        explicitly out of scope per Plan #109's own acceptance criteria
+      - the original 1979 (non-cumulative, separable-weight) Prospect
+        Theory formulation — explicitly retired/disclaimed in-repo as
+        source-lineage-confused
+
+  - method_id: mist_trail_policy_appraisal
+    variant: >-
+      Deliberative policy-option appraisal borrowing MCA/evidence-to-
+      decision transparency structure without implementing additive MCDA
+      scoring, formal GRADE certainty rating, or Robust Decision Making.
+    use_case: >-
+      Yosemite National Park Mist Trail Corridor Rehabilitation Draft
+      Environmental Assessment — Alternatives A (no action), B (vehicle
+      bridge), C (pedestrian footbridge, NPS-preferred).
+    excluded_variants:
+      - a real NPS decision, legal/NEPA analysis, or formal public comment
+        — explicitly disclaimed by the vertical's own design doc
+
+steps:
+
+# =========================================================================
+# METHOD 1 — qc_grounded_theory  (11 distinct ideal ops; 15 ledger rows)
+# =========================================================================
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.01
+  verb: segment
+  label: segment corpus into source units
+  workflow_role: represent
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: corpus, type: source_document, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: segments, type: segment, role: result, cardinality: many, optional: false}
+  parameters: [segmentation granularity/window config]
+  preconditions: [corpus documents ingested]
+  conclusion_supported: "none — enabling step only"
+  failure_output: precondition unmet
+  method_owned_semantics: "none — this is QC engineering, not a GT-specified operation"
+  evidence_basis: "not method-specified; engineering precondition for grounding"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qualitative_coding qc_clean/core/segmentation.py:92-152 (deterministic, SHA-256-derived segment IDs)"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.02
+  verb: code
+  label: "open coding: identify incidents and initial codes"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_validator]
+  inputs:
+    - {slot: segment, type: segment, role: subject, cardinality: one, optional: false}
+    - {slot: codebook, type: code_system, role: context, cardinality: one, optional: false}
+  outputs:
+    - {slot: codes, type: code, role: result, cardinality: many, optional: false}
+  parameters: [model/prompt config, new_code_policy]
+  preconditions: [segment exists and is source-anchored]
+  conclusion_supported: "segment S exhibits concept/code C, grounded to an exact source span"
+  failure_output: "insufficient evidence; ambiguous span discarded, not silently kept"
+  method_owned_semantics: "which incidents count as theoretically relevant is a GT-analyst judgment; software enforces only that any asserted code is uniquely, verifiably grounded"
+  evidence_basis: "Corbin & Strauss 2015 ch.5 (open coding)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/stages/gt_constant_comparison.py:213-341 (LLM call, docstring cites Strauss & Corbin); qc_clean/core/grounding.py:114-158,479-519 (deterministic unique-match grounding gate)"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.03
+  verb: compare
+  label: "constant comparison of new incidents against the evolving codebook"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_engine]
+  inputs:
+    - {slot: new_codes, type: code, role: subject, cardinality: many, optional: false}
+    - {slot: existing_codebook, type: code_system, role: context, cardinality: one, optional: false}
+  outputs:
+    - {slot: merged_codebook, type: code_system, role: result, cardinality: one, optional: false}
+  parameters: [merge/name-normalization rules]
+  preconditions: [at least one prior coded segment exists]
+  conclusion_supported: "code C is/is not the same phenomenon as an existing code, across segments"
+  failure_output: "unresolved comparison — left as a distinct code pending later review"
+  method_owned_semantics: "judging conceptual sameness across incidents is the core GT analytic act"
+  evidence_basis: "Corbin & Strauss 2015 (constant comparative method); Charmaz 2014 ch.3"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/stages/gt_constant_comparison.py:422-506 (_merge_segment_results). NOTE: the comparison judgment itself is bundled inside the same per-segment LLM call as step .02 (one code path realizes two ideal operations); _merge_segment_results performs only deterministic name-normalization/span-resolution bookkeeping on top of that judgment, not the comparison itself."
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.04
+  verb: conceptualize
+  label: "develop categories with properties and dimensions"
+  workflow_role: conceptualize
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_validator]
+  inputs:
+    - {slot: codes, type: code, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: categories, type: concept, role: result, cardinality: many, optional: false}
+  parameters: [model/prompt config]
+  preconditions: [codebook has sufficient codes to group]
+  conclusion_supported: "category C has properties P varying along dimensions D, instantiated by evidence E"
+  failure_output: "category adequacy insufficient — see .10"
+  method_owned_semantics: "which properties/dimensions matter is a GT-analyst judgment"
+  evidence_basis: "Corbin & Strauss 2015 ch.7 (categories, properties, dimensions)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "populated via scripts/run_public_grounded_theory_development.py (LLM call, ~line 190/204) into the typed model in qc_clean/core/grounded_theory_development.py (validator/projector only, zero LLM calls in that file itself). NOTE: this is a one-off script path, not the default `qc_cli.py project run` pipeline invocation — lower confidence than steps .02-.03 that this executes on every default run."
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.05
+  verb: derive
+  label: "axial coding: relate categories via conditions / actions-interactions / consequences"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: categories, type: concept, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: relations, type: proposition, role: result, cardinality: many, optional: false}
+  parameters: [model/prompt config]
+  preconditions: [categories exist]
+  conclusion_supported: "condition X leads to action/interaction Y producing consequence Z, per corpus evidence"
+  failure_output: "unresolved comparison — relation left unclaimed"
+  method_owned_semantics: "the paradigm-model relation itself is GT-analyst/method judgment"
+  evidence_basis: "Corbin & Strauss 2015 ch.9 (paradigm/conditional matrix)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/stages/gt_axial_coding.py:46-132 (LLM call, prompt explicitly invokes Strauss/Corbin paradigm model); evidence spans bound deterministically"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.06
+  verb: annotate
+  label: "write theoretical memos"
+  workflow_role: analyze
+  operation_kind: methodological_support
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: segment_or_category, type: concept, role: subject, cardinality: optional_many, optional: true}
+  outputs:
+    - {slot: memos, type: memo, role: byproduct, cardinality: many, optional: false}
+  parameters: [none material]
+  preconditions: [coding or categorization has occurred]
+  conclusion_supported: "none — enabling step only; records an emerging interpretive idea, not itself a licensed claim"
+  failure_output: "none — memo-writing has no defined failure mode beyond non-production"
+  method_owned_semantics: "what is worth memoing is a GT-analyst judgment"
+  evidence_basis: "Corbin & Strauss 2015 ch.8 (memos as a required analytic technique); Charmaz 2014 ch.7"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "memos appended verbatim from LLM output at gt_constant_comparison.py:313-322, gt_axial_coding.py:113-119, gt_selective_coding.py:102-108, gt_theory_integration.py:90-95; concatenation is deterministic string-join, not synthesis"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.07
+  verb: synthesize
+  label: "selective coding: identify the integrating core category"
+  workflow_role: integrate
+  operation_kind: analytic
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: categories, type: concept, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: core_category, type: concept, role: result, cardinality: one, optional: false}
+  parameters: [model/prompt config]
+  preconditions: [multiple categories with relations exist]
+  conclusion_supported: "category C is the integrating core category explaining the central phenomenon in the corpus"
+  failure_output: "unresolved comparison — no single integrating category identified"
+  method_owned_semantics: "core-category selection is the single most judgment-laden GT step; software performs no scoring/ranking of candidates"
+  evidence_basis: "Corbin & Strauss 2015 ch.10 (selective coding / core category)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/stages/gt_selective_coding.py:39-127 (LLM call producing CoreCategoriesResponse with justification; no software-side scoring)"
+  optional: false
+  repeatable: false
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.08
+  verb: construct
+  label: "theoretical integration: build the explanatory framework / propositions"
+  workflow_role: integrate
+  operation_kind: analytic
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: core_category, type: concept, role: subject, cardinality: one, optional: false}
+    - {slot: relations, type: proposition, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: theory, type: theory, role: result, cardinality: one, optional: false}
+  parameters: [model/prompt config]
+  preconditions: [core category identified]
+  conclusion_supported: "the assembled propositions constitute a coherent grounded-theory account of the phenomenon"
+  failure_output: "unresolved comparison — framework left partial"
+  method_owned_semantics: "coherence and explanatory adequacy of the framework is a GT-analyst judgment"
+  evidence_basis: "Corbin & Strauss 2015 ch.11; Charmaz 2014 ch.8"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/stages/gt_theory_integration.py:27-108 (LLM call producing TheoreticalModel; deterministic adapters wrap it into domain objects)"
+  optional: false
+  repeatable: false
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.09
+  verb: test
+  label: "negative / deviant case analysis"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [deterministic_engine, llm_engine]
+  inputs:
+    - {slot: candidate_passages, type: segment, role: subject, cardinality: many, optional: false}
+    - {slot: proposition, type: proposition, role: criteria, cardinality: one, optional: false}
+  outputs:
+    - {slot: findings, type: finding, role: result, cardinality: many, optional: false}
+  parameters: [retrieval method (BM25/embedding), candidate count]
+  preconditions: [propositions exist]
+  conclusion_supported: "passage P does or does not disconfirm proposition X"
+  failure_output: "unresolved comparison"
+  method_owned_semantics: "whether a passage genuinely disconfirms (vs. merely varies) is a GT-analyst judgment"
+  evidence_basis: "Lincoln & Guba 1985 (negative-case-analysis credibility criterion, cited in-repo); Corbin & Strauss 2015 (variation/negative cases)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/disconfirmation.py (deterministic retrieval) -> qc_clean/core/negative_case.py:201-203 (LLM disconfirmation judgment) -> deterministic AnalyticClaim transform"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.10
+  verb: review
+  label: "compute category-adequacy diagnostic (properties/dimensions/support coverage)"
+  workflow_role: appraise
+  operation_kind: methodological_support
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: categories, type: concept, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: adequacy_findings, type: finding, role: result, cardinality: many, optional: false}
+  parameters: [minimum-per-category thresholds]
+  preconditions: [categories exist]
+  conclusion_supported: "categories meet or fail a completeness diagnostic threshold — explicitly NOT a saturation claim (module's own note field says so)"
+  failure_output: "insufficient evidence — category flagged weak"
+  method_owned_semantics: "the diagnostic's thresholds are a proxy; whether the corpus is genuinely adequate remains method-owned (see .11)"
+  evidence_basis: "Corbin & Strauss 2015 (category development adequacy, ch.7); QC's own docs explicitly caveat this is diagnostic-only (docs/METHODS_AND_THEORY.md:96)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/saturation.py:115-196 (assess_category_saturation) — own `note` field: 'diagnostic only; not proof of grounded-theory saturation'"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.11
+  verb: review
+  label: "determine categories are theoretically adequate to conclude analysis"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: adequacy_findings, type: finding, role: subject, cardinality: many, optional: false}
+  outputs: null
+  state_transition: {from: analysis_in_progress, to: analysis_concluded_or_continued}
+  parameters: []
+  preconditions: [adequacy diagnostic computed]
+  conclusion_supported: "none — enabling step only; gates whether the analysis proceeds or is reported as complete"
+  failure_output: human review required
+  method_owned_semantics: "theoretical adequacy is irreducibly a human researcher judgment per the source and per QC's own explicit disclaimers"
+  evidence_basis: "Corbin & Strauss 2015 ch.12 (theoretical adequacy); Charmaz 2014 (theoretical sufficiency)"
+  execution_status: manually_performed
+  representation_status: missing
+  implementation_ref: "no code path; QC docs (docs/METHODS_AND_THEORY.md:96, docs/CURRENT_STATE_AND_ROADMAP.md) describe this as an off-system human decision with no durable artifact recording it"
+  optional: false
+  repeatable: false
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.12
+  verb: identify
+  label: "theoretical sampling: select next data guided by the emerging theory"
+  workflow_role: design
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: adequacy_findings, type: finding, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: next_document_recommendation, type: recommendation, role: result, cardinality: many, optional: false}
+  parameters: [ranking heuristic weights]
+  preconditions: [fixed corpus has uncoded documents]
+  conclusion_supported: "none — recommends what to code next within the fixed corpus; does not fulfill the source's requirement to acquire NEW data in response to the theory"
+  failure_output: "out of scope — cannot sample beyond the fixed corpus"
+  method_owned_semantics: "true theoretical sampling requires judging what NEW data the theory needs; QC substitutes a naive within-corpus heuristic (doc-count + speaker-count), which is not a theory-directed judgment"
+  evidence_basis: "Corbin & Strauss 2015 ch.6 (theoretical sampling); Charmaz 2014 ch.5"
+  execution_status: incomplete_software
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/pipeline/theoretical_sampling.py:18-81 (suggest_next_documents — heuristic re-ranks already-ingested, uncoded documents only; cannot fetch new data)"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.13
+  verb: extract
+  label: "produce typed handoff package to Process Tracing"
+  workflow_role: communicate
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: claims, type: claim, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: handoff_package, type: claim_set, role: result, cardinality: one, optional: false}
+  parameters: [schema_version]
+  preconditions: [analytic objects exist in ProjectState]
+  conclusion_supported: "none — enabling step only (see handoffs.yaml)"
+  failure_output: "refuse — forbidden PT-inference fields present"
+  method_owned_semantics: "none; deterministic denylist enforcement"
+  evidence_basis: "not method-specified; QC-specific cross-repo engineering interface"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/process_tracing_handoff.py:37-151,202-308 (deterministic mapping + FORBIDDEN_PT_INFERENCE_FIELDS denylist at lines 22-34,375-387)"
+  optional: false
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.14
+  verb: code
+  label: "manual coding (human-authored alternative to LLM open coding)"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [human_analyst, deterministic_validator]
+  inputs:
+    - {slot: segment, type: segment, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: codes, type: code, role: result, cardinality: many, optional: false}
+  parameters: [codebook version]
+  preconditions: [segment exists]
+  conclusion_supported: "segment S exhibits concept/code C (human-asserted)"
+  failure_output: "precondition unmet — span out of bounds, code not in codebook"
+  method_owned_semantics: "identical to .02; this is an alternate code realization of the SAME ideal operation (open coding), not a distinct method step — recorded separately here only because its execution_status genuinely diverges from .02"
+  evidence_basis: "Corbin & Strauss 2015 ch.5"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/manual_coding.py:16-87 (record_manual_coding — software validates span/codebook/mutual-exclusivity and deterministically derives quote_hash; the coding judgment itself is human-authored)"
+  optional: true
+  repeatable: true
+
+- method_id: qc_grounded_theory
+  step_id: qc_grounded_theory.15
+  verb: review
+  label: "ingest and validate an externally-produced Process Tracing theory-test return"
+  workflow_role: integrate
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_validator]
+  inputs:
+    - {slot: pt_return, type: claim_set, role: subject, cardinality: one, optional: false}
+  outputs: null
+  state_transition: {from: theory_unconfirmed, to: theory_confirmed_or_retained}
+  parameters: [schema_version]
+  preconditions: [PT theory-test return artifact available]
+  conclusion_supported: "none — enabling step; the underlying hypothesis appraisal is authored/computed externally (see pt_core_rival_explanation) and is only schema-validated and hash-checked here"
+  failure_output: "refuse — hash mismatch or schema violation"
+  method_owned_semantics: "none in this repo; the appraisal content's method-owned semantics belong to whichever process actually produced it"
+  evidence_basis: "not method-specified; cross-repo contract validation"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "qc_clean/core/process_tracing_theory_test_return.py:1-229 (strict Pydantic reader + cross-field consistency validators); qc_clean/core/public_demo.py:1739-1779 (SHA-256 verify + parse). NOTE: the ONE populated instance observed (public_demo_assets/open_science/p5_theory_test_return_v1.json) is a static, hand/externally-authored fixture — the appraisal content itself is not produced by any code path in this repository."
+  optional: false
+  repeatable: true
+
+# =========================================================================
+# METHOD 2 — pt_core_rival_explanation  (11 distinct ideal ops; 11 rows)
+# =========================================================================
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.01
+  verb: extract
+  label: "extract actors/events/evidence/mechanisms/edges from source text"
+  workflow_role: acquire
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_validator, llm_engine]
+  inputs:
+    - {slot: source_documents, type: source_document, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: evidence_base, type: evidence_item, role: result, cardinality: many, optional: false}
+  parameters: [chunk size, extraction model]
+  preconditions: [admitted source corpus exists]
+  conclusion_supported: "evidence item E is grounded to an exact source span in document D"
+  failure_output: "precondition unmet — quote-anchor unresolvable after repair attempt"
+  method_owned_semantics: "which extracted items are analytically significant is a PT-analyst judgment; software enforces grounding, not significance"
+  evidence_basis: "Bennett & Checkel 2015 ch.1 (evidence extraction as the first analytic task); Fairfield & Charman 2017 sec. 2"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_extract.py (chunked LLM extraction; resolve_source_quote_span_id:70, repair_source_quote_anchors:185 — a second, deterministic-failure-gated LLM repair call)"
+  optional: false
+  repeatable: true
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.02
+  verb: identify
+  label: "identify hypothesis and rival explanations"
+  workflow_role: frame
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_engine]
+  inputs:
+    - {slot: evidence_base, type: evidence_item, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: hypothesis_space, type: rival_explanation, role: result, cardinality: many, optional: false}
+  parameters: [model/prompt config]
+  preconditions: [evidence base extracted]
+  conclusion_supported: "hypothesis set H (including rivals) constitutes the candidate explanations under test"
+  failure_output: "unresolved comparison — inadequate rival set"
+  method_owned_semantics: "which rivals are worth carrying forward is a PT-analyst judgment"
+  evidence_basis: "Bennett & Checkel 2015 ch.1 (rival explanations)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_hypothesize.py:295-394; _materialize_hypothesis_exposure:276 deterministically overwrites the LLM's own self-reported provenance fields rather than trusting them"
+  optional: false
+  repeatable: false
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.03
+  verb: classify
+  label: "verify adequate discriminator coverage between rival pairs (partition gate)"
+  workflow_role: design
+  operation_kind: methodological_support
+  actor_chain: [llm_engine, deterministic_engine]
+  inputs:
+    - {slot: hypothesis_space, type: rival_explanation, role: subject, cardinality: many, optional: false}
+    - {slot: evidence_base, type: evidence_item, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: partition_findings, type: finding, role: result, cardinality: many, optional: false}
+  parameters: [coverage thresholds]
+  preconditions: [hypothesis space identified]
+  conclusion_supported: "none — enabling step; blocks or permits proceeding to evidence testing"
+  failure_output: "precondition unmet — inadequate discriminator coverage blocks Pass 3"
+  method_owned_semantics: "none; deterministic recompute overrides the LLM's own adequacy claim by design"
+  evidence_basis: "Bennett & Checkel 2015 (rival explanations require observable, discriminating predictions, chs.1,3)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_partition.py:1-243,33-152 (partition_blockers independently recomputes coverage rather than trusting the LLM's PartitionAudit); tests/test_methodology_integrity.py::test_missing_pair_blocks_even_when_llm_says_adequate"
+  optional: false
+  repeatable: true
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.04
+  verb: classify
+  label: "classify each evidence item's diagnostic test type (Van Evera)"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_validator]
+  inputs:
+    - {slot: evidence_item, type: evidence_item, role: subject, cardinality: one, optional: false}
+    - {slot: hypothesis_space, type: rival_explanation, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: diagnostic_classification, type: diagnostic_item, role: result, cardinality: many, optional: false}
+  parameters: [model/prompt config]
+  preconditions: [partition gate passed]
+  conclusion_supported: "evidence item E is classified as diagnostic type T (hoop/smoking-gun/doubly-decisive/straw-in-the-wind) with necessity/sufficiency reasoning"
+  failure_output: "human review required — missing/duplicate/misowned classification fails loud"
+  method_owned_semantics: "diagnostic-type assignment is a core Van Evera analytic judgment"
+  evidence_basis: "Van Evera 1997 (four-test typology, tertiary source, sources.md sec.2); Bennett & Checkel 2015 ch.1"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_test.py:267-272,1218-1268 (PredictionClassification via a genuinely separate LLM call, pass3_test_lineage.yaml); pass_test.py:593-636 deterministically enforces completeness/ownership. FINDING: repo docs (docs/PROJECT_THEORY_AND_GOALS.md:141-142) claim this field is not yet repopulated — confirmed stale/refuted by current code. However, this classification plays NO role in the numeric discriminator-strength grading actually used downstream (see pass_diagnostic.py, which computes strength purely from abs(log_lr) thresholds); the Van Evera label is executed and stored, but functionally inert for that purpose. Recorded here as software_executable because the classification act itself genuinely executes; the functional-inertness caveat is carried in reality_check.md, not by downgrading this row."
+  optional: false
+  repeatable: true
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.05
+  verb: estimate
+  label: "elicit likelihood vectors for each evidence item across all rival hypotheses"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine, llm_engine, deterministic_engine]
+  inputs:
+    - {slot: evidence_base, type: evidence_item, role: subject, cardinality: many, optional: false}
+    - {slot: hypothesis_space, type: rival_explanation, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: likelihood_vectors, type: estimate, role: result, cardinality: many, optional: false}
+  parameters: [row/cell chunk budget]
+  preconditions: [diagnostic classification available]
+  conclusion_supported: "evidence item E has likelihood L(E|H_i) under each rival hypothesis H_i, subject to independent audit"
+  failure_output: "human review required — an independently-rejected discriminator cannot silently pass into updating"
+  method_owned_semantics: "the likelihood magnitude itself is a PT-analyst/LLM semantic judgment; deterministic code only recomposes and audits"
+  evidence_basis: "Fairfield & Charman 2017 sec.3 (explicit likelihood elicitation); Bennett & Checkel 2015 ch.1"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_test.py (chunked matrix elicitation, pass3_test_matrix_chunk.yaml); pt/pass_discriminator_audit.py (independent second LLM reviewer); build_effective_testing() deterministic filter"
+  optional: false
+  repeatable: true
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.06
+  verb: classify
+  label: "represent absence of expected evidence"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_engine, llm_engine]
+  inputs:
+    - {slot: hypothesis_space, type: rival_explanation, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: absence_findings, type: evidence_item, role: result, cardinality: many, optional: false}
+  parameters: [severity caps]
+  preconditions: [hypothesis space identified]
+  conclusion_supported: "the expected-but-absent observation O counts as (severity-capped) evidence against hypothesis H"
+  failure_output: "human review required"
+  method_owned_semantics: "judging what evidence should exist but is absent is a PT-analyst judgment; software deterministically caps severity as a conservative override, not a content judgment"
+  evidence_basis: "Van Evera 1997 (absence of hoop-test evidence disconfirms); Bennett & Checkel 2015"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_absence.py (blinded LLM evaluator; hardcoded deterministic severity-cap override); pt/pass_absence_audit.py (independent SHA-256-bound audit)"
+  optional: false
+  repeatable: true
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.07
+  verb: estimate
+  label: "Bayesian update of comparative hypothesis support"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: likelihood_vectors, type: estimate, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: posterior, type: estimate, role: result, cardinality: many, optional: false}
+  parameters: [dependence-pooling rho values]
+  preconditions: [likelihood vectors elicited and audited]
+  conclusion_supported: "comparative posterior support ranks H_1...H_n given the accepted evidence"
+  failure_output: "none defined at this step — pure computation always completes"
+  method_owned_semantics: "none; pure deterministic math per the source's explicit-Bayesian formulation"
+  evidence_basis: "Fairfield & Charman 2017 sec.4 (explicit Bayesian updating)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/bayesian.py (module docstring: 'No LLM here — deterministic and unit-tested')"
+  optional: false
+  repeatable: false
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.08
+  verb: review
+  label: "structural critic pass over the analysis for completeness gaps"
+  workflow_role: appraise
+  operation_kind: methodological_support
+  actor_chain: [llm_engine, deterministic_engine]
+  inputs:
+    - {slot: hypothesis_space, type: rival_explanation, role: subject, cardinality: many, optional: false}
+    - {slot: evidence_base, type: evidence_item, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: critic_findings, type: finding, role: result, cardinality: many, optional: false}
+  parameters: [none material]
+  preconditions: [evidence tested]
+  conclusion_supported: "none — enabling step; flags whether re-elicitation of evidence is needed"
+  failure_output: "none — advisory only"
+  method_owned_semantics: "none; internal QA, not a claim about the case"
+  evidence_basis: "Bennett & Checkel 2015 ch.1 (general rigor/completeness expectation, not a discretely named source step)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_critic.py (LLM CriticResult; re_elicitation_needed is unconditionally recomputed by a Pydantic validator from finding severities, overwriting whatever the LLM wrote)"
+  optional: true
+  repeatable: true
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.09
+  verb: derive
+  label: "construct a typed temporal causal-mechanism DAG"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [llm_engine, llm_engine, deterministic_engine]
+  inputs:
+    - {slot: evidence_base, type: evidence_item, role: subject, cardinality: many, optional: false}
+    - {slot: hypothesis_space, type: rival_explanation, role: context, cardinality: one, optional: false}
+  outputs:
+    - {slot: mechanism_dag, type: claim, role: result, cardinality: one, optional: false}
+  parameters: [none material]
+  preconditions: [evidence tested and updated]
+  conclusion_supported: "stage/edge X is observed_sequence | supported_causal_link | contested_causal_link | unresolved_link"
+  failure_output: "unresolved_link — names the missing test rather than inventing an event"
+  method_owned_semantics: "mechanism-edge support judgments are PT-analyst semantic acts"
+  evidence_basis: "Bennett & Checkel 2015 ch.1 (causal mechanism as distinct from mere sequence)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_mechanism_trace.py, pt/pass_mechanism_audit.py — LOWER CONFIDENCE: existence and passing status confirmed via tests/test_mechanism_trace.py and tests/test_mechanism_audit.py (163 passed, per agent's combined test run) and PT's own docs/METHODOLOGY.md:92-105 description; file:line detail not independently narrated by the inspecting agent in this pass — flagged for deeper Phase-1 verification"
+  optional: false
+  repeatable: false
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.10
+  verb: synthesize
+  label: "synthesize narrative verdict per hypothesis"
+  workflow_role: integrate
+  operation_kind: analytic
+  actor_chain: [llm_engine, deterministic_engine]
+  inputs:
+    - {slot: posterior, type: estimate, role: subject, cardinality: many, optional: false}
+    - {slot: mechanism_dag, type: claim, role: context, cardinality: one, optional: false}
+  outputs:
+    - {slot: verdicts, type: claim, role: result, cardinality: many, optional: false}
+  parameters: [elimination/low-support floors]
+  preconditions: [posterior computed]
+  conclusion_supported: "hypothesis H's status is strongly_supported | supported | weakened | eliminated | indeterminate, calibrated against posterior floors"
+  failure_output: "indeterminate"
+  method_owned_semantics: "the narrative framing is an LLM/PT-analyst act; the categorical label is deterministically calibrated against the actual posterior so it cannot overstate support"
+  evidence_basis: "Bennett & Checkel 2015 ch.1 (comparative-support conclusion); Fairfield & Charman 2017 sec.5"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/pass_synthesize.py:275-378 (LLM verdict text) -> pt/verdict_calibration.py:46-213 (deterministically downgrades any overstated status label against ELIMINATION_FLOOR=0.02 / LOW_SUPPORT_FLOOR=0.10, and recomputes posterior_robustness regardless of LLM output)"
+  optional: false
+  repeatable: false
+
+- method_id: pt_core_rival_explanation
+  step_id: pt_core_rival_explanation.11
+  verb: refuse
+  label: "refuse a confident ranking under indeterminate evidence"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: posterior, type: estimate, role: subject, cardinality: many, optional: false}
+  outputs: null
+  state_transition: {from: ranking_pending, to: ranking_refused_indeterminate}
+  parameters: [elimination/low-support floors]
+  preconditions: [verdict calibration computed]
+  conclusion_supported: "none — refusal state; the case does not license a confident ranking"
+  failure_output: refuse
+  method_owned_semantics: "none; deterministic floor-gating, by design, so the system cannot be talked into overclaiming"
+  evidence_basis: "Bennett & Checkel 2015 (comparative support is not identified truth; refusal to over-claim is methodologically required, general principle)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/verdict_calibration.py (floor-gating to indeterminate)"
+  optional: false
+  repeatable: false
+
+# =========================================================================
+# METHOD 3 — pt_source_acquisition  (6 distinct ideal ops; 7 rows)
+# =========================================================================
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.01
+  verb: identify
+  label: "identify an evidentiary gap requiring new source retrieval"
+  workflow_role: design
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: frozen_hypotheses, type: rival_explanation, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: retrieval_gaps, type: gap, role: result, cardinality: many, optional: false}
+  parameters: [priority rule weights]
+  preconditions: [current-round hypotheses frozen]
+  conclusion_supported: "gap G in the evidence base has priority tier T, motivating a retrieval target"
+  failure_output: "none defined — always produces a (possibly empty) prioritized list"
+  method_owned_semantics: "what counts as a 'decision-relevant' gap is encoded in fixed rule weights, not adaptively reasoned per case"
+  evidence_basis: "PRISMA 2020 item 6 (search strategy tied to a stated information need); PT's own targeted-source-evaluation loop design (docs/METHODOLOGY.md)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/source_acquisition.py:226-266,290 (build_acquisition_plan — deterministic, hardcoded priority-score rule table, NOT LLM-derived)"
+  optional: false
+  repeatable: true
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.02
+  verb: search
+  label: "search for candidate source documents"
+  workflow_role: acquire
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: retrieval_target, type: search_query, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: candidate_urls, type: source_document, role: result, cardinality: many, optional: false}
+  parameters: [search provider config]
+  preconditions: [retrieval target identified]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "insufficient evidence — no candidates found"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; delegated to the external open_web_retrieval package"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "delegated entirely to external open_web_retrieval package (pt/acquisition_session.py:1-7,103-106 docstring)"
+  optional: false
+  repeatable: true
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.03
+  verb: screen
+  label: "review candidate for provenance fit, duplication, and authenticity (interactive single-case companion path)"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: candidate, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: decision, type: screening_decision, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [candidate retrieved]
+  conclusion_supported: "candidate C is admitted, rejected, or deferred based on provenance/duplication/authenticity review"
+  failure_output: reject
+  method_owned_semantics: "source criticism (external/internal) is the analytic act itself; the code enforces only internal consistency of whatever is submitted"
+  evidence_basis: "Howell & Prevenier 2001 chs.2-3 (external/internal source criticism); PRISMA 2020 items 8-9 (selection process)"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "pt/acquisition_session.py:335-343 (CandidateReviewRequest carries decision + ReviewCriteria as externally/human-supplied fields); review_candidate() lines 1055-1206 checks only internal consistency of the submitted decision, never derives provenance_fit/duplication_assessment from the candidate's actual text; confirmed zero call_llm occurrences in this file; pt/workbench.py:2654-2664 validates the request directly off an HTTP POST body"
+  optional: false
+  repeatable: true
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.04
+  verb: retrieve
+  label: "fetch full text of an admitted retrieval target"
+  workflow_role: acquire
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: candidate_url, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: source_text, type: source_document, role: result, cardinality: one, optional: false}
+  parameters: [PDF-extraction fallback config]
+  preconditions: [candidate identified]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "insufficient evidence — extraction failed"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "open_web_retrieval (external, byte-level retrieval); pt/acquisition_session.py:97-181 (local pypdf extraction fallback)"
+  optional: false
+  repeatable: true
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.05
+  verb: annotate
+  label: "record admission decision and hash-bind the admitted source body"
+  workflow_role: represent
+  operation_kind: methodological_support
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: decision, type: screening_decision, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: review_event, type: review_event, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [screening decision made]
+  conclusion_supported: "none — enabling audit-trail step only"
+  failure_output: "none — always records"
+  method_owned_semantics: "none"
+  evidence_basis: "PRISMA 2020 (transparent, auditable selection record); Howell & Prevenier 2001 (provenance documentation requirement)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/acquisition_session.py (URL/SHA-256 dedup guard); pt/source_lineage.py (deterministic hash/ID matching)"
+  optional: false
+  repeatable: true
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.06
+  verb: annotate
+  label: "reconcile conflicting source assessments (interactive single-case companion path)"
+  workflow_role: integrate
+  operation_kind: analytic
+  actor_chain: []
+  inputs:
+    - {slot: assessments, type: screening_decision, role: subject, cardinality: many, optional: false}
+  outputs: null
+  state_transition: {from: assessments_conflicting, to: assessment_reconciled}
+  parameters: []
+  preconditions: [multiple conflicting assessments of the same candidate exist]
+  conclusion_supported: "none — not implemented for this companion path"
+  failure_output: not_implemented
+  method_owned_semantics: "reconciling conflicting source assessments is an analytic act this companion path does not perform"
+  evidence_basis: "Howell & Prevenier 2001 (cross-checking sources); PRISMA 2020 (discrepancy resolution, item 9)"
+  execution_status: not_implemented
+  representation_status: missing
+  implementation_ref: "no reconciliation logic found in pt/acquisition_session.py or siblings. An analogous operation exists in the separate, out-of-scope bulk/comparative-case pipeline (pt/revolution_reconciliation.py, pt/revolution_adjudication.py — LLM producer + independent LLM pair-review + deterministic coherence check), demonstrating the operation is buildable but is not part of the single-case companion in scope here."
+  optional: false
+  repeatable: false
+
+- method_id: pt_source_acquisition
+  step_id: pt_source_acquisition.07
+  verb: screen
+  label: "assess candidate source and produce disposition (bulk comparative-case path — alternate implementation, out of primary scope)"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [llm_engine, llm_engine, deterministic_validator]
+  inputs:
+    - {slot: candidate, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: decision, type: screening_decision, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [candidate retrieved]
+  conclusion_supported: "candidate C's disposition is accepted, accepted_with_limits, or rejected, cross-checked by an independent reviewer"
+  failure_output: reject
+  method_owned_semantics: "same ideal operation as .03 (screen/admit); recorded separately because this alternate code path's execution_status genuinely diverges (software_executable vs .03's manually_performed) — this is the same ideal operation realized two structurally different ways in the same repository, and is excluded from this workflow's abort-gate denominator because rev 5.1 scopes the companion to the single-case interactive path (.03), not this bulk pipeline"
+  evidence_basis: "Howell & Prevenier 2001; PRISMA 2020 item 9"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "pt/revolution_source_development.py:656-685 (run_source_assessment, LLM call) and :751-777 (run_pair_review, independent second LLM call), cross-checked by validate_pair_review and SHA-256-bound"
+  optional: true
+  repeatable: true
+
+# =========================================================================
+# METHOD 4 — theory_forge_compile_apply  (all runtime_delivery; 8 rows;
+# 0 denominator contribution per sources.md sec.4 / rev 5.1 explicit steer)
+# =========================================================================
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.01
+  verb: extract
+  label: "extract raw paper text"
+  workflow_role: acquire
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: paper_pdf, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: raw_text, type: source_document, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [paper file available]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "insufficient evidence — extraction failed"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/extraction/extractor_single.py:329-379 (pdf_to_text — pypdf, falls back to pdftotext)"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.02
+  verb: identify
+  label: "identify the paper's primary theory"
+  workflow_role: frame
+  operation_kind: runtime_delivery
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: raw_text, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: theory_identification, type: concept, role: result, cardinality: one, optional: false}
+  parameters: [model config]
+  preconditions: [text extracted]
+  conclusion_supported: "none — enabling step; recorded but excluded from the abort-gate denominator per sources.md sec.4 (no authoritative external methodology specifies this operation, so it cannot be classified analytic without manufacturing a source)"
+  failure_output: "insufficient evidence"
+  method_owned_semantics: "none classifiable; see evidence_basis"
+  evidence_basis: "no authoritative methodology source identified for 'AI-assisted theory identification'; recorded as an explicit borderline case, not silently suppressed (§5.0a guard 4 checked)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/extraction/extractor_single.py:382-406 (identify_primary_theory)"
+  optional: false
+  repeatable: false
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.03
+  verb: extract
+  label: "formalize theory into v14/v15 schema structure"
+  workflow_role: represent
+  operation_kind: runtime_delivery
+  actor_chain: [llm_engine, deterministic_validator]
+  inputs:
+    - {slot: theory_identification, type: concept, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: theory_schema, type: theory, role: result, cardinality: one, optional: false}
+  parameters: [model config]
+  preconditions: [primary theory identified]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "incomplete_software — loosely validated (extra=allow), enum drift patched deterministically after the fact"
+  method_owned_semantics: "none classifiable; same borderline note as .02"
+  evidence_basis: "no authoritative methodology source identified"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/extraction/extractor_single.py:409-470 (extract_unified_theory; deterministic _normalize_theory_id/_normalize_extracted_schema_enums patch known LLM enum drift)"
+  optional: false
+  repeatable: false
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.04
+  verb: construct
+  label: "compile schema into executable pipeline code (agent-driven codegen, pytest-verified)"
+  workflow_role: represent
+  operation_kind: runtime_delivery
+  actor_chain: [llm_engine, deterministic_engine, llm_engine]
+  inputs:
+    - {slot: theory_schema, type: theory, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: compiled_module, type: model, role: result, cardinality: one, optional: false}
+  parameters: [agent model, review model]
+  preconditions: [schema formalized]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "compilation deferred — genuinely observed (face_negotiation_theory case correctly left schema-only after repeated verification failure)"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/codegen/compiler.py:1228-1452 (_compile_function_by_function, real coding-agent session); :2360-2471 (_verify_output — actually runs pytest via SafeExecutor.run_pytest as a subprocess, not a self-reported claim; comment: 'Runs pytest independently rather than trusting the agent's claim'); confirmed by direct compile-log trace"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.05
+  verb: classify
+  label: "classify compile failure and decide whether to retry"
+  workflow_role: revise
+  operation_kind: runtime_delivery
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: failure_log, type: finding, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: retry_decision, type: recommendation, role: result, cardinality: one, optional: false}
+  parameters: [classifier model]
+  preconditions: [compile attempt failed]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "none — always classifies"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/codegen/diagnostics.py classify_failure() (cheaper LLM model, confirmed live in compile logs)"
+  optional: true
+  repeatable: true
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.06
+  verb: review
+  label: "post-compile theoretical-fidelity review (non-blocking)"
+  workflow_role: appraise
+  operation_kind: runtime_delivery
+  actor_chain: [llm_engine]
+  inputs:
+    - {slot: compiled_module, type: model, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: review_note, type: finding, role: result, cardinality: one, optional: false}
+  parameters: [review model]
+  preconditions: [compile succeeded]
+  conclusion_supported: "none — represents an LLM's self-assessment of fidelity; NOT independently checked and NEVER gates verification.last_result"
+  failure_output: "none — failure is swallowed (except: return None), explicitly non-blocking"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering QA aid"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/codegen/compiler.py:2207-2280 (_run_review — writes review.yaml). FINDING: this is a clean instance of 'represents but does not verify' — the artifact exists and is populated by a real LLM call, but nothing downstream trusts or checks it."
+  optional: true
+  repeatable: false
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.07
+  verb: simulate
+  label: "run the compiled theory (extraction, computation, invariant check, qualitative stage)"
+  workflow_role: analyze
+  operation_kind: runtime_delivery
+  actor_chain: [llm_engine, deterministic_engine, deterministic_engine, llm_engine]
+  inputs:
+    - {slot: compiled_module, type: model, role: subject, cardinality: one, optional: false}
+    - {slot: case_data, type: dataset, role: context, cardinality: one, optional: false}
+  outputs:
+    - {slot: model_run, type: model_run, role: result, cardinality: one, optional: false}
+  parameters: [stage config]
+  preconditions: [module compiled and at least partially verified]
+  conclusion_supported: "none — this is a runtime_delivery apparatus; the substantive theory prediction is method-owned by the individual compiled theory, out of Phase-0 scope"
+  failure_output: "stage skipped and None substituted if manifest.functions[stage].verified == False (Plan #9 partial-compilation contract)"
+  method_owned_semantics: "none at this level"
+  evidence_basis: "not method-specified; engineering"
+  execution_status: incomplete_software
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/codegen/runner.py:289-430 (TheoryRunner.analyze); :1255-1288 (_check_invariants — logs violations to ~/.theory-forge/violations.jsonl but does NOT block or roll back the run). FINDING: the dedicated reliability tests for this exact function (tests/test_runtime_invariants.py, all 5 tests) currently fail at HEAD due to a genuine return-type/field-name signature drift (dict access vs. InvariantViolationReport Pydantic object) — a real, confirmed test/implementation mismatch, not a hypothetical risk."
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_compile_apply
+  step_id: theory_forge_compile_apply.08
+  verb: review
+  label: "verify compiled-theory manifest ('runtime-green') status"
+  workflow_role: appraise
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: compiled_module, type: model, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: manifest, type: model, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [compile attempted]
+  conclusion_supported: "none — enabling verification-gate step"
+  failure_output: "verification.last_result != pass"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering"
+  execution_status: software_executable
+  representation_status: missing
+  implementation_ref: "src/theory_forge/codegen/compiler.py:2360-2471 (the pytest-subprocess gate is real code, confirmed executing on this machine for at least one live case). FINDING: of the 39 theories CLAUDE.md claims are 'runtime-green', only 2 (plan12_cognitive_dissonance, automation_baseline/Shannon) have a durable, committed evidence/manifest snapshot in this repository; the other 37 rest on an ephemeral ~/.theory-forge/compiled/ cache that does not exist on this machine, making their claimed status currently untraceable from this checkout alone. representation_status is set to 'missing' to reflect the 37/39 majority case; the 2/39 exception is noted narratively in reality_check.md rather than forcing an artificial split row."
+  optional: false
+  repeatable: true
+
+# =========================================================================
+# METHOD 5 — theory_forge_cpt_choices13k  (7 distinct ideal ops; 8 rows)
+# =========================================================================
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.01
+  verb: derive
+  label: "apply the CPT value function to gain/loss outcomes"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: outcome, type: parameter_set, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: subjective_value, type: estimate, role: result, cardinality: one, optional: false}
+  parameters: [alpha, beta, lambda_loss, reference_point]
+  preconditions: [lottery outcome defined]
+  conclusion_supported: "outcome x has subjective value v(x) under fixed population parameters (alpha=0.88, beta=0.88, lambda=2.25)"
+  failure_output: "refuse — non-finite or malformed outcome rejected"
+  method_owned_semantics: "none; the functional form and parameters are fixed literature constants, not case-specific judgment"
+  evidence_basis: "Tversky & Kahneman 1992 eqs.(1)-(2)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/cumulative_prospect.py:70-80 (value_function)"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.02
+  verb: derive
+  label: "apply the CPT probability-weighting transform"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: stated_probability, type: parameter_set, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: weighted_probability, type: estimate, role: result, cardinality: one, optional: false}
+  parameters: [gamma_gains, gamma_losses]
+  preconditions: [probability in (0,1)]
+  conclusion_supported: "stated probability p is subjectively weighted as w(p) under fixed gamma_gains=0.61 / gamma_losses=0.69"
+  failure_output: "refuse — invalid probability rejected"
+  method_owned_semantics: "none; fixed literature constants"
+  evidence_basis: "Tversky & Kahneman 1992 eqs.(5)-(6)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/cumulative_prospect.py:83-95 (probability_weight)"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.03
+  verb: aggregate
+  label: "compute cumulative rank-dependent decision weights"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: weighted_probabilities, type: estimate, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: decision_weights, type: weight_set, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [outcomes ranked by sign and magnitude]
+  conclusion_supported: "lottery outcomes receive rank-dependent cumulative decision weights, distinct from the 1979 separable-weight formulation"
+  failure_output: "refuse"
+  method_owned_semantics: "none; this rank-dependent construction is the defining 1992 contribution, deterministically implemented"
+  evidence_basis: "Tversky & Kahneman 1992 sec. I.B"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/cumulative_prospect.py:135-198 (cumulative_decision_weights)"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.04
+  verb: estimate
+  label: "compute CPT prospect value and predicted choice"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: lottery_pair, type: option, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: cpt_prediction, type: estimate, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [decision weights computed for both options]
+  conclusion_supported: "option A, B, or tie is CPT-preferred for a given lottery pair"
+  failure_output: "tie — retained explicitly, not forced to a winner"
+  method_owned_semantics: "none"
+  evidence_basis: "Tversky & Kahneman 1992"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/cumulative_prospect.py:201,220 (cumulative_prospect_value, choose)"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.05
+  verb: estimate
+  label: "compute the expected-value baseline prediction"
+  workflow_role: analyze
+  operation_kind: methodological_support
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: lottery_pair, type: option, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: ev_prediction, type: estimate, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [lottery pair defined]
+  conclusion_supported: "option A or B is EV-preferred"
+  failure_output: "tie"
+  method_owned_semantics: "none; EV is a required comparison baseline, not the theory under test"
+  evidence_basis: "Peterson et al. 2021 (benchmarking methodology requires a comparison baseline)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/cumulative_prospect.py:213 (expected_value)"
+  optional: false
+  repeatable: true
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.06
+  verb: acquire
+  label: "acquire and cryptographically pin the Choices13k dataset"
+  workflow_role: acquire
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: dataset_commit, type: dataset, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: pinned_dataset, type: dataset, role: result, cardinality: one, optional: false}
+  parameters: [pinned commit hash, expected SHA-256 digests]
+  preconditions: []
+  conclusion_supported: "none — enabling step only"
+  failure_output: "refuse — digest mismatch"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; provenance engineering"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/choices13k.py:31-103 (pinned commit 821ae7e8...; SHA-256 verify)"
+  optional: false
+  repeatable: false
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.07
+  verb: screen
+  label: "filter to eligible rows (exclude Feedback / Ambiguous / multi-outcome)"
+  workflow_role: design
+  operation_kind: methodological_support
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: pinned_dataset, type: dataset, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: eligible_rows, type: dataset, role: result, cardinality: one, optional: false}
+  parameters: [exclusion rules]
+  preconditions: [dataset pinned]
+  conclusion_supported: "none — enabling step; determines in-scope rows for CPT/EV comparison"
+  failure_output: "none — every exclusion reason is recorded, reconciled against source_rows"
+  method_owned_semantics: "the description-based/unambiguous/binary-outcome scope is the corroborating source's own analytic scope"
+  evidence_basis: "Peterson et al. 2021 (description-based, unambiguous, binary-outcome analytic scope)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/choices13k.py:242-414 (analyze_choices13k — filtering + exclusion bookkeeping, reconciliation check at line 412-413)"
+  optional: false
+  repeatable: false
+
+- method_id: theory_forge_cpt_choices13k
+  step_id: theory_forge_cpt_choices13k.08
+  verb: compare
+  label: "score CPT vs. EV majority-choice accuracy against observed data"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: cpt_prediction, type: estimate, role: subject, cardinality: many, optional: false}
+    - {slot: ev_prediction, type: estimate, role: subject, cardinality: many, optional: false}
+    - {slot: observed_majority, type: estimate, role: criteria, cardinality: many, optional: false}
+  outputs:
+    - {slot: accuracy_scores, type: finding, role: result, cardinality: one, optional: false}
+  parameters: [tie-handling rule]
+  preconditions: [both models scored on eligible rows]
+  conclusion_supported: "CPT matches the observed majority choice in 813/1009 eligible paired rows (80.575%); EV matches in 766/1009 (75.917%) — a binary-classification comparison, NOT an individual-level probability claim (module's own non_claims block states this)"
+  failure_output: "none — always scores if inputs are valid"
+  method_owned_semantics: "none; pure deterministic scoring, explicitly disclaiming any stronger claim"
+  evidence_basis: "Peterson et al. 2021 (majority-choice / classification-accuracy benchmarking paradigm)"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/theory_forge/choices13k.py:179-218 (_model_summary/_paired_summary); observed_majority() in cumulative_prospect.py:232-239. Committed evidence: evidence/cpt_choices13k/choices13k_cpt_summary.json (dataset identity reconciles against pinned constants)."
+  optional: false
+  repeatable: false
+
+# =========================================================================
+# METHOD 6 — mist_trail_policy_appraisal  (6 distinct ideal ops; 9 rows)
+# =========================================================================
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.01
+  verb: identify
+  label: "identify feasible policy options"
+  workflow_role: frame
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: draft_ea, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: options, type: option, role: result, cardinality: many, optional: false}
+  parameters: []
+  preconditions: [source document available]
+  conclusion_supported: "alternatives A (no action), B (vehicle bridge), C (pedestrian footbridge) constitute the appraised option set"
+  failure_output: "human review required"
+  method_owned_semantics: "identifying which options are genuinely feasible/official is an analyst judgment grounded in the source document"
+  evidence_basis: "Dodgson et al. 2009 sec.2 step 2 (identify the options)"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "examples/fixtures/mist_trail_decision/decision_packet.json:142-169 (literal authored option summaries/specific_actions); src/mixed_methods_workbench/mist_trail_decision.py:167-176 (Option model validates shape only, adds no derivation)"
+  optional: false
+  repeatable: false
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.02
+  verb: identify
+  label: "identify evaluation criteria and affected interests"
+  workflow_role: frame
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: draft_ea, type: source_document, role: subject, cardinality: one, optional: false}
+  outputs:
+    - {slot: criteria, type: criterion, role: result, cardinality: many, optional: false}
+  parameters: []
+  preconditions: [options identified]
+  conclusion_supported: "criterion set and affected-interest set define the comparison frame"
+  failure_output: "human review required"
+  method_owned_semantics: "criterion selection is a value-laden analyst judgment"
+  evidence_basis: "Dodgson et al. 2009 sec.2 step 3 (identify objectives and criteria); Moberg et al. 2018 (evidence domains)"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "src/mixed_methods_workbench/mist_trail_decision.py:145-389 (Criterion, AffectedInterest models — typed, but content authored)"
+  optional: false
+  repeatable: false
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.03
+  verb: extract
+  label: "produce source-bound consequence claims per option x criterion"
+  workflow_role: analyze
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: options, type: option, role: subject, cardinality: many, optional: false}
+    - {slot: criteria, type: criterion, role: context, cardinality: many, optional: false}
+  outputs:
+    - {slot: consequences, type: consequence, role: result, cardinality: many, optional: false}
+  parameters: []
+  preconditions: [options and criteria identified]
+  conclusion_supported: "option O under criterion C has a consequence with stated direction and uncertainty, grounded to source S"
+  failure_output: "human review required"
+  method_owned_semantics: "interpreting what a source passage implies for a given option/criterion is the core appraisal judgment"
+  evidence_basis: "Dodgson et al. 2009 sec.2 step 5 (score the options); Moberg et al. 2018"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "examples/fixtures/mist_trail_decision/decision_packet.json:186-204 (18 hand-written ConsequenceAssessment entries); src/mixed_methods_workbench/mist_trail_decision.py:198-212 (passive schema, no derivation). FINDING (the central trap): typed, validated, hash-bound, API+UI-served artifact whose analytical content is entirely human-authored — plan doc states outright 'no model call or automated source interpretation' (docs/plans/mist_trail_policy_decision_vertical.md:373)."
+  optional: false
+  repeatable: true
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.04
+  verb: value
+  label: "render criterion judgments"
+  workflow_role: appraise
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: consequences, type: consequence, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: judgments, type: value_judgment, role: result, cardinality: many, optional: false}
+  parameters: []
+  preconditions: [consequence claims produced]
+  conclusion_supported: "criterion C is judged as favoring option(s) with stated rationale"
+  failure_output: "human review required"
+  method_owned_semantics: "value-weighted judgment of criteria is irreducibly human"
+  evidence_basis: "Dodgson et al. 2009 sec.2 step 4 (assign relative valuations); Moberg et al. 2018"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "decision_packet.json:206-212 (CriterionJudgment, author_role: 'Workbench reviewer', hand-written rationale); mist_trail_decision.py:215-226 (types fields only; DecisionPacket validator checks only that one judgment exists per criterion, not soundness)"
+  optional: false
+  repeatable: false
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.05
+  verb: rank
+  label: "apply priority lenses (value-weighting perspectives) to rank options"
+  workflow_role: decide
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: judgments, type: value_judgment, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: lens_rankings, type: weight_set, role: result, cardinality: many, optional: false}
+  parameters: []
+  preconditions: [criterion judgments rendered]
+  conclusion_supported: "under lens L, option O is preferred, or the result is unresolved"
+  failure_output: unresolved
+  method_owned_semantics: "aggregating criteria under a stated value perspective without collapsing to one numeric score is a human judgment here"
+  evidence_basis: "Dodgson et al. 2009 sec.2 steps 6-7 (combine scores/weights; examine results under differing value perspectives)"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "decision_packet.json:214-217 (3 PriorityLens objects, hard-coded preferred_option_id per lens); tests/test_mist_trail_decision.py:46 asserts the fixed literal lens outcomes ['C','B',None] — confirming no aggregation/weighting algorithm computes these anywhere in Python or JS"
+  optional: false
+  repeatable: false
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.06
+  verb: recommend
+  label: "produce a conditional recommendation or explicit refusal"
+  workflow_role: decide
+  operation_kind: analytic
+  actor_chain: [human_analyst]
+  inputs:
+    - {slot: lens_rankings, type: weight_set, role: subject, cardinality: many, optional: false}
+  outputs:
+    - {slot: conclusion, type: recommendation, role: result, cardinality: one, optional: false}
+  parameters: []
+  preconditions: [priority lenses applied]
+  conclusion_supported: "the packet's conclusion is conditional_recommendation, unresolved, or refused, with a stated sensitivity"
+  failure_output: refuse
+  method_owned_semantics: "the final judgment call, integrating consequences/criteria/values, is human"
+  evidence_basis: "Moberg et al. 2018 (judgment -> decision step); Dodgson et al. 2009 sec.2 step 8 (sensitivity/conclusion)"
+  execution_status: manually_performed
+  representation_status: implemented_artifact
+  implementation_ref: "decision_packet.json:222-233 (DecisionConclusion — literal authored state/headline/recommended_option_id/rationale); mist_trail_decision.py:256-276 (validates only structural mutual-consistency, e.g. a conditional_recommendation state requires a recommended_option_id — never derives the conclusion from assessments/judgments by any algorithm)"
+  optional: false
+  repeatable: false
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.07
+  verb: review
+  label: "cross-validate internal referential integrity of the decision packet"
+  workflow_role: represent
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_validator]
+  inputs:
+    - {slot: decision_packet, type: claim_set, role: subject, cardinality: one, optional: false}
+  outputs: null
+  state_transition: {from: packet_drafted, to: packet_validated}
+  parameters: []
+  preconditions: [all packet fields authored]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "refuse — referential integrity violation (e.g. missing per-criterion judgment, incomplete option x criterion coverage)"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; engineering integrity check"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/mixed_methods_workbench/mist_trail_decision.py:310-389 (DecisionPacket.validate_internal_references — unique IDs, A/B/C identity, common-action coverage, one judgment per criterion)"
+  optional: false
+  repeatable: true
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.08
+  verb: anchor
+  label: "hash-bind the decision packet to its source manifest"
+  workflow_role: represent
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: decision_packet, type: claim_set, role: subject, cardinality: one, optional: false}
+  outputs: null
+  state_transition: {from: packet_validated, to: packet_hash_bound}
+  parameters: []
+  preconditions: [packet validated]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "refuse — SHA-256 mismatch"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; provenance engineering"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/mixed_methods_workbench/mist_trail_decision.py:404-425 (load_mist_trail_decision — SHA-256 verification against source_manifest.json)"
+  optional: false
+  repeatable: true
+
+- method_id: mist_trail_policy_appraisal
+  step_id: mist_trail_policy_appraisal.09
+  verb: review
+  label: "serve and render the decision packet via API and browser UI"
+  workflow_role: communicate
+  operation_kind: runtime_delivery
+  actor_chain: [deterministic_engine]
+  inputs:
+    - {slot: decision_packet, type: claim_set, role: subject, cardinality: one, optional: false}
+  outputs: null
+  state_transition: {from: packet_hash_bound, to: packet_served}
+  parameters: []
+  preconditions: [packet hash-bound]
+  conclusion_supported: "none — enabling step only"
+  failure_output: "none — static route, fails only on transport error"
+  method_owned_semantics: "none"
+  evidence_basis: "not method-specified; UI/API delivery"
+  execution_status: software_executable
+  representation_status: implemented_artifact
+  implementation_ref: "src/mixed_methods_workbench/method_dashboard_server.py:66-74 (API/UI routes); static/mist_trail_decision.html:273-293 (pure client-side fetch + DOM templating, no aggregation/weighting logic)"
+  optional: false
+  repeatable: true

@@ -1,0 +1,180 @@
+# Phase 0 workflow edges + per-method topology summary — independent candidate, rev 5.1
+# status: independent_candidate
+
+edges:
+
+# --- qc_grounded_theory -----------------------------------------------
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.01, to_step: qc_grounded_theory.02, edge_type: sequence, condition: "segments available", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.02, to_step: qc_grounded_theory.03, edge_type: sequence, condition: "bundled in the same LLM call at the code level; ideal sequence still ordered open-coding-then-comparison", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.03, to_step: qc_grounded_theory.02, edge_type: loop_back, condition: "more segments remain to code against the evolving codebook", loop_termination: "all fixed-corpus segments processed (not saturation)", termination_authority: engine, required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.02, to_step: qc_grounded_theory.14, edge_type: alternative_path, condition: "human elects manual coding instead of the LLM path for a given segment", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.03, to_step: qc_grounded_theory.04, edge_type: sequence, condition: "codebook has enough codes to group into categories", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.04, to_step: qc_grounded_theory.05, edge_type: sequence, condition: "categories exist", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.02, to_step: qc_grounded_theory.06, edge_type: branch, condition: "memoing may occur alongside any analytic stage", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.05, to_step: qc_grounded_theory.06, edge_type: branch, condition: "memoing may occur alongside any analytic stage", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.05, to_step: qc_grounded_theory.07, edge_type: sequence, condition: "relations established across categories", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.07, to_step: qc_grounded_theory.08, edge_type: sequence, condition: "core category identified", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.08, to_step: qc_grounded_theory.09, edge_type: sequence, condition: "propositions exist to test against disconfirming cases", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.09, to_step: qc_grounded_theory.05, edge_type: loop_back, condition: "a negative case revises a relation", loop_termination: "human judges revision adequate", termination_authority: human, required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.04, to_step: qc_grounded_theory.10, edge_type: branch, condition: "adequacy diagnostic computed on the current category set", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.10, to_step: qc_grounded_theory.11, edge_type: sequence, condition: "diagnostic available for human review", required: true}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.11, to_step: qc_grounded_theory.12, edge_type: branch, condition: "human judges categories inadequate; more data needed", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.12, to_step: qc_grounded_theory.02, edge_type: loop_back, condition: "next recommended document is coded", loop_termination: "fixed corpus exhausted or human stops", termination_authority: either, required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.11, to_step: qc_grounded_theory.08, edge_type: terminal, condition: "human judges categories adequate; analysis concludes", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.08, to_step: qc_grounded_theory.13, edge_type: optional_return, condition: "downstream Process Tracing case test is desired", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.13, to_step: qc_grounded_theory.15, edge_type: alternative_path, condition: "cross-repo round trip: PT's return re-enters QC (see handoffs.yaml)", required: false}
+- {method_id: qc_grounded_theory, from_step: qc_grounded_theory.15, to_step: qc_grounded_theory.08, edge_type: optional_return, condition: "PT return may prompt theory retention/revision", required: false}
+
+# --- pt_core_rival_explanation -------------------------------------------
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.01, to_step: pt_core_rival_explanation.02, edge_type: sequence, condition: "evidence base extracted", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.02, to_step: pt_core_rival_explanation.03, edge_type: sequence, condition: "hypothesis space identified", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.03, to_step: pt_core_rival_explanation.02, edge_type: loop_back, condition: "partition gate blocked — inadequate discriminator coverage", loop_termination: "repair pass produces adequate coverage", termination_authority: engine, required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.03, to_step: pt_core_rival_explanation.04, edge_type: sequence, condition: "partition gate passed", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.04, to_step: pt_core_rival_explanation.05, edge_type: sequence, condition: "diagnostic classification available", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.02, to_step: pt_core_rival_explanation.06, edge_type: branch, condition: "absence-of-evidence check runs alongside positive-evidence testing", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.05, to_step: pt_core_rival_explanation.07, edge_type: sequence, condition: "likelihood vectors elicited and audited", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.06, to_step: pt_core_rival_explanation.07, edge_type: join, condition: "absence findings feed the same posterior update", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.07, to_step: pt_core_rival_explanation.08, edge_type: sequence, condition: "posterior computed; critic pass checks for gaps", required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.08, to_step: pt_core_rival_explanation.05, edge_type: loop_back, condition: "critic flags re-elicitation needed (re_elicitation_needed=true)", loop_termination: "critic finds no high-severity gaps", termination_authority: engine, required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.07, to_step: pt_core_rival_explanation.09, edge_type: sequence, condition: "posterior available for mechanism-DAG construction", required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.09, to_step: pt_core_rival_explanation.10, edge_type: sequence, condition: "mechanism DAG available", required: true}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.07, to_step: pt_core_rival_explanation.10, edge_type: sequence, condition: "posterior feeds synthesis directly when mechanism-DAG step is skipped", required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.10, to_step: pt_core_rival_explanation.11, edge_type: branch, condition: "calibration downgrades status to indeterminate against posterior floors", required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.10, to_step: pt_core_rival_explanation.10, edge_type: terminal, condition: "a confident, calibrated verdict is reached (strongly_supported/supported/weakened/eliminated)", required: false}
+- {method_id: pt_core_rival_explanation, from_step: pt_core_rival_explanation.11, to_step: pt_core_rival_explanation.11, edge_type: terminal, condition: "refusal state reached — no confident ranking licensed", required: false}
+
+# --- pt_source_acquisition -------------------------------------------
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.01, to_step: pt_source_acquisition.02, edge_type: sequence, condition: "retrieval target identified", required: true}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.02, to_step: pt_source_acquisition.04, edge_type: sequence, condition: "candidate URL identified", required: true}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.04, to_step: pt_source_acquisition.03, edge_type: sequence, condition: "full text retrieved and available for review", required: true}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.03, to_step: pt_source_acquisition.05, edge_type: sequence, condition: "screening decision made (admit/reject/defer)", required: true}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.05, to_step: pt_source_acquisition.01, edge_type: loop_back, condition: "admitted source re-triggers hypothesis reassessment, which may surface a new gap", loop_termination: "no further decision-relevant gap identified, or human stops", termination_authority: either, required: false}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.03, to_step: pt_source_acquisition.06, edge_type: optional_return, condition: "two reviewers reach conflicting assessments of the same candidate (not implemented on this path — see step .06 not_implemented status)", required: false}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.05, to_step: pt_core_rival_explanation.01, edge_type: sequence, condition: "admitted corpus handed to core extraction (acquisition_session.py:evaluate() directly calls pt.pass_extract.run_extract and pipeline._run_passes_3_plus)", required: true}
+- {method_id: pt_source_acquisition, from_step: pt_source_acquisition.04, to_step: pt_source_acquisition.07, edge_type: alternative_path, condition: "bulk comparative-case pipeline substitutes its own LLM-judged screening for step .03/.04 entirely (structurally separate pipeline, out of primary scope)", required: false}
+
+# --- theory_forge_compile_apply -------------------------------------------
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.01, to_step: theory_forge_compile_apply.02, edge_type: sequence, condition: "raw text extracted", required: true}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.02, to_step: theory_forge_compile_apply.03, edge_type: sequence, condition: "primary theory identified", required: true}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.03, to_step: theory_forge_compile_apply.04, edge_type: sequence, condition: "schema formalized", required: true}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.04, to_step: theory_forge_compile_apply.05, edge_type: branch, condition: "compile attempt fails", required: false}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.05, to_step: theory_forge_compile_apply.04, edge_type: loop_back, condition: "classifier recommends retry", loop_termination: "classifier recommends no-retry (e.g. dependency_error) or max attempts reached", termination_authority: engine, required: false}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.04, to_step: theory_forge_compile_apply.06, edge_type: optional_return, condition: "compile succeeds; non-blocking fidelity review runs", required: false}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.04, to_step: theory_forge_compile_apply.08, edge_type: sequence, condition: "verification gate result recorded to manifest regardless of review outcome", required: true}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.08, to_step: theory_forge_compile_apply.07, edge_type: sequence, condition: "module has manifest.functions[stage].verified == True for at least one stage (partial compilation is a valid, permitted state per Plan #9)", required: false}
+- {method_id: theory_forge_compile_apply, from_step: theory_forge_compile_apply.05, to_step: theory_forge_compile_apply.04, edge_type: prohibited_edge_note, condition: "classifier marks dependency_error with retry=False — retrying anyway would loop on a non-recoverable failure; the runner respects this and does not retry (documented as a real behavior, not tested here as a prohibited-edge enforcement mechanism)", required: false}
+
+# --- theory_forge_cpt_choices13k -------------------------------------------
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.06, to_step: theory_forge_cpt_choices13k.07, edge_type: sequence, condition: "dataset pinned and verified", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.07, to_step: theory_forge_cpt_choices13k.01, edge_type: sequence, condition: "eligible rows selected", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.01, to_step: theory_forge_cpt_choices13k.02, edge_type: sequence, condition: "value computed for each outcome", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.02, to_step: theory_forge_cpt_choices13k.03, edge_type: sequence, condition: "weighted probabilities available for all outcomes in a lottery", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.03, to_step: theory_forge_cpt_choices13k.04, edge_type: sequence, condition: "cumulative decision weights computed", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.07, to_step: theory_forge_cpt_choices13k.05, edge_type: sequence, condition: "eligible rows selected (parallel path to CPT scoring)", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.04, to_step: theory_forge_cpt_choices13k.08, edge_type: join, condition: "both CPT and EV predictions available for a row", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.05, to_step: theory_forge_cpt_choices13k.08, edge_type: join, condition: "both CPT and EV predictions available for a row", required: true}
+- {method_id: theory_forge_cpt_choices13k, from_step: theory_forge_cpt_choices13k.08, to_step: theory_forge_cpt_choices13k.08, edge_type: terminal, condition: "accuracy scores computed and reported — no further loop", required: false}
+
+# --- mist_trail_policy_appraisal -------------------------------------------
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.01, to_step: mist_trail_policy_appraisal.02, edge_type: sequence, condition: "options identified", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.02, to_step: mist_trail_policy_appraisal.03, edge_type: sequence, condition: "criteria identified", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.03, to_step: mist_trail_policy_appraisal.04, edge_type: sequence, condition: "consequence claims produced for every option x criterion pair", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.04, to_step: mist_trail_policy_appraisal.05, edge_type: sequence, condition: "criterion judgments rendered", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.05, to_step: mist_trail_policy_appraisal.06, edge_type: sequence, condition: "priority lenses applied", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.06, to_step: mist_trail_policy_appraisal.07, edge_type: sequence, condition: "conclusion authored; packet ready for structural validation", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.07, to_step: mist_trail_policy_appraisal.03, edge_type: loop_back, condition: "referential-integrity validation fails (e.g. missing per-criterion judgment)", loop_termination: "packet passes all internal-reference checks", termination_authority: engine, required: false}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.07, to_step: mist_trail_policy_appraisal.08, edge_type: sequence, condition: "packet validated", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.08, to_step: mist_trail_policy_appraisal.09, edge_type: sequence, condition: "packet hash-bound", required: true}
+- {method_id: mist_trail_policy_appraisal, from_step: mist_trail_policy_appraisal.09, to_step: mist_trail_policy_appraisal.09, edge_type: terminal, condition: "packet served; no further loop in the current (static-fixture) implementation", required: false}
+
+topology:
+
+- method_id: qc_grounded_theory
+  shape: cyclic
+  required_cycles:
+    - "constant comparison against the evolving codebook (.03 -> .02) — Corbin & Strauss's defining iterative act"
+  optional_cycles:
+    - "negative-case-driven revision of relations (.09 -> .05)"
+    - "theoretical-sampling loop over remaining fixed-corpus documents (.12 -> .02)"
+  prohibited_cycles: []
+  prohibited_edges: []
+  entry_points: [qc_grounded_theory.01]
+  terminal_points: [qc_grounded_theory.08, qc_grounded_theory.11]
+  note: >-
+    .12's loop_back is bounded by the fixed corpus (cannot fetch new data),
+    which is itself the central gap this workflow exposes relative to
+    classic theoretical sampling.
+
+- method_id: pt_core_rival_explanation
+  shape: cyclic
+  required_cycles:
+    - "partition-gate repair loop (.03 -> .02) when discriminator coverage is inadequate"
+  optional_cycles:
+    - "critic-triggered re-elicitation (.08 -> .05)"
+  prohibited_cycles: []
+  prohibited_edges: []
+  entry_points: [pt_core_rival_explanation.01]
+  terminal_points: [pt_core_rival_explanation.10, pt_core_rival_explanation.11]
+  note: >-
+    .04's repeatable:true has no dedicated loop_back edge of its own (it
+    is a one-pass classification per evidence item within a single Pass 3
+    run) — recorded here as an inconsistency per §5.8's own instruction to
+    report where repeatable:true lacks a matching loop_back edge.
+
+- method_id: pt_source_acquisition
+  shape: cyclic
+  required_cycles:
+    - "admit -> reassess -> new-gap -> retrieve loop (.05 -> .01), the 'targeted source evaluation' loop described in PT's own methodology docs"
+  optional_cycles: []
+  prohibited_cycles: []
+  prohibited_edges: []
+  entry_points: [pt_source_acquisition.01]
+  terminal_points: [pt_source_acquisition.05]
+  note: >-
+    step .06 (reconcile) has no inbound required edge on this path because
+    it is not_implemented for the single-case companion; its edge above is
+    marked optional_return specifically to record that absence rather than
+    inventing a required transition that does not exist in code.
+
+- method_id: theory_forge_compile_apply
+  shape: cyclic
+  required_cycles: []
+  optional_cycles:
+    - "compile-failure retry loop (.05 -> .04), bounded by the classifier's retry=False signal"
+  prohibited_cycles: []
+  prohibited_edges: []
+  entry_points: [theory_forge_compile_apply.01]
+  terminal_points: [theory_forge_compile_apply.07, theory_forge_compile_apply.08]
+  note: >-
+    Partial compilation is an explicitly PERMITTED terminal state (Plan #9):
+    a module can reach .08 with some stages verified and others not, and
+    .07 (run) will skip unverified stages rather than blocking. This is
+    not a prohibited_edge case; it is a designed, valid terminal shape.
+
+- method_id: theory_forge_cpt_choices13k
+  shape: dag
+  required_cycles: []
+  optional_cycles: []
+  prohibited_cycles: []
+  prohibited_edges: []
+  entry_points: [theory_forge_cpt_choices13k.06]
+  terminal_points: [theory_forge_cpt_choices13k.08]
+  note: >-
+    Purely acyclic — the only workflow in this Phase-0 set with no loop of
+    any kind, consistent with its purely deterministic, non-iterative,
+    non-fitting design (Plan #109's own acceptance criteria).
+
+- method_id: mist_trail_policy_appraisal
+  shape: cyclic
+  required_cycles:
+    - "referential-integrity repair loop (.07 -> .03) when the packet fails structural validation"
+  optional_cycles: []
+  prohibited_cycles: []
+  prohibited_edges: []
+  entry_points: [mist_trail_policy_appraisal.01]
+  terminal_points: [mist_trail_policy_appraisal.06, mist_trail_policy_appraisal.09]
+  note: >-
+    The current implementation is a single static fixture, so in practice
+    the .07->.03 loop has never actually been exercised (there is only one
+    committed, already-valid decision_packet.json) — recorded as a
+    theoretically-required cycle per the schema, not an observed one.
