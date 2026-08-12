@@ -236,6 +236,8 @@
     }
     .primary-button:hover { background: #0f3e30; transform: translateY(-1px); }
     .primary-button:disabled { cursor: wait; opacity: .65; transform: none; }
+    .result-link { display: inline-block; margin-top: 12px; padding: 10px 13px; border-radius: 9px; color: #fff; background: var(--forest); text-decoration: none; font-size: 13px; font-weight: 800; }
+    .result-link:hover { background: #0f3e30; }
     .examples { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
     .examples strong { display: block; margin-bottom: 9px; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
     .example-button { display: block; width: 100%; margin-top: 7px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; color: #46514b; background: transparent; cursor: pointer; text-align: left; font-size: 12px; }
@@ -719,6 +721,7 @@
           </summary>
           <div class="method-detail">
             <div class="detail-callout"><strong>Authentic visible output:</strong> ${escapeHtml(item.authentic_visible_output)}</div>
+            ${index === 0 ? '<a class="result-link" href="/decision/mist-trail">Open the completed Mist Trail decision review →</a>' : ""}
             <div class="detail-cols">
               <div><strong>Boundaries stressed</strong>${list(item.architecture_boundaries)}</div>
               <div><strong>Falsifiable assumptions</strong>${list(item.falsifiable_assumptions)}</div>
@@ -745,6 +748,7 @@
         renderLibrary();
         renderArchitecture();
         renderStressTests();
+        if (window.location.hash === "#stress") switchView("stress");
         byId("brief-form").addEventListener("submit", submitBrief);
         byId("method-search").addEventListener("input", renderLibrary);
         byId("aim-filter").addEventListener("change", renderLibrary);

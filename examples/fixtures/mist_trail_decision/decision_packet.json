@@ -1,0 +1,238 @@
+{
+  "schema_id": "mist_trail.decision_packet",
+  "schema_version": "0.1.0",
+  "packet_id": "mist-trail-decision-v1",
+  "artifact_status": "development_fixture",
+  "source_manifest_sha256": "b1341d8962203dee02ae3be0094b98418aea8e7b76f91af87c71e16756e0a4d7",
+  "frame": {
+    "question": "Which official Mist Trail alternative best fits the stated project needs under the priorities declared in this review?",
+    "purpose": "Stress-test a source-bound, reviewable path from policy options to a conditional decision without hidden scoring.",
+    "decision_authority": "National Park Service; this development review has no decision authority.",
+    "analyst_role": "Workbench researcher conducting a demonstrative appraisal.",
+    "decision_status": "Draft Environmental Assessment reviewed; no final NPS decision is represented.",
+    "scope": "Official Alternatives A, B, and C and consequence summaries in the pinned Draft EA.",
+    "constraints": [
+      "Use only the three pinned official source identities.",
+      "Keep empirical consequences separate from human priorities.",
+      "Do not infer comparative costs, Tribal preferences, or public preferences."
+    ],
+    "non_claims": [
+      "This is not an NPS decision, formal public comment, NEPA adequacy finding, or agency endorsement.",
+      "The conditional result does not establish that one alternative is empirically best."
+    ]
+  },
+  "source_anchors": [
+    {
+      "anchor_id": "ea-purpose-need",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 1-5",
+      "section": "Purpose and need",
+      "locator": "Chapter 1, purpose and need",
+      "reviewed_summary": "The project addresses visitor safety, wayfinding, inadequate facilities, congestion, resource effects, and collaboration obligations in a heavily used corridor.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-alternative-a",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 2-2",
+      "section": "Alternative A",
+      "locator": "Chapter 2, no-action alternative",
+      "reviewed_summary": "Alternative A continues current maintenance and small safety improvements without substantial new construction.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-alternative-b",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 2-3–2-7",
+      "section": "Alternative B",
+      "locator": "Chapter 2, existing vehicle bridge and Stock Trail pilot",
+      "reviewed_summary": "Alternative B formalizes the current vehicle crossing, separates pedestrian and vehicle movement, improves the existing trailhead, and pilots a Stock Trail loop.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-alternative-c",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 2-8–2-15",
+      "section": "Alternative C",
+      "locator": "Chapter 2, new pedestrian footbridge and west-side trailhead",
+      "reviewed_summary": "Alternative C builds a new pedestrian footbridge at the historic location, creates a west-side trailhead and promenade, and restores part of the current trailhead; the Draft EA identifies it as the proposed action.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-common-actions",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 2-3–2-15",
+      "section": "Actions common to B and C",
+      "locator": "Chapter 2, common circulation, information, and amenity actions",
+      "reviewed_summary": "Both action alternatives include messaging and trip-planning improvements, multi-modal roadway work, a shuttle stop, restrooms, pullouts, and selected vista restoration.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-visitor-b",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-4",
+      "section": "Visitor use and experience — B",
+      "locator": "Chapter 3, visitor use consequences for Alternative B",
+      "reviewed_summary": "Alternative B is expected to provide long-term safety and visitor benefits with temporary construction disruption.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-visitor-c",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-6",
+      "section": "Visitor use and experience — C",
+      "locator": "Chapter 3, visitor use consequences for Alternative C",
+      "reviewed_summary": "Alternative C is expected to create a more intuitive and cohesive arrival than B, with temporary disruption and disorientation during construction.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-biological-b",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-13",
+      "section": "Biological resources — B",
+      "locator": "Chapter 3, biological consequences for Alternative B",
+      "reviewed_summary": "Alternative B has limited new biological-resource disturbance under the described mitigations.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-biological-c",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-16",
+      "section": "Biological resources — C",
+      "locator": "Chapter 3, biological consequences for Alternative C",
+      "reviewed_summary": "Alternative C may remove up to five trees and cause localized minor habitat effects under the described mitigations.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-water-b",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-22",
+      "section": "Water resources — B",
+      "locator": "Chapter 3, water consequences for Alternative B",
+      "reviewed_summary": "Alternative B's new ground disturbance and water-resource effects are concentrated around the existing trailhead.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-water-c",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-23–3-24",
+      "section": "Water resources — C",
+      "locator": "Chapter 3, water consequences for Alternative C",
+      "reviewed_summary": "Alternative C has temporary mitigated near-water disturbance and restores about 1.25 acres of floodplain.",
+      "passage_status": "passage_unavailable"
+    },
+    {
+      "anchor_id": "ea-cultural-visual",
+      "source_id": "nps-draft-ea",
+      "page_label": "EA 3-28–3-45",
+      "section": "Cultural, historic, and visual resources",
+      "locator": "Chapter 3, cultural landscapes, historic properties, and visual character",
+      "reviewed_summary": "The EA analyzes cultural, historic, archeological, ethnographic, and visual consequences for both action alternatives and identifies consultation and protection measures.",
+      "passage_status": "passage_unavailable"
+    }
+  ],
+  "common_actions": [
+    {
+      "action_id": "shared-access-and-information",
+      "wording": "Improve trip-planning information, on-site messaging, roadway circulation, shuttle and restroom amenities, trail pullouts, and selected vistas.",
+      "applies_to_option_ids": ["B", "C"],
+      "source_anchor_ids": ["ea-common-actions"]
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A",
+      "label": "Alternative A — No action",
+      "short_label": "Maintain the current corridor",
+      "option_kind": "no_action",
+      "summary": "Continue current maintenance and small-scale safety work without the substantial rehabilitation in B or C.",
+      "specific_actions": ["Maintain the narrow shared bridge and current trailhead configuration.", "Continue limited wayfinding and small-scale safety improvements."],
+      "source_anchor_ids": ["ea-alternative-a"]
+    },
+    {
+      "option_id": "B",
+      "label": "Alternative B — Existing vehicle bridge",
+      "short_label": "Improve the existing crossing",
+      "option_kind": "action",
+      "summary": "Keep the present crossing while separating pedestrian and vehicle movement and improving the existing arrival area.",
+      "specific_actions": ["Formalize the existing vehicle bridge with pedestrian separation.", "Improve the existing trailhead and promenade.", "Pilot a Stock Trail loop."],
+      "source_anchor_ids": ["ea-alternative-b"]
+    },
+    {
+      "option_id": "C",
+      "label": "Alternative C — New pedestrian footbridge",
+      "short_label": "Create a new pedestrian arrival",
+      "option_kind": "agency_proposed_action",
+      "summary": "Create a dedicated pedestrian crossing and west-side arrival while restoring part of the current trailhead.",
+      "specific_actions": ["Build a pedestrian footbridge at the historic bridge location.", "Create a west-side trailhead and promenade.", "Restore part of the current trailhead."],
+      "source_anchor_ids": ["ea-alternative-c"]
+    }
+  ],
+  "criteria": [
+    {"criterion_id": "safety", "label": "Safety and preparedness", "empirical_question": "How does each option affect circulation, information, congestion, and emergency preparedness?", "value_question": "How much priority should prevention and preparedness receive?", "source_basis": "EA purpose and need and visitor-use analysis"},
+    {"criterion_id": "experience", "label": "Visitor experience and orientation", "empirical_question": "How does each option affect arrival, wayfinding, amenities, and visitor flow?", "value_question": "How important is a coherent and intuitive arrival experience?", "source_basis": "EA alternatives and visitor-use analysis"},
+    {"criterion_id": "natural", "label": "Natural resources", "empirical_question": "What biological, habitat, floodplain, wetland, and water effects are described?", "value_question": "What new disturbance is acceptable for the expected visitor benefit?", "source_basis": "EA biological and water-resource analysis"},
+    {"criterion_id": "cultural", "label": "Cultural, historic, and visual stewardship", "empirical_question": "How does each option affect cultural landscapes, historic properties, and visual character?", "value_question": "How should restoration, preservation, present use, and visual change be balanced?", "source_basis": "EA cultural, historic, and visual analysis"},
+    {"criterion_id": "operations", "label": "Operations and feasibility", "empirical_question": "What construction, closure, maintenance, staffing, cost, and resource demands are established?", "value_question": "Which operational burdens and resource commitments are acceptable?", "source_basis": "EA construction summaries; comparative cost appendix absent from this fixture"},
+    {"criterion_id": "distribution", "label": "Affected interests", "empirical_question": "Who or what receives the described benefits and burdens?", "value_question": "Whose interests should receive special consideration, and why?", "source_basis": "EA impact topics and consultation boundary"}
+  ],
+  "affected_interests": [
+    {"interest_id": "visitors", "label": "Visitors", "supported_relationship": "Use the corridor and experience safety, orientation, amenity, closure, and construction effects.", "preference_known": false},
+    {"interest_id": "staff-rescue", "label": "Park staff and rescue personnel", "supported_relationship": "Operate the corridor and respond to visitor incidents.", "preference_known": false},
+    {"interest_id": "natural-resources", "label": "Natural resources", "supported_relationship": "May experience habitat, vegetation, floodplain, wetland, and water effects.", "preference_known": false},
+    {"interest_id": "cultural-interests", "label": "Cultural and traditionally associated interests", "supported_relationship": "Have relationships to cultural landscapes, historic properties, archeological and ethnographic resources; consultation is required.", "preference_known": false},
+    {"interest_id": "stock-users", "label": "Stock users", "supported_relationship": "May be affected by route and Stock Trail changes.", "preference_known": false}
+  ],
+  "consequence_assessments": [
+    {"assessment_id": "A-safety", "option_id": "A", "criterion_id": "safety", "wording": "Retains current circulation and information limitations while allowing only incremental safety work.", "direction": "harm", "time_horizon": "long_term", "affected_interest_ids": ["visitors", "staff-rescue"], "source_anchor_ids": ["ea-purpose-need", "ea-alternative-a"], "source_analysis_method": "EA purpose-and-need comparison", "uncertainty": "The fixture does not quantify incident reduction for any option.", "mitigation_assumed": false, "review_state": "reviewed"},
+    {"assessment_id": "B-safety", "option_id": "B", "criterion_id": "safety", "wording": "Separates pedestrians and vehicles at the existing crossing and adds the safety and information actions shared with C.", "direction": "benefit", "time_horizon": "both", "affected_interest_ids": ["visitors", "staff-rescue", "stock-users"], "source_anchor_ids": ["ea-alternative-b", "ea-common-actions", "ea-visitor-b"], "source_analysis_method": "EA alternatives and visitor-use comparison", "uncertainty": "The relative long-term safety gain versus C is projected, not measured.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "C-safety", "option_id": "C", "criterion_id": "safety", "wording": "Creates a dedicated pedestrian crossing and clearer arrival, alongside the safety and information actions shared with B.", "direction": "benefit", "time_horizon": "both", "affected_interest_ids": ["visitors", "staff-rescue"], "source_anchor_ids": ["ea-alternative-c", "ea-common-actions", "ea-visitor-c"], "source_analysis_method": "EA alternatives and visitor-use comparison", "uncertainty": "The relative long-term safety gain versus B is projected, not measured.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "A-experience", "option_id": "A", "criterion_id": "experience", "wording": "Leaves the present arrival, wayfinding, congestion, and amenity limitations largely in place.", "direction": "harm", "time_horizon": "long_term", "affected_interest_ids": ["visitors"], "source_anchor_ids": ["ea-purpose-need", "ea-alternative-a"], "source_analysis_method": "EA purpose-and-need comparison", "uncertainty": "Visitor response is not measured in this fixture.", "mitigation_assumed": false, "review_state": "reviewed"},
+    {"assessment_id": "B-experience", "option_id": "B", "criterion_id": "experience", "wording": "Improves the existing arrival and amenities but is described as less intuitive and cohesive than C.", "direction": "benefit", "time_horizon": "both", "affected_interest_ids": ["visitors", "stock-users"], "source_anchor_ids": ["ea-common-actions", "ea-visitor-b", "ea-visitor-c"], "source_analysis_method": "EA visitor-use comparison", "uncertainty": "The qualitative comparison does not establish how much visitors would value the difference.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "C-experience", "option_id": "C", "criterion_id": "experience", "wording": "Provides the most intuitive and cohesive arrival of the action alternatives, with temporary construction disruption.", "direction": "benefit", "time_horizon": "both", "affected_interest_ids": ["visitors"], "source_anchor_ids": ["ea-common-actions", "ea-visitor-c"], "source_analysis_method": "EA visitor-use comparison", "uncertainty": "The benefit is an agency projection and accessible facilities do not make the full trail accessible.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "A-natural", "option_id": "A", "criterion_id": "natural", "wording": "Avoids most new construction disturbance but does not provide C's floodplain restoration.", "direction": "mixed", "time_horizon": "long_term", "affected_interest_ids": ["natural-resources"], "source_anchor_ids": ["ea-alternative-a", "ea-water-c"], "source_analysis_method": "EA alternatives and resource comparison", "uncertainty": "Ongoing baseline effects are not equivalent to a finding of no effect.", "mitigation_assumed": false, "review_state": "reviewed"},
+    {"assessment_id": "B-natural", "option_id": "B", "criterion_id": "natural", "wording": "Adds comparatively limited new habitat and water disturbance around the existing trailhead.", "direction": "mixed", "time_horizon": "both", "affected_interest_ids": ["natural-resources"], "source_anchor_ids": ["ea-biological-b", "ea-water-b"], "source_analysis_method": "EA biological and water-resource analysis", "uncertainty": "Effects depend on the EA's mitigation assumptions.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "C-natural", "option_id": "C", "criterion_id": "natural", "wording": "Adds localized habitat and near-water disturbance, including removal of up to five trees, while restoring about 1.25 acres of floodplain.", "direction": "mixed", "time_horizon": "both", "affected_interest_ids": ["natural-resources"], "source_anchor_ids": ["ea-biological-c", "ea-water-c"], "source_analysis_method": "EA biological and water-resource analysis", "uncertainty": "The balance between temporary disturbance and restoration depends on mitigation performance and value priorities.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "A-cultural", "option_id": "A", "criterion_id": "cultural", "wording": "Avoids major new visual and historic-setting changes but leaves the historic crossing and visitor-arrival opportunity unaddressed.", "direction": "mixed", "time_horizon": "long_term", "affected_interest_ids": ["cultural-interests", "visitors"], "source_anchor_ids": ["ea-alternative-a", "ea-cultural-visual"], "source_analysis_method": "EA alternatives and cultural-resource comparison", "uncertainty": "The fixture does not establish stakeholder preferences among preservation and restoration values.", "mitigation_assumed": false, "review_state": "reviewed"},
+    {"assessment_id": "B-cultural", "option_id": "B", "criterion_id": "cultural", "wording": "Changes the existing arrival and bridge treatment while retaining the current crossing location.", "direction": "mixed", "time_horizon": "both", "affected_interest_ids": ["cultural-interests", "visitors"], "source_anchor_ids": ["ea-alternative-b", "ea-cultural-visual"], "source_analysis_method": "EA cultural, historic, and visual analysis", "uncertainty": "Consultation and protection measures do not establish endorsement.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "C-cultural", "option_id": "C", "criterion_id": "cultural", "wording": "Reintroduces a pedestrian crossing at the historic location but creates a larger new visual and construction intervention.", "direction": "mixed", "time_horizon": "both", "affected_interest_ids": ["cultural-interests", "visitors"], "source_anchor_ids": ["ea-alternative-c", "ea-cultural-visual"], "source_analysis_method": "EA cultural, historic, and visual analysis", "uncertainty": "The relative value of historic evocation, preservation, and contemporary visual change is normative.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "A-operations", "option_id": "A", "criterion_id": "operations", "wording": "Avoids major project construction but retains existing maintenance and operational limitations.", "direction": "mixed", "time_horizon": "long_term", "affected_interest_ids": ["staff-rescue", "visitors"], "source_anchor_ids": ["ea-alternative-a"], "source_analysis_method": "EA alternative description", "uncertainty": "Comparable lifecycle cost and staffing information is absent from the bounded fixture.", "mitigation_assumed": false, "review_state": "unresolved"},
+    {"assessment_id": "B-operations", "option_id": "B", "criterion_id": "operations", "wording": "Requires construction and a Stock Trail pilot while using the existing crossing location.", "direction": "unknown", "time_horizon": "both", "affected_interest_ids": ["staff-rescue", "visitors", "stock-users"], "source_anchor_ids": ["ea-alternative-b", "ea-visitor-b"], "source_analysis_method": "EA construction and visitor-use summary", "uncertainty": "Comparable cost, staffing, maintenance, and implementation-feasibility evidence is incomplete in the bounded fixture.", "mitigation_assumed": true, "review_state": "unresolved"},
+    {"assessment_id": "C-operations", "option_id": "C", "criterion_id": "operations", "wording": "Requires a new bridge and west-side construction described as lasting roughly 10 to 14 months.", "direction": "unknown", "time_horizon": "both", "affected_interest_ids": ["staff-rescue", "visitors"], "source_anchor_ids": ["ea-alternative-c", "ea-visitor-c"], "source_analysis_method": "EA construction and visitor-use summary", "uncertainty": "Comparable cost, staffing, maintenance, and implementation-feasibility evidence is incomplete in the bounded fixture.", "mitigation_assumed": true, "review_state": "unresolved"},
+    {"assessment_id": "A-distribution", "option_id": "A", "criterion_id": "distribution", "wording": "Avoids construction burdens but leaves current visitor, staff, rescue, and resource problems substantially unchanged.", "direction": "mixed", "time_horizon": "long_term", "affected_interest_ids": ["visitors", "staff-rescue", "natural-resources", "cultural-interests", "stock-users"], "source_anchor_ids": ["ea-purpose-need", "ea-alternative-a"], "source_analysis_method": "Affected-interest overlay on EA purpose and alternatives", "uncertainty": "The EA does not provide a complete preference distribution for affected groups.", "mitigation_assumed": false, "review_state": "reviewed"},
+    {"assessment_id": "B-distribution", "option_id": "B", "criterion_id": "distribution", "wording": "Provides shared visitor and safety improvements with comparatively limited new-resource disturbance and a stock-use pilot.", "direction": "mixed", "time_horizon": "both", "affected_interest_ids": ["visitors", "staff-rescue", "natural-resources", "cultural-interests", "stock-users"], "source_anchor_ids": ["ea-alternative-b", "ea-common-actions", "ea-biological-b"], "source_analysis_method": "Affected-interest overlay on EA consequences", "uncertainty": "No affected group's preference is inferred from its relationship to the project.", "mitigation_assumed": true, "review_state": "reviewed"},
+    {"assessment_id": "C-distribution", "option_id": "C", "criterion_id": "distribution", "wording": "Provides the clearest visitor-arrival benefit while concentrating additional construction and resource disturbance near the new crossing.", "direction": "mixed", "time_horizon": "both", "affected_interest_ids": ["visitors", "staff-rescue", "natural-resources", "cultural-interests"], "source_anchor_ids": ["ea-alternative-c", "ea-common-actions", "ea-biological-c", "ea-cultural-visual"], "source_analysis_method": "Affected-interest overlay on EA consequences", "uncertainty": "Consultation does not establish Tribal or public preference, and the broader trail is not established as accessible.", "mitigation_assumed": true, "review_state": "reviewed"}
+  ],
+  "criterion_judgments": [
+    {"judgment_id": "J-safety", "criterion_id": "safety", "importance": "decisive", "judgment_kind": "normative", "rationale": "For this demonstration, reducing recurring safety and orientation problems is decisive.", "author_role": "Workbench reviewer", "dissent_or_alternative": "A reviewer emphasizing minimum intervention could give this less priority.", "change_condition": "Reliable evidence that B and C do not materially differ in safety outcomes would weaken its decisiveness."},
+    {"judgment_id": "J-experience", "criterion_id": "experience", "importance": "material", "judgment_kind": "normative", "rationale": "A legible, cohesive arrival is treated as a material project benefit.", "author_role": "Workbench reviewer", "dissent_or_alternative": "A reviewer could treat the difference between B and C as modest.", "change_condition": "Direct visitor evidence finding no meaningful orientation difference would reduce its importance."},
+    {"judgment_id": "J-natural", "criterion_id": "natural", "importance": "material", "judgment_kind": "mixed", "rationale": "New disturbance matters, but restoration and mitigation must also remain visible.", "author_role": "Workbench reviewer", "dissent_or_alternative": "A minimum-disturbance lens treats this as decisive and favors B.", "change_condition": "Evidence of larger or irreversible effects would make it decisive."},
+    {"judgment_id": "J-cultural", "criterion_id": "cultural", "importance": "material", "judgment_kind": "normative", "rationale": "Historic setting, cultural relationships, and visual change require explicit consideration rather than an inferred preference.", "author_role": "Workbench reviewer", "dissent_or_alternative": "Different views of restoration and new construction may reverse the comparison.", "change_condition": "Consultation findings or an adverse-effect determination could change the appraisal."},
+    {"judgment_id": "J-operations", "criterion_id": "operations", "importance": "unresolved", "judgment_kind": "mixed", "rationale": "Operations matter, but this bounded source packet lacks enough comparative cost and resource evidence to rank the options.", "author_role": "Workbench reviewer", "dissent_or_alternative": "An implementation-first reviewer could refuse any recommendation until this evidence is supplied.", "change_condition": "A pinned comparative cost, staffing, construction, and lifecycle-maintenance packet would resolve it."},
+    {"judgment_id": "J-distribution", "criterion_id": "distribution", "importance": "material", "judgment_kind": "normative", "rationale": "Benefits and burdens should remain attributable to affected interests without inventing their preferences.", "author_role": "Workbench reviewer", "dissent_or_alternative": "A duly authorized decision maker may give legally or institutionally defined interests different priority.", "change_condition": "Reviewed consultation or distributional evidence could materially change the conclusion."}
+  ],
+  "priority_lenses": [
+    {"lens_id": "safety-flow", "label": "Prioritize safety and a coherent visitor arrival", "priority_statement": "Treat safety, preparedness, orientation, and cohesive visitor flow as decisive.", "decisive_criterion_ids": ["safety", "experience"], "result_state": "conditional_recommendation", "preferred_option_id": "C", "rationale": "C combines a dedicated pedestrian crossing with the EA's clearest projected arrival and orientation benefit, subject to mitigations and unresolved operations evidence."},
+    {"lens_id": "minimum-disturbance", "label": "Prioritize minimum new disturbance", "priority_statement": "Treat avoidance of new biological, water, visual, and construction disturbance as decisive among action alternatives.", "decisive_criterion_ids": ["natural", "cultural"], "result_state": "conditional_recommendation", "preferred_option_id": "B", "rationale": "B retains the shared improvements while generally requiring less new crossing-area construction than C."},
+    {"lens_id": "operations-first", "label": "Prioritize proven operational feasibility", "priority_statement": "Require comparative cost, staffing, construction, and maintenance evidence before selecting an action alternative.", "decisive_criterion_ids": ["operations"], "result_state": "unresolved", "preferred_option_id": null, "rationale": "The bounded fixture does not contain enough comparative operational evidence to choose responsibly under this lens."}
+  ],
+  "tradeoffs": [
+    {"tradeoff_id": "arrival-versus-disturbance", "wording": "C's more cohesive pedestrian arrival must be weighed against its additional localized construction and resource disturbance relative to B.", "option_ids": ["B", "C"], "assessment_ids": ["B-experience", "C-experience", "B-natural", "C-natural"]}
+  ],
+  "conclusion": {
+    "state": "conditional_recommendation",
+    "basis": "workbench_appraisal",
+    "headline": "Prefer C only when safety, preparedness, and a cohesive visitor arrival are the leading priorities.",
+    "recommended_option_id": "C",
+    "rationale": "Under the demonstrative safety-and-flow priority lens, C's dedicated pedestrian crossing and clearer arrival are decisive. This conclusion reverses to B under a minimum-disturbance lens and remains unresolved under an operations-first lens.",
+    "decisive_assessment_ids": ["C-safety", "C-experience", "B-natural", "C-natural", "C-operations"],
+    "decisive_judgment_ids": ["J-safety", "J-experience", "J-natural", "J-operations"],
+    "sensitivity_statuses": ["value_sensitive", "evidence_limited"],
+    "evidence_gaps": ["Comparable cost, staffing, construction-risk, and lifecycle-maintenance evidence is not present in the bounded fixture.", "Affected-party preferences and consultation outcomes cannot be inferred from the reviewed relationship summaries."],
+    "next_actions": ["Obtain and pin a comparative operations and cost packet before relying on an operations-first appraisal.", "Have an authorized reviewer confirm or revise the visible priority judgments."],
+    "non_claims": ["C is not empirically proven best.", "The NPS designation of C as its proposed action did not determine the Workbench conclusion.", "The appraisal is not a final agency decision or completed NEPA analysis."]
+  },
+  "review_events": [
+    {"event_id": "review-1", "event_type": "reviewed", "actor_role": "Workbench researcher", "recorded_on": "2026-08-12", "rationale": "Reviewed the fixture for option identity, source anchoring, separation of evidence and values, and sensitivity across three declared lenses."}
+  ]
+}

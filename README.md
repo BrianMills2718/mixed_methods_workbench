@@ -48,10 +48,15 @@ make method-dashboard PYTHON=.venv/bin/python
 # open http://127.0.0.1:8765
 ```
 
+The same service exposes the source-bound Mist Trail policy-decision example
+at `http://127.0.0.1:8765/decision/mist-trail` and its matching typed artifact
+at `http://127.0.0.1:8765/api/decision/mist-trail`.
+
 Focused checks:
 
 ```bash
 make test-method-dashboard PYTHON=.venv/bin/python
+make test-mist-trail-decision PYTHON=.venv/bin/python
 ```
 
 Current scaffold documentation/fixture check:

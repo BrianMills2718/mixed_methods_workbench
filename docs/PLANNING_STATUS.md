@@ -3,7 +3,23 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-12
 
-## Current Phase: METHOD-DASH-C2 Implemented; Re-review Pending
+## Current Phase: MT-D1 Mist Trail Decision Review Implemented; Review Pending
+
+Brian authorized the bounded implementation in
+[`mist_trail_policy_decision_vertical.md`](plans/mist_trail_policy_decision_vertical.md)
+on 2026-08-12. `MT-D1` adds one manually reviewed, hash-bound A/B/C policy
+appraisal to the existing Method Dashboard service. Its typed packet, matching
+JSON route, and plain-language browser view separate source consequences from
+demonstrative human priorities and end in a value-sensitive, evidence-limited
+conditional result.
+
+This remains a development fixture. It is not an NPS decision, legal/NEPA
+analysis, formal public comment, generic decision engine, shared contract, or
+evidence that the selected option is empirically best. The official PDF bytes
+are not committed, so exact passage text remains unavailable; reviewed source
+summaries and page/section locators are shown instead.
+
+## Prior Phase: METHOD-DASH-C2 Implemented; Re-review Pending
 
 Brian's first review of `METHOD-DASH-C1` found that the primary form required
 too much methodological knowledge. The implemented bounded correction is

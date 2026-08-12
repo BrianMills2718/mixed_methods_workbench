@@ -13,7 +13,7 @@ PYTHON ?= python3
 status:  ## Show git status
 	@git status --short --branch
 
-.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts validate-demo-fixtures validate-demo-controls assemble-demo-review test-demo typecheck-demo method-dashboard test-method-dashboard demo-coverage coverage coverage-json check
+.PHONY: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-generated-coverage validate-interface-contracts validate-demo-fixtures validate-demo-controls assemble-demo-review test-demo typecheck-demo method-dashboard test-method-dashboard test-mist-trail-decision demo-coverage coverage coverage-json check
 
 validate-fixtures:  ## Validate synthetic fixture contract files
 	@python3 scripts/validate_fixtures.py
@@ -51,6 +51,9 @@ method-dashboard:  ## Run the local METHOD-DASH-C1 review dashboard
 
 test-method-dashboard:  ## Run focused question-first routing and dashboard checks
 	@PYTHONPATH=src $(PYTHON) -m pytest -q tests/test_method_dashboard.py
+
+test-mist-trail-decision:  ## Run the MT-D1 packet, corruption, and UI contract checks
+	@PYTHONPATH=src $(PYTHON) -m pytest -q tests/test_mist_trail_decision.py
 
 demo-coverage:  ## Regenerate coverage including DEMO-C1 rows
 	@python3 scripts/check_coverage.py --write-reports --format markdown

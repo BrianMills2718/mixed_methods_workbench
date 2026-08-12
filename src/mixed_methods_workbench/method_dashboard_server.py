@@ -3,18 +3,19 @@
 from __future__ import annotations
 
 import argparse
+import json
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-import json
 from pathlib import Path
 from typing import ClassVar
 
 from pydantic import ValidationError
 
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
-
+from .mist_trail_decision import mist_trail_payload
 
 STATIC_PATH = Path(__file__).with_name("static") / "method_dashboard.html"
+MIST_TRAIL_STATIC_PATH = Path(__file__).with_name("static") / "mist_trail_decision.html"
 MAX_REQUEST_BYTES = 100_000
 
 
@@ -49,25 +50,31 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
-    def _write_html(self) -> None:
-        body = self.html_path.read_bytes()
+    def _write_html(self, path: Path | None = None) -> None:
+        body = (path or self.html_path).read_bytes()
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
 
-    def do_GET(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler contract
+    def do_GET(self) -> None:
         """Serve the dashboard or its exact catalog."""
         if self.path in {"/", "/index.html"}:
             self._write_html()
             return
+        if self.path in {"/decision/mist-trail", "/decision/mist-trail/"}:
+            self._write_html(MIST_TRAIL_STATIC_PATH)
+            return
         if self.path == "/api/catalog":
             self._write_json(HTTPStatus.OK, catalog_payload())
             return
+        if self.path == "/api/decision/mist-trail":
+            self._write_json(HTTPStatus.OK, mist_trail_payload())
+            return
         self._write_json(HTTPStatus.NOT_FOUND, {"error": "Route not found."})
 
-    def do_POST(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler contract
+    def do_POST(self) -> None:
         """Run the question-first router through a typed JSON boundary."""
         if self.path != "/api/route":
             self._write_json(HTTPStatus.NOT_FOUND, {"error": "Route not found."})
@@ -80,7 +87,9 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
             return
         if length <= 0 or length > MAX_REQUEST_BYTES:
             self._write_json(
-                HTTPStatus.REQUEST_ENTITY_TOO_LARGE if length > MAX_REQUEST_BYTES else HTTPStatus.BAD_REQUEST,
+                HTTPStatus.REQUEST_ENTITY_TOO_LARGE
+                if length > MAX_REQUEST_BYTES
+                else HTTPStatus.BAD_REQUEST,
                 {"error": "Request body is missing or too large."},
             )
             return
