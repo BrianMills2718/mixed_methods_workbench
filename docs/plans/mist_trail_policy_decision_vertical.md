@@ -1,7 +1,7 @@
 # Mist Trail policy options to a reviewable decision
 
-**Status:** bounded design candidate; case and design objective approved by
-Brian on 2026-08-12; implementation is not authorized by this document
+**Status:** MT-D1 implemented as an unadopted development fixture; fresh
+stakeholder comprehension review pending
 
 **Design route:** durable solo, Standard depth, prototype delivery profile
 
@@ -10,8 +10,8 @@ Brian on 2026-08-12; implementation is not authorized by this document
 **Canonical example:** Yosemite National Park Mist Trail Corridor
 Rehabilitation Draft Environmental Assessment
 
-**Source baseline:** Workbench `main@9ab4d14`; Project Meta readiness decision
-`main@cdbe32eea3a19775602b69081a5dce25844af12d`
+**Source baseline:** Workbench design `main@2ddb369`; Project Meta readiness
+decision `main@cdbe32eea3a19775602b69081a5dce25844af12d`
 
 **Landscape disposition:** linked to
 `project-meta/investigations/2026-08-12_policy_analytic_stress_test_readiness.md`
@@ -327,14 +327,14 @@ The design is disproved or must be revised if:
   result; or
 - a generic decision engine is required before this one case can be inspected.
 
-## Smallest future implementation slice
+## Implemented slice
 
 This is one sequential prototype lane; no work graph is needed.
 
 ### Slice MT-D1 — Manually reviewed decision packet and view
 
-**Epistemic state:** `fully_specifiable_now` once Brian separately authorizes
-implementation.
+**Epistemic state:** `implemented_development_fixture`; methodological adoption
+and stakeholder comprehension remain unclaimed.
 
 **Input**
 
@@ -355,7 +355,7 @@ implementation.
 - positive packet validates and renders;
 - corrupted option identity or file hash refuses;
 - common-action misattribution fails;
-- missing source anchor becomes unresolved;
+- a missing source anchor fails rather than being treated as no effect;
 - official preference cannot satisfy the Workbench conclusion;
 - absent value judgment cannot produce a recommendation;
 - a changed priority lens visibly changes or preserves the conclusion without
@@ -384,6 +384,29 @@ Stop after the single source-bound packet, JSON/browser parity, focused
 corruptions, and one fresh comprehension review. Do not generalize from the
 fixture. Perform a course check earlier if the slice requires a scoring engine,
 new source-research platform, or a cross-repository contract.
+
+### MT-D1 implementation observation — 2026-08-12
+
+- The fixture contains all three official alternatives, one shared B/C action,
+  six criteria, and 18 source-anchored option-by-criterion assessments.
+- The displayed result is a Workbench appraisal: C under the safety-and-flow
+  lens, B under minimum disturbance, and unresolved under an operations-first
+  lens. No aggregate score is computed.
+- `/decision/mist-trail` and `/api/decision/mist-trail` load the same validated
+  artifact through the existing Method Dashboard service.
+- Focused positive and corruption checks pass, as do the repository's existing
+  check suite, strict type check, and changed-file lint.
+- A headless Chromium observation at 1440 × 1000 and 390 × 844 found no console
+  errors, failed requests, or horizontal mobile overflow. The priority control
+  visibly changed the result from C to B.
+- The source manifest SHA-256 is
+  `b1341d8962203dee02ae3be0094b98418aea8e7b76f91af87c71e16756e0a4d7`;
+  it pins the Draft EA identity and its separately observed file hash without
+  committing or rendering the source bytes.
+
+These observations establish the development mechanics and a coherent first
+viewport. They do not establish methodological adoption or stakeholder
+comprehension; Brian's fresh review remains the next gate.
 
 ## Later promotion triggers, not planned slices
 

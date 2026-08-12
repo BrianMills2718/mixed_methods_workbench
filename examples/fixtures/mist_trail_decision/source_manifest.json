@@ -1,0 +1,62 @@
+{
+  "schema_id": "mist_trail.source_manifest",
+  "schema_version": "0.1.0",
+  "artifact_status": "development_fixture",
+  "sources": [
+    {
+      "source_id": "nps-project-page",
+      "title": "Mist Trail Corridor Rehabilitation",
+      "url": "https://www.nps.gov/yose/getinvolved/misttrailcorridor.htm",
+      "source_type": "project_page",
+      "retrieved_on": "2026-08-12",
+      "byte_size": null,
+      "content_sha256": null,
+      "custody_status": "metadata_only",
+      "allowed_uses": [
+        "identify the decision authority, purpose, need, timeline, and public context"
+      ],
+      "excluded_inferences": [
+        "current public-comment eligibility without a fresh status check",
+        "agency endorsement of the Workbench appraisal"
+      ]
+    },
+    {
+      "source_id": "nps-document-record",
+      "title": "Mist Trail Corridor Project EA document record",
+      "url": "https://parkplanning.nps.gov/document.cfm?documentID=150212&parkID=347&projectID=105979",
+      "source_type": "document_record",
+      "retrieved_on": "2026-08-12",
+      "byte_size": null,
+      "content_sha256": null,
+      "custody_status": "metadata_only",
+      "allowed_uses": [
+        "identify the official Draft EA file and closed public-comment period"
+      ],
+      "excluded_inferences": [
+        "final agency decision",
+        "permission to submit a public comment"
+      ]
+    },
+    {
+      "source_id": "nps-draft-ea",
+      "title": "YOSE Mist Trail EA Public Review 20260526 508",
+      "url": "https://parkplanning.nps.gov/showFile.cfm?sfid=849738&projectID=105979",
+      "source_type": "pdf",
+      "retrieved_on": "2026-08-12",
+      "byte_size": 4495269,
+      "content_sha256": "df5304a9116b9dc2093e1f5e2eee61b61adab3c6f65ac8214aca7e685c23cbb0",
+      "custody_status": "metadata_only",
+      "allowed_uses": [
+        "represent official alternatives and common actions",
+        "summarize reviewed resource-specific consequence windows",
+        "identify the NPS proposed action separately from the Workbench conclusion"
+      ],
+      "excluded_inferences": [
+        "complete comparative cost or park-operations evidence",
+        "Tribal or public endorsement of an alternative",
+        "independent empirical validation of agency projections",
+        "exact passage rendering without separately supplied hash-matching bytes"
+      ]
+    }
+  ]
+}

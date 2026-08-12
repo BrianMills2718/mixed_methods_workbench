@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mist Trail decision review</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17231d;
+      --muted: #536158;
+      --paper: #f7f5ef;
+      --panel: #fffdf8;
+      --line: #d8d9ce;
+      --pine: #174d3a;
+      --pine-soft: #e6f0eb;
+      --ochre: #9a5d18;
+      --ochre-soft: #fbefdc;
+      --blue: #315d7a;
+      --blue-soft: #e9f1f5;
+      --red: #8a3c34;
+      --shadow: 0 18px 45px rgba(32, 45, 38, .08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.55; }
+    a { color: var(--pine); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #e69d35; outline-offset: 3px; }
+    .topbar { border-bottom: 1px solid var(--line); background: rgba(247,245,239,.96); }
+    .topbar-inner { max-width: 1180px; margin: auto; padding: .85rem 1.25rem; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .brand { font-weight: 800; letter-spacing: -.02em; color: var(--ink); text-decoration: none; }
+    .back { font-size: .92rem; font-weight: 700; }
+    main { max-width: 1180px; margin: auto; padding: 2rem 1.25rem 5rem; }
+    .eyebrow { color: var(--pine); font-weight: 800; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .warning { display: inline-flex; gap: .5rem; align-items: center; padding: .45rem .72rem; border-radius: 999px; background: var(--ochre-soft); color: #71400c; font-weight: 800; font-size: .82rem; }
+    h1 { max-width: 850px; margin: .8rem 0 .65rem; font-size: clamp(2.15rem, 5vw, 4.65rem); line-height: 1.02; letter-spacing: -.055em; }
+    .lede { max-width: 800px; color: var(--muted); font-size: clamp(1.03rem, 2vw, 1.25rem); }
+    .flow { margin: 1.5rem 0 2rem; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--panel); box-shadow: var(--shadow); }
+    .flow > div { padding: 1rem; border-right: 1px solid var(--line); }
+    .flow > div:last-child { border-right: 0; }
+    .step { display: block; color: var(--pine); font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .flow strong { display: block; margin-top: .2rem; }
+    .result { padding: 1.45rem; background: var(--pine); color: #fff; border-radius: 18px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .55fr); gap: 1.5rem; box-shadow: var(--shadow); }
+    .result .eyebrow { color: #bfdfcf; }
+    .result h2 { font-size: clamp(1.6rem, 3.1vw, 2.65rem); line-height: 1.12; letter-spacing: -.035em; margin: .35rem 0 .6rem; }
+    .result p { margin: 0; color: #e8f1ed; }
+    .result-aside { border-left: 1px solid rgba(255,255,255,.24); padding-left: 1.4rem; }
+    .result-aside strong { display: block; font-size: 1.1rem; margin-bottom: .35rem; }
+    .section { margin-top: 3.3rem; }
+    .section-head { max-width: 760px; }
+    .section h2 { margin: 0 0 .45rem; font-size: clamp(1.65rem, 3vw, 2.4rem); letter-spacing: -.035em; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.3rem; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem; box-shadow: 0 8px 24px rgba(32,45,38,.045); }
+    .option-id { width: 2rem; height: 2rem; display: grid; place-items: center; background: var(--pine-soft); color: var(--pine); border-radius: 50%; font-weight: 900; }
+    .card h3 { margin: .75rem 0 .25rem; font-size: 1.12rem; }
+    .card p { color: var(--muted); margin: 0; }
+    .agency-tag { display: inline-block; margin-top: .75rem; padding: .25rem .5rem; border: 1px solid #c99d64; border-radius: 5px; color: #71400c; background: var(--ochre-soft); font-size: .75rem; font-weight: 800; }
+    .common { margin-top: 1rem; padding: 1rem 1.15rem; border-left: 4px solid var(--blue); background: var(--blue-soft); border-radius: 4px 12px 12px 4px; }
+    .common strong { display: block; }
+    .common p { margin: .2rem 0 0; color: #3b5564; }
+    .tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0 1rem; }
+    .tab { border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: .62rem .9rem; font: inherit; font-size: .9rem; font-weight: 750; cursor: pointer; }
+    .tab[aria-selected="true"] { background: var(--pine); border-color: var(--pine); color: white; }
+    .compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .assessment { position: relative; padding-top: 2.8rem; }
+    .assessment .option-id { position: absolute; top: 1rem; left: 1rem; }
+    .direction { position: absolute; top: 1.1rem; right: 1rem; text-transform: capitalize; font-size: .76rem; font-weight: 850; }
+    .direction-benefit { color: var(--pine); }
+    .direction-harm { color: var(--red); }
+    .direction-mixed, .direction-unknown { color: var(--ochre); }
+    .assessment p { color: var(--ink); margin-top: .65rem; }
+    .meta { padding-top: .7rem; margin-top: .8rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+    details { margin-top: .7rem; }
+    summary { cursor: pointer; color: var(--pine); font-weight: 750; }
+    .lens-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 1.25rem; margin-top: 1.3rem; }
+    .lens-buttons { display: grid; gap: .65rem; align-content: start; }
+    .lens-button { text-align: left; border: 1px solid var(--line); background: var(--panel); padding: .9rem; border-radius: 12px; color: var(--ink); font: inherit; cursor: pointer; }
+    .lens-button strong { display: block; }
+    .lens-button span { display: block; color: var(--muted); font-size: .83rem; margin-top: .15rem; }
+    .lens-button[aria-pressed="true"] { border: 2px solid var(--pine); background: var(--pine-soft); padding: calc(.9rem - 1px); }
+    .lens-result { min-height: 245px; display: grid; align-content: center; }
+    .lens-result .outcome { color: var(--pine); font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .lens-result h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin: .35rem 0; letter-spacing: -.03em; }
+    .lens-result p { color: var(--muted); }
+    .split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    .gap-card { border-color: #e1bd88; background: #fff9ee; }
+    .nonclaim-card { border-color: #b9c9c0; background: #f3f8f5; }
+    ul { padding-left: 1.2rem; }
+    li + li { margin-top: .45rem; }
+    .provenance { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.3rem; }
+    .provenance summary { font-size: 1.05rem; }
+    .source-list { display: grid; gap: .75rem; margin-top: 1rem; }
+    .source-row { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; padding: .85rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+    code { overflow-wrap: anywhere; font-size: .78rem; }
+    .custody { color: var(--ochre); font-size: .78rem; font-weight: 850; white-space: nowrap; }
+    .loading, .error { padding: 3rem 1rem; text-align: center; }
+    .error { color: var(--red); }
+    [hidden] { display: none !important; }
+    @media (max-width: 780px) {
+      .flow { grid-template-columns: 1fr 1fr; }
+      .flow > div:nth-child(2) { border-right: 0; }
+      .flow > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .result, .lens-grid { grid-template-columns: 1fr; }
+      .result-aside { border-left: 0; border-top: 1px solid rgba(255,255,255,.24); padding: 1rem 0 0; }
+      .options, .compare, .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 470px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; }
+      .flow { grid-template-columns: 1fr; }
+      .flow > div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .flow > div:last-child { border-bottom: 0; }
+      main { padding-top: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">Mixed Methods Workbench</a>
+      <a class="back" href="/#stress">← Back to the method dashboard</a>
+    </div>
+  </header>
+  <main>
+    <div id="loading" class="loading">Loading the source-bound decision review…</div>
+    <div id="error" class="error" hidden></div>
+    <div id="app" hidden>
+      <span class="warning">Development example — not an NPS decision</span>
+      <h1>Which Mist Trail rehabilitation option best fits the priorities?</h1>
+      <p class="lede">This example compares the three official options in a National Park Service Draft Environmental Assessment. It keeps projected consequences separate from the human priorities needed to reach a decision.</p>
+
+      <div class="flow" aria-label="How this review works">
+        <div><span class="step">1 · Source</span><strong>Official Draft EA</strong></div>
+        <div><span class="step">2 · Compare</span><strong>Consequences for A, B, and C</strong></div>
+        <div><span class="step">3 · Judge</span><strong>Make priorities visible</strong></div>
+        <div><span class="step">4 · Conclude</span><strong>Recommend, remain unresolved, or refuse</strong></div>
+      </div>
+
+      <section class="result" aria-labelledby="result-title">
+        <div>
+          <div class="eyebrow">Result under the displayed priorities</div>
+          <h2 id="result-title"></h2>
+          <p id="result-rationale"></p>
+        </div>
+        <div class="result-aside">
+          <strong>The result is not universal.</strong>
+          <p>A different defensible priority changes the preferred option, and missing operations evidence prevents a decision under an operations-first lens.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="choices-title">
+        <div class="section-head">
+          <div class="eyebrow">The official choices</div>
+          <h2 id="choices-title">Three alternatives, not three invented scenarios</h2>
+          <p>The NPS source defines the options. The Workbench may compare them, but it cannot merge or replace them.</p>
+        </div>
+        <div id="options" class="options"></div>
+        <div id="common-action" class="common"></div>
+      </section>
+
+      <section class="section" aria-labelledby="evidence-title">
+        <div class="section-head">
+          <div class="eyebrow">What the source says</div>
+          <h2 id="evidence-title">Compare one consequence at a time</h2>
+          <p>Choose a criterion to see the reviewed consequence summary, affected interests, uncertainty, and source locator for each option. These are not scores.</p>
+        </div>
+        <div id="criterion-tabs" class="tabs" role="tablist" aria-label="Comparison criterion"></div>
+        <div id="criterion-question" class="common"></div>
+        <div id="assessments" class="compare" role="tabpanel"></div>
+      </section>
+
+      <section class="section" aria-labelledby="values-title">
+        <div class="section-head">
+          <div class="eyebrow">Where human judgment enters</div>
+          <h2 id="values-title">Change the priority; watch the answer change</h2>
+          <p>The evidence does not choose its own priorities. These three lenses make the value choice visible without adding hidden weights.</p>
+        </div>
+        <div class="lens-grid">
+          <div id="lens-buttons" class="lens-buttons"></div>
+          <article id="lens-result" class="card lens-result" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="limits-title">
+        <div class="section-head">
+          <div class="eyebrow">Limits and next evidence</div>
+          <h2 id="limits-title">What this review cannot establish</h2>
+          <p>A useful decision artifact names missing evidence and non-claims rather than filling the matrix with guesses.</p>
+        </div>
+        <div class="split">
+          <article class="card gap-card"><h3>Evidence still needed</h3><ul id="evidence-gaps"></ul></article>
+          <article class="card nonclaim-card"><h3>Do not conclude</h3><ul id="non-claims"></ul></article>
+        </div>
+      </section>
+
+      <details class="provenance">
+        <summary>Source identity, custody, and internal references</summary>
+        <p>Internal packet: <code id="packet-id"></code>. Exact passage text is intentionally unavailable because the source PDF bytes are not stored with this fixture. The page shows reviewed summaries and locators only.</p>
+        <div id="source-list" class="source-list"></div>
+      </details>
+    </div>
+  </main>
+
+  <script>
+    const byId = (id) => document.getElementById(id);
+    const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"})[character]);
+    const list = (items) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+    let packet;
+
+    function renderOptions() {
+      byId("options").innerHTML = packet.options.map((option) => `
+        <article class="card">
+          <div class="option-id">${escapeHtml(option.option_id)}</div>
+          <h3>${escapeHtml(option.short_label)}</h3>
+          <p>${escapeHtml(option.summary)}</p>
+          ${option.option_kind === "agency_proposed_action" ? '<span class="agency-tag">NPS proposed action · not the Workbench result</span>' : ""}
+          <details><summary>Option-specific actions</summary>${list(option.specific_actions)}</details>
+        </article>`).join("");
+      const action = packet.common_actions[0];
+      byId("common-action").innerHTML = `<strong>Shared by B and C</strong><p>${escapeHtml(action.wording)}</p>`;
+    }
+
+    function renderCriterion(criterionId) {
+      const criterion = packet.criteria.find((item) => item.criterion_id === criterionId);
+      document.querySelectorAll(".tab").forEach((button) => button.setAttribute("aria-selected", String(button.dataset.id === criterionId)));
+      byId("criterion-question").innerHTML = `<strong>Evidence question</strong><p>${escapeHtml(criterion.empirical_question)}</p><strong style="margin-top:.7rem">Separate value question</strong><p>${escapeHtml(criterion.value_question)}</p>`;
+      byId("assessments").innerHTML = packet.options.map((option) => {
+        const item = packet.consequence_assessments.find((assessment) => assessment.option_id === option.option_id && assessment.criterion_id === criterionId);
+        const anchors = item.source_anchor_ids.map((id) => packet.source_anchors.find((anchor) => anchor.anchor_id === id));
+        const interests = item.affected_interest_ids.map((id) => packet.affected_interests.find((interest) => interest.interest_id === id).label);
+        return `<article class="card assessment">
+          <div class="option-id">${escapeHtml(option.option_id)}</div>
+          <span class="direction direction-${escapeHtml(item.direction)}">${escapeHtml(item.direction)}</span>
+          <p>${escapeHtml(item.wording)}</p>
+          <div class="meta"><strong>Affected:</strong> ${escapeHtml(interests.join(", "))}<br><strong>Uncertainty:</strong> ${escapeHtml(item.uncertainty)}</div>
+          <details><summary>Source locator${anchors.length > 1 ? "s" : ""}</summary>${anchors.map((anchor) => `<p><strong>${escapeHtml(anchor.page_label || anchor.section)}</strong> · ${escapeHtml(anchor.locator)}<br><span class="custody">Exact passage unavailable</span></p>`).join("")}</details>
+        </article>`;
+      }).join("");
+    }
+
+    function renderCriteria() {
+      byId("criterion-tabs").innerHTML = packet.criteria.map((criterion, index) => `<button class="tab" type="button" role="tab" data-id="${escapeHtml(criterion.criterion_id)}" aria-selected="${index === 0}">${escapeHtml(criterion.label)}</button>`).join("");
+      byId("criterion-tabs").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-id]");
+        if (button) renderCriterion(button.dataset.id);
+      });
+      renderCriterion(packet.criteria[0].criterion_id);
+    }
+
+    function renderLens(lensId) {
+      const lens = packet.priority_lenses.find((item) => item.lens_id === lensId);
+      document.querySelectorAll(".lens-button").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.id === lensId)));
+      const option = lens.preferred_option_id ? packet.options.find((item) => item.option_id === lens.preferred_option_id) : null;
+      const title = option ? `${option.option_id}: ${option.short_label}` : "No responsible choice yet";
+      const state = option ? "Conditional preference" : "Unresolved";
+      byId("lens-result").innerHTML = `<div class="outcome">${escapeHtml(state)}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(lens.rationale)}</p>`;
+    }
+
+    function renderLenses() {
+      byId("lens-buttons").innerHTML = packet.priority_lenses.map((lens, index) => `<button class="lens-button" type="button" data-id="${escapeHtml(lens.lens_id)}" aria-pressed="${index === 0}"><strong>${escapeHtml(lens.label)}</strong><span>${escapeHtml(lens.priority_statement)}</span></button>`).join("");
+      byId("lens-buttons").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-id]");
+        if (button) renderLens(button.dataset.id);
+      });
+      renderLens(packet.priority_lenses[0].lens_id);
+    }
+
+    function renderSources(sources) {
+      byId("source-list").innerHTML = sources.map((source) => `<div class="source-row"><div><a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a><br><code>${escapeHtml(source.content_sha256 || "No local content hash")}</code></div><span class="custody">${source.custody_status === "metadata_only" ? "Metadata only" : "Hash-verified bytes"}</span></div>`).join("");
+    }
+
+    async function load() {
+      try {
+        const response = await fetch("/api/decision/mist-trail");
+        if (!response.ok) throw new Error(`The decision packet could not be loaded (${response.status}).`);
+        const artifact = await response.json();
+        packet = artifact.packet;
+        byId("result-title").textContent = packet.conclusion.headline;
+        byId("result-rationale").textContent = packet.conclusion.rationale;
+        byId("evidence-gaps").innerHTML = packet.conclusion.evidence_gaps.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+        byId("non-claims").innerHTML = packet.conclusion.non_claims.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+        byId("packet-id").textContent = `${packet.packet_id} · schema ${packet.schema_version} · source manifest ${packet.source_manifest_sha256}`;
+        renderOptions(); renderCriteria(); renderLenses(); renderSources(artifact.source_manifest.sources);
+        byId("loading").hidden = true;
+        byId("app").hidden = false;
+      } catch (error) {
+        byId("loading").hidden = true;
+        byId("error").hidden = false;
+        byId("error").textContent = error.message;
+      }
+    }
+    load();
+  </script>
+</body>
+</html>
