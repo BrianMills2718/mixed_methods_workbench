@@ -7,11 +7,13 @@ Observed: 2026-08-12
 ## Purpose
 
 This is the code-first reality check for the method-decomposition and collision
-exercise. It records what four completed or substantially implemented workflows
-actually do before idealized methods are decomposed or shared capabilities are
-proposed.
+exercise. It records what four observed systems actually do before idealized
+methods are decomposed or shared capabilities are proposed. Across those
+systems, five primary analytic variants are frozen below. `steps.yaml` contains
+six workflow graphs because Process Tracing's acquisition/admission lifecycle is
+modeled separately from its primary analytic workflow.
 
-The four frozen variants are:
+The five frozen primary variants are:
 
 1. `qc_fixed_corpus_grounded_theory_v3` — the Open Science fixed-corpus
    grounded-theory development, expansion, appraisal, and projection path in
