@@ -3,7 +3,17 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-12
 
-## Current Phase: METHOD-DASH-C1 Implemented; Local Review Pending
+## Current Phase: METHOD-DASH-C2 Implemented; Re-review Pending
+
+Brian's first review of `METHOD-DASH-C1` found that the primary form required
+too much methodological knowledge. The implemented bounded correction is
+[`method_dash_c2_plain_language.md`](plans/method_dash_c2_plain_language.md).
+It changed user-facing labels, explanations, accessible optional tooltips, and
+result language while preserving the typed brief and routing behavior. It did
+not expand the method catalog, alter method-selection rules, invoke producer
+engines, or claim validated stakeholder comprehension.
+
+## Prior Phase: METHOD-DASH-C1 Implemented; Local Review Pending
 
 Brian's 2026-08-12 approval explicitly authorized a bounded dashboard-shaped
 methodology increment. The active slice is

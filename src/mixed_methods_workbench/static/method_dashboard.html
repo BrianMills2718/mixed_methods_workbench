@@ -140,15 +140,17 @@
       background: rgba(255, 253, 247, .88);
       box-shadow: var(--shadow);
     }
-    .brief-panel { position: sticky; top: 86px; overflow: hidden; }
+    .brief-panel { overflow: hidden; }
     .panel-header { padding: 24px 25px 18px; border-bottom: 1px solid var(--line); }
     .panel-kicker { margin: 0 0 5px; color: var(--forest-2); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .panel-header h2 { margin-bottom: 6px; font-family: var(--serif); font-size: 28px; font-weight: 600; letter-spacing: -.025em; }
     .panel-header p { margin: 0; color: var(--muted); font-size: 14px; }
     .brief-form { padding: 22px 25px 25px; }
-    .field { margin-bottom: 25px; }
-    .field-label { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; font-weight: 750; }
+    .field { margin-bottom: 28px; }
+    .field-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; font-weight: 750; }
     .field-label span { color: var(--muted); font-size: 12px; font-weight: 500; }
+    .field-intro { margin: 0 0 11px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .label-copy { display: flex; align-items: center; gap: 7px; }
     textarea, select {
       width: 100%;
       border: 1px solid #c9c3b5;
@@ -160,26 +162,66 @@
     textarea { min-height: 122px; padding: 13px 14px; resize: vertical; }
     select { padding: 11px 38px 11px 13px; }
     textarea:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(37,106,83,.13); }
-    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .choice-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    .choice-wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; align-items: stretch; }
     .choice {
       position: relative;
       display: flex;
       align-items: center;
       gap: 8px;
-      min-height: 42px;
-      padding: 9px 10px;
+      min-height: 58px;
+      padding: 10px 11px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: #fffefa;
       cursor: pointer;
       font-size: 13px;
-      font-weight: 650;
     }
     .choice input { position: absolute; opacity: 0; pointer-events: none; }
     .choice:has(input:checked) { border-color: var(--forest-2); color: var(--forest); background: var(--mint); }
-    .choice-dot { width: 9px; height: 9px; border: 1px solid #87948c; border-radius: 50%; background: #fff; }
-    .choice:has(input:checked) .choice-dot { border: 3px solid var(--forest-2); }
+    .choice:has(input:focus-visible) { outline: 3px solid rgba(37,106,83,.2); outline-offset: 1px; }
+    .choice-dot { position: relative; flex: 0 0 auto; width: 15px; height: 15px; border: 1px solid #87948c; border-radius: 4px; background: #fff; }
+    .choice:has(input:checked) .choice-dot { border-color: var(--forest-2); background: var(--forest-2); }
+    .choice:has(input:checked) .choice-dot::after { content: "✓"; position: absolute; inset: -2px 0 0; color: #fff; text-align: center; font-size: 11px; font-weight: 900; }
+    .choice-copy { min-width: 0; }
+    .choice-copy strong { display: block; margin-bottom: 2px; font-size: 12px; font-weight: 750; line-height: 1.3; }
+    .choice-copy small { display: block; color: var(--muted); font-size: 11px; font-weight: 450; line-height: 1.35; }
+    .choice:has(input:checked) .choice-copy small { color: #466357; }
+    .help-trigger {
+      align-self: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 1px solid #b8c1bb;
+      border-radius: 50%;
+      color: var(--forest-2);
+      background: #fffefa;
+      cursor: help;
+      font-size: 12px;
+      font-weight: 850;
+    }
+    .help-trigger:hover, .help-trigger:focus-visible { border-color: var(--forest-2); outline: 3px solid rgba(37,106,83,.13); }
+    .help-popover {
+      display: none;
+      grid-column: 1 / -1;
+      margin: -1px 0 2px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--forest-2);
+      border-radius: 0 8px 8px 0;
+      color: #45534b;
+      background: var(--mint);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .choice-wrap:has(.help-trigger:hover) .help-popover,
+    .choice-wrap:has(.help-trigger:focus) .help-popover { display: block; }
+    .select-guide { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px; margin-top: 8px; }
+    .select-guide p { margin: 0; color: #536159; font-size: 11px; line-height: 1.4; }
+    .select-guide .help-popover { margin-top: 0; }
+    .select-guide:has(.help-trigger:hover) .help-popover,
+    .select-guide:has(.help-trigger:focus) .help-popover { display: block; }
     .exposure-choice { align-items: flex-start; margin-top: 8px; font-weight: 600; line-height: 1.35; }
+    .exposure-note { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; font-weight: 450; }
     .form-error { margin: -8px 0 16px; padding: 11px 12px; border-radius: 10px; color: var(--danger); background: #f7e6e2; font-size: 13px; }
     .primary-button {
       width: 100%;
@@ -299,7 +341,6 @@
       .topbar { margin: 0 -16px; padding: 0 16px; }
       .prototype-badge { display: none; }
       .workspace { grid-template-columns: 1fr; }
-      .brief-panel { position: static; }
       .hero { padding-top: 48px; }
       .result-panel { padding: 18px; }
       .empty-state { min-height: 400px; padding: 30px 12px; }
@@ -338,14 +379,14 @@
       <div>
         <p class="eyebrow">Research design workbench</p>
         <h1>Start with the question—not the tool.</h1>
-        <p class="hero-copy">Describe what you need to learn or decide. Build a study map that combines appropriate methods while keeping their evidence, assumptions, and claim limits visible.</p>
+        <p class="hero-copy">Describe what you need to learn or decide. See several ways to approach the work, why each may help, and what each one cannot show.</p>
       </div>
       <aside class="mental-model" aria-label="Product mental model">
         <strong>One continuous analytical record</strong>
         <div class="model-flow">
           <div class="model-node">Question<span>What must be learned or decided?</span></div>
           <div class="arrow" aria-hidden="true">→</div>
-          <div class="model-node">Method paths<span>What could warrant each claim?</span></div>
+          <div class="model-node">Possible approaches<span>What could support each kind of conclusion?</span></div>
           <div class="arrow" aria-hidden="true">→</div>
           <div class="model-node">Actionable result<span>What follows—and what remains uncertain?</span></div>
         </div>
@@ -356,9 +397,9 @@
       <section id="planner-view" class="workspace app-view">
         <aside class="panel brief-panel">
           <div class="panel-header">
-            <p class="panel-kicker">Study brief</p>
-            <h2>Shape the analytical need</h2>
-            <p>Select every aim that matters. They are not mandatory stages or a hierarchy.</p>
+            <p class="panel-kicker">Tell us about the work</p>
+            <h2>What are you trying to figure out?</h2>
+            <p>Answer in ordinary language. The choices help show useful approaches; they do not lock you into one method.</p>
           </div>
           <form id="brief-form" class="brief-form">
             <div class="field">
@@ -367,27 +408,33 @@
             </div>
 
             <fieldset class="field" style="border:0;padding:0;margin-left:0;margin-right:0">
-              <legend class="field-label">What kinds of claims are needed?<span>Select several</span></legend>
+              <legend class="field-label"><span class="label-copy">What do you want the analysis to do?</span><span>Select all that apply</span></legend>
+              <p class="field-intro">These are different goals, not levels in a required sequence. A study can pursue several at once.</p>
               <div id="aim-choices" class="choice-grid"></div>
             </fieldset>
 
             <div class="field">
-              <label class="field-label" for="starting-point">Where are you starting?</label>
+              <label class="field-label" for="starting-point">What best describes your current situation?</label>
+              <p class="field-intro">Choose what already defines the work—not necessarily a physical file you possess.</p>
               <select id="starting-point" name="starting_point"></select>
+              <div id="starting-point-guide" class="select-guide" aria-live="polite"></div>
             </div>
 
             <div class="field">
-              <label class="field-label" for="scope">What is the main comparison scope?</label>
+              <label class="field-label" for="scope">What will you study or compare?</label>
+              <p class="field-intro">The number and kind of cases or observations changes what conclusions different approaches can support.</p>
               <select id="scope" name="scope"></select>
+              <div id="scope-guide" class="select-guide" aria-live="polite"></div>
             </div>
 
             <fieldset class="field" style="border:0;padding:0;margin-left:0;margin-right:0">
-              <legend class="field-label">What evidence is available now?<span>Select several</span></legend>
+              <legend class="field-label">What material do you already have?<span>Select all that apply</span></legend>
+              <p class="field-intro">This means material you could actually examine now. It is separate from the decision, theory, or question organizing the work.</p>
               <div id="evidence-choices" class="choice-grid"></div>
               <label class="choice exposure-choice">
                 <input id="same-evidence" type="checkbox">
                 <span class="choice-dot"></span>
-                <span>The same evidence helped generate the explanation I may assess.</span>
+                <span>The same material helped me develop the explanation I now want to assess.<span class="exposure-note">This is allowed. The result will carry a warning that it is not an independent test.</span></span>
               </label>
             </fieldset>
 
@@ -406,7 +453,7 @@
             <div>
               <div class="empty-icon" aria-hidden="true">⌁</div>
               <h2>Your study map will appear here.</h2>
-              <p>It will show several possible routes, what each method can contribute, what it cannot establish, and the decisions or evidence still needed. There is no universally best method.</p>
+              <p>It will show several possible approaches, why each may help, what it cannot establish, and what information or material is still needed. There is no universally best method.</p>
             </div>
           </div>
           <div id="route-result" hidden></div>
@@ -416,8 +463,8 @@
       <section id="library-view" class="panel result-panel app-view" hidden>
         <div class="library-head">
           <p class="panel-kicker">Method atlas</p>
-          <h2>Methods are defined by their warrant—not just their name.</h2>
-          <p>Browse the current representative set. Each profile states its analytical role, source of leverage, claim boundary, requirements, workflow shape, and honest implementation status.</p>
+          <h2>Methods differ in how they support a conclusion—not just their name.</h2>
+          <p>Browse the current representative set. Each profile explains what makes the approach informative, what it can and cannot establish, what it requires, and whether supporting software already exists.</p>
         </div>
         <div class="library-tools">
           <input id="method-search" type="search" placeholder="Search methods, claims, or evidence…" aria-label="Search method library">
@@ -461,30 +508,12 @@
 
   <script>
     const labels = {
-      describe: "Describe",
-      interpret: "Interpret meaning",
-      explain: "Explain why",
-      predict: "Predict",
-      intervention: "Estimate what changes",
-      decide: "Decide what to do",
-      policy_decision: "A policy problem or decision",
-      literature: "Existing literature",
-      evidence: "Raw evidence or documents",
-      published_theory: "A published theory",
-      candidate_explanation: "A candidate explanation",
-      structured_data: "Structured data",
-      unsure: "Not sure yet",
-      within_case: "One bounded case",
-      cross_case: "Several cases",
-      population: "A population of units",
-      system: "A modeled or policy system",
-      published_research: "Published research",
-      documents: "Documents",
-      interviews: "Interviews",
-      observations: "Observations",
-      bounded_case_records: "Case-specific records",
-      relational_data: "Relational / network data",
-      no_evidence_yet: "No evidence yet",
+      describe: "Describe what is happening",
+      interpret: "Understand what it means to people",
+      explain: "Explain why or how it happened",
+      predict: "Estimate what may happen next",
+      intervention: "Estimate what an action would change",
+      decide: "Choose what to do",
       candidate: "Plausible path",
       complement: "Useful complement",
       needs_design: "Needs design work"
@@ -501,19 +530,38 @@
       .replaceAll("'", "&#039;");
     const list = (items) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 
-    function renderChoice(container, name, value, text, radio = false) {
-      const item = document.createElement("label");
-      item.className = "choice";
-      item.innerHTML = `<input type="${radio ? "radio" : "checkbox"}" name="${name}" value="${value}"><span class="choice-dot"></span><span>${escapeHtml(text)}</span>`;
-      container.appendChild(item);
+    function optionByValue(options, value) {
+      return options.find((option) => option.value === value);
+    }
+
+    function helpMarkup(option, id) {
+      return `<button class="help-trigger" type="button" aria-label="More help for ${escapeHtml(option.label)}" aria-describedby="${id}">?</button><div id="${id}" class="help-popover" role="tooltip">${escapeHtml(option.help_text)}</div>`;
+    }
+
+    function renderChoice(container, name, option) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "choice-wrap";
+      const helpId = `help-${name}-${option.value}`;
+      wrapper.innerHTML = `<label class="choice"><input type="checkbox" name="${name}" value="${option.value}"><span class="choice-dot"></span><span class="choice-copy"><strong>${escapeHtml(option.label)}</strong><small>${escapeHtml(option.description)}</small></span></label>${helpMarkup(option, helpId)}`;
+      container.appendChild(wrapper);
+    }
+
+    function renderSelectGuide(containerId, option) {
+      const container = byId(containerId);
+      const helpId = `${containerId}-help`;
+      container.innerHTML = `<p>${escapeHtml(option.description)}</p>${helpMarkup(option, helpId)}`;
     }
 
     function renderInputs() {
-      catalog.aims.forEach((aim) => renderChoice(byId("aim-choices"), "aims", aim, label(aim)));
-      catalog.evidence_kinds.forEach((kind) => renderChoice(byId("evidence-choices"), "evidence", kind, label(kind)));
-      catalog.starting_points.forEach((point) => byId("starting-point").add(new Option(label(point), point)));
-      catalog.scopes.forEach((scope) => byId("scope").add(new Option(label(scope), scope)));
+      catalog.aim_options.forEach((option) => renderChoice(byId("aim-choices"), "aims", option));
+      catalog.evidence_options.forEach((option) => renderChoice(byId("evidence-choices"), "evidence", option));
+      catalog.starting_point_options.forEach((option) => byId("starting-point").add(new Option(option.label, option.value)));
+      catalog.scope_options.forEach((option) => byId("scope").add(new Option(option.label, option.value)));
       catalog.aims.forEach((aim) => byId("aim-filter").add(new Option(label(aim), aim)));
+      renderSelectGuide("starting-point-guide", catalog.starting_point_options[0]);
+      renderSelectGuide("scope-guide", catalog.scope_options[0]);
+      byId("starting-point").addEventListener("change", (event) => renderSelectGuide("starting-point-guide", optionByValue(catalog.starting_point_options, event.target.value)));
+      byId("scope").addEventListener("change", (event) => renderSelectGuide("scope-guide", optionByValue(catalog.scope_options, event.target.value)));
       catalog.examples.forEach((example) => {
         const button = document.createElement("button");
         button.type = "button";
@@ -530,6 +578,8 @@
       byId("question").value = brief.question;
       byId("starting-point").value = brief.starting_point;
       byId("scope").value = brief.scope;
+      renderSelectGuide("starting-point-guide", optionByValue(catalog.starting_point_options, brief.starting_point));
+      renderSelectGuide("scope-guide", optionByValue(catalog.scope_options, brief.scope));
       document.querySelectorAll('[name="aims"]').forEach((input) => { input.checked = brief.aims.includes(input.value); });
       document.querySelectorAll('[name="evidence"]').forEach((input) => { input.checked = brief.evidence.includes(input.value); });
       byId("same-evidence").checked = brief.same_evidence_generated_explanation;
@@ -575,26 +625,26 @@
             <ul class="why-list">${route.why_it_appears.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul>
           </summary>
           <div class="method-detail">
-            <div class="detail-callout"><strong>Source of leverage:</strong> ${escapeHtml(method.source_of_leverage)}</div>
+            <div class="detail-callout"><strong>Why this approach can be informative:</strong> ${escapeHtml(method.source_of_leverage)}</div>
             <div class="detail-cols">
               <div><strong>Could establish</strong>${list(method.can_establish)}</div>
               <div class="cannot"><strong>Does not establish</strong>${list(method.cannot_establish)}</div>
             </div>
             ${missing}
-            <div class="method-meta"><strong>Current software status</strong>${escapeHtml(method.portfolio_note)}<br><br><strong>Workflow shape</strong>${escapeHtml(method.workflow_shape)}</div>
+            <div class="method-meta"><strong>What software exists today</strong>${escapeHtml(method.portfolio_note)}<br><br><strong>How the work may proceed</strong>${escapeHtml(method.workflow_shape)}</div>
           </div>
         </details>`;
       }).join("");
       result.innerHTML = `
         <div class="result-head">
-          <div><p class="panel-kicker">Proposed study map</p><h2>Several paths can contribute.</h2><p class="result-summary">${escapeHtml(plan.framing_summary)}</p></div>
-          <span class="route-count">${plan.routes.length} candidate paths</span>
+          <div><p class="panel-kicker">Possible ways to approach the work</p><h2>Several approaches may contribute.</h2><p class="result-summary">${escapeHtml(plan.framing_summary)}</p></div>
+          <span class="route-count">${plan.routes.length} possible approaches</span>
         </div>
         ${warningHtml}
-        <div class="section-head"><h3>Policy-research workflow</h3><p>A navigable spine—not mandatory steps.</p></div>
+        <div class="section-head"><h3>How the investigation could unfold</h3><p>You may skip, combine, or return to stages.</p></div>
         <div class="workflow-strip">${stageHtml}</div>
         ${missingHtml}
-        <div class="section-head"><h3>Method paths</h3><p>Open a card to inspect its warrant and limits.</p></div>
+        <div class="section-head"><h3>Possible analytical approaches</h3><p>Open a card to see why it may help and what it cannot show.</p></div>
         <div class="method-grid">${routeHtml}</div>
         <div class="limits"><h3>What this map does not claim</h3>${list(plan.non_claims)}</div>`;
       byId("empty-state").hidden = true;
@@ -609,7 +659,7 @@
       error.hidden = true;
       const brief = readBrief();
       if (!brief.aims.length || !brief.evidence.length) {
-        error.textContent = "Select at least one analytical aim and one current evidence state.";
+        error.textContent = "Select at least one thing you want the analysis to do and at least one kind of material you already have.";
         error.hidden = false;
         return;
       }

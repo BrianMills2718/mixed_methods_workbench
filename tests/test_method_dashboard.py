@@ -9,17 +9,16 @@ import pytest
 from pydantic import ValidationError
 
 from mixed_methods_workbench.method_dashboard import (
+    EXAMPLES,
     AnalyticAim,
     ComparisonScope,
     EvidenceKind,
-    EXAMPLES,
     StartingPoint,
     StudyBrief,
     dashboard_catalog,
     route_study,
 )
 from mixed_methods_workbench.method_dashboard_server import catalog_payload, route_payload
-
 
 HTML_PATH = (
     Path(__file__).resolve().parents[1]
@@ -52,6 +51,14 @@ def test_catalog_exposes_representative_profiles_and_policy_spine() -> None:
         "learn",
     ]
     assert set(catalog.aims) == set(AnalyticAim)
+    assert len(catalog.aim_options) == len(AnalyticAim)
+    assert len(catalog.starting_point_options) == len(StartingPoint)
+    assert len(catalog.scope_options) == len(ComparisonScope)
+    assert len(catalog.evidence_options) == len(EvidenceKind)
+    assert all(option.description and option.help_text for option in catalog.aim_options)
+    assert next(option for option in catalog.aim_options if option.value == "interpret").label == (
+        "Understand what it means to people"
+    )
     assert len(catalog.capability_tiers) == 3
     assert len(catalog.architecture_stress_tests) == 5
     assert [item.rank for item in catalog.architecture_stress_tests] == [1, 2, 3, 4, 5]
@@ -122,7 +129,7 @@ def test_unsure_scope_names_missing_decision_and_retains_several_paths() -> None
     )
     plan = route_study(brief)
     assert len(plan.routes) >= 5
-    assert any("primary inferential scope" in item for item in plan.missing_design_information)
+    assert any("study one case" in item for item in plan.missing_design_information)
     assert {"process_tracing", "comparative_case", "causal_effects", "causal_models"} <= {
         route.method.method_id for route in plan.routes
     }
@@ -149,7 +156,7 @@ def test_invalid_selection_combinations_fail_loud() -> None:
 def test_json_operations_use_the_same_typed_router() -> None:
     """Give agents parity with the rendered dashboard without a second rule path."""
     catalog = catalog_payload()
-    assert catalog["schema_version"] == "method_dashboard.v1"
+    assert catalog["schema_version"] == "method_dashboard.v2"
     status, result = route_payload(_example("program_failure").model_dump(mode="json"))
     assert status == HTTPStatus.OK
     assert result["routes"]
@@ -163,6 +170,13 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     html = HTML_PATH.read_text(encoding="utf-8")
     assert "Start with the question—not the tool." in html
     assert "Build my study map" in html
+    assert "What best describes your current situation?" in html
+    assert "What will you study or compare?" in html
+    assert "What material do you already have?" in html
+    assert "Understand what it means to people" in html
+    assert "help-trigger" in html
+    assert "role=\"tooltip\"" in html
+    assert "Source of leverage" not in html
     assert "Method library" in html
     assert "Capability map" in html
     assert "Stress tests" in html

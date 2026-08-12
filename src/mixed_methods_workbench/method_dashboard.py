@@ -142,6 +142,15 @@ class StudyExample(DashboardModel):
     brief: StudyBrief
 
 
+class ChoiceOption(DashboardModel):
+    """Explain one study-brief choice without requiring methodology knowledge."""
+
+    value: str
+    label: str
+    description: str
+    help_text: str
+
+
 class ArchitectureStressTest(DashboardModel):
     """Rank one future vertical by architectural learning rather than novelty."""
 
@@ -199,10 +208,186 @@ class DashboardCatalog(DashboardModel):
     stages: list[WorkflowStage]
     methods: list[MethodProfile]
     examples: list[StudyExample]
+    aim_options: list[ChoiceOption]
+    starting_point_options: list[ChoiceOption]
+    scope_options: list[ChoiceOption]
+    evidence_options: list[ChoiceOption]
     architecture_stress_tests: list[ArchitectureStressTest]
     stress_test_selection_criteria: list[str]
     capability_tiers: dict[str, list[str]]
     method_coverage_limits: list[str]
+
+
+AIM_OPTIONS = (
+    ChoiceOption(
+        value=AnalyticAim.DESCRIBE,
+        label="Describe what is happening",
+        description="Identify people, events, patterns, differences, or change.",
+        help_text="Example: Which neighborhoods face the most heat exposure, and how has that changed over time?",
+    ),
+    ChoiceOption(
+        value=AnalyticAim.INTERPRET,
+        label="Understand what it means to people",
+        description="Examine how people experience, understand, frame, or give meaning to something.",
+        help_text="Example: What does ‘fair access’ mean to residents, service providers, and officials? This asks about meaning, not what caused an outcome.",
+    ),
+    ChoiceOption(
+        value=AnalyticAim.EXPLAIN,
+        label="Explain why or how it happened",
+        description="Identify causes, mechanisms, processes, or competing explanations.",
+        help_text="Example: Why did a public program fail despite having formal organizational support?",
+    ),
+    ChoiceOption(
+        value=AnalyticAim.PREDICT,
+        label="Estimate what may happen next",
+        description="Forecast a future or currently unobserved outcome.",
+        help_text="Example: Which neighborhoods are most likely to experience dangerous heat next summer? A prediction need not explain why.",
+    ),
+    ChoiceOption(
+        value=AnalyticAim.INTERVENTION,
+        label="Estimate what an action would change",
+        description="Compare what would happen with an action against a relevant alternative.",
+        help_text="Example: How much would cooling centers reduce heat-related illness compared with current policy? This asks about the action’s effect, not only what will happen.",
+    ),
+    ChoiceOption(
+        value=AnalyticAim.DECIDE,
+        label="Choose what to do",
+        description="Compare feasible options using evidence, goals, values, trade-offs, and constraints.",
+        help_text="Example: Which heat-risk strategy should the city adopt given costs, uncertainty, unequal effects, and implementation limits?",
+    ),
+)
+
+
+STARTING_POINT_OPTIONS = (
+    ChoiceOption(
+        value=StartingPoint.POLICY_DECISION,
+        label="A decision or problem that needs action",
+        description="You need to choose, recommend, or prepare an action.",
+        help_text="Example: A city must choose a heat-risk strategy. The decision—not a particular dataset or method—is organizing the work.",
+    ),
+    ChoiceOption(
+        value=StartingPoint.LITERATURE,
+        label="Existing research or reports",
+        description="You first need to understand what others have already found.",
+        help_text="Choose this when searching, comparing, or synthesizing prior studies could itself answer the question or reveal what should be studied next.",
+    ),
+    ChoiceOption(
+        value=StartingPoint.EVIDENCE,
+        label="Interviews, documents, or observations",
+        description="You have source material but no settled explanation or model.",
+        help_text="Example: You have interview transcripts and records and want to discover patterns, meanings, or possible explanations from them.",
+    ),
+    ChoiceOption(
+        value=StartingPoint.PUBLISHED_THEORY,
+        label="An existing theory",
+        description="You want to apply, appraise, or test an established account.",
+        help_text="Example: You want to use a published theory to decide what to look for in a new case. The theory guides the work but is not evidence by itself.",
+    ),
+    ChoiceOption(
+        value=StartingPoint.CANDIDATE_EXPLANATION,
+        label="A possible explanation",
+        description="You already have a tentative answer for why or how something happened.",
+        help_text="Example: Interviews suggest that administrative burden discouraged disclosure, and you now want to challenge that explanation against alternatives.",
+    ),
+    ChoiceOption(
+        value=StartingPoint.STRUCTURED_DATA,
+        label="A dataset ready to analyze",
+        description="You have measurements, rows and columns, or linked records.",
+        help_text="Example: You have neighborhood temperatures, demographics, service use, and dates in tables or relational data.",
+    ),
+)
+
+
+SCOPE_OPTIONS = (
+    ChoiceOption(
+        value=ComparisonScope.UNSURE,
+        label="I am not sure yet",
+        description="Show paths that would help clarify the study design.",
+        help_text="This is a valid answer. The study map will show which decisions depend on choosing one case, several cases, many observations, or a modeled system.",
+    ),
+    ChoiceOption(
+        value=ComparisonScope.WITHIN_CASE,
+        label="One specific case or episode",
+        description="Study what happened within one bounded place, project, event, or period.",
+        help_text="Example: Reconstruct why one public program failed during a particular implementation episode.",
+    ),
+    ChoiceOption(
+        value=ComparisonScope.CROSS_CASE,
+        label="Several cases",
+        description="Compare cases to understand similarities, differences, or combinations.",
+        help_text="Example: Compare six cities to understand why some implemented a policy successfully and others did not.",
+    ),
+    ChoiceOption(
+        value=ComparisonScope.POPULATION,
+        label="Many people, organizations, or observations",
+        description="Estimate a pattern, relationship, or effect across a larger group.",
+        help_text="Example: Estimate how a policy relates to outcomes across all eligible households, schools, or municipalities.",
+    ),
+    ChoiceOption(
+        value=ComparisonScope.SYSTEM,
+        label="A whole system or modeled scenario",
+        description="Study interacting parts, possible futures, or policy options as a system.",
+        help_text="Example: Compare citywide heat-policy packages under several climate and implementation scenarios.",
+    ),
+)
+
+
+EVIDENCE_OPTIONS = (
+    ChoiceOption(
+        value=EvidenceKind.PUBLISHED_RESEARCH,
+        label="Published research",
+        description="Journal articles, books, evidence reviews, or research reports.",
+        help_text="Select this for sources that report prior research, whether or not you have assembled a formal review corpus yet.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.DOCUMENTS,
+        label="Documents",
+        description="Policies, memos, reports, correspondence, media, or archival material.",
+        help_text="Example: meeting minutes, implementation guidance, internal memoranda, public reports, or emails.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.INTERVIEWS,
+        label="Interviews or focus groups",
+        description="Recorded accounts from participants, experts, officials, or affected people.",
+        help_text="These sources can support description, interpretation, and explanation, but what they establish depends on sampling, timing, and the question asked.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.OBSERVATIONS,
+        label="Direct observations",
+        description="Field notes or records of behavior, settings, events, or processes.",
+        help_text="Example: observations of meetings, service delivery, work routines, or interactions in the field.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.BOUNDED_CASE_RECORDS,
+        label="Records from one specific case",
+        description="Time-linked records that can reconstruct what happened in a bounded case.",
+        help_text="Example: dated decisions, messages, drafts, logs, and contemporaneous records from one project or event.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.STRUCTURED_DATA,
+        label="Tables or measurements",
+        description="Rows, columns, variables, dates, scores, counts, or other measured observations.",
+        help_text="Example: survey responses, administrative records, experimental outcomes, indicators, or time series.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.RELATIONAL_DATA,
+        label="Network or relationship data",
+        description="Records of connections, interactions, flows, or membership.",
+        help_text="Example: who communicated with whom, reposted what, belongs to which group, or supplied which organization.",
+    ),
+    ChoiceOption(
+        value=EvidenceKind.NO_EVIDENCE_YET,
+        label="No material yet",
+        description="The question exists, but evidence still needs to be found or collected.",
+        help_text="The dashboard can still identify possible approaches and the material they would require. Do not select this with another evidence type.",
+    ),
+)
+
+
+_AIM_PLAIN = {option.value: option.label.lower() for option in AIM_OPTIONS}
+_STARTING_PLAIN = {option.value: option.label.lower() for option in STARTING_POINT_OPTIONS}
+_SCOPE_PLAIN = {option.value: option.label.lower() for option in SCOPE_OPTIONS}
+_EVIDENCE_PLAIN = {option.value: option.label.lower() for option in EVIDENCE_OPTIONS}
 
 
 STAGES = (
@@ -763,24 +948,24 @@ def _requirements_for(method: MethodProfile, brief: StudyBrief) -> list[str]:
 def _candidate_reason(method: MethodProfile, brief: StudyBrief) -> list[str]:
     """Explain overlap using ordinary language and no opaque score."""
     reasons: list[str] = []
-    matched_aims = [aim.value for aim in brief.aims if aim in method.aims]
+    matched_aims = [_AIM_PLAIN[aim] for aim in brief.aims if aim in method.aims]
     if matched_aims:
-        reasons.append(f"Addresses your selected aim(s): {', '.join(matched_aims)}.")
+        reasons.append(f"Helps you {', '.join(matched_aims)}.")
     if brief.scope in method.scopes:
-        reasons.append(f"Can work with the selected {brief.scope.value.replace('_', '-')} comparison scope.")
-    matched_evidence = [kind.value.replace("_", " ") for kind in brief.evidence if kind in method.evidence]
+        reasons.append(f"Can be used when studying {_SCOPE_PLAIN[brief.scope]}.")
+    matched_evidence = [_EVIDENCE_PLAIN[kind] for kind in brief.evidence if kind in method.evidence]
     if matched_evidence:
-        reasons.append(f"Can use available evidence: {', '.join(matched_evidence)}.")
+        reasons.append(f"Can use material you already have: {', '.join(matched_evidence)}.")
     if method.method_id == "evidence_synthesis" and brief.starting_point in {
         StartingPoint.LITERATURE,
         StartingPoint.POLICY_DECISION,
         StartingPoint.PUBLISHED_THEORY,
     }:
-        reasons.append("Your starting point makes prior-evidence orientation directly useful.")
+        reasons.append("Reviewing what is already known is useful in your current situation.")
     if method.method_id == "policy_appraisal" and brief.starting_point == StartingPoint.POLICY_DECISION:
-        reasons.append("Your starting point is an explicit policy choice rather than evidence analysis alone.")
+        reasons.append("Your work needs to support a decision, not only analyze evidence.")
     if method.method_id == "grounded_theory" and brief.starting_point == StartingPoint.EVIDENCE:
-        reasons.append("An evidence-first start permits concepts and explanations to develop through comparison.")
+        reasons.append("You can develop concepts and possible explanations from the source material through comparison.")
     if method.method_id == "process_tracing" and brief.starting_point in {
         StartingPoint.CANDIDATE_EXPLANATION,
         StartingPoint.PUBLISHED_THEORY,
@@ -875,7 +1060,7 @@ def route_study(brief: StudyBrief) -> RoutePlan:
 
     missing_design: list[str] = []
     if brief.scope == ComparisonScope.UNSURE:
-        missing_design.append("Choose the primary inferential scope: one case, cross-case, population, or modeled system.")
+        missing_design.append("Clarify whether you will study one case, compare several cases, analyze many observations, or model a system.")
     if EvidenceKind.NO_EVIDENCE_YET in brief.evidence:
         missing_design.append("Design an evidence-acquisition strategy before treating any route as executable.")
     if AnalyticAim.INTERVENTION in brief.aims:
@@ -917,10 +1102,15 @@ def route_study(brief: StudyBrief) -> RoutePlan:
                 )
             )
 
-    aim_words = ", ".join(aim.value for aim in brief.aims)
+    aim_words = "; ".join(_AIM_PLAIN[aim] for aim in brief.aims)
+    study_scope = (
+        "you have not yet decided whether to focus on one case, several cases, many observations, or a system"
+        if brief.scope == ComparisonScope.UNSURE
+        else f"you plan to study {_SCOPE_PLAIN[brief.scope]}"
+    )
     framing_summary = (
-        f"This study currently pursues {aim_words} from a {brief.starting_point.value.replace('_', ' ')} "
-        f"starting point with a {brief.scope.value.replace('_', '-')} comparison scope."
+        f"You want to {aim_words}. You are beginning with {_STARTING_PLAIN[brief.starting_point]}, "
+        f"and {study_scope}."
     )
     return RoutePlan(
         brief=brief,
@@ -930,9 +1120,9 @@ def route_study(brief: StudyBrief) -> RoutePlan:
         missing_design_information=list(dict.fromkeys(missing_design)),
         warnings=warnings,
         non_claims=[
-            "The plan does not identify one universally best method.",
-            "The plan does not execute research or establish a substantive finding.",
-            "Portfolio status describes inspected local capability, not production readiness.",
+            "This map does not choose one universally best method for you.",
+            "This map does not perform the research or establish an answer to your question.",
+            "Statements about available software describe what has been inspected locally, not what is ready for production use.",
         ],
     )
 
@@ -940,7 +1130,7 @@ def route_study(brief: StudyBrief) -> RoutePlan:
 def dashboard_catalog() -> DashboardCatalog:
     """Return the exact catalog rendered by the browser and available to agents."""
     return DashboardCatalog(
-        schema_version="method_dashboard.v1",
+        schema_version="method_dashboard.v2",
         artifact_status="local_review_prototype",
         aims=list(AnalyticAim),
         starting_points=list(StartingPoint),
@@ -949,6 +1139,10 @@ def dashboard_catalog() -> DashboardCatalog:
         stages=list(STAGES),
         methods=list(METHODS),
         examples=list(EXAMPLES),
+        aim_options=list(AIM_OPTIONS),
+        starting_point_options=list(STARTING_POINT_OPTIONS),
+        scope_options=list(SCOPE_OPTIONS),
+        evidence_options=list(EVIDENCE_OPTIONS),
         architecture_stress_tests=list(ARCHITECTURE_STRESS_TESTS),
         stress_test_selection_criteria=[
             "Pressure a materially different inferential or decision boundary, not merely another dataset.",
