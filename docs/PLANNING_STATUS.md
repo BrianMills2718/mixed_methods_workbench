@@ -3,7 +3,29 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-12
 
-## Current Phase: MT-D1 Mist Trail Decision Review Implemented; Review Pending
+## Current Phase: Method-Capability Discovery; Reconciliation Pending
+
+The code-derived Phase 0 candidate is merged at `c3d31aac`. It records four
+observed systems, five primary analytic variants, and six workflow graphs as 77
+source-linked steps: 67 executable, eight represented manual, and two
+incomplete. This is accepted as bounded research evidence about the inspected
+implementations, not as an adopted universal capability model.
+
+The next decision is a controlled comparison with the separately produced
+independent decomposition. Until that candidate is frozen and available, the
+workbench may maintain the comparison rubric, trace source evidence, and keep
+planning authorities consistent. It must not normalize the RAND catalog,
+generalize a shared schema, or add another method merely to increase coverage.
+The comparison must classify apparent matches as genuine shared operations,
+shared shell behavior with method-owned refinements, method-local operations,
+or semantic collisions before any reuse decision. The frozen evidence and
+rubric are under
+[`docs/research/method_decomposition/codex_phase0/`](research/method_decomposition/codex_phase0/README.md).
+
+This phase is documentation and research only. It does not authorize product
+code, producer changes, adapters, schema adoption, or another evaluation run.
+
+## Prior Phase: MT-D1 Mist Trail Decision Review Implemented; Review Pending
 
 Brian authorized the bounded implementation in
 [`mist_trail_policy_decision_vertical.md`](plans/mist_trail_policy_decision_vertical.md)
@@ -142,7 +164,8 @@ order. It is not a current task list.
 
 | Document | Question it answers | Current authority |
 | --- | --- | --- |
-| `docs/plans/method_dash_c1.md` | What does the active local methodology dashboard prototype implement and explicitly exclude? | Active bounded implementation authority for `METHOD-DASH-C1` only. |
+| `docs/research/method_decomposition/codex_phase0/README.md` | What did the independently reviewed code-derived decomposition observe, and how will it be compared later? | Current bounded research evidence and comparison procedure; not an adopted capability model. |
+| `docs/plans/method_dash_c1.md` | What did the local methodology dashboard prototype implement and explicitly exclude? | Completed bounded implementation record for `METHOD-DASH-C1`. |
 | `PROJECT.md` | Why should this project exist? | Canonical product thesis. |
 | `docs/PLANNING_STATUS.md` | What work is authorized now? | Canonical current-phase boundary. |
 | `docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md` | Why is the program now demo-first, and what do OntoCanon, DIGIMON, theory recommendation, and Theory Forge own? | Canonical architecture/order decision; not implementation authority. |
@@ -187,6 +210,8 @@ Planning readiness does not mean implementation readiness.
 > `docs/CONCERNS.md`; `docs/IMPLEMENTING_AGENT_NOTES.md`;
 > `docs/CAPABILITY_DEPENDENCY_GRAPH.md`;
 > `docs/PRE_IMPLEMENTATION_CHECKLIST.md`;
+> `docs/research/method_decomposition/codex_phase0/README.md` and its linked
+> evidence and comparison rubric;
 > `docs/decisions/2026-07-12-first-governed-case.md`;
 > `docs/decisions/2026-07-12-first-quantitative-text-strand.md`;
 > `docs/MIXED_METHODS_CAPABILITY_MAP.md`; `docs/ROADMAP.md`;
@@ -208,5 +233,6 @@ Planning readiness does not mean implementation readiness.
 > statements.
 >
 > Status: current-phase clarification requested by Brian on 2026-07-09,
-> extended with claim-licensing controls on 2026-07-10, and updated with the
-> exact `T0-PROV` authorization boundary and independent closure on 2026-07-12.
+> extended with claim-licensing controls on 2026-07-10, updated with the exact
+> `T0-PROV` authorization boundary and independent closure on 2026-07-12, and
+> reconciled to the merged Phase 0 method-capability evidence on 2026-08-12.

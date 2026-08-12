@@ -1,7 +1,7 @@
 # Text-Centered Mixed-Methods Capability Map
 
 Status: canonical future scope inventory; documentation only
-Updated: 2026-07-12
+Updated: 2026-08-12
 
 This map records eventual coverage and planning gaps. It does not activate or
 authorize implementation; see `docs/PLANNING_STATUS.md`.
@@ -12,6 +12,12 @@ This map defines the breadth of the north star without pretending the breadth is
 implemented. It is both a completeness checklist and a guard against category
 errors: different methods require different workflows, evidence, uncertainty,
 and quality criteria.
+
+The first code-derived capability evidence is frozen under
+[`docs/research/method_decomposition/codex_phase0/`](research/method_decomposition/codex_phase0/README.md).
+It describes inspected implementations and does not replace this future-scope
+map. Candidate reuse remains unadjudicated until the independent decomposition
+is compared using the adjacent rubric.
 
 Status grades describe workbench-level evidence:
 

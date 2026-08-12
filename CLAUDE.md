@@ -5,13 +5,14 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/PLANNING_STATUS.md` before planning. The explicitly authorized local
-`METHOD-DASH-C1` question-first methodology dashboard prototype is implemented
-and awaiting stakeholder review. `T0-PROV` and local `DEMO-C1` are completed
-bounded slices and do not close producer readiness or method validity. Do not
-begin another implementation merely because a roadmap or future slice exists,
-and do not move code from an engine into this repo unless Brian explicitly
-authorizes a named implementation slice.
+`docs/PLANNING_STATUS.md` before planning. The current lane is documentation-only
+method-capability discovery: one independently reviewed, code-derived Phase 0
+candidate is merged, while comparison with the separately produced candidate
+remains pending. `METHOD-DASH-C1/C2`, `MT-D1`, `T0-PROV`, and local `DEMO-C1`
+are completed bounded slices; none closes producer readiness or method validity.
+Do not begin another implementation merely because a roadmap or future slice
+exists, and do not move code from an engine into this repo unless Brian
+explicitly authorizes a named implementation slice.
 
 ## Operating Rules
 
