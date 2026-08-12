@@ -47,6 +47,8 @@ signatures, edges, and implementation claims against source evidence.
   incomplete, or absent.
 - `schema_findings.md` records what contact with the code says should change in
   the proposed row schema before the pilot.
+- `comparison_rubric.md` freezes the neutral adjudication rules to use when the
+  separately produced candidate becomes available.
 
 ## Interpretation rules
 
