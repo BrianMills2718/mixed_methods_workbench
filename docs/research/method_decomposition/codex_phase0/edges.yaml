@@ -1,0 +1,132 @@
+schema_version: "0.1.0"
+edge_kinds: [required, optional, branch, loop, feedback, failure]
+workflows:
+  qc_fixed_corpus_grounded_theory_v3:
+    edges:
+      - {from_step: qc_gt.01, to_step: qc_gt.02, edge_kind: required, condition: manifest and state validate, transfers: [project_state]}
+      - {from_step: qc_gt.02, to_step: qc_gt.03, edge_kind: branch, condition: seed selection and not preflight-only, transfers: [ordered_source_units]}
+      - {from_step: qc_gt.02, to_step: stop_preflight, edge_kind: branch, condition: preflight_only, transfers: [preflight_metrics]}
+      - {from_step: qc_gt.03, to_step: qc_gt.04, edge_kind: required, condition: structured response returned, transfers: [proposal_draft]}
+      - {from_step: qc_gt.04, to_step: qc_gt.05, edge_kind: required, condition: source binding and custody validate, transfers: [source_bound_seed_package]}
+      - {from_step: qc_gt.05, to_step: qc_gt.06, edge_kind: branch, condition: appraisal is not preflight-only, transfers: [candidate_evidence_pools]}
+      - {from_step: qc_gt.05, to_step: stop_preflight, edge_kind: branch, condition: preflight_only, transfers: [preflight_metrics]}
+      - {from_step: qc_gt.06, to_step: qc_gt.07, edge_kind: required, condition: complete appraisal returned, transfers: [appraisal_draft]}
+      - {from_step: qc_gt.07, to_step: qc_gt.08, edge_kind: required, condition: appraised seed validates, transfers: [appraised_seed_package]}
+      - {from_step: checkpoint, to_step: qc_gt.08, edge_kind: optional, condition: checkpoint exists and state digest validates, transfers: [checkpoint]}
+      - {from_step: qc_gt.08, to_step: qc_gt.09, edge_kind: branch, condition: expansion batches remain, transfers: [current_proposal, iteration_history]}
+      - {from_step: qc_gt.08, to_step: qc_gt.12, edge_kind: branch, condition: checkpoint records four completed batches, transfers: [current_proposal, iteration_history]}
+      - {from_step: qc_gt.08, to_step: stop_preflight, edge_kind: branch, condition: preflight_only, transfers: [preflight_metrics]}
+      - {from_step: qc_gt.09, to_step: qc_gt.10, edge_kind: required, condition: batch context built, transfers: [expansion_prompt]}
+      - {from_step: qc_gt.10, to_step: qc_gt.11, edge_kind: required, condition: expansion draft returned, transfers: [complete_revised_proposal, batch_incidents]}
+      - {from_step: qc_gt.11, to_step: qc_gt.09, edge_kind: feedback, condition: another fixed batch remains; revised proposal becomes current proposal, transfers: [validated_current_proposal, checkpoint]}
+      - {from_step: qc_gt.11, to_step: qc_gt.12, edge_kind: branch, condition: four expansion batches completed, transfers: [validated_current_proposal, iteration_history]}
+      - {from_step: qc_gt.12, to_step: qc_gt.13, edge_kind: required, condition: final appraisal universe built, transfers: [candidate_evidence_pools, participant_challenge_pool]}
+      - {from_step: qc_gt.13, to_step: qc_gt.14, edge_kind: required, condition: final structured response returned, transfers: [final_appraisal_draft]}
+      - {from_step: qc_gt.14, to_step: qc_gt.15, edge_kind: required, condition: references and coverage validate, transfers: [validated_appraisal, sampling_questions, narrative_report]}
+      - {from_step: qc_gt.15, to_step: stop_fixed_corpus_complete, edge_kind: required, condition: v3 projection and persistence succeed, transfers: [persisted_artifact]}
+      - {from_step: any_validation_step, to_step: refuse_invalid_artifact, edge_kind: failure, condition: a fail-loud invariant is violated, transfers: []}
+  pt_single_case_rival_explanation_v2:
+    edges:
+      - {from_step: pt.01, to_step: pt.02, edge_kind: branch, condition: theory-first and no frozen hypothesis space, transfers: [inference_design, theory_material]}
+      - {from_step: pt.01, to_step: pt.03, edge_kind: branch, condition: exploratory or discovery/evaluation split, transfers: [bound_source_scope]}
+      - {from_step: pt.02, to_step: pt.03, edge_kind: required, condition: pre-corpus hypotheses frozen, transfers: [hypothesis_space]}
+      - {from_step: pt.03, to_step: pt.04, edge_kind: required, condition: source-grounded extraction validates, transfers: [extraction]}
+      - {from_step: pt.04, to_step: pt.05, edge_kind: branch, condition: no pre-corpus or supplied frozen hypotheses, transfers: [generation_view, extraction]}
+      - {from_step: pt.04, to_step: pt.06, edge_kind: branch, condition: pre-corpus or supplied hypotheses and human review enabled, transfers: [hypothesis_space]}
+      - {from_step: pt.04, to_step: pt.07, edge_kind: branch, condition: pre-corpus or supplied hypotheses and no human review, transfers: [hypothesis_space, generation_view]}
+      - {from_step: pt.05, to_step: pt.06, edge_kind: optional, condition: human hypothesis review enabled, transfers: [hypothesis_space]}
+      - {from_step: pt.05, to_step: pt.07, edge_kind: branch, condition: no human hypothesis review, transfers: [hypothesis_space, generation_view]}
+      - {from_step: pt.06, to_step: pt.07, edge_kind: required, condition: reviewed hypotheses returned, transfers: [reviewed_hypothesis_space]}
+      - {from_step: pt.07, to_step: pt.08, edge_kind: branch, condition: rival partition blocked and repair budget remains, transfers: [partition_audit, hypothesis_space]}
+      - {from_step: pt.08, to_step: pt.07, edge_kind: loop, condition: revised rival set requires re-audit, transfers: [revised_hypothesis_space]}
+      - {from_step: pt.07, to_step: refuse_partition_blocked, edge_kind: failure, condition: partition remains blocked after repair budget, transfers: [partition_audit]}
+      - {from_step: pt.07, to_step: pt.09, edge_kind: branch, condition: rival partition accepted, transfers: [hypothesis_space]}
+      - {from_step: pt.09, to_step: pt.10, edge_kind: optional, condition: typed source packet supplied, transfers: [extraction]}
+      - {from_step: pt.09, to_step: pt.11, edge_kind: branch, condition: no typed source packet, transfers: [validated_prior, hypothesis_space]}
+      - {from_step: pt.10, to_step: pt.11, edge_kind: required, condition: source coverage measured, transfers: [source_coverage, source_opportunity_ids]}
+      - {from_step: pt.11, to_step: pt.12, edge_kind: required, condition: raw likelihood matrix produced, transfers: [raw_testing]}
+      - {from_step: pt.12, to_step: pt.11, edge_kind: loop, condition: independent audit requests bounded re-elicitation, transfers: [audit_context]}
+      - {from_step: pt.12, to_step: pt.13, edge_kind: branch, condition: audited comparisons accepted or rejected claims projected out, transfers: [effective_testing]}
+      - {from_step: pt.13, to_step: pt.14, edge_kind: branch, condition: theory-first or split; no post-selection exposure; admitted sources could carry the trace, transfers: [absence_result]}
+      - {from_step: pt.13, to_step: pt.15, edge_kind: branch, condition: source-silence audit not eligible, transfers: [absence_result, effective_testing]}
+      - {from_step: pt.14, to_step: pt.15, edge_kind: required, condition: source-silence disposition completed, transfers: [absence_adjusted_testing]}
+      - {from_step: pt.15, to_step: pt.16, edge_kind: required, condition: comparative support computed, transfers: [bayesian_result]}
+      - {from_step: pt.16, to_step: pt.17, edge_kind: required, condition: diagnostic matrix derived, transfers: [diagnostic_matrix]}
+      - {from_step: pt.17, to_step: pt.18, edge_kind: required, condition: candidate mechanism trace validates structurally, transfers: [candidate_mechanism_trace]}
+      - {from_step: pt.18, to_step: pt.18, edge_kind: loop, condition: material audit finding and bounded patch or replacement remains, transfers: [revised_mechanism_trace]}
+      - {from_step: pt.18, to_step: refuse_mechanism_blocked, edge_kind: failure, condition: material findings remain after repair budget, transfers: [mechanism_audit_resolution]}
+      - {from_step: pt.18, to_step: pt.19, edge_kind: branch, condition: mechanism trace accepted, transfers: [final_mechanism_trace]}
+      - {from_step: pt.19, to_step: pt.20, edge_kind: optional, condition: critic enabled, transfers: [synthesis, testing]}
+      - {from_step: pt.19, to_step: pt.21, edge_kind: optional, condition: refinement enabled, transfers: [synthesis, extraction, hypothesis_space]}
+      - {from_step: pt.19, to_step: pt.22, edge_kind: branch, condition: neither critic nor refinement changes downstream artifacts, transfers: [synthesis]}
+      - {from_step: pt.20, to_step: pt.11, edge_kind: feedback, condition: critic requests likelihood re-elicitation, transfers: [critic_context]}
+      - {from_step: pt.20, to_step: pt.22, edge_kind: branch, condition: critic finds no rerun-requiring issue, transfers: [critic_result]}
+      - {from_step: pt.21, to_step: pt.07, edge_kind: feedback, condition: refinement changes hypotheses, transfers: [revised_hypothesis_space]}
+      - {from_step: pt.21, to_step: pt.09, edge_kind: feedback, condition: extraction changes but hypotheses do not, transfers: [revised_extraction]}
+      - {from_step: pt.21, to_step: pt.22, edge_kind: branch, condition: no material refinement change, transfers: [refinement_result]}
+      - {from_step: pt.22, to_step: pt.23, edge_kind: branch, condition: terminal claims accepted, transfers: [accepted_result]}
+      - {from_step: pt.22, to_step: refuse_publication, edge_kind: failure, condition: any terminal claim unsupported or overstated, transfers: [blocked_prepublication_artifact]}
+  pt_acquisition_companion:
+    edges:
+      - {from_step: pt_acq.01, to_step: pt_acq.02, edge_kind: required, condition: baseline and agenda freeze, transfers: [acquisition_session, acquisition_plan]}
+      - {from_step: pt_acq.02, to_step: pt_acq.03, edge_kind: required, condition: retained candidate available for review, transfers: [retrieved_candidate]}
+      - {from_step: pt_acq.03, to_step: pt_acq.02, edge_kind: feedback, condition: reviewer defers or requests more candidates, transfers: [candidate_review]}
+      - {from_step: pt_acq.03, to_step: pt_acq.04, edge_kind: branch, condition: all retained candidates dispositioned and at least one unique source admitted, transfers: [admitted_sources]}
+      - {from_step: pt_acq.04, to_step: incomplete_evaluation, edge_kind: failure, condition: current return-arity defect prevents successful execution, transfers: []}
+  theory_forge_v14_compile_apply:
+    edges:
+      - {from_step: tf.01, to_step: tf.02, edge_kind: required, condition: PDF text extracted, transfers: [paper_text]}
+      - {from_step: tf.02, to_step: tf.03, edge_kind: required, condition: theory identification validates, transfers: [theory_identification]}
+      - {from_step: tf.03, to_step: tf.04, edge_kind: required, condition: structured theory extraction validates, transfers: [theory_schema]}
+      - {from_step: tf.03, to_step: tf.03, edge_kind: loop, condition: multi-theory mode fans out over identified theories, transfers: [theory_identification]}
+      - {from_step: tf.04, to_step: tf.05, edge_kind: branch, condition: single-theory automate path, transfers: [theory_schema]}
+      - {from_step: tf.04, to_step: stop_extraction_only, edge_kind: branch, condition: multi-theory extraction without explicit compile caller, transfers: [persisted_theory_artifacts]}
+      - {from_step: tf.05, to_step: tf.06, edge_kind: required, condition: default v14 validation passes, transfers: [validated_theory_schema]}
+      - {from_step: tf.05, to_step: refuse_invalid_schema, edge_kind: failure, condition: v14 validation fails, transfers: []}
+      - {from_step: tf.06, to_step: tf.13, edge_kind: branch, condition: verified reusable compiled module found and recompilation not forced, transfers: [compiled_module]}
+      - {from_step: tf.06, to_step: tf.07, edge_kind: branch, condition: no reusable module or recompilation forced, transfers: [validated_theory_schema]}
+      - {from_step: tf.07, to_step: tf.08, edge_kind: optional, condition: qualitative prompt enrichment enabled, transfers: [generated_prompts]}
+      - {from_step: tf.07, to_step: tf.09, edge_kind: branch, condition: prompt enrichment absent or skipped, transfers: [compiler_artifacts]}
+      - {from_step: tf.08, to_step: tf.09, edge_kind: required, condition: enrichment succeeds or deterministic prompts are retained after failure, transfers: [prompts]}
+      - {from_step: tf.09, to_step: tf.10, edge_kind: required, condition: computation implementation attempt completes, transfers: [compiled_files]}
+      - {from_step: tf.10, to_step: tf.11, edge_kind: branch, condition: verification fails and repair attempts remain, transfers: [verification_result]}
+      - {from_step: tf.11, to_step: tf.10, edge_kind: loop, condition: revised compiled files require verification, transfers: [revised_compiled_files]}
+      - {from_step: tf.10, to_step: refuse_failed_compile, edge_kind: failure, condition: final verification fails, transfers: [failed_compile_report]}
+      - {from_step: tf.10, to_step: tf.12, edge_kind: branch, condition: verification passes, transfers: [verification_result, compiled_files]}
+      - {from_step: tf.12, to_step: tf.13, edge_kind: required, condition: manifest finalized, transfers: [compiled_module]}
+      - {from_step: tf.13, to_step: tf.14, edge_kind: required, condition: compiled module loads, transfers: [loaded_pipeline]}
+      - {from_step: tf.14, to_step: tf.15, edge_kind: optional, condition: computation stages exist, transfers: [extracted_parameters]}
+      - {from_step: tf.14, to_step: tf.17, edge_kind: branch, condition: no computation stages but qualitative stages exist, transfers: [extracted_parameters]}
+      - {from_step: tf.15, to_step: tf.16, edge_kind: optional, condition: stage manifest contains v15 invariants, transfers: [computed_result]}
+      - {from_step: tf.15, to_step: tf.17, edge_kind: branch, condition: qualitative stages follow computation, transfers: [computed_results]}
+      - {from_step: tf.16, to_step: tf.17, edge_kind: required, condition: invariant check records violations without aborting, transfers: [computed_results, invariant_violations]}
+      - {from_step: tf.17, to_step: tf.17, edge_kind: loop, condition: next sequential qualitative stage consumes prior qualitative outputs, transfers: [prior_qualitative_outputs]}
+      - {from_step: tf.17, to_step: tf.18, edge_kind: optional, condition: output review enabled, transfers: [analysis_result]}
+      - {from_step: tf.17, to_step: tf.19, edge_kind: branch, condition: output review disabled, transfers: [analysis_result]}
+      - {from_step: tf.18, to_step: tf.19, edge_kind: required, condition: review succeeds or nonblocking review failure is recorded, transfers: [quality_assessment]}
+      - {from_step: tf.19, to_step: tf.14, edge_kind: loop, condition: another input text remains, transfers: [loaded_pipeline]}
+  theory_forge_cpt_choices13k_prediction:
+    edges:
+      - {from_step: tf_cpt.01, to_step: tf_cpt.02, edge_kind: required, condition: pinned files exist or fetch is explicitly requested, transfers: [dataset_files]}
+      - {from_step: tf_cpt.01, to_step: refuse_custody_mismatch, edge_kind: failure, condition: existing or downloaded bytes do not match pinned digests, transfers: []}
+      - {from_step: tf_cpt.02, to_step: tf_cpt.03, edge_kind: required, condition: source tables reconcile and required fields validate, transfers: [eligible_rows, exclusions]}
+      - {from_step: tf_cpt.03, to_step: tf_cpt.04, edge_kind: loop, condition: next eligible choice row remains, transfers: [normalized_choice_row]}
+      - {from_step: tf_cpt.04, to_step: tf_cpt.03, edge_kind: loop, condition: row scored and another eligible row remains, transfers: [scored_row]}
+      - {from_step: tf_cpt.04, to_step: tf_cpt.05, edge_kind: branch, condition: all eligible rows scored, transfers: [scored_rows]}
+      - {from_step: tf_cpt.05, to_step: tf_cpt.06, edge_kind: required, condition: rows and exclusions reconcile to source denominator, transfers: [prediction_summary, representative_cases]}
+      - {from_step: tf_cpt.06, to_step: stop_prediction_report, edge_kind: required, condition: reports persist, transfers: [full_report, compact_evidence_report]}
+  mist_trail_deliberative_appraisal_mtd1:
+    edges:
+      - {from_step: mt.01, to_step: mt.02, edge_kind: required, condition: official source identities frozen, transfers: [source_manifest]}
+      - {from_step: mt.02, to_step: mt.03, edge_kind: required, condition: decision frame and official alternatives bounded, transfers: [decision_frame, options]}
+      - {from_step: mt.03, to_step: mt.04, edge_kind: required, condition: source windows reviewed, transfers: [source_anchors]}
+      - {from_step: mt.04, to_step: mt.05, edge_kind: required, condition: all option-criterion consequence summaries authored, transfers: [consequence_assessments]}
+      - {from_step: mt.05, to_step: mt.06, edge_kind: required, condition: every criterion has an explicit human judgment, transfers: [criterion_judgments]}
+      - {from_step: mt.06, to_step: mt.07, edge_kind: required, condition: at least three declared priority lenses evaluated, transfers: [priority_lenses]}
+      - {from_step: mt.07, to_step: mt.08, edge_kind: required, condition: conditional, unresolved, or refused conclusion authored, transfers: [decision_conclusion]}
+      - {from_step: mt.08, to_step: mt.09, edge_kind: required, condition: full packet assembled, transfers: [decision_packet]}
+      - {from_step: mt.09, to_step: refuse_invalid_packet, edge_kind: failure, condition: custody, identity, completeness, or referential invariant fails, transfers: []}
+      - {from_step: mt.09, to_step: mt.10, edge_kind: branch, condition: packet validates, transfers: [validated_decision_artifact]}
+      - {from_step: mt.10, to_step: stop_conditional_recommendation, edge_kind: branch, condition: conclusion is conditional_recommendation, transfers: [decision_artifact]}
+      - {from_step: mt.10, to_step: stop_unresolved, edge_kind: branch, condition: conclusion is unresolved, transfers: [decision_artifact]}
+      - {from_step: mt.10, to_step: stop_refused, edge_kind: branch, condition: conclusion is refused, transfers: [decision_artifact]}
