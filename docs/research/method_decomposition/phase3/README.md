@@ -11,7 +11,8 @@ in one bounded case. Exact variant descriptions remain in
 [`work_graph.json`](work_graph.json) is the machine-consumed WorkUnitV1 graph;
 Phase 3 claims must bind to one ready unit. [`validation_receipt.md`](validation_receipt.md)
 records validation of the graph itself, not evidence that a method has been
-decomposed.
+decomposed. `scripts/validate_phase3_work_graph.py` supplements the generic
+WorkUnitV1 validator with exact denominator and transition invariants.
 
 The three research lanes own disjoint method directories under `methods/`.
 Only `P3-INTEGRATE` owns shared manifests and reports. The Process Tracing

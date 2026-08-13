@@ -30,7 +30,8 @@
         {"kind": "ReadOnlyImplementationEvidence", "id": "process-tracing-topology-prototype", "revision": "merged@1fd01bc;not-method-authority"}
       ],
       "outputs": [
-        "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
+        "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml",
+        "lane_receipts/P3-RESEARCH-A.yaml binding the submitted commit and acceptance evidence"
       ],
       "dependencies": [],
       "conflict_surfaces": [
@@ -39,6 +40,7 @@
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p03", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p04", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p14", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
+        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-A.yaml", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
         {"kind": "repository_path", "target": "src/mixed_methods_workbench/method_topology.py", "repository": "mixed_methods_workbench", "access": "read", "coordination_key": "pt-topology-read-only@1fd01bc"},
         {"kind": "repository_path", "target": "examples/fixtures/method_topology/process_tracing_v0_1.json", "repository": "mixed_methods_workbench", "access": "read", "coordination_key": "pt-topology-read-only@1fd01bc"}
       ],
@@ -59,6 +61,7 @@
       "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
+      "integration_owner_id": "phase3-control",
       "status": "ready",
       "record_version": 1,
       "created_at": "2026-08-13T17:45:00Z",
@@ -93,14 +96,16 @@
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"}
       ],
       "outputs": [
-        "Four exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
+        "Four exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml",
+        "lane_receipts/P3-RESEARCH-B.yaml binding the submitted commit and acceptance evidence"
       ],
       "dependencies": [],
       "conflict_surfaces": [
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p06", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-B"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p07", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-B"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p08", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-B"},
-        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p09", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-B"}
+        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p09", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-B"},
+        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-B.yaml", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-B"}
       ],
       "acceptance": [
         {
@@ -119,6 +124,7 @@
       "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
+      "integration_owner_id": "phase3-control",
       "status": "ready",
       "record_version": 1,
       "created_at": "2026-08-13T17:45:00Z",
@@ -153,7 +159,8 @@
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"}
       ],
       "outputs": [
-        "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
+        "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml",
+        "lane_receipts/P3-RESEARCH-C.yaml binding the submitted commit and acceptance evidence"
       ],
       "dependencies": [],
       "conflict_surfaces": [
@@ -161,7 +168,8 @@
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p10", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-C"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p11", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-C"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p12", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-C"},
-        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p13", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-C"}
+        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p13", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-C"},
+        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-C.yaml", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-C"}
       ],
       "acceptance": [
         {
@@ -180,6 +188,7 @@
       "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
+      "integration_owner_id": "phase3-control",
       "status": "ready",
       "record_version": 1,
       "created_at": "2026-08-13T17:45:00Z",
@@ -225,6 +234,7 @@
       ],
       "conflict_surfaces": [
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods", "repository": "mixed_methods_workbench", "access": "read", "coordination_key": "P3-INTEGRATE"},
+        {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/work_graph.json", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "phase3-control-status"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/portfolio_manifest.yaml", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-INTEGRATE"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/integration_report.md", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-INTEGRATE"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/validation_report.json", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-INTEGRATE"}
@@ -255,6 +265,7 @@
       },
       "claim_policy": {"eligibility_rule": "One canonical registry claim after all three hard dependency gates report accepted exact revisions.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
+      "integration_owner_id": "phase3-control",
       "status": "blocked",
       "record_version": 1,
       "created_at": "2026-08-13T17:45:00Z",

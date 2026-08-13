@@ -30,6 +30,9 @@ freezes the exact variant, exclusions, applicability boundary, and source
 edition/sections before decomposition. Records use the accepted three levels;
 connections preserve typed topology; uncertainty distinguishes known, unknown,
 contested, and source-limited judgments and states their downstream effect.
+Each research lane also exclusively owns one
+`lane_receipts/P3-RESEARCH-*.yaml` submission receipt binding its submitted
+commit, method paths, focused checks, and acceptance evidence.
 
 The research lanes do not read one another's emerging records. `P3-INTEGRATE`
 becomes available only after all three are accepted. It checks denominator
@@ -43,6 +46,18 @@ Every lane requires a canonical registry claim bound to `work_graph.json` and
 its exact unit ID. The completed `pt-topology-workbench` product lane merged at
 `1fd01bc`; that revision is a read-only evidence surface and grants no Phase 3
 ownership.
+
+`phase3-control` is the sole integration/status coordination mechanism. After a
+research lane pushes its exact submitted revision and receipt, this control
+owner sequentially verifies the unit's acceptance criteria, reviewer evidence,
+and receipt paths. Only then may it take exclusive ownership of
+`work_graph.json`, change that research unit to `accepted`, and add exactly one
+`CompletionReceipt` input whose revision is `<receipt-path>@<submitted-commit>`.
+No research lane edits statuses. `P3-INTEGRATE` becomes `ready_for_execution`
+only after all three research units are `accepted`, all three exact completion
+references are present, its failed guards are cleared, and both validators
+pass. These status-only mutations do not authorize integration work before the
+gates are true.
 
 Stop and record explicit uncertainty if a source cannot pin the variant, a
 record crosses source scope, or the format cannot express the method without
