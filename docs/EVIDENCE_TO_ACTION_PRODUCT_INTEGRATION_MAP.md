@@ -209,39 +209,39 @@ No current example should be asked to prove everything.
 | Romanian Revolution / 8888 Uprising | Deep Process Tracing case, comparison, source asymmetry, and exact evidence step-down | A complete policy-decision or mixed-methods workflow |
 | CPT/Choices13k | Bounded quantitative prediction/application result | A general Theory Forge run contract or integrated prediction product |
 | Simulation outbreak appraisal | Model-generated consequence input and truthful refusal to recommend | Real-world intervention evidence |
-| Mist Trail | Understandable bounded policy decision, options, consequences, criteria, and a current Workbench page | An executing appraisal engine today; its analytical judgments are hand-authored and exact source bytes are incomplete |
+| Mist Trail | Real pre-decision document analysis, structured extraction, published comment-summary analysis, and conditional option appraisal | The sole cohesive MVP flagship, a completed decision, raw public-comment analysis, an executing appraisal engine, or a non-substitutable quantitative strand |
 
-### Recommended flagship candidate
+### Mist Trail gate result and replacement criteria
 
-Use **Mist Trail visitor-use management** as the candidate first cohesive
-policy-analysis flagship, subject to a short source-availability gate.
+The source-availability gate is complete and recorded in
+[`mist_trail_source_gate.md`](research/mist_trail_source_gate.md).
 
-It is preferable to Open Science because it is an understandable policy
-decision with explicit options and consequences, and it already has a
-Workbench surface. It could naturally connect:
+Mist Trail is preferable to Open Science for a bounded policy-appraisal
+vertical because it is an understandable live policy decision with explicit
+options, consequences, and a real public record. The EA appendices also contain
+an operations analysis and an NPS summary of 205 civic-engagement submissions
+and 1,386 identified comments.
 
-- document and public-comment description through QC;
+- document and published comment-summary description through QC;
 - concepts, stakeholder positions, tradeoffs, and negative cases;
 - a theory or logic model of crowding, access, safety, experience, and
   environmental effects;
-- within-case Process Tracing of how the decision and implementation occurred;
-- visitor-use measurements and before/after or comparative analysis;
-- crowd-flow or management simulation;
+- structured extraction of alternatives, consequences, and uncertainty; and
 - criteria- and value-explicit policy appraisal.
 
-This is a recommendation, not a claim that the needed evidence is already
-available. Before implementation, verify the official decision documents,
-source-use rights, public-comment availability, visitor/use measurements,
-decision chronology, and whether any contemporaneous records can support a
-real Process Tracing question. If that gate fails, select another bounded
-public policy decision using the same criteria rather than returning to P5 by
-default.
+It cannot serve as the sole first cohesive MVP case. The reviewed public record
+has no final decision or implementation result, no exposed raw comment corpus,
+no comparative numeric costs, and no site-level quantitative evidence capable
+of supporting a distinct forecast, causal estimate, cost-benefit analysis, or
+calibrated simulation. Keep Mist Trail as a secondary vertical and select a
+completed replacement case using the gate's six criteria rather than returning
+to P5 by default.
 
-## 8. Smallest next implementation slice
+## 8. Completed Investigation Spine checkpoint
 
-Build one Workbench-owned **Investigation Spine** using the already completed
-P5 round trip as integration test data, while keeping Mist Trail as the
-flagship candidate.
+The Workbench-owned **Investigation Spine** using the already completed P5
+round trip is implemented. It remains integration test data while the
+replacement policy flagship is selected.
 
 ### Visible result
 
@@ -258,18 +258,19 @@ One page and matching JSON endpoint show, in plain language:
 
 The page must look like one investigation, not links to several demos.
 
-### Implementation boundary
+### Implemented boundary
 
-- Add a small Workbench-owned `Investigation`/artifact-lineage model.
-- Read the existing pinned QC and PT artifacts through narrow adapters.
-- Keep the P5 mapping case-specific; do not call it a generic theory-testing
+- The slice added a small Workbench-owned `Investigation`/artifact-lineage
+  model.
+- It reads the existing pinned QC and PT artifacts through narrow adapters.
+- The P5 mapping remains case-specific; it is not a generic theory-testing
   schema.
-- Keep PT judgments in the PT payload and QC theory disposition in the QC
+- PT judgments remain in the PT payload and QC theory disposition remains in the QC
   payload.
-- Make JSON and browser views agree.
-- Fail on unsupported schema version, digest mismatch, missing source
+- JSON and browser views agree.
+- Validation fails on unsupported schema version, digest mismatch, missing source
   reference, or contradictory workflow state.
-- Do not invoke an LLM, rerun QC/PT, import producer internals, adopt Data
+- The slice did not invoke an LLM, rerun QC/PT, import producer internals, adopt Data
   Contracts, or create a universal claim/evidence/theory model.
 
 ### Pass criteria
@@ -295,22 +296,23 @@ mechanics are actually needed.
 
 ## 9. Sequencing after the spine
 
-1. **Investigation Spine:** assemble the existing P5 round trip in the
-   Workbench without rerunning analysis.
-2. **Flagship source gate:** verify Mist Trail evidence availability and freeze
-   the exact policy question, options, time scope, and initial evidence
-   universe; select a replacement only if it fails.
-3. **Describe:** run or import an authentic QC analysis for the flagship and
+1. **Investigation Spine — complete:** assemble the existing P5 round trip in
+   the Workbench without rerunning analysis.
+2. **Mist Trail source gate — complete:** retain Mist Trail as a bounded
+   secondary option-appraisal case; it failed as the sole MVP flagship.
+3. **Replacement flagship selection:** select and freeze a completed public
+   policy decision that satisfies the source-gate criteria.
+4. **Describe:** run or import an authentic QC analysis for the flagship and
    preserve exact passages, stakeholder positions, findings, and open gaps.
-4. **Explain:** represent candidate explanations and route one bounded question
+5. **Explain:** represent candidate explanations and route one bounded question
    to Process Tracing only if the source design is adequate.
-5. **Measure or predict:** add one appropriate quantitative/forecasting strand
+6. **Measure or predict:** add one appropriate quantitative/forecasting strand
    with its own measurement and validation contract.
-6. **Evaluate interventions:** consume a real simulation, causal estimate, or
+7. **Evaluate interventions:** consume a real simulation, causal estimate, or
    scenario comparison as one consequence input; keep value judgments explicit.
-7. **Synthesize:** create a joint display and bounded recommendation or
+8. **Synthesize:** create a joint display and bounded recommendation or
    unresolved decision, with every dependency visible.
-8. **Generalize selectively:** resume method-decomposition collision analysis
+9. **Generalize selectively:** resume method-decomposition collision analysis
    only for operations and handoffs that the product vertical actually needs.
 
 ## 10. Deferred decisions and explicit uncertainties
@@ -323,8 +325,8 @@ mechanics are actually needed.
   theory-test/application view.
 - Whether Theory Forge needs one generic executed-run export or several
   application-specific exports.
-- Whether Mist Trail has enough contemporaneous decision evidence for real
-  Process Tracing.
+- Whether a future final decision and additional contemporaneous records could
+  make Mist Trail suitable for real Process Tracing; the current record is not.
 - Which quantitative method and engine best answer the first flagship
   measurement/prediction question.
 - Whether Data Contracts should own any mechanics after a second authentic
@@ -334,9 +336,9 @@ mechanics are actually needed.
 - When the product requires ethics, privacy, consent, legal, and operational
   governance beyond the current development boundary.
 
-These uncertainties are not blockers to the read-only Investigation Spine.
-They are decisions to resolve from the first and second cohesive verticals,
-not through another universal schema exercise.
+These uncertainties did not block the read-only Investigation Spine. They are
+decisions to resolve from the first and second cohesive verticals, not through
+another universal schema exercise.
 
 ## 11. Superseded critical-path assumption
 
@@ -344,4 +346,4 @@ The current Phase 3 method decomposition remains useful research and should be
 preserved. It no longer controls the immediate product critical path. No
 collision, capability-promotion, shared-schema, or broad method-coverage claim
 should proceed until the Investigation Spine is visible and the flagship
-source gate has selected a credible policy case.
+replacement has been selected and source-frozen.

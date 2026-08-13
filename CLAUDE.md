@@ -5,8 +5,13 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/PLANNING_STATUS.md` before planning. The current lane is documentation-only
-method-capability discovery. Brian accepted the Phase 2 discovery format on
+`docs/PLANNING_STATUS.md` before planning. The current product critical path is
+one cohesive policy investigation through an MVP, not further method-catalog
+expansion. The Investigation Spine checkpoint is complete. The Mist Trail
+source gate concluded that Mist Trail is useful for bounded pre-decision
+option appraisal but cannot serve as the sole MVP flagship; select a completed,
+source-rich replacement before starting the next product vertical. Brian
+accepted the Phase 2 discovery format on
 2026-08-13: method phase → analytical move → execution action, with
 `operation_kind` at Levels 2 and 3, typed connections, six authority roles,
 information origins, temporal/access/version guards, and exact anchors. Existing
@@ -22,6 +27,7 @@ scoring, Phase 5 adjudication, coverage or capability promotion, shared
 infrastructure, or product implementation. `METHOD-DASH-C1/C2`, `MT-D1`,
 `T0-PROV`, and local `DEMO-C1` are completed bounded slices; none closes
 producer readiness or method validity.
+Phase 3 is paused as supporting research while product integration controls.
 Do not begin another implementation merely because a roadmap or future slice
 exists, and do not move code from an engine into this repo unless Brian
 explicitly authorizes a named implementation slice.
