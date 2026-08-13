@@ -444,12 +444,11 @@
               <div id="aim-choices" class="choice-grid"></div>
             </fieldset>
 
-            <div class="field">
-              <label class="field-label" for="starting-point">What is organizing the work right now?</label>
-              <p class="field-intro">Choose the task or commitment shaping how you will begin. You will identify the material you possess separately below.</p>
-              <select id="starting-point" name="starting_point"></select>
-              <div id="starting-point-guide" class="select-guide" aria-live="polite"></div>
-            </div>
+            <fieldset class="field" style="border:0;padding:0;margin-left:0;margin-right:0">
+              <legend class="field-label">What are you bringing into the investigation?<span>Select all that apply</span></legend>
+              <p class="field-intro">Choose the tasks or commitments already shaping the work. You will identify the material you possess separately below.</p>
+              <div id="organizing-input-choices" class="choice-grid"></div>
+            </fieldset>
 
             <div class="field">
               <label class="field-label" for="scope">What will you study or compare?</label>
@@ -585,13 +584,11 @@
 
     function renderInputs() {
       catalog.aim_options.forEach((option) => renderChoice(byId("aim-choices"), "aims", option));
+      catalog.starting_point_options.forEach((option) => renderChoice(byId("organizing-input-choices"), "organizing_inputs", option));
       catalog.evidence_options.forEach((option) => renderChoice(byId("evidence-choices"), "evidence", option));
-      catalog.starting_point_options.forEach((option) => byId("starting-point").add(new Option(option.label, option.value)));
       catalog.scope_options.forEach((option) => byId("scope").add(new Option(option.label, option.value)));
       catalog.aims.forEach((aim) => byId("aim-filter").add(new Option(label(aim), aim)));
-      renderSelectGuide("starting-point-guide", catalog.starting_point_options[0]);
       renderSelectGuide("scope-guide", catalog.scope_options[0]);
-      byId("starting-point").addEventListener("change", (event) => renderSelectGuide("starting-point-guide", optionByValue(catalog.starting_point_options, event.target.value)));
       byId("scope").addEventListener("change", (event) => renderSelectGuide("scope-guide", optionByValue(catalog.scope_options, event.target.value)));
       catalog.examples.forEach((example) => {
         const button = document.createElement("button");
@@ -607,11 +604,10 @@
     function loadExample(example) {
       const brief = example.brief;
       byId("question").value = brief.question;
-      byId("starting-point").value = brief.starting_point;
       byId("scope").value = brief.scope;
-      renderSelectGuide("starting-point-guide", optionByValue(catalog.starting_point_options, brief.starting_point));
       renderSelectGuide("scope-guide", optionByValue(catalog.scope_options, brief.scope));
       document.querySelectorAll('[name="aims"]').forEach((input) => { input.checked = brief.aims.includes(input.value); });
+      document.querySelectorAll('[name="organizing_inputs"]').forEach((input) => { input.checked = brief.organizing_inputs.includes(input.value); });
       document.querySelectorAll('[name="evidence"]').forEach((input) => { input.checked = brief.evidence.includes(input.value); });
       byId("same-evidence").checked = brief.same_evidence_generated_explanation;
       byId("form-error").hidden = true;
@@ -622,7 +618,7 @@
       return {
         question: byId("question").value.trim(),
         aims: [...document.querySelectorAll('[name="aims"]:checked')].map((input) => input.value),
-        starting_point: byId("starting-point").value,
+        organizing_inputs: [...document.querySelectorAll('[name="organizing_inputs"]:checked')].map((input) => input.value),
         scope: byId("scope").value,
         evidence: [...document.querySelectorAll('[name="evidence"]:checked')].map((input) => input.value),
         same_evidence_generated_explanation: byId("same-evidence").checked
