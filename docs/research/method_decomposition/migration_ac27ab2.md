@@ -16,7 +16,7 @@ The migration uses the independently frozen sources in `claude_phase0/sources.md
 | `step_id`, `verb`, `label`, `parameters`, `preconditions`, `method_owned_semantics`, `optional`, `repeatable` | same-named field | Preserved exactly. |
 | `inputs`, `outputs` mapping | named slot lists | Slot names/types/optional flags preserved; legacy numeric ranges collapse to rev-5 cardinality vocabulary; input/output roles are synthesized. |
 | `actor` | `actor_chain` | Ordered chain synthesized conservatively from the compound legacy label. |
-| `implementation_status` | `execution_status` + `representation_status` | `executable→software_executable`, `represented_manual→manually_performed`, `incomplete→incomplete_software`; artifact representation is assigned from the cited implemented outputs. |
+| `implementation_status` | `execution_status` + `representation_status` | Assigned case by case from both the callable boundary and the actual performer. Legacy `executable` usually maps to `software_executable`, but a callable human-review boundary maps to `manually_performed`; `represented_manual→manually_performed`, `incomplete→incomplete_software`. Artifact representation is assigned from the cited implemented outputs. |
 | `evidence_basis` + `source_refs` | `evidence_basis` + `implementation_ref` | Code/test evidence moves to implementation references; frozen method sources supply methodological evidence. |
 | absent | `workflow_role`, `operation_kind`, `conclusion_supported`, `failure_output` | New assignments are marked as migration-derived. Missing failure artifacts remain explicitly unresolved. |
 | `internal_method_phases`, `implementation_note` | no direct field | Preserved in `original_values` and called out as unexpressible without loss. |
@@ -214,7 +214,7 @@ assigned_rev5_values:
   failure_output: migration_unresolved — the legacy row specified preconditions but no explicit failure artifact or terminal state
   method_owned_semantics: *id003
   evidence_basis: not method-specified; engineering. Corbin & Strauss (2015), Basics of Qualitative Research, 4th ed.; Charmaz (2014), Constructing Grounded Theory, 2nd ed.
-  execution_status: software_executable
+  execution_status: manually_performed
   representation_status: implemented_artifact
   implementation_ref: *id004
   optional: false
@@ -2534,7 +2534,7 @@ assigned_rev5_values:
   workflow_role: appraise
   operation_kind: methodological_support
   actor_chain:
-  - human_analyst
+  - human_reviewer
   inputs:
   - slot: hypothesis_space
     type: rival_explanation
@@ -2553,7 +2553,7 @@ assigned_rev5_values:
   failure_output: migration_unresolved — the legacy row specified preconditions but no explicit failure artifact or terminal state
   method_owned_semantics: *id003
   evidence_basis: 'Bennett & Checkel (2015), Process Tracing: From Metaphor to Analytic Tool; Fairfield & Charman (2017), Political Analysis 25(3).'
-  execution_status: software_executable
+  execution_status: manually_performed
   representation_status: implemented_artifact
   implementation_ref: *id004
   optional: true
@@ -2561,6 +2561,7 @@ assigned_rev5_values:
 unexpressible_or_loss_notes:
 - workflow_role, operation_kind, conclusion_supported, failure_output, slot roles, and actor_chain were absent from the legacy schema and are explicit migration assignments, not original observations.
 - Legacy cardinalities are ranges/strings; rev 5 permits only one/many/optional_one/optional_many, so exact numeric bounds are preserved only in original_values and collapsed in assigned_rev5_values.
+- Legacy executable means the human-review callback is callable, not that software performs the review judgment; rev 5 therefore assigns manually_performed.
 ```
 
 ### `pt.07` — Audit rival partition
@@ -4721,7 +4722,7 @@ assigned_rev5_values:
   failure_output: migration_unresolved — the legacy row specified preconditions but no explicit failure artifact or terminal state
   method_owned_semantics: *id003
   evidence_basis: Page et al. (2021), PRISMA 2020 statement; Howell & Prevenier (2001), From Reliable Sources.
-  execution_status: software_executable
+  execution_status: manually_performed
   representation_status: implemented_artifact
   implementation_ref: *id004
   optional: false
@@ -4731,6 +4732,7 @@ unexpressible_or_loss_notes:
 - Legacy cardinalities are ranges/strings; rev 5 permits only one/many/optional_one/optional_many, so exact numeric bounds are preserved only in original_values and collapsed in assigned_rev5_values.
 - internal_method_phases has no rev-5 field; preserved only in original_values. The bundled callable cannot be split into separately executable rows without changing the observation.
 - This executable boundary bundles multiple rev-5 ideal operations; one operation_kind cannot express the mixed internal semantics without splitting the observed boundary. The assignment follows the primary analytic act and is lossy.
+- Legacy executable means the admission endpoint and validator are callable, not that software performs provenance-fit, duplication, or admission judgment; rev 5 therefore assigns manually_performed.
 ```
 
 ### `pt_acq.04` — Test frozen rivals on admitted evidence
@@ -8242,4 +8244,3 @@ unexpressible_or_loss_notes:
 - The migration does not assert that the 77 executable boundaries are the correct rev-5 ideal granularity. Bundled operations remain bundled and carry loss notes.
 - `failure_output` remains unresolved for every legacy row because the frozen candidate did not record a failure artifact; inventing one would change the observation.
 - Consequential classification or scoping differences are adjudicated or escalated in `disagreements.md`; this file alone cannot settle them.
-

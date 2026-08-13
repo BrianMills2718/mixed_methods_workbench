@@ -104,6 +104,8 @@ def validate_migration() -> None:
         assert assigned["step_id"] == step_id
         assert record["unexpressible_or_loss_notes"], f"{step_id}: loss notes required"
         assert assigned["failure_output"].startswith("migration_unresolved"), step_id
+    assert migrated["pt.06"]["assigned_rev5_values"]["execution_status"] == "manually_performed"
+    assert migrated["pt_acq.03"]["assigned_rev5_values"]["execution_status"] == "manually_performed"
 
 
 def validate_disagreements() -> None:
@@ -114,13 +116,17 @@ def validate_disagreements() -> None:
     assert [row[0] for row in rows] == [f"D{i:02d}" for i in range(1, 41)]
     classes = {row[2] for row in rows}
     assert classes == {"factual", "methodological", "unsettled"}, classes
-    for row in rows:
+    for expected_area, row in zip(areas, rows, strict=True):
         identifier, area, classification, evidence, disposition, escalation = row
-        assert any(name.lower().split()[0] in area.lower() for name in areas), identifier
+        assert area.startswith(f"**{expected_area}:**"), (
+            f"{identifier}: expected ordered comparison area {expected_area!r}"
+        )
         assert evidence and disposition
         if classification == "factual":
-            assert re.search(r"[A-Za-z0-9_./-]+:\d+", evidence), (
-                f"{identifier}: factual row lacks file:line evidence"
+            references = re.findall(r"`([^`]+)`", evidence)
+            assert references, f"{identifier}: factual row lacks code references"
+            assert all(re.match(r"[^@`]+@[0-9a-f]{7,40}:[^:`]+:\d+", ref) for ref in references), (
+                f"{identifier}: factual row has an unpinned repository file:line reference"
             )
         elif classification == "methodological":
             assert re.search(r"\(\d{4}\)", evidence), (
