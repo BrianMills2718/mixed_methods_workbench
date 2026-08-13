@@ -15,6 +15,10 @@ from .investigation_spine import InvestigationSpineError, investigation_spine_pa
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
 from .method_topology import process_tracing_topology_payload
 from .mist_trail_decision import mist_trail_payload
+from .nyc_crz_evidence_slice import (
+    NycCrzEvidenceSliceError,
+    nyc_crz_evidence_slice_payload,
+)
 from .simulation_policy_appraisal import simulation_policy_appraisal_payload
 
 STATIC_PATH = Path(__file__).with_name("static") / "method_dashboard.html"
@@ -90,6 +94,8 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
         if self.path in {
             "/investigation/psychosisbank-disclosure",
             "/investigation/psychosisbank-disclosure/",
+            "/investigation/nyc-congestion-relief-zone",
+            "/investigation/nyc-congestion-relief-zone/",
         }:
             self._write_html(INVESTIGATION_SPINE_STATIC_PATH)
             return
@@ -112,6 +118,17 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
                 self._write_json(
                     HTTPStatus.INTERNAL_SERVER_ERROR,
                     {"error": f"Investigation boundary failed validation: {exc}"},
+                )
+                return
+            self._write_json(HTTPStatus.OK, payload)
+            return
+        if self.path == "/api/investigation/nyc-congestion-relief-zone":
+            try:
+                payload = nyc_crz_evidence_slice_payload()
+            except NycCrzEvidenceSliceError as exc:
+                self._write_json(
+                    HTTPStatus.INTERNAL_SERVER_ERROR,
+                    {"error": f"NYC evidence boundary failed validation: {exc}"},
                 )
                 return
             self._write_json(HTTPStatus.OK, payload)

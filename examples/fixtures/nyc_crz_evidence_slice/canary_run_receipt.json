@@ -1,0 +1,43 @@
+{
+  "schema_version": "mmw.llm_canary_receipt.v0.1",
+  "model_requested": "openrouter/deepseek/deepseek-v4-flash",
+  "model_resolved": "openrouter/deepseek/deepseek-v4-flash",
+  "prompt_sha256": "53a47c15179f058706f2f25c0e6aded6bf913f7ef4f54c7d1fb581115927aec1",
+  "schema_sha256": "dc6bf96d01205402307d088d6c8cbbe52728a4f77b8baf204039a7dfcfdc2573",
+  "prediction_context_sha256": "2a02605d96ea874298de417648c37ab7fa895facb3bda857c43b72697ec06f90",
+  "concern_context_sha256": "30fd25e04b5aea4999c09ad3d274ad54cc0636c5ae956e799c0753e7be1b2ff1",
+  "cache_hit": false,
+  "prompt_tokens": 329,
+  "completion_tokens": 413,
+  "total_cost_usd": 0.00015477,
+  "cost_source": "provider_reported",
+  "attempts": [
+    {
+      "ordinal": 1,
+      "trace_id": "mixed_methods_workbench/nyc-crz-mvp-v1/anchored-extraction-canary-1",
+      "logical_call_id": "llmcall_fa4d2776f3764aaaac4791dc81daeba0",
+      "output_sha256": "5e8c4f7a5dc9bacf65b17ad5f4f56d5ef64d5565722a748b8d197f6c37800221",
+      "disposition": "rejected_anchor_binding",
+      "refusal_code": "selected_text_not_in_normalized_context",
+      "note": "The hearing quote did not bind after printed line-number extraction."
+    },
+    {
+      "ordinal": 2,
+      "trace_id": "mixed_methods_workbench/nyc-crz-mvp-v1/anchored-extraction-canary-2",
+      "logical_call_id": "llmcall_f7928ffbd46340ef93eeaa4485eb1ccf",
+      "output_sha256": "b559689bbd5732ab38f5673e0a6ce915416da2f7e1ed27edb6d4c771f246669f",
+      "disposition": "rejected_source_unit_scope",
+      "refusal_code": "scenario_not_supported_by_supplied_unit",
+      "note": "The candidate copied a scenario from a table row omitted from the supplied source unit."
+    },
+    {
+      "ordinal": 3,
+      "trace_id": "mixed_methods_workbench/nyc-crz-mvp-v1/anchored-extraction-canary-3",
+      "logical_call_id": "llmcall_ef6303a0551347c38932ba752c1500fd",
+      "output_sha256": "09b7eee118d9ec8b632e13cf1cafdf5babdbfa176ce1df5b0e3d18b9e5d81970",
+      "disposition": "retained_pending_human_review",
+      "refusal_code": null,
+      "note": "The structured candidate and both quote bindings validate; methodological acceptance remains withheld."
+    }
+  ]
+}
