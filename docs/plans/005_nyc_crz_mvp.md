@@ -13,7 +13,9 @@ evidence provenance, review, synthesis, and explicit limitations.
 at canonical main revision `89e6a8b7b5b8270f7f77fadd8b3e773188380b64`.
 
 The machine-consumed execution graph is
-[`005_nyc_crz_mvp_work_graph.json`](005_nyc_crz_mvp_work_graph.json).
+[`5_nyc_crz_mvp_work_graph.json`](5_nyc_crz_mvp_work_graph.json). The graph's
+non-zero-padded `5_` prefix is required by the canonical claim-readiness
+validator for `Plan #5`.
 
 ## Researcher-visible outcome
 
@@ -110,4 +112,3 @@ Contracts promotion.
   its denominator and negative-case search intact.
 - Do not start another method-catalog or shared-schema lane to avoid an observed
   vertical failure.
-
