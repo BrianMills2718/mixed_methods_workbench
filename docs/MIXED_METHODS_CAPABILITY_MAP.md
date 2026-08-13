@@ -1,7 +1,7 @@
 # Text-Centered Mixed-Methods Capability Map
 
 Status: canonical future scope inventory; documentation only
-Updated: 2026-08-12
+Updated: 2026-08-13
 
 This map records eventual coverage and planning gaps. It does not activate or
 authorize implementation; see `docs/PLANNING_STATUS.md`.
@@ -15,9 +15,12 @@ and quality criteria.
 
 The first code-derived capability evidence is frozen under
 [`docs/research/method_decomposition/codex_phase0/`](research/method_decomposition/codex_phase0/README.md).
-It describes inspected implementations and does not replace this future-scope
-map. Candidate reuse remains unadjudicated until the independent decomposition
-is compared using the adjacent rubric.
+The independent candidate and the meaning-level reconciliation are recorded in
+[`docs/research/method_decomposition/claude_phase0/`](research/method_decomposition/claude_phase0/reality_check.md)
+and
+[`docs/research/method_decomposition/comparison_v0.md`](research/method_decomposition/comparison_v0.md).
+They describe inspected implementations and method obligations; they do not
+replace this future-scope map or adopt a universal capability schema.
 
 Status grades describe workbench-level evidence:
 
@@ -29,6 +32,29 @@ Status grades describe workbench-level evidence:
 
 Upstream engine maturity is noted separately and does not automatically raise a
 workbench grade.
+
+## Reconciled Phase 0 Evidence Crosswalk
+
+This crosswalk locates the reconciled Phase 0 findings in the future inventory
+without turning either candidate's steps into canonical capabilities. It does
+not change the grades below: the decompositions provide bounded evidence about
+inspected implementations, while the grades describe workbench-level evidence.
+
+| Inspected workflow | Inventory families informed | Observed evidence | Limit retained by this map |
+|---|---|---|---|
+| Fixed-corpus grounded theory in `qualitative_coding` | Qualitative analysis; review and reflexivity; causal handoff boundaries | Constant comparison, proposal/revision checkpoints, negative-case appraisal, and typed QC/PT handoffs have executable support; method-meaningful coding and memo operations are coarser in software than in the independent decomposition. | Theoretical sampling remains incomplete, and executable control flow is not evidence of grounded-theory fidelity or saturation validity. |
+| Process Tracing rival-explanation core | Causal and comparative inference; source governance; review and refusal | Rival construction, partition repair, likelihood appraisal/audit, absence handling, deterministic comparative updating, mechanism graphs, critic/refinement loops, and calibrated refusal are represented in the observed control flow. | These are PT-owned inference operations. Van Evera labels are computed but do not drive the numeric discrimination grade; no generic diagnostic or confidence capability follows. |
+| Process Tracing source acquisition | Source governance; corpus construction; iterative feedback | The scoped interactive path preserves an acquisition agenda, external retrieval, human review, provenance, duplicate handling, and hash-bound admission. A separate bulk/comparative path automates pair review. | The two paths are different variants, not interchangeable evidence. The exact held-out return from newly admitted evidence to frozen rivals remains an evidence mismatch. |
+| Theory Forge compile/apply | Theory construction and operationalization; evaluation; reproducible execution | Extraction, structural validation, compilation, repair, review, staged execution, and reporting mechanics are visible in the inspected implementation. | No authoritative methodology source establishes “compile a theory into code.” Authentic compiled execution and fleet-wide runtime-green status remain unresolved evidence, so representation must not be promoted to executed-theory capability. |
+| Theory Forge CPT/Choices13k | Quantitative/computational analysis; theory application; evaluation | Dataset pinning, eligibility, CPT transformations, expected-value baseline, row-level prediction, aggregation, and reporting are deterministic and executable in the inspected workflow. | One theory-specific benchmark is not a generic quantitative-text strand, fitting loop, or empirical validation of Theory Forge as a whole. |
+| Mist Trail policy appraisal | Research design; human/agent governance; reporting and projection | Typed, validated, hash-bound option, consequence, criterion, priority-lens, recommendation, API, and UI artifacts are present. | The analytic judgments are manually performed and the pipeline makes no model call. Artifact quality and projection must remain separate from analytic execution. |
+
+Across these workflows, the credible reuse hypothesis is a small shell for
+identity, custody, typed boundaries, validation, review state, lineage,
+refusal, and projection. Coding judgments, causal diagnostics, theory
+compilation, prediction mathematics, policy valuation, and required workflow
+topology remain method-owned. A shared capability still requires two authentic
+compatible producer/consumer seams before infrastructure adoption.
 
 ## Capability Families
 
