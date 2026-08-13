@@ -3,13 +3,13 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: Investigation Spine Development Checkpoint Complete
+## Current Phase: Mist Trail Gate Complete; Replacement Flagship Needed
 
 Brian approved the exact Investigation Spine recommended by the merged product
 integration assessment on 2026-08-13. The bounded implementation contract is
 [`investigation_spine.md`](plans/investigation_spine.md).
 
-The Workbench now has one typed projection, matching JSON route, and
+The Workbench has one typed projection, matching JSON route, and
 plain-language browser page over the already completed Qualitative Coding to
 Process Tracing round trip. The route uses exact pinned fixtures for portable
 validation and is linked from the existing dashboard.
@@ -19,9 +19,18 @@ evidence, generalize the P5-specific mapping, adopt Data Contracts, activate a
 shared schema, deploy the interface, or present the inconclusive result as
 confirmation or rejection.
 
-No later product implementation is active by implication. The recommended
-next decision is the short Mist Trail flagship source gate described in the
-product integration assessment.
+The approved Mist Trail source gate is now complete. Its controlling record is
+[`mist_trail_source_gate.md`](research/mist_trail_source_gate.md). Mist Trail
+passes as a real pre-decision document-analysis, structured-extraction, and
+conditional option-appraisal case. It fails as the sole cohesive MVP flagship:
+the public record has no final decision or implementation outcome, no exposed
+raw comment corpus, and no quantitative/computational strand with distinct
+leverage over the choice.
+
+No later product implementation is active by implication. The next decision is
+to select and freeze a completed public policy case using the six criteria in
+the source-gate record. Mist Trail remains a secondary vertical; do not return
+to Open Science/P5 as the general flagship by default.
 
 ## Completed Phase: Product Integration Assessment
 
