@@ -3,7 +3,7 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: Mist Trail Gate Complete; Replacement Flagship Needed
+## Current Phase: NYC Congestion-Pricing Source Freeze Needed
 
 Brian approved the exact Investigation Spine recommended by the merged product
 integration assessment on 2026-08-13. The bounded implementation contract is
@@ -27,10 +27,17 @@ the public record has no final decision or implementation outcome, no exposed
 raw comment corpus, and no quantitative/computational strand with distinct
 leverage over the choice.
 
+The replacement screen is complete and recorded in
+[`replacement_flagship_screen.md`](research/replacement_flagship_screen.md).
+New York City's Congestion Relief Zone tolling program is the selected
+candidate because the official record includes a final decision, verbatim
+hearing transcripts, machine-readable traffic/ridership data, implementation,
+and a first-year evaluation. London ULEZ is the runner-up. Mist Trail remains a
+secondary vertical; do not return to Open Science/P5 as the general flagship by
+default.
+
 No later product implementation is active by implication. The next decision is
-to select and freeze a completed public policy case using the six criteria in
-the source-gate record. Mist Trail remains a secondary vertical; do not return
-to Open Science/P5 as the general flagship by default.
+the exact NYC question-and-corpus freeze defined in the replacement screen.
 
 ## Completed Phase: Product Integration Assessment
 
