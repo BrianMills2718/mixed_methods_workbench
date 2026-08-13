@@ -1,0 +1,329 @@
+{
+  "analysis_repository_revision": "3775f783acf3e619d91f0d7acb667604c5c59272",
+  "case_scope": {
+    "case_name": "PsychosisBank and TalkBank graduated-access design",
+    "focal_window": "2022 design commentary through the 2023 AdminView implementation and the hash-frozen current access-policy snapshot retrieved 2026-08-11",
+    "outcome": "PsychosisBank uses controlled access with an interview and CITI-training requirement inside TalkBank's graduated four-level access system.",
+    "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+    "selection_and_scope_limits": [
+      "The packet is source-selected and not a blinded held-out validation.",
+      "The public commentary may report normative design logic rather than the complete causal sequence of implementation.",
+      "Current policy pages are authoritative for the captured snapshot but are not full historical change records.",
+      "No private deliberation, project-specific ethics determination, or focused follow-up interview is included."
+    ]
+  },
+  "central_review_artifact": {
+    "artifact_id": "p5-psychosisbank-case-20260811a/run-exact-p5/central_claim_review.json",
+    "sha256": "c9660e7d32c061f300609182a9f89b979213c7d9f1294c31ca314fe6e9d0aa28"
+  },
+  "evidence_packet": {
+    "evidence_count": 24,
+    "high_priority_gaps": [
+      "Contemporaneous PsychosisBank decision records",
+      "Timestamped policy and repository change history",
+      "Project-specific consent, ethics, and governance determinations"
+    ],
+    "selected_evidence": [
+      {
+        "description": "The authors state that Open Science favors fully open access but that clinical spoken-language data have faced significant resistance, including regulatory and public-perception barriers.",
+        "evidence_id": "c01_evi_commentary_barriers_open_science",
+        "source_id": "source_a",
+        "source_quote": "Open Science encourages fully open access, but that open sharing of spoken-language data from clinical populations has met significant resistance.",
+        "source_span_id": "span_c01_006",
+        "source_title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?"
+      },
+      {
+        "description": "The commentary identifies privacy and confidentiality concerns from sharing without consent and lists several alternative responses, including qualified-researcher access, vetting, agreements, passwords, and purpose limits.",
+        "evidence_id": "c01_evi_consent_multiple_responses",
+        "source_id": "source_a",
+        "source_quote": "re-contact, an IRB waiver where permissible, explicit consent for qualified-researcher access, participant removal rights, governance-body vetting, signed agreements, password access, institutional qualification, purpose limitations, and dynamic consent",
+        "source_span_id": "span_c01_007",
+        "source_title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?"
+      },
+      {
+        "description": "The authors describe several deidentification and media-restriction strategies, including transcripts, blurred video, avatars, and password-protected video with adequate consent.",
+        "evidence_id": "c01_evi_deidentification_options",
+        "source_id": "source_a",
+        "source_quote": "share typed transcripts rather than audio; blur video or replace images with avatars; or use password-protected video with adequate consent",
+        "source_span_id": "span_c01_008",
+        "source_title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?"
+      },
+      {
+        "description": "The authors report that TalkBank addresses competitive publication concerns through a data-use embargo followed by citation and DOI practices.",
+        "evidence_id": "c01_evi_credit_embargo_controls",
+        "source_id": "source_a",
+        "source_quote": "TalkBank addresses this concern by permitting a data-use embargo, after which corpus citation, DOI assignment, and citation of a contributor's prior publication help preserve credit.",
+        "source_span_id": "span_c01_009",
+        "source_title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?"
+      },
+      {
+        "description": "The commentary reports that feared misuse had not occurred in TalkBank-affiliated databases but proposes restricting sharing to vetted researchers subject to conduct and use-approval requirements.",
+        "evidence_id": "c01_evi_misuse_vetting_controls",
+        "source_id": "source_a",
+        "source_quote": "although such misuse had not occurred in TalkBank-affiliated databases, sharing could be restricted to vetted qualified researchers who agree to a code of conduct and whose intended use is pre-approved by a governing body",
+        "source_span_id": "span_c01_010",
+        "source_title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?"
+      },
+      {
+        "description": "The TalkBank policy documents four access levels, including open, registration-required, approved, and controlled access.",
+        "evidence_id": "c01_evi_four_talkbank_levels",
+        "source_id": "source_b",
+        "source_quote": "TalkBank offers four levels. Open access requires no restrictions or registration. Registration-required access requires an account and password. Approved access is available to verified academic researchers",
+        "source_span_id": "span_c01_015",
+        "source_title": "TalkBank Data Access Levels"
+      },
+      {
+        "description": "The current policy explicitly places PsychosisBank in controlled access and requires a special interview and proof of CITI training.",
+        "evidence_id": "c01_evi_psychosisbank_controlled_requirements",
+        "source_id": "source_b",
+        "source_quote": "corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training",
+        "source_span_id": "span_c01_016",
+        "source_title": "TalkBank Data Access Levels"
+      }
+    ],
+    "source_count": 3,
+    "sources": [
+      {
+        "evidence_count": 11,
+        "source_group": "project_design_commentary",
+        "source_id": "source_a",
+        "source_kind": "secondary_analysis",
+        "status": "covered",
+        "title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?"
+      },
+      {
+        "evidence_count": 4,
+        "source_group": "implemented_access_policy",
+        "source_id": "source_b",
+        "source_kind": "primary_document",
+        "status": "covered",
+        "title": "TalkBank Data Access Levels"
+      },
+      {
+        "evidence_count": 9,
+        "source_group": "governance_guidance",
+        "source_id": "source_c",
+        "source_kind": "primary_document",
+        "status": "covered",
+        "title": "TalkBank IRB Approval and Informed Consent Guidance"
+      }
+    ]
+  },
+  "method_appraisal": {
+    "grade_cap_applied": true,
+    "hypothesis_appraisals": [
+      {
+        "description": "Individualized governance, curation, credit, misuse, and jurisdiction burdens entered a deliberative tradeoff with Open Science goals and led the team toward graduated and controlled access.",
+        "hypothesis_id": "h1",
+        "is_theory_target": true,
+        "reasoning": "H1 ranks first in comparative support, but its support is only 0.278535, fragile, and the h1\u2013h3 matrix has no realized discriminator. The evidence favors burden-sensitive alternatives over h2, but does not establish a target-favorable comparison against h3.",
+        "robustness": "fragile",
+        "status": "indeterminate"
+      },
+      {
+        "description": "External ethics, legal, funder, or repository rules directly determined controlled access, leaving little material project-level deliberation over disclosure strategy.",
+        "hypothesis_id": "h2",
+        "is_theory_target": false,
+        "reasoning": "H2 ranks last among the named hypotheses, with comparative support of 0.223007, below its declared prior. The positive-evidence matrix records several alternatives rather than a single mandatory rule, although general regulatory constraints remain compatible with this account.",
+        "robustness": "fragile",
+        "status": "weakened"
+      },
+      {
+        "description": "A stable prior preference or established TalkBank routine selected controlled access, while cited burdens and risks mainly justified or elaborated a choice made for other reasons.",
+        "hypothesis_id": "h3",
+        "is_theory_target": false,
+        "reasoning": "H3 has comparative support of 0.249229, slightly below its declared prior, and the evidence matrix contains no realized discriminator for or against h3. Its near-prior result leaves routine or prior preference viable but not positively established.",
+        "robustness": "unknown",
+        "status": "weakened"
+      }
+    ],
+    "inference_mode": "theory_first",
+    "inference_status": "confirmatory_eligible_theory_first",
+    "mechanism_edges": [
+      {
+        "edge_id": "e1",
+        "evidence_ids": [
+          "c01_evi_commentary_barriers_open_science",
+          "c01_evi_consent_multiple_responses",
+          "c01_evi_deidentification_options",
+          "c01_evi_credit_embargo_controls",
+          "c01_evi_misuse_vetting_controls",
+          "c01_evi_jurisdiction_transfer_constraint",
+          "c01_evi_federated_access_alternative"
+        ],
+        "missing_test": "A contemporaneous PsychosisBank decision record linking identified burdens to considered and selected access features.",
+        "relationship": "identified sharing barriers were paired with multiple access, consent, deidentification, credit, vetting, and jurisdictional responses",
+        "source_stage": "Barriers to fully open sharing identified",
+        "status": "contested_causal_link",
+        "target_stage": "Graduated and conditional responses documented"
+      },
+      {
+        "edge_id": "e2",
+        "evidence_ids": [
+          "c02_evi_multiple_access_options",
+          "c02_evi_dua_extra_burden_nih",
+          "c02_evi_clinical_additional_restriction",
+          "c02_evi_video_consent_or_committee_control",
+          "c01_evi_adminview_2023_funding"
+        ],
+        "missing_test": "Dated project correspondence, policy history, or implementation records connecting the access-choice process to AdminView's creation and distinguishing selection from later infrastructure support.",
+        "relationship": "documented access options and conditional controls precede the recorded AdminView funding date",
+        "source_stage": "Graduated and conditional responses documented",
+        "status": "unresolved_link",
+        "target_stage": "Access-control infrastructure funded"
+      },
+      {
+        "edge_id": "e3",
+        "evidence_ids": [
+          "c01_evi_adminview_2023_funding",
+          "c01_evi_four_talkbank_levels"
+        ],
+        "missing_test": "Technical or policy documentation mapping AdminView functions to the four documented access levels.",
+        "relationship": "AdminView controls access within the documented four-level architecture",
+        "source_stage": "Access-control infrastructure funded",
+        "status": "unresolved_link",
+        "target_stage": "Four-level access architecture documented"
+      },
+      {
+        "edge_id": "e4",
+        "evidence_ids": [
+          "c01_evi_four_talkbank_levels",
+          "c01_evi_psychosisbank_controlled_requirements"
+        ],
+        "missing_test": null,
+        "relationship": "the four-level architecture classifies PsychosisBank as controlled access",
+        "source_stage": "Four-level access architecture documented",
+        "status": "supported_causal_link",
+        "target_stage": "PsychosisBank placed in controlled access"
+      }
+    ],
+    "publication_gate": {
+      "failed_claims": [
+        {
+          "claim_id": "edge_relationship_e2_c2",
+          "claim_text": "and conditional controls precede the recorded AdminView funding date",
+          "disposition": "unsupported",
+          "reasoning": "The evidence documents conditional controls and a 2023 AdminView funding date separately, but does not establish that the controls preceded that date.",
+          "source_field": "mechanism_unresolved",
+          "target_id": "edge_relationship_e2"
+        }
+      ],
+      "public_conclusion_status": "withheld_pending_repair",
+      "status": "blocked"
+    },
+    "rival_pairs_without_discriminators": [
+      [
+        "h1",
+        "h3"
+      ],
+      [
+        "h2",
+        "h3"
+      ]
+    ],
+    "target_status": "indeterminate",
+    "theory_evidence_relationship": "independent"
+  },
+  "producer_repository": "process_tracing",
+  "result_artifact": {
+    "artifact_id": "p5-psychosisbank-case-20260811a/run-exact-p5/result_blocked_prepublication.json",
+    "sha256": "7de3e7cf2fdce6c38f7aff78411aa0491da53b3677846b40aa0a9a9d66c0a962"
+  },
+  "return_id": "p5-psychosisbank-case-20260811a",
+  "schema_version": "pt_theory_test_return_v1",
+  "target": {
+    "authoritative_wording": "Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness.",
+    "hypothesis_id": "h1",
+    "proposition_id": "P5",
+    "repository": "qualitative_coding",
+    "revision": "d921baaf6f2b661e68d24aa243ee05da7fbe1823",
+    "theory_id": "open-science-theory",
+    "theory_sha256": "7dc4da5a56dbc9db15e3f526f57ecb7f604a893ef4ff453e282af93696a7170e",
+    "theory_version": "p5-v1"
+  },
+  "theory_input_receipt_artifact": {
+    "artifact_id": "p5-psychosisbank-case-20260811a/run-exact-p5/theory_input_receipt.json",
+    "sha256": "5b40d6063bf36425fd534467e04c27e62ee0286ebe4a2e4a667eb63d1497d7d8"
+  },
+  "theory_update": {
+    "allowed_uses": [
+      "Review the case-specific Process Tracing appraisal of P5.",
+      "Retain P5 as an unconfirmed candidate while planning targeted evidence acquisition."
+    ],
+    "disposition": "retain_unconfirmed",
+    "excluded_inferences": [
+      "The case independently confirms or rejects P5.",
+      "Comparative support is a probability that P5 is true or a qualitative confidence score.",
+      "The publication-blocked mechanism narrative is a publishable causal conclusion."
+    ],
+    "findings": [
+      {
+        "evidence_ids": [
+          "c01_evi_commentary_barriers_open_science",
+          "c01_evi_consent_multiple_responses",
+          "c01_evi_deidentification_options",
+          "c01_evi_credit_embargo_controls",
+          "c01_evi_misuse_vetting_controls"
+        ],
+        "finding_id": "documented_burdens_and_responses",
+        "wording": "The new sources document consent, deidentification, credit, and misuse burdens alongside several possible disclosure controls."
+      },
+      {
+        "evidence_ids": [
+          "c01_evi_consent_multiple_responses",
+          "c01_evi_deidentification_options"
+        ],
+        "finding_id": "multiple_options_not_one_rule",
+        "wording": "The documented response set contains alternatives rather than showing that one external rule directly dictated every access feature."
+      },
+      {
+        "evidence_ids": [
+          "c01_evi_four_talkbank_levels",
+          "c01_evi_psychosisbank_controlled_requirements"
+        ],
+        "finding_id": "controlled_access_outcome",
+        "wording": "The current TalkBank policy places PsychosisBank in controlled access with an interview and CITI-training requirement."
+      }
+    ],
+    "headline": "New case evidence is consistent with P5, but does not confirm it.",
+    "summary": "The packet documents disclosure burdens, several possible responses, and PsychosisBank's controlled-access outcome. It weakens a direct-rule-only rival, but it does not distinguish P5 from stable prior preference or routine and lacks the contemporaneous decision record needed to establish P5's deliberative mechanism.",
+    "unresolved": [
+      {
+        "mechanism_edge_ids": [
+          "e1"
+        ],
+        "question_id": "selection_mechanism",
+        "rival_pairs": [],
+        "source_gap_labels": [
+          "Contemporaneous PsychosisBank decision records"
+        ],
+        "wording": "The packet lacks a contemporaneous PsychosisBank decision record linking recognized burdens to the selected access strategy."
+      },
+      {
+        "mechanism_edge_ids": [],
+        "question_id": "routine_rival",
+        "rival_pairs": [
+          [
+            "h1",
+            "h3"
+          ]
+        ],
+        "source_gap_labels": [
+          "Timestamped policy and repository change history"
+        ],
+        "wording": "The packet does not distinguish P5's deliberative account from a stable prior preference or established TalkBank routine."
+      },
+      {
+        "mechanism_edge_ids": [
+          "e2"
+        ],
+        "question_id": "unsupported_chronology",
+        "rival_pairs": [],
+        "source_gap_labels": [
+          "Timestamped policy and repository change history"
+        ],
+        "wording": "The accepted evidence does not establish that the documented conditional controls preceded AdminView's recorded funding date."
+      }
+    ]
+  }
+}
