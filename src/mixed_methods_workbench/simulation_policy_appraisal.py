@@ -23,7 +23,8 @@ FIXTURE_ROOT = (
     / "simulation_policy_appraisal"
 )
 SOURCE_COMPARISON_PATH = FIXTURE_ROOT / "source_comparison.json"
-EXPECTED_FIXTURE_SHA256 = "2b86684ab49affc17998f287756fca222998e14d055f500f5ab232730f2daecb"
+SOURCE_ROWS_PATH = FIXTURE_ROOT / "source_rows.json"
+EXPECTED_FIXTURE_SHA256 = "6092e5faa1b3467355dd80bc68c42b576d6ce69441e267f4ec774ce82daf80b1"
 
 
 class AppraisalModel(BaseModel):
@@ -48,8 +49,56 @@ class ComparisonSource(AppraisalModel):
     api_url: str
     retrieved_at: str
     producer_repository: Literal["cybernetic_influence_v3"]
-    producer_revision: str = Field(pattern=r"^[0-9a-f]{40}$")
+    inspected_repository_revision: Literal[
+        "eaa49adf398df718249c7828061722d3285b619a"
+    ]
+    embedded_producer_revision: None
+    revision_relationship: Literal["inspection_only_not_embedded_in_runs"]
     projection_method: str
+
+
+class ProducerModel(BaseModel):
+    """Validate the fields consumed from an otherwise producer-owned row."""
+
+    model_config = ConfigDict(extra="allow", frozen=True)
+
+
+class ProducerOutcome(ProducerModel):
+    """Method-relevant outcome fields retained in the producer response."""
+
+    agent_count: Literal[12]
+    condition: str
+    exercise_injects: list[str]
+    final_decisions: dict[str, int]
+    final_requests: dict[str, int]
+    final_risks: dict[str, int]
+    model_calls: Literal[36]
+    outcome: Literal["joint_response_approved", "no_joint_response"]
+    rounds_completed: Literal[3]
+    stabilization_events: list[str]
+
+
+class ProducerLlmConfiguration(ProducerModel):
+    """LLM identity fields needed to compare the selected executions."""
+
+    agent_reasoning_effort: Literal["medium"]
+    llm_client_revision: str = Field(pattern=r"^[0-9a-f]{40}$")
+    model: str
+
+
+class ProducerSourceRow(ProducerModel):
+    """Permissive typed consumer for one complete pinned producer row."""
+
+    run_id: str
+    created_at: str
+    status: Literal["completed"]
+    scenario: Literal["regional_outbreak"]
+    profile: Literal["position_context"]
+    arm: str
+    execution: Literal["live"]
+    model_calls: Literal[36]
+    outcome: ProducerOutcome
+    llm_configuration: ProducerLlmConfiguration
 
 
 class SimulationRunProjection(AppraisalModel):
@@ -100,6 +149,10 @@ class SimulationComparisonFixture(AppraisalModel):
     source: ComparisonSource
     evidence_origin: Literal["model_generated"]
     scenario: Literal["regional_outbreak"]
+    endpoint_row_count_at_retrieval: Literal[20]
+    comparable_run_count_at_retrieval: Literal[6]
+    selection_basis: str
+    within_model_limit: str
     applicability: str
     prohibited_inferences: list[str] = Field(min_length=1)
     runs: list[SimulationRunProjection] = Field(min_length=3, max_length=3)
@@ -163,6 +216,96 @@ class SimulationComparisonFixture(AppraisalModel):
         return self
 
 
+CONDITION_BY_PRODUCER_ARM = {
+    "baseline": SimulationCondition.BASELINE,
+    "responsive_exercise_injects": SimulationCondition.CAPACITY_CONFLICT,
+    "capacity_inject_replay_with_stabilization": (
+        SimulationCondition.CAPACITY_CONFLICT_WITH_VERIFIED_ALLOCATION
+    ),
+}
+
+
+def _canonical_source_row_sha256(raw_row: dict[str, object]) -> str:
+    canonical = json.dumps(
+        raw_row,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ) + "\n"
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def _project_source_row(
+    source_row: ProducerSourceRow,
+    source_row_sha256: str,
+) -> SimulationRunProjection:
+    try:
+        condition = CONDITION_BY_PRODUCER_ARM[source_row.arm]
+    except KeyError as exc:
+        raise ValueError(f"unsupported pinned producer arm: {source_row.arm}") from exc
+    outcome = source_row.outcome
+    llm_configuration = source_row.llm_configuration
+    return SimulationRunProjection(
+        run_id=source_row.run_id,
+        source_row_sha256=source_row_sha256,
+        created_at=source_row.created_at,
+        status=source_row.status,
+        scenario=source_row.scenario,
+        profile=source_row.profile,
+        condition=condition,
+        producer_condition=outcome.condition,
+        execution=source_row.execution,
+        agent_count=outcome.agent_count,
+        rounds_completed=outcome.rounds_completed,
+        model_calls=source_row.model_calls,
+        model=llm_configuration.model,
+        reasoning_effort=llm_configuration.agent_reasoning_effort,
+        llm_client_revision=llm_configuration.llm_client_revision,
+        outcome=outcome.outcome,
+        final_decisions=outcome.final_decisions,
+        final_requests=outcome.final_requests,
+        final_risks=outcome.final_risks,
+        exercise_injects=outcome.exercise_injects,
+        stabilization_events=outcome.stabilization_events,
+    )
+
+
+def verify_source_projection(
+    comparison: SimulationComparisonFixture,
+    source_payload: object,
+) -> None:
+    """Bind every compact projected field to one complete pinned source row."""
+
+    if not isinstance(source_payload, dict) or set(source_payload) != {"rows"}:
+        raise ValueError("pinned source payload must contain only a rows collection")
+    raw_rows = source_payload["rows"]
+    if not isinstance(raw_rows, list):
+        raise TypeError("pinned source rows must be a list")
+
+    source_by_id: dict[str, tuple[ProducerSourceRow, str]] = {}
+    for raw_row in raw_rows:
+        if not isinstance(raw_row, dict):
+            raise TypeError("each pinned source row must be an object")
+        typed_row = ProducerSourceRow.model_validate(raw_row)
+        if typed_row.run_id in source_by_id:
+            raise ValueError(f"duplicate pinned source row: {typed_row.run_id}")
+        source_by_id[typed_row.run_id] = (
+            typed_row,
+            _canonical_source_row_sha256(raw_row),
+        )
+
+    expected_ids = {run.run_id for run in comparison.runs}
+    if set(source_by_id) != expected_ids:
+        raise ValueError("complete pinned source rows do not match projected run IDs")
+    for run in comparison.runs:
+        source_row, source_digest = source_by_id[run.run_id]
+        projected = _project_source_row(source_row, source_digest)
+        if projected != run:
+            raise ValueError(
+                f"projected run {run.run_id} does not match its complete pinned source row"
+            )
+
+
 class AppraisalConclusion(AppraisalModel):
     """A methodological refusal plus the useful action still licensed."""
 
@@ -206,6 +349,10 @@ def load_simulation_policy_appraisal() -> SimulationPolicyAppraisalArtifact:
     if fixture_sha256 != EXPECTED_FIXTURE_SHA256:
         raise ValueError("simulation comparison fixture SHA-256 does not match")
     comparison = SimulationComparisonFixture.model_validate(json.loads(fixture_bytes))
+    verify_source_projection(
+        comparison,
+        json.loads(SOURCE_ROWS_PATH.read_bytes()),
+    )
     appraisal = SimulationPolicyAppraisal(
         schema_id="workbench.simulation_informed_appraisal",
         schema_version="0.1.0",

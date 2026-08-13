@@ -1,0 +1,869 @@
+{
+  "rows": [
+    {
+      "run_id": "run_8924342b56ce",
+      "created_at": "2026-08-05T15:11:02.124163+00:00",
+      "updated_at": "2026-08-05T15:13:07.432992+00:00",
+      "status": "completed",
+      "scenario": "regional_outbreak",
+      "profile": "position_context",
+      "arm": "baseline",
+      "execution": "live",
+      "model_calls": 36,
+      "cost": 0.0,
+      "headline": "The coalition approved a joint outbreak response",
+      "coordination_measurement_status": null,
+      "composite_assay": null,
+      "coordination_experiment": null,
+      "live_coordination_probe": null,
+      "outcome": {
+        "agent_count": 12,
+        "condition": "baseline",
+        "cost_fully_observable": true,
+        "exercise_injects": [],
+        "final_decisions": {
+          "support": 12
+        },
+        "final_requests": {
+          "none": 1,
+          "resources": 9,
+          "safeguards": 2
+        },
+        "final_risks": {
+          "capacity": 9,
+          "none": 1,
+          "sovereignty": 2
+        },
+        "known_cost": 0.0,
+        "model_calls": 36,
+        "outcome": "joint_response_approved",
+        "round_history": [
+          {
+            "round": 1,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "support",
+                "rationale": "The compact preserves national control of identifiable records and audited access restrictions, while confirmed cross-laboratory validation and precommitted capacity make launch executable now.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_operations_lead": {
+                "decision": "support",
+                "rationale": "Support launch: mixed teams, laboratory sharing, and the allocation cell can operate immediately with committed staff and supplies. The compact keeps identifiable records under national control, prohibits unapproved export, and logs access; maintain those safeguards through the 72-hour review.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "alba_policy_delegate": {
+                "decision": "support",
+                "rationale": "Alba supports immediate launch: identifiable patient records remain under national control, exports require approval, access is logged, and clinical command remains national.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "borin_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national control safeguards, precommitted reserve staff and reciprocal aid, and equal cost shares make immediate launch justified. Borin's strained hospitals require the promised staffing and supply support to be deployed on schedule.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "support",
+                "rationale": "Borin can deploy rapidly through its transport hub, and the compact, validated signal, precommitted reserves, reciprocal supplies, and equal cost sharing make the joint launch operationally executable. Hospital staffing remains the primary delivery risk and should be monitored through the 72-hour review.",
+                "request": "none",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "support",
+                "rationale": "Borin supports launch: validated evidence, national control safeguards, precommitted reserve staff and diagnostics, reciprocal aid, and equal cost sharing make the compact defensible. Staffing strain remains the primary operational risk and requires active resource delivery.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory and local validation, national control of line-level records, reciprocal aid, and precommitted capacity make immediate launch justified; retain the 72-hour review.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "support",
+                "rationale": "Support launch: the compact, validation, precommitted diagnostics and reserve staff, reciprocal shipments, and local board endorsement make field delivery executable now. Maintain rapid visibility of staffing and supply coverage beyond the capital.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support launch. Cross-laboratory confirmation, locally endorsed validation boards, national control of line-level records and clinical command, auditable data safeguards, and precommitted reciprocal resources make the compact executable and publicly defensible.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_coordinator": {
+                "decision": "support",
+                "rationale": "The joint response has confirmed validation, enforceable national data controls, precommitted capacity and supplies, and endorsement in all three national contexts; it can launch under the signed compact and be reviewed after 72 hours.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "support",
+                "rationale": "Precommitted reserve staff, diagnostics, reciprocal aid shipments, funding, and allocation safeguards make the regional surge plan executable now while retaining national clinical command.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_scientific_advisor": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national data control, local board endorsement, and precommitted shared capacity make immediate launch justified while preserving national clinical authority.",
+                "request": "none",
+                "risk": "none"
+              }
+            }
+          },
+          {
+            "round": 2,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "support",
+                "rationale": "The signed compact preserves Alba’s national control of identifiable records and audited access restrictions, while confirmed cross-laboratory validation and precommitted regional capacity keep launch executable now.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_operations_lead": {
+                "decision": "support",
+                "rationale": "Support continued launch: mixed teams, shared laboratory capacity, and the allocation cell are operationally backed by committed staff and supplies. Maintain national control of identifiable records, approval for any export, and audited access through the 72-hour review.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "alba_policy_delegate": {
+                "decision": "support",
+                "rationale": "Alba supports continued launch: identifiable records remain under national control, exports require approval, access is logged, and national clinical command is preserved.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "borin_epidemiologist": {
+                "decision": "support",
+                "rationale": "The unanimous first-round support confirms the validated and safeguarded compact is executable. Borin supports continued launch, provided precommitted reserve staffing and reciprocal supplies are delivered promptly to protect its strained hospitals.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "support",
+                "rationale": "Borin can deploy rapidly through its transport hub, and the validated compact, reserve staff, reciprocal supplies, and equal cost sharing keep launch executable. Hospital staffing strain remains the principal delivery risk; release committed personnel and supplies on schedule and monitor coverage through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "support",
+                "rationale": "Borin supports launch: the validated evidence, national-control safeguards, precommitted reserve staff and diagnostics, reciprocal aid, and equal cost sharing make the compact defensible. Hospital staffing strain remains the primary delivery risk and requires active resource delivery.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory and local validation, national control of line-level records, reciprocal aid, and precommitted capacity support immediate launch. Maintain visible staffing and supply coverage beyond the capital through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "support",
+                "rationale": "Support continued joint launch: validated evidence, local endorsement, precommitted reserve staff and diagnostics, and reciprocal supplies keep delivery executable. Maintain visible staffing and supply coverage beyond the capital.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support continued launch under the signed compact. Confirmed validation, nationally controlled line-level records and clinical command, local board endorsement, and precommitted reciprocal aid remain publicly defensible and executable. Maintain visible staffing and supply coverage beyond Cyrenia’s capital through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_coordinator": {
+                "decision": "support",
+                "rationale": "The validated, safeguarded compact remains executable with support across all three national contexts. Continue the bounded joint response, while actively tracking delivery of precommitted staffing and supplies through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "support",
+                "rationale": "Precommitted reserve staff, diagnostics, reciprocal aid shipments, funding, and allocation safeguards keep the regional surge plan executable now while national clinical command remains protected.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_scientific_advisor": {
+                "decision": "support",
+                "rationale": "Support continued launch: cross-laboratory validation, national data controls, local endorsement, and precommitted shared capacity remain adequate. Maintain active monitoring and timely delivery of staff and supplies across all three countries through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              }
+            }
+          },
+          {
+            "round": 3,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "support",
+                "rationale": "The compact preserves Alba’s national control of identifiable records and audited access restrictions, while confirmed cross-laboratory validation and precommitted regional capacity keep launch executable now.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_operations_lead": {
+                "decision": "support",
+                "rationale": "Support continued launch: committed staff, diagnostics, reciprocal supplies, and the allocation cell keep field delivery executable. Maintain Alba’s national control of identifiable records, approval for any export, and audited access through the 72-hour review.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "alba_policy_delegate": {
+                "decision": "support",
+                "rationale": "Alba supports continued launch: identifiable records remain under national control, exports require approval, access is logged, and national clinical command is preserved.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "borin_epidemiologist": {
+                "decision": "support",
+                "rationale": "Validated evidence, national-control safeguards, precommitted reserve staff and reciprocal aid, and equal cost sharing keep the compact executable. Borin supports continued launch; deliver committed staffing and supplies promptly to protect strained hospitals.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "support",
+                "rationale": "Borin supports continued launch: the validated compact, rapid transport capacity, precommitted reserve staff, reciprocal supplies, and equal cost sharing remain operationally executable. Hospital staffing strain is the main delivery risk; release committed personnel and supplies on schedule and monitor coverage through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "support",
+                "rationale": "Borin supports continued launch: validated evidence, national-control safeguards, precommitted reserve staff and diagnostics, reciprocal aid, and equal cost sharing keep the compact defensible. Hospital staffing strain remains the primary delivery risk, so committed personnel and supplies must be delivered on schedule through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory and local validation, national control of line-level records, reciprocal aid, and precommitted capacity support continued launch. Maintain visible, timely staffing and supply coverage beyond the capital through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "support",
+                "rationale": "Support continued joint launch: validation, local endorsement, precommitted reserve staff and diagnostics, and reciprocal supplies keep delivery executable. Maintain visible staffing and supply coverage beyond the capital through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support continued launch under the signed compact. Confirmed validation, nationally controlled line-level records and clinical command, local board endorsement, and precommitted reciprocal aid remain publicly defensible and executable. Maintain visible staffing and supply coverage beyond Cyrenia’s capital through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_coordinator": {
+                "decision": "support",
+                "rationale": "The validated, safeguarded compact remains executable across all three national contexts. Continue the bounded joint response while actively tracking and delivering precommitted staffing and supplies, particularly for Borin hospitals and areas beyond Cyrenia’s capital, through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "support",
+                "rationale": "Precommitted reserve staff, diagnostics, reciprocal shipments, funding, and allocation safeguards keep the regional surge executable under national clinical command. The allocation cell should actively track and release committed staffing and supplies to protect Borin’s hospital capacity and coverage beyond Cyrenia’s capital.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_scientific_advisor": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national data controls, local endorsement, and precommitted shared capacity remain sufficient for continued launch. Maintain timely delivery and monitoring of staff and supplies across all three countries through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              }
+            }
+          }
+        ],
+        "rounds_completed": 3,
+        "stabilization_events": []
+      },
+      "llm_configuration": {
+        "agent_reasoning_effort": "medium",
+        "billing_mode": "subscription_included",
+        "llm_client_revision": "28dfa9928750baefe131e25ecc97c04ede81c174",
+        "max_total_cost": 0.74,
+        "maximum_narrator_calls": 57,
+        "maximum_participant_calls": 150,
+        "model": "codex/gpt-5.6-terra",
+        "narrator_per_call_ceiling": 0.025,
+        "narrator_reasoning_effort": "medium",
+        "participant_per_call_ceiling": 0.05,
+        "selection_basis": "operator_selected"
+      }
+    },
+    {
+      "run_id": "run_946a10a820fc",
+      "created_at": "2026-08-05T15:13:10.566006+00:00",
+      "updated_at": "2026-08-05T15:15:22.464089+00:00",
+      "status": "completed",
+      "scenario": "regional_outbreak",
+      "profile": "position_context",
+      "arm": "responsive_exercise_injects",
+      "execution": "live",
+      "model_calls": 36,
+      "cost": 0.0,
+      "headline": "The coalition failed to approve a joint outbreak response",
+      "coordination_measurement_status": null,
+      "composite_assay": null,
+      "coordination_experiment": null,
+      "live_coordination_probe": null,
+      "outcome": {
+        "agent_count": 12,
+        "condition": "responsive_exercise_injects",
+        "cost_fully_observable": true,
+        "exercise_injects": [
+          "round_1_capacity_conflict",
+          "round_2_capacity_conflict"
+        ],
+        "final_decisions": {
+          "conditional": 1,
+          "defer": 11
+        },
+        "final_requests": {
+          "resources": 12
+        },
+        "final_risks": {
+          "capacity": 12
+        },
+        "known_cost": 0.0,
+        "model_calls": 36,
+        "outcome": "no_joint_response",
+        "round_history": [
+          {
+            "round": 1,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "support",
+                "rationale": "The signed compact keeps identifiable records under national control, preserves precommitted domestic reserve capacity, and has cross-laboratory and local-board validation for immediate launch.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_operations_lead": {
+                "decision": "support",
+                "rationale": "The signed compact preserves national control of line-level records while de-identified data, mixed teams, laboratory validation, staffing, supplies, and cost shares are already committed. Launch can proceed now.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support the compact: it enables immediate shared action while retaining national control of identifiable records, prohibiting unapproved export, and logging access.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "borin_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national data control, approved safeguards, precommitted operational resources, and local endorsements make immediate launch justified.",
+                "request": "none",
+                "risk": "none"
+              },
+              "borin_operations_lead": {
+                "decision": "support",
+                "rationale": "Launch is executable under the signed compact and precommitted staffing, diagnostics, shipments, and equal cost shares. Borin can deploy rapidly through its transport hub, but reserve coverage must protect strained hospital staffing during field deployment.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "support",
+                "rationale": "Borin can deploy rapidly under a compact that preserves national control, protects line-level records, and commits reciprocal staff, diagnostics, supplies, and equal cost sharing. Staffing pressure remains the main operational risk and should be tracked through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, locally endorsed safeguards, national clinical control, and precommitted reciprocal resources make immediate launch justified; retain the 72-hour review.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "support",
+                "rationale": "Support: reserve staff, diagnostics, reciprocal aid shipments, cost shares, access safeguards, and local validation boards are all precommitted, making field deployment executable while preserving Cyrenia's clinical command and record control.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "support",
+                "rationale": "Cyrenia supports launch: local validation, reciprocal aid, national control of line-level records, and access logging make the shared response credible despite public distrust.",
+                "request": "none",
+                "risk": "legitimacy"
+              },
+              "regional_coordinator": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national data-control safeguards, committed capacity and financing, and endorsement in all three countries support immediate launch; retain the planned 72-hour review.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "support",
+                "rationale": "Precommitted regional surge resources, reciprocal shipments, laboratory capacity, equitable cost sharing, and national safeguards make the launch supply-feasible across Alba, Borin, and Cyrenia.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_scientific_advisor": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national clinical command and data-control safeguards, precommitted operational capacity, and endorsements in all three countries make the joint response ready to launch under the signed compact.",
+                "request": "none",
+                "risk": "none"
+              }
+            }
+          },
+          {
+            "round": 2,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "conditional",
+                "rationale": "Alba can support launch once the regional allocation cell confirms a rebalanced laboratory plan that maintains cross-border validation while reserving half of Alba’s strongest laboratory capacity for domestic confirmation testing.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "alba_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Alba must reserve half of its strongest laboratory for domestic confirmation testing after an equipment failure. Proceed once the regional allocation cell assigns the remaining shared validation and diagnostic workload to precommitted partner laboratory capacity, with Alba’s domestic reserve protected.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "alba_policy_delegate": {
+                "decision": "conditional",
+                "rationale": "Alba can proceed under the compact only after the regional allocation cell confirms a revised laboratory and diagnostic plan that preserves the required domestic confirmation reserve while covering the shared response.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_epidemiologist": {
+                "decision": "conditional",
+                "rationale": "Borin can sustain the hub and joint response only if regional partners immediately supply clinical staff to cover strained hospitals; this specific resource commitment must be confirmed before continued launch operations.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Borin can sustain rapid hub and field deployment only if regional partners immediately provide clinical staff to cover strained Borin hospitals; once that coverage is confirmed, the precommitted joint plan can launch.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "conditional",
+                "rationale": "Borin supports the safeguarded compact conditional on immediate regional clinical-staff deployment to Borin hospitals. Without that coverage, keeping the transport hub open would deepen staffing strain and undermine an executable, defensible launch.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "conditional",
+                "rationale": "Evidence and safeguards still support launch, but Cyrenia can release field teams only once a visible reciprocal shipment of diagnostics and protective equipment is confirmed before deployment.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Cyrenia can launch its field component once the reciprocal shipment of diagnostics and protective equipment is visibly dispatched; this is necessary to sustain deployment and demonstrate reciprocal aid amid public distrust.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "conditional",
+                "rationale": "Cyrenia will release field teams once a visible reciprocal shipment of diagnostics and protective equipment is confirmed; this is necessary to make deployment operationally credible and sustain public trust.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_coordinator": {
+                "decision": "conditional",
+                "rationale": "The compact, safeguards, and validation remain sound, but the regional roster and stock cannot meet all national requests over the next 48 hours. Confirm a feasible, equitable allocation and protected minimum coverage in all three countries before launch.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "conditional",
+                "rationale": "Regional commitments are not sufficient to meet all three national requests in the next 48 hours. Proceed only once the allocation cell has a transparent, needs-based triage schedule and confirmed supplemental or reallocated staff and stock that protects equitable minimum coverage across Alba, Borin, and Cyrenia.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_scientific_advisor": {
+                "decision": "defer",
+                "rationale": "Cross-laboratory validation and safeguards still support joint action, but the regional roster and supply stock cannot meet all three national requests in the next 48 hours. A reconciled allocation plan that protects each country’s essential reserve capacity is required before launch.",
+                "request": "resources",
+                "risk": "capacity"
+              }
+            }
+          },
+          {
+            "round": 3,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "defer",
+                "rationale": "Defer launch until the allocation cell confirms a feasible, equitable plan that preserves half of Alba’s strongest laboratory for domestic confirmation while assigning sufficient partner capacity for cross-border validation; current regional staff and stock cannot meet all national requests.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "alba_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Alba must reserve half of its strongest laboratory for domestic confirmation testing. Continue only once the allocation cell confirms a feasible, equitable plan that assigns shared validation and diagnostic work to partner capacity while protecting Alba’s domestic reserve.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "alba_policy_delegate": {
+                "decision": "defer",
+                "rationale": "Alba must defer: the regional roster and stock cannot meet all three countries’ confirmed requirements while Alba reserves half of its strongest laboratory for domestic confirmation testing. A reconciled, equitable allocation plan protecting each country’s essential reserve is required before launch.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_epidemiologist": {
+                "decision": "defer",
+                "rationale": "Borin requires confirmed immediate clinical-staff coverage to keep its transport hub open, but regional resources cannot yet meet all national requests. Defer until a feasible, equitable allocation protects Borin hospital coverage and each country's essential reserve.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "defer",
+                "rationale": "Borin cannot keep the transport hub open without immediate regional clinical-staff coverage for strained hospitals. With the regional roster and stock unable to meet all national requests over the next 48 hours, operations must await a feasible allocation plan that confirms Borin coverage while protecting equitable minimum capacity across the coalition.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "defer",
+                "rationale": "Borin cannot keep its transport hub open without immediate clinical staffing for strained hospitals, and the round evidence shows regional resources cannot yet meet all partners’ essential requests. Defer until the allocation cell confirms an equitable, executable plan that supplies Borin coverage while protecting minimum capacity in every country.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "defer",
+                "rationale": "Evidence and safeguards remain sound, but regional staff and stock cannot meet all national requests over the next 48 hours. Cyrenia requires a reconciled, equitable allocation plan that protects minimum coverage and confirms a visible reciprocal shipment of diagnostics and protective equipment before releasing field teams.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "defer",
+                "rationale": "Defer field release: Cyrenia’s required visible reciprocal diagnostics and protective-equipment shipment remains unconfirmed, and regional staff and stock cannot meet all three countries’ needs. A transparent reconciled allocation that protects minimum coverage and visibly dispatches Cyrenia’s shipment is required before deployment.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "defer",
+                "rationale": "Cyrenia cannot release field teams until a feasible, equitable allocation confirms its visible reciprocal diagnostics and protective-equipment shipment while protecting essential coverage in all three countries. Current regional stock and staffing cannot meet all requests.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_coordinator": {
+                "decision": "defer",
+                "rationale": "Defer launch: the repeated 48-hour roster and stock shortfall has not been reconciled with Alba’s protected laboratory reserve, Borin’s hospital staffing requirement, and Cyrenia’s reciprocal shipment requirement. The allocation cell must first confirm a feasible, equitable plan with protected minimum coverage in all three countries.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "defer",
+                "rationale": "Defer until the allocation cell produces a feasible, transparent 48-hour triage schedule that reconciles Alba's protected laboratory reserve, Borin's hospital staffing need, and Cyrenia's visible diagnostics and protective-equipment shipment with actual regional staff and stock. The current roster and supply pool cannot meet all three requests equitably.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_scientific_advisor": {
+                "decision": "defer",
+                "rationale": "Cross-laboratory validation and safeguards remain sound, but the regional roster and supply stock still cannot satisfy all three national requests over the next 48 hours. Defer launch until a feasible, equitable allocation plan confirms protected essential reserve coverage in Alba, Borin, and Cyrenia.",
+                "request": "resources",
+                "risk": "capacity"
+              }
+            }
+          }
+        ],
+        "rounds_completed": 3,
+        "stabilization_events": []
+      },
+      "llm_configuration": {
+        "agent_reasoning_effort": "medium",
+        "billing_mode": "subscription_included",
+        "llm_client_revision": "28dfa9928750baefe131e25ecc97c04ede81c174",
+        "max_total_cost": 0.74,
+        "maximum_narrator_calls": 57,
+        "maximum_participant_calls": 150,
+        "model": "codex/gpt-5.6-terra",
+        "narrator_per_call_ceiling": 0.025,
+        "narrator_reasoning_effort": "medium",
+        "participant_per_call_ceiling": 0.05,
+        "selection_basis": "operator_selected"
+      }
+    },
+    {
+      "run_id": "run_05acbaea1137",
+      "created_at": "2026-08-05T15:15:31.604153+00:00",
+      "updated_at": "2026-08-05T15:17:51.541191+00:00",
+      "status": "completed",
+      "scenario": "regional_outbreak",
+      "profile": "position_context",
+      "arm": "capacity_inject_replay_with_stabilization",
+      "execution": "live",
+      "model_calls": 36,
+      "cost": 0.0,
+      "headline": "The coalition approved a joint outbreak response",
+      "coordination_measurement_status": null,
+      "composite_assay": null,
+      "coordination_experiment": null,
+      "live_coordination_probe": null,
+      "outcome": {
+        "agent_count": 12,
+        "condition": "capacity_inject_replay_with_stabilization",
+        "cost_fully_observable": true,
+        "exercise_injects": [
+          "round_1_capacity_conflict",
+          "round_2_capacity_conflict"
+        ],
+        "final_decisions": {
+          "support": 12
+        },
+        "final_requests": {
+          "none": 8,
+          "resources": 4
+        },
+        "final_risks": {
+          "capacity": 4,
+          "legitimacy": 1,
+          "none": 7
+        },
+        "known_cost": 0.0,
+        "model_calls": 36,
+        "outcome": "joint_response_approved",
+        "round_history": [
+          {
+            "round": 1,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "support",
+                "rationale": "The signed compact retains identifiable records under national control, access is logged, validation is confirmed, and Alba’s protected reserve is precommitted.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_operations_lead": {
+                "decision": "support",
+                "rationale": "The signed compact keeps identifiable patient records under Alba's national control while enabling de-identified data sharing, mixed field teams, laboratory support, and precommitted supplies. Staffing, diagnostics, aid shipments, financing, and local validation approvals are in place for launch.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support launch because identifiable patient records remain under national control, exports require approval, and access is logged; the operational commitments and local validation are already in place.",
+                "request": "safeguards",
+                "risk": "sovereignty"
+              },
+              "borin_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, signed data safeguards, precommitted staffing and supplies, and local board endorsement make immediate launch warranted. Borin can deploy quickly, but strained hospitals require the agreed reserve resources to be released promptly.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "support",
+                "rationale": "Borin can rapidly deploy through its transport hub, and the precommitted reserve staff, diagnostics, reciprocal shipments, and equal cost shares make launch operationally executable. Hospital staffing remains the principal delivery risk and should be tracked through the 72-hour review.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "support",
+                "rationale": "Borin supports immediate launch: validated evidence, national clinical command, audit safeguards, precommitted reserve staff and supplies, and equal regional cost shares make the joint response defensible despite strained hospital staffing.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, national data safeguards, local-board endorsement, and reciprocal staff, diagnostics, and supplies make immediate launch justified despite Cyrenia’s surveillance and trust constraints.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "support",
+                "rationale": "Launch is operationally ready: cross-laboratory validation, local endorsement, safeguarded national record control, precommitted staff and diagnostics, and reciprocal aid make field delivery feasible while preserving trust.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support launch: locally endorsed validation, national control of line-level records and clinical command, audited access, and precommitted reciprocal aid make this a defensible and legitimate shared response.",
+                "request": "none",
+                "risk": "legitimacy"
+              },
+              "regional_coordinator": {
+                "decision": "support",
+                "rationale": "The signed safeguards preserve national control and data protections, while validated evidence, precommitted capacity, financing, and local endorsements make the joint response ready to launch.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "support",
+                "rationale": "Precommitted surge capacity, diagnostics, reciprocal shipments, cost sharing, national control safeguards, and validation-board endorsements make the regional response supplyable and ready to launch.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_scientific_advisor": {
+                "decision": "support",
+                "rationale": "Cross-laboratory validation, nationally controlled de-identified data safeguards, precommitted regional capacity, and endorsement in Alba, Borin, and Cyrenia make the joint launch actionable now.",
+                "request": "none",
+                "risk": "none"
+              }
+            }
+          },
+          {
+            "round": 2,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "conditional",
+                "rationale": "Alba can launch if the regional allocation cell immediately revises laboratory coverage and diagnostics so that half of Alba’s strongest laboratory remains reserved for domestic confirmation testing while partner laboratories sustain cross-border validation.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "alba_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Alba can launch once the regional allocation cell confirms substitute laboratory throughput or diagnostics for the half of Alba’s strongest laboratory now reserved for domestic confirmation testing; identifiable records remain nationally controlled and the other launch commitments remain in place.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "alba_policy_delegate": {
+                "decision": "conditional",
+                "rationale": "Alba can continue to support the safeguarded compact only once the regional cell confirms replacement laboratory capacity and a diagnostic allocation plan for the capacity now reserved for domestic confirmation testing; identifiable records and clinical command remain under national control.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_epidemiologist": {
+                "decision": "conditional",
+                "rationale": "Evidence, safeguards, and logistics remain sufficient for launch, but Borin can keep the transport hub open only if regional partners immediately supply clinical staff to protect strained hospitals.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Borin can sustain rapid hub operations only if regional partners immediately deploy clinical staff to its strained hospitals; confirm that coverage before continuing joint field delivery.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "conditional",
+                "rationale": "Borin can sustain the transport hub only if partners immediately deliver the precommitted clinical staff to relieve strained hospitals; with that deployment, the compact remains defensible and executable.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "conditional",
+                "rationale": "Cyrenia supports launch once a visible reciprocal shipment of diagnostics and protective equipment is confirmed; this specific prerequisite is necessary to release field teams credibly and sustain trust in areas with sparse surveillance.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "conditional",
+                "rationale": "Cyrenia can launch once the precommitted reciprocal shipment of diagnostics and protective equipment is visibly delivered for field teams; this is necessary to make deployment executable and sustain public trust.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "conditional",
+                "rationale": "Cyrenia supports the safeguarded joint response, conditional on a visible reciprocal shipment of diagnostics and protective equipment before its field teams are released. This concrete reciprocity is necessary to maintain public legitimacy and make deployment credible.",
+                "request": "resources",
+                "risk": "legitimacy"
+              },
+              "regional_coordinator": {
+                "decision": "defer",
+                "rationale": "Defer launch: the newly reported 48-hour roster and supply shortfall leaves a required regional allocation unresolved across the three national contexts. A feasible, agreed allocation plan is needed before the coalition response can proceed legitimately.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "conditional",
+                "rationale": "Launch can proceed only after the regional allocation cell sets and confirms a transparent, needs-based 48-hour prioritization and release plan, because current roster and supply stock cannot satisfy all three national requests simultaneously.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_scientific_advisor": {
+                "decision": "defer",
+                "rationale": "Evidence and safeguards remain adequate, but the regional roster and supply stock cannot satisfy all three national requests over the next 48 hours. Defer launch until a transparent allocation and surge plan resolves this cross-country capacity conflict.",
+                "request": "resources",
+                "risk": "capacity"
+              }
+            }
+          },
+          {
+            "round": 3,
+            "stances": {
+              "alba_epidemiologist": {
+                "decision": "support",
+                "rationale": "Support launch: the verified binding 48-hour package keeps half of Alba’s strongest laboratory reserved for domestic confirmation testing, supplies a mobile unit to restore shared testing, and confirms the cross-border capacity minimums.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_operations_lead": {
+                "decision": "support",
+                "rationale": "Support launch: the binding, confirmed 48-hour allocation preserves half of Alba’s strongest laboratory for domestic confirmation and supplies a mobile unit that restores the shared testing commitment. Borin’s clinicians and Cyrenia’s diagnostics and protective equipment are likewise confirmed, so field delivery is executable under the existing safeguards.",
+                "request": "none",
+                "risk": "none"
+              },
+              "alba_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support launch: the binding, ledger-backed allocation preserves half of Alba’s laboratory for domestic confirmation while the mobile unit restores shared testing. The package also meets Borin and Cyrenia’s minimums, retains a regional reserve, and keeps identifiable records and clinical command under national control.",
+                "request": "none",
+                "risk": "none"
+              },
+              "borin_epidemiologist": {
+                "decision": "support",
+                "rationale": "Support launch: the verified binding 48-hour package delivers 24 regional clinicians to Borin before the transport-hub surge, while resolving Alba’s laboratory and Cyrenia’s supply minimums with a remaining regional reserve. This makes the validated, safeguarded response executable; confirm receipts on the published dashboard within six hours and monitor hospital capacity.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_operations_lead": {
+                "decision": "support",
+                "rationale": "Support: the verified binding 48-hour package delivers 24 regional clinicians to Borin before the transport-hub surge, resolving the immediate hospital-staffing prerequisite for sustained hub and field operations. Monitor published receipts and hospital coverage.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "borin_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support launch: the binding, ledger-backed allocation confirms 24 regional clinicians for Borin before the transport-hub surge, while resolving Alba and Cyrenia’s minimums and retaining a regional reserve. This makes the compact executable and publicly defensible.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "cyrenia_epidemiologist": {
+                "decision": "support",
+                "rationale": "Support launch: the verified binding 48-hour package confirms Cyrenia’s named diagnostics and protective-equipment shipment before field-team release, with public receipt reporting, satisfying the operational and trust prerequisite.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_operations_lead": {
+                "decision": "support",
+                "rationale": "Support launch: the binding 48-hour package confirms Cyrenia’s named diagnostics and protective-equipment shipment before field-team release, while restoring Alba’s shared testing capacity and supplying Borin clinicians. This makes field delivery executable and preserves visible reciprocity needed for trust.",
+                "request": "none",
+                "risk": "none"
+              },
+              "cyrenia_policy_delegate": {
+                "decision": "support",
+                "rationale": "Support launch: the binding allocation package confirms Cyrenia’s named diagnostics and protective-equipment shipment before field-team release, with receipts published within six hours. This satisfies the reciprocal-aid safeguard needed for legitimate, credible deployment under the existing compact.",
+                "request": "none",
+                "risk": "legitimacy"
+              },
+              "regional_coordinator": {
+                "decision": "support",
+                "rationale": "Support launch: the verified binding 48-hour package meets Alba’s laboratory minimum, deploys 24 clinicians to Borin before the hub surge, and delivers Cyrenia’s named supplies before field release. Contingent commitments, a 10% reserve, and six-hour receipt reporting make the allocation legitimate and executable.",
+                "request": "resources",
+                "risk": "capacity"
+              },
+              "regional_logistics_coordinator": {
+                "decision": "support",
+                "rationale": "Support launch because the verified, binding 48-hour allocation package meets Alba’s laboratory minimum, delivers Borin’s clinicians before the hub surge, and provides Cyrenia’s diagnostics and protective equipment before field-team release. It is ledger-feasible, preserves a ten-percent regional reserve, and provides transparent receipt reporting.",
+                "request": "none",
+                "risk": "none"
+              },
+              "regional_scientific_advisor": {
+                "decision": "support",
+                "rationale": "The binding, ledger-confirmed 48-hour package resolves the cross-country capacity conflict: Alba’s shared testing is restored, Borin receives clinicians before the hub surge, Cyrenia receives supplies before field release, and a regional reserve remains.",
+                "request": "none",
+                "risk": "none"
+              }
+            }
+          }
+        ],
+        "rounds_completed": 3,
+        "stabilization_events": [
+          "round_2_verified_minimum_capacity_package"
+        ]
+      },
+      "llm_configuration": {
+        "agent_reasoning_effort": "medium",
+        "billing_mode": "subscription_included",
+        "llm_client_revision": "28dfa9928750baefe131e25ecc97c04ede81c174",
+        "max_total_cost": 0.74,
+        "maximum_narrator_calls": 57,
+        "maximum_participant_calls": 150,
+        "model": "codex/gpt-5.6-terra",
+        "narrator_per_call_ceiling": 0.025,
+        "narrator_reasoning_effort": "medium",
+        "participant_per_call_ceiling": 0.05,
+        "selection_basis": "operator_selected"
+      }
+    }
+  ]
+}

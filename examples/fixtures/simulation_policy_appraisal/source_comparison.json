@@ -6,15 +6,22 @@
     "api_url": "https://brian-mac-mini.tail9c321e.ts.net/waltzman/api/regional-outbreak-comparison",
     "retrieved_at": "2026-08-13T17:11:29Z",
     "producer_repository": "cybernetic_influence_v3",
-    "producer_revision": "eaa49adf398df718249c7828061722d3285b619a",
-    "projection_method": "Select the three clean matched run IDs and retain identity, execution, model configuration, simulated outcome, final decisions, requests, risks, and stabilization events. Each source_row_sha256 hashes the complete producer row encoded as sorted compact UTF-8 JSON followed by one newline."
+    "inspected_repository_revision": "eaa49adf398df718249c7828061722d3285b619a",
+    "embedded_producer_revision": null,
+    "revision_relationship": "inspection_only_not_embedded_in_runs",
+    "projection_method": "Pin the complete three producer rows, hash each as sorted compact UTF-8 JSON followed by one newline, and derive every displayed run field from those rows."
   },
   "evidence_origin": "model_generated",
   "scenario": "regional_outbreak",
+  "endpoint_row_count_at_retrieval": 20,
+  "comparable_run_count_at_retrieval": 6,
+  "selection_basis": "One complete 12-role triad was pinned during the boundary-probe design as a compact worked example. It was not randomly sampled, and the Workbench does not claim outcome-independent selection.",
+  "within_model_limit": "The page shows one selected run per condition, not an estimated frequency, probability, or effect within the simulator. Other retained runs are outside this bounded projection.",
   "applicability": "A 12-role, three-round simulated regional outbreak coalition under the declared baseline, modeled capacity-conflict, and modeled stabilization conditions.",
   "prohibited_inferences": [
     "The verified allocation package will cause approval in a real coalition.",
     "The simulated outcomes estimate a real-world probability or effect size.",
+    "This selected triad estimates an outcome frequency, probability, or effect within the simulator.",
     "The simulation establishes legal authority, operational feasibility, cost-effectiveness, equity, or public acceptability.",
     "The comparison validates the simulator's assumptions or mechanisms against real outbreak decisions."
   ],

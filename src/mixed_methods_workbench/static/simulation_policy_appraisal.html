@@ -100,6 +100,12 @@
         <p class="section-intro">These were live LLM simulations with twelve roles over three rounds. They are authentic executions, but every outcome is still generated inside a declared model.</p>
         <div id="runs" class="runs"></div>
         <div class="finding"><strong>The narrow finding this comparison supports</strong><span id="finding"></span></div>
+        <div class="warning" style="margin-top: 1.25rem;">
+          <h3>Why these three runs</h3>
+          <p id="selection-basis"></p>
+          <p><strong>Within-model limit:</strong> <span id="within-model-limit"></span></p>
+          <p class="meta">At capture: <span id="endpoint-row-count"></span> endpoint rows; <span id="comparable-run-count"></span> comparable 12-role runs. This page contains one selected run per condition.</p>
+        </div>
       </section>
 
       <section>
@@ -130,7 +136,8 @@
       <details>
         <summary>Source identity and exact run custody</summary>
         <p>Producer: <code id="producer"></code></p>
-        <p>Producer revision: <code id="producer-revision"></code></p>
+        <p>Inspected repository revision: <code id="inspected-repository-revision"></code></p>
+        <p>Run-producing commit: <strong>unavailable</strong> — the retained run rows do not embed it.</p>
         <p>Retrieved: <code id="retrieved-at"></code></p>
         <p>Each run card exposes the exact retained run ID and canonical source-row SHA-256. The page consumes a pinned Workbench projection; it does not import simulator internals or claim a stable producer export.</p>
       </details>
@@ -172,12 +179,16 @@
         byId("candidate-action").textContent = appraisal.candidate_action;
         byId("runs").innerHTML = comparison.runs.map(renderRun).join("");
         byId("finding").textContent = appraisal.model_conditional_finding;
+        byId("selection-basis").textContent = comparison.selection_basis;
+        byId("within-model-limit").textContent = comparison.within_model_limit;
+        byId("endpoint-row-count").textContent = comparison.endpoint_row_count_at_retrieval;
+        byId("comparable-run-count").textContent = comparison.comparable_run_count_at_retrieval;
         byId("conclusion-headline").textContent = appraisal.conclusion.headline;
         byId("conclusion-rationale").textContent = appraisal.conclusion.rationale;
         byId("evidence-needed").innerHTML = list(appraisal.evidence_needed);
         byId("non-claims").innerHTML = list(appraisal.non_claims);
         byId("producer").textContent = comparison.source.producer_repository;
-        byId("producer-revision").textContent = comparison.source.producer_revision;
+        byId("inspected-repository-revision").textContent = comparison.source.inspected_repository_revision;
         byId("retrieved-at").textContent = comparison.source.retrieved_at;
         byId("loading").hidden = true;
         byId("app").hidden = false;

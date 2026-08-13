@@ -36,3 +36,27 @@ Mist Trail page remained reachable.
 No browser automation runtime is installed in this checkout, so this is an
 HTTP/API development checkpoint rather than a visual-browser verification
 claim. A fresh-browser observation remains appropriate before deployment.
+
+## Audit corrections
+
+Brian approved the 2026-08-13 read-only audit findings. The corrected boundary
+now pins the three complete producer rows in `source_rows.json` (file SHA-256
+`c3b88caef9b51543e032464c8565a995912805b226680c90363214edc134057f`),
+recomputes each canonical row digest, derives every compact projected field,
+and refuses to serve a mismatch.
+
+Repository revision `eaa49adf398df718249c7828061722d3285b619a` is now labeled
+only as the checkout inspected after the runs. The run-producing commit remains
+explicitly unavailable because the producer rows do not embed it. The browser
+and JSON projections also disclose that the example contains one selected run
+per condition, is not randomly sampled, and does not estimate within-model
+frequencies, probabilities, or effects.
+
+Verification after the correction:
+
+- all three currently served producer rows passed the deterministic full-row
+  hash and complete-field projection check;
+- 41 focused simulation/dashboard/Mist Trail tests passed, including the
+  original audit counterexamples;
+- strict MyPy, targeted Ruff, JavaScript syntax, local HTTP/API continuity, and
+  the repository-wide `make check` passed.

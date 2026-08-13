@@ -70,8 +70,10 @@ The stable example is the clean 12-role Cybernetic Influence outbreak triad:
   was clean when inspected on 2026-08-13.
 - The public route is useful observational evidence but is not a declared
   strict producer export. This probe therefore freezes a compact projection
-  with the source URL, producer revision, retrieval time, exact run IDs, and
-  SHA-256 of each canonicalized full source row.
+  plus the three complete source rows, with the source URL, inspected repository
+  revision, retrieval time, exact run IDs, and SHA-256 of each canonicalized
+  full source row. The rows do not embed the commit that produced them, so that
+  revision remains explicitly unavailable.
 - The Workbench owns the permissive typed consumer and all appraisal meaning.
   It does not import Cybernetic Influence internals or claim that the probe is
   an adopted cross-project contract.
@@ -85,7 +87,8 @@ The stable example is the clean 12-role Cybernetic Influence outbreak triad:
 1. Every simulation input is labeled `model_generated`, never observed,
    experimental, or estimated real-world evidence.
 2. Every run remains bound to its exact scenario, condition, model/runtime
-   metadata, producer revision, and source-row digest.
+   metadata, and complete source row. The later inspected repository revision
+   is recorded separately from the unavailable run-producing commit.
 3. The comparison may support only this statement:
 
    > In these retained simulated conditions, the modeled capacity conflict
@@ -103,6 +106,8 @@ The stable example is the clean 12-role Cybernetic Influence outbreak triad:
 7. The baseline is context, not a policy option. The capacity conflict and
    stabilization are modeled conditions, not automatically feasible choices.
 8. A human decision authority remains outside this fixture.
+9. The page shows one selected run per condition. It is not a random sample or
+   an estimate of frequencies, probabilities, or effects within the simulator.
 
 ## Typed boundary
 
@@ -117,9 +122,11 @@ pinned Cybernetic Influence source projection
 
 The fixture-local consumer models require:
 
-- source API URL, retrieval timestamp, producer repository/revision, and
-  projection digest;
+- source API URL, retrieval timestamp, producer repository, later inspected
+  repository revision, unavailable embedded producer revision, and projection
+  digest;
 - three exact run records with source-row digests;
+- three complete pinned source rows from which every compact field is derived;
 - scenario, condition, execution, model metadata, final simulated decisions,
   outcome, requests, risks, and stabilization event;
 - applicability boundary and prohibited inferences;
@@ -136,6 +143,7 @@ No field is promoted to a shared schema.
 | Required run/condition is missing or duplicated | Pydantic validation failure |
 | A run is not completed, live, regional-outbreak, or 12-agent | Pydantic validation failure |
 | Retained outcomes do not match the narrow comparison | Pydantic validation failure |
+| Any projected field differs from its complete hashed source row | Refuse to serve the artifact |
 | Appraisal recommends adoption or calls the evidence observed | Pydantic validation failure |
 | Browser/API drift | Focused parity test fails |
 | Public producer later changes | Historical fixture remains readable; a new capture requires a new version and review |
@@ -144,7 +152,8 @@ No field is promoted to a shared schema.
 
 The slice passes when:
 
-- the fixture validates and retains the three exact source-row hashes;
+- the fixture validates, retains the three complete source rows, recomputes
+  their exact hashes, and derives every compact projected field from them;
 - the model derives only the frozen model-conditional consequence;
 - the conclusion is visibly `insufficient_for_recommendation` with concrete
   next evidence;
@@ -168,7 +177,8 @@ the boundary is ready for shared infrastructure.
 
 This is one vertical slice, fully specifiable now:
 
-1. freeze the compact authentic comparison fixture and its custody metadata;
+1. freeze the compact authentic comparison fixture, its three complete source
+   rows, and truthful custody metadata;
 2. implement the fixture-local Pydantic consumer and derived refusal result;
 3. expose matching JSON and plain-language browser views in the existing
    Method Dashboard service;
@@ -209,6 +219,6 @@ next_skill: work-unit-graph
 reason: adopted cross-project boundary probe is ready for implementation-unit analysis
 required_inputs:
   - this plan revision
-  - Cybernetic Influence producer revision eaa49adf398df718249c7828061722d3285b619a
+  - Cybernetic Influence inspected repository revision eaa49adf398df718249c7828061722d3285b619a; run-producing commit unavailable
   - exact three-run source projection and hashes
 ```

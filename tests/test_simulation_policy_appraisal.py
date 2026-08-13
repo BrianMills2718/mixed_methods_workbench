@@ -12,8 +12,10 @@ from mixed_methods_workbench import simulation_policy_appraisal as appraisal_mod
 from mixed_methods_workbench.method_dashboard_server import simulation_appraisal_payload
 from mixed_methods_workbench.simulation_policy_appraisal import (
     SOURCE_COMPARISON_PATH,
+    SOURCE_ROWS_PATH,
     SimulationComparisonFixture,
     load_simulation_policy_appraisal,
+    verify_source_projection,
 )
 
 HTML_PATH = (
@@ -27,6 +29,10 @@ HTML_PATH = (
 
 def _fixture_dict() -> dict[str, object]:
     return json.loads(SOURCE_COMPARISON_PATH.read_text(encoding="utf-8"))
+
+
+def _source_rows_dict() -> dict[str, object]:
+    return json.loads(SOURCE_ROWS_PATH.read_text(encoding="utf-8"))
 
 
 def test_authentic_triad_becomes_only_model_conditional_appraisal_evidence() -> None:
@@ -53,6 +59,59 @@ def test_source_row_digest_canonicalization_is_declared() -> None:
     assert "sorted compact UTF-8 JSON followed by one newline" in (
         fixture.source.projection_method
     )
+
+
+def test_repository_revision_is_truthfully_scoped_to_later_inspection() -> None:
+    source = load_simulation_policy_appraisal().source_comparison.source
+    assert source.inspected_repository_revision == (
+        "eaa49adf398df718249c7828061722d3285b619a"
+    )
+    assert source.embedded_producer_revision is None
+    assert source.revision_relationship == "inspection_only_not_embedded_in_runs"
+
+
+def test_every_projected_field_is_derived_from_the_pinned_full_source_rows() -> None:
+    comparison = SimulationComparisonFixture.model_validate(_fixture_dict())
+    verify_source_projection(comparison, _source_rows_dict())
+
+
+def test_projection_change_with_original_source_digest_fails() -> None:
+    payload = _fixture_dict()
+    payload["runs"][0]["final_requests"] = {"resources": 12}
+    comparison = SimulationComparisonFixture.model_validate(payload)
+    with pytest.raises(ValueError, match="does not match its complete pinned source row"):
+        verify_source_projection(comparison, _source_rows_dict())
+
+
+def test_invented_producer_condition_with_original_source_digest_fails() -> None:
+    payload = _fixture_dict()
+    payload["runs"][1]["producer_condition"] = "invented_but_valid_string"
+    comparison = SimulationComparisonFixture.model_validate(payload)
+    with pytest.raises(ValueError, match="does not match its complete pinned source row"):
+        verify_source_projection(comparison, _source_rows_dict())
+
+
+def test_complete_source_row_change_fails_projection_verification() -> None:
+    source_payload = _source_rows_dict()
+    source_payload["rows"][0]["outcome"]["final_requests"] = {"resources": 12}
+    comparison = SimulationComparisonFixture.model_validate(_fixture_dict())
+    with pytest.raises(ValueError, match="does not match its complete pinned source row"):
+        verify_source_projection(comparison, source_payload)
+
+
+def test_arbitrary_inspected_repository_revision_fails() -> None:
+    payload = _fixture_dict()
+    payload["source"]["inspected_repository_revision"] = "0" * 40
+    with pytest.raises(ValidationError):
+        SimulationComparisonFixture.model_validate(payload)
+
+
+def test_selection_and_within_model_limits_are_explicit() -> None:
+    fixture = load_simulation_policy_appraisal().source_comparison
+    assert fixture.endpoint_row_count_at_retrieval == 20
+    assert fixture.comparable_run_count_at_retrieval == 6
+    assert "not randomly sampled" in fixture.selection_basis
+    assert "not an estimated frequency" in fixture.within_model_limit
 
 
 def test_duplicate_condition_fails_loud() -> None:
@@ -104,6 +163,10 @@ def test_browser_explains_what_happened_and_why_it_is_not_a_recommendation() -> 
     assert "Why this does not select a real policy" in html
     assert "Evidence needed before a recommendation" in html
     assert "model-generated evidence" in html
+    assert "Why these three runs" in html
+    assert "one selected run per condition" in html
+    assert "Inspected repository revision" in html
+    assert "Run-producing commit" in html
 
 
 def test_routes_stay_on_the_existing_dashboard_service() -> None:
