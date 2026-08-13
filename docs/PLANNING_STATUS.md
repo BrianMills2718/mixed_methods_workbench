@@ -3,7 +3,42 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: Phase 3 Portfolio Decomposition Authorized
+## Current Phase: Product Integration Assessment
+
+On 2026-08-13 Brian raised the concern that independently developed QC,
+Process Tracing, theory, simulation, and method-catalog work might not converge
+into one cohesive product. He then approved a repository-grounded integration
+assessment and a shift of the immediate critical path away from broad method
+decomposition.
+
+The controlling assessment is
+[`EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md`](EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md).
+It assigns the Workbench an investigation spine and unified user journey while
+keeping analytical judgments and validity rules in their method-owned engines.
+
+Current work may:
+
+- verify current producer capabilities and exact cross-project seams;
+- define the smallest Workbench-owned investigation, artifact-reference,
+  derivation, review-state, and open-question mechanics;
+- select and source-check one understandable policy-analysis flagship;
+- preserve completed Phase 3 research batches as supporting evidence; and
+- plan one named Investigation Spine implementation slice for separate user
+  authorization.
+
+Current work must not:
+
+- resume broad Phase 3 decomposition, collision analysis, or capability
+  promotion as the product critical path;
+- implement a shared schema, generic adapter framework, or producer migration;
+- rerun QC, Process Tracing, Theory Forge, or simulation analyses merely to
+  populate the Workbench;
+- treat the Open Science/P5 example as the general policy-analysis flagship;
+  or
+- start the Investigation Spine implementation without a separately named
+  authorization.
+
+## Paused Supporting Phase: Phase 3 Portfolio Decomposition
 
 Brian approved the 14-method Phase 3 denominator on 2026-08-13. The exact
 denominator is `phase2b-proposal-0.3` (`P01`–`P13`) plus the separately named,
@@ -19,6 +54,11 @@ explicit uncertainty accounting for all 14 methods. It does not authorize
 Phase 4 collision candidates, Phase 5 adjudication, Phase 6 coverage or
 automation claims, a shared production schema, infrastructure, producer
 changes, or product implementation.
+
+The approved denominator and completed research checkpoints remain valid.
+Additional lane execution and integration are paused until the product
+integration assessment and first visible Investigation Spine determine which
+method-decomposition questions are actually decision-relevant.
 
 The Process Tracing topology prototype merged at `1fd01bc`; its product lane is
 complete. That pinned revision is read-only implementation evidence for `P14`:
