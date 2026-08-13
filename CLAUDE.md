@@ -6,9 +6,15 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
 `docs/PLANNING_STATUS.md` before planning. The current lane is documentation-only
-method-capability discovery: the code-derived and separately produced Phase 0
-candidates have been compared, but no universal capability model or schema was
-adopted. `METHOD-DASH-C1/C2`, `MT-D1`, `T0-PROV`, and local `DEMO-C1`
+method-capability discovery. Brian accepted the Phase 2 discovery format on
+2026-08-13: method phase → analytical move → execution action, with
+`operation_kind` at Levels 2 and 3, typed connections, six authority roles,
+information origins, temporal/access/version guards, and exact anchors. Existing
+verbs remain a coarse discovery input, and `analysis_plan` remains provisional
+for further testing rather than an adopted shared enum. This decision does not
+adopt a universal production schema, select the Phase 2b portfolio, authorize
+collision scoring or capability promotion, or authorize infrastructure or
+product implementation. `METHOD-DASH-C1/C2`, `MT-D1`, `T0-PROV`, and local `DEMO-C1`
 are completed bounded slices; none closes producer readiness or method validity.
 Do not begin another implementation merely because a roadmap or future slice
 exists, and do not move code from an engine into this repo unless Brian

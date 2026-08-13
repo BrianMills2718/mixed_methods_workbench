@@ -1,6 +1,12 @@
 # Revised method-decomposition instrument
 
-Status: exploratory design instrument; not a canonical schema
+Status: accepted Phase 2 discovery instrument; not a canonical production schema
+
+Acceptance: Brian approved this narrow direction on 2026-08-13. Acceptance
+covers the three levels, `operation_kind` at Levels 2 and 3, typed connections,
+six authority roles, information origins, temporal/access/version guards, and
+exact anchors. It does not accept the populated pilot records as a universal
+model or close the provisional vocabularies.
 
 - Request mode: write the approved design artifact.
 - Design depth: Standard.
@@ -294,6 +300,8 @@ must again be hidden to make operations collide.
 - It does not alter producer-owned contracts or analytical engines.
 - It does not select the Phase 2b/Phase 3 portfolio, run Phase 4 collisions, or
   issue Phase 5 adjudication verdicts.
+- It does not promote any capability or authorize infrastructure, analytical,
+  or product implementation.
 
 ## Consulted authority and evidence
 
