@@ -15,7 +15,8 @@ decomposed. `scripts/validate_phase3_work_graph.py` supplements the generic
 WorkUnitV1 validator with exact denominator and transition invariants.
 
 The three research lanes own disjoint method directories under `methods/`.
-Only `P3-INTEGRATE` owns shared manifests and reports. The Process Tracing
+`P3-CONTROL` alone owns receipts and lifecycle transitions; `P3-INTEGRATE`
+alone owns shared manifests and reports. The Process Tracing
 topology prototype merged at `1fd01bc` and is pinned read-only implementation
 evidence; it neither defines the `P14` ideal nor owns its decomposition.
 
