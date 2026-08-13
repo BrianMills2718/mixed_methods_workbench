@@ -5,7 +5,9 @@ Validated: 2026-08-13
 Graph SHA-256:
 `6bd37a2aea0332f07b7a10e2f94bcb8c7988516a26ee918f698f3d54fdc9cf5a`
 
-Evaluated source revision: recorded in the receipt-only follow-up commit.
+Evaluated source revision:
+`d19c27eff78f939623980c3cff730081b5c295b0`. The following commit changes only
+this receipt to record that immutable evaluated revision.
 
 Company Planning work-unit validator:
 
