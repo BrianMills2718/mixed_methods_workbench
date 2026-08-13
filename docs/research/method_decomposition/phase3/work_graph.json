@@ -26,7 +26,8 @@
       "inputs": [
         {"kind": "MethodDecompositionSpec", "id": "METHOD_DECOMPOSITION_HANDOFF", "revision": "rev5.1:sha256:fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f"},
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
-        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"}
+        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
+        {"kind": "ReadOnlyImplementationEvidence", "id": "process-tracing-topology-prototype", "revision": "merged@1fd01bc;not-method-authority"}
       ],
       "outputs": [
         "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
@@ -38,8 +39,8 @@
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p03", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p04", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
         {"kind": "repository_path", "target": "docs/research/method_decomposition/phase3/methods/p14", "repository": "mixed_methods_workbench", "access": "exclusive", "coordination_key": "P3-RESEARCH-A"},
-        {"kind": "repository_path", "target": "worktrees/codex-pt-topology-workbench", "repository": "mixed_methods_workbench", "access": "read", "coordination_key": "pt-topology-read-only"},
-        {"kind": "external_system", "target": "coordination-claim:mixed_methods_workbench:pt-topology-workbench", "access": "read", "coordination_key": "pt-topology-read-only"}
+        {"kind": "repository_path", "target": "src/mixed_methods_workbench/method_topology.py", "repository": "mixed_methods_workbench", "access": "read", "coordination_key": "pt-topology-read-only@1fd01bc"},
+        {"kind": "repository_path", "target": "examples/fixtures/method_topology/process_tracing_v0_1.json", "repository": "mixed_methods_workbench", "access": "read", "coordination_key": "pt-topology-read-only@1fd01bc"}
       ],
       "acceptance": [
         {
@@ -143,7 +144,7 @@
           "Per-method source freeze, three-level records, typed connections, and uncertainty accounting"
         ],
         "excluded": [
-          "Collision scoring, expert elicitation, policy recommendation, coverage claims, shared vocabulary changes, implementation, and edits outside assigned method directories"
+          "Collision scoring, conducting live expert elicitation, issuing a policy recommendation, coverage claims, shared vocabulary changes, implementation, and edits outside assigned method directories"
         ]
       },
       "inputs": [

@@ -18,9 +18,9 @@ Phase 4 collision candidates, Phase 5 adjudication, Phase 6 coverage or
 automation claims, a shared production schema, infrastructure, producer
 changes, or product implementation.
 
-The merged Process Tracing topology prototype and its still-live coordination
-claim are read-only implementation evidence for `P14`; they do not own the
-method frame or count as a completed Phase 3 decomposition.
+The Process Tracing topology prototype merged at `1fd01bc`; its product lane is
+complete. That pinned revision is read-only implementation evidence for `P14`:
+it does not own the method frame or count as a completed Phase 3 decomposition.
 
 ## Prior Phase: Method-Capability Discovery; Phase 0 Reconciled
 

@@ -40,9 +40,9 @@ directory to its owner; it may not repair or normalize method-owned semantics.
 ## Coordination and stop rules
 
 Every lane requires a canonical registry claim bound to `work_graph.json` and
-its exact unit ID. The active-but-stale `pt-topology-workbench` product claim is
-a read-only evidence/conflict surface and must be closed by its owner; it grants
-no Phase 3 ownership.
+its exact unit ID. The completed `pt-topology-workbench` product lane merged at
+`1fd01bc`; that revision is a read-only evidence surface and grants no Phase 3
+ownership.
 
 Stop and record explicit uncertainty if a source cannot pin the variant, a
 record crosses source scope, or the format cannot express the method without
