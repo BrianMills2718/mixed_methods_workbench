@@ -30,10 +30,10 @@ Negative tests:
 ```text
 /home/brian/projects/mixed_methods_workbench/.venv/bin/python -m pytest -q \
   tests/test_phase3_work_graph.py
-..............                                                           [100%]
+................                                                         [100%]
 ```
 
-The fourteen focused tests include negative mutations for:
+The sixteen focused tests include negative mutations for:
 
 - duplicate and missing method ownership;
 - missing integration dependency;
@@ -46,6 +46,8 @@ The fourteen focused tests include negative mutations for:
 - absent or mismatched receipt bytes;
 - missing required evidence artifacts;
 - graph transitions that are not later than the receipt.
+- accepted records validated without repository/transition context;
+- receipt commits not descended from their evidence commits.
 
 When an accepted lane exists, the focused validator verifies that both Git
 commits exist, all required evidence artifacts exist at the evidence commit,

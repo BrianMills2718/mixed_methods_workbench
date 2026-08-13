@@ -138,8 +138,7 @@ def validate_graph(
             if len(receipts) != 1:
                 errors.append(f"{unit_id} accepted status requires one CompletionReceipt")
             elif repo is None or transition_revision is None:
-                if _receipt_revision(revision) is None:
-                    errors.append(f"{unit_id} accepted status requires distinct evidence and receipt commits")
+                errors.append(f"{unit_id} accepted status requires repository evidence context")
             else:
                 errors.extend(_verify_receipt(repo, transition_revision, unit_id, expected, revision))
 

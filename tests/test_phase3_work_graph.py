@@ -123,7 +123,13 @@ def test_rejects_same_evidence_and_receipt_commit() -> None:
         "id": "P3-RESEARCH-A",
         "revision": f"docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-A.yaml@evidence={sha};receipt={sha}",
     })
-    assert any("distinct evidence and receipt" in error for error in validate_graph(document))
+    assert any("repository evidence context" in error for error in validate_graph(document))
+
+
+def test_rejects_fabricated_distinct_commits_without_context() -> None:
+    document = load_graph()
+    accepted_lane(document, "a" * 40, "b" * 40)
+    assert any("repository evidence context" in error for error in validate_graph(document))
 
 
 def test_accepts_real_verified_receipt_history(tmp_path: Path) -> None:
@@ -160,6 +166,29 @@ def test_rejects_transition_not_later_than_receipt(tmp_path: Path) -> None:
     document = load_graph()
     accepted_lane(document, evidence, receipt)
     assert any("transition must be later" in error for error in validate_graph(document, repo=repo, transition_revision=receipt))
+
+
+def test_rejects_receipt_not_descended_from_evidence(tmp_path: Path) -> None:
+    repo, evidence, _, _ = receipt_history(tmp_path)
+    git(repo, "checkout", "--orphan", "unrelated")
+    git(repo, "rm", "-rf", ".")
+    receipt_path = repo / "docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-A.yaml"
+    receipt_path.parent.mkdir(parents=True)
+    methods = ["p01", "p02", "p03", "p04", "p14"]
+    receipt_path.write_text(json.dumps({
+        "unit_id": "P3-RESEARCH-A",
+        "evidence_commit": evidence,
+        "method_paths": [f"docs/research/method_decomposition/phase3/methods/{method}" for method in methods],
+        "checks": ["focused"],
+        "reviewer": "independent-reviewer",
+        "disposition": "accepted",
+    }), encoding="utf-8")
+    receipt = commit_all(repo, "unrelated receipt")
+    (repo / "transition.txt").write_text("later\n", encoding="utf-8")
+    transition = commit_all(repo, "transition")
+    document = load_graph()
+    accepted_lane(document, evidence, receipt)
+    assert any("must descend from evidence" in error for error in validate_graph(document, repo=repo, transition_revision=transition))
 
 
 def test_rejects_ready_integration_before_acceptance() -> None:
