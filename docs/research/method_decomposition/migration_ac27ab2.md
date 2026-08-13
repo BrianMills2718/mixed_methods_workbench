@@ -214,7 +214,7 @@ assigned_rev5_values:
   failure_output: migration_unresolved — the legacy row specified preconditions but no explicit failure artifact or terminal state
   method_owned_semantics: *id003
   evidence_basis: not method-specified; engineering. Corbin & Strauss (2015), Basics of Qualitative Research, 4th ed.; Charmaz (2014), Constructing Grounded Theory, 2nd ed.
-  execution_status: manually_performed
+  execution_status: software_executable
   representation_status: implemented_artifact
   implementation_ref: *id004
   optional: false

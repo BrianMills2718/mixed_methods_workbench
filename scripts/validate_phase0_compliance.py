@@ -105,7 +105,9 @@ def validate_migration() -> None:
         assert record["unexpressible_or_loss_notes"], f"{step_id}: loss notes required"
         assert assigned["failure_output"].startswith("migration_unresolved"), step_id
     assert migrated["pt.06"]["assigned_rev5_values"]["execution_status"] == "manually_performed"
+    assert migrated["pt.06"]["assigned_rev5_values"]["actor_chain"] == ["human_reviewer"]
     assert migrated["pt_acq.03"]["assigned_rev5_values"]["execution_status"] == "manually_performed"
+    assert migrated["qc_gt.02"]["assigned_rev5_values"]["execution_status"] == "software_executable"
 
 
 def validate_disagreements() -> None:

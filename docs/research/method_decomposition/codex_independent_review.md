@@ -44,6 +44,12 @@ Correction applied after review:
   because a callable human-review boundary is not software execution;
 - focused validation asserts both statuses.
 
+A read-only correction verification then caught an accidental neighboring-row
+regression: `qc_gt.02`, a deterministic source-unit selection step, had changed
+to `manually_performed` while editing the large migration artifact. It was
+restored to `software_executable`; validation now pins that status and the
+`pt.06` reviewer actor explicitly.
+
 ### Minor — incomplete repository pins
 
 D01, D02, D35, and D37-D40 included shorthand factual references after an
