@@ -3,53 +3,44 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: First NYC Evidence Slice Ready
+## Current Phase: NYC Candidate Review Gate
 
-Brian approved the exact Investigation Spine recommended by the merged product
-integration assessment on 2026-08-13. The bounded implementation contract is
-[`investigation_spine.md`](plans/investigation_spine.md).
+Plan #5 is the current long-term execution authority:
+[`005_nyc_crz_mvp.md`](plans/005_nyc_crz_mvp.md) and its machine-consumed
+[`5_nyc_crz_mvp_work_graph.json`](plans/5_nyc_crz_mvp_work_graph.json).
 
-The Workbench has one typed projection, matching JSON route, and
-plain-language browser page over the already completed Qualitative Coding to
-Process Tracing round trip. The route uses exact pinned fixtures for portable
-validation and is linked from the existing dashboard.
+The exact NYC source freeze remains controlling. Two independent Plan #5 units
+have now executed and are merged on canonical `main`:
 
-The completed slice did not rerun or modify producer engines, call an LLM, retrieve new
-evidence, generalize the P5-specific mapping, adopt Data Contracts, activate a
-shared schema, deploy the interface, or present the inconclusive result as
-confirmation or rejection.
+- `NYC-EXTRACT-1` at `6403fcf` verifies exact Reevaluation 2 and hearing PDF
+  bytes, retains an authentic non-cached structured-output trace, binds one
+  prediction and one hearing concern to exact source units, preserves two
+  rejected attempts, and presents the candidates in the existing
+  Investigation Spine. Its status is `completion_review`; neither candidate
+  is accepted evidence.
+- `NYC-QUANT-1` at `103be94` recomputes 12 monthly observations from the frozen
+  25,992-row vehicle-entry snapshot, exactly replays five publication-version
+  drift months and the 6,246-entry total difference, and compares the current
+  January–October arithmetic with the agency's No Action baseline. Its status
+  is `completion_review`; it does not identify a causal effect or independently
+  reconstruct the agency counterfactual.
 
-The approved Mist Trail source gate is now complete. Its controlling record is
-[`mist_trail_source_gate.md`](research/mist_trail_source_gate.md). Mist Trail
-passes as a real pre-decision document-analysis, structured-extraction, and
-conditional option-appraisal case. It fails as the sole cohesive MVP flagship:
-the public record has no final decision or implementation outcome, no exposed
-raw comment corpus, and no quantitative/computational strand with distinct
-leverage over the choice.
+The immediate decision boundary is Brian's attributable disposition of three
+review statements: the proposed agency-prediction wording, the proposed
+hearing-concern wording, and the bounded quantitative comparison. Passing
+Pydantic, anchor, arithmetic, browser, and runtime checks does not grant
+analytical acceptance.
 
-The replacement screen is complete and recorded in
-[`replacement_flagship_screen.md`](research/replacement_flagship_screen.md).
-New York City's Congestion Relief Zone tolling program is the selected
-candidate because the official record includes a final decision, verbatim
-hearing transcripts, machine-readable traffic/ridership data, implementation,
-and a first-year evaluation. London ULEZ is the runner-up. Mist Trail remains a
-secondary vertical; do not return to Open Science/P5 as the general flagship by
-default.
+`NYC-QC-1` remains blocked until the extraction semantics and reviewed fields
+are accepted. `NYC-INTEGRATE-1` remains blocked until extraction, QC, and
+quantitative artifacts are accepted. No agent may rerun the two completed
+units, start QC, integrate the result, adopt a shared schema, or resume method
+catalog expansion merely because the code exists.
 
-The exact source freeze is complete in
-[`nyc_crz_source_freeze.md`](research/nyc_crz_source_freeze.md). It fixes the
-non-causal policy question, January 5–December 31, 2025 outcome window, minimal
-document corpus, exact PDF digests, two reproducible public-data snapshots,
-claim ownership, source-use controls, and refusal behavior. The decision is
-**GO WITH LIMITS** to one reviewed prediction + hearing concern + descriptive
-aggregate slice in the existing Investigation Spine.
-
-No later product implementation is active by implication. The next bounded
-slice must verify source bytes, produce schema-constrained candidate
-extractions with exact anchors, require human review, and display one frozen
-aggregate without causal or recommendation overclaim. It must not ingest the
-whole MTA archive, run Process Tracing, modify producer repositories, adopt a
-shared schema, or create a new interface.
+The quantitative work graph now binds the actual canonical drift-receipt file
+digest `0961133cc6a6441a944f00a45a7574e58a69bd0ca51fc2cb70da67540083f578`.
+The earlier `5c6af2bd...` value did not match that referenced artifact; the
+correction changes planning provenance, not the frozen comparison.
 
 ## Completed Phase: Product Integration Assessment
 
