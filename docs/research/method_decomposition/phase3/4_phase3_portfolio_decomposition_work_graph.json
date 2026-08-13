@@ -7,13 +7,13 @@
       "initiative_id": "method-capability-discovery",
       "goal_id": "phase3-decompose-approved-portfolio",
       "design_revision": "phase2-format@89e9515+phase2b-proposal-0.3@9e8378c+approve-14@2026-08-13",
-      "spec_revision": "plan-4-phase3-work-graph-v3",
+      "spec_revision": "plan-4-phase3-work-graph-v4",
       "title": "Decompose evidence and causal-inference variants",
       "class": "research",
       "objective": "Freeze sources and independently decompose P01, P02, P03, P04, and P14 without normalizing their method-owned semantics.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "not_applicable",
       "scope": {
         "included": [
           "P01 systematic review, P02 policy RCT, P03 difference-in-differences, P04 fsQCA, and P14 theory-testing Process Tracing",
@@ -28,7 +28,8 @@
         {"kind": "MethodDecompositionSpec", "id": "METHOD_DECOMPOSITION_HANDOFF", "revision": "rev5.1:sha256:fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f"},
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
-        {"kind": "ReadOnlyImplementationEvidence", "id": "process-tracing-topology-prototype", "revision": "merged@1fd01bc;not-method-authority"}
+        {"kind": "ReadOnlyImplementationEvidence", "id": "process-tracing-topology-prototype", "revision": "merged@1fd01bc;not-method-authority"},
+        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-A", "revision": "git:origin/phase3-research-a@6262b4da513d2a3e5dd094c47a9284c12572603c;archived-handoff;not-accepted"}
       ],
       "outputs": [
         "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
@@ -57,14 +58,14 @@
           "negative_control": "Reject missing operations hidden by broad phases or execution actions represented as method-owned analytical warrants."
         }
       ],
-      "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
+      "readiness": {"status": "blocked", "required_approval_types": [], "approvals": [], "failed_guards": ["Phase 3 is paused behind the product-integration critical path", "P3-CONTROL has not issued a completion receipt or accepted the submitted evidence revision"]},
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
-      "record_version": 1,
+      "status": "completion_review",
+      "record_version": 2,
       "created_at": "2026-08-13T17:45:00Z",
-      "updated_at": "2026-08-13T17:45:00Z"
+      "updated_at": "2026-08-13T22:24:00Z"
     },
     {
       "schema_version": "1.0",
@@ -73,13 +74,13 @@
       "initiative_id": "method-capability-discovery",
       "goal_id": "phase3-decompose-approved-portfolio",
       "design_revision": "phase2-format@89e9515+phase2b-proposal-0.3@9e8378c+approve-14@2026-08-13",
-      "spec_revision": "plan-4-phase3-work-graph-v3",
+      "spec_revision": "plan-4-phase3-work-graph-v4",
       "title": "Decompose measurement, forecasting, and simulation variants",
       "class": "research",
       "objective": "Freeze sources and independently decompose P06, P07, P08, and P09 while preserving measurement, prediction, and generated-model evidence boundaries.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "not_applicable",
       "scope": {
         "included": [
           "P06 probability survey, P07 supervised quantitative text measurement, P08 probabilistic forecasting, and P09 agent-based policy simulation",
@@ -93,7 +94,8 @@
         {"kind": "CoordinationPlan", "id": "Plan #4", "revision": "4_phase3_portfolio_decomposition.md@approved-2026-08-13"},
         {"kind": "MethodDecompositionSpec", "id": "METHOD_DECOMPOSITION_HANDOFF", "revision": "rev5.1:sha256:fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f"},
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
-        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"}
+        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
+        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-B", "revision": "git:origin/phase3-research-b@f8044648075468411d20bee1bfe71fec5c2023bf;archived-handoff;changes-requested"}
       ],
       "outputs": [
         "Four exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
@@ -119,14 +121,14 @@
           "negative_control": "Reject a connection that silently changes simulated or derived information into observed real-world evidence."
         }
       ],
-      "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
+      "readiness": {"status": "blocked", "required_approval_types": [], "approvals": [], "failed_guards": ["P3-CONTROL requested controlled-verb, typed-slot, uncertainty, topology, and binding corrections", "Phase 3 is paused behind the product-integration critical path and requires an explicit lift before correction work resumes"]},
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
-      "record_version": 1,
+      "status": "changes_requested",
+      "record_version": 2,
       "created_at": "2026-08-13T17:45:00Z",
-      "updated_at": "2026-08-13T17:45:00Z"
+      "updated_at": "2026-08-13T22:24:00Z"
     },
     {
       "schema_version": "1.0",
@@ -135,13 +137,13 @@
       "initiative_id": "method-capability-discovery",
       "goal_id": "phase3-decompose-approved-portfolio",
       "design_revision": "phase2-format@89e9515+phase2b-proposal-0.3@9e8378c+approve-14@2026-08-13",
-      "spec_revision": "plan-4-phase3-work-graph-v3",
+      "spec_revision": "plan-4-phase3-work-graph-v4",
       "title": "Decompose interpretive, decision, elicitation, and integration variants",
       "class": "research",
       "objective": "Freeze sources and independently decompose P05, P10, P11, P12, and P13 while preserving human authority, disagreement, and meta-inference boundaries.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "not_applicable",
       "scope": {
         "included": [
           "P05 constructivist grounded theory, P10 Robust Decision Making, P11 Green Book appraisal, P12 policy Delphi, and P13 convergent mixed methods",
@@ -155,7 +157,8 @@
         {"kind": "CoordinationPlan", "id": "Plan #4", "revision": "4_phase3_portfolio_decomposition.md@approved-2026-08-13"},
         {"kind": "MethodDecompositionSpec", "id": "METHOD_DECOMPOSITION_HANDOFF", "revision": "rev5.1:sha256:fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f"},
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
-        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"}
+        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
+        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-C", "revision": "git:origin/phase3-research-c@0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa;archived-handoff;not-accepted"}
       ],
       "outputs": [
         "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
@@ -182,14 +185,14 @@
           "negative_control": "Reject a linearized record that removes theoretical-sampling, adaptive-strategy, Delphi-feedback, appraisal-return, or divergence-disposition loops."
         }
       ],
-      "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
+      "readiness": {"status": "blocked", "required_approval_types": [], "approvals": [], "failed_guards": ["Phase 3 is paused behind the product-integration critical path", "P3-CONTROL has not issued a completion receipt or accepted the submitted evidence revision"]},
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
-      "record_version": 1,
+      "status": "completion_review",
+      "record_version": 2,
       "created_at": "2026-08-13T17:45:00Z",
-      "updated_at": "2026-08-13T17:45:00Z"
+      "updated_at": "2026-08-13T22:24:00Z"
     },
     {
       "schema_version": "1.0",
@@ -198,13 +201,13 @@
       "initiative_id": "method-capability-discovery",
       "goal_id": "phase3-decompose-approved-portfolio",
       "design_revision": "phase2-format@89e9515+phase2b-proposal-0.3@9e8378c+approve-14@2026-08-13",
-      "spec_revision": "plan-4-phase3-work-graph-v3",
+      "spec_revision": "plan-4-phase3-work-graph-v4",
       "title": "Review lane evidence and advance graph lifecycle",
       "class": "verification",
       "objective": "Independently verify exact research evidence commits, create later receipts, and sequentially advance unit statuses without performing decomposition or integration.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "not_applicable",
       "scope": {
         "included": [
           "Review each research lane's pushed evidence commit against its acceptance criteria and exclusive paths",
@@ -244,14 +247,14 @@
           "negative_control": "Reject status mutation by a research/integration owner, self-referential receipt identity, or premature integration readiness."
         }
       ],
-      "readiness": {"status": "ready", "required_approval_types": [], "approvals": [], "failed_guards": []},
+      "readiness": {"status": "blocked", "required_approval_types": [], "approvals": [], "failed_guards": ["Brian-approved product integration remains the critical path", "Resume requires an explicit lift of the Phase 3 pause; this control unit may not accept, receipt, or integrate lane evidence while paused"]},
       "claim_policy": {"eligibility_rule": "One canonical P3-CONTROL registry claim with sequential exclusive ownership of receipts and work_graph only.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
-      "record_version": 1,
+      "status": "blocked",
+      "record_version": 2,
       "created_at": "2026-08-13T18:15:00Z",
-      "updated_at": "2026-08-13T18:15:00Z"
+      "updated_at": "2026-08-13T22:24:00Z"
     },
     {
       "schema_version": "1.0",
@@ -260,7 +263,7 @@
       "initiative_id": "method-capability-discovery",
       "goal_id": "phase3-decompose-approved-portfolio",
       "design_revision": "phase2-format@89e9515+phase2b-proposal-0.3@9e8378c+approve-14@2026-08-13",
-      "spec_revision": "plan-4-phase3-work-graph-v3",
+      "spec_revision": "plan-4-phase3-work-graph-v4",
       "title": "Integrate and validate the 14-method decomposition",
       "class": "integration",
       "objective": "Validate the exact adopted denominator and format across accepted lane outputs without normalizing semantics or beginning collision analysis.",
@@ -317,18 +320,19 @@
         "required_approval_types": [],
         "approvals": [],
         "failed_guards": [
-          "P3-RESEARCH-A status is not accepted",
-          "P3-RESEARCH-B status is not accepted",
-          "P3-RESEARCH-C status is not accepted"
+          "P3-RESEARCH-A status is completion_review, not accepted",
+          "P3-RESEARCH-B status is changes_requested, not accepted",
+          "P3-RESEARCH-C status is completion_review, not accepted",
+          "Phase 3 integration is paused behind the NYC product-integration critical path"
         ]
       },
       "claim_policy": {"eligibility_rule": "One canonical registry claim after all three hard dependency gates report accepted exact revisions.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
       "status": "blocked",
-      "record_version": 1,
+      "record_version": 2,
       "created_at": "2026-08-13T17:45:00Z",
-      "updated_at": "2026-08-13T17:45:00Z"
+      "updated_at": "2026-08-13T22:24:00Z"
     }
   ]
 }
