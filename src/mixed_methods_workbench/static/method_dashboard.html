@@ -344,6 +344,30 @@
     .tier p { color: var(--muted); font-size: 12px; }
     .tier ul { margin: 13px 0 0; padding-left: 18px; font-size: 13px; }
     .tier li + li { margin-top: 6px; }
+    .composition-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 25px 0; }
+    .composition-node { position: relative; padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: #fffefa; }
+    .composition-node::after { content: "→"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--forest-2); font-size: 20px; font-weight: 800; }
+    .composition-node:last-child::after { display: none; }
+    .composition-node strong { display: block; margin-bottom: 5px; font-size: 13px; }
+    .composition-node span { color: var(--muted); font-size: 11px; }
+    .status-legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 20px; }
+    .support-status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border-radius: 999px; font-size: 10px; font-weight: 800; }
+    .support-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .support-status.observed_engine { color: var(--forest); background: var(--mint); }
+    .support-status.bounded_example { color: var(--blue); background: var(--blue-soft); }
+    .support-status.method_profile_only { color: var(--amber); background: var(--amber-soft); }
+    .workflow-library { display: grid; gap: 12px; }
+    .workflow-card { border: 1px solid var(--line); border-radius: 15px; background: #fffefa; overflow: hidden; }
+    .workflow-card summary { list-style: none; cursor: pointer; padding: 18px; }
+    .workflow-card summary::-webkit-details-marker { display: none; }
+    .workflow-card[open] { border-color: #aab7ae; box-shadow: 0 10px 25px rgba(42,52,45,.07); }
+    .workflow-preview { display: flex; align-items: stretch; gap: 18px; overflow-x: auto; padding: 4px 2px 10px; }
+    .workflow-move { position: relative; flex: 1 0 126px; max-width: 190px; min-height: 62px; padding: 11px 12px; border: 1px solid #cbd4ce; border-radius: 11px; color: #30463a; background: #f2f7f3; font-size: 11px; font-weight: 750; }
+    .workflow-move::after { content: "→"; position: absolute; right: -15px; top: 19px; color: #87948c; font-size: 14px; }
+    .workflow-move:last-child::after { display: none; }
+    .workflow-shape { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
+    .workflow-detail { padding: 0 18px 18px; border-top: 1px solid var(--line); }
+    .candidate-note { margin: 20px 0; padding: 15px 17px; border-left: 4px solid var(--blue); border-radius: 0 11px 11px 0; background: var(--blue-soft); font-size: 12px; }
     .principle { padding: 22px; border-radius: 15px; color: #fff; background: var(--forest); }
     .principle span { display: block; margin-bottom: 8px; color: #bdd4c7; font-size: 11px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .principle p { margin: 0; font-family: var(--serif); font-size: 25px; line-height: 1.25; }
@@ -359,6 +383,8 @@
       .workspace { grid-template-columns: 360px minmax(0, 1fr); }
       .method-grid, .library-grid { grid-template-columns: 1fr; }
       .tier-grid { grid-template-columns: 1fr; }
+      .composition-flow { grid-template-columns: 1fr 1fr; }
+      .composition-node:nth-child(2)::after { display: none; }
     }
     @media (max-width: 820px) {
       .shell { padding: 0 16px 50px; }
@@ -370,6 +396,8 @@
       .result-panel { padding: 18px; }
       .empty-state { min-height: 400px; padding: 30px 12px; }
       .detail-cols { grid-template-columns: 1fr; }
+      .composition-flow { grid-template-columns: 1fr; gap: 10px; }
+      .composition-node::after { display: none; }
       .library-tools { flex-direction: column; }
       .library-tools select { width: 100%; }
     }
@@ -396,7 +424,7 @@
       <nav class="topnav" aria-label="Dashboard views">
         <button class="nav-button active" type="button" data-view="planner">Plan an analysis</button>
         <button class="nav-button" type="button" data-view="library">Explore methods</button>
-        <button class="nav-button" type="button" data-view="architecture">Architecture<span class="nav-advanced">Advanced</span></button>
+        <button class="nav-button" type="button" data-view="architecture">Capabilities &amp; workflows<span class="nav-advanced">How methods fit together</span></button>
         <button class="nav-button" type="button" data-view="stress">Stress tests<span class="nav-advanced">Advanced</span></button>
       </nav>
     </header>
@@ -504,14 +532,33 @@
       </section>
 
       <section id="architecture-view" class="panel result-panel architecture-view app-view" hidden>
-        <p class="panel-kicker">Modular architecture</p>
-        <h2>Share the mechanics. Keep the method's meaning with the method.</h2>
-        <p>The dashboard is also a review surface for deciding what should become reusable software. Repetition is evidence of pressure, not proof of common semantics.</p>
-        <div id="tier-grid" class="tier-grid"></div>
-        <div class="principle">
-          <span>Working rule</span>
-          <p>Generalize references, lineage, run mechanics, and review mechanics before generalizing analytical meaning.</p>
+        <p class="panel-kicker">Capabilities and method workflows</p>
+        <h2>Methods are workflows built from support, analytical moves, and human judgment.</h2>
+        <p>This view separates reusable workbench capabilities from the rules that make a methodology valid. It also shows what has been observed in software, what has only a bounded example, and what is currently a method profile.</p>
+        <div class="composition-flow" aria-label="How a method is composed">
+          <div class="composition-node"><strong>Evidence and research intent</strong><span>Sources, questions, scope, goals, and constraints.</span></div>
+          <div class="composition-node"><strong>Reusable support</strong><span>Identity, custody, validation, lineage, review, and presentation.</span></div>
+          <div class="composition-node"><strong>Method workflow</strong><span>Ordered, branching, or cyclic analytical moves and refusal points.</span></div>
+          <div class="composition-node"><strong>Inspectable result</strong><span>A bounded conclusion with evidence, uncertainty, and next actions.</span></div>
         </div>
+        <div class="principle">
+          <span>Core boundary</span>
+          <p>Reusable machinery may carry the work. The methodology still owns what counts as evidence and what may be concluded.</p>
+        </div>
+
+        <div class="section-head"><h3>Method workflow previews</h3><p>Open a method to inspect its current support and boundaries.</p></div>
+        <p>These compact diagrams show the main moves in each current profile. They are orientation views—not adopted executable recipes.</p>
+        <div class="status-legend" aria-label="Implementation status legend">
+          <span class="support-status observed_engine">Inspected method software</span>
+          <span class="support-status bounded_example">Bounded example</span>
+          <span class="support-status method_profile_only">Profile only</span>
+        </div>
+        <div id="workflow-library" class="workflow-library"></div>
+
+        <div class="candidate-note"><strong>Why these are still previews:</strong> move-level decomposition is being tested across contrasting methods. Once that candidate is reconciled, this view can consume its typed moves, connections, authority roles, and implementation evidence instead of maintaining a second taxonomy here.</div>
+
+        <div class="section-head"><h3>Where reuse may live</h3><p>Candidate layers, not adopted shared schemas.</p></div>
+        <div id="tier-grid" class="tier-grid"></div>
         <div class="limits">
           <h3>Current coverage limits</h3>
           <ul id="coverage-limits"></ul>
@@ -729,6 +776,33 @@
         method_parameterized_actions: ["Composable actions", "Reusable interactions whose inputs, outputs, and admissibility remain method-declared."],
         method_owned_semantics: ["Method-owned meaning", "Inference and validity rules that remain inside the specialized method engine."]
       };
+      const supportCopy = {
+        observed_engine: "Inspected method software",
+        bounded_example: "Bounded example",
+        method_profile_only: "Profile only"
+      };
+      byId("workflow-library").innerHTML = catalog.methods.map((method, index) => `
+        <details class="workflow-card" ${index < 3 ? "open" : ""}>
+          <summary>
+            <div class="method-topline">
+              <div><h3 class="method-title">${escapeHtml(method.label)}</h3><p class="method-summary">${escapeHtml(method.summary)}</p></div>
+              <span class="support-status ${escapeHtml(method.portfolio_status)}">${escapeHtml(supportCopy[method.portfolio_status])}</span>
+            </div>
+            <div class="workflow-preview" aria-label="Simplified ${escapeHtml(method.label)} workflow">
+              ${method.workflow_steps.map((step) => `<span class="workflow-move">${escapeHtml(step)}</span>`).join("")}
+            </div>
+            <p class="workflow-shape"><strong>Shape:</strong> ${escapeHtml(method.workflow_shape)}.</p>
+          </summary>
+          <div class="workflow-detail">
+            <div class="detail-callout"><strong>Current software evidence:</strong> ${escapeHtml(method.portfolio_note)}</div>
+            <div class="detail-cols">
+              <div><strong>What this method may establish</strong>${list(method.can_establish)}</div>
+              <div class="cannot"><strong>What it does not establish</strong>${list(method.cannot_establish)}</div>
+              <div><strong>What it requires</strong>${list(method.requirements)}</div>
+              <div><strong>Where it contributes in a study</strong>${list(method.stage_ids.map((stageId) => catalog.stages.find((stage) => stage.stage_id === stageId)?.label || stageId))}</div>
+            </div>
+          </div>
+        </details>`).join("");
       byId("tier-grid").innerHTML = Object.entries(catalog.capability_tiers).map(([key, items]) => `
         <article class="tier"><h3>${escapeHtml(tierCopy[key][0])}</h3><p>${escapeHtml(tierCopy[key][1])}</p>${list(items)}</article>`).join("");
       byId("coverage-limits").innerHTML = catalog.method_coverage_limits.map((item) => `<li>${escapeHtml(item)}</li>`).join("");

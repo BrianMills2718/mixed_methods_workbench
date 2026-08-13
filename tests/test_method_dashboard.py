@@ -56,6 +56,7 @@ def test_catalog_exposes_representative_profiles_and_policy_spine() -> None:
     assert len(catalog.scope_options) == len(ComparisonScope)
     assert len(catalog.evidence_options) == len(EvidenceKind)
     assert all(option.description and option.help_text for option in catalog.aim_options)
+    assert all(len(method.workflow_steps) >= 2 for method in catalog.methods)
     assert next(option for option in catalog.aim_options if option.value == "interpret").label == (
         "Understand what it means to people"
     )
@@ -190,7 +191,7 @@ def test_invalid_selection_combinations_fail_loud() -> None:
 def test_json_operations_use_the_same_typed_router() -> None:
     """Give agents parity with the rendered dashboard without a second rule path."""
     catalog = catalog_payload()
-    assert catalog["schema_version"] == "method_dashboard.v3"
+    assert catalog["schema_version"] == "method_dashboard.v4"
     status, result = route_payload(_example("program_failure").model_dump(mode="json"))
     assert status == HTTPStatus.OK
     assert result["routes"]
@@ -220,7 +221,12 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "Source of leverage" not in html
     assert "Explore methods" in html
     assert "nav-advanced" in html
-    assert "Architecture" in html
+    assert "Capabilities &amp; workflows" in html
+    assert "Methods are workflows built from support, analytical moves, and human judgment." in html
+    assert 'id="workflow-library"' in html
+    assert "They are orientation views—not adopted executable recipes." in html
+    assert "Inspected method software" in html
+    assert "Profile only" in html
     assert "Stress tests" in html
     assert "Stop rule against taxonomy sprawl" in html
     assert "no universally best method" in html
