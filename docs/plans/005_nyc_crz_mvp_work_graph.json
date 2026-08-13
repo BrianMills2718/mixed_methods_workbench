@@ -1,0 +1,757 @@
+{
+  "units": [
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "NYC-EXTRACT-1",
+      "initiative_id": "mixed-methods-workbench-authentic-mvp",
+      "goal_id": "cohesive-nyc-policy-investigation",
+      "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
+      "spec_revision": "1",
+      "title": "Anchor and review the first NYC prediction and hearing concern",
+      "class": "implementation",
+      "objective": "Expose one authentic structured-extraction canary and one deterministic evidence-binding path in the existing Investigation Spine without treating candidates as accepted analysis.",
+      "profile": "standard",
+      "execution_class": "independently_executable",
+      "claimability": "ready_for_execution",
+      "scope": {
+        "included": [
+          "exact-byte verification for Reevaluation 2 and one frozen hearing transcript",
+          "Workbench-local Pydantic extraction request/result and evidence-anchor records",
+          "one authentic non-cached llm_client structured-output canary",
+          "deterministic selection, hash, locator, and review-state validation",
+          "existing Investigation Spine API and browser projection",
+          "candidate review packet and explicit pending-human-review state"
+        ],
+        "excluded": [
+          "Qualitative Coding producer changes or QC Describe",
+          "Data Contracts adoption",
+          "Process Tracing",
+          "full-hearing or full-MTA-corpus analysis",
+          "causal or recommendation claims",
+          "deployment"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "BoundedDesign",
+          "id": "nyc_crz_source_freeze",
+          "revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e"
+        },
+        {
+          "kind": "SourceManifest",
+          "id": "NYC-CRZ-MVP-v1",
+          "revision": "sha256:63dd0ec70180800e4678572570f97514849633eaa16284b706ea66615b0e63dc"
+        },
+        {
+          "kind": "ExperimentalAnchorCandidate",
+          "id": "evidence.anchor",
+          "revision": "a87da7c"
+        }
+      ],
+      "outputs": [
+        "typed candidate prediction and hearing-concern records",
+        "hash-verified evidence anchors and refusal codes",
+        "authentic llm_client run and rejection receipts",
+        "matching Investigation Spine JSON and browser projection",
+        "human-review packet with no implicit promotion"
+      ],
+      "dependencies": [],
+      "conflict_surfaces": [
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench/nyc_crz_evidence_slice.py",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-extract-1"
+        },
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench/method_dashboard_server.py",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "investigation-spine-integration"
+        },
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench/static/investigation_spine.html",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "investigation-spine-integration"
+        },
+        {
+          "kind": "repository_path",
+          "target": "examples/fixtures/nyc_crz_evidence_slice",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-extract-1"
+        },
+        {
+          "kind": "repository_path",
+          "target": "tests/test_nyc_crz_evidence_slice.py",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-extract-1"
+        },
+        {
+          "kind": "external_system",
+          "target": "llm_client structured-output runtime and observability store",
+          "access": "write",
+          "coordination_key": "nyc-crz-canary-trace"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "NYC-EXTRACT-AC1",
+          "criterion": "Both source documents match the frozen byte digests before their exact source units are parsed.",
+          "evidence_required": [
+            "source verification receipt",
+            "digest-mutation negative test"
+          ],
+          "negative_control": "Change one source byte or declared digest and require a loud refusal before extraction."
+        },
+        {
+          "id": "NYC-EXTRACT-AC2",
+          "criterion": "One non-cached llm_client call returns schema-valid candidates and every retained quote binds uniquely to its declared source unit.",
+          "evidence_required": [
+            "trace ID and logical call ID",
+            "prompt, schema, source-unit, and output digests",
+            "exact-selection binding test"
+          ],
+          "negative_control": "Retain the observed failed candidate whose hearing quote could not bind after printed line-number extraction."
+        },
+        {
+          "id": "NYC-EXTRACT-AC3",
+          "criterion": "Model output cannot become accepted evidence without an attributable human review decision, and review may reject individual generated fields.",
+          "evidence_required": [
+            "typed pending/rejected/accepted review states",
+            "promotion negative test",
+            "visible browser review state"
+          ],
+          "negative_control": "Set accepted while the human decision reference is absent."
+        },
+        {
+          "id": "NYC-EXTRACT-AC4",
+          "criterion": "The NYC route and the preserved PsychosisBank route use the same existing Investigation Spine surface with matching typed JSON.",
+          "evidence_required": [
+            "focused API/UI parity tests",
+            "fresh-browser NYC observation",
+            "preserved PsychosisBank route check"
+          ]
+        }
+      ],
+      "readiness": {
+        "status": "ready",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": []
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "mixed_methods_workbench",
+      "status": "ready",
+      "record_version": 1,
+      "created_at": "2026-08-13T20:05:00Z",
+      "updated_at": "2026-08-13T20:05:00Z"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "NYC-QC-1",
+      "initiative_id": "mixed-methods-workbench-authentic-mvp",
+      "goal_id": "cohesive-nyc-policy-investigation",
+      "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
+      "spec_revision": "1",
+      "title": "Run bounded QC Describe over all six frozen hearings",
+      "class": "research",
+      "objective": "Produce an authentic method-owned qualitative description of concerns, support, affected groups, alternatives, contradictions, and variation without population-prevalence claims.",
+      "profile": "standard",
+      "execution_class": "independently_executable",
+      "claimability": "blocked_dependencies",
+      "scope": {
+        "included": [
+          "all six frozen August 2022 hearing transcripts as the declared denominator",
+          "Qualitative Coding method-owned coding, comparison, negative cases, memos, reflexivity, review, and export",
+          "exact evidence anchors compatible with the accepted Workbench consumer semantics",
+          "authentic traced model execution when the QC engine uses an LLM"
+        ],
+        "excluded": [
+          "population prevalence or representativeness",
+          "causal inference",
+          "Process Tracing",
+          "Workbench UI changes",
+          "shared schema promotion"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "FrozenCorpus",
+          "id": "NYC-CRZ-MVP-v1-six-hearing-corpus",
+          "revision": "sha256:63dd0ec70180800e4678572570f97514849633eaa16284b706ea66615b0e63dc"
+        },
+        {
+          "kind": "AcceptedWorkUnit",
+          "id": "NYC-EXTRACT-1",
+          "revision": "pending"
+        }
+      ],
+      "outputs": [
+        "method-owned QC Describe run bundle",
+        "reviewed themes/categories with exact anchors",
+        "negative-case and variation account",
+        "reflexivity and adequacy limitations",
+        "strict typed producer export for Workbench consumption"
+      ],
+      "dependencies": [
+        {
+          "unit_id": "NYC-EXTRACT-1",
+          "type": "hard",
+          "gate": {
+            "type": "unit_status",
+            "required_status": "accepted"
+          },
+          "rationale": "The producer export must target the accepted source-unit, anchor, and review semantics rather than a moving Workbench experiment."
+        }
+      ],
+      "conflict_surfaces": [
+        {
+          "kind": "repository_path",
+          "target": "qualitative_coding method-owned NYC run and export paths",
+          "repository": "qualitative_coding",
+          "access": "exclusive",
+          "coordination_key": "nyc-qc-1"
+        },
+        {
+          "kind": "external_system",
+          "target": "llm_client runtime and observability store",
+          "access": "write",
+          "coordination_key": "nyc-qc-trace"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "NYC-QC-AC1",
+          "criterion": "The run accounts for all six frozen hearings and preserves document, page, printed-line, quote, hash, and review lineage for every reported finding.",
+          "evidence_required": [
+            "corpus denominator receipt",
+            "anchor validator",
+            "missing-document negative control"
+          ]
+        },
+        {
+          "id": "NYC-QC-AC2",
+          "criterion": "Reported patterns include variation, contradictions or negative cases, reflexive decisions, and an explicit no-prevalence boundary.",
+          "evidence_required": [
+            "reviewed QC artifact",
+            "method-specific reviewer rubric"
+          ],
+          "negative_control": "A theme count or frequent statement cannot be promoted to population prevalence."
+        },
+        {
+          "id": "NYC-QC-AC3",
+          "criterion": "The strict producer export validates independently and the Workbench can consume it without importing QC internals.",
+          "evidence_required": [
+            "producer contract test",
+            "consumer compatibility fixture"
+          ]
+        }
+      ],
+      "readiness": {
+        "status": "blocked",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": [
+          "NYC-EXTRACT-1 is not yet accepted"
+        ]
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "qualitative_coding",
+      "status": "blocked",
+      "record_version": 1,
+      "created_at": "2026-08-13T20:05:00Z",
+      "updated_at": "2026-08-13T20:05:00Z"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "NYC-QUANT-1",
+      "initiative_id": "mixed-methods-workbench-authentic-mvp",
+      "goal_id": "cohesive-nyc-policy-investigation",
+      "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
+      "spec_revision": "1",
+      "title": "Recompute the bounded predicted-versus-observed comparison",
+      "class": "implementation",
+      "objective": "Produce one reproducible comparison between the frozen Phase 1 entry prediction, agency publication-time observations, and the current frozen public-data snapshot while refusing causal attribution.",
+      "profile": "standard",
+      "execution_class": "independently_executable",
+      "claimability": "ready_for_execution",
+      "scope": {
+        "included": [
+          "frozen t6yz daily vehicle-entry snapshot",
+          "first-evaluation-report Table 2-1 publication values and agency baseline",
+          "existing version-drift receipt",
+          "typed transformation and quantitative-observation records",
+          "reproducible aggregate, uncertainty, coverage, and causal-refusal tests"
+        ],
+        "excluded": [
+          "new data retrieval",
+          "causal identification",
+          "proprietary StreetLight or HERE reconstruction",
+          "ridership attribution",
+          "UI or final policy appraisal changes",
+          "shared quantitative engine extraction"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "SourceManifest",
+          "id": "NYC-CRZ-MVP-v1",
+          "revision": "sha256:63dd0ec70180800e4678572570f97514849633eaa16284b706ea66615b0e63dc"
+        },
+        {
+          "kind": "DriftReceipt",
+          "id": "report_table_2_1_drift_receipt",
+          "revision": "sha256:5c6af2bd776bc79c0e073320f46beb37d2419c2a6712f3c7234780f89836d549"
+        }
+      ],
+      "outputs": [
+        "typed frozen-tabular-query receipt",
+        "reproducible publication-time and current-snapshot observations",
+        "bounded predicted-versus-observed comparison",
+        "coverage and causal-refusal explanation"
+      ],
+      "dependencies": [],
+      "conflict_surfaces": [
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench/nyc_crz_quantitative.py",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-quant-1"
+        },
+        {
+          "kind": "repository_path",
+          "target": "tests/test_nyc_crz_quantitative.py",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-quant-1"
+        },
+        {
+          "kind": "data",
+          "target": "docs/research/evidence/nyc_crz_mvp_v1",
+          "repository": "mixed_methods_workbench",
+          "access": "read",
+          "coordination_key": "nyc-crz-frozen-data"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "NYC-QUANT-AC1",
+          "criterion": "Every aggregate recomputes from the frozen CSV and exposes row count, date coverage, query, source version, and exact input/output digests.",
+          "evidence_required": [
+            "deterministic recomputation test",
+            "query-receipt validator",
+            "row or value mutation negative control"
+          ]
+        },
+        {
+          "id": "NYC-QUANT-AC2",
+          "criterion": "Publication-time observations and the current snapshot remain separate and the known five monthly deltas and 6,246-entry total delta reproduce exactly.",
+          "evidence_required": [
+            "drift-receipt replay test"
+          ]
+        },
+        {
+          "id": "NYC-QUANT-AC3",
+          "criterion": "The result states what the agency comparison suggests but refuses an independently identified causal effect or an exact open-data reconstruction of the agency counterfactual.",
+          "evidence_required": [
+            "typed claim-boundary test",
+            "review copy check"
+          ],
+          "negative_control": "Label the observed difference as the causal effect of congestion pricing."
+        }
+      ],
+      "readiness": {
+        "status": "ready",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": []
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "mixed_methods_workbench",
+      "status": "ready",
+      "record_version": 1,
+      "created_at": "2026-08-13T20:05:00Z",
+      "updated_at": "2026-08-13T20:05:00Z"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "NYC-INTEGRATE-1",
+      "initiative_id": "mixed-methods-workbench-authentic-mvp",
+      "goal_id": "cohesive-nyc-policy-investigation",
+      "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
+      "spec_revision": "1",
+      "title": "Integrate qualitative, quantitative, and policy-appraisal strands",
+      "class": "integration",
+      "objective": "Present reviewed prediction, hearing analysis, quantitative comparison, policy appraisal, provenance, divergence, and limitations as one cohesive investigation without flattening method ownership.",
+      "profile": "standard",
+      "execution_class": "named_owner",
+      "claimability": "blocked_dependencies",
+      "scope": {
+        "included": [
+          "Workbench permissive typed consumers for accepted QC and quantitative artifacts",
+          "joint display with evidence origin, scope, version, owner, review state, and unresolved questions",
+          "explicit convergence, complementarity, divergence, and silence disposition",
+          "human-owned priority lenses and bounded retain/change/monitor policy appraisal",
+          "existing Investigation Spine API, browser surface, and export bundle"
+        ],
+        "excluded": [
+          "generic confidence score across methods",
+          "producer inference logic",
+          "causal conclusion",
+          "autonomous policy recommendation",
+          "new standalone interface",
+          "deployment"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "AcceptedWorkUnit",
+          "id": "NYC-EXTRACT-1",
+          "revision": "pending"
+        },
+        {
+          "kind": "AcceptedWorkUnit",
+          "id": "NYC-QC-1",
+          "revision": "pending"
+        },
+        {
+          "kind": "AcceptedWorkUnit",
+          "id": "NYC-QUANT-1",
+          "revision": "pending"
+        }
+      ],
+      "outputs": [
+        "cohesive NYC Investigation Spine result",
+        "typed joint display and meta-inference records",
+        "human-owned retain/change/monitor appraisal",
+        "matching JSON, browser, and reproducible export bundle"
+      ],
+      "dependencies": [
+        {
+          "unit_id": "NYC-EXTRACT-1",
+          "type": "hard",
+          "gate": {
+            "type": "unit_status",
+            "required_status": "accepted"
+          },
+          "rationale": "Only reviewed source-bound records may enter the integrated result."
+        },
+        {
+          "unit_id": "NYC-QC-1",
+          "type": "hard",
+          "gate": {
+            "type": "unit_status",
+            "required_status": "accepted"
+          },
+          "rationale": "The qualitative strand must be complete and method-reviewed before integration."
+        },
+        {
+          "unit_id": "NYC-QUANT-1",
+          "type": "hard",
+          "gate": {
+            "type": "unit_status",
+            "required_status": "accepted"
+          },
+          "rationale": "The quantitative comparison and its causal refusal must be frozen before integration."
+        }
+      ],
+      "conflict_surfaces": [
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-integration-owner"
+        },
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench/static/investigation_spine.html",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-integration-owner"
+        },
+        {
+          "kind": "route",
+          "target": "/investigation/nyc-congestion-relief-zone",
+          "access": "exclusive",
+          "coordination_key": "nyc-integration-owner"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "NYC-INTEGRATE-AC1",
+          "criterion": "Every joint-display row retains its evidence origin, source anchor, time/version scope, method owner, derivation, review state, and permitted inference.",
+          "evidence_required": [
+            "typed integration contract tests",
+            "source step-down browser check"
+          ],
+          "negative_control": "Remove method ownership or substitute a current snapshot for a publication-time observation."
+        },
+        {
+          "id": "NYC-INTEGRATE-AC2",
+          "criterion": "Convergence, complementarity, divergence, and silence are explicitly dispositioned without a generic confidence score.",
+          "evidence_required": [
+            "integration review artifact",
+            "method-fidelity review"
+          ]
+        },
+        {
+          "id": "NYC-INTEGRATE-AC3",
+          "criterion": "Retain, change, and monitor implications expose human priority judgments and do not appear as autonomous or causally proven recommendations.",
+          "evidence_required": [
+            "human appraisal decision references",
+            "recommendation-overclaim negative control"
+          ]
+        },
+        {
+          "id": "NYC-INTEGRATE-AC4",
+          "criterion": "The browser, JSON operation, and exported investigation bundle project the same accepted typed result.",
+          "evidence_required": [
+            "API/UI/export parity test",
+            "fresh-browser critical-flow observation"
+          ]
+        }
+      ],
+      "readiness": {
+        "status": "blocked",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": [
+          "NYC-EXTRACT-1 is not accepted",
+          "NYC-QC-1 is not accepted",
+          "NYC-QUANT-1 is not accepted"
+        ]
+      },
+      "claim_policy": {
+        "eligibility_rule": "The active Workbench integration coordinator may claim after all three hard dependencies are accepted.",
+        "lease_policy": "renewable",
+        "lease_duration_minutes": 1440,
+        "max_active_per_claimant": 1,
+        "named_owner_id": "mixed_methods_workbench-integration-coordinator"
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "mixed_methods_workbench",
+      "status": "blocked",
+      "record_version": 1,
+      "created_at": "2026-08-13T20:05:00Z",
+      "updated_at": "2026-08-13T20:05:00Z"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "NYC-MVP-REVIEW-1",
+      "initiative_id": "mixed-methods-workbench-authentic-mvp",
+      "goal_id": "cohesive-nyc-policy-investigation",
+      "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
+      "spec_revision": "1",
+      "title": "Review and accept the authentic MVP",
+      "class": "verification",
+      "objective": "Demonstrate the exact integrated NYC investigation to a human reviewer, capture methodological and product objections, and accept or revise the bounded MVP claim.",
+      "profile": "standard",
+      "execution_class": "decision",
+      "claimability": "blocked_dependencies",
+      "scope": {
+        "included": [
+          "fresh-browser five-minute investigation walkthrough",
+          "API and export replay at the exact reviewed revision",
+          "human comprehension, methodological, provenance, and limitation review",
+          "recorded acceptance, changes requested, or rejection with evidence",
+          "selection of the next capability from observed feedback"
+        ],
+        "excluded": [
+          "deployment or public release",
+          "production certification",
+          "SOTA claim",
+          "broad method-catalog completion",
+          "automatic acceptance from tests"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "AcceptedWorkUnit",
+          "id": "NYC-INTEGRATE-1",
+          "revision": "pending"
+        }
+      ],
+      "outputs": [
+        "human MVP review decision",
+        "exact reviewed revision and replay evidence",
+        "bounded MVP claim or requested-change set",
+        "evidence-based next capability recommendation"
+      ],
+      "dependencies": [
+        {
+          "unit_id": "NYC-INTEGRATE-1",
+          "type": "hard",
+          "gate": {
+            "type": "unit_status",
+            "required_status": "accepted"
+          },
+          "rationale": "Human MVP review must exercise the complete integrated revision, not partial lanes."
+        }
+      ],
+      "conflict_surfaces": [
+        {
+          "kind": "route",
+          "target": "/investigation/nyc-congestion-relief-zone",
+          "access": "read",
+          "coordination_key": "nyc-mvp-review"
+        },
+        {
+          "kind": "repository_path",
+          "target": "docs/runs/nyc_crz_mvp_review",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "nyc-mvp-review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "NYC-MVP-AC1",
+          "criterion": "A new reviewer can explain the question, evidence, qualitative and quantitative contributions, appraisal, unresolved issues, and claim limits from the rendered investigation.",
+          "evidence_required": [
+            "attributable human comprehension review",
+            "fresh-browser observation receipt"
+          ]
+        },
+        {
+          "id": "NYC-MVP-AC2",
+          "criterion": "The exact reviewed revision replays its typed JSON and export from frozen inputs without hidden source refresh or provider calls.",
+          "evidence_required": [
+            "offline replay receipt",
+            "artifact digest manifest"
+          ]
+        },
+        {
+          "id": "NYC-MVP-AC3",
+          "criterion": "The reviewer explicitly accepts the bounded MVP claim or returns a finite requested-change set tied to observed evidence.",
+          "evidence_required": [
+            "human completion decision"
+          ]
+        }
+      ],
+      "readiness": {
+        "status": "blocked",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": [
+          "NYC-INTEGRATE-1 is not accepted"
+        ]
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "mixed_methods_workbench",
+      "status": "blocked",
+      "record_version": 1,
+      "created_at": "2026-08-13T20:05:00Z",
+      "updated_at": "2026-08-13T20:05:00Z"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "NYC-CONTRACT-PROMOTION-1",
+      "initiative_id": "mixed-methods-workbench-authentic-mvp",
+      "goal_id": "cohesive-nyc-policy-investigation",
+      "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
+      "spec_revision": "1",
+      "title": "Decide whether any local seam belongs in Data Contracts",
+      "class": "decision",
+      "objective": "Promote only a local typed seam demonstrated by two authentic compatible producer-consumer paths, or explicitly retain it as Workbench-local.",
+      "profile": "standard",
+      "execution_class": "deferred",
+      "claimability": "blocked_dependencies",
+      "scope": {
+        "included": [
+          "evidence-anchor or frozen-query-receipt compatibility comparison",
+          "information-loss and ownership review",
+          "promote, revise, or retain-local decision"
+        ],
+        "excluded": [
+          "universal research schema",
+          "method inference semantics",
+          "promotion from one NYC consumer",
+          "MVP critical-path blocking"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "AcceptedWorkUnit",
+          "id": "NYC-INTEGRATE-1",
+          "revision": "pending"
+        },
+        {
+          "kind": "AuthenticCompatibleConsumer",
+          "id": "second-compatible-seam",
+          "revision": "not-yet-observed"
+        }
+      ],
+      "outputs": [
+        "promote, revise, or retain-local decision",
+        "cross-consumer compatibility and information-loss evidence",
+        "bounded Data Contracts proposal only if promotion is supported"
+      ],
+      "dependencies": [
+        {
+          "unit_id": "NYC-INTEGRATE-1",
+          "type": "evidence",
+          "gate": {
+            "type": "unit_status",
+            "required_status": "accepted"
+          },
+          "rationale": "The first authentic consumer must be observed before judging the local seam."
+        }
+      ],
+      "conflict_surfaces": [
+        {
+          "kind": "contract",
+          "target": "data-contracts candidate evidence-anchor or frozen-query seam",
+          "access": "read",
+          "coordination_key": "nyc-contract-promotion-decision"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "NYC-CONTRACT-AC1",
+          "criterion": "Two authentic compatible consumers are compared field-by-field before any shared-schema proposal.",
+          "evidence_required": [
+            "two exact consumer revisions",
+            "compatibility and information-loss matrix"
+          ],
+          "negative_control": "One Workbench-local implementation cannot satisfy the two-consumer gate."
+        },
+        {
+          "id": "NYC-CONTRACT-AC2",
+          "criterion": "The decision preserves method-specific interpretation and assigns one owner for every promoted field.",
+          "evidence_required": [
+            "authority and semantic-ownership review"
+          ]
+        }
+      ],
+      "readiness": {
+        "status": "blocked",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": [
+          "NYC-INTEGRATE-1 is not accepted",
+          "a second authentic compatible consumer has not been observed"
+        ]
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "data-contracts",
+      "status": "blocked",
+      "record_version": 1,
+      "created_at": "2026-08-13T20:05:00Z",
+      "updated_at": "2026-08-13T20:05:00Z"
+    }
+  ]
+}
