@@ -1,6 +1,6 @@
 # Mist Trail Flagship Source Gate
 
-**Checked:** 2026-08-13  
+**Checked:** 2026-08-13
 **Decision:** **Do not use Mist Trail as the sole first cohesive MVP case.**
 Retain it as a bounded, source-grounded **pre-decision option-appraisal case**.
 
