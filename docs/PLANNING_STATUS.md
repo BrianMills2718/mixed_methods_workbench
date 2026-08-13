@@ -8,8 +8,10 @@ Updated: 2026-08-13
 Brian approved the 14-method Phase 3 denominator on 2026-08-13. The exact
 denominator is `phase2b-proposal-0.3` (`P01`–`P13`) plus the separately named,
 non-substitutable theory-testing Process Tracing variant (`P14`). The canonical
-coordination graph and its lane boundaries are under
-[`docs/research/method_decomposition/phase3/`](research/method_decomposition/phase3/).
+coordination identity is Plan #4. Its lane boundaries are in
+[`4_phase3_portfolio_decomposition.md`](research/method_decomposition/phase3/4_phase3_portfolio_decomposition.md)
+and its machine-consumed graph is
+[`4_phase3_portfolio_decomposition_work_graph.json`](research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json).
 
 Phase 3 is documentation-only method research: freeze the exact variant and
 authoritative sources, then produce three-level records, typed connections, and

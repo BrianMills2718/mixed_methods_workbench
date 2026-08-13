@@ -3,17 +3,17 @@
 Validated: 2026-08-13
 
 Graph SHA-256:
-`5813751116581e1fbfe1bbc64c37b33c941483ecdd5eb22f5ff3ef88979509b4`
+`22eaf7adc256472952b6d03c4d2139b31735434e75cdf52eb303621c20626a32`
 
 Evaluated source revision:
-`d19c27eff78f939623980c3cff730081b5c295b0`. The following commit changes only
+`b543a8fa031d315b2fa27a7780eb4a69af93211b`. The following commit changes only
 this receipt to record that immutable evaluated revision.
 
 Company Planning work-unit validator:
 
 ```text
 python3 .../company-planning/0.2.0+codex.20260813162256/skills/work-unit-graph/scripts/validate_work_graph.py \
-  docs/research/method_decomposition/phase3/work_graph.json
+  docs/research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json
 valid work graph: 5 unit(s)
 ```
 
@@ -21,7 +21,7 @@ Repository-specific validator:
 
 ```text
 python3 scripts/validate_phase3_work_graph.py \
-  docs/research/method_decomposition/phase3/work_graph.json
+  docs/research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json
 valid Phase 3 coordination graph: 5 units, 14 exclusive methods
 ```
 
