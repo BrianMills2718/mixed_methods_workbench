@@ -31,3 +31,20 @@ The workbench topology merged at `1fd01bc` may later inform execution mapping,
 but it was excluded from the source freeze. Silence is diagnostic only after a
 documented evidence opportunity was actually searched, and dependent evidence
 must not be multiplied as if independent.
+
+## Exact-anchor registry
+
+`p14.bc.ch1` resolves to Bennett and Checkel chapter 1; `.appendix` resolves to
+the volume appendix “Disciplining our conjectures”; and `.conclusion` resolves
+to the concluding best-practice synthesis in chapter 10. In Fairfield and
+Charman 2017, `p14.fc.sections2_3`, `.sections2_4`, `.sections2_5`,
+`.sections3_6`, and `.sections4_6` resolve to the indicated inclusive numbered
+sections; `.section6` resolves to §6. These are locators in the linked author
+manuscript. Priors and hypothesis-conditioned dependence are modeled explicitly
+rather than inferred from a generic evidence grouping.
+
+Machine-resolvable IDs: `source:p14.bc.ch1`, `source:p14.bc.appendix`,
+`source:p14.bc.conclusion`, `source:p14.fc.sections2_3`,
+`source:p14.fc.sections2_4`, `source:p14.fc.sections2_5`,
+`source:p14.fc.sections3_6`, `source:p14.fc.sections4_6`, and
+`source:p14.fc.section6`.

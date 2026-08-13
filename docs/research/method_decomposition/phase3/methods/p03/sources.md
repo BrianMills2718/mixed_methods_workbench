@@ -32,3 +32,20 @@ No staggered-adoption estimator, synthetic control, or generic regression
 workflow is licensed by this freeze. Pretrend diagnostics can reveal problems;
 they cannot verify the identifying assumption by themselves.
 
+## Exact-anchor registry
+
+Tokens resolve to the linked Baker et al. article as follows:
+`p03.baker.simple_design` = canonical/simple-design section;
+`data_design` = data organization and design framework; `identification` =
+parallel-trends/no-anticipation assumptions; `pretrends` = pretrend and event-
+study diagnostics; `estimation` = non-staggered estimation and inference;
+`sensitivity` = robustness/sensitivity guidance; and `conclusions` = concluding
+practice guidance. `p03.magenta.A2.7` resolves to Magenta Annex A §A2.7.
+These heading locators bind the current official article/PDF; no staggered-
+adoption content is imported into this variant.
+
+Machine-resolvable IDs: `source:p03.baker.simple_design`,
+`source:p03.baker.data_design`, `source:p03.baker.identification`,
+`source:p03.baker.pretrends`, `source:p03.baker.estimation`,
+`source:p03.baker.sensitivity`, `source:p03.baker.conclusions`, and
+`source:p03.magenta.A2.7`.

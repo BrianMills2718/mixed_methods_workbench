@@ -31,3 +31,15 @@ Clinical safety oversight and policy implementation ethics are important but
 are not inferred from these statistical-method sources. Cluster, crossover,
 factorial, noninferiority, and equivalence variants require new freezes.
 
+## Exact-anchor registry
+
+Against the linked official ICH documents: `p02.e9.2.2.2` = E9 §2.2.2,
+`p02.e9.2.3.2` = §2.3.2 Randomization, `p02.e9.sections2_5` = E9 §§2–5,
+`p02.e9.sections3_4` = §§3–4, `p02.e9.5.6` = §5.6, and `p02.e9.5.8` =
+§5.8 Integrity of Data and Computer Software. `p02.e9r1.A3`, `.A4`, and `.A5`
+resolve to E9(R1) §§A.3, A.4, and A.5; `.A3_A4` resolves to §§A.3–A.4.
+
+Machine-resolvable IDs: `source:p02.e9.2.2.2`, `source:p02.e9.2.3.2`,
+`source:p02.e9.5.6`, `source:p02.e9.5.8`, `source:p02.e9.sections2_5`,
+`source:p02.e9.sections3_4`, `source:p02.e9r1.A3`,
+`source:p02.e9r1.A3_A4`, `source:p02.e9r1.A4`, and `source:p02.e9r1.A5`.

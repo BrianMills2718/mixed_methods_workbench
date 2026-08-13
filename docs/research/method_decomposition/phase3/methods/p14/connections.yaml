@@ -1,33 +1,228 @@
 schema_version: phase3-connections-0.1
 method_id: p14
-connection_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+connection_types:
+- artifact_flow
+- retained_context
+- control_gate
+- feedback
+- prohibited_transition
 topology:
   shape: adaptive
   required_cycles: []
-  optional_cycles: [[p14.move.conclude, p14.move.mechanisms, p14.move.search_plan, p14.move.anchor_evidence, p14.move.diagnostic, p14.move.update]]
-  prohibited_cycles: [[p14.move.anchor_evidence, p14.move.rivals, p14.move.mechanisms]]
-  prohibited_edges: [p14.c19, p14.c20, p14.c21]
-  entry_points: [p14.move.case_scope]
-  terminal_points: [p14.move.conclude, refusal:no_testable_rivals, refusal:key_evidence_opportunity_unavailable]
+  optional_cycles:
+  - - p14.move.conclude
+    - p14.move.mechanisms
+    - p14.move.search_plan
+    - p14.move.anchor_evidence
+    - p14.move.diagnostic
+    - p14.move.update
+  prohibited_cycles:
+  - - p14.move.anchor_evidence
+    - p14.move.rivals
+    - p14.move.mechanisms
+  prohibited_edges:
+  - p14.c19
+  - p14.c20
+  - p14.c21
+  entry_points:
+  - p14.move.case_scope
+  terminal_points:
+  - p14.move.conclude
+  - refusal:no_testable_rivals
+  - refusal:key_evidence_opportunity_unavailable
 connections:
-  - {id: p14.c01, from: p14.move.case_scope, to: p14.move.rivals, connection_type: retained_context, carries: frozen_case_frame}
-  - {id: p14.c02, from: p14.move.rivals, to: p14.move.mechanisms, connection_type: artifact_flow, carries: frozen_rival_set, from_output: frozen_rival_set, to_input: frozen_rival_set, transfer_semantics: preserving}
-  - {id: p14.c03, from: p14.move.mechanisms, to: p14.move.search_plan, connection_type: artifact_flow, carries: observable_implications, from_output: observable_implications, to_input: observable_implications, transfer_semantics: preserving}
-  - {id: p14.c04, from: p14.move.case_scope, to: p14.move.search_plan, connection_type: retained_context, carries: frozen_case_frame}
-  - {id: p14.c05, from: p14.move.search_plan, to: p14.move.acquire_appraise_source, connection_type: retained_context, carries: evidence_search_plan}
-  - {id: p14.c06, from: p14.move.acquire_appraise_source, to: p14.move.anchor_evidence, connection_type: artifact_flow, carries: admitted_source_set, from_output: admitted_source_set, to_input: admitted_source_set, transfer_semantics: preserving}
-  - {id: p14.c07, from: p14.move.search_plan, to: p14.move.anchor_evidence, connection_type: retained_context, carries: evidence_search_plan}
-  - {id: p14.c08, from: p14.action.persist_anchor, to: p14.move.anchor_evidence, connection_type: retained_context, carries: anchor_receipt, note: persistence_attests_location_and_hash_not_evidentiary_meaning}
-  - {id: p14.c09, from: p14.move.anchor_evidence, to: p14.move.dependencies, connection_type: artifact_flow, carries: anchored_evidence_ledger, from_output: anchored_evidence_ledger, to_input: anchored_evidence_ledger, transfer_semantics: preserving}
-  - {id: p14.c10, from: p14.move.acquire_appraise_source, to: p14.move.dependencies, connection_type: retained_context, carries: source_fitness_log}
-  - {id: p14.c11, from: p14.move.dependencies, to: p14.move.diagnostic, connection_type: artifact_flow, carries: dependency_groups, from_output: dependency_groups, to_input: dependency_groups, transfer_semantics: preserving}
-  - {id: p14.c12, from: p14.move.rivals, to: p14.move.diagnostic, connection_type: retained_context, carries: frozen_rival_set}
-  - {id: p14.c13, from: p14.move.diagnostic, to: p14.move.update, connection_type: artifact_flow, carries: diagnostic_appraisals, from_output: diagnostic_appraisals, to_input: diagnostic_appraisals, transfer_semantics: preserving}
-  - {id: p14.c14, from: p14.move.rivals, to: p14.move.update, connection_type: retained_context, carries: frozen_rival_set}
-  - {id: p14.c15, from: p14.move.update, to: p14.action.render_topology, connection_type: artifact_flow, carries: rival_comparison, from_output: rival_comparison, to_input: rival_comparison, transfer_semantics: preserving}
-  - {id: p14.c16, from: p14.move.update, to: p14.move.conclude, connection_type: artifact_flow, carries: rival_comparison, from_output: rival_comparison, to_input: rival_comparison, transfer_semantics: preserving}
-  - {id: p14.c17, from: p14.move.conclude, to: p14.move.mechanisms, connection_type: feedback, carries: successor_observable_request, condition: residual_rivals_or_gaps_are_discriminable_with_more_evidence, creates_successor_version: true}
-  - {id: p14.c18, from: p14.move.search_plan, to: p14.move.anchor_evidence, connection_type: control_gate, carries: absence_admission_gate, condition: absence_requires_documented_opportunity_access_and_completed_search}
-  - {id: p14.c19, from: p14.move.acquire_appraise_source, to: p14.move.anchor_evidence, connection_type: prohibited_transition, carries: unsearched_silence_as_absence, consequence: absence_item_is_invalid}
-  - {id: p14.c20, from: p14.move.dependencies, to: p14.move.update, connection_type: prohibited_transition, carries: dependent_items_multiplied_as_independent, consequence: diagnostic_update_is_overstated_and_invalid}
-  - {id: p14.c21, from: p14.move.anchor_evidence, to: p14.move.rivals, connection_type: prohibited_transition, carries: evidence_informed_rival_rewrite_without_successor_version, consequence: theory_testing_status_is_lost}
+- id: p14.c01
+  from: p14.move.case_scope
+  to: p14.move.rivals
+  connection_type: retained_context
+  carries: frozen_case_frame
+  from_output: frozen_case_frame
+  to_input: frozen_case_frame
+- id: p14.c02
+  from: p14.move.rivals
+  to: p14.move.mechanisms
+  connection_type: artifact_flow
+  carries: frozen_rival_set
+  from_output: frozen_rival_set
+  to_input: frozen_rival_set
+  transfer_semantics: preserving
+- id: p14.c02a
+  from: p14.move.rivals
+  to: p14.move.priors
+  connection_type: artifact_flow
+  carries: frozen_rival_set
+  from_output: frozen_rival_set
+  to_input: frozen_rival_set
+  transfer_semantics: preserving
+- id: p14.c03
+  from: p14.move.mechanisms
+  to: p14.move.search_plan
+  connection_type: artifact_flow
+  carries: observable_implications
+  from_output: observable_implications
+  to_input: observable_implications
+  transfer_semantics: preserving
+- id: p14.c04
+  from: p14.move.case_scope
+  to: p14.move.search_plan
+  connection_type: retained_context
+  carries: frozen_case_frame
+  from_output: frozen_case_frame
+  to_input: frozen_case_frame
+- id: p14.c05
+  from: p14.move.search_plan
+  to: p14.move.acquire_appraise_source
+  connection_type: retained_context
+  carries: evidence_search_plan
+  from_output: evidence_search_plan
+  to_input: evidence_search_plan
+- id: p14.c06
+  from: p14.move.acquire_appraise_source
+  to: p14.move.anchor_evidence
+  connection_type: artifact_flow
+  carries: admitted_source_set
+  from_output: admitted_source_set
+  to_input: admitted_source_set
+  transfer_semantics: preserving
+- id: p14.c07
+  from: p14.move.search_plan
+  to: p14.move.anchor_evidence
+  connection_type: retained_context
+  carries: evidence_search_plan
+  from_output: evidence_search_plan
+  to_input: evidence_search_plan
+- id: p14.c08
+  from: p14.action.persist_anchor
+  to: p14.move.anchor_evidence
+  connection_type: retained_context
+  carries: anchor_receipt
+  note: persistence_attests_location_and_hash_not_evidentiary_meaning
+  from_output: anchor_receipt
+  to_input: anchor_receipt
+- id: p14.c09
+  from: p14.move.anchor_evidence
+  to: p14.move.dependencies
+  connection_type: artifact_flow
+  carries: anchored_evidence_ledger
+  from_output: anchored_evidence_ledger
+  to_input: anchored_evidence_ledger
+  transfer_semantics: preserving
+- id: p14.c10
+  from: p14.move.acquire_appraise_source
+  to: p14.move.dependencies
+  connection_type: retained_context
+  carries: source_fitness_log
+  from_output: source_fitness_log
+  to_input: source_fitness_log
+- id: p14.c10a
+  from: p14.move.rivals
+  to: p14.move.dependencies
+  connection_type: retained_context
+  carries: frozen_rival_set
+  from_output: frozen_rival_set
+  to_input: frozen_rival_set
+- id: p14.c10b
+  from: p14.move.anchor_evidence
+  to: p14.move.diagnostic
+  connection_type: retained_context
+  carries: anchored_evidence_ledger
+  from_output: anchored_evidence_ledger
+  to_input: anchored_evidence_ledger
+- id: p14.c11
+  from: p14.move.dependencies
+  to: p14.move.diagnostic
+  connection_type: artifact_flow
+  carries: dependency_appraisal
+  from_output: dependency_appraisal
+  to_input: dependency_appraisal
+  transfer_semantics: preserving
+- id: p14.c12
+  from: p14.move.rivals
+  to: p14.move.diagnostic
+  connection_type: retained_context
+  carries: frozen_rival_set
+  from_output: frozen_rival_set
+  to_input: frozen_rival_set
+- id: p14.c13
+  from: p14.move.diagnostic
+  to: p14.move.update
+  connection_type: artifact_flow
+  carries: diagnostic_appraisals
+  from_output: diagnostic_appraisals
+  to_input: diagnostic_appraisals
+  transfer_semantics: preserving
+- id: p14.c13a
+  from: p14.move.priors
+  to: p14.move.update
+  connection_type: retained_context
+  carries: prior_appraisal
+  from_output: prior_appraisal
+  to_input: prior_appraisal
+- id: p14.c13b
+  from: p14.move.dependencies
+  to: p14.move.update
+  connection_type: retained_context
+  carries: dependency_appraisal
+  from_output: dependency_appraisal
+  to_input: dependency_appraisal
+- id: p14.c14
+  from: p14.move.rivals
+  to: p14.move.update
+  connection_type: retained_context
+  carries: frozen_rival_set
+  from_output: frozen_rival_set
+  to_input: frozen_rival_set
+- id: p14.c15
+  from: p14.move.update
+  to: p14.action.render_topology
+  connection_type: artifact_flow
+  carries: rival_comparison
+  from_output: rival_comparison
+  to_input: rival_comparison
+  transfer_semantics: preserving
+- id: p14.c16
+  from: p14.move.update
+  to: p14.move.conclude
+  connection_type: artifact_flow
+  carries: rival_comparison
+  from_output: rival_comparison
+  to_input: rival_comparison
+  transfer_semantics: preserving
+- id: p14.c17
+  from: p14.move.conclude
+  to: p14.move.mechanisms
+  connection_type: feedback
+  carries: successor_observable_request
+  condition: residual_rivals_or_gaps_are_discriminable_with_more_evidence
+  creates_successor_version: true
+- id: p14.c18
+  from: p14.move.search_plan
+  to: p14.move.anchor_evidence
+  connection_type: control_gate
+  carries: absence_admission_gate
+  condition: absence_requires_documented_opportunity_access_and_completed_search
+- id: p14.c19
+  from: p14.move.acquire_appraise_source
+  to: p14.move.anchor_evidence
+  connection_type: prohibited_transition
+  carries: unsearched_silence_as_absence
+  consequence: absence_item_is_invalid
+- id: p14.c20
+  from: p14.move.dependencies
+  to: p14.move.update
+  connection_type: prohibited_transition
+  carries: dependent_items_multiplied_as_independent
+  consequence: diagnostic_update_is_overstated_and_invalid
+- id: p14.c21
+  from: p14.move.anchor_evidence
+  to: p14.move.rivals
+  connection_type: prohibited_transition
+  carries: evidence_informed_rival_rewrite_without_successor_version
+  consequence: theory_testing_status_is_lost
+- id: p14.c16a
+  from: p14.move.case_scope
+  to: p14.move.conclude
+  connection_type: retained_context
+  carries: frozen_case_frame
+  from_output: frozen_case_frame
+  to_input: frozen_case_frame

@@ -33,3 +33,19 @@ This freeze covers randomized-intervention reviews and conditional pairwise
 meta-analysis only. It does not license network, qualitative, realist, or
 observational synthesis variants.
 
+## Exact-anchor registry
+
+Every `source:` token in `method_records.yaml` resolves here against the frozen
+edition: `p01.cochrane.ch3` = chapter 3; `ch4` = chapter 4 §§4.2–4.5;
+`ch4.6` = §4.6; `ch4.6.1` = §4.6.1; `ch4.6.4` = §4.6.4; `ch5` = chapter 5;
+`ch8` = chapter 8; `ch9` = chapter 9; `ch10` = chapter 10; and `ch13` =
+chapter 13. `p01.prisma.items24_27` resolves to PRISMA 2020 checklist items
+24–27. These locators are section identifiers in the linked official editions,
+not inferred quotations.
+
+Machine-resolvable IDs: `source:p01.cochrane.ch3`, `source:p01.cochrane.ch4`,
+`source:p01.cochrane.ch4.6`, `source:p01.cochrane.ch4.6.1`,
+`source:p01.cochrane.ch4.6.4`, `source:p01.cochrane.ch5`,
+`source:p01.cochrane.ch8`, `source:p01.cochrane.ch9`,
+`source:p01.cochrane.ch10`, `source:p01.cochrane.ch13`, and
+`source:p01.prisma.items24_27`.

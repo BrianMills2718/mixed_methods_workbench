@@ -28,3 +28,19 @@ The freeze is one fsQCA variant. It preserves substantive case knowledge and
 does not treat necessity, sufficiency, correlation, mechanism, and marginal
 effect as interchangeable warrants.
 
+## Exact-anchor registry
+
+`p04.sw.ch3`, `.ch4`, `.ch5`, `.ch6`, `.ch7`, `.ch8`, `.ch9`, and `.ch11`
+resolve to the identically numbered chapters of Schneider and Wagemann 2012;
+compound tokens such as `.ch5_7` and `.ch6_7` resolve to those inclusive chapter
+ranges. `p04.ragin.ch1`, `.ch1_2`, `.ch4_5`, `.ch5`, `.ch7_9`, and `.ch8_9`
+resolve to the named chapters or inclusive ranges in Ragin 2008. No record now
+cites Ragin chapter 10, which lies outside the frozen conduct range.
+
+Machine-resolvable IDs: `source:p04.sw.ch3`, `source:p04.sw.ch4`,
+`source:p04.sw.ch5`, `source:p04.sw.ch5_7`, `source:p04.sw.ch6`,
+`source:p04.sw.ch6_7`, `source:p04.sw.ch7`, `source:p04.sw.ch8`,
+`source:p04.sw.ch9`, `source:p04.sw.ch11`, `source:p04.ragin.ch1`,
+`source:p04.ragin.ch1_2`, `source:p04.ragin.ch4_5`,
+`source:p04.ragin.ch5`, `source:p04.ragin.ch7_9`, and
+`source:p04.ragin.ch8_9`.
