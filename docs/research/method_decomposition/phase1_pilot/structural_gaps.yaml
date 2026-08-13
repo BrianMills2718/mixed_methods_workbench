@@ -1,0 +1,53 @@
+schema_version: phase1-audit-1.0
+status: blocks_collision
+purpose: >-
+  Explicit dispositions for required graph edges whose source outputs and target
+  inputs have no shared type. Some are legitimate control dependencies; others
+  expose a missing artifact or operation in the compact candidate. This file
+  makes the failed discovery instrument auditable without silently repairing it.
+
+required_edge_gaps:
+  - {from_step: sr.05, to_step: sr.06, disposition: missing_artifact_or_operation, explanation: screening decisions do not themselves supply the included source documents required for extraction}
+  - {from_step: sr.07, to_step: sr.08, disposition: shared_input_not_carried, explanation: both operations use the study dataset; the edge expresses ordering but does not carry it}
+  - {from_step: sr.11, to_step: sr.12, disposition: missing_artifact_or_operation, explanation: certainty appraisal is not the finding type consumed by the reporting step}
+  - {from_step: gt.02, to_step: gt.03, disposition: missing_artifact_or_operation, explanation: source documents are never segmented into the incidents consumed by coding}
+  - {from_step: gt.04, to_step: gt.03, disposition: control_dependency, explanation: comparison triggers recoding of previously available segments rather than transferring its finding as a segment}
+  - {from_step: gt.04, to_step: gt.05, disposition: shared_input_not_carried, explanation: focused coding requires initial codes retained from gt.03 while comparison authorizes the transition}
+  - {from_step: gt.03, to_step: gt.06, disposition: missing_artifact_or_operation, explanation: memoing is typed to findings even though this branch supplies codes}
+  - {from_step: gt.09, to_step: gt.03, disposition: missing_artifact_or_operation, explanation: newly acquired source documents are not segmented before coding}
+  - {from_step: gt.10, to_step: gt.08, disposition: control_dependency, explanation: inadequate appraisal triggers renewed sampling-gap identification over retained categories}
+  - {from_step: gt.10, to_step: gt.11, disposition: shared_input_not_carried, explanation: adequacy authorizes integration but retained categories and memos supply its inputs}
+  - {from_step: pt.07, to_step: pt.08, disposition: missing_artifact_or_operation, explanation: admitted sources are never converted into anchored evidence items before diagnostic appraisal}
+  - {from_step: rct.02, to_step: rct.03, disposition: control_dependency, explanation: protocol completion authorizes eligibility design but target population is a retained external input}
+  - {from_step: rct.03, to_step: rct.04, disposition: shared_input_not_carried, explanation: sample-size design reuses the estimand while eligibility criteria authorize progression}
+  - {from_step: rct.04, to_step: rct.05, disposition: control_dependency, explanation: design feasibility authorizes enrollment and assignment but enrolled units arrive from trial conduct}
+  - {from_step: rct.08, to_step: rct.10, disposition: shared_input_not_carried, explanation: harms appraisal uses the retained trial dataset rather than the estimate}
+  - {from_step: pa.03, to_step: pa.04, disposition: shared_input_not_carried, explanation: the longlist reuses objectives while theory-of-change completion authorizes option generation}
+  - {from_step: pa.08, to_step: pa.10, disposition: shared_input_not_carried, explanation: distributional review is a join condition while consequence profiles remain the appraisal subject}
+  - {from_step: pa.09, to_step: pa.10, disposition: shared_input_not_carried, explanation: uncertainty review is a join condition while consequence profiles remain the appraisal subject}
+  - {from_step: sim.05, to_step: sim.03, disposition: control_dependency, explanation: failed verification triggers revision of the retained model specification}
+  - {from_step: sim.05, to_step: sim.06, disposition: missing_artifact_or_operation, explanation: verification produces findings but no verified-model artifact for experiment design}
+
+known_missing_capabilities:
+  - {method_id: systematic_review, capability: reconcile record report study and result identity, blocks_collision: true}
+  - {method_id: grounded_theory, capability: segment source material into incidents, blocks_collision: true}
+  - {method_id: process_tracing, capability: extract exact anchored observations from admitted sources, blocks_collision: true}
+  - {method_id: causal_effect_estimation_rct, capability: ascertain the primary outcome as a distinct governed operation, blocks_collision: true}
+  - {method_id: causal_effect_estimation_rct, capability: report the trial transparently as a distinct operation, blocks_collision: true}
+  - {method_id: policy_option_appraisal, capability: preserve the counterfactual separately from intervention rationale, blocks_collision: true}
+  - {method_id: policy_option_appraisal, capability: aggregate social value separately from impact measurement, blocks_collision: true}
+  - {method_id: policy_option_appraisal, capability: preserve the analyst-advice accountable-decision and feedback boundaries, blocks_collision: true}
+  - {method_id: agent_based_policy_simulation, capability: implement the executable model as a distinct traceable operation, blocks_collision: true}
+  - {method_id: agent_based_policy_simulation, capability: promote a verified executable model without losing model identity, blocks_collision: true}
+  - {method_id: agent_based_policy_simulation, capability: appraise empirical fitness separately from implementation verification, blocks_collision: true}
+  - {method_id: agent_based_policy_simulation, capability: apply a distinct adequacy and refusal gate, blocks_collision: true}
+
+source_scope_mismatches:
+  - method_id: systematic_review
+    compact_step: sr.11
+    mismatch: >-
+      The compact row cites Cochrane chapters 13-14 and asserts a body-level
+      certainty appraisal, while the frozen primary-source scope is explicitly
+      chapters 1-10. The detailed blind rerun therefore retained missing-results
+      and robustness appraisal but did not claim a GRADE-style certainty stage.
+    blocks_collision: true

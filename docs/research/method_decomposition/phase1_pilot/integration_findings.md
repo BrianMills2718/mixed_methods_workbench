@@ -4,19 +4,23 @@ Input revision: `4d25074`
 
 Status: unresolved discovery comparison; not collision-ready
 
-Six read-only lanes independently decomposed the frozen variants without
-reading the integration draft. They proposed 90 operations. The earlier compact
-draft contains 70. The difference is not treated as agent noise: it exposes the
-granularity decisions the pilot was intended to find.
+The original six read-only lanes were reported as independently proposing 90
+operations, but their transient reports were not preserved. That count is now
+historical and unverified. Six fresh read-only audit reruns used the same frozen
+revision without reading the compact candidate. An initial concise recovery
+produced 85 operations; the final detailed recovery produced 87. The 70-row
+compact candidate remains unresolved. The 17-row difference, the three-operation
+difference from the historical claim, and the two-operation change between audit
+passes are evidence of unstable granularity rather than agent noise.
 
-| Method | Blind operations | Compact rows | Main compression disagreement |
+| Method | Audit-rerun operations | Compact rows | Main compression disagreement |
 | --- | ---: | ---: | --- |
-| Systematic review | 15 | 12 | search design/execution, deduplication, screening stages, synthesis grouping, and empty-review behavior |
-| Grounded theory | 15 | 12 | reflexivity, category refinement, adequacy, integration, and explicit partial-account refusal |
-| Process tracing | 15 | 12 | prior registration, acquisition protocol, exact anchored extraction, sufficiency review, and unresolved endpoint |
-| RCT estimation | 16 | 12 | outcome measurement, trial design, recruitment, allocation, conduct, analysis-set construction, and reporting |
-| Policy appraisal | 14 | 12 | appraisal-method selection, balanced summary, recommendation/decision boundary, and actor authority |
-| Agent-based simulation | 15 | 10 | implementation, empirical fitness, parameter uncertainty, structural alternatives, and unsupported-inference refusal |
+| Systematic review | 15 | 12 | search design/execution, record identity, study-flow accounting, compatibility, interpretation, and reporting |
+| Grounded theory | 14 | 12 | segmentation, category refinement, memo sorting, adequacy, and reflexive integration |
+| Process tracing | 13 | 12 | antecedent likelihood expectations, exact anchored extraction, dependence review, mechanism account, and dual terminal outcomes |
+| RCT estimation | 14 | 12 | objective/estimand separation, outcome ascertainment, conduct audit, auxiliary inference, and reporting |
+| Policy appraisal | 15 | 12 | counterfactual, option characterization, social-value aggregation, comparative judgment, and decision feedback |
+| Agent-based simulation | 16 | 10 | implementation, empirical fitness, uncertainty design, two sensitivity forms, and refusal gate |
 
 ## Accepted findings represented in the candidate
 
@@ -54,9 +58,9 @@ this record would be misleading.
 
 ## Integration decisions
 
-1. **Do not choose 70 or 90 as the correct granularity yet.** The compact rows
-   remain machine-checkable; the blind counts and decompositions remain the
-   disconfirming evidence.
+1. **Do not choose 70, 85, 87, or the historical 90 as the correct granularity.**
+   The audit-rerun inventory and row-level reconciliation are now durable. The
+   compact candidate is structurally checkable but collision-blocked.
 2. **Do not run collision grouping yet.** Signature counts would be materially
    altered by unresolved splits, roles, and types.
 3. **Keep method-owned validity rules intact.** Similar verbs such as `screen`,
@@ -78,3 +82,9 @@ this record would be misleading.
   domain-specific operational constraints require separate authority.
 - Green Book appraisal is used as a methodological frame, not a claim that its
   institutional rules legally govern the regional example.
+
+The controlling audit evidence is `blind_reruns/step_inventory.yaml` and its
+row-level disposition is `blind_reruns/reconciliation.yaml`. The missing and
+non-data-carrying graph transitions are recorded in `structural_gaps.yaml`.
+That file also records a source-scope mismatch: compact row `sr.11` relies on
+Cochrane chapters 13-14 even though the frozen source scope is chapters 1-10.

@@ -1,16 +1,19 @@
 # Phase 1 pilot memo
 
-Status: complete discovery pilot; stop before portfolio selection and broader
-catalog decomposition
+Status: audited but collision-blocked discovery pilot; stop before portfolio
+selection and broader catalog decomposition
 
 ## Result
 
-Six independent read-only lanes proposed 90 source-derived operations. A compact
+The original six transient reports were summarized as 90 source-derived
+operations but were not preserved, so that claim cannot be independently
+audited. A concise audit recovery produced 85 operations and a subsequent
+detailed recovery produced 87. A compact
 integration candidate contains 70 operations and 78 directed workflow edges
-across five methods plus an agent-based-simulation stress test. The 20-row
-difference is unresolved granularity evidence, not something averaged away.
-The files are comparison evidence, not a canonical vocabulary, a universal
-workflow model, or an implementation plan. See `integration_findings.md`.
+across five methods plus an agent-based-simulation stress test. The different
+counts, rerun instability, and row-level losses are unresolved evidence, not something averaged
+away. See `blind_reruns/`, `integration_findings.md`, and
+`structural_gaps.yaml`.
 
 | Method | Operations | Topology that must survive |
 | --- | ---: | --- |
@@ -27,10 +30,12 @@ analytically consequential operations contain a method-owned validity judgment.
 
 ## What genuinely appears reusable
 
-The pilot strengthens a narrow shared-mechanics hypothesis:
+The pilot leaves a narrow shared-mechanics hypothesis worth testing, but does
+not strengthen it where the compact candidate lacks the claimed artifact:
 
 - identity and typed input/output boundaries;
-- source or artifact custody and exact references;
+- source or artifact custody and exact references as a requirement; the compact
+  process-tracing candidate does not yet produce an exact `passage_anchor`;
 - declared parameters and prespecified plans;
 - lineage, review state, uncertainty, and explicit information loss;
 - branching, returns, refusal, and terminal unresolved states;
@@ -179,5 +184,6 @@ changes for human approval:
 6. Keep `conclusion_supported`, `failure_output`, method-owned semantics, and
    prohibited topology explicit.
 
-No broader portfolio or RAND-method normalization should start until these
-changes and the portfolio-selection rule are reviewed.
+No collision grouping, broader portfolio, or RAND-method normalization should
+start while `structural_gaps.yaml` or a `compressed_with_loss`/`missing`
+reconciliation remains unresolved.

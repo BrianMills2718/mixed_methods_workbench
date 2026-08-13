@@ -113,9 +113,9 @@ edges:
   - {method_id: agent_based_policy_simulation, from_step: sim.09, to_step: sim.10, edge_type: terminal, condition: conditional insight calibrated, required: true}
 
 topologies:
-  - {method_id: systematic_review, shape: adaptive, required_cycles: [], optional_cycles: [updated or citation-chasing search], prohibited_cycles: [outcome-informed eligibility or synthesis changes], entry_points: [sr.01], terminal_points: [sr.12]}
-  - {method_id: grounded_theory, shape: cyclic, required_cycles: [coding-constant-comparison, theoretical-sampling-category-development], optional_cycles: [memo-driven recoding], prohibited_cycles: [], entry_points: [gt.01, gt.02], terminal_points: [gt.12]}
-  - {method_id: process_tracing, shape: adaptive, required_cycles: [], optional_cycles: [evidence-gap-driven acquisition], prohibited_cycles: [silent rival redefinition after diagnostic evidence], entry_points: [pt.01], terminal_points: [pt.11, pt.12]}
+  - {method_id: systematic_review, shape: adaptive, required_cycles: [], optional_cycles: [updated or citation-chasing search], prohibited_cycles: [outcome-informed eligibility or synthesis changes], prohibited_edges: [], entry_points: [sr.01], terminal_points: [sr.12]}
+  - {method_id: grounded_theory, shape: cyclic, required_cycles: [coding-constant-comparison, theoretical-sampling-category-development], optional_cycles: [memo-driven recoding], prohibited_cycles: [], prohibited_edges: [], entry_points: [gt.01, gt.02], terminal_points: [gt.12]}
+  - {method_id: process_tracing, shape: adaptive, required_cycles: [], optional_cycles: [evidence-gap-driven acquisition], prohibited_cycles: [silent rival redefinition after diagnostic evidence], prohibited_edges: [], entry_points: [pt.01], terminal_points: [pt.11, pt.12]}
   - method_id: causal_effect_estimation_rct
     shape: dag
     required_cycles: []
@@ -126,5 +126,5 @@ topologies:
       - {from: rct.08, to: rct.02, reason: primary results cannot rewrite the prespecified analysis, if_taken: disclosed_deviation_result_exploratory}
     entry_points: [rct.01]
     terminal_points: [rct.11, rct.12]
-  - {method_id: policy_option_appraisal, shape: cyclic, required_cycles: [], optional_cycles: [ROAMEF evaluation feedback into future rationale], prohibited_cycles: [silent exclusion or reweighting to force a preferred option], entry_points: [pa.01], terminal_points: [pa.11, pa.12]}
-  - {method_id: agent_based_policy_simulation, shape: cyclic, required_cycles: [implementation verification and repair], optional_cycles: [structural revision after sensitivity], prohibited_cycles: [using calibration targets as independent validation without disclosure], entry_points: [sim.01], terminal_points: [sim.10]}
+  - {method_id: policy_option_appraisal, shape: cyclic, required_cycles: [], optional_cycles: [ROAMEF evaluation feedback into future rationale], prohibited_cycles: [silent exclusion or reweighting to force a preferred option], prohibited_edges: [], entry_points: [pa.01], terminal_points: [pa.11, pa.12]}
+  - {method_id: agent_based_policy_simulation, shape: cyclic, required_cycles: [implementation verification and repair], optional_cycles: [structural revision after sensitivity], prohibited_cycles: [using calibration targets as independent validation without disclosure], prohibited_edges: [], entry_points: [sim.01], terminal_points: [sim.10]}

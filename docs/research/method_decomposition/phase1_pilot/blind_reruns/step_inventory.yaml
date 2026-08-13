@@ -1,0 +1,156 @@
+schema_version: phase1-blind-rerun-1.0
+status: audit_rerun_not_original
+frozen_input_revision: 4d25074
+normalization_note: >-
+  Parent-normalized inventory of fresh read-only lane responses. These rows are
+  independent decomposition evidence, not proposed canonical capability rows.
+
+methods:
+  - method_id: systematic_review
+    variant: randomized-intervention-effect systematic review
+    sources: [Cochrane Handbook 6.5.1, PRISMA 2020]
+    steps:
+      - {step_id: SR01, label: frame the review question}
+      - {step_id: SR02, label: prespecify protocol and eligibility}
+      - {step_id: SR03, label: design reproducible searches}
+      - {step_id: SR04, label: execute searches and manage records}
+      - {step_id: SR05, label: screen titles and abstracts}
+      - {step_id: SR06, label: assess full-text eligibility}
+      - {step_id: SR07, label: account for study flow}
+      - {step_id: SR08, label: extract study and outcome data}
+      - {step_id: SR09, label: assess risk of bias}
+      - {step_id: SR10, label: derive compatible effect estimates}
+      - {step_id: SR11, label: determine synthesis groupings}
+      - {step_id: SR12, label: synthesize effects or refuse pooling}
+      - {step_id: SR13, label: examine missing-results bias and robustness}
+      - {step_id: SR14, label: interpret the bounded evidence}
+      - {step_id: SR15, label: report the review transparently}
+    topology: >-
+      Prespecification precedes search and results; search may return within its
+      frozen protocol; pooling is conditional and may be refused.
+    uncertainties: [report-to-study identity, empty-review behavior, boundaries between search design and execution]
+
+  - method_id: grounded_theory
+    variant: constructivist grounded theory
+    sources: [Charmaz third edition, Charmaz 2020]
+    steps:
+      - {step_id: GT01, label: gather rich initial data}
+      - {step_id: GT02, label: conduct initial coding}
+      - {step_id: GT03, label: compare incidents codes and cases}
+      - {step_id: GT04, label: write analytic memos}
+      - {step_id: GT05, label: develop focused codes}
+      - {step_id: GT06, label: construct theoretical categories}
+      - {step_id: GT07, label: identify category gaps}
+      - {step_id: GT08, label: design theoretical sampling}
+      - {step_id: GT09, label: acquire targeted data}
+      - {step_id: GT10, label: refine codes categories and memos}
+      - {step_id: GT11, label: assess category adequacy}
+      - {step_id: GT12, label: sort and integrate memos}
+      - {step_id: GT13, label: integrate categories into an account}
+      - {step_id: GT14, label: theorize reflexively and bound the result}
+    topology: >-
+      Coding, comparison, memoing, category construction, and theoretical
+      sampling are iterative; inadequate categories return to targeted data and
+      refinement rather than advance by a fixed checklist.
+    uncertainties: [adequacy is argued rather than counted, reflexivity is relational over time, data access may stop sampling]
+
+  - method_id: process_tracing
+    variant: theory-testing process tracing with rival comparison
+    sources: [Beach and Pedersen 2019, Fairfield and Charman 2022]
+    steps:
+      - {step_id: PT01, label: bound the case and outcome}
+      - {step_id: PT02, label: freeze rival explanations}
+      - {step_id: PT03, label: specify each causal mechanism}
+      - {step_id: PT04, label: derive discriminating predictions}
+      - {step_id: PT05, label: set evidential likelihood expectations}
+      - {step_id: PT06, label: design within-case evidence collection}
+      - {step_id: PT07, label: acquire and authenticate observations}
+      - {step_id: PT08, label: assess evidential quality and dependence}
+      - {step_id: PT09, label: test observations against rival predictions}
+      - {step_id: PT10, label: update comparative evidential weight}
+      - {step_id: PT11, label: probe robustness and residual alternatives}
+      - {step_id: PT12, label: assemble the mechanism account}
+      - {step_id: PT13, label: issue a calibrated within-case conclusion or refusal}
+    topology: >-
+      Case and rivals precede appraisal; predicted evidence guides acquisition;
+      gaps can trigger new acquisition, but observed evidence cannot silently
+      rewrite rivals or predictions.
+    uncertainties: [case identity, prior elicitation, source exposure, dependence among observations]
+
+  - method_id: causal_effect_estimation_rct
+    variant: individually randomized two-arm parallel superiority trial with prespecified ITT estimand
+    sources: [ICH E9, ICH E9(R1), CONSORT 2025]
+    steps:
+      - {step_id: RCT-01, label: define objective}
+      - {step_id: RCT-02, label: specify estimand}
+      - {step_id: RCT-03, label: prespecify design and analysis}
+      - {step_id: RCT-04, label: construct allocation}
+      - {step_id: RCT-05, label: enroll and assign}
+      - {step_id: RCT-06, label: deliver conditions}
+      - {step_id: RCT-07, label: ascertain primary outcome}
+      - {step_id: RCT-08, label: lock data and account for participants}
+      - {step_id: RCT-09, label: audit randomization and conduct}
+      - {step_id: RCT-10, label: estimate primary intention-to-treat effect}
+      - {step_id: RCT-11, label: evaluate sensitivity}
+      - {step_id: RCT-12, label: control auxiliary inference}
+      - {step_id: RCT-13, label: judge superiority}
+      - {step_id: RCT-14, label: report transparently}
+    topology: >-
+      Objective, estimand, protocol, allocation, and analysis are fixed before
+      assignment. Compromised randomization or an uncomputable estimand produces
+      an indeterminate/refusal result, not a favorable replacement analysis.
+    uncertainties: [estimand details, allocation implementation, missingness, contamination, generalizability]
+
+  - method_id: policy_option_appraisal
+    variant: Green Book 2026 option appraisal with bounded MCDA support
+    sources: [HM Treasury Green Book 2026, Multi-criteria analysis manual]
+    steps:
+      - {step_id: PA01, label: establish intervention rationale}
+      - {step_id: PA02, label: define counterfactual and scope}
+      - {step_id: PA03, label: set objectives and constraints}
+      - {step_id: PA04, label: construct option longlist}
+      - {step_id: PA05, label: select shortlist}
+      - {step_id: PA06, label: specify shortlisted options}
+      - {step_id: PA07, label: map social impacts}
+      - {step_id: PA08, label: quantify and value impacts}
+      - {step_id: PA09, label: estimate aggregate social value}
+      - {step_id: PA10, label: assess non-monetised criteria}
+      - {step_id: PA11, label: analyze distribution}
+      - {step_id: PA12, label: analyze risk and uncertainty}
+      - {step_id: PA13, label: form comparative appraisal judgment}
+      - {step_id: PA14, label: identify preferred option or withhold preference}
+      - {step_id: PA15, label: present advice and specify feedback requirements}
+    topology: >-
+      Appraisal branches across monetised, non-monetised, distributional, and
+      uncertainty analysis before comparison. Failed screening or fragile
+      findings return to earlier work. Appraisal advises; an accountable actor
+      decides.
+    uncertainties: [valuation conventions, distributional weighting, MCDA integration, ownership of reopening]
+
+  - method_id: agent_based_policy_simulation
+    variant: ODD-described agent-based policy simulation with computational experiments
+    sources: [ODD protocol, JRC uncertainty and sensitivity guidance]
+    steps:
+      - {step_id: AB01, label: frame purpose and target patterns}
+      - {step_id: AB02, label: specify entities state and scales}
+      - {step_id: AB03, label: specify processes and scheduling}
+      - {step_id: AB04, label: specify behavioral design concepts}
+      - {step_id: AB05, label: specify initialization inputs and submodels}
+      - {step_id: AB06, label: implement executable model}
+      - {step_id: AB07, label: verify implementation}
+      - {step_id: AB08, label: assess empirical fitness}
+      - {step_id: AB09, label: design computational experiment}
+      - {step_id: AB10, label: define uncertainty space}
+      - {step_id: AB11, label: execute ensemble}
+      - {step_id: AB12, label: estimate policy-pattern contrasts}
+      - {step_id: AB13, label: analyze parameter and input sensitivity}
+      - {step_id: AB14, label: analyze structural sensitivity}
+      - {step_id: AB15, label: apply adequacy and refusal gate}
+      - {step_id: AB16, label: report conditional inference}
+    topology: >-
+      Specification leads to implementation and verification; failed checks
+      return to code or specification. Empirical fitness, experiment design,
+      uncertainty, ensemble execution, parameter sensitivity, and structural
+      sensitivity feed a refusal gate. Generated results remain distinct from
+      observed evidence.
+    uncertainties: [fitness data and tolerances, calibration algorithm, sensitivity estimator, structural-variant selection]

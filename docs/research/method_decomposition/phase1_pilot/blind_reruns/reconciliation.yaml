@@ -1,0 +1,104 @@
+schema_version: phase1-rerun-reconciliation-1.0
+status: unresolved_losses_block_collision
+source_inventory: step_inventory.yaml
+compact_candidate: ../step_ledger.yaml
+dispositions: [represented, compressed, compressed_with_loss, missing]
+note: >-
+  Every fresh blind-rerun step appears exactly once. compact_rows name the
+  nearest 70-row candidate rows; they do not imply equivalence. A loss or
+  missing disposition is a blocker, not permission to infer a shared schema.
+
+mappings:
+  systematic_review:
+    - {blind_step: SR01, compact_rows: [sr.01], disposition: represented}
+    - {blind_step: SR02, compact_rows: [sr.02, sr.03], disposition: compressed, reason: protocol and eligibility are separate compact rows}
+    - {blind_step: SR03, compact_rows: [sr.04], disposition: compressed, reason: search design and execution share one compact operation}
+    - {blind_step: SR04, compact_rows: [sr.04], disposition: compressed_with_loss, reason: record deduplication and identity are not distinct compact operations}
+    - {blind_step: SR05, compact_rows: [sr.05], disposition: compressed, reason: title and abstract screening shares a row with full-text screening}
+    - {blind_step: SR06, compact_rows: [sr.05], disposition: compressed_with_loss, reason: report-to-study linkage and full-text exclusions are not distinct outputs}
+    - {blind_step: SR07, compact_rows: [sr.05, sr.12], disposition: compressed_with_loss, reason: study-flow accounting is not a distinct operation}
+    - {blind_step: SR08, compact_rows: [sr.06], disposition: represented}
+    - {blind_step: SR09, compact_rows: [sr.07], disposition: represented}
+    - {blind_step: SR10, compact_rows: [sr.08], disposition: represented}
+    - {blind_step: SR11, compact_rows: [sr.03, sr.09], disposition: compressed_with_loss, reason: compatibility and non-pooling decision are distributed across eligibility and synthesis}
+    - {blind_step: SR12, compact_rows: [sr.09], disposition: represented}
+    - {blind_step: SR13, compact_rows: [sr.10, sr.11], disposition: compressed, reason: robustness and missing-results appraisal are split differently}
+    - {blind_step: SR14, compact_rows: [sr.11, sr.12], disposition: compressed_with_loss, reason: bounded interpretation is not separately represented from certainty and reporting}
+    - {blind_step: SR15, compact_rows: [sr.12], disposition: compressed_with_loss, reason: transparent reporting and audit trail are not distinct from the analytic conclusion}
+  grounded_theory:
+    - {blind_step: GT01, compact_rows: [gt.02], disposition: represented}
+    - {blind_step: GT02, compact_rows: [gt.03], disposition: compressed_with_loss, reason: compact candidate lacks source-to-incident segmentation}
+    - {blind_step: GT03, compact_rows: [gt.04], disposition: represented}
+    - {blind_step: GT04, compact_rows: [gt.06], disposition: represented}
+    - {blind_step: GT05, compact_rows: [gt.05], disposition: represented}
+    - {blind_step: GT06, compact_rows: [gt.07], disposition: represented}
+    - {blind_step: GT07, compact_rows: [gt.08], disposition: compressed, reason: gap identification and sampling design share a compact operation}
+    - {blind_step: GT08, compact_rows: [gt.08], disposition: compressed, reason: sampling design and gap identification share a compact operation}
+    - {blind_step: GT09, compact_rows: [gt.09], disposition: represented}
+    - {blind_step: GT10, compact_rows: [gt.03, gt.04, gt.07], disposition: compressed_with_loss, reason: refinement is expressed only through cycles among other rows}
+    - {blind_step: GT11, compact_rows: [gt.10], disposition: represented}
+    - {blind_step: GT12, compact_rows: [gt.11], disposition: compressed, reason: memo sorting is folded into theory integration}
+    - {blind_step: GT13, compact_rows: [gt.11], disposition: represented}
+    - {blind_step: GT14, compact_rows: [gt.12], disposition: represented}
+  process_tracing:
+    - {blind_step: PT01, compact_rows: [pt.01], disposition: represented}
+    - {blind_step: PT02, compact_rows: [pt.02], disposition: represented}
+    - {blind_step: PT03, compact_rows: [pt.03], disposition: represented}
+    - {blind_step: PT04, compact_rows: [pt.04], disposition: represented}
+    - {blind_step: PT05, compact_rows: [pt.04, pt.08], disposition: compressed_with_loss, reason: antecedent rival-relative likelihood expectations are not a distinct compact artifact}
+    - {blind_step: PT06, compact_rows: [pt.05], disposition: represented}
+    - {blind_step: PT07, compact_rows: [pt.06], disposition: compressed_with_loss, reason: acquisition exists but authenticated exact anchored observations do not}
+    - {blind_step: PT08, compact_rows: [pt.07, pt.10], disposition: compressed, reason: source quality and dependence are split across appraisal and challenge rows}
+    - {blind_step: PT09, compact_rows: [pt.08], disposition: represented}
+    - {blind_step: PT10, compact_rows: [pt.09], disposition: represented}
+    - {blind_step: PT11, compact_rows: [pt.10], disposition: represented}
+    - {blind_step: PT12, compact_rows: [pt.11], disposition: represented}
+    - {blind_step: PT13, compact_rows: [pt.11, pt.12], disposition: compressed, reason: calibrated conclusion and refusal are separate compact terminals}
+  causal_effect_estimation_rct:
+    - {blind_step: RCT-01, compact_rows: [rct.01], disposition: compressed, reason: objective and estimand share one compact row}
+    - {blind_step: RCT-02, compact_rows: [rct.01], disposition: compressed, reason: objective and estimand share one compact row}
+    - {blind_step: RCT-03, compact_rows: [rct.02, rct.04], disposition: compressed, reason: protocol and sample-size design are split differently}
+    - {blind_step: RCT-04, compact_rows: [rct.05], disposition: represented}
+    - {blind_step: RCT-05, compact_rows: [rct.03, rct.05], disposition: compressed, reason: enrollment and assignment are split across eligibility and allocation}
+    - {blind_step: RCT-06, compact_rows: [rct.06], disposition: represented}
+    - {blind_step: RCT-07, compact_rows: [rct.06], disposition: compressed_with_loss, reason: outcome ascertainment is folded into follow-up rather than represented distinctly}
+    - {blind_step: RCT-08, compact_rows: [rct.07], disposition: represented}
+    - {blind_step: RCT-09, compact_rows: [rct.07, rct.10], disposition: compressed, reason: conduct diagnostics are divided between data-state and deviation rows}
+    - {blind_step: RCT-10, compact_rows: [rct.08], disposition: represented}
+    - {blind_step: RCT-11, compact_rows: [rct.09], disposition: represented}
+    - {blind_step: RCT-12, compact_rows: [rct.10], disposition: compressed, reason: auxiliary inference and conduct deviations share a compact boundary}
+    - {blind_step: RCT-13, compact_rows: [rct.11], disposition: represented}
+    - {blind_step: RCT-14, compact_rows: [rct.11, rct.12], disposition: compressed_with_loss, reason: transparent reporting has no distinct compact operation}
+  policy_option_appraisal:
+    - {blind_step: PA01, compact_rows: [pa.01], disposition: represented}
+    - {blind_step: PA02, compact_rows: [pa.01], disposition: compressed_with_loss, reason: explicit counterfactual and scope are folded into rationale}
+    - {blind_step: PA03, compact_rows: [pa.02], disposition: represented}
+    - {blind_step: PA04, compact_rows: [pa.04], disposition: represented}
+    - {blind_step: PA05, compact_rows: [pa.05], disposition: represented}
+    - {blind_step: PA06, compact_rows: [pa.03, pa.06], disposition: compressed, reason: option characterization spans theory of change and evidence assembly}
+    - {blind_step: PA07, compact_rows: [pa.06], disposition: compressed, reason: impact mapping is folded into evidence assembly}
+    - {blind_step: PA08, compact_rows: [pa.07], disposition: represented}
+    - {blind_step: PA09, compact_rows: [pa.07], disposition: compressed_with_loss, reason: aggregate social-value metrics are not distinct from impact estimation}
+    - {blind_step: PA10, compact_rows: [pa.10], disposition: compressed, reason: non-monetised criteria and broader value judgments share a row}
+    - {blind_step: PA11, compact_rows: [pa.08], disposition: represented}
+    - {blind_step: PA12, compact_rows: [pa.09], disposition: represented}
+    - {blind_step: PA13, compact_rows: [pa.10], disposition: compressed, reason: comparison is folded into value-judgment application}
+    - {blind_step: PA14, compact_rows: [pa.11], disposition: represented}
+    - {blind_step: PA15, compact_rows: [pa.12], disposition: compressed_with_loss, reason: decision presentation and learning ownership are folded into monitoring planning}
+  agent_based_policy_simulation:
+    - {blind_step: AB01, compact_rows: [sim.01], disposition: represented}
+    - {blind_step: AB02, compact_rows: [sim.02], disposition: represented}
+    - {blind_step: AB03, compact_rows: [sim.03], disposition: compressed, reason: scheduling and process rules share a compact row}
+    - {blind_step: AB04, compact_rows: [sim.03], disposition: compressed, reason: behavior and interaction concepts share the rule row}
+    - {blind_step: AB05, compact_rows: [sim.04], disposition: compressed, reason: initialization and inputs share calibration row}
+    - {blind_step: AB06, compact_rows: [sim.04], disposition: compressed_with_loss, reason: implementation is not represented as a distinct operation or artifact}
+    - {blind_step: AB07, compact_rows: [sim.05], disposition: represented}
+    - {blind_step: AB08, compact_rows: [], disposition: missing, reason: empirical fitness is absent and must remain distinct from implementation verification}
+    - {blind_step: AB09, compact_rows: [sim.06], disposition: represented}
+    - {blind_step: AB10, compact_rows: [sim.06, sim.09], disposition: compressed, reason: uncertainty design is distributed across experiment and analysis}
+    - {blind_step: AB11, compact_rows: [sim.07], disposition: represented}
+    - {blind_step: AB12, compact_rows: [sim.08], disposition: represented}
+    - {blind_step: AB13, compact_rows: [sim.09], disposition: compressed, reason: parameter and structural sensitivity share one row}
+    - {blind_step: AB14, compact_rows: [sim.09], disposition: compressed, reason: parameter and structural sensitivity share one row}
+    - {blind_step: AB15, compact_rows: [sim.05, sim.09, sim.10], disposition: compressed_with_loss, reason: refusal gate is distributed rather than explicit}
+    - {blind_step: AB16, compact_rows: [sim.10], disposition: represented}

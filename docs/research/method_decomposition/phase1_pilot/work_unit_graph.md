@@ -40,8 +40,11 @@ is excluded.
 | `P1-PA` | Green Book policy option appraisal | keep value judgments visible and allow no robust preference |
 | `P1-SIM` | ODD agent-based policy simulation | do not treat simulated output as observed policy-world evidence |
 
-The six reports are transient coordination outputs. This avoids overlapping
-claims and makes the integration lane the sole writer.
+The original six reports were transient coordination outputs. That choice made
+the historical 90-operation claim unauditable. Fresh independent audit reruns
+are now durably normalized in `blind_reruns/step_inventory.yaml`; they are
+explicitly labeled reruns rather than reconstructions of the unavailable
+originals. The integration lane remains the sole repository writer.
 
 ## Integration unit
 

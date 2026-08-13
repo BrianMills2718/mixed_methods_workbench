@@ -1,0 +1,20 @@
+schema_version: phase1-blind-rerun-manifest-1.0
+status: audit_rerun_not_original
+frozen_input_revision: 4d25074
+total_operations: 87
+artifacts:
+  - path: README.md
+    sha256: f37c8607cf7fce4d9a287828130cfed5bba41df5a307e5f14b5c7278e8d38519
+  - path: step_inventory.yaml
+    sha256: bb6cc7429e400d5572eb8e06545fba3692c7b7703ac307bbf412cd1771a4ec21
+  - path: reconciliation.yaml
+    sha256: d35183b959873b927c7e333c42b4601269bb9df806defb55547df6df7ac02ca5
+  - path: semantic_inventory.md
+    sha256: 1f9c3c87046707ac69467be8382f588637aa420c5627b4c2c75ebbee5d3c9840
+methods:
+  - {method_id: systematic_review, operation_count: 15}
+  - {method_id: grounded_theory, operation_count: 14}
+  - {method_id: process_tracing, operation_count: 13}
+  - {method_id: causal_effect_estimation_rct, operation_count: 14}
+  - {method_id: policy_option_appraisal, operation_count: 15}
+  - {method_id: agent_based_policy_simulation, operation_count: 16}
