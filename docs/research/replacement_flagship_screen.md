@@ -138,6 +138,24 @@ verbatim public-hearing transcripts, its state open-data platform exposes
 program-specific and daily machine-readable measures, and a first-year
 evaluation now joins the design and implementation records.
 
+### Cuban Missile Crisis / FRUS — Process-Tracing-heavy fallback
+
+The official *Foreign Relations of the United States* 1961–1963, Volume XI
+corpus is unusually strong for qualitative analysis and Process Tracing. A
+fresh check found 362 historical documents and 28 editorial notes with stable
+document identifiers, decision alternatives, dissent, the quarantine decision,
+negotiations, implementation, missile and bomber removal, and aftermath. It is
+the better candidate if the immediate product objective becomes deep
+within-case causal explanation.
+
+It does not outrank New York for the cohesive MVP. Its proposed quantitative
+strand—measuring validated option-framing and escalation-risk categories by
+document, day, actor, or source group—would still be derived from the same
+diplomatic text corpus, and it has not yet shown that the computation would
+change the integrated conclusion. New York already supplies a distinct
+operational-data strand and observed policy outcomes. Preserve FRUS as a
+fallback rather than running another delta gate before the NYC source freeze.
+
 ### Mist Trail — retained secondary case
 
 Mist Trail has a real EA, operations appendix, civic-engagement summary, and
