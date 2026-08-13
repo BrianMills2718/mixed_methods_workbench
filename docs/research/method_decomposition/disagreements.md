@@ -1,0 +1,93 @@
+# Phase 0 candidate disagreements under rev 5.1 §0.2
+
+Status: `comparison_disposition`; no capability or schema adoption
+
+## Scope
+
+This register classifies every one of the 40 meaning-level comparisons in
+`comparison_v0.md`. It preserves that file as the semantic synthesis and adds
+the evidence and escalation discipline required by rev 5.1 §0.2. “Resolved”
+means only that the difference can be dispositioned for this comparison; it
+does not promote either row shape into a canonical capability model.
+
+Factual citations are pinned repository observations from the frozen candidates
+and use `repository@revision:file:line`. Methodological citations name the
+frozen source and edition. An `unsettled` row is not tie-broken. If it could
+change a promotion, tier, or abort-gate result, the final column escalates it to
+Brian.
+
+## Complete register
+
+| ID | Area and candidate difference | §0.2 class | Controlling evidence | Disposition | Brian escalation |
+| --- | --- | --- | --- | --- | --- |
+| D01 | **GT source units:** A loads/selects source units; B requires segmentation. | factual | `qualitative_coding@4ea0ce6:qc_clean/core/grounded_theory_development.py:3117-3151`; `qualitative_coding:qc_clean/core/segmentation.py:92-152` | Resolved: segmentation is a producer prerequisite; selection is the observed A boundary. Preserve both without calling them the same operation. | No. |
+| D02 | **GT initial analysis:** A exposes one composite proposal call; B separates open coding, categories, integration, and propositions. | factual | `qualitative_coding@4ea0ce6:scripts/run_public_grounded_theory_development.py:49-108,164-212`; `qualitative_coding:qc_clean/core/pipeline/stages/gt_constant_comparison.py:213-341`; `gt_axial_coding.py:46-132`; `gt_selective_coding.py:39-127` | Resolved: one executable boundary may realize several ideal operations. Preserve the boundary and the ideal phases; do not manufacture separately callable software. | No. |
+| D03 | **GT constant comparison:** A batches/revises/checkpoints; B names constant comparison as one ideal operation. | methodological | Corbin & Strauss (2015), *Basics of Qualitative Research*, 4th ed.; Charmaz (2014), *Constructing Grounded Theory*, 2nd ed. | Resolved: constant comparison is method-owned; orchestration and checkpoint mechanics may remain separately represented. | No. |
+| D04 | **GT memos:** A embeds memos in proposal/revision outputs; B gives memoing a row. | methodological | Corbin & Strauss (2015), 4th ed., ch. 8; Charmaz (2014), 2nd ed., ch. 7. | Resolved: memo identity must remain visible even where the callable bundles it. No claim of independent executability. | No. |
+| D05 | **GT proposition appraisal:** A appraises a composite theory/corpus; B separates negative cases, adequacy diagnostics, and human adequacy judgment. | methodological | Corbin & Strauss (2015), 4th ed., chs. 7 and 12; Lincoln & Guba (1985), *Naturalistic Inquiry*. | Resolved: preserve distinct method judgments; only targeting, validation, and review envelopes are possible shared-shell hypotheses. | No. |
+| D06 | **GT theoretical sampling:** A has no fixed-corpus counterpart; B records ideal theoretical sampling as incomplete. | methodological | Charmaz (2014), 2nd ed., ch. 5; Corbin & Strauss (2015), 4th ed., ch. 6. | Resolved for the frozen variant: the fixed-corpus implementation cannot license theoretical saturation; the absent ideal remains explicit. | No. |
+| D07 | **GT cross-method handoff:** A scoped only the internal GT workflow; B includes QC→PT and PT→QC boundaries. | methodological | Corbin & Strauss (2015), 4th ed., and Bennett & Checkel (2015) do not define a generic cross-method handoff as part of either method. | Resolved: retain as integration boundaries outside the internal A decomposition, not as GT method operations. | No. |
+| D08 | **PT run design, exposure, priors, coverage:** A exposes controls absent as rows in B. | factual | `process_tracing@4450d2e:pt/pipeline.py:1653-1840,1953-2097`; `process_tracing@4450d2e:pt/source_coverage.py:22-103` | Resolved: keep the observed controls as PT-owned execution/support rows; their absence in B is not evidence that code omits them. | No. |
+| D09 | **PT causal inventory:** both candidates describe source-grounded extraction at different granularity. | factual | `process_tracing@4450d2e:pt/pass_extract.py:1152-1234` | Resolved alignment: same observed operation and PT-native provenance constraints. | No. |
+| D10 | **PT rivals:** A distinguishes pre-corpus freezing from evidence-exposed construction; B collapses them. | methodological | Bennett & Checkel (2015), *Process Tracing: From Metaphor to Analytic Tool*, ch. 1. | Resolved: exposure state changes inferential meaning; preserve distinct lifecycle states even if a shell is shared. | No. |
+| D11 | **PT partition gate:** A separates audit and repair; B records one coverage-classification operation. | factual | `process_tracing@4450d2e:pt/pass_partition.py:187-243`; `process_tracing@4450d2e:pt/pass_partition_repair.py:27-63` | Resolved: observed audit→blocked repair→re-audit topology controls; B's coarser ideal row cannot erase it. | No. |
+| D12 | **PT diagnostic classification:** A's rival-pair matrix derives from likelihoods; B records an LLM-produced Van Evera label that is numerically inert downstream. | factual | `process_tracing@4450d2e:pt/pass_test.py:1218-1268`; `process_tracing@4450d2e:pt/pass_diagnostic.py:48-120` | Resolved: these are different operations despite the shared “diagnostic” name. Namespace and retain the inertness caveat. | No. |
+| D13 | **PT likelihood appraisal:** A separates elicitation and an independent audit; B names the combined estimate. | factual | `process_tracing@4450d2e:pt/pass_test.py:1289-1416`; `process_tracing@4450d2e:pt/pass_discriminator_audit.py:453-644,690-827` | Resolved: preserve producer/auditor separation and PT-owned likelihood semantics. | No. |
+| D14 | **PT source silence:** A separates absence analysis from independent admission audit; B is coarser. | factual | `process_tracing@4450d2e:pt/pass_absence.py:100-157`; `process_tracing@4450d2e:pt/pass_absence_audit.py:166-305` | Resolved: keep distinct acts and source-opportunity limits; share at most the reviewed-finding envelope. | No. |
+| D15 | **PT comparative update:** both candidates identify the deterministic Bayesian update. | factual | `process_tracing@4450d2e:pt/bayesian.py:668-758` | Resolved alignment: PT-owned within-case comparative support, never a generic confidence score. | No. |
+| D16 | **PT structural critic:** A locates a late critic pass; B permits re-elicitation from its critic row. | factual | `process_tracing@4450d2e:pt/pass_critic.py:35-139`; `process_tracing@4450d2e:pt/pipeline.py:2118-2268` | Resolved: A's observed placement/topology controls; B identifies the method-support intent. | No. |
+| D17 | **PT mechanism graph:** A separates construction and audit/repair; B names one construction operation. | factual | `process_tracing@4450d2e:pt/pass_mechanism.py:433-531`; `process_tracing@4450d2e:pt/pass_mechanism_audit.py:979-1114` | Resolved: share graph custody only; keep causal construction and audit semantics PT-owned. | No. |
+| D18 | **PT synthesis and refusal:** A includes terminal audit/publication; B separates explicit refusal. | methodological | Bennett & Checkel (2015), ch. 1; Fairfield & Charman (2017), “Explicit Bayesian Analysis for Process Tracing,” secs. 4-5. | Resolved: calibrated refusal is a first-class method outcome; publication mechanics remain delivery/support. | No. |
+| D19 | **PT refinement:** A implements conditional rereading/rerun lineage; B has no direct row. | factual | `process_tracing@4450d2e:pt/pass_refine.py:418-509`; `process_tracing@4450d2e:pt/apply_refinement.py:21-150` | Resolved: preserve the observed optional refinement loop; absence from B does not invalidate the code observation. | No. |
+| D20 | **Acquisition agenda:** A binds a whole frozen session/baseline; B emphasizes gap identification. | factual | `process_tracing@4450d2e:pt/acquisition_session.py:555-626`; `process_tracing@4450d2e:pt/source_acquisition.py:226-266` | Resolved: gap identification is the analytic act; baseline/session custody is support/delivery. | No. |
+| D21 | **Acquisition discovery/retrieval:** A combines provider retrieval; B separates search from full-text retrieval. | factual | `process_tracing@4450d2e:pt/acquisition_session.py:637-1017`; `process_tracing@4450d2e:pt/acquisition_session.py:97-181` | Resolved: preserve provider/result cardinality and separate failure states; do not infer one canonical granularity. | No. |
+| D22 | **Acquisition review/admission:** A's in-scope interactive companion is human-performed; B also observes a separate bulk path with independent LLM pair-review. Which realization defines the companion changes the per-method gate from 50% to 75%. | unsettled | Interactive: `process_tracing@4450d2e:pt/acquisition_session.py:1055-1206`; bulk: `process_tracing@4450d2e:pt/revolution_source_development.py:656-685,751-777`. Frozen method sources: Howell & Prevenier (2001), *From Reliable Sources*; Page et al. (2021), PRISMA 2020. | Unsettled: repository evidence proves both implementations, but cannot decide which product variant Brian intends as the Phase 0 “companion.” Do not average or choose the favorable branch. | **Yes — consequential abort-gate branch decision. Brian must choose the scoped realization before promotion use.** |
+| D23 | **Acquisition reconciliation:** B exposes an absent same-case reconciliation operation; A has no scoped counterpart. | factual | `process_tracing@4450d2e:pt/acquisition_session.py:1-1378` (no reconciliation path); out-of-scope analogue `process_tracing@4450d2e:pt/revolution_reconciliation.py:1` | Resolved: record `not_implemented` for the interactive variant and keep the bulk analogue out of scope. | No, unless D22 changes the selected variant. |
+| D24 | **Held-out evaluation return:** A observes a broken successful-return contract; B marks the underlying evaluation operation executable. | unsettled | `process_tracing@4450d2e:pt/acquisition_session.py:1209-1378,1296-1319`; `process_tracing@4450d2e:pt/pipeline.py:1488-1498` | Unsettled pending replay of the exact admitted-source→frozen-rivals return path at the pinned revision. Treat readiness as incomplete. | **Yes if this operation is used for promotion or tier assignment; otherwise defer without a verdict.** |
+| D25 | **Theory paper extraction:** A splits render/identify/schema extraction; B describes the same flow in later schema language. | factual | `theory-forge@9ec293f:src/theory_forge/extraction/extractor_single.py:329-470` | Resolved: preserve separate callable boundaries and pin the schema version. | No. |
+| D26 | **Theory artifact validation:** A separates persistence/validation; B folds them into formalization. | factual | `theory-forge@9ec293f:src/theory_forge/extraction/extractor_single.py:514-556`; `theory-forge@9ec293f:src/theory_forge/automation.py:330-357` | Resolved: storage/validation mechanics may be shared; formalization remains distinct. | No. |
+| D27 | **Theory compilation:** A exposes cache, prompting, code generation, testing, healing, and review; B compresses them. | factual | `theory-forge@9ec293f:src/theory_forge/codegen/compiler.py:253-272,852-948,1228-1799,2207-2471` | Resolved: the observed compiler topology controls; all rows remain `runtime_delivery` absent an authoritative methodology source. | No. |
+| D28 | **Compiled-theory execution:** A marks invariant checking incomplete while B marks the combined run incomplete. | unsettled | `theory-forge@9ec293f:src/theory_forge/codegen/runner.py:289-430,1255-1312`; `theory-forge@9ec293f:tests/test_runtime_invariants.py:1` | Unsettled until one authentic compiled run and its invariant behavior are replayed at a pinned clean revision. Do not infer fleet readiness from code presence. | **Yes if compiled execution is proposed for promotion/tiering; otherwise defer.** |
+| D29 | **Runtime-green manifest:** B finds most claimed runtime-green theories lack durable evidence; A records report assembly but no fleet verification row. | unsettled | `theory-forge@9ec293f:src/theory_forge/codegen/compiler.py:2360-2471`; committed evidence exists for only the two exceptions named in `claude_phase0/reality_check.md` §5. | Unsettled as a fleet claim; the verification mechanism exists, but 37/39 claimed statuses are not reproducible from the frozen checkout. | **Yes before any runtime-green promotion claim. Brian must require durable replay evidence or narrow the claim to evidenced theories.** |
+| D30 | **CPT model calculation:** A presents a compact row-level call; B splits value, probability weighting, cumulative weights, and prospect value. | methodological | Tversky & Kahneman (1992), “Advances in prospect theory,” equations 1-6 and §I.B. | Resolved: preserve theory-specific mathematical stages for ideal meaning and the compact callable as observed software granularity. | No. |
+| D31 | **CPT baseline:** A bundles EV in row comparison; B exposes it independently. | methodological | Peterson et al. (2021), “Using large-scale experiments and machine learning to discover theories of human decision-making,” *Science* 372. | Resolved: baseline identity and eligible-row alignment must remain explicit even if code bundles calculation. | No. |
+| D32 | **CPT data acquisition:** both candidates observe pinned dataset custody. | factual | `theory-forge@9ec293f:src/theory_forge/choices13k.py:31-148` | Resolved alignment: shared custody candidate, not an analytic CPT operation. | No. |
+| D33 | **CPT eligibility:** A treats screening as one callable; B labels it methodological support. | methodological | Peterson et al. (2021), *Science* 372, Choices13k benchmark design. | Resolved: screening is support for the declared benchmark population; filtering rules remain dataset/theory-owned. | No. |
+| D34 | **CPT comparison/report:** A separates row computation, aggregate, and report; B gives one benchmark comparison row. | factual | `theory-forge@9ec293f:src/theory_forge/choices13k.py:159-239,326-574` | Resolved: preserve observation alignment and report envelope while retaining executable boundaries. | No. |
+| D35 | **Policy options:** both candidates identify official alternatives as a manual analytic act. | factual | `mixed_methods_workbench@eb1c5df:examples/fixtures/mist_trail_decision/decision_packet.json:142-169`; `src/mixed_methods_workbench/mist_trail_decision.py:167-176` | Resolved alignment: typed representation does not make option identification software-executed. | No. |
+| D36 | **Policy criteria/interests:** A separates framing and later value recording; B separates criterion identification from judgment. | methodological | Dodgson et al. (2009), *Multi-Criteria Analysis: A Manual*, §2; Moberg et al. (2018), GRADE EtD policy variant. | Resolved: preserve the evidence/value boundary and distinct affected-interest representation. | No. |
+| D37 | **Policy consequence claims:** A separates anchoring and appraisal; B names the consequence operation. | factual | `mixed_methods_workbench@eb1c5df:examples/fixtures/mist_trail_decision/decision_packet.json:186-204`; `src/mixed_methods_workbench/mist_trail_decision.py:198-213` | Resolved: the analytic consequence judgments are manually performed; anchoring/validation are separate runtime mechanics. | No. |
+| D38 | **Policy priority lenses:** A calls the change perturbation; B calls it ranking; neither computes numeric weights. | factual | `mixed_methods_workbench@eb1c5df:examples/fixtures/mist_trail_decision/decision_packet.json:214-217`; `tests/test_mist_trail_decision.py:46` | Resolved: fixed human-authored lens outcomes are not an automated ranking algorithm. Do not infer numeric weights. | No. |
+| D39 | **Policy recommendation/refusal:** both candidates observe a conditional manual outcome with an unresolved option. | factual | `mixed_methods_workbench@eb1c5df:examples/fixtures/mist_trail_decision/decision_packet.json:222-233`; `src/mixed_methods_workbench/mist_trail_decision.py:256-276` | Resolved alignment: validators enforce consistency but do not derive the conclusion. | No. |
+| D40 | **Policy packet/custody/UI:** A distinguishes manual assembly from executable validation/projection; B splits validation, hash anchoring, and rendering. | factual | `mixed_methods_workbench@eb1c5df:src/mixed_methods_workbench/mist_trail_decision.py:279-430`; `src/mixed_methods_workbench/method_dashboard_server.py:61-75` | Resolved: reuse technical custody/validation/projection only; the analytic packet content remains manual. | No. |
+
+## Consequential unresolved decisions
+
+Brian must decide or supply the named evidence for these items before the
+affected result is used for promotion:
+
+1. **D22 — Phase 0 acquisition variant:** interactive single-case companion
+   (`50%`, FAIL at exact half) or bulk comparative pipeline (`75%`, PASS). The
+   aggregate also changes from `74.4%` to `76.9%`, though both aggregate values
+   pass. Repository evidence cannot answer the intended product scope.
+2. **D24 — held-out evaluation return:** require a pinned successful replay if
+   this handoff is used as implemented evidence.
+3. **D28 — compiled-theory execution:** require one authentic pinned run before
+   promoting the combined execution capability.
+4. **D29 — runtime-green fleet claim:** narrow the claim to durable evidenced
+   theories or require checked-in replay evidence for the claimed fleet.
+
+The migrated Codex candidate still decomposes **software boundaries** while the
+independent candidate primarily decomposes **sourced ideal operations**. Rev 5.1
+cannot turn those denominators into one row-count comparison without changing
+their meaning. Therefore the migration does not calculate a second abort-gate
+share from 77 rows, and the independent candidate's `74.4%` gate is not treated
+as consensus.
+
+## Disposition
+
+- Resolved factual rows use pinned repository `file:line` evidence.
+- Resolved methodological rows use the frozen source and edition.
+- Unsettled rows remain open and are escalated where consequential.
+- No tie-break convention, capability promotion, schema adoption, Phase 2
+  decision, or collision verdict is made here.
