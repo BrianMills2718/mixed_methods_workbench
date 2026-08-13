@@ -2,21 +2,522 @@ schema_version: phase3-method-records-1.0
 method_id: P13
 variant: convergent_mixed_methods_policy_evaluation
 defaults:
-  move: &m {level: analytical_move, operation_kind: analytic, source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources, applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context, refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference, performer: strand_or_integration_team, judgment_owner: strand_lead_or_mixed_methods_lead, acceptance_authority: strand_reviewers_and_mixed_methods_reviewer, recommender: evaluation_lead_if_advice_is_in_scope, value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance, decision_authority: accountable_policy_or_program_decision_maker, implementation_evidence: methodology_reference_only, collision_participation: level_2_only, guards: {temporal: freeze_design_then_independent_strands_then_merge, access: strand_specific_permissions_and_minimized_linkage, run_version: immutable_strand_outputs_joint_display_and_successor_integration_versions}}
-  action: &a {level: execution_action, operation_kind: runtime_delivery, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution_support, applicability_boundary: parent_move_only, refusal_or_qualification: execution_failure_blocks_parent_move, performer: integration_support_system, judgment_owner: none, acceptance_authority: mixed_methods_lead, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, collision_participation: level_3_only, guards: {temporal: no_merge_before_frozen_strand_findings, access: approved_minimum_linkage_keys_and_outputs, run_version: receipt_binds_both_strand_and_display_versions}}
+  move:
+    level: analytical_move
+    operation_kind: analytic
+    source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+    applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+    refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+    performer: strand_or_integration_team
+    judgment_owner: strand_lead_or_mixed_methods_lead
+    acceptance_authority: strand_reviewers_and_mixed_methods_reviewer
+    recommender: evaluation_lead_if_advice_is_in_scope
+    value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+    decision_authority: accountable_policy_or_program_decision_maker
+    implementation_evidence: methodology_reference_only
+    collision_participation: level_2_only
+    guards: &id001
+      temporal: freeze_design_then_independent_strands_then_merge
+      access: strand_specific_permissions_and_minimized_linkage
+      run_version: immutable_strand_outputs_joint_display_and_successor_integration_versions
+  action:
+    level: execution_action
+    operation_kind: runtime_delivery
+    information_origin: &id002
+    - derived
+    source_authority_or_inferential_role: parent_move_execution_support
+    applicability_boundary: parent_move_only
+    refusal_or_qualification: execution_failure_blocks_parent_move
+    performer: integration_support_system
+    judgment_owner: none
+    acceptance_authority: mixed_methods_lead
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    collision_participation: level_3_only
+    guards: &id003
+      temporal: no_merge_before_frozen_strand_findings
+      access: approved_minimum_linkage_keys_and_outputs
+      run_version: receipt_binds_both_strand_and_display_versions
 phases:
-  - {record_id: p13.phase.design, level: method_phase, label: design convergent evaluation and strand warrants, operation_kinds: [methodological_support], collision_participation: none}
-  - {record_id: p13.phase.strands, level: method_phase, label: conduct and warrant independent strands, operation_kinds: [analytic], collision_participation: none}
-  - {record_id: p13.phase.integrate, level: method_phase, label: align merge reconcile and infer, operation_kinds: [analytic, methodological_support, runtime_delivery], collision_participation: none}
+- record_id: p13.phase.design
+  level: method_phase
+  label: design convergent evaluation and strand warrants
+  operation_kinds:
+  - methodological_support
+  collision_participation: none
+- record_id: p13.phase.strands
+  level: method_phase
+  label: conduct and warrant independent strands
+  operation_kinds:
+  - analytic
+  collision_participation: none
+- record_id: p13.phase.integrate
+  level: method_phase
+  label: align merge reconcile and infer
+  operation_kinds:
+  - analytic
+  - methodological_support
+  - runtime_delivery
+  collision_participation: none
 moves:
-  - {<<: *m, record_id: p13.move.design, parent_phase: p13.phase.design, label: freeze convergent purpose timing priority integration points and governance, inputs: [evaluation_questions, intervention_theory, stakeholder_goals, feasible_data_sources], output: frozen_convergent_design, information_origin: [reported, elicited, interpreted], method_owned_rule: both_strands_address_complementary_aspects_and_integration_is_planned_not_post_hoc, permitted_conclusion: study_has_a_declared_mixed_methods_rationale, source_basis: nih_2011_nature_and_design, exact_anchors: [nih_2011_design_timing_priority_integration], operation_kind: methodological_support}
-  - {<<: *m, record_id: p13.move.qual_warrant, parent_phase: p13.phase.strands, label: conduct and independently warrant qualitative strand, inputs: [frozen_convergent_design, qualitative_material], output: qualified_qualitative_findings, information_origin: [observed, reported, interpreted], method_owned_rule: selected_qualitative_method_owns_sampling_analysis_reflexivity_and_claim_scope, permitted_conclusion: qualitative_strand_findings_with_anchors_and_limits, source_basis: strand_specific_method_plus_nih_2011, exact_anchors: [nih_2011_both_data_forms], judgment_owner: qualitative_strand_lead, acceptance_authority: qualitative_method_reviewer}
-  - {<<: *m, record_id: p13.move.quant_warrant, parent_phase: p13.phase.strands, label: conduct and independently warrant quantitative strand, inputs: [frozen_convergent_design, quantitative_dataset], output: qualified_quantitative_findings, information_origin: [observed, derived], method_owned_rule: selected_quantitative_design_owns_estimand_measurement_analysis_uncertainty_and_scope, permitted_conclusion: quantitative_strand_estimates_with_uncertainty_and_limits, source_basis: strand_specific_method_plus_nih_2011, exact_anchors: [nih_2011_both_data_forms], performer: quantitative_team, judgment_owner: quantitative_strand_lead, acceptance_authority: quantitative_method_reviewer}
-  - {<<: *m, record_id: p13.move.check_readiness, parent_phase: p13.phase.integrate, label: verify strand validity scope and integration readiness, inputs: [qualified_qualitative_findings, qualified_quantitative_findings, frozen_convergent_design], output: integration_readiness_record, information_origin: [derived, interpreted], method_owned_rule: one_strand_cannot_repair_an_invalid_other_strand_and_noncommensurability_is_allowed, permitted_conclusion: merge_or_return_or_withhold_integration, source_basis: nih_2011_review_guidance, exact_anchors: [nih_2011_reviewing_applications], operation_kind: methodological_support, judgment_owner: mixed_methods_lead, acceptance_authority: mixed_methods_reviewer}
-  - {<<: *m, record_id: p13.move.align, parent_phase: p13.phase.integrate, label: align constructs cases units time and scope without erasing warrant, inputs: [qualified_qualitative_findings, qualified_quantitative_findings, integration_readiness_record], output: explicit_alignment_and_nonalignment_map, information_origin: [derived, interpreted], method_owned_rule: every_alignment_preserves_source_strand_meaning_and_declares_transformation_or_loss, permitted_conclusion: comparable_and_noncomparable_findings_are_explicit, source_basis: fetters_2013_integration_methods, exact_anchors: [fetters_2013_merging_and_transformation], judgment_owner: mixed_methods_lead, acceptance_authority: mixed_methods_reviewer}
-  - {<<: *m, record_id: p13.move.joint_display, parent_phase: p13.phase.integrate, label: merge qualified findings in a joint display, inputs: [qualified_qualitative_findings, qualified_quantitative_findings, explicit_alignment_and_nonalignment_map], output: joint_display_with_strand_lineage, information_origin: [derived, interpreted], method_owned_rule: display_places_related_findings_together_and_retains_each_strand_warrant_and_limits, permitted_conclusion: integration_relationships_can_be_inspected, source_basis: fetters_2013_joint_displays, exact_anchors: [fetters_2013_joint_display], judgment_owner: mixed_methods_lead, acceptance_authority: mixed_methods_reviewer}
-  - {<<: *m, record_id: p13.move.fit, parent_phase: p13.phase.integrate, label: judge confirmation expansion complementarity and discordance, inputs: [joint_display_with_strand_lineage], output: fit_and_divergence_disposition, information_origin: [interpreted], method_owned_rule: discordance_is_explained_reanalyzed_followed_up_qualified_or_retained_never_averaged_away, permitted_conclusion: relationship_between_strand_findings_is_bounded, source_basis: fetters_2013_fit_of_integration, exact_anchors: [fetters_2013_confirmation_expansion_discordance], judgment_owner: mixed_methods_lead, acceptance_authority: mixed_methods_reviewer}
-  - {<<: *m, record_id: p13.move.meta_infer, parent_phase: p13.phase.integrate, label: draw bounded meta-inference from integration, inputs: [qualified_qualitative_findings, qualified_quantitative_findings, joint_display_with_strand_lineage, fit_and_divergence_disposition], output: bounded_meta_inference, information_origin: [interpreted, derived], method_owned_rule: meta_inference_adds_integration_insight_without_exceeding_strand_quality_scope_or_unresolved_divergence, permitted_conclusion: integrated_evaluation_claim_with_traceable_strand_support_and_limits, source_basis: nih_2011_and_fetters_2013, exact_anchors: [nih_2011_mixing_integration, fetters_2013_interpretation_reporting], judgment_owner: mixed_methods_lead, acceptance_authority: mixed_methods_reviewer}
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: strand_lead_or_mixed_methods_lead
+  acceptance_authority: strand_reviewers_and_mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.design
+  parent_phase: p13.phase.design
+  label: freeze convergent purpose timing priority integration points and governance
+  information_origin:
+  - reported
+  - elicited
+  - interpreted
+  method_owned_rule: both_strands_address_complementary_aspects_and_integration_is_planned_not_post_hoc
+  permitted_conclusion: study_has_a_declared_mixed_methods_rationale
+  source_basis: nih_2011_nature_and_design
+  exact_anchors:
+  - nih_2011_design_timing_priority_integration
+  verb: construct
+  inputs:
+  - slot: evaluation_questions
+    type: claim
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: intervention_theory
+    type: theory
+    role: context
+    cardinality: one
+    optional: false
+  - slot: stakeholder_goals
+    type: value_judgment
+    role: criteria
+    cardinality: many
+    optional: false
+  - slot: feasible_data_sources
+    type: source_document
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: frozen_convergent_design
+    type: design_parameters
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: qualitative_strand_lead
+  acceptance_authority: qualitative_method_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.qual_warrant
+  parent_phase: p13.phase.strands
+  label: conduct and independently warrant qualitative strand
+  information_origin:
+  - observed
+  - reported
+  - interpreted
+  method_owned_rule: selected_qualitative_method_owns_sampling_analysis_reflexivity_and_claim_scope
+  permitted_conclusion: qualitative_strand_findings_with_anchors_and_limits
+  source_basis: strand_specific_method_plus_nih_2011
+  exact_anchors:
+  - nih_2011_both_data_forms
+  verb: synthesize
+  inputs:
+  - slot: frozen_convergent_design
+    type: design_parameters
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: qualitative_material
+    type: source_document
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: qualified_qualitative_findings
+    type: finding
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: quantitative_team
+  judgment_owner: quantitative_strand_lead
+  acceptance_authority: quantitative_method_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.quant_warrant
+  parent_phase: p13.phase.strands
+  label: conduct and independently warrant quantitative strand
+  information_origin:
+  - observed
+  - derived
+  method_owned_rule: selected_quantitative_design_owns_estimand_measurement_analysis_uncertainty_and_scope
+  permitted_conclusion: quantitative_strand_estimates_with_uncertainty_and_limits
+  source_basis: strand_specific_method_plus_nih_2011
+  exact_anchors:
+  - nih_2011_both_data_forms
+  verb: estimate
+  inputs:
+  - slot: frozen_convergent_design
+    type: design_parameters
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: quantitative_dataset
+    type: dataset
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: qualified_quantitative_findings
+    type: finding
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: mixed_methods_lead
+  acceptance_authority: mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.check_readiness
+  parent_phase: p13.phase.integrate
+  label: verify strand validity scope and integration readiness
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: one_strand_cannot_repair_an_invalid_other_strand_and_noncommensurability_is_allowed
+  permitted_conclusion: merge_or_return_or_withhold_integration
+  source_basis: nih_2011_review_guidance
+  exact_anchors:
+  - nih_2011_reviewing_applications
+  verb: review
+  inputs:
+  - slot: qualified_qualitative_findings
+    type: finding
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: qualified_quantitative_findings
+    type: finding
+    role: context
+    cardinality: many
+    optional: false
+  - slot: frozen_convergent_design
+    type: design_parameters
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: integration_readiness_record
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: mixed_methods_lead
+  acceptance_authority: mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.align
+  parent_phase: p13.phase.integrate
+  label: align constructs cases units time and scope without erasing warrant
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: every_alignment_preserves_source_strand_meaning_and_declares_transformation_or_loss
+  permitted_conclusion: comparable_and_noncomparable_findings_are_explicit
+  source_basis: fetters_2013_integration_methods
+  exact_anchors:
+  - fetters_2013_merging_and_transformation
+  verb: compare
+  inputs:
+  - slot: qualified_qualitative_findings
+    type: finding
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: qualified_quantitative_findings
+    type: finding
+    role: context
+    cardinality: many
+    optional: false
+  - slot: integration_readiness_record
+    type: review_event
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: explicit_alignment_and_nonalignment_map
+    type: relation
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: mixed_methods_lead
+  acceptance_authority: mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.joint_display
+  parent_phase: p13.phase.integrate
+  label: merge qualified findings in a joint display
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: display_places_related_findings_together_and_retains_each_strand_warrant_and_limits
+  permitted_conclusion: integration_relationships_can_be_inspected
+  source_basis: fetters_2013_joint_displays
+  exact_anchors:
+  - fetters_2013_joint_display
+  verb: aggregate
+  inputs:
+  - slot: qualified_qualitative_findings
+    type: finding
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: qualified_quantitative_findings
+    type: finding
+    role: context
+    cardinality: many
+    optional: false
+  - slot: explicit_alignment_and_nonalignment_map
+    type: relation
+    role: context
+    cardinality: one
+    optional: false
+  - slot: joint_display_render_receipt
+    type: review_event
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: joint_display_with_strand_lineage
+    type: finding
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: mixed_methods_lead
+  acceptance_authority: mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.fit
+  parent_phase: p13.phase.integrate
+  label: judge confirmation expansion complementarity and discordance
+  information_origin:
+  - interpreted
+  method_owned_rule: discordance_is_explained_reanalyzed_followed_up_qualified_or_retained_never_averaged_away
+  permitted_conclusion: relationship_between_strand_findings_is_bounded
+  source_basis: fetters_2013_fit_of_integration
+  exact_anchors:
+  - fetters_2013_confirmation_expansion_discordance
+  verb: compare
+  inputs:
+  - slot: joint_display_with_strand_lineage
+    type: finding
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: fit_and_divergence_disposition
+    type: appraisal
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
+  applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
+  refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
+  performer: strand_or_integration_team
+  judgment_owner: mixed_methods_lead
+  acceptance_authority: mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p13.move.meta_infer
+  parent_phase: p13.phase.integrate
+  label: draw bounded meta-inference from integration
+  information_origin:
+  - interpreted
+  - derived
+  method_owned_rule: meta_inference_adds_integration_insight_without_exceeding_strand_quality_scope_or_unresolved_divergence
+  permitted_conclusion: integrated_evaluation_claim_with_traceable_strand_support_and_limits
+  source_basis: nih_2011_and_fetters_2013
+  exact_anchors:
+  - nih_2011_mixing_integration
+  - fetters_2013_interpretation_reporting
+  verb: synthesize
+  inputs:
+  - slot: qualified_qualitative_findings
+    type: finding
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: qualified_quantitative_findings
+    type: finding
+    role: context
+    cardinality: many
+    optional: false
+  - slot: joint_display_with_strand_lineage
+    type: finding
+    role: context
+    cardinality: one
+    optional: false
+  - slot: fit_and_divergence_disposition
+    type: appraisal
+    role: context
+    cardinality: one
+    optional: false
+  - slot: meta_inference_trace_receipt
+    type: review_event
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: bounded_meta_inference
+    type: finding
+    role: result
+    cardinality: one
+    optional: false
 actions:
-  - {<<: *a, record_id: p13.action.link_findings, parent_move: p13.move.joint_display, label: render lineage-preserving joint display cells, inputs: [explicit_alignment_and_nonalignment_map], output: joint_display_render_receipt, method_owned_rule: none, permitted_conclusion: no_analytic_conclusion, source_basis: fetters_2013_joint_displays, exact_anchors: [fetters_2013_joint_display]}
-  - {<<: *a, record_id: p13.action.trace_meta, parent_move: p13.move.meta_infer, label: validate every meta-inference link to both strand records and qualifications, operation_kind: methodological_support, inputs: [bounded_meta_inference], output: meta_inference_trace_receipt, method_owned_rule: mixed_methods_reviewer_accepts_semantic_trace, permitted_conclusion: trace_completeness_only, source_basis: nih_2011_review_guidance, exact_anchors: [nih_2011_reviewing_applications]}
+- level: execution_action
+  operation_kind: runtime_delivery
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: execution_failure_blocks_parent_move
+  performer: integration_support_system
+  judgment_owner: none
+  acceptance_authority: mixed_methods_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p13.action.link_findings
+  parent_move: p13.move.joint_display
+  label: render lineage-preserving joint display cells
+  method_owned_rule: none
+  permitted_conclusion: no_analytic_conclusion
+  source_basis: fetters_2013_joint_displays
+  exact_anchors:
+  - fetters_2013_joint_display
+  verb: project
+  inputs:
+  - slot: explicit_alignment_and_nonalignment_map
+    type: relation
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: joint_display_render_receipt
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false
+- level: execution_action
+  operation_kind: methodological_support
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: execution_failure_blocks_parent_move
+  performer: integration_support_system
+  judgment_owner: none
+  acceptance_authority: mixed_methods_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p13.action.trace_meta
+  parent_move: p13.move.meta_infer
+  label: validate every meta-inference link to both strand records and qualifications
+  method_owned_rule: mixed_methods_reviewer_accepts_semantic_trace
+  permitted_conclusion: trace_completeness_only
+  source_basis: nih_2011_review_guidance
+  exact_anchors:
+  - nih_2011_reviewing_applications
+  verb: review
+  inputs:
+  - slot: bounded_meta_inference
+    type: finding
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: meta_inference_trace_receipt
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false

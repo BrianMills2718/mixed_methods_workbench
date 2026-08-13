@@ -2,22 +2,558 @@ schema_version: phase3-method-records-1.0
 method_id: P05
 variant: constructivist_grounded_theory_charmaz_3e
 defaults:
-  move: &m {level: analytical_move, operation_kind: analytic, source_authority_or_inferential_role: selected_method_sources_and_declared_study_material, applicability_boundary: selected_variant_and_declared_study_scope, refusal_or_qualification: bounded_partial_account_with_named_gaps, performer: grounded_theory_researcher, judgment_owner: grounded_theory_lead, acceptance_authority: methodological_reviewer, recommender: none, value_goal_authority: study_sponsor_and_participant_governance, decision_authority: none, implementation_evidence: methodology_reference_only, collision_participation: level_2_only, guards: {temporal: preserve_iterative_order_and_prior_versions, access: governed_source_scope_and_participant_permissions, run_version: immutable_inputs_and_successor_analysis_versions}}
-  action: &a {level: execution_action, operation_kind: runtime_delivery, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution_support, applicability_boundary: parent_move_only, refusal_or_qualification: action_failure_blocks_parent_move, performer: research_support_system, judgment_owner: none, acceptance_authority: grounded_theory_lead, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, collision_participation: level_3_only, guards: {temporal: parent_move_order, access: least_required_source_access, run_version: receipt_binds_input_and_output_versions}}
+  move:
+    level: analytical_move
+    operation_kind: analytic
+    source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+    applicability_boundary: selected_variant_and_declared_study_scope
+    refusal_or_qualification: bounded_partial_account_with_named_gaps
+    performer: grounded_theory_researcher
+    judgment_owner: grounded_theory_lead
+    acceptance_authority: methodological_reviewer
+    recommender: none
+    value_goal_authority: study_sponsor_and_participant_governance
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    collision_participation: level_2_only
+    guards: &id001
+      temporal: preserve_iterative_order_and_prior_versions
+      access: governed_source_scope_and_participant_permissions
+      run_version: immutable_inputs_and_successor_analysis_versions
+  action:
+    level: execution_action
+    operation_kind: runtime_delivery
+    information_origin: &id002
+    - derived
+    source_authority_or_inferential_role: parent_move_execution_support
+    applicability_boundary: parent_move_only
+    refusal_or_qualification: action_failure_blocks_parent_move
+    performer: research_support_system
+    judgment_owner: none
+    acceptance_authority: grounded_theory_lead
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    collision_participation: level_3_only
+    guards: &id003
+      temporal: parent_move_order
+      access: least_required_source_access
+      run_version: receipt_binds_input_and_output_versions
 phases:
-  - {record_id: p05.phase.orient, level: method_phase, label: orient and generate initial material, operation_kinds: [analytic, methodological_support], collision_participation: none}
-  - {record_id: p05.phase.interpret, level: method_phase, label: code compare and memo, operation_kinds: [analytic, methodological_support, runtime_delivery], collision_participation: none}
-  - {record_id: p05.phase.develop, level: method_phase, label: sample refine appraise and integrate, operation_kinds: [analytic], collision_participation: none}
+- record_id: p05.phase.orient
+  level: method_phase
+  label: orient and generate initial material
+  operation_kinds:
+  - analytic
+  - methodological_support
+  collision_participation: none
+- record_id: p05.phase.interpret
+  level: method_phase
+  label: code compare and memo
+  operation_kinds:
+  - analytic
+  - methodological_support
+  - runtime_delivery
+  collision_participation: none
+- record_id: p05.phase.develop
+  level: method_phase
+  label: sample refine appraise and integrate
+  operation_kinds:
+  - analytic
+  collision_participation: none
 moves:
-  - {<<: *m, record_id: p05.move.orient, parent_phase: p05.phase.orient, label: locate inquiry and researcher position, inputs: [research_problem, prior_experience, sensitizing_concepts, participant_governance], output: inquiry_and_reflexive_position_record, information_origin: [reported, interpreted], method_owned_rule: sensitizing_concepts_open_inquiry_but_do_not_precode_findings, permitted_conclusion: inquiry_position_and_initial_scope_are_explicit, operation_kind: methodological_support, source_basis: charmaz_2024_3e_chs_1_2_12, exact_anchors: [charmaz_3e_ch1, charmaz_3e_ch2, charmaz_3e_ch12]}
-  - {<<: *m, record_id: p05.move.gather, parent_phase: p05.phase.orient, label: generate rich initial material, inputs: [inquiry_and_reflexive_position_record, purposive_starting_sample], output: governed_source_increment, information_origin: [observed, reported], method_owned_rule: material_is_rich_relevant_and_open_to_participant_meaning, permitted_conclusion: initial_material_can_enter_close_analysis, source_basis: charmaz_2024_3e_chs_2_4, exact_anchors: [charmaz_3e_ch2, charmaz_3e_ch3, charmaz_3e_ch4]}
-  - {<<: *m, record_id: p05.move.initial_code, parent_phase: p05.phase.interpret, label: segment and initially code incidents, inputs: [governed_source_increment], output: anchored_provisional_codes, information_origin: [observed, reported, interpreted], method_owned_rule: close_action_oriented_codes_remain_provisional_and_anchored, permitted_conclusion: incidents_have_interpretive_labels_for_comparison, source_basis: charmaz_2024_3e_ch5, exact_anchors: [charmaz_3e_ch5]}
-  - {<<: *m, record_id: p05.move.compare_memo, parent_phase: p05.phase.interpret, label: constantly compare and write analytic reflexive memos, inputs: [anchored_provisional_codes, inquiry_and_reflexive_position_record], output: comparison_and_memo_bundle, information_origin: [interpreted], method_owned_rule: comparisons_and_memos_develop_properties_variation_questions_and_researcher_influence, permitted_conclusion: promising_concepts_and_gaps_are_visible, source_basis: charmaz_2024_3e_chs_5_7, exact_anchors: [charmaz_3e_ch5, charmaz_3e_ch6, charmaz_3e_ch7]}
-  - {<<: *m, record_id: p05.move.focus_categories, parent_phase: p05.phase.develop, label: select focused codes and construct provisional categories, inputs: [anchored_provisional_codes, comparison_and_memo_bundle], output: provisional_categories_with_properties_and_gaps, information_origin: [interpreted], method_owned_rule: conceptual_significance_and_explanatory_reach_not_frequency_own_selection, permitted_conclusion: categories_are_provisional_and_direct_further_inquiry, source_basis: charmaz_2024_3e_chs_6_7, exact_anchors: [charmaz_3e_ch6, charmaz_3e_ch7]}
-  - {<<: *m, record_id: p05.move.theoretical_sample, parent_phase: p05.phase.develop, label: direct theoretical sampling from category gaps, inputs: [provisional_categories_with_properties_and_gaps, comparison_and_memo_bundle], output: targeted_successor_source_increment, information_origin: [interpreted, observed, reported], method_owned_rule: emerging_category_need_not_demographic_representativeness_directs_sampling, permitted_conclusion: new_material_targets_named_theoretical_gaps, source_basis: charmaz_2024_3e_ch8, exact_anchors: [charmaz_3e_ch8], guards: {temporal: provisional_categories_precede_theoretical_sampling, access: new_access_and_consent_are_recorded, run_version: sampling_creates_successor_corpus_version}}
-  - {<<: *m, record_id: p05.move.refine, parent_phase: p05.phase.develop, label: recode compare and revise categories with new material, inputs: [targeted_successor_source_increment, provisional_categories_with_properties_and_gaps, comparison_and_memo_bundle], output: revised_category_and_memo_bundle, information_origin: [observed, reported, interpreted], method_owned_rule: new_material_may_split_relate_qualify_or_reject_categories, permitted_conclusion: category_development_accounts_for_supporting_and_disconfirming_variation, source_basis: charmaz_2024_3e_chs_5_8, exact_anchors: [charmaz_3e_ch5, charmaz_3e_ch6, charmaz_3e_ch7, charmaz_3e_ch8]}
-  - {<<: *m, record_id: p05.move.adequacy, parent_phase: p05.phase.develop, label: appraise category adequacy and decide return or integration, inputs: [revised_category_and_memo_bundle], output: adequacy_appraisal, information_origin: [interpreted], method_owned_rule: adequacy_is_a_reasoned_category_specific_judgment_not_a_count, permitted_conclusion: return_for_more_sampling_or_integrate_or_stop_with_partial_account, source_basis: charmaz_2024_3e_ch8_and_tie_2019, exact_anchors: [charmaz_3e_ch8, tie_2019_theoretical_saturation], acceptance_authority: methodological_reviewer}
-  - {<<: *m, record_id: p05.move.integrate, parent_phase: p05.phase.develop, label: integrate categories into a reflexively bounded theory, inputs: [revised_category_and_memo_bundle, adequacy_appraisal, inquiry_and_reflexive_position_record], output: bounded_interpretive_theory_or_partial_account, information_origin: [interpreted], method_owned_rule: integration_preserves_data_grounding_relationships_researcher_position_and_limits, permitted_conclusion: situated_explanatory_account_with_declared_range_and_gaps, source_basis: charmaz_2024_3e_chs_9_12, exact_anchors: [charmaz_3e_ch9, charmaz_3e_ch12]}
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.orient
+  parent_phase: p05.phase.orient
+  label: locate inquiry and researcher position
+  information_origin:
+  - reported
+  - interpreted
+  method_owned_rule: sensitizing_concepts_open_inquiry_but_do_not_precode_findings
+  permitted_conclusion: inquiry_position_and_initial_scope_are_explicit
+  source_basis: charmaz_2024_3e_chs_1_2_12
+  exact_anchors:
+  - charmaz_3e_ch1
+  - charmaz_3e_ch2
+  - charmaz_3e_ch12
+  verb: define
+  inputs:
+  - slot: research_problem
+    type: gap
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: prior_experience
+    type: memo
+    role: context
+    cardinality: one
+    optional: false
+  - slot: sensitizing_concepts
+    type: concept
+    role: context
+    cardinality: many
+    optional: false
+  - slot: participant_governance
+    type: configuration
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: inquiry_and_reflexive_position_record
+    type: memo
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.gather
+  parent_phase: p05.phase.orient
+  label: generate rich initial material
+  information_origin:
+  - observed
+  - reported
+  method_owned_rule: material_is_rich_relevant_and_open_to_participant_meaning
+  permitted_conclusion: initial_material_can_enter_close_analysis
+  source_basis: charmaz_2024_3e_chs_2_4
+  exact_anchors:
+  - charmaz_3e_ch2
+  - charmaz_3e_ch3
+  - charmaz_3e_ch4
+  verb: acquire
+  inputs:
+  - slot: inquiry_and_reflexive_position_record
+    type: memo
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: purposive_starting_sample
+    type: case_set
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: governed_source_increment
+    type: source_document
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.initial_code
+  parent_phase: p05.phase.interpret
+  label: segment and initially code incidents
+  information_origin:
+  - observed
+  - reported
+  - interpreted
+  method_owned_rule: close_action_oriented_codes_remain_provisional_and_anchored
+  permitted_conclusion: incidents_have_interpretive_labels_for_comparison
+  source_basis: charmaz_2024_3e_ch5
+  exact_anchors:
+  - charmaz_3e_ch5
+  verb: code
+  inputs:
+  - slot: governed_source_increment
+    type: source_document
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: anchor_manifest
+    type: passage_anchor
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: anchored_provisional_codes
+    type: code
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.compare_memo
+  parent_phase: p05.phase.interpret
+  label: constantly compare and write analytic reflexive memos
+  information_origin:
+  - interpreted
+  method_owned_rule: comparisons_and_memos_develop_properties_variation_questions_and_researcher_influence
+  permitted_conclusion: promising_concepts_and_gaps_are_visible
+  source_basis: charmaz_2024_3e_chs_5_7
+  exact_anchors:
+  - charmaz_3e_ch5
+  - charmaz_3e_ch6
+  - charmaz_3e_ch7
+  verb: compare
+  inputs:
+  - slot: anchored_provisional_codes
+    type: code
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: inquiry_and_reflexive_position_record
+    type: memo
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: comparison_and_memo_bundle
+    type: memo
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.focus_categories
+  parent_phase: p05.phase.develop
+  label: select focused codes and construct provisional categories
+  information_origin:
+  - interpreted
+  method_owned_rule: conceptual_significance_and_explanatory_reach_not_frequency_own_selection
+  permitted_conclusion: categories_are_provisional_and_direct_further_inquiry
+  source_basis: charmaz_2024_3e_chs_6_7
+  exact_anchors:
+  - charmaz_3e_ch6
+  - charmaz_3e_ch7
+  verb: conceptualize
+  inputs:
+  - slot: anchored_provisional_codes
+    type: code
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: comparison_and_memo_bundle
+    type: memo
+    role: context
+    cardinality: one
+    optional: false
+  - slot: memo_version_receipt
+    type: review_event
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: provisional_categories_with_properties_and_gaps
+    type: concept
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards:
+    temporal: provisional_categories_precede_theoretical_sampling
+    access: new_access_and_consent_are_recorded
+    run_version: sampling_creates_successor_corpus_version
+  record_id: p05.move.theoretical_sample
+  parent_phase: p05.phase.develop
+  label: direct theoretical sampling from category gaps
+  information_origin:
+  - interpreted
+  - observed
+  - reported
+  method_owned_rule: emerging_category_need_not_demographic_representativeness_directs_sampling
+  permitted_conclusion: new_material_targets_named_theoretical_gaps
+  source_basis: charmaz_2024_3e_ch8
+  exact_anchors:
+  - charmaz_3e_ch8
+  verb: acquire
+  inputs:
+  - slot: provisional_categories_with_properties_and_gaps
+    type: concept
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: comparison_and_memo_bundle
+    type: memo
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: targeted_successor_source_increment
+    type: source_document
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.refine
+  parent_phase: p05.phase.develop
+  label: recode compare and revise categories with new material
+  information_origin:
+  - observed
+  - reported
+  - interpreted
+  method_owned_rule: new_material_may_split_relate_qualify_or_reject_categories
+  permitted_conclusion: category_development_accounts_for_supporting_and_disconfirming_variation
+  source_basis: charmaz_2024_3e_chs_5_8
+  exact_anchors:
+  - charmaz_3e_ch5
+  - charmaz_3e_ch6
+  - charmaz_3e_ch7
+  - charmaz_3e_ch8
+  verb: revise
+  inputs:
+  - slot: targeted_successor_source_increment
+    type: source_document
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: provisional_categories_with_properties_and_gaps
+    type: concept
+    role: context
+    cardinality: many
+    optional: false
+  - slot: comparison_and_memo_bundle
+    type: memo
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: revised_category_and_memo_bundle
+    type: memo
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.adequacy
+  parent_phase: p05.phase.develop
+  label: appraise category adequacy and decide return or integration
+  information_origin:
+  - interpreted
+  method_owned_rule: adequacy_is_a_reasoned_category_specific_judgment_not_a_count
+  permitted_conclusion: return_for_more_sampling_or_integrate_or_stop_with_partial_account
+  source_basis: charmaz_2024_3e_ch8_and_tie_2019
+  exact_anchors:
+  - charmaz_3e_ch8
+  - tie_2019_theoretical_saturation
+  verb: review
+  inputs:
+  - slot: revised_category_and_memo_bundle
+    type: memo
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: adequacy_appraisal
+    type: appraisal
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
+  applicability_boundary: selected_variant_and_declared_study_scope
+  refusal_or_qualification: bounded_partial_account_with_named_gaps
+  performer: grounded_theory_researcher
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_participant_governance
+  decision_authority: none
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p05.move.integrate
+  parent_phase: p05.phase.develop
+  label: integrate categories into a reflexively bounded theory
+  information_origin:
+  - interpreted
+  method_owned_rule: integration_preserves_data_grounding_relationships_researcher_position_and_limits
+  permitted_conclusion: situated_explanatory_account_with_declared_range_and_gaps
+  source_basis: charmaz_2024_3e_chs_9_12
+  exact_anchors:
+  - charmaz_3e_ch9
+  - charmaz_3e_ch12
+  verb: construct
+  inputs:
+  - slot: revised_category_and_memo_bundle
+    type: memo
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: adequacy_appraisal
+    type: appraisal
+    role: context
+    cardinality: one
+    optional: false
+  - slot: inquiry_and_reflexive_position_record
+    type: memo
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: bounded_interpretive_theory_or_partial_account
+    type: theory
+    role: result
+    cardinality: one
+    optional: false
 actions:
-  - {<<: *a, record_id: p05.action.persist_anchors, parent_move: p05.move.initial_code, label: persist exact source and incident anchors, inputs: [governed_source_increment], output: anchor_manifest, method_owned_rule: none, permitted_conclusion: no_analytic_conclusion, source_basis: execution_support_no_independent_method_warrant, exact_anchors: [instrument_exact_anchor_field]}
-  - {<<: *a, record_id: p05.action.version_memos, parent_move: p05.move.compare_memo, label: version memos and comparison lineage, operation_kind: methodological_support, performer: grounded_theory_researcher, inputs: [comparison_and_memo_bundle], output: memo_version_receipt, method_owned_rule: researcher_confirms_reflexive_content, permitted_conclusion: lineage_is_auditable, source_basis: charmaz_2024_3e_ch7, exact_anchors: [charmaz_3e_ch7]}
+- level: execution_action
+  operation_kind: runtime_delivery
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: action_failure_blocks_parent_move
+  performer: research_support_system
+  judgment_owner: none
+  acceptance_authority: grounded_theory_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p05.action.persist_anchors
+  parent_move: p05.move.initial_code
+  label: persist exact source and incident anchors
+  method_owned_rule: none
+  permitted_conclusion: no_analytic_conclusion
+  source_basis: execution_support_no_independent_method_warrant
+  exact_anchors:
+  - instrument_exact_anchor_field
+  verb: anchor
+  inputs:
+  - slot: governed_source_increment
+    type: source_document
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: anchor_manifest
+    type: passage_anchor
+    role: result
+    cardinality: one
+    optional: false
+- level: execution_action
+  operation_kind: methodological_support
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: action_failure_blocks_parent_move
+  performer: grounded_theory_researcher
+  judgment_owner: none
+  acceptance_authority: grounded_theory_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p05.action.version_memos
+  parent_move: p05.move.compare_memo
+  label: version memos and comparison lineage
+  method_owned_rule: researcher_confirms_reflexive_content
+  permitted_conclusion: lineage_is_auditable
+  source_basis: charmaz_2024_3e_ch7
+  exact_anchors:
+  - charmaz_3e_ch7
+  verb: annotate
+  inputs:
+  - slot: comparison_and_memo_bundle
+    type: memo
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: memo_version_receipt
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false

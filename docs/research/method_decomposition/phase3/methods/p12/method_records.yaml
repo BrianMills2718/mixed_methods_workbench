@@ -2,22 +2,571 @@ schema_version: phase3-method-records-1.0
 method_id: P12
 variant: three_round_anonymous_policy_delphi
 defaults:
-  move: &m {level: analytical_move, operation_kind: analytic, source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments, applicability_boundary: frozen_three_round_anonymous_policy_delphi, refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus, performer: delphi_conveners_and_panelists, judgment_owner: individual_anonymous_panelists, acceptance_authority: delphi_method_lead_and_independent_reviewer, recommender: policy_analysis_sponsor_if_advice_is_in_scope, value_goal_authority: study_sponsor_with_stakeholder_governance, decision_authority: accountable_policy_decision_maker, implementation_evidence: methodology_reference_only, collision_participation: level_2_only, guards: {temporal: freeze_protocol_then_rounds_one_two_three, access: conveners_protect_identity_and_panelists_receive_controlled_feedback, run_version: immutable_round_inputs_responses_and_successor_feedback}}
-  action: &a {level: execution_action, operation_kind: runtime_delivery, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution_support, applicability_boundary: parent_round_only, refusal_or_qualification: execution_failure_blocks_or_qualifies_round, performer: survey_and_analysis_system, judgment_owner: none, acceptance_authority: delphi_method_lead, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, collision_participation: level_3_only, guards: {temporal: no_future_round_feedback_leakage, access: pseudonymous_responses_and_role_based_identity_access, run_version: receipt_binds_questionnaire_response_and_feedback_versions}}
+  move:
+    level: analytical_move
+    operation_kind: analytic
+    source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+    applicability_boundary: frozen_three_round_anonymous_policy_delphi
+    refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+    performer: delphi_conveners_and_panelists
+    judgment_owner: individual_anonymous_panelists
+    acceptance_authority: delphi_method_lead_and_independent_reviewer
+    recommender: policy_analysis_sponsor_if_advice_is_in_scope
+    value_goal_authority: study_sponsor_with_stakeholder_governance
+    decision_authority: accountable_policy_decision_maker
+    implementation_evidence: methodology_reference_only
+    collision_participation: level_2_only
+    guards: &id001
+      temporal: freeze_protocol_then_rounds_one_two_three
+      access: conveners_protect_identity_and_panelists_receive_controlled_feedback
+      run_version: immutable_round_inputs_responses_and_successor_feedback
+  action:
+    level: execution_action
+    operation_kind: runtime_delivery
+    information_origin: &id002
+    - derived
+    source_authority_or_inferential_role: parent_move_execution_support
+    applicability_boundary: parent_round_only
+    refusal_or_qualification: execution_failure_blocks_or_qualifies_round
+    performer: survey_and_analysis_system
+    judgment_owner: none
+    acceptance_authority: delphi_method_lead
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    collision_participation: level_3_only
+    guards: &id003
+      temporal: no_future_round_feedback_leakage
+      access: pseudonymous_responses_and_role_based_identity_access
+      run_version: receipt_binds_questionnaire_response_and_feedback_versions
 phases:
-  - {record_id: p12.phase.design, level: method_phase, label: justify design panel and protocol, operation_kinds: [analytic, methodological_support], collision_participation: none}
-  - {record_id: p12.phase.elicit, level: method_phase, label: conduct three anonymous rounds with controlled feedback, operation_kinds: [analytic, runtime_delivery], collision_participation: none}
-  - {record_id: p12.phase.interpret, level: method_phase, label: analyze stability disagreement and limits, operation_kinds: [analytic, methodological_support], collision_participation: none}
+- record_id: p12.phase.design
+  level: method_phase
+  label: justify design panel and protocol
+  operation_kinds:
+  - analytic
+  - methodological_support
+  collision_participation: none
+- record_id: p12.phase.elicit
+  level: method_phase
+  label: conduct three anonymous rounds with controlled feedback
+  operation_kinds:
+  - analytic
+  - runtime_delivery
+  collision_participation: none
+- record_id: p12.phase.interpret
+  level: method_phase
+  label: analyze stability disagreement and limits
+  operation_kinds:
+  - analytic
+  - methodological_support
+  collision_participation: none
 moves:
-  - {<<: *m, record_id: p12.move.design, parent_phase: p12.phase.design, label: justify Delphi and freeze questions rounds feedback and analysis rules, inputs: [policy_question, available_evidence, stakeholder_goals], output: frozen_delphi_protocol, information_origin: [reported, interpreted, elicited], method_owned_rule: delphi_addresses_uncertain_expert_judgment_and_prespecifies_three_rounds_without_truth_claim, permitted_conclusion: panel_work_has_auditable_design, source_basis: rand_tla3082_chs1_3, exact_anchors: [rand_tla3082_ch1_purpose, rand_tla3082_ch3_design], operation_kind: methodological_support}
-  - {<<: *m, record_id: p12.move.panel, parent_phase: p12.phase.design, label: construct and recruit purposive expert panel, inputs: [frozen_delphi_protocol, expertise_domains, conflict_and_access_records], output: eligible_invited_and_enrolled_panel_ledger, information_origin: [reported, derived], method_owned_rule: panel_eligibility_matches_question_and_diversity_without_population_representativeness_claim, permitted_conclusion: declared_expertise_bases_panel_judgments, source_basis: rand_tla3082_ch3, exact_anchors: [rand_tla3082_panel_eligibility_recruitment]}
-  - {<<: *m, record_id: p12.move.round1, parent_phase: p12.phase.elicit, label: elicit independent anonymous round-one judgments and rationales, inputs: [frozen_delphi_protocol, eligible_invited_and_enrolled_panel_ledger], output: round1_pseudonymous_responses, information_origin: [elicited], method_owned_rule: panelists_answer_independently_before_group_feedback, permitted_conclusion: initial_judgment_distribution_and_rationales_are_available, source_basis: rand_tla3082_chs2_4, exact_anchors: [rand_tla3082_classical_process, rand_tla3082_ch4]}
-  - {<<: *m, record_id: p12.move.feedback1, parent_phase: p12.phase.elicit, label: create controlled anonymous quantitative and qualitative feedback, inputs: [round1_pseudonymous_responses, frozen_delphi_protocol], output: round1_feedback_packet, information_origin: [derived, interpreted], method_owned_rule: summaries_preserve_distribution_dissent_and_anonymized_reasoning_without_persuasion, permitted_conclusion: panelists_can_reconsider_against_visible_group_response, source_basis: rand_tla3082_ch2, exact_anchors: [rand_tla3082_feedback_characteristic]}
-  - {<<: *m, record_id: p12.move.round2, parent_phase: p12.phase.elicit, label: elicit anonymous round-two revisions with reasons, inputs: [round1_feedback_packet, round1_pseudonymous_responses], output: round2_pseudonymous_responses_and_change_reasons, information_origin: [elicited], method_owned_rule: each_panelist_retains_authority_to_revise_or_hold, permitted_conclusion: judgment_change_and_persistence_are_visible, source_basis: rand_tla3082_ch2, exact_anchors: [rand_tla3082_classical_process]}
-  - {<<: *m, record_id: p12.move.feedback2, parent_phase: p12.phase.elicit, label: analyze interim stability disagreement and prepare second feedback, inputs: [round1_pseudonymous_responses, round2_pseudonymous_responses_and_change_reasons, frozen_delphi_protocol], output: round2_feedback_packet_with_stability_and_dissensus, information_origin: [derived, interpreted], method_owned_rule: prespecified_statistics_and_comments_show_convergence_stability_and_minority_views, permitted_conclusion: third_round_feedback_is_bounded_and_auditable, source_basis: rand_tla3082_ch5, exact_anchors: [rand_tla3082_ch5_stability_consensus_comments]}
-  - {<<: *m, record_id: p12.move.round3, parent_phase: p12.phase.elicit, label: elicit final anonymous round-three judgments and rationales, inputs: [round2_feedback_packet_with_stability_and_dissensus, round2_pseudonymous_responses_and_change_reasons], output: round3_final_pseudonymous_responses, information_origin: [elicited], method_owned_rule: final_round_does_not_force_convergence_or_erase_prior_positions, permitted_conclusion: final_panel_judgments_are_frozen, source_basis: rand_tla3082_ch2, exact_anchors: [rand_tla3082_iterations_two_or_three_rounds]}
-  - {<<: *m, record_id: p12.move.interpret, parent_phase: p12.phase.interpret, label: interpret stability consensus dissensus attrition and limits, inputs: [round1_pseudonymous_responses, round2_pseudonymous_responses_and_change_reasons, round3_final_pseudonymous_responses, eligible_invited_and_enrolled_panel_ledger, frozen_delphi_protocol], output: bounded_delphi_findings, information_origin: [derived, interpreted], method_owned_rule: consensus_is_a_panel_state_not_truth_and_stable_dissensus_is_retained, permitted_conclusion: panel_judgment_patterns_under_declared_composition_and_rules, source_basis: rand_tla3082_chs5_6, exact_anchors: [rand_tla3082_ch5, rand_tla3082_ch6]}
-  - {<<: *m, record_id: p12.move.report, parent_phase: p12.phase.interpret, label: report panel flow round histories findings and limitations, inputs: [bounded_delphi_findings, frozen_delphi_protocol], output: auditable_policy_delphi_report, information_origin: [derived, interpreted], method_owned_rule: report_separates_panel_evidence_from_policy_advice_and_decision, permitted_conclusion: expert_judgment_evidence_can_inform_but_not_determine_policy, source_basis: rand_tla3082_ch6_and_dcat, exact_anchors: [rand_tla3082_ch6, rand_tla3082_dcat], operation_kind: methodological_support}
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.design
+  parent_phase: p12.phase.design
+  label: justify Delphi and freeze questions rounds feedback and analysis rules
+  information_origin:
+  - reported
+  - interpreted
+  - elicited
+  method_owned_rule: delphi_addresses_uncertain_expert_judgment_and_prespecifies_three_rounds_without_truth_claim
+  permitted_conclusion: panel_work_has_auditable_design
+  source_basis: rand_tla3082_chs1_3
+  exact_anchors:
+  - rand_tla3082_ch1_purpose
+  - rand_tla3082_ch3_design
+  verb: construct
+  inputs:
+  - slot: policy_question
+    type: claim
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: available_evidence
+    type: evidence_item
+    role: context
+    cardinality: one
+    optional: false
+  - slot: stakeholder_goals
+    type: value_judgment
+    role: criteria
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.panel
+  parent_phase: p12.phase.design
+  label: construct and recruit purposive expert panel
+  information_origin:
+  - reported
+  - derived
+  method_owned_rule: panel_eligibility_matches_question_and_diversity_without_population_representativeness_claim
+  permitted_conclusion: declared_expertise_bases_panel_judgments
+  source_basis: rand_tla3082_ch3
+  exact_anchors:
+  - rand_tla3082_panel_eligibility_recruitment
+  verb: identify
+  inputs:
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: expertise_domains
+    type: criterion
+    role: context
+    cardinality: one
+    optional: false
+  - slot: conflict_and_access_records
+    type: review_event
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: eligible_invited_and_enrolled_panel_ledger
+    type: case_set
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.round1
+  parent_phase: p12.phase.elicit
+  label: elicit independent anonymous round-one judgments and rationales
+  information_origin:
+  - elicited
+  method_owned_rule: panelists_answer_independently_before_group_feedback
+  permitted_conclusion: initial_judgment_distribution_and_rationales_are_available
+  source_basis: rand_tla3082_chs2_4
+  exact_anchors:
+  - rand_tla3082_classical_process
+  - rand_tla3082_ch4
+  verb: acquire
+  inputs:
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: eligible_invited_and_enrolled_panel_ledger
+    type: case_set
+    role: context
+    cardinality: one
+    optional: false
+  - slot: round_delivery_receipt
+    type: review_event
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: round1_pseudonymous_responses
+    type: dataset
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.feedback1
+  parent_phase: p12.phase.elicit
+  label: create controlled anonymous quantitative and qualitative feedback
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: summaries_preserve_distribution_dissent_and_anonymized_reasoning_without_persuasion
+  permitted_conclusion: panelists_can_reconsider_against_visible_group_response
+  source_basis: rand_tla3082_ch2
+  exact_anchors:
+  - rand_tla3082_feedback_characteristic
+  verb: synthesize
+  inputs:
+  - slot: round1_pseudonymous_responses
+    type: dataset
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: criteria
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: round1_feedback_packet
+    type: finding
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.round2
+  parent_phase: p12.phase.elicit
+  label: elicit anonymous round-two revisions with reasons
+  information_origin:
+  - elicited
+  method_owned_rule: each_panelist_retains_authority_to_revise_or_hold
+  permitted_conclusion: judgment_change_and_persistence_are_visible
+  source_basis: rand_tla3082_ch2
+  exact_anchors:
+  - rand_tla3082_classical_process
+  verb: revise
+  inputs:
+  - slot: round1_feedback_packet
+    type: finding
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: round1_pseudonymous_responses
+    type: dataset
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: round2_pseudonymous_responses_and_change_reasons
+    type: dataset
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.feedback2
+  parent_phase: p12.phase.elicit
+  label: analyze interim stability disagreement and prepare second feedback
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: prespecified_statistics_and_comments_show_convergence_stability_and_minority_views
+  permitted_conclusion: third_round_feedback_is_bounded_and_auditable
+  source_basis: rand_tla3082_ch5
+  exact_anchors:
+  - rand_tla3082_ch5_stability_consensus_comments
+  verb: synthesize
+  inputs:
+  - slot: round1_pseudonymous_responses
+    type: dataset
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: round2_pseudonymous_responses_and_change_reasons
+    type: dataset
+    role: context
+    cardinality: many
+    optional: false
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: criteria
+    cardinality: one
+    optional: false
+  - slot: summary_statistics_receipt
+    type: estimate
+    role: context
+    cardinality: optional_many
+    optional: true
+  outputs:
+  - slot: round2_feedback_packet_with_stability_and_dissensus
+    type: finding
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.round3
+  parent_phase: p12.phase.elicit
+  label: elicit final anonymous round-three judgments and rationales
+  information_origin:
+  - elicited
+  method_owned_rule: final_round_does_not_force_convergence_or_erase_prior_positions
+  permitted_conclusion: final_panel_judgments_are_frozen
+  source_basis: rand_tla3082_ch2
+  exact_anchors:
+  - rand_tla3082_iterations_two_or_three_rounds
+  verb: revise
+  inputs:
+  - slot: round2_feedback_packet_with_stability_and_dissensus
+    type: finding
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: round2_pseudonymous_responses_and_change_reasons
+    type: dataset
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: round3_final_pseudonymous_responses
+    type: dataset
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.interpret
+  parent_phase: p12.phase.interpret
+  label: interpret stability consensus dissensus attrition and limits
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: consensus_is_a_panel_state_not_truth_and_stable_dissensus_is_retained
+  permitted_conclusion: panel_judgment_patterns_under_declared_composition_and_rules
+  source_basis: rand_tla3082_chs5_6
+  exact_anchors:
+  - rand_tla3082_ch5
+  - rand_tla3082_ch6
+  verb: review
+  inputs:
+  - slot: round1_pseudonymous_responses
+    type: dataset
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: round2_pseudonymous_responses_and_change_reasons
+    type: dataset
+    role: context
+    cardinality: many
+    optional: false
+  - slot: round3_final_pseudonymous_responses
+    type: dataset
+    role: context
+    cardinality: many
+    optional: false
+  - slot: eligible_invited_and_enrolled_panel_ledger
+    type: case_set
+    role: context
+    cardinality: one
+    optional: false
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: criteria
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: bounded_delphi_findings
+    type: finding
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
+  applicability_boundary: frozen_three_round_anonymous_policy_delphi
+  refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
+  performer: delphi_conveners_and_panelists
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_advice_is_in_scope
+  value_goal_authority: study_sponsor_with_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p12.move.report
+  parent_phase: p12.phase.interpret
+  label: report panel flow round histories findings and limitations
+  information_origin:
+  - derived
+  - interpreted
+  method_owned_rule: report_separates_panel_evidence_from_policy_advice_and_decision
+  permitted_conclusion: expert_judgment_evidence_can_inform_but_not_determine_policy
+  source_basis: rand_tla3082_ch6_and_dcat
+  exact_anchors:
+  - rand_tla3082_ch6
+  - rand_tla3082_dcat
+  verb: synthesize
+  inputs:
+  - slot: bounded_delphi_findings
+    type: finding
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: criteria
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: auditable_policy_delphi_report
+    type: finding
+    role: result
+    cardinality: one
+    optional: false
 actions:
-  - {<<: *a, record_id: p12.action.deliver_round, parent_move: p12.move.round1, label: deliver questionnaire and persist pseudonymous response receipt, inputs: [frozen_delphi_protocol], output: round_delivery_receipt, method_owned_rule: none, permitted_conclusion: no_analytic_conclusion, source_basis: rand_tla3082_ch4, exact_anchors: [rand_tla3082_software]}
-  - {<<: *a, record_id: p12.action.compute_summary, parent_move: p12.move.feedback2, label: compute prespecified distributions stability and attrition, operation_kind: analytic, inputs: [round1_pseudonymous_responses, round2_pseudonymous_responses_and_change_reasons], output: summary_statistics_receipt, method_owned_rule: analysis_rules_from_frozen_protocol, permitted_conclusion: numeric_panel_summary_only, source_basis: rand_tla3082_ch5, exact_anchors: [rand_tla3082_descriptive_statistics_stability]}
+- level: execution_action
+  operation_kind: runtime_delivery
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_round_only
+  refusal_or_qualification: execution_failure_blocks_or_qualifies_round
+  performer: survey_and_analysis_system
+  judgment_owner: none
+  acceptance_authority: delphi_method_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p12.action.deliver_round
+  parent_move: p12.move.round1
+  label: deliver questionnaire and persist pseudonymous response receipt
+  method_owned_rule: none
+  permitted_conclusion: no_analytic_conclusion
+  source_basis: rand_tla3082_ch4
+  exact_anchors:
+  - rand_tla3082_software
+  verb: project
+  inputs:
+  - slot: frozen_delphi_protocol
+    type: review_protocol
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: round_delivery_receipt
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false
+- level: execution_action
+  operation_kind: analytic
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_round_only
+  refusal_or_qualification: execution_failure_blocks_or_qualifies_round
+  performer: survey_and_analysis_system
+  judgment_owner: none
+  acceptance_authority: delphi_method_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p12.action.compute_summary
+  parent_move: p12.move.feedback2
+  label: compute prespecified distributions stability and attrition
+  method_owned_rule: analysis_rules_from_frozen_protocol
+  permitted_conclusion: numeric_panel_summary_only
+  source_basis: rand_tla3082_ch5
+  exact_anchors:
+  - rand_tla3082_descriptive_statistics_stability
+  verb: aggregate
+  inputs:
+  - slot: round1_pseudonymous_responses
+    type: dataset
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: round2_pseudonymous_responses_and_change_reasons
+    type: dataset
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: summary_statistics_receipt
+    type: estimate
+    role: result
+    cardinality: many
+    optional: false
