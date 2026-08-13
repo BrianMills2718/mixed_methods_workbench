@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 13 Aug 2026 19:40:23 GMT
+Content-Type: text/csv; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+ETag: W/"aW5kaWEuNzM4NTFfMV8xMDQ5N3lKeUNmb1Z2TzhLWWRtNmc1WlE0QV8tLTA---gzipdNWoR8k4jXEZnbmKeRBqX8ep-_Q--gzip--gzip"
+X-SODA2-Fields: ["toll_date","detection_group","vehicle_class","crz_entries","excluded_roadway_entries"]
+X-SODA2-Types: ["floating_timestamp","text","text","number","number"]
+X-SODA2-Data-Out-Of-Date: false
+X-SODA2-Truth-Last-Modified: Thu, 13 Aug 2026 18:29:49 GMT
+X-SODA2-Secondary-Last-Modified: Thu, 13 Aug 2026 18:29:49 GMT
+Last-Modified: Thu, 13 Aug 2026 18:29:49 GMT
+Vary: Accept-Encoding
+X-Socrata-Region: aws-us-east-1-fedramp-prod
+X-Socrata-RequestId: b158e67a7605d04c021da4140ff9e4db
+Strict-Transport-Security: max-age=31536000; includeSubDomains

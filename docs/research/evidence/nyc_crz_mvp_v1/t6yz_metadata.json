@@ -1,0 +1,997 @@
+{
+  "id" : "t6yz-b64h",
+  "name" : "MTA Congestion Relief Zone Vehicle Entries: Beginning 2025",
+  "assetType" : "dataset",
+  "attribution" : "Metropolitan Transportation Authority",
+  "attributionLink" : "https://www.mta.info/open-data",
+  "averageRating" : 0,
+  "category" : "Transportation",
+  "createdAt" : 1738077340,
+  "description" : "This dataset provides the number of crossings into the Congestion Relief Zone by crossing location and vehicle class, in 10-minute intervals. This data should not be used for revenue calculations, as entries do not include information about exemption statuses, payment methods, and repeat entries.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 5401,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 41077314,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1738078628,
+  "publicationGroup" : 19750817,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1786645789,
+  "rowsUpdatedBy" : "xzik-pf59",
+  "tableId" : 19750817,
+  "totalTimesRated" : 0,
+  "viewCount" : 28272,
+  "viewLastModified" : 1786645269,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1738257231,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 6713265,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1738257231,
+    "targetAudience" : "public",
+    "workflowId" : 2254,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1738257231,
+      "failureCount" : 0,
+      "startedAt" : 1738257231,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "28jg-4c4u",
+      "displayName" : "Open Data Administrator 1"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 604580143,
+    "name" : "Toll Date",
+    "dataTypeName" : "calendar_date",
+    "description" : "Date on which the vehicle entry is allocated to in MM/DD/YYYY format.",
+    "fieldName" : "toll_date",
+    "position" : 1,
+    "renderTypeName" : "calendar_date",
+    "tableColumnId" : 156474871,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "2026-08-08T00:00:00.000",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2025-01-06T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-07T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-08T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-09T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-10T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-11T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-12T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-13T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-14T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-15T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-16T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-17T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-18T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-19T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-20T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-21T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-22T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-23T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-24T00:00:00.000",
+        "count" : "10368"
+      }, {
+        "item" : "2025-01-05T00:00:00.000",
+        "count" : "10368"
+      } ],
+      "smallest" : "2025-01-05T00:00:00.000",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "view" : "date",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580142,
+    "name" : "Toll Hour",
+    "dataTypeName" : "calendar_date",
+    "description" : "Hour on which the vehicle entry is allocated to, represented as a timestamp at 0 minutes in MM/DD/YYYY HH:MM:SS AM/PM format.",
+    "fieldName" : "toll_hour",
+    "position" : 2,
+    "renderTypeName" : "calendar_date",
+    "tableColumnId" : 156474870,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "2026-08-08T23:00:00.000",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2025-11-18T05:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-06-19T09:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-02-06T01:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-05-04T02:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-10-21T23:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-03-21T15:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-12-09T21:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-08-01T14:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-02-23T01:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-02-19T09:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-04-23T14:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-03-31T17:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-03-24T07:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-03-10T09:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-05-23T04:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-11-10T10:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-04-03T07:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-01-04T20:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2025-02-20T06:00:00.000",
+        "count" : "432"
+      }, {
+        "item" : "2026-03-10T13:00:00.000",
+        "count" : "432"
+      } ],
+      "smallest" : "2025-01-05T00:00:00.000",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "view" : "date_time",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580141,
+    "name" : "Toll 10 Minute Block",
+    "dataTypeName" : "calendar_date",
+    "description" : "10-minute block within the hour on which the vehicle entry is allocated to, represented as a timestamp at the start of the block in MM/DD/YYYY HH:MM:SS AM/PM format.",
+    "fieldName" : "toll_10_minute_block",
+    "position" : 3,
+    "renderTypeName" : "calendar_date",
+    "tableColumnId" : 156474869,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "2026-08-08T23:50:00.000",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2026-04-14T13:40:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2026-02-06T01:00:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-06-11T05:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-06-24T11:40:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-04-08T04:40:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-05-17T09:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2026-06-04T23:20:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-09-13T01:50:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-10-21T23:00:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-06-06T13:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2026-04-17T18:20:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2026-01-23T19:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-02-04T09:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-06-23T05:20:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2026-02-26T05:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-03-26T09:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-07-11T19:50:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-05-03T12:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2025-08-17T05:10:00.000",
+        "count" : "72"
+      }, {
+        "item" : "2026-06-09T11:40:00.000",
+        "count" : "72"
+      } ],
+      "smallest" : "2025-01-05T00:00:00.000",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "view" : "date_time",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580140,
+    "name" : "Minute of Hour",
+    "dataTypeName" : "number",
+    "description" : "Starting minute of the 10 minute block for this entry.",
+    "fieldName" : "minute_of_hour",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 156474868,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "50",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "1003968"
+      }, {
+        "item" : "10",
+        "count" : "1003968"
+      }, {
+        "item" : "20",
+        "count" : "1003968"
+      }, {
+        "item" : "30",
+        "count" : "1003968"
+      }, {
+        "item" : "40",
+        "count" : "1003968"
+      }, {
+        "item" : "50",
+        "count" : "1003968"
+      } ],
+      "smallest" : "0",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "groupSeparator" : ",",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580139,
+    "name" : "Hour of Day",
+    "dataTypeName" : "number",
+    "description" : "Hour on which the vehicle entry is allocated as a  single integer.",
+    "fieldName" : "hour_of_day",
+    "position" : 5,
+    "renderTypeName" : "number",
+    "tableColumnId" : 156474867,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "23",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "250992"
+      }, {
+        "item" : "1",
+        "count" : "250992"
+      }, {
+        "item" : "2",
+        "count" : "250992"
+      }, {
+        "item" : "3",
+        "count" : "250992"
+      }, {
+        "item" : "4",
+        "count" : "250992"
+      }, {
+        "item" : "5",
+        "count" : "250992"
+      }, {
+        "item" : "6",
+        "count" : "250992"
+      }, {
+        "item" : "7",
+        "count" : "250992"
+      }, {
+        "item" : "8",
+        "count" : "250992"
+      }, {
+        "item" : "9",
+        "count" : "250992"
+      }, {
+        "item" : "10",
+        "count" : "250992"
+      }, {
+        "item" : "11",
+        "count" : "250992"
+      }, {
+        "item" : "12",
+        "count" : "250992"
+      }, {
+        "item" : "13",
+        "count" : "250992"
+      }, {
+        "item" : "14",
+        "count" : "250992"
+      }, {
+        "item" : "15",
+        "count" : "250992"
+      }, {
+        "item" : "16",
+        "count" : "250992"
+      }, {
+        "item" : "17",
+        "count" : "250992"
+      }, {
+        "item" : "18",
+        "count" : "250992"
+      }, {
+        "item" : "19",
+        "count" : "250992"
+      } ],
+      "smallest" : "0",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "groupSeparator" : ",",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580138,
+    "name" : "Day of Week Int",
+    "dataTypeName" : "number",
+    "description" : "Day of the week of the Toll Hour, represented as a numeral. 1 corresponds to Sunday, and 7 corresponds to Saturday. ",
+    "fieldName" : "day_of_week_int",
+    "position" : 6,
+    "renderTypeName" : "number",
+    "tableColumnId" : 156474866,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "7",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "860544"
+      }, {
+        "item" : "2",
+        "count" : "860544"
+      }, {
+        "item" : "3",
+        "count" : "860544"
+      }, {
+        "item" : "4",
+        "count" : "860544"
+      }, {
+        "item" : "5",
+        "count" : "860544"
+      }, {
+        "item" : "6",
+        "count" : "860544"
+      }, {
+        "item" : "7",
+        "count" : "860544"
+      } ],
+      "smallest" : "1",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "groupSeparator" : ",",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580137,
+    "name" : "Day of Week",
+    "dataTypeName" : "text",
+    "description" : " Day of the week of the Toll Hour as plain text (i.e. Sunday, Monday, etc.)",
+    "fieldName" : "day_of_week",
+    "position" : 7,
+    "renderTypeName" : "text",
+    "tableColumnId" : 156474865,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "Wednesday",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Friday",
+        "count" : "860544"
+      }, {
+        "item" : "Monday",
+        "count" : "860544"
+      }, {
+        "item" : "Saturday",
+        "count" : "860544"
+      }, {
+        "item" : "Sunday",
+        "count" : "860544"
+      }, {
+        "item" : "Thursday",
+        "count" : "860544"
+      }, {
+        "item" : "Tuesday",
+        "count" : "860544"
+      }, {
+        "item" : "Wednesday",
+        "count" : "860544"
+      } ],
+      "smallest" : "Friday",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580136,
+    "name" : "Toll Week",
+    "dataTypeName" : "calendar_date",
+    "description" : "The Sunday corresponding to the Toll Date, defining the weeks of data in MM/DD/YYYY format.",
+    "fieldName" : "toll_week",
+    "position" : 8,
+    "renderTypeName" : "calendar_date",
+    "tableColumnId" : 156474864,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "2026-08-02T00:00:00.000",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2025-01-12T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-01-19T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-01-26T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-02-02T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-02-09T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-02-16T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-02-23T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-03-02T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-03-09T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-03-16T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-03-23T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-03-30T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-04-06T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-04-13T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-04-20T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-04-27T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-05-04T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-05-11T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-05-18T00:00:00.000",
+        "count" : "72576"
+      }, {
+        "item" : "2025-01-05T00:00:00.000",
+        "count" : "72576"
+      } ],
+      "smallest" : "2025-01-05T00:00:00.000",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "view" : "date",
+      "align" : "center"
+    }
+  }, {
+    "id" : 604580135,
+    "name" : "Time Period",
+    "dataTypeName" : "text",
+    "description" : "Whether the hour would receive peak or overnight tolls. The current schedule has peak tolls from 5 AM to 9 PM on weekdays, and 9 AM to 9 PM on weekends. Refer to the tolling schedule here: https://congestionreliefzone.mta.info/.",
+    "fieldName" : "time_period",
+    "position" : 9,
+    "renderTypeName" : "text",
+    "tableColumnId" : 156474863,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "Peak",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Peak",
+        "count" : "3729024"
+      }, {
+        "item" : "Overnight",
+        "count" : "2294784"
+      } ],
+      "smallest" : "Overnight",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : { }
+  }, {
+    "id" : 604580134,
+    "name" : "Vehicle Class",
+    "dataTypeName" : "text",
+    "description" : "Category of vehicle, as detected by the tolling system. Classes are:  1 - Cars, Pickups and Vans*; 2 - Single-Unit Trucks; 3 - Multi-Unit Trucks; 4 - Buses; 5 - Motorcycles; TLC Taxi/FHV**. *Not including TLC Taxi/ FHV vehicles, which are subject to a per-trip toll. ** Taxis and FHVs not charged in a Per-Trip Charge Plan (PTCP) are tolled by vehicle class and appear in those categories.",
+    "fieldName" : "vehicle_class",
+    "position" : 10,
+    "renderTypeName" : "text",
+    "tableColumnId" : 156474862,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "TLC Taxi/FHV",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1 - Cars, Pickups and Vans",
+        "count" : "1003968"
+      }, {
+        "item" : "2 - Single-Unit Trucks",
+        "count" : "1003968"
+      }, {
+        "item" : "3 - Multi-Unit Trucks",
+        "count" : "1003968"
+      }, {
+        "item" : "4 - Buses",
+        "count" : "1003968"
+      }, {
+        "item" : "5 - Motorcycles",
+        "count" : "1003968"
+      }, {
+        "item" : "TLC Taxi/FHV",
+        "count" : "1003968"
+      } ],
+      "smallest" : "1 - Cars, Pickups and Vans",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : { }
+  }, {
+    "id" : 604580133,
+    "name" : "Detection Group",
+    "dataTypeName" : "text",
+    "description" : "Which crossing the entry was first detected at. ",
+    "fieldName" : "detection_group",
+    "position" : 11,
+    "renderTypeName" : "text",
+    "tableColumnId" : 156474861,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "Williamsburg Bridge",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Brooklyn Bridge",
+        "count" : "501984"
+      }, {
+        "item" : "East 60th St",
+        "count" : "501984"
+      }, {
+        "item" : "FDR Drive at 60th St",
+        "count" : "501984"
+      }, {
+        "item" : "Holland Tunnel",
+        "count" : "501984"
+      }, {
+        "item" : "Hugh L. Carey Tunnel",
+        "count" : "501984"
+      }, {
+        "item" : "Lincoln Tunnel",
+        "count" : "501984"
+      }, {
+        "item" : "Manhattan Bridge",
+        "count" : "501984"
+      }, {
+        "item" : "Queensboro Bridge",
+        "count" : "501984"
+      }, {
+        "item" : "Queens Midtown Tunnel",
+        "count" : "501984"
+      }, {
+        "item" : "West 60th St",
+        "count" : "501984"
+      }, {
+        "item" : "West Side Highway at 60th St",
+        "count" : "501984"
+      }, {
+        "item" : "Williamsburg Bridge",
+        "count" : "501984"
+      } ],
+      "smallest" : "Brooklyn Bridge",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : { }
+  }, {
+    "id" : 604580132,
+    "name" : "Detection Region",
+    "dataTypeName" : "text",
+    "description" : " Which region the crossing comes from. For example, the Williamsburg Bridge is listed as Brooklyn. ",
+    "fieldName" : "detection_region",
+    "position" : 12,
+    "renderTypeName" : "text",
+    "tableColumnId" : 156474860,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "West Side Highway",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Brooklyn",
+        "count" : "2007936"
+      }, {
+        "item" : "New Jersey",
+        "count" : "1003968"
+      }, {
+        "item" : "Queens",
+        "count" : "1003968"
+      }, {
+        "item" : "East 60th St",
+        "count" : "501984"
+      }, {
+        "item" : "West Side Highway",
+        "count" : "501984"
+      }, {
+        "item" : "West 60th St",
+        "count" : "501984"
+      }, {
+        "item" : "FDR Drive",
+        "count" : "501984"
+      } ],
+      "smallest" : "Brooklyn",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : { }
+  }, {
+    "id" : 604580131,
+    "name" : "CRZ Entries",
+    "dataTypeName" : "number",
+    "description" : "How many entries in this interval entered the Congestion Relief Zone (the CBD minus the number of entries that kept to excluded roadways).",
+    "fieldName" : "crz_entries",
+    "position" : 13,
+    "renderTypeName" : "number",
+    "tableColumnId" : 156474859,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "875",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "1662951"
+      }, {
+        "item" : "1",
+        "count" : "659773"
+      }, {
+        "item" : "2",
+        "count" : "378935"
+      }, {
+        "item" : "3",
+        "count" : "244991"
+      }, {
+        "item" : "4",
+        "count" : "173300"
+      }, {
+        "item" : "5",
+        "count" : "131001"
+      }, {
+        "item" : "6",
+        "count" : "102849"
+      }, {
+        "item" : "7",
+        "count" : "83434"
+      }, {
+        "item" : "8",
+        "count" : "68951"
+      }, {
+        "item" : "9",
+        "count" : "58376"
+      }, {
+        "item" : "10",
+        "count" : "50293"
+      }, {
+        "item" : "11",
+        "count" : "44202"
+      }, {
+        "item" : "12",
+        "count" : "39333"
+      }, {
+        "item" : "13",
+        "count" : "35075"
+      }, {
+        "item" : "14",
+        "count" : "32474"
+      }, {
+        "item" : "15",
+        "count" : "29808"
+      }, {
+        "item" : "16",
+        "count" : "27818"
+      }, {
+        "item" : "17",
+        "count" : "26346"
+      }, {
+        "item" : "18",
+        "count" : "25102"
+      }, {
+        "item" : "19",
+        "count" : "23660"
+      } ],
+      "smallest" : "0",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "groupSeparator" : ",",
+      "align" : "right"
+    }
+  }, {
+    "id" : 604580130,
+    "name" : "Excluded Roadway Entries",
+    "dataTypeName" : "number",
+    "description" : "How many entries in this interval entered the CBD but stayed on excluded roadways.",
+    "fieldName" : "excluded_roadway_entries",
+    "position" : 14,
+    "renderTypeName" : "number",
+    "tableColumnId" : 156474858,
+    "cachedContents" : {
+      "non_null" : "6023808",
+      "largest" : "411",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "5108965"
+      }, {
+        "item" : "1",
+        "count" : "198704"
+      }, {
+        "item" : "2",
+        "count" : "83050"
+      }, {
+        "item" : "3",
+        "count" : "44102"
+      }, {
+        "item" : "4",
+        "count" : "28391"
+      }, {
+        "item" : "5",
+        "count" : "20640"
+      }, {
+        "item" : "6",
+        "count" : "16767"
+      }, {
+        "item" : "7",
+        "count" : "13865"
+      }, {
+        "item" : "8",
+        "count" : "12691"
+      }, {
+        "item" : "9",
+        "count" : "11541"
+      }, {
+        "item" : "10",
+        "count" : "10856"
+      }, {
+        "item" : "11",
+        "count" : "10200"
+      }, {
+        "item" : "12",
+        "count" : "9952"
+      }, {
+        "item" : "13",
+        "count" : "9775"
+      }, {
+        "item" : "14",
+        "count" : "9556"
+      }, {
+        "item" : "16",
+        "count" : "9494"
+      }, {
+        "item" : "15",
+        "count" : "9416"
+      }, {
+        "item" : "17",
+        "count" : "9199"
+      }, {
+        "item" : "18",
+        "count" : "9111"
+      }, {
+        "item" : "20",
+        "count" : "8948"
+      } ],
+      "smallest" : "0",
+      "count" : "6023808",
+      "cardinality" : "6023808"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "groupSeparator" : ",",
+      "align" : "right"
+    }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "metadata" : {
+    "jsonQuery" : {
+      "order" : [ {
+        "columnFieldName" : "toll_10_minute_block",
+        "ascending" : false
+      } ]
+    },
+    "attachments" : [ {
+      "filename" : "MTA_CongestionReliefZoneVehicleEntries_Overview.pdf",
+      "assetId" : "bd01581a-886f-4efc-9ebd-a5b96aa89d6a",
+      "name" : "MTA_CongestionReliefZoneVehicleEntries_Overview.pdf"
+    }, {
+      "filename" : "MTA_CongestionReliefZoneVehicleEntries_DataDictionary.pdf",
+      "assetId" : "39ebff9e-cbd5-4a6c-8232-1a1bf778e72b",
+      "name" : "MTA_CongestionReliefZoneVehicleEntries_DataDictionary.pdf"
+    } ],
+    "custom_fields" : {
+      "Dataset Summary" : {
+        "Posting Frequency" : "Weekly",
+        "Organization" : "Metropolitan Transportation Authority",
+        "Contact Information" : "opendata@mtahq.org",
+        "Time Period" : "Beginning 2025",
+        "Coverage" : "New York City",
+        "Granularity" : "10-minute, toll crossing, vehicle class",
+        "Dataset Owner" : "Metropolitan Transportation Authority"
+      },
+      "Additional Resources" : {
+        "See Also" : "https://metrics.mta.info/"
+      },
+      "Disclaimers" : {
+        "Limitations" : "This data should not be used for calculating revenue related to the Congestion Pricing Program, as entries do not include information about exemption statuses, payment methods, and repeat entries."
+      },
+      "Dataset Information" : {
+        "Agency" : "Metropolitan Transportation Authority"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "xzik-pf59",
+    "displayName" : "NY Open Data",
+    "profileImageUrlLarge" : "/api/users/xzik-pf59/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/xzik-pf59/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/xzik-pf59/profile_images/TINY",
+    "screenName" : "NY Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : {
+    "orderBys" : [ {
+      "ascending" : false,
+      "expression" : {
+        "columnId" : 604580141,
+        "type" : "column"
+      }
+    } ]
+  },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "xzik-pf59",
+    "displayName" : "NY Open Data",
+    "profileImageUrlLarge" : "/api/users/xzik-pf59/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/xzik-pf59/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/xzik-pf59/profile_images/TINY",
+    "screenName" : "NY Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "cbdtp", "central business district tolling program", "congestion relief zone", "crz", "central business district", "congestion", "traffic", "trips", "mta bridges & tunnels", "b&t", "bridge", "tunnel", "toll crossing", "vehicle class" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}
