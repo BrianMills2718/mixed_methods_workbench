@@ -168,8 +168,12 @@ def test_json_operations_use_the_same_typed_router() -> None:
 def test_html_exposes_truthful_primary_action_and_views() -> None:
     """Keep the first viewport about researcher intent rather than internal IDs."""
     html = HTML_PATH.read_text(encoding="utf-8")
-    assert "Start with the question—not the tool." in html
-    assert "Build my study map" in html
+    assert "Choose an analytical approach without losing sight of the evidence." in html
+    assert "Plan an analysis" in html
+    assert "Show possible approaches" in html
+    assert "See a completed decision example" in html
+    assert "does not yet run the selected methods" in html
+    assert "Inspectable study map" in html
     assert "What best describes your current situation?" in html
     assert "What will you study or compare?" in html
     assert "What material do you already have?" in html
@@ -177,8 +181,9 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "help-trigger" in html
     assert "role=\"tooltip\"" in html
     assert "Source of leverage" not in html
-    assert "Method library" in html
-    assert "Capability map" in html
+    assert "Explore methods" in html
+    assert "nav-advanced" in html
+    assert "Architecture" in html
     assert "Stress tests" in html
     assert "Stop rule against taxonomy sprawl" in html
     assert "no universally best method" in html
