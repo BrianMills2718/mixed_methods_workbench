@@ -3,7 +3,7 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: NYC Congestion-Pricing Source Freeze Needed
+## Current Phase: First NYC Evidence Slice Ready
 
 Brian approved the exact Investigation Spine recommended by the merged product
 integration assessment on 2026-08-13. The bounded implementation contract is
@@ -36,8 +36,20 @@ and a first-year evaluation. London ULEZ is the runner-up. Mist Trail remains a
 secondary vertical; do not return to Open Science/P5 as the general flagship by
 default.
 
-No later product implementation is active by implication. The next decision is
-the exact NYC question-and-corpus freeze defined in the replacement screen.
+The exact source freeze is complete in
+[`nyc_crz_source_freeze.md`](research/nyc_crz_source_freeze.md). It fixes the
+non-causal policy question, January 5–December 31, 2025 outcome window, minimal
+document corpus, exact PDF digests, two reproducible public-data snapshots,
+claim ownership, source-use controls, and refusal behavior. The decision is
+**GO WITH LIMITS** to one reviewed prediction + hearing concern + descriptive
+aggregate slice in the existing Investigation Spine.
+
+No later product implementation is active by implication. The next bounded
+slice must verify source bytes, produce schema-constrained candidate
+extractions with exact anchors, require human review, and display one frozen
+aggregate without causal or recommendation overclaim. It must not ingest the
+whole MTA archive, run Process Tracing, modify producer repositories, adopt a
+shared schema, or create a new interface.
 
 ## Completed Phase: Product Integration Assessment
 

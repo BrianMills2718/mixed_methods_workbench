@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "NYC-CRZ-MVP-v1",
+  "report_artifact_id": "first_evaluation_report",
+  "report_locator": {
+    "table": "Table 2-1",
+    "pdf_page_index_zero_based": 16,
+    "printed_page_label": "9"
+  },
+  "current_snapshot_artifact_id": "t6yz_first_year_daily_by_group_class",
+  "comparison_rule": "Compare the report's publication-time monthly observed average daily total entries with CSV-aware averages recomputed from the current frozen API snapshot as crz_entries plus excluded_roadway_entries across all detection groups and vehicle classes. Round the recomputed daily average to the nearest whole entry for display only.",
+  "months": [
+    {"month": "2025-01", "report_observed_at_publication": 533525, "current_snapshot_recomputed_rounded": 533434, "delta_current_minus_report": -91, "report_baseline": 580500},
+    {"month": "2025-02", "report_observed_at_publication": 541309, "current_snapshot_recomputed_rounded": 541229, "delta_current_minus_report": -80, "report_baseline": 613900},
+    {"month": "2025-03", "report_observed_at_publication": 560255, "current_snapshot_recomputed_rounded": 560255, "delta_current_minus_report": 0, "report_baseline": 642500},
+    {"month": "2025-04", "report_observed_at_publication": 568143, "current_snapshot_recomputed_rounded": 568143, "delta_current_minus_report": 0, "report_baseline": 644400},
+    {"month": "2025-05", "report_observed_at_publication": 580226, "current_snapshot_recomputed_rounded": 580226, "delta_current_minus_report": 0, "report_baseline": 647200},
+    {"month": "2025-06", "report_observed_at_publication": 570328, "current_snapshot_recomputed_rounded": 570327, "delta_current_minus_report": -1, "report_baseline": 662400},
+    {"month": "2025-07", "report_observed_at_publication": 553293, "current_snapshot_recomputed_rounded": 553291, "delta_current_minus_report": -2, "report_baseline": 616600},
+    {"month": "2025-08", "report_observed_at_publication": 553269, "current_snapshot_recomputed_rounded": 553218, "delta_current_minus_report": -51, "report_baseline": 641300},
+    {"month": "2025-09", "report_observed_at_publication": 570357, "current_snapshot_recomputed_rounded": 570357, "delta_current_minus_report": 0, "report_baseline": 632500},
+    {"month": "2025-10", "report_observed_at_publication": 571770, "current_snapshot_recomputed_rounded": 571770, "delta_current_minus_report": 0, "report_baseline": 638800}
+  ],
+  "january_through_october": {
+    "report_published_fewer_entries": 21610350,
+    "report_published_total_note": "Use the report's published total directly. It is not exactly reconstructable by multiplying the displayed rounded monthly averages by days; that calculation differs by 120 entries.",
+    "current_snapshot_recomputed_fewer_entries_using_report_baselines": 21616596,
+    "delta_current_minus_report": 6246
+  },
+  "claim_boundary": "The current snapshot may be used for a reproducible descriptive recomputation, but it must not be described as exactly reproducing the report's publication-time observed values or as identifying a causal effect."
+}

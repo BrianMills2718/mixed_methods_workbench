@@ -1,0 +1,348 @@
+{
+  "id" : "sayj-mze2",
+  "name" : "MTA Daily Ridership and Traffic: Beginning 2020",
+  "assetType" : "dataset",
+  "attribution" : "Metropolitan Transportation Authority",
+  "attributionLink" : "https://www.mta.info/open-data",
+  "averageRating" : 0,
+  "category" : "Transportation",
+  "createdAt" : 1735940613,
+  "description" : "The daily ridership dataset provides systemwide ridership and traffic estimates for subways (including the Staten Island Railway), buses, Long Island Rail Road, Metro-North Railroad, Access-A-Ride, Bridges and Tunnels, and the Central Business District and Congestion Relief Zone since the start of Congestion Pricing",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 106226,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 41036995,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1735941105,
+  "publicationGroup" : 19727755,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1786572382,
+  "rowsUpdatedBy" : "xzik-pf59",
+  "tableId" : 19727755,
+  "totalTimesRated" : 0,
+  "viewCount" : 71267,
+  "viewLastModified" : 1786572378,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1736869958,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 6686348,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1736869958,
+    "targetAudience" : "public",
+    "workflowId" : 2254,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1736869958,
+      "failureCount" : 0,
+      "startedAt" : 1736869958,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "28jg-4c4u",
+      "displayName" : "Open Data Administrator 1"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 603771981,
+    "name" : "Date",
+    "dataTypeName" : "calendar_date",
+    "description" : "The date of travel (MM/DD/YYYY)",
+    "fieldName" : "date",
+    "position" : 1,
+    "renderTypeName" : "calendar_date",
+    "tableColumnId" : 156163566,
+    "cachedContents" : {
+      "non_null" : "17641",
+      "largest" : "2026-08-11T00:00:00.000",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2026-04-13T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2026-07-22T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-08-16T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-09-13T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-07-01T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2026-02-04T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-09-06T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2026-03-14T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-04-10T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-03-16T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-03-23T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-10-18T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-10-04T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-07-22T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-11-15T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2026-07-15T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-08-10T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-02-14T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2025-09-26T00:00:00.000",
+        "count_1" : "9"
+      }, {
+        "item" : "2026-06-05T00:00:00.000",
+        "count_1" : "9"
+      } ],
+      "smallest" : "2020-03-01T00:00:00.000",
+      "count" : "17641",
+      "cardinality" : "17641"
+    },
+    "format" : {
+      "view" : "date",
+      "align" : "center"
+    }
+  }, {
+    "id" : 603771980,
+    "name" : "Mode",
+    "dataTypeName" : "text",
+    "description" : "The MTA mode being measured",
+    "fieldName" : "mode",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 156163565,
+    "cachedContents" : {
+      "non_null" : "17641",
+      "largest" : "Subway",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Bus",
+        "count_1" : "2355"
+      }, {
+        "item" : "SIR",
+        "count_1" : "2355"
+      }, {
+        "item" : "AAR",
+        "count_1" : "2355"
+      }, {
+        "item" : "Subway",
+        "count_1" : "2355"
+      }, {
+        "item" : "BT",
+        "count_1" : "2355"
+      }, {
+        "item" : "MNR",
+        "count_1" : "2355"
+      }, {
+        "item" : "LIRR",
+        "count_1" : "2355"
+      }, {
+        "item" : "CRZ Entries",
+        "count_1" : "578"
+      }, {
+        "item" : "CBD Entries",
+        "count_1" : "578"
+      } ],
+      "smallest" : "AAR",
+      "count" : "17641",
+      "cardinality" : "17641"
+    },
+    "format" : { }
+  }, {
+    "id" : 603771979,
+    "name" : "Count",
+    "dataTypeName" : "number",
+    "description" : "The daily total estimated ridership or traffic",
+    "fieldName" : "count",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 156163564,
+    "cachedContents" : {
+      "non_null" : "17601",
+      "largest" : "5498809",
+      "null" : "40",
+      "top" : [ {
+        "item" : "7633",
+        "count_1" : "5"
+      }, {
+        "item" : "8100",
+        "count_1" : "4"
+      }, {
+        "item" : "3",
+        "count_1" : "4"
+      }, {
+        "item" : "0",
+        "count_1" : "4"
+      }, {
+        "item" : "7709",
+        "count_1" : "3"
+      }, {
+        "item" : "6862",
+        "count_1" : "3"
+      }, {
+        "item" : "7194",
+        "count_1" : "3"
+      }, {
+        "item" : "24071",
+        "count_1" : "3"
+      }, {
+        "item" : "7185",
+        "count_1" : "3"
+      }, {
+        "item" : "6591",
+        "count_1" : "3"
+      }, {
+        "item" : "2582",
+        "count_1" : "3"
+      }, {
+        "item" : "7739",
+        "count_1" : "3"
+      }, {
+        "item" : "2965",
+        "count_1" : "3"
+      }, {
+        "item" : "6845",
+        "count_1" : "3"
+      }, {
+        "item" : "6792",
+        "count_1" : "3"
+      }, {
+        "item" : "7850",
+        "count_1" : "3"
+      }, {
+        "item" : "2743",
+        "count_1" : "3"
+      }, {
+        "item" : "3270",
+        "count_1" : "3"
+      }, {
+        "item" : "6780",
+        "count_1" : "3"
+      }, {
+        "item" : "7794",
+        "count_1" : "3"
+      } ],
+      "smallest" : "0",
+      "count" : "17641",
+      "cardinality" : "17641"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "groupSeparator" : ",",
+      "align" : "right"
+    }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "metadata" : {
+    "jsonQuery" : {
+      "order" : [ {
+        "columnFieldName" : "date",
+        "ascending" : false
+      } ]
+    },
+    "attachments" : [ {
+      "filename" : "MTA_DailyRidershipAndTraffic_Overview.pdf",
+      "assetId" : "7635e5d0-7534-406d-b1c4-be4969ce61df",
+      "name" : "MTA_DailyRidershipAndTraffic_Overview.pdf"
+    }, {
+      "filename" : "MTA_DailyRidershipAndTraffic_DataDictionary.pdf",
+      "assetId" : "994cc0fc-9cc1-4b3e-bf4f-4b274cafb816",
+      "name" : "MTA_DailyRidershipAndTraffic_DataDictionary.pdf"
+    } ],
+    "custom_fields" : {
+      "Dataset Summary" : {
+        "Posting Frequency" : "Daily",
+        "Organization" : "New York City Transit, MTA Bus Company, Long Island Rail Road, Metro-North Railroad, Access-A-Ride, MTA Bridges and Tunnels, Staten Island Railway",
+        "Contact Information" : "OpenData@mtahq.org",
+        "Time Period" : "Beginning 3/1/2020",
+        "Coverage" : "New York Metropolitan Area",
+        "Granularity" : "Agency, day",
+        "Dataset Owner" : "Metropolitan Transportation Authority",
+        "Data Frequency" : "Weekdays"
+      },
+      "Additional Resources" : {
+        "See Also" : "https://metrics.mta.info/"
+      },
+      "Notes" : {
+        "Notes" : "Due to the processes followed to allow next-day ridership and traffic figures to be published, the figures in this dataset may differ from official ridership totals published elsewhere by MTA."
+      },
+      "Dataset Information" : {
+        "Agency" : "Metropolitan Transportation Authority"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "xzik-pf59",
+    "displayName" : "NY Open Data",
+    "profileImageUrlLarge" : "/api/users/xzik-pf59/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/xzik-pf59/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/xzik-pf59/profile_images/TINY",
+    "screenName" : "NY Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : {
+    "orderBys" : [ {
+      "ascending" : false,
+      "expression" : {
+        "columnId" : 603771981,
+        "type" : "column"
+      }
+    } ]
+  },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "xzik-pf59",
+    "displayName" : "NY Open Data",
+    "profileImageUrlLarge" : "/api/users/xzik-pf59/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/xzik-pf59/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/xzik-pf59/profile_images/TINY",
+    "screenName" : "NY Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "new york city transit", "nyct", "mta bus", "mtabc", "metro-north railroad", "metro-north", "mnr", "long island rail road", "lirr", "staten island railway", "sir", "access-a-ride", "aar", "cbdtp", "central business district tolling program", "subway", "bus", "commuter rail", "paratransit", "mta bridges & tunnels", "b&t", "ridership", "traffic", "daily", "customers", "passengers", "central business district", "congestion relief zone" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

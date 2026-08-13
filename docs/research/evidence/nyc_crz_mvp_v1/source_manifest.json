@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "NYC-CRZ-MVP-v1",
+  "frozen_on": "2026-08-13",
+  "question": "After the first operating year, which predicted changes and stakeholder concerns are corroborated, contradicted, or unresolved by reproducible public evidence, and what should decision-makers retain, change, or monitor?",
+  "intervention_date": "2025-01-05",
+  "primary_observation_window": {
+    "start": "2025-01-05",
+    "end": "2025-12-31",
+    "rule": "Every report-derived measure with a shorter endpoint must expose its own coverage_end."
+  },
+  "documents": [
+    {
+      "artifact_id": "final_ea_executive_summary",
+      "url": "https://www.mta.info/document/110756",
+      "sha256": "bd17bacd2201a3f8039f8c62e2fb7726e82eed32865bc1f105e7e900ebc7d2b7",
+      "bytes": 3173579,
+      "pages": 54,
+      "role": "Operational extraction source for purpose, alternatives, predictions, effects, and mitigations",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "final_fonsi",
+      "url": "https://www.mta.info/document/114186",
+      "sha256": "8173ac3e74d96efff99ce9f0b298278e7ad1a1cbbed58f43eca910ce0cec91a6",
+      "bytes": 754350,
+      "pages": 41,
+      "role": "Federal selected alternative, prediction, mitigation, and monitoring record",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "tmrb_report",
+      "url": "https://www.mta.info/document/127761",
+      "sha256": "7f24e5fcb0efe70e586e042aeb9a55b2caa52a1e6e04770eb831aaf8afacbe98",
+      "bytes": 11475907,
+      "pages": 19,
+      "role": "Toll-structure recommendation, alternatives, credits, discounts, and exemptions",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "adopted_toll_schedule",
+      "url": "https://www.mta.info/document/138931",
+      "sha256": "27094ab502c584bfbb79a6341a10dedb68dbf883d253073b5458ac051bc9f4c7",
+      "bytes": 48184,
+      "pages": 2,
+      "role": "Adopted phased toll rates and credits",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "reevaluation_2",
+      "url": "https://www.mta.info/document/158191",
+      "sha256": "aee0e0b6c17a8e9585c24a808d2fa77a756b267fe9af326fb577ae181bb28733",
+      "bytes": 1430307,
+      "pages": 17,
+      "role": "November 2024 phase-in design and continued-validity analysis",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "first_evaluation_report",
+      "url": "https://www.mta.info/document/195631",
+      "sha256": "ef33a9880713e50c2864db6f837cde2ebaaef972c6c26ec2eedca8f0fd4f5226",
+      "bytes": 16275858,
+      "pages": 108,
+      "role": "Agency first-year observed results, baselines, limitations, and agency-derived counterfactuals",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "hearing_2022_08_25",
+      "url": "https://www.mta.info/document/95461",
+      "sha256": "e42cbffeec77b2392cc6e74b36ba8978c08a69f63cfa5a341ee512c6e7a67cf1",
+      "bytes": 1470785,
+      "pages": 359,
+      "role": "Public-hearing transcript",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "hearing_2022_08_27",
+      "url": "https://www.mta.info/document/95466",
+      "sha256": "27fd05d49801c01cce35b55a5b2c259c4eb695af5f1523e46b58720aaba2b7d8",
+      "bytes": 1077718,
+      "pages": 261,
+      "role": "Public-hearing transcript",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "hearing_2022_08_28",
+      "url": "https://www.mta.info/document/95471",
+      "sha256": "c37786af710b9cca815e6ab8aa52108f2abba17e76e189f4be1918c1d7ad81c0",
+      "bytes": 1100573,
+      "pages": 267,
+      "role": "Public-hearing transcript",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "hearing_2022_08_29",
+      "url": "https://www.mta.info/document/95476",
+      "sha256": "f5f322b27c556f82eecfe153506ec89f32e6894305e0c9d54f7fde4073c0db5f",
+      "bytes": 1304822,
+      "pages": 317,
+      "role": "Public-hearing transcript",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "hearing_2022_08_30",
+      "url": "https://www.mta.info/document/95481",
+      "sha256": "f50fe89e5013ea3bbb18b8c42c69bf79994583d7a44b9d64b3afc6ac3af92842",
+      "bytes": 1777546,
+      "pages": 433,
+      "role": "Public-hearing transcript",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "hearing_2022_08_31",
+      "url": "https://www.mta.info/document/95486",
+      "sha256": "a52f3062fc7992a37bd8574a894df3685a3f333a239c5400416a5148895fc109",
+      "bytes": 2241708,
+      "pages": 542,
+      "role": "Public-hearing transcript",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "open_ny_terms",
+      "url": "https://data.ny.gov/api/views/77gx-ii52/files/ef0c1840-ad54-4240-92fd-6397c49fde46?filename=OPEN-NY_20Terms_20of_20Use.pdf",
+      "sha256": "9437c849705d58df008f01fc23f404444becce6b86676adc3974f9160a4cb650",
+      "bytes": 128817,
+      "pages": 6,
+      "role": "Applicable Open NY source-use terms, last modified in-document March 8, 2013",
+      "locally_bundled": false
+    }
+  ],
+  "status_sources": [
+    {
+      "artifact_id": "mta_current_program_status",
+      "url": "https://www.mta.info/fares-tolls/tolls/congestion-relief-zone/about",
+      "observed_at": "2026-08-13T19:48:36Z",
+      "media_type": "text/html",
+      "sha256": "de455aee404cbbf46b1d44069f88d75b80ce4347a29226202e19f7ffd75188fa",
+      "bytes": 56406,
+      "role": "Current operating status and phased toll schedule at freeze time",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "mta_v_duffy_district_court_opinion",
+      "url": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf",
+      "observed_at": "2026-08-13",
+      "media_type": "application/pdf",
+      "sha256": "8a6a8b4a3d4036432c446b7eb8bc42ec77e650bd57de88cf595ef643c65f0e92",
+      "bytes": 850920,
+      "pages": 149,
+      "role": "District-court disposition of the federal government's 2025 program termination and legal-status caveat",
+      "locally_bundled": false
+    }
+  ],
+  "data_snapshots": [
+    {
+      "artifact_id": "t6yz_first_year_daily_by_group_class",
+      "dataset_id": "t6yz-b64h",
+      "endpoint": "https://data.ny.gov/resource/t6yz-b64h.csv",
+      "retrieved_at": "2026-08-13T19:40:23Z",
+      "source_last_modified": "2026-08-13T18:29:49Z",
+      "query": {
+        "$select": "toll_date,detection_group,vehicle_class,sum(crz_entries) as crz_entries,sum(excluded_roadway_entries) as excluded_roadway_entries",
+        "$where": "toll_date between '2025-01-05T00:00:00.000' and '2025-12-31T00:00:00.000'",
+        "$group": "toll_date,detection_group,vehicle_class",
+        "$order": "toll_date,detection_group,vehicle_class",
+        "$limit": 50000
+      },
+      "file": "t6yz_first_year_daily_by_group_class.csv",
+      "sha256": "01dec3a0a1effc26aacf57ba8c4474775fb4db73149c462d4f40432e6e323bd3",
+      "bytes": 2023769,
+      "rows": 25992,
+      "columns": 5,
+      "missing_measure_rows": 0,
+      "metadata_file": "t6yz_metadata.json",
+      "metadata_sha256": "eabcbb927cff3e4023fe8b15b89e786f537b8e7ed20693b0da960d13eae41fdf",
+      "response_headers_file": "t6yz_response_headers.txt",
+      "response_headers_sha256": "afc73a688c3f9836152d33b8cbe0057764df1183d8516d0be87ea698a88a8a32",
+      "permitted_claim": "Descriptive first-operating-year vehicle-entry aggregation only; not revenue and not a causal effect."
+    },
+    {
+      "artifact_id": "sayj_transit_context_2024_2025",
+      "dataset_id": "sayj-mze2",
+      "endpoint": "https://data.ny.gov/resource/sayj-mze2.csv",
+      "retrieved_at": "2026-08-13T19:40:24Z",
+      "source_last_modified": "2026-08-12T22:06:23Z",
+      "query": {
+        "$select": "date,mode,count",
+        "$where": "date between '2024-01-01T00:00:00.000' and '2025-12-31T00:00:00.000' and mode in('Subway','Bus','LIRR','MNR','AAR','SIR')",
+        "$order": "date,mode",
+        "$limit": 10000
+      },
+      "file": "sayj_transit_context_2024_2025.csv",
+      "sha256": "373f3f855d09da65079ee2918667cda2ebd4f533e0928802033be4e5888270bd",
+      "bytes": 181694,
+      "rows": 4386,
+      "columns": 3,
+      "missing_measure_rows": 0,
+      "metadata_file": "sayj_metadata.json",
+      "metadata_sha256": "dc0a1433a8770f0ce70569bbbc697e1d7be8ea6efbabab508b30a02fdb34e619",
+      "response_headers_file": "sayj_response_headers.txt",
+      "response_headers_sha256": "f0d8a05d69b4168f17c5f4ed4c9afaccb9dbac04257ce8d7e8eba6526c043373",
+      "permitted_claim": "Contextual transit comparison only; not an identified congestion-pricing effect."
+    }
+  ],
+  "comparison_receipts": [
+    {
+      "artifact_id": "report_table_2_1_drift_receipt",
+      "file": "report_table_2_1_drift_receipt.json",
+      "role": "Preserves differences between publication-time report observations and the current frozen API snapshot"
+    }
+  ]
+}
