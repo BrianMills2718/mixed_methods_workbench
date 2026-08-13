@@ -128,6 +128,29 @@
       "locally_bundled": false
     }
   ],
+  "status_sources": [
+    {
+      "artifact_id": "mta_current_program_status",
+      "url": "https://www.mta.info/fares-tolls/tolls/congestion-relief-zone/about",
+      "observed_at": "2026-08-13T19:48:36Z",
+      "media_type": "text/html",
+      "sha256": "de455aee404cbbf46b1d44069f88d75b80ce4347a29226202e19f7ffd75188fa",
+      "bytes": 56406,
+      "role": "Current operating status and phased toll schedule at freeze time",
+      "locally_bundled": false
+    },
+    {
+      "artifact_id": "mta_v_duffy_district_court_opinion",
+      "url": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf",
+      "observed_at": "2026-08-13",
+      "media_type": "application/pdf",
+      "sha256": "8a6a8b4a3d4036432c446b7eb8bc42ec77e650bd57de88cf595ef643c65f0e92",
+      "bytes": 850920,
+      "pages": 149,
+      "role": "District-court disposition of the federal government's 2025 program termination and legal-status caveat",
+      "locally_bundled": false
+    }
+  ],
   "data_snapshots": [
     {
       "artifact_id": "t6yz_first_year_daily_by_group_class",
@@ -177,6 +200,13 @@
       "response_headers_file": "sayj_response_headers.txt",
       "response_headers_sha256": "f0d8a05d69b4168f17c5f4ed4c9afaccb9dbac04257ce8d7e8eba6526c043373",
       "permitted_claim": "Contextual transit comparison only; not an identified congestion-pricing effect."
+    }
+  ],
+  "comparison_receipts": [
+    {
+      "artifact_id": "report_table_2_1_drift_receipt",
+      "file": "report_table_2_1_drift_receipt.json",
+      "role": "Preserves differences between publication-time report observations and the current frozen API snapshot"
     }
   ]
 }

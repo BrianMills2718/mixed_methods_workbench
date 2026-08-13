@@ -55,6 +55,16 @@ and the source's last-modified time. The metadata is a snapshot, not a license.
 
 ## Integrity checks
 
-For the vehicle table, a direct sum of the frozen columns is 76,819,606 CRZ
-entries and 105,129,825 excluded-roadway entries. These are checksum-like
-recomputation receipts, not substantive conclusions or unique vehicles.
+For the vehicle table, a CSV-aware direct sum of the frozen columns is
+178,203,234 CRZ entries and 23,461,361 excluded-roadway entries. These are
+checksum-like recomputation receipts, not substantive conclusions or unique
+vehicles. A plain delimiter-based sum is invalid because quoted detection-group
+labels contain commas.
+
+The current public snapshot differs slightly from the monthly values frozen in
+Table 2-1 of the first evaluation report. The exact month-level comparison and
+the separate published-versus-recomputed totals are retained in
+[`report_table_2_1_drift_receipt.json`](report_table_2_1_drift_receipt.json).
+Consumers must preserve `report_observed_at_publication` separately from
+`current_snapshot_recomputed`; the live dataset is not an exact reproduction of
+the report's publication-time observation table.

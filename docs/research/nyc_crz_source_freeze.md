@@ -45,19 +45,23 @@ The operational document corpus is intentionally limited to:
 4. the two-page adopted phased toll schedule;
 5. the 17-page November 2024 Reevaluation 2;
 6. the 108-page first evaluation report;
-7. all six August 2022 public-hearing transcripts; and
-8. the applicable six-page Open NY Terms of Use.
+7. all six August 2022 public-hearing transcripts;
+8. the applicable six-page Open NY Terms of Use;
+9. the current MTA program-status page; and
+10. the March 3, 2026 federal district-court opinion restoring the program's
+    lawful operating status after the attempted federal termination.
 
 The full multi-volume Final EA is an authoritative expansion source, not part
 of the first extraction corpus. A claim requiring detail absent from the
 Executive Summary or FONSI must trigger an explicit corpus expansion and a new
 manifest entry rather than an untracked lookup. The wider MTA archive, meeting
-videos, press coverage, litigation filings, and later monitoring releases are
-out of scope for v1.
+videos, press coverage, other litigation filings, and later monitoring releases
+are out of scope for v1.
 
 The PDFs are not redistributed in this repository. Their official URLs,
-downloaded-byte sizes, page counts, and SHA-256 digests are frozen. A consumer
-must re-download and verify exact bytes before use.
+downloaded-byte sizes, page counts, and SHA-256 digests are frozen. The HTML
+status page additionally carries its observation time and final resolved URL. A
+consumer must re-download and verify exact bytes before use.
 
 ## Frozen quantitative inputs
 
@@ -108,8 +112,8 @@ Every document-derived record must include:
 - derivation and review state.
 
 The transcript PDFs preserve printed line numbers and speaker turns. Locator
-viability was checked across all six files by recovering the first public
-speaker self-identification at PDF pages 66, 55, 82, 68, 55, and 60,
+viability was checked across all six files by recovering a public-speaker
+self-identification at PDF pages 66, 55, 82, 68, 55, and 60,
 respectively. Those names need not appear in the product UI. Default output
 should describe and anchor the public record while minimizing repetition of
 personal names and quotations.
@@ -141,11 +145,26 @@ personal names and quotations.
 - A later policy or legal change → create a new packet version; do not rewrite
   this historical observation window.
 
+## Frozen current and legal status
+
+At the freeze observation time, MTA's public status page describes the
+Congestion Relief Zone as operating with the phased passenger-vehicle toll of
+$9, followed by $12 and $15 in later phases. On March 3, 2026, the U.S. District
+Court for the Southern District of New York held the federal government's 2025
+termination unlawful and explained that vacatur restored the program to its
+then-current lawful status. The opinion also leaves room for appeal or a future
+lawful agency action. Accordingly, v1 records an operating program and a
+resolved district-court decision, not permanent legal certainty.
+
+The exact status-page bytes and court-opinion bytes are frozen in the manifest.
+Any later appeal, agency action, toll change, or status-page mutation requires a
+new packet version.
+
 ## Gate evidence
 
 The freeze passes the bounded source gate because:
 
-- all 13 external PDFs resolved as valid documents and have exact byte counts,
+- all 14 external PDFs resolved as valid documents and have exact byte counts,
   page counts, and SHA-256 digests;
 - speaker-turn/page/line locators are recoverable across all six transcripts;
 - both data queries returned deterministic ordered tables with frozen metadata,
@@ -156,6 +175,14 @@ The freeze passes the bounded source gate because:
   extracted claims, agency-derived counterfactuals, normative judgments, and
   unavailable evidence; and
 - mutation is handled as invalidation, not silent refresh.
+
+The frozen vehicle snapshot is also known to differ slightly from the first
+evaluation report's publication-time monthly observations. The month-level
+receipt preserves both versions and shows that the January-through-October
+recomputed total of fewer entries differs from the report by 6,246 entries.
+That drift does not invalidate descriptive use of either frozen artifact, but
+it forbids presenting the current API response as an exact reproduction of the
+published table.
 
 This is a source and claim-boundary gate, not an empirical result. A human must
 still review the first extracted prediction, first hearing concern, and first
