@@ -6,6 +6,13 @@
 # `excluded_variants` header blocks, since §8.2 requires this freeze for
 # every Phase 0 workflow, not only the Phase 1 pilot set).
 #
+# REPOSITORY PROVENANCE: see repository_snapshots.yaml for the exact commit
+# SHA recorded for each repository and its match/uncertainty status.
+# pt_core_rival_explanation and pt_source_acquisition rows describe
+# process_tracing as it stood BEFORE its confirmed-drifted current state
+# (a new merge landed after inspection) — treat those rows as
+# revision-uncertain until re-verified against current HEAD.
+#
 # Field notes:
 # - operation_kind frozen from sources BEFORE code inspection where an
 #   ideal existed (qc_grounded_theory, pt_core_rival_explanation,

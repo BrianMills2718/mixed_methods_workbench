@@ -1,0 +1,174 @@
+# Phase 0 repository snapshots — corrective addendum
+#
+# Written after the original Phase 0 freeze, in response to a supervising
+# reviewer's request to record exact inspected commits rather than vague
+# "current HEAD" language. Honesty constraint observed throughout: the
+# original sub-agent inspections did NOT capture a `git rev-parse HEAD`
+# value contemporaneously for four of the five repositories. Where that is
+# true, this file says so explicitly and marks the affected ledger/prior-art
+# claims revision-uncertain, rather than substituting the SHA captured when
+# this addendum was written (which is later, and in one case demonstrably
+# different from the state actually inspected).
+#
+# snapshot_taken_at: this addendum's own capture pass (2026-08-12, several
+# hours after the original Phase 0 agents ran)
+
+repositories:
+
+  - repository: qualitative_coding
+    absolute_path: /home/brian/code/qualitative_coding
+    snapshot_commit_sha: 4ea0ce6ca15a63ba91b1a3790e4737b411389902
+    snapshot_commit_date: "2026-08-12T13:13:23-04:00"
+    branch: main
+    detached: false
+    clean_dirty_at_snapshot: clean
+    exact_sha_captured_at_inspection_time: false
+    matches_inspected_sha: >-
+      UNKNOWN, NOT PROVEN. No `git rev-parse HEAD` output was captured by
+      the inspecting sub-agent at the time it ran. This snapshot's commit
+      (13:13:23) is well before this session's start and no drift evidence
+      was found (no newer commits observed at snapshot time relative to
+      when other same-session inspections were captured), so it is
+      PRESUMED unchanged since inspection but this is not independently
+      provable from available data.
+    revision_uncertain_claims: >-
+      All qc_grounded_theory rows in step_ledger.yaml and the QC-side
+      entries in prior_art.md sec.3 rest on this presumption. If this
+      presumption is wrong, re-verify against snapshot_commit_sha above
+      before treating any qc_grounded_theory execution_status as current.
+    material_uncommitted_files: none observed at snapshot time
+    test_commands_and_outcomes:
+      - {cmd: "PYTHONPATH=. pytest tests/test_segmentation.py::test_segment_ids_are_deterministic_and_source_bound -q", result: "1 passed"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_grounding.py", result: "29 tests, all passing (spot-checked)"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_constant_comparison.py", result: "26 passed"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_pipeline_stages.py -k TestThematicCodingStage", result: "4 passed"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_manual_coding.py", result: "6 passed"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_review.py tests/test_irr.py", result: "71 passed combined"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_pipeline_stages.py -k 'TestGTAxialCodingStage or TestGTSelectiveCodingStage or TestGTTheoryIntegrationStage'", result: "6 passed"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_category_saturation_inv4.py tests/test_memos.py", result: "29 passed"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_grounded_theory_development.py tests/test_candidate_grounded_theory.py", result: "23 passed, 1 failed (test_installed_full_corpus_grounded_theory_projects_and_renders — HTML-content text-drift assertion, not an actor/judgment-logic failure)"}
+      - {cmd: "PYTHONPATH=. pytest tests/test_process_tracing_theory_test_return.py tests/test_process_tracing_handoff.py", result: "10 passed"}
+
+  - repository: process_tracing
+    absolute_path: /home/brian/projects/process_tracing
+    snapshot_commit_sha: 44556a07b20e1c075062504d193781ef2ea47f63
+    snapshot_commit_date: "2026-08-12T18:44:57-04:00"
+    branch: master
+    detached: false
+    clean_dirty_at_snapshot: clean
+    exact_sha_captured_at_inspection_time: false
+    matches_inspected_sha: >-
+      NO — CONFIRMED DRIFT, NOT MERELY UNKNOWN. This snapshot's commit
+      (18:44:57, "Merge pull request #83 from
+      BrianMills2718/plan041-close-plan042-design") postdates the plausible
+      inspection window for this repository within this session by several
+      hours. The inspecting sub-agent's report never captured a HEAD SHA,
+      so the exact commit it actually read cannot be reconstructed. Do NOT
+      treat snapshot_commit_sha above as the inspected state.
+    revision_uncertain_claims: >-
+      ALL pt_core_rival_explanation and pt_source_acquisition rows in
+      step_ledger.yaml, all corresponding entries in workflow_edges.yaml,
+      and the process_tracing entries in prior_art.md sec.3 are
+      REVISION-UNCERTAIN: they describe the repository as it stood at some
+      earlier, unrecorded commit, and PR #83 has landed since. The
+      abort-gate shares computed for these two methods (100% and 50%
+      respectively) should be treated as evidence about that earlier state,
+      not a live claim about snapshot_commit_sha above, until re-verified.
+      This is the single most important correction in this addendum.
+    material_uncommitted_files: none observed at snapshot time
+    test_commands_and_outcomes:
+      - {cmd: "pytest tests/test_pass_hypothesize.py tests/test_pass_partition.py tests/test_pass_absence.py tests/test_pass_critic.py tests/test_pass_diagnostic.py tests/test_pt_bayesian.py tests/test_verdict_calibration.py", result: "195 passed"}
+      - {cmd: "pytest tests/test_pt_schemas.py tests/test_mechanism_audit.py tests/test_mechanism_trace.py tests/test_methodology_integrity.py tests/test_hierarchical_dependence.py tests/test_inference_policy.py tests/test_inference_readout.py", result: "163 passed"}
+      - {cmd: "pytest tests/test_pt_llm.py", result: "27 passed, 1 skipped"}
+      - {cmd: "pytest tests/test_pipeline_integration.py", result: "106 passed"}
+      - {cmd: "pytest tests/test_source_acquisition.py tests/test_source_coverage.py tests/test_source_packet.py tests/test_segmented_source.py tests/test_acquisition_session.py tests/test_p5_acquisition_view.py tests/test_open_web_retrieval_dependency.py tests/test_cli_source_packet.py", result: "58 passed, 1 failed (test_pinned_retrieval_exposes_approved_keyless_providers — real dependency-version drift: open_web_retrieval installed 0.8.0, test pins 0.9.0; reproduced directly)"}
+      - {cmd: "pytest tests/test_revolution_corpus.py tests/test_revolution_selection.py tests/test_revolution_reconciliation.py tests/test_revolution_adjudication.py tests/test_revolution_case_trace.py tests/test_revolution_source_development.py", result: "76 passed (LLM calls mocked)"}
+      - {cmd: "source-silence evaluation test family (names not individually enumerated in the source report)", result: "69 passed, 2 failed (stale preregistration-hash drift, unrelated to acquisition logic)"}
+      - {cmd: "pytest tests/test_export.py tests/test_theory_test_return.py", result: "25 passed"}
+
+  - repository: theory-forge
+    absolute_path: /home/brian/projects/theory-forge
+    snapshot_commit_sha: 9ec293f96b05a56115cfa4c1686ab7032fd79411
+    snapshot_commit_date: "2026-08-12T00:40:39-04:00"
+    branch: main
+    detached: false
+    clean_dirty_at_snapshot: clean
+    exact_sha_captured_at_inspection_time: false
+    matches_inspected_sha: >-
+      LIKELY BUT NOT PROVEN. This snapshot's commit message
+      ("Plan #109: CPT on authentic Choices13k observations (#8)") matches
+      exactly what the inspecting sub-agent found and reported in detail
+      (Plan #109, cumulative_prospect.py, choices13k.py, the
+      813/1009-vs-766/1009 accuracy figures). This is strong circumstantial
+      corroboration that this snapshot equals the inspected state, but the
+      agent never captured a literal HEAD SHA, so it is corroborated, not
+      independently confirmed.
+    revision_uncertain_claims: >-
+      Corroborated, low residual uncertainty: theory_forge_cpt_choices13k
+      rows. Higher residual uncertainty: theory_forge_compile_apply rows,
+      since that workflow's evidence (compile logs, CLAUDE.md's 39-theory
+      table, the deleted tf_mcp_server.py finding) is not tied to the same
+      distinctive Plan #109 marker and could reflect an earlier or later
+      commit within the same session's inspection window.
+    material_uncommitted_files: none observed at snapshot time
+    test_commands_and_outcomes:
+      - {cmd: "PYTHONPATH=src:llm_client:scratch pytest tests/ -q -m 'not live_llm'", result: "1789 passed, 14 failed, 5 skipped, 3 deselected (~67s, scratch venv)"}
+      - {cmd: "pytest tests/test_codegen.py::test_build_single_function_prompt_returns_message_list", result: "FAILED — genuine drift: test calls _build_single_function_prompt with 3 args; live signature takes 4 (schema, fn_name, algo, output_dir)"}
+      - {cmd: "pytest tests/test_runtime_invariants.py", result: "FAILED, all 5 tests — genuine drift: _check_invariants() now returns InvariantViolationReport Pydantic objects, tests still expect dicts"}
+      - {cmd: "pytest tests/test_golden_infrastructure.py", result: "FAILED — environment-only, networkx not installed in scratch venv (optional codegen extra)"}
+      - {cmd: "pytest tests/test_schema_compile_contracts.py (data_contracts absent)", result: "FAILED — environment-only, @boundary no-op fallback lacks _boundary_info attribute"}
+      - {cmd: "pytest tests/test_schema_compile_contracts.py (data_contracts installed from /home/brian/code/active/data-contracts)", result: "3 passed"}
+      - {cmd: "pytest tests/test_cumulative_prospect.py", result: "16 passed"}
+      - {cmd: "pytest tests/test_v15_schema.py", result: "74 passed"}
+      - {cmd: "pytest tests/test_v15_schema.py tests/test_schema_to_spec.py", result: "1385 passed"}
+
+  - repository: data-contracts
+    absolute_path: /home/brian/code/active/data-contracts
+    snapshot_commit_sha: d845be0c5813ab26e9bf2f1eaf4473a262ac541b
+    snapshot_commit_date: "2026-07-28T07:25:09-07:00"
+    branch: master
+    detached: false
+    clean_dirty_at_snapshot: "dirty — one untracked directory: build/ (not evaluated; appears to be a local build artifact, not source)"
+    exact_sha_captured_at_inspection_time: false
+    matches_inspected_sha: >-
+      LIKELY BUT NOT PROVEN. Snapshot commit predates this session by two
+      weeks with no evidence of intervening activity in this repository
+      during the session; no literal HEAD SHA was captured by the
+      inspecting agent.
+    revision_uncertain_claims: "prior_art.md sec.1 (Data Contracts findings) — low residual uncertainty given the two-week gap and no observed intervening commits."
+    material_uncommitted_files: "build/ (untracked, present at snapshot time; not present or referenced in the original agent's findings, so it does not affect any claim in prior_art.md)"
+    test_commands_and_outcomes:
+      - {cmd: "pytest -q (fresh venv, package installed)", result: "474 passed in 1.86s"}
+
+  - repository: mixed_methods_workbench
+    absolute_path: /home/brian/projects/mixed_methods_workbench
+    snapshot_commit_sha: 10bc11f12716e570e08473de0a2ef64acd10a53d
+    snapshot_commit_date: "2026-08-12T18:03:39-04:00"
+    branch: "main (worktree branch claude-method-decomposition-phase0 created from this commit)"
+    detached: false
+    clean_dirty_at_snapshot: clean
+    exact_sha_captured_at_inspection_time: true
+    matches_inspected_sha: >-
+      CONFIRMED. This exact SHA (10bc11f) was captured via `git log
+      --oneline -15` at the start of this Phase 0 session, before the
+      claude-method-decomposition-phase0 worktree/branch was created from
+      it, and re-confirmed identical at this addendum's snapshot pass. This
+      is the one repository in this set with a genuinely contemporaneous
+      capture, not a post-hoc reconstruction.
+    revision_uncertain_claims: none — this is the reference case, not a revision-uncertain one
+    material_uncommitted_files: none
+    test_commands_and_outcomes:
+      - {cmd: "python -m pytest tests/test_mist_trail_decision.py -v", result: "13 passed, including test_source_bound_packet_covers_every_option_and_criterion, which asserts the priority-lens outcomes as fixed literals — direct evidence for the manually_performed classification"}
+
+summary:
+  fully_confirmed: [mixed_methods_workbench]
+  presumed_unchanged_not_proven: [qualitative_coding, theory-forge, data-contracts]
+  confirmed_drifted_since_inspection: [process_tracing]
+  action_taken: >-
+    No re-inspection was performed as part of this addendum — the
+    supervising request asked for honest disclosure of reconstructability,
+    not a fresh inspection pass. process_tracing's drift is flagged
+    prominently in reality_check.md and in the top-level report to the
+    user. A future comparison pass against ac27ab2, or any promotion
+    decision drawing on pt_core_rival_explanation / pt_source_acquisition,
+    should re-verify against process_tracing's current HEAD first.

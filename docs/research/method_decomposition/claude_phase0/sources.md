@@ -9,6 +9,13 @@ publisher/DOI/journal records) and to actually specify method steps, not
 merely discuss the method. All are used as evidence_basis citations in
 `step_ledger.yaml`.
 
+Source freezes are about the literature and are unaffected by repository
+drift, but the *code* citations threaded through this document (e.g. the
+in-repo citations found for grounded theory, process tracing, and CPT) were
+read at the repository states recorded in `repository_snapshots.yaml`. See
+that file for which repositories' states are confirmed vs. presumed vs.
+confirmed-drifted since inspection — notably `process_tracing`.
+
 ---
 
 ## 1. QC fixed-corpus grounded theory (`qc_grounded_theory`)

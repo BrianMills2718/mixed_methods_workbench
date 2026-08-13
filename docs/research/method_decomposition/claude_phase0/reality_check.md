@@ -3,6 +3,26 @@
 **Status:** `independent_candidate`. Produced without inspecting `ac27ab2`'s
 rows, edges, or findings (rev 5.1 §0.1). Not yet migrated or compared.
 
+**Repository provenance:** see `repository_snapshots.yaml` for the exact
+commit SHA, branch, and clean/dirty status recorded for every inspected
+repository, and for which claims are revision-uncertain. Read that file
+before treating any citation below as current. In particular:
+**`process_tracing` has confirmed-drifted since inspection** — a new merge
+(PR #83) landed after the sub-agent that produced
+`pt_core_rival_explanation` and `pt_source_acquisition` finished its read.
+No exact inspected SHA was captured contemporaneously for
+`qualitative_coding`, `process_tracing`, `theory-forge`, or `data-contracts`
+(only `mixed_methods_workbench`'s SHA was captured at the time); those four
+repos' findings are therefore "presumed unchanged, not proven" except
+`process_tracing`, which is "confirmed changed." No claim in this document
+should be read as asserting current-moment truth about `process_tracing`'s
+present state.
+
+> **Interpretation note.** The 74.4% result measures callable software
+> implementation across this selected Phase 0 workflow set. It does not
+> estimate automation coverage of policy analysis generally, methodological
+> validity, result quality, or unattended execution.
+
 ## Branch taken, in one paragraph
 
 **Aggregate branch: PASS** — 29 of 39 eligible denominator operations
@@ -223,7 +243,10 @@ than silently defaulted.
   gracefully skips rather than failing, so this is a known, tolerated gap
   — but the documentation was never corrected.
 - The dedicated reliability tests for the runtime-invariant-checking
-  feature (`tests/test_runtime_invariants.py`) currently fail at HEAD due
+  feature (`tests/test_runtime_invariants.py`) currently fail at the
+  inspected snapshot (`theory-forge` commit `9ec293f`, see
+  `repository_snapshots.yaml`; corroborated but not independently
+  SHA-confirmed as the exact inspected state) due
   to a genuine signature/shape drift between the test and
   `runner.py`'s `_check_invariants()` return type. The underlying
   behavior (invariant logging) is real, executing code — but its own
@@ -322,3 +345,26 @@ not as a cited scientific claim.
    per-method PASS/FAIL would. This scoping choice is defended in §3 and
    should be an explicit point of scrutiny in any future migration/
    comparison against `ac27ab2`.
+6. **`process_tracing` has confirmed-drifted since inspection** (added in
+   the `repository_snapshots.yaml` corrective pass): a new merge (PR #83)
+   landed on `process_tracing`'s `master` after the sub-agent that produced
+   `pt_core_rival_explanation` and `pt_source_acquisition` read the
+   repository. No `git rev-parse HEAD` was captured contemporaneously by
+   that sub-agent, so the exact commit it actually inspected cannot be
+   reconstructed — only that it precedes commit `44556a0` (2026-08-12
+   18:44:57-04:00). Every `pt_core_rival_explanation` and
+   `pt_source_acquisition` row, and their 100%/50% shares, describes that
+   earlier, unrecorded state. This is the single most consequential
+   uncertainty introduced by this corrective pass, since it bears directly
+   on one of the two individually-failing methods
+   (`pt_source_acquisition`). Re-verification against current
+   `process_tracing` HEAD is recommended before this candidate is used to
+   support any promotion or build decision, independent of the eventual
+   comparison against `ac27ab2`.
+7. **Four of five repositories' claims rest on presumed, not proven,
+   revision stability** (`qualitative_coding`, `theory-forge`,
+   `data-contracts`, and — with confirmed-negative status —
+   `process_tracing`). Only `mixed_methods_workbench`'s inspected commit
+   (`10bc11f`) was captured contemporaneously. See
+   `repository_snapshots.yaml` for the full per-repository accounting and
+   the reasoning behind each "presumed unchanged" judgment.

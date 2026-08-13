@@ -8,6 +8,13 @@ current design and reporting it back as a "finding." Everything below is
 evidence about what already composes and a candidate implementation
 substrate — not a schema any future decomposition must conform to.
 
+**Repository provenance:** see `repository_snapshots.yaml`. The
+`process_tracing` findings below (§3) describe a state confirmed to
+predate a since-landed merge (PR #83); treat the PT-side entries as
+revision-uncertain until re-verified. The Data Contracts and Theory Forge
+findings (§1-2) rest on presumed-unchanged, not contemporaneously
+captured, commits.
+
 ## 1. Data Contracts (`/home/brian/code/active/data-contracts`)
 
 A shared Pydantic-based library, explicitly scoped by its own ADR as a
