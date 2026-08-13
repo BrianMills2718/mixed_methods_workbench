@@ -1,9 +1,9 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-08-12
+Updated: 2026-08-13
 
-## Current Phase: Method-Capability Discovery; Reconciliation Pending
+## Current Phase: Method-Capability Discovery; Phase 0 Reconciled
 
 The code-derived Phase 0 candidate is merged at `c3d31aac`. It records four
 observed systems, five primary analytic variants, and six workflow graphs as 77
@@ -11,16 +11,21 @@ source-linked steps: 67 executable, eight represented manual, and two
 incomplete. This is accepted as bounded research evidence about the inspected
 implementations, not as an adopted universal capability model.
 
-The next decision is a controlled comparison with the separately produced
-independent decomposition. Until that candidate is frozen and available, the
-workbench may maintain the comparison rubric, trace source evidence, and keep
-planning authorities consistent. It must not normalize the RAND catalog,
-generalize a shared schema, or add another method merely to increase coverage.
-The comparison must classify apparent matches as genuine shared operations,
-shared shell behavior with method-owned refinements, method-local operations,
-or semantic collisions before any reuse decision. The frozen evidence and
-rubric are under
-[`docs/research/method_decomposition/codex_phase0/`](research/method_decomposition/codex_phase0/README.md).
+The separately produced candidate was corrected, its drifted Process Tracing
+claims were reverified at `4450d2e`, and the controlled comparison is recorded
+in
+[`docs/research/method_decomposition/comparison_v0.md`](research/method_decomposition/comparison_v0.md).
+The comparison found a plausible small shared shell for identity, custody,
+typed boundaries, validation, review state, lineage, refusal, and projection;
+analytic judgments and workflow topology remain method-owned. This is planning
+guidance, not schema adoption.
+
+The workbench may now continue method-capability discovery and catalog work,
+but it must not normalize the RAND catalog into a canonical ontology,
+generalize a shared schema from labels, or add a capability merely to increase
+coverage. A shared capability requires two authentic compatible
+producer/consumer seams. The three evidence mismatches in the comparison are
+replayed only when a near-term decision depends on them.
 
 This phase is documentation and research only. It does not authorize product
 code, producer changes, adapters, schema adoption, or another evaluation run.
