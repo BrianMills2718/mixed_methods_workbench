@@ -11,9 +11,12 @@ method-capability discovery. Brian accepted the Phase 2 discovery format on
 `operation_kind` at Levels 2 and 3, typed connections, six authority roles,
 information origins, temporal/access/version guards, and exact anchors. Existing
 verbs remain a coarse discovery input, and `analysis_plan` remains provisional
-for further testing rather than an adopted shared enum. This decision does not
-adopt a universal production schema, select the Phase 2b portfolio, authorize
-collision scoring or capability promotion, or authorize infrastructure or
+for further testing rather than an adopted shared enum. Brian selected the
+14-method Phase 3 denominator on 2026-08-13: `phase2b-proposal-0.3` plus the
+non-substitutable theory-testing Process Tracing variant. Phase 3 authorizes
+documentation-only decomposition of those frozen variants. It does not adopt a
+universal production schema, authorize Phase 4 collision scoring, Phase 5
+adjudication, coverage or capability promotion, shared infrastructure, or
 product implementation. `METHOD-DASH-C1/C2`, `MT-D1`, `T0-PROV`, and local `DEMO-C1`
 are completed bounded slices; none closes producer readiness or method validity.
 Do not begin another implementation merely because a roadmap or future slice
