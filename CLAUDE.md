@@ -9,8 +9,10 @@ workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
 one cohesive policy investigation through an MVP, not further method-catalog
 expansion. The Investigation Spine checkpoint is complete. The Mist Trail
 source gate concluded that Mist Trail is useful for bounded pre-decision
-option appraisal but cannot serve as the sole MVP flagship; select a completed,
-source-rich replacement before starting the next product vertical. Brian
+option appraisal but cannot serve as the sole MVP flagship. The replacement
+screen selected New York City's Congestion Relief Zone tolling program for an
+exact question-and-corpus freeze; do not start the next product vertical before
+that freeze passes. Brian
 accepted the Phase 2 discovery format on
 2026-08-13: method phase → analytical move → execution action, with
 `operation_kind` at Levels 2 and 3, typed connections, six authority roles,
