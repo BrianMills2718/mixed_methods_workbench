@@ -20,6 +20,7 @@ from mixed_methods_workbench.method_dashboard import (
 )
 from mixed_methods_workbench.method_dashboard_server import (
     catalog_payload,
+    evidence_anchor_capability_payload,
     process_tracing_topology_payload,
     route_payload,
 )
@@ -247,6 +248,10 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "Methods are workflows built from support, analytical moves, and human judgment." in html
     assert 'id="workflow-library"' in html
     assert "Process Tracing is not a checklist." in html
+    assert "One modular capability specified end to end" in html
+    assert 'id="capability-contract-flow"' in html
+    assert "/api/capabilities/evidence-anchor" in html
+    assert "Questions this capability refuses to answer" in html
     assert 'id="topology-canvas"' in html
     assert 'id="topology-inspector"' in html
     assert 'window.location.hash === "#architecture"' in html
@@ -269,3 +274,13 @@ def test_topology_json_operation_matches_the_browser_surface() -> None:
     assert payload["topology"]["schema_version"] == "pt.method_topology.v0.1"
     assert payload["topology"]["connections"]
     assert payload["custody"]["relationship"] == "hash_bound_derived_fixture"
+
+
+def test_capability_json_operation_matches_the_browser_surface() -> None:
+    payload = evidence_anchor_capability_payload()
+
+    assert payload["capability"]["capability_id"] == "evidence.anchor"
+    assert {record["method_id"] for record in payload["demonstration"]["records"]} == {
+        "grounded_theory",
+        "process_tracing",
+    }

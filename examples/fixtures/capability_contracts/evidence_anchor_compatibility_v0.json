@@ -1,0 +1,189 @@
+{
+  "schema_version": "mixed-method-evidence-anchor-view/v0.1",
+  "status": "experimental_consumer",
+  "capability_ref": "evidence.anchor",
+  "source_contract": {
+    "repository_id": "project-meta",
+    "revision": "22a2d5a60b61e084eb2670a78ec93ab65ac43aa2",
+    "path": "vision/schemas/evidence_anchor_compatibility_v0.json",
+    "sha256": "a81e1dffb83bdac4edc7b6ff9093a9ef27d7501281273fe31e4c05f0217e44bb",
+    "decision": "candidate_compatible"
+  },
+  "records": [
+    {
+      "record_id": "qc-open-science-grounded-incident-1",
+      "method_id": "grounded_theory",
+      "record_kind": "qualitative_coding.grounded_theory_incident",
+      "title": "Defining openness as traceable research infrastructure",
+      "analytic_role": "One grounded-theory incident developed from four exact interview passages.",
+      "method_payload": {
+        "incident_index": 1,
+        "open_code": "Defining openness as traceable research infrastructure",
+        "meaning": "Open Science is understood as making results, procedures, data, code, and decisions available so others can retrace and evaluate the research."
+      },
+      "method_specific_fields": [
+        "incident_index",
+        "open_code",
+        "meaning"
+      ],
+      "lineage": {
+        "repository_id": "qualitative_coding",
+        "inspected_repository_revision": "397a6f8efb48d7aec4ba1fafbd5e3964ec0428a2",
+        "producer_revision_status": "unrecorded",
+        "artifacts": [
+          {
+            "role": "analytic_record",
+            "path": "public_demo_assets/open_science/grounded_theory_development.json",
+            "sha256": "b3d9eeb704a4997dfb34757ff2501d586925b5fb3f8b1f807a440cb484725e3e"
+          },
+          {
+            "role": "source_context",
+            "path": "public_demo_assets/open_science/project_state.json.gz",
+            "sha256": "a16375a135dc15bffce81c6bc3c2c3fadf1c0ec1a74ea195c2ebfdc71039c40f"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "anchor_id": "qc-open-science-grounded-incident-1:segment-0e07fd2fa3375632177c770161219f19",
+          "source_resource_id": "open-science-interview-a03",
+          "source_locator": "artifact://qualitative_coding/public_demo_assets/open_science/project_state.json.gz",
+          "source_unit_id": "segment-0e07fd2fa3375632177c770161219f19",
+          "locator_kind": "character_span",
+          "locator_value": "1208:1878",
+          "selection_match": "exact",
+          "selected_text": "Well, there's several several aspects to this, right? Open accessibility of results, right? Sort of open access, that whole topic, which I'm sure we'll talk about in more depth as the interview continues. Availability of procedures, data, anything basically that ensures reproducibility of study designs, replicability ideally, and we've talked about this outside of this interview already quite a bit. So basically it's at an ideal plane, it's making available everything that goes into the research that enables basically anybody in the world to trace the steps of that research, arrive at the same results, and also critically evaluate each and every individual step.",
+          "selected_text_sha256": "44f80c36b9c37b8b8f887e147e56552897be0a43a44543c2ca1af52275f9ddfb",
+          "context_text": "Well, there's several several aspects to this, right? Open accessibility of results, right? Sort of open access, that whole topic, which I'm sure we'll talk about in more depth as the interview continues. Availability of procedures, data, anything basically that ensures reproducibility of study designs, replicability ideally, and we've talked about this outside of this interview already quite a bit. So basically it's at an ideal plane, it's making available everything that goes into the research that enables basically anybody in the world to trace the steps of that research, arrive at the same results, and also critically evaluate each and every individual step.",
+          "context_text_sha256": "44f80c36b9c37b8b8f887e147e56552897be0a43a44543c2ca1af52275f9ddfb",
+          "review_state": "model_generated",
+          "lineage_ref": "qc-open-science-grounded-incident-1"
+        },
+        {
+          "anchor_id": "qc-open-science-grounded-incident-1:segment-7d81a8ad54d5a464accbe45e27036172",
+          "source_resource_id": "open-science-interview-a04",
+          "source_locator": "artifact://qualitative_coding/public_demo_assets/open_science/project_state.json.gz",
+          "source_unit_id": "segment-7d81a8ad54d5a464accbe45e27036172",
+          "locator_kind": "character_span",
+          "locator_value": "3168:4418",
+          "selection_match": "exact",
+          "selected_text": "So for me, it would be kind of it's basically about transparency in the research process. And accessibility as well. So I think generally, like Open Science describes that if you conduct a study, for instance, that you basically not only provide the kind of final written article, but also the data set, and the methodology in detail, like and how you went about kind of getting the findings there. Um yeah and maybe also that was also very often very important to me in terms of methodology like what particular systems for example to use for example for you know speech transcription for I don't know um pos-tagging or um stuff like that because that is usually I think very helpful. Um also to other you know scientists or linguists there. Um because you can definitely learn a lot from other people there. And I think, yeah, accessibility as well. So generally transparency about the whole study itself. But then accessibility is, of course, another big thing, especially if you're a PhD student or if you're at a university with not so many resources. It's, of course, always very nice if you've just got really like the outputs like online or you can just access them and there's no paywall. So that's, of course, very beneficial as well. Yeah.",
+          "selected_text_sha256": "e06345214e627e6108b0d21c73aed61381027f7b28efdb7caff6b28d21ac18b1",
+          "context_text": "So for me, it would be kind of it's basically about transparency in the research process. And accessibility as well. So I think generally, like Open Science describes that if you conduct a study, for instance, that you basically not only provide the kind of final written article, but also the data set, and the methodology in detail, like and how you went about kind of getting the findings there. Um yeah and maybe also that was also very often very important to me in terms of methodology like what particular systems for example to use for example for you know speech transcription for I don't know um pos-tagging or um stuff like that because that is usually I think very helpful. Um also to other you know scientists or linguists there. Um because you can definitely learn a lot from other people there. And I think, yeah, accessibility as well. So generally transparency about the whole study itself. But then accessibility is, of course, another big thing, especially if you're a PhD student or if you're at a university with not so many resources. It's, of course, always very nice if you've just got really like the outputs like online or you can just access them and there's no paywall. So that's, of course, very beneficial as well. Yeah.",
+          "context_text_sha256": "e06345214e627e6108b0d21c73aed61381027f7b28efdb7caff6b28d21ac18b1",
+          "review_state": "model_generated",
+          "lineage_ref": "qc-open-science-grounded-incident-1"
+        },
+        {
+          "anchor_id": "qc-open-science-grounded-incident-1:segment-1fad1f9a96ec1b6a7d8e3be33d2f21d7",
+          "source_resource_id": "open-science-interview-a11",
+          "source_locator": "artifact://qualitative_coding/public_demo_assets/open_science/project_state.json.gz",
+          "source_unit_id": "segment-1fad1f9a96ec1b6a7d8e3be33d2f21d7",
+          "locator_kind": "character_span",
+          "locator_value": "1062:1564",
+          "selection_match": "exact",
+          "selected_text": "Sorry, I had a flu last week, so maybe I will cough a couple of times. Okay, yeah, so when I think of open science, I actually think of sharing your raw data, let's say, and also maybe the scripts in let's say R, for example, with the community on OSF. So this is, I think, the first main thing that pops into my head, but also pre-registering your hypotheses and then also sharing this. Yeah, so I think this would be my biggest yeah department of what I think open science is about sharing your data.",
+          "selected_text_sha256": "9e6d574a01c46b387a2a1955f06edd96d2eb824af5d72ee728d2261072f3b7df",
+          "context_text": "Sorry, I had a flu last week, so maybe I will cough a couple of times. Okay, yeah, so when I think of open science, I actually think of sharing your raw data, let's say, and also maybe the scripts in let's say R, for example, with the community on OSF. So this is, I think, the first main thing that pops into my head, but also pre-registering your hypotheses and then also sharing this. Yeah, so I think this would be my biggest yeah department of what I think open science is about sharing your data.",
+          "context_text_sha256": "9e6d574a01c46b387a2a1955f06edd96d2eb824af5d72ee728d2261072f3b7df",
+          "review_state": "model_generated",
+          "lineage_ref": "qc-open-science-grounded-incident-1"
+        },
+        {
+          "anchor_id": "qc-open-science-grounded-incident-1:segment-8c1fd9b6891ae70deb03e5dfcdf1af89",
+          "source_resource_id": "open-science-interview-a19",
+          "source_locator": "artifact://qualitative_coding/public_demo_assets/open_science/project_state.json.gz",
+          "source_unit_id": "segment-8c1fd9b6891ae70deb03e5dfcdf1af89",
+          "locator_kind": "character_span",
+          "locator_value": "1050:1676",
+          "selection_match": "exact",
+          "selected_text": "For me, open science is being rigorous about your whole research process from the planning stage through the actual research, through the publication stage. And it's, I guess for me, not only about making everything publicly available, but also making my own life easier because it entails like writing very rigorous documentation in the sense of documenting decisions I made, say, in corpus linguistic when it comes to annotation, which, yeah, part of my data did I annotate? How and why, what were the critical parts that we discussed in the team. So it's about making it reusable for others, but also reusable for me later.",
+          "selected_text_sha256": "efda3156c9b40e8b9c6c2d43bff33ad79c5db23caa4dd3a21908573c5ff952e6",
+          "context_text": "For me, open science is being rigorous about your whole research process from the planning stage through the actual research, through the publication stage. And it's, I guess for me, not only about making everything publicly available, but also making my own life easier because it entails like writing very rigorous documentation in the sense of documenting decisions I made, say, in corpus linguistic when it comes to annotation, which, yeah, part of my data did I annotate? How and why, what were the critical parts that we discussed in the team. So it's about making it reusable for others, but also reusable for me later.",
+          "context_text_sha256": "efda3156c9b40e8b9c6c2d43bff33ad79c5db23caa4dd3a21908573c5ff952e6",
+          "review_state": "model_generated",
+          "lineage_ref": "qc-open-science-grounded-incident-1"
+        }
+      ]
+    },
+    {
+      "record_id": "pt-brumaire-evidence-c01-directory-design",
+      "method_id": "process_tracing",
+      "record_kind": "process_tracing.diagnostic_evidence",
+      "title": "Directory constitutional design as diagnostic evidence",
+      "analytic_role": "One process-tracing evidence item retained for causal diagnostic testing.",
+      "method_payload": {
+        "evidence_id": "c01_evi_directory_design_middle_way",
+        "case_id": "18 Brumaire",
+        "evidence_type": "empirical",
+        "source_genre": "overview",
+        "temporal_context": "1795",
+        "trace_production_relevance": "background"
+      },
+      "method_specific_fields": [
+        "evidence_id",
+        "case_id",
+        "evidence_type",
+        "source_genre",
+        "temporal_context",
+        "trace_production_relevance"
+      ],
+      "lineage": {
+        "repository_id": "process_tracing",
+        "inspected_repository_revision": "ddf35ddca82b3e936cb2ab882d290aeb202d30ad",
+        "producer_revision_status": "unrecorded",
+        "artifacts": [
+          {
+            "role": "analytic_record",
+            "path": "data://process_tracing/workbench/runs/run_20260806_010451_de86/result.json",
+            "sha256": "d9bcfa25b07c38b893405c29e51bd1d0c995efa6389bb530c2f59ae16cf7b782"
+          },
+          {
+            "role": "source_design",
+            "path": "data://process_tracing/workbench/runs/run_20260806_010451_de86/source_packet.json",
+            "sha256": "5fbaabf1332ba4008960b2d57f69671dda32c46694bffb5189f4fa2f7801558d"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "anchor_id": "pt-brumaire-evidence-c01-directory-design:span_c01_015",
+          "source_resource_id": "source_d_fondation_napoleon",
+          "source_locator": "https://www.napoleon.org/en/history-of-the-two-empires/articles/18-brumaire-the-context-and-course-of-a-coup-detat/",
+          "source_unit_id": "span_c01_015",
+          "locator_kind": "immutable_span",
+          "locator_value": "span_c01_015",
+          "selection_match": "whitespace_normalized",
+          "selected_text": "Its constitutional design tried to avoid both one-man tyranny and uncontrolled democratic radicalism.",
+          "selected_text_sha256": "42e1f0d0f48f168adfc48423b79e0a8c294500d203e0289a89c4ff965af68a07",
+          "context_text": "1795: The Directory replaced the Thermidorian Convention. Source D says the new\nregime was built around a five-member executive, the Council of Ancients, and\nthe Council of Five Hundred. Its constitutional design tried to avoid both\none-man tyranny and uncontrolled democratic radicalism.",
+          "context_text_sha256": "d2c648044454e9c324d670f2f75ab07b418f7176036406404e7516c43a13e0a3",
+          "review_state": "model_generated",
+          "lineage_ref": "pt-brumaire-evidence-c01-directory-design"
+        }
+      ]
+    }
+  ],
+  "shared_fields": [
+    "anchor_id",
+    "source_resource_id",
+    "source_locator",
+    "source_unit_id",
+    "locator_kind",
+    "locator_value",
+    "selection_match",
+    "selected_text",
+    "selected_text_sha256",
+    "context_text",
+    "context_text_sha256",
+    "review_state",
+    "lineage_ref"
+  ],
+  "interpretation_boundary": "The same anchor contract preserves source identity for both methods; grounded-theory incident meaning and process-tracing diagnostic metadata remain separate and are never collapsed into a shared evidence score.",
+  "non_claims": [
+    "This view does not adopt a shared Data Contracts schema.",
+    "This view does not claim that grounded theory and process tracing use evidence identically.",
+    "This view does not convert qualitative support into causal diagnostic weight.",
+    "The inspected revisions identify artifacts reviewed; neither source artifact records its own producer Git revision."
+  ]
+}

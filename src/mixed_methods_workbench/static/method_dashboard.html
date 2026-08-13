@@ -357,6 +357,31 @@
     .support-status.observed_engine { color: var(--forest); background: var(--mint); }
     .support-status.bounded_example { color: var(--blue); background: var(--blue-soft); }
     .support-status.method_profile_only { color: var(--amber); background: var(--amber-soft); }
+    .capability-probe { margin: 28px 0; border: 1px solid var(--line); border-radius: 16px; background: #fffefa; overflow: hidden; }
+    .capability-head { display: flex; align-items: start; justify-content: space-between; gap: 20px; padding: 20px; border-bottom: 1px solid var(--line); }
+    .capability-head h3 { margin: 3px 0 7px; font-family: var(--serif); font-size: 27px; }
+    .capability-head p { max-width: 780px; margin: 0; color: var(--muted); font-size: 13px; }
+    .candidate-badge { flex: 0 0 auto; padding: 7px 10px; border-radius: 999px; color: var(--violet); background: var(--violet-soft); font-size: 10px; font-weight: 850; }
+    .capability-contract-flow { display: grid; grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr) 52px minmax(0, 1fr); align-items: stretch; gap: 9px; padding: 20px; background: #faf8f0; }
+    .port-card { padding: 15px; border: 1px solid var(--line); border-radius: 12px; background: #fffefa; }
+    .port-card.operation { border-color: #abc4b7; background: var(--mint); }
+    .port-card span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 9px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .port-card strong { display: block; margin-bottom: 5px; font-size: 13px; }
+    .port-card p { margin: 0; color: #4d5a53; font-size: 11px; }
+    .contract-arrow { display: grid; place-items: center; color: var(--forest-2); font-size: 22px; font-weight: 850; }
+    .capability-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px; }
+    .capability-box { padding: 15px; border: 1px solid var(--line); border-radius: 12px; background: #fffefa; }
+    .capability-box h4 { margin: 0 0 8px; font-size: 13px; }
+    .capability-box p, .capability-box li { color: var(--muted); font-size: 11px; }
+    .capability-box ul { margin: 0; padding-left: 18px; }
+    .adapter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; grid-column: 1 / -1; }
+    .adapter-card { padding: 16px; border: 1px solid var(--line); border-top: 4px solid var(--forest-2); border-radius: 12px; background: #fffefa; }
+    .adapter-card:nth-child(2) { border-top-color: var(--blue); }
+    .adapter-card h4 { margin: 0 0 5px; font-size: 14px; }
+    .adapter-card p { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
+    .adapter-fields { margin-top: 9px; color: var(--forest); font-size: 10px; font-weight: 700; }
+    .capability-proof { grid-column: 1 / -1; padding: 14px 16px; border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; background: var(--blue-soft); font-size: 12px; }
+    .capability-proof strong { display: block; margin-bottom: 4px; }
     .topology-intro { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(270px, .6fr); gap: 18px; margin: 26px 0 16px; }
     .topology-intro > div, .topology-question { padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #fffefa; }
     .topology-intro h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 25px; }
@@ -441,6 +466,10 @@
       .workspace { grid-template-columns: 360px minmax(0, 1fr); }
       .method-grid, .library-grid { grid-template-columns: 1fr; }
       .tier-grid { grid-template-columns: 1fr; }
+      .capability-contract-flow { grid-template-columns: 1fr; }
+      .contract-arrow { transform: rotate(90deg); }
+      .capability-sections, .adapter-grid { grid-template-columns: 1fr; }
+      .adapter-grid, .capability-proof { grid-column: auto; }
       .composition-flow { grid-template-columns: 1fr 1fr; }
       .composition-node:nth-child(2)::after { display: none; }
       .topology-intro, .topology-workspace { grid-template-columns: 1fr; }
@@ -608,6 +637,24 @@
           <p>Reusable machinery may carry the work. The methodology still owns what counts as evidence and what may be concluded.</p>
         </div>
 
+        <section class="capability-probe" aria-labelledby="capability-probe-title">
+          <div class="capability-head">
+            <div>
+              <p class="panel-kicker">One modular capability specified end to end</p>
+              <h3 id="capability-probe-title">Bind evidence to an exact source</h3>
+              <p id="capability-purpose">Loading the typed capability contract…</p>
+            </div>
+            <span class="candidate-badge">Two-method compatibility candidate</span>
+          </div>
+          <div id="capability-contract-flow" class="capability-contract-flow" aria-label="Evidence anchor input, operation, and output"></div>
+          <div class="capability-sections">
+            <article class="capability-box"><h4>Rules every use must preserve</h4><div id="capability-invariants"></div></article>
+            <article class="capability-box"><h4>Questions this capability refuses to answer</h4><div id="capability-non-decisions"></div></article>
+            <div id="capability-adapters" class="adapter-grid"></div>
+            <div id="capability-proof" class="capability-proof"></div>
+          </div>
+        </section>
+
         <div class="topology-intro">
           <div>
             <p class="panel-kicker">One method examined honestly</p>
@@ -697,6 +744,7 @@
 
     let catalog;
     let topologyArtifact;
+    let capabilityArtifact;
     let topologyView = "logic";
     let selectedTopologyRef = "pt.move.scope";
     let selectedTopologyConnection = null;
@@ -871,6 +919,34 @@
           <div class="tag-row">${method.aims.map((aim) => `<span class="tag">${escapeHtml(label(aim))}</span>`).join("")}</div>
           <div class="portfolio-note"><strong>${escapeHtml(method.method_kinds.join(" · "))}</strong><br>${escapeHtml(method.portfolio_note)}</div>
         </article>`).join("") || "<p>No method profile matches this filter.</p>";
+    }
+
+    function renderCapabilityContract() {
+      const capability = capabilityArtifact.capability;
+      const demonstration = capabilityArtifact.demonstration;
+      byId("capability-purpose").textContent = capability.purpose;
+      byId("capability-contract-flow").innerHTML = `
+        <article class="port-card"><span>Typed input</span><strong>${escapeHtml(label(capability.input_port.name))}</strong><p>${escapeHtml(capability.input_port.meaning)}</p></article>
+        <div class="contract-arrow" aria-hidden="true">→</div>
+        <article class="port-card operation"><span>Reusable operation</span><strong>Verify and bind</strong><p>${escapeHtml(capability.operation)}</p></article>
+        <div class="contract-arrow" aria-hidden="true">→</div>
+        <article class="port-card"><span>Typed output</span><strong>${escapeHtml(label(capability.output_port.name))}</strong><p>${escapeHtml(capability.output_port.meaning)}</p></article>`;
+      byId("capability-invariants").innerHTML = list(capability.invariants);
+      byId("capability-non-decisions").innerHTML = list(capability.deliberately_does_not_decide);
+      const recordByMethod = Object.fromEntries(demonstration.records.map((record) => [record.method_id, record]));
+      byId("capability-adapters").innerHTML = capability.adapters.map((adapter) => {
+        const record = recordByMethod[adapter.method_id];
+        const methodName = adapter.method_id === "grounded_theory" ? "Grounded Theory use" : "Process Tracing use";
+        return `<article class="adapter-card">
+          <p class="panel-kicker">${escapeHtml(methodName)}</p>
+          <h4>${escapeHtml(record.title)}</h4>
+          <p><strong>Same shared output:</strong> ${record.anchors.length} verified source anchor${record.anchors.length === 1 ? "" : "s"}.</p>
+          <p><strong>Different downstream use:</strong> ${escapeHtml(adapter.downstream_use)}</p>
+          <p><strong>Method-owned limit:</strong> ${escapeHtml(adapter.forbidden_inference)}</p>
+          <div class="adapter-fields">Retained outside the shared capability: ${adapter.method_fields_retained_outside_capability.map((field) => escapeHtml(label(field))).join(" · ")}</div>
+        </article>`;
+      }).join("");
+      byId("capability-proof").innerHTML = `<strong>Why this currently qualifies as a reuse candidate</strong>Both authentic method records pass the same ${demonstration.shared_fields.length}-field anchor boundary, while their method-specific fields remain outside it. Corrupt text, context, locator, or lineage is refused. This proves bounded compatibility—not universal reuse.`;
     }
 
     const topologyPositions = {
@@ -1118,16 +1194,20 @@
 
     async function boot() {
       try {
-        const [catalogResponse, topologyResponse] = await Promise.all([
+        const [catalogResponse, topologyResponse, capabilityResponse] = await Promise.all([
           fetch("/api/catalog"),
-          fetch("/api/method-topology/process-tracing")
+          fetch("/api/method-topology/process-tracing"),
+          fetch("/api/capabilities/evidence-anchor")
         ]);
         if (!catalogResponse.ok) throw new Error("Catalog unavailable");
         if (!topologyResponse.ok) throw new Error("Process Tracing topology unavailable");
+        if (!capabilityResponse.ok) throw new Error("Evidence-anchor capability unavailable");
         catalog = await catalogResponse.json();
         topologyArtifact = await topologyResponse.json();
+        capabilityArtifact = await capabilityResponse.json();
         renderInputs();
         renderLibrary();
+        renderCapabilityContract();
         renderArchitecture();
         renderStressTests();
         if (window.location.hash === "#stress") switchView("stress");
