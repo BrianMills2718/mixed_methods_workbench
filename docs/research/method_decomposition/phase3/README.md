@@ -14,9 +14,9 @@ records validation of the graph itself, not evidence that a method has been
 decomposed.
 
 The three research lanes own disjoint method directories under `methods/`.
-Only `P3-INTEGRATE` owns shared manifests and reports. The existing Process
-Tracing topology worktree is read-only implementation evidence; it neither
-defines the `P14` ideal nor owns its decomposition.
+Only `P3-INTEGRATE` owns shared manifests and reports. The Process Tracing
+topology prototype merged at `1fd01bc` and is pinned read-only implementation
+evidence; it neither defines the `P14` ideal nor owns its decomposition.
 
 Phase 3 does not authorize collisions, adjudication, coverage claims, schema or
 vocabulary adoption, shared infrastructure, product changes, or producer

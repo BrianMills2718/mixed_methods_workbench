@@ -268,9 +268,9 @@ earlier. It is more representative of the whole RAND-derived inventory, but it
 adds four source freezes—about 31% more equally weighted methods—before the
 current 13-family denominator has produced any collision evidence. It makes
 complete-method and unattended coverage harder for substantively legitimate
-reasons that the predeclared minimum does not require. The recommendation
-remains the 13-variant portfolio; the 14-member set is the important human
-alternative, and the remaining three are later breadth candidates.
+reasons that the predeclared minimum does not require. Before Brian's decision,
+the proposal recommended 13 variants and presented 14 as the important human
+alternative. The remaining three are still later breadth candidates.
 
 ## Human approval disposition
 

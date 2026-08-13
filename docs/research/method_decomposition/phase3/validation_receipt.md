@@ -3,7 +3,7 @@
 Validated: 2026-08-13
 
 Graph SHA-256:
-`4c468db5639702c56ee9ebe11a7f1155dc2feae78b41706857df103e6faf928e`
+`b7adb6ef0cf29ed9232063aa805a5ce394d81d98b1cb4f12c7806dfc5fca943e`
 
 Company Planning work-unit validator:
 
@@ -19,7 +19,7 @@ Focused structural checks also passed:
 - exactly three `ready_for_execution` research units;
 - exactly three hard dependencies into `P3-INTEGRATE`;
 - exclusive method paths are exactly `p01` through `p14`, once each;
-- every Process Tracing topology claim/worktree surface is read-only;
+- both pinned Process Tracing topology implementation surfaces are read-only;
 - `git diff --check` is clean.
 
 This receipt validates coordination structure and readiness metadata only. It
