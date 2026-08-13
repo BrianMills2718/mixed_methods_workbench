@@ -30,6 +30,14 @@ prior flagship candidate.
 | Implemented decision and observable outcomes | Tolling began January 5, 2025; MTA published its first evaluation report January 5, 2026 | **Pass** |
 | Two authentic method-owned strands | Hearing transcripts support qualitative analysis; public traffic/ridership data support a separate quantitative analysis that can change the conclusion | **Pass in principle** |
 
+The quantitative strand is real but bounded. A fresh read-only probe found that
+the program-specific vehicle-entry dataset begins on the January 5, 2025
+implementation date, so it contains no pre-intervention comparison period. The
+first-year report's traffic baseline also incorporates historical crossing data
+that cannot be reconstructed from that public dataset alone. The initial
+quantitative product should therefore be a reproducible descriptive
+predicted-versus-observed audit, not an independent causal-effect estimate.
+
 ## Initial official source universe
 
 These are discovery references. The next gate must download or query, hash,
@@ -104,10 +112,12 @@ one inferential operation or a fixed ladder.
    predictions into explicit measures and time/scope conditions without
    treating the extraction as empirical evidence.
 4. **Measure observed change.** Use a quantitative engine on frozen public
-   traffic and ridership data. The design must handle seasonality, the January
-   2025 intervention boundary, other contemporaneous changes, missing or
-   proprietary measures, and the distinction between association and causal
-   attribution.
+   traffic and ridership data. Begin with descriptive predicted-versus-observed
+   comparisons. The design must handle seasonality, the January 2025
+   intervention boundary, other contemporaneous changes, missing or proprietary
+   measures, and the distinction between association and causal attribution.
+   Refuse a causal-effect claim unless a separately reviewed comparison design
+   and adequate pre-intervention series support it.
 5. **Appraise predicted versus observed outcomes.** Compare the final EA's
    expected effects, stakeholder concerns, and observed first-year evidence.
    Preserve conflicts between agency conclusions and independently computed
@@ -178,12 +188,17 @@ The New York case is not ready for execution until the next gate resolves:
    launch. Freeze which decision and which first-year period are in scope.
 2. **Corpus size.** Start with the six 2022 hearing transcripts and the minimum
    decision documents; do not ingest the entire archive by default.
-3. **Data snapshot.** Export immutable versions of the two open datasets,
-   record query parameters and digests, and identify which measures predate
-   the intervention.
+3. **Data snapshot.** Freeze each tabular query with the dataset identifier,
+   exact server-side query, retrieval timestamp, returned table, metadata, and
+   content digest. The program-specific entry series has no pre-intervention
+   period; pre-2025 transit series are contextual comparisons unless a valid
+   comparison-series design is separately adopted.
 4. **Rights and attribution.** The open-data pages do not state a dataset
-   license in the observed metadata. Confirm permitted reuse and required
-   attribution before bundling data or publishing derived artifacts.
+   license in the observed metadata. The current Open NY terms appear to permit
+   reuse, but freeze the applicable terms and cite MTA before bundling data or
+   publishing derived artifacts. Because hearing transcripts identify speakers,
+   also record a public-source privacy/publication disposition and minimize
+   quoted personal text to what the analysis requires.
 5. **Replicability.** Exclude or clearly separate analyses that depend on
    proprietary StreetLight data unless a public substitute supports the same
    question.
@@ -202,7 +217,9 @@ Perform one exact NYC source-freeze gate. It should return:
 - the minimal document/transcript/data inventory with hashes and versions;
 - the qualitative and quantitative designs and their permitted claims;
 - source-use and reproducibility dispositions;
-- the first two executable capabilities/consumers the case will exercise; and
+- the first two executable capabilities/consumers the case will exercise—one
+  schema-constrained extraction from exact document bytes and one hash-bound
+  frozen tabular query are the leading candidates; and
 - a go/no-go decision for the authentic QC Describe plus structured-extraction
   slice.
 
