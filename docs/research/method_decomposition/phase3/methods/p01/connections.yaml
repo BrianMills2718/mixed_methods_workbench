@@ -1,0 +1,30 @@
+schema_version: phase3-connections-0.1
+method_id: p01
+connection_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+topology:
+  shape: adaptive
+  required_cycles: []
+  optional_cycles: [[p01.move.certainty_report, p01.move.protocol]]
+  prohibited_cycles: [[p01.move.extract, p01.move.protocol, p01.move.search, p01.move.link_screen]]
+  prohibited_edges: [p01.c17, p01.c18]
+  entry_points: [p01.move.question]
+  terminal_points: [p01.move.certainty_report, refusal:no_eligible_studies, refusal:incompatible_evidence_not_pooled]
+connections:
+  - {id: p01.c01, from: p01.move.question, to: p01.move.protocol, connection_type: artifact_flow, carries: frozen_pico_scope, from_output: frozen_pico_scope, to_input: frozen_pico_scope, transfer_semantics: preserving}
+  - {id: p01.c02, from: p01.move.protocol, to: p01.move.search, connection_type: artifact_flow, carries: registered_protocol, from_output: registered_protocol, to_input: registered_protocol, transfer_semantics: preserving}
+  - {id: p01.c03, from: p01.move.search, to: p01.action.deduplicate_link, connection_type: artifact_flow, carries: search_results, from_output: search_results, to_input: search_results, transfer_semantics: preserving}
+  - {id: p01.c04, from: p01.action.deduplicate_link, to: p01.move.link_screen, connection_type: retained_context, carries: linked_report_clusters, note: clusters_support_report_linkage_but_do_not_replace_search_results_or_eligibility_rules}
+  - {id: p01.c05, from: p01.move.search, to: p01.move.link_screen, connection_type: artifact_flow, carries: search_results, from_output: search_results, to_input: search_results, transfer_semantics: preserving}
+  - {id: p01.c06, from: p01.move.protocol, to: p01.move.link_screen, connection_type: retained_context, carries: eligibility_rules}
+  - {id: p01.c07, from: p01.move.link_screen, to: p01.move.extract, connection_type: artifact_flow, carries: study_selection, from_output: study_selection, to_input: included_studies, transfer_semantics: transforming, method_owner: p01, change_or_loss: excluded_decisions_are_retained_in_trace_but_only_included_studies_enter_extraction}
+  - {id: p01.c08, from: p01.move.extract, to: p01.move.risk_bias, connection_type: artifact_flow, carries: study_result_dataset, from_output: study_result_dataset, to_input: study_result_dataset, transfer_semantics: preserving}
+  - {id: p01.c09, from: p01.move.extract, to: p01.move.compatibility, connection_type: artifact_flow, carries: study_result_dataset, from_output: study_result_dataset, to_input: study_result_dataset, transfer_semantics: preserving}
+  - {id: p01.c10, from: p01.move.risk_bias, to: p01.move.compatibility, connection_type: retained_context, carries: risk_of_bias_judgments}
+  - {id: p01.c11, from: p01.move.compatibility, to: p01.move.synthesize, connection_type: control_gate, carries: pooling_decision, condition: each_group_is_explicitly_approved_for_pooling_or_nonpooled_synthesis}
+  - {id: p01.c12, from: p01.move.compatibility, to: p01.action.compute_pool, connection_type: artifact_flow, carries: compatible_results, from_output: synthesis_groups, to_input: compatible_results, transfer_semantics: transforming, method_owner: p01, change_or_loss: only_results_in_approved_compatible_groups_are_projected_to_computation}
+  - {id: p01.c13, from: p01.action.compute_pool, to: p01.move.synthesize, connection_type: retained_context, carries: pooled_estimate, note: computed_result_informs_but_does_not_replace_the_method_owned_synthesis_judgment_or_pooling_decision}
+  - {id: p01.c14, from: p01.move.synthesize, to: p01.move.certainty_report, connection_type: artifact_flow, carries: synthesis_findings, from_output: synthesis_findings, to_input: synthesis_findings, transfer_semantics: preserving}
+  - {id: p01.c15, from: p01.move.risk_bias, to: p01.move.certainty_report, connection_type: retained_context, carries: risk_of_bias_judgments}
+  - {id: p01.c16, from: p01.move.certainty_report, to: p01.move.protocol, connection_type: feedback, carries: update_trigger, condition: new_evidence_or_material_method_change, creates_successor_version: true}
+  - {id: p01.c17, from: p01.move.extract, to: p01.move.protocol, connection_type: prohibited_transition, carries: result_informed_eligibility_rewrite, consequence: amendment_must_be_declared_and_confirmatory_status_downgraded}
+  - {id: p01.c18, from: p01.move.compatibility, to: p01.move.synthesize, connection_type: prohibited_transition, carries: pooled_result_before_compatibility, consequence: pooled_claim_is_unlicensed}

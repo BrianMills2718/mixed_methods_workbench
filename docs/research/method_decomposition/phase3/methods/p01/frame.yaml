@@ -1,0 +1,26 @@
+schema_version: phase3-method-frame-0.1
+method_id: p01
+portfolio_revision: phase2b-proposal-0.3+P14
+frozen_at: 2026-08-13T18:34:00Z
+variant: Cochrane-style systematic review of randomized intervention effects, with pairwise meta-analysis only where estimands and measures are compatible
+unit_of_analysis: randomized_study
+applicability_boundary:
+  population: declared review population
+  intervention: declared policy or intervention family
+  comparator: declared eligible comparators
+  outcomes: prespecified critical and important outcomes
+  study_designs: randomized controlled trials
+  synthesis: pairwise pooling only for clinically and methodologically compatible result sets
+exclusions:
+  - network meta-analysis
+  - qualitative evidence synthesis
+  - realist synthesis
+  - observational-effect review
+  - rapid review shortcuts
+  - treating reports as independent studies
+source_freeze:
+  primary: Cochrane Handbook for Systematic Reviews of Interventions version 6.5 (2024), chapters 2-5, 8-10, 13 and III
+  corroborating: PRISMA 2020 statement and explanation, items 5-13, 16-22, 24-27
+source_scope_caution: PRISMA governs transparent reporting; it does not replace Cochrane conduct guidance.
+claim_boundary: Produces a bounded synthesis of eligible randomized studies; a pooled effect is licensed only when the declared compatibility judgment passes.
+

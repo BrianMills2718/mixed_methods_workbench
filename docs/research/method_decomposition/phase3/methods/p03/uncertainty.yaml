@@ -1,0 +1,12 @@
+schema_version: phase3-uncertainty-0.1
+method_id: p03
+judgments:
+  - {id: p03.u01, status: known, subject: pretrend_test, statement: failure_to_reject_a_pretrend_difference_does_not_establish_parallel_untreated_potential_outcomes, basis: Baker_et_al_2026, downstream_effect: identification_requires_substantive_argument_and_sensitivity}
+  - {id: p03.u02, status: unknown, subject: counterfactual_trend, statement: the_treated_groups_post_adoption_untreated_outcome_is_unobserved, basis: DiD_identification_structure, downstream_effect: causal_claim_is_conditional_on_parallel_trends_and_no_anticipation}
+  - {id: p03.u03, status: contested, subject: covariate_adjustment, statement: covariate_choice_can_improve_plausibility_or_induce_result_driven_specification, basis: Baker_et_al_2026_covariate_guidance, downstream_effect: covariates_are_prespecified_and_sensitivity_reported}
+  - {id: p03.u04, status: source_limited, subject: one_treated_aggregate, statement: standard_inference_may_be_weak_with_few_group_clusters, basis: frozen_variant_does_not_fix_sampling_structure, downstream_effect: inference_method_and_support_limit_must_be_declared_per_study}
+negative_controls:
+  - {test: pretrend_nonrejection_as_proof, expected: reject_identification_claim}
+  - {test: staggered_adoption_input, expected: reject_as_outside_frozen_variant}
+  - {test: result_driven_window_selection, expected: label_successor_analysis_exploratory}
+

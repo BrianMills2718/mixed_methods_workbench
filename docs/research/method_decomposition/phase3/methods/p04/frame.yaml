@@ -1,0 +1,22 @@
+schema_version: phase3-method-frame-0.1
+method_id: p04
+portfolio_revision: phase2b-proposal-0.3+P14
+frozen_at: 2026-08-13T18:34:00Z
+variant: Fuzzy-set Qualitative Comparative Analysis over a declared 10-50-case population with substantive calibration, necessity and sufficiency analysis, explicit remainder policy, and return to cases
+unit_of_analysis: case_as_configuration
+applicability_boundary:
+  case_population: substantively bounded population of 10-50 cases
+  membership: fuzzy-set scores grounded in external conceptual anchors
+  inference: asymmetric set relations and configurational sufficiency or necessity
+exclusions:
+  - crisp-set QCA
+  - multi-value QCA
+  - temporal QCA
+  - marginal net-effect interpretation
+  - treating software defaults as substantive calibration or remainder authority
+source_freeze:
+  primary: Schneider and Wagemann 2012, chapters 2-9 and 11
+  corroborating: Ragin 2008, chapters 1-9
+source_scope_caution: Software executes set operations but cannot own calibration anchors, contradiction resolution, or counterfactual remainder judgments.
+claim_boundary: Identifies bounded necessary or sufficient configurations and equifinality; it does not estimate marginal effects or establish within-case temporal mechanisms.
+

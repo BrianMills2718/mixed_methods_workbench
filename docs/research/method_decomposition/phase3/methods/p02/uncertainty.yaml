@@ -1,0 +1,12 @@
+schema_version: phase3-uncertainty-0.1
+method_id: p02
+judgments:
+  - {id: p02.u01, status: known, subject: treatment_policy_estimand, statement: declared_intercurrent_events_are_handled_without_changing_randomized_treatment_assignment_in_the_target_contrast, basis: ICH_E9_R1_A3_2, downstream_effect: primary_estimator_and_missing_data_strategy_must_align}
+  - {id: p02.u02, status: contested, subject: policy_transfer, statement: randomization_supports_internal_assignment_contrast_but_not_automatic_transport_to_new_settings, basis: frozen_sources_do_not_supply_transportability_authority, downstream_effect: conclusion_remains_within_trial_population_and_setting}
+  - {id: p02.u03, status: source_limited, subject: ethics_and_safety, statement: statistical_guidelines_do_not_fully_define_policy_trial_ethics_safeguarding_or_delivery_governance, basis: ICH_statistical_scope, downstream_effect: decomposition_cannot_license_trial_launch_or_safety_claim}
+  - {id: p02.u04, status: unknown, subject: missing_data_assumptions, statement: robustness_to_unobserved_missing_outcomes_is_not_empirically_identifiable, basis: ICH_E9_R1_A5, downstream_effect: sensitivity_results_bound_the_primary_conclusion}
+negative_controls:
+  - {test: analyzed_as_treated_is_not_treatment_policy_ITT, expected: reject_primary_estimator_that_reassigns_participants_by_received_treatment}
+  - {test: post_unblinding_estimand_change, expected: downgrade_successor_analysis_to_exploratory}
+  - {test: randomization_does_not_prove_transportability, expected: reject_population_generalization_without_external_evidence}
+

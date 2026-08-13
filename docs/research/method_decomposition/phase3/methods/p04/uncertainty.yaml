@@ -1,0 +1,12 @@
+schema_version: phase3-uncertainty-0.1
+method_id: p04
+judgments:
+  - {id: p04.u01, status: known, subject: calibration, statement: fuzzy_membership_requires_external_substantive_anchors_not_sample_relative_ranks_alone, basis: Ragin_2008_ch4_to_5, downstream_effect: software_default_cutpoints_cannot_own_calibration}
+  - {id: p04.u02, status: contested, subject: logical_remainders, statement: analysts_may_disagree_about_easy_and_difficult_counterfactuals, basis: Ragin_2008_ch8_to_9_and_Schneider_Wagemann_ch6, downstream_effect: intermediate_and_parsimonious_solutions_retain_directional_expectations_and_sensitivity}
+  - {id: p04.u03, status: unknown, subject: limited_diversity, statement: unobserved_configurations_have_no_direct_case_evidence, basis: Schneider_Wagemann_2012_ch6, downstream_effect: remainder_use_is_explicit_and_never_treated_as_observation}
+  - {id: p04.u04, status: source_limited, subject: case_count, statement: the_portfolio_freezes_10_to_50_cases_but_method_sources_do_not_make_those_bounds_a_universal_validity_rule, basis: portfolio_scope_choice, downstream_effect: conclusions_are_bound_to_this_sample_profile_not_all_QCA}
+negative_controls:
+  - {test: percentile_rank_as_calibration, expected: reject_without_substantive_membership_anchors}
+  - {test: software_selects_remainders, expected: reject_solution_as_methodologically_unlicensed}
+  - {test: solution_term_as_temporal_mechanism_or_marginal_effect, expected: reject_claim_type}
+

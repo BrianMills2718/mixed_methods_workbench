@@ -1,0 +1,24 @@
+schema_version: phase3-method-frame-0.1
+method_id: p02
+portfolio_revision: phase2b-proposal-0.3+P14
+frozen_at: 2026-08-13T18:34:00Z
+variant: Individually randomized two-arm parallel superiority policy trial with a prespecified treatment-policy intention-to-treat estimand
+unit_of_analysis: randomized_individual
+applicability_boundary:
+  allocation: individual random assignment
+  arms: exactly two parallel arms
+  objective: superiority
+  estimand_strategy: treatment-policy strategy for declared intercurrent events
+  analysis_population: participants analyzed by randomized assignment
+exclusions:
+  - cluster randomization
+  - crossover or factorial designs
+  - noninferiority or equivalence objectives
+  - per-protocol effect as the primary estimand
+  - observational treatment assignment
+source_freeze:
+  primary: ICH E9 (1998) sections 2-5 and ICH E9(R1) (2020) sections A.2-A.5
+  corroborating: HM Treasury Magenta Book Annex A 2026, section A2.1
+source_scope_caution: ICH is a clinical-trial authority; policy-specific ethics and delivery requirements remain outside this decomposition.
+claim_boundary: Estimates the effect of randomized assignment for the frozen treatment-policy estimand; it does not establish mechanisms or transportability beyond the trial population.
+

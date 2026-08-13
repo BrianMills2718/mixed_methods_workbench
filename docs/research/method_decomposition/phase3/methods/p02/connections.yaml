@@ -1,0 +1,30 @@
+schema_version: phase3-connections-0.1
+method_id: p02
+connection_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+topology:
+  shape: dag
+  required_cycles: []
+  optional_cycles: []
+  prohibited_cycles: [[p02.move.conduct_measure, p02.move.objective_estimand], [p02.move.lock_audit, p02.move.conduct_measure]]
+  prohibited_edges: [p02.c17, p02.c18]
+  entry_points: [p02.move.objective_estimand]
+  terminal_points: [p02.move.interpret_report, refusal:compromised_randomization, refusal:unresolved_data_integrity]
+connections:
+  - {id: p02.c01, from: p02.move.objective_estimand, to: p02.move.protocol_sap, connection_type: artifact_flow, carries: frozen_estimand, from_output: frozen_estimand, to_input: frozen_estimand, transfer_semantics: preserving}
+  - {id: p02.c02, from: p02.move.protocol_sap, to: p02.move.allocate, connection_type: control_gate, carries: approval_to_randomize, condition: protocol_sap_and_governance_are_approved}
+  - {id: p02.c03, from: p02.action.randomize, to: p02.move.allocate, connection_type: retained_context, carries: allocation_receipt, note: receipt_attests_execution_and_does_not_replace_design_parameters_or_randomized_cohort}
+  - {id: p02.c04, from: p02.move.allocate, to: p02.move.conduct_measure, connection_type: artifact_flow, carries: randomized_cohort, from_output: randomized_cohort, to_input: randomized_cohort, transfer_semantics: preserving}
+  - {id: p02.c05, from: p02.move.protocol_sap, to: p02.move.conduct_measure, connection_type: retained_context, carries: frozen_protocol_sap}
+  - {id: p02.c06, from: p02.move.conduct_measure, to: p02.move.lock_audit, connection_type: artifact_flow, carries: governed_trial_dataset, from_output: governed_trial_dataset, to_input: governed_trial_dataset, transfer_semantics: preserving}
+  - {id: p02.c07, from: p02.move.conduct_measure, to: p02.move.lock_audit, connection_type: retained_context, carries: conduct_deviation_log}
+  - {id: p02.c08, from: p02.move.lock_audit, to: p02.move.estimate, connection_type: artifact_flow, carries: locked_analysis_dataset, from_output: locked_analysis_dataset, to_input: locked_analysis_dataset, transfer_semantics: preserving}
+  - {id: p02.c09, from: p02.move.objective_estimand, to: p02.move.estimate, connection_type: retained_context, carries: frozen_estimand}
+  - {id: p02.c10, from: p02.move.protocol_sap, to: p02.move.estimate, connection_type: retained_context, carries: frozen_protocol_sap}
+  - {id: p02.c11, from: p02.move.lock_audit, to: p02.action.compute_itt, connection_type: artifact_flow, carries: locked_analysis_dataset, from_output: locked_analysis_dataset, to_input: locked_analysis_dataset, transfer_semantics: preserving}
+  - {id: p02.c12, from: p02.action.compute_itt, to: p02.move.estimate, connection_type: retained_context, carries: estimate_receipt, note: receipt_realizes_the_estimator_but_does_not_replace_estimand_dataset_or_method_judgment}
+  - {id: p02.c13, from: p02.move.estimate, to: p02.move.sensitivity, connection_type: artifact_flow, carries: primary_effect_estimate, from_output: primary_effect_estimate, to_input: primary_effect_estimate, transfer_semantics: preserving}
+  - {id: p02.c14, from: p02.move.sensitivity, to: p02.move.interpret_report, connection_type: artifact_flow, carries: sensitivity_findings, from_output: sensitivity_findings, to_input: sensitivity_findings, transfer_semantics: preserving}
+  - {id: p02.c15, from: p02.move.estimate, to: p02.move.interpret_report, connection_type: retained_context, carries: primary_effect_estimate}
+  - {id: p02.c16, from: p02.move.lock_audit, to: p02.move.interpret_report, connection_type: retained_context, carries: audit_record}
+  - {id: p02.c17, from: p02.move.conduct_measure, to: p02.move.objective_estimand, connection_type: prohibited_transition, carries: unblinded_outcome_informed_estimand_rewrite, consequence: successor_analysis_is_exploratory}
+  - {id: p02.c18, from: p02.move.lock_audit, to: p02.move.conduct_measure, connection_type: prohibited_transition, carries: silent_post_lock_data_mutation, consequence: lock_and_primary_analysis_are_invalidated}

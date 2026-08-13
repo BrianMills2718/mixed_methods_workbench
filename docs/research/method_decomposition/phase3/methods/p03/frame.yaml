@@ -1,0 +1,22 @@
+schema_version: phase3-method-frame-0.1
+method_id: p03
+portfolio_revision: phase2b-proposal-0.3+P14
+frozen_at: 2026-08-13T18:34:00Z
+variant: Two-group multi-period difference-in-differences evaluation with one adoption date, no staggered treatment, and explicit parallel-trends and sensitivity design
+unit_of_analysis: group_time_observation
+applicability_boundary:
+  groups: one treated group and one comparison group
+  timing: multiple pre-periods and post-periods with one common adoption date
+  estimand: average treatment effect for the treated under the declared comparative-trend counterfactual
+exclusions:
+  - staggered adoption
+  - multiple treatment cohorts
+  - synthetic control
+  - interrupted time series without a comparison group
+  - causal claims when anticipation or parallel-trends assumptions are not defensible
+source_freeze:
+  primary: Baker et al. 2026, Difference-in-Differences Designs, sections 2-5 and simple-design guidance
+  corroborating: HM Treasury Magenta Book Annex A 2026, section A2.7
+source_scope_caution: The guide organizes broader DiD designs; only the declared non-staggered variant is in scope.
+claim_boundary: Estimates a comparative-trend policy effect conditional on no anticipation, stable composition, and a defensible untreated potential-outcome trend.
+
