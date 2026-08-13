@@ -11,6 +11,12 @@ Read in this order:
    — the proposed three-level format and its success/failure rules.
 3. [`THREE_METHOD_PILOT.md`](THREE_METHOD_PILOT.md) — the format applied to
    grounded theory, RCT estimation, and policy option appraisal.
+4. [`HOSTILE_METHOD_SAMPLE.md`](HOSTILE_METHOD_SAMPLE.md) — the format stressed
+   against systematic review, Process Tracing, forecasting, fsQCA, simulation,
+   and a composed legal/institutional route.
+5. [`CAPABILITY_PRESSURE_READOUT.md`](CAPABILITY_PRESSURE_READOUT.md) — what
+   remained reusable, what stayed method-owned, what broke, and the smallest
+   next authentic seam.
 
 This is documentation/research only. It does not adopt a universal schema,
 select the RAND-derived portfolio, calculate coverage, change an analytical

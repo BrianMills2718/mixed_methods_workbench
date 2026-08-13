@@ -112,6 +112,8 @@ schema may follow only after this survives broader use.
 | Inputs | What existing evidence, artifact, assumption, or decision does it use? |
 | Output | What inspectable artifact, judgment, or state does it create? |
 | Information origin | Is the information observed, reported, elicited, interpreted, derived, or simulated? |
+| Source authority or inferential role | Why may this input play this role here, and who or what establishes that status? |
+| Applicability boundary | Where is the move or result usable, and which change requires review or a new version? |
 | Method-owned rule | What can only this method legitimately judge? |
 | Permitted conclusion | What can now be said that could not be said before? |
 | Refusal or qualification | What result is returned when the move cannot support that conclusion? |
@@ -137,6 +139,15 @@ the next. Twenty required arrows did not. The revised graph distinguishes:
 
 Every connection names its type. A graph is invalid if an apparent artifact
 flow has no compatible output and input.
+
+An artifact-flow connection also states whether it is **preserving**,
+**transforming**, or **lossy**. A transforming or lossy handoff names the
+method responsible for the transformation and the information added, changed,
+or unavailable to the receiver.
+
+One inventory label may contain multiple methods. In that case, the instrument
+uses named subprofiles and an explicit reconciliation move rather than forcing
+the label into one artificial workflow.
 
 ## Four authority roles
 
@@ -225,8 +236,14 @@ must again be hidden to make operations collide.
   portfolio is unknown; this is the main question the instrument measures.
 - Method phases may ultimately be presentation metadata rather than a durable
   contract field.
-- The five connection types may be incomplete, especially for legal authority,
-  deliberation, negotiation, and multi-stage simulation.
+- The five connection types survived the six-method hostile sample, but they
+  remain untested for deliberation, negotiation, participatory methods,
+  wargaming, and multi-stage mixed-method integration.
+- Applicability is a recurrent field, but review eligibility, a PT case,
+  forecast horizon, simulation boundary, and legal jurisdiction must not be
+  collapsed into one method-neutral scope semantics.
+- Information origin does not establish source authority or inferential role;
+  those remain separately declared and method-owned.
 - The information-origin categories are useful distinctions, not an adopted
   closed vocabulary.
 - Shared shells may prove reusable in user experience and orchestration without

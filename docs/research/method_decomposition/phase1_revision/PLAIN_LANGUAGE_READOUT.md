@@ -114,17 +114,31 @@ misleading.
 | Prespecification was represented as ordinary forward ordering. | Allow temporal/access barriers and prohibited transitions, not only directed edges. |
 | The compact systematic-review row exceeded the frozen source scope. | Every method move retains its source basis; source-scope mismatches block promotion. |
 
+## What the wider stress test added
+
+The recommended six-method sample is now complete. It found four changes worth
+retaining:
+
+- state each result's method-owned applicability boundary without inventing one
+  universal `scope`;
+- record source authority or inferential role separately from information
+  origin;
+- distinguish preserving, transforming, and lossy artifact handoffs; and
+- allow one catalog label to compose several methods rather than forcing it
+  into one workflow.
+
+The legal/institutional label was the clearest example of the fourth point:
+legal-authority analysis and institutional implementation mapping answer
+different questions and reconcile only at a later policy-feasibility move.
+
 ## Recommended disposition
 
-Use the revised three-level instrument for the next bounded method sample. If
-adopted, preserve the 70-row flat candidate as a failed discovery instrument
-rather than repairing it into a universal schema.
+Keep the revised instrument as an exploratory discovery tool and preserve the
+70-row flat candidate as a failed instrument rather than repairing it into a
+universal schema.
 
-The next sample should deliberately include methods that can break the current
-model—for example systematic review, process tracing, forecasting, QCA,
-simulation, and legal/institutional analysis. The purpose is to find missing
-workflow or authority patterns, not to maximize apparent reuse.
-
-Do not yet build a shared schema or broad capability service. Promote only the
-parts that remain stable across the wider sample and are demonstrated in two
-authentic producer/consumer seams.
+Do not yet build a shared schema or broad capability service. The next useful
+test is an authentic simulation-to-policy-appraisal handoff that preserves the
+fact that simulation output is model-conditional generated evidence. That seam
+would test the revised handoff and applicability fields in actual use; it would
+not by itself justify shared infrastructure.
