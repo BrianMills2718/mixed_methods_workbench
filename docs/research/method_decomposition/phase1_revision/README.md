@@ -1,14 +1,17 @@
 # Phase 1 decomposition-format revision
 
-This directory contains the human-reviewable replacement candidate produced
-after the flat 70-row decomposition failed audit.
+This directory contains the Phase 2 discovery format accepted by Brian on
+2026-08-13 after the flat 70-row decomposition failed audit. The format is an
+accepted research instrument, not a universal production schema. Its populated
+method records, typed graph, and audit dispositions remain exploratory evidence
+used to test the format; they are not a canonical capability model.
 
 Read in this order:
 
 1. [`PLAIN_LANGUAGE_READOUT.md`](PLAIN_LANGUAGE_READOUT.md) — what the result
    means for the larger Evidence-to-Action system.
 2. [`REVISED_DECOMPOSITION_INSTRUMENT.md`](REVISED_DECOMPOSITION_INSTRUMENT.md)
-   — the proposed three-level format and its success/failure rules.
+   — the accepted three-level discovery format and its success/failure rules.
 3. [`THREE_METHOD_PILOT.md`](THREE_METHOD_PILOT.md) — the format applied to
    grounded theory, RCT estimation, and policy option appraisal.
 4. [`HOSTILE_METHOD_SAMPLE.md`](HOSTILE_METHOD_SAMPLE.md) — the format stressed
@@ -23,8 +26,14 @@ Read in this order:
 7. [`audit_dispositions.yaml`](audit_dispositions.yaml) — exact dispositions
    for every compact row, blind-rerun item, and structural gap in scope.
 8. [`phase2_vocabulary_dispositions.yaml`](phase2_vocabulary_dispositions.yaml)
-   — verb/type proposals retained for Phase 2 without adopting enums.
+   — the accepted coarse role for existing verbs and the provisional,
+   still-open status of `analysis_plan`.
 
-This is documentation/research only. It does not adopt a universal schema,
-select the RAND-derived portfolio, calculate coverage, change an analytical
-engine, or authorize implementation.
+The accepted format is method phase → analytical move → execution action,
+with `operation_kind` at Levels 2 and 3, typed connections, six authority
+roles, information origins, temporal/access/version guards, and exact anchors.
+
+This is documentation/research only. It does not adopt a universal production
+schema, select the Phase 2b portfolio, calculate collision scores, promote a
+capability, change an analytical engine, or authorize infrastructure or product
+implementation.

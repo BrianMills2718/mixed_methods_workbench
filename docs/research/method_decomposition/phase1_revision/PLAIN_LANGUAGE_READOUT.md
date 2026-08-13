@@ -131,19 +131,23 @@ The legal/institutional label was the clearest example of the fourth point:
 legal-authority analysis and institutional implementation mapping answer
 different questions and reconcile only at a later policy-feasibility move.
 
-## Recommended disposition
+## Accepted Phase 2 disposition
 
-Keep the revised instrument as an exploratory discovery tool and preserve the
-70-row flat candidate as a failed instrument rather than repairing it into a
-universal schema.
+Brian accepted the revised instrument as the Phase 2 discovery format on
+2026-08-13. Preserve the 70-row flat candidate as a failed instrument rather
+than repairing it into a universal schema. The accepted format does not make
+the populated pilot records or their provisional vocabularies canonical.
 
 The completed hostile sample is a stress test, not selection of the Phase 2b
-portfolio. Phase 2 must first disposition the proposed format, verbs, and
-types; Phase 2b then proposes a portfolio for Brian's approval.
+portfolio. Existing verbs remain a coarse discovery input. `analysis_plan`
+remains provisional for further testing rather than a closed shared enum.
+Phase 2b must still propose a portfolio for Brian's approval.
 
 Do not yet build a shared schema or broad capability service. Promotion still
 requires three materially different methods plus a deliberate fourth hostile
 case; the two-authentic-seam rule is a separate workbench adoption gate. After
 those decisions, an authentic simulation-to-policy-appraisal handoff is the
 strongest currently proposed seam test. It must preserve model-conditional
-generated evidence and would not by itself justify shared infrastructure.
+generated evidence and would not by itself justify shared infrastructure. No
+collision scoring, capability promotion, infrastructure, or product
+implementation is authorized by the format decision.

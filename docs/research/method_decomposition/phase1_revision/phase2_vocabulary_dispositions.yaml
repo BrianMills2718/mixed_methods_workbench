@@ -1,23 +1,33 @@
-schema_version: phase1-revision-vocabulary-disposition-0.2
-status: pending_human_phase2_decision
+schema_version: phase1-revision-vocabulary-disposition-0.3
+status: accepted_phase2_discovery_direction
+acceptance:
+  decision_maker: Brian
+  decision_date: '2026-08-13'
+  scope: discovery_format_only
+  non_authorizations:
+    - universal_production_schema
+    - phase2b_portfolio_selection
+    - collision_scoring
+    - capability_promotion
+    - infrastructure_implementation
+    - product_implementation
 verbs:
   source: ../phase1_pilot/verb_additions.md
   observed_result: no_additions_proposed
-  disposition: retain_existing_list_as_input_only
+  disposition: retain_existing_list_as_coarse_discovery_input
   adoption: false
-  phase2_question: >-
-    Does the controlled verb list remain a coarse discovery index, with
-    collision identity determined by level, typed inputs/outputs, warrant,
-    authority, origin, topology, and operation_kind?
+  reason: >-
+    The existing controlled verbs help discovery and navigation, but they do
+    not determine collision identity and are not an adopted closed enum.
 types:
   source: ../phase1_pilot/type_additions.md
   observed_proposal: analysis_plan
-  disposition: carry_forward_for_human_review
+  disposition: provisional_for_further_testing
   adoption: false
   reason: >-
     The pilot shows a real prespecification distinction from review_protocol and
-    configuration, but one pilot does not license a provisional shared enum.
-  phase2_question: >-
-    Adopt, revise, or reject analysis_plan only after checking RCT, policy
-    appraisal, and systematic-review prespecification without flattening their
-    method-owned amendment and deviation rules.
+    configuration, but current evidence does not license a closed shared enum.
+  further_test: >-
+    Test analysis_plan across RCT, policy appraisal, and systematic-review
+    prespecification without flattening method-owned amendment and deviation
+    rules before any adoption decision.
