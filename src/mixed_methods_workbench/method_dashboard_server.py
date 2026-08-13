@@ -12,6 +12,7 @@ from typing import ClassVar
 from pydantic import ValidationError
 
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
+from .method_topology import process_tracing_topology_payload
 from .mist_trail_decision import mist_trail_payload
 from .simulation_policy_appraisal import simulation_policy_appraisal_payload
 
@@ -84,6 +85,9 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
             return
         if self.path == "/api/catalog":
             self._write_json(HTTPStatus.OK, catalog_payload())
+            return
+        if self.path == "/api/method-topology/process-tracing":
+            self._write_json(HTTPStatus.OK, process_tracing_topology_payload())
             return
         if self.path == "/api/decision/mist-trail":
             self._write_json(HTTPStatus.OK, mist_trail_payload())

@@ -1,0 +1,716 @@
+{
+  "claim_limits": [
+    "This record describes the current engine workflow; it does not certify methodological validity.",
+    "Comparative support is an intra-case ranking, not a probability of truth or population effect.",
+    "Candidate reuse dispositions are hypotheses, not adopted shared capabilities."
+  ],
+  "connections": [
+    {
+      "condition": "valid design",
+      "connection_id": "pt.c01",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "declared inquiry",
+      "source_ref": "pt.move.scope",
+      "target_ref": "pt.move.coverage"
+    },
+    {
+      "condition": "bounded analysis may proceed",
+      "connection_id": "pt.c02",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "coverage adequate",
+      "source_ref": "pt.move.coverage",
+      "target_ref": "pt.move.extract"
+    },
+    {
+      "condition": "additional sources are required",
+      "connection_id": "pt.c03",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "coverage gap",
+      "source_ref": "pt.move.coverage",
+      "target_ref": "pt.outcome.acquire"
+    },
+    {
+      "condition": "analyst chooses to continue",
+      "connection_id": "pt.c04",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "acquisition agenda",
+      "source_ref": "pt.outcome.acquire",
+      "target_ref": "pt.move.acquire"
+    },
+    {
+      "condition": "new evidence admitted",
+      "connection_id": "pt.c05",
+      "connection_kind": "feedback",
+      "creates_successor_version": true,
+      "label": "review successor packet",
+      "source_ref": "pt.move.acquire",
+      "target_ref": "pt.move.coverage"
+    },
+    {
+      "condition": "trace inventory valid",
+      "connection_id": "pt.c06",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "grounded traces",
+      "source_ref": "pt.move.extract",
+      "target_ref": "pt.move.rivals"
+    },
+    {
+      "condition": "rivals and predictions proposed",
+      "connection_id": "pt.c07",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "candidate rivals",
+      "source_ref": "pt.move.rivals",
+      "target_ref": "pt.move.partition_audit"
+    },
+    {
+      "condition": "audit rejects and repair budget remains",
+      "connection_id": "pt.c08",
+      "connection_kind": "feedback",
+      "creates_successor_version": true,
+      "label": "repair rivals",
+      "source_ref": "pt.move.partition_audit",
+      "target_ref": "pt.move.rivals"
+    },
+    {
+      "condition": "audit passes",
+      "connection_id": "pt.c09",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "partition accepted",
+      "source_ref": "pt.move.partition_audit",
+      "target_ref": "pt.move.appraise"
+    },
+    {
+      "condition": "repair budget exhausted",
+      "connection_id": "pt.c10",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "partition blocked",
+      "source_ref": "pt.move.partition_audit",
+      "target_ref": "pt.outcome.blocked"
+    },
+    {
+      "condition": "matrix structurally valid",
+      "connection_id": "pt.c11",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "candidate matrix",
+      "source_ref": "pt.move.appraise",
+      "target_ref": "pt.move.discriminator_audit"
+    },
+    {
+      "condition": "material contrast rejected and repair permitted",
+      "connection_id": "pt.c12",
+      "connection_kind": "feedback",
+      "creates_successor_version": true,
+      "label": "re-appraise evidence",
+      "source_ref": "pt.move.discriminator_audit",
+      "target_ref": "pt.move.appraise"
+    },
+    {
+      "condition": "absence appraisal is eligible",
+      "connection_id": "pt.c13",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "audit accepted",
+      "source_ref": "pt.move.discriminator_audit",
+      "target_ref": "pt.move.absence"
+    },
+    {
+      "condition": "absence appraisal is ineligible or unnecessary",
+      "connection_id": "pt.c14",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "audit accepted",
+      "source_ref": "pt.move.discriminator_audit",
+      "target_ref": "pt.move.update"
+    },
+    {
+      "condition": "required contrasts remain invalid",
+      "connection_id": "pt.c15",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "diagnostic audit blocked",
+      "source_ref": "pt.move.discriminator_audit",
+      "target_ref": "pt.outcome.blocked"
+    },
+    {
+      "condition": "eligible absence review complete",
+      "connection_id": "pt.c16",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "audited source silence",
+      "source_ref": "pt.move.absence",
+      "target_ref": "pt.move.update"
+    },
+    {
+      "condition": "update complete or honestly uninformative",
+      "connection_id": "pt.c17",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "comparative support",
+      "source_ref": "pt.move.update",
+      "target_ref": "pt.move.mechanism"
+    },
+    {
+      "condition": "candidate graph complete",
+      "connection_id": "pt.c18",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "candidate mechanism",
+      "source_ref": "pt.move.mechanism",
+      "target_ref": "pt.move.mechanism_audit"
+    },
+    {
+      "condition": "audit requires bounded repair or replacement",
+      "connection_id": "pt.c19",
+      "connection_kind": "feedback",
+      "creates_successor_version": true,
+      "label": "repair mechanism",
+      "source_ref": "pt.move.mechanism_audit",
+      "target_ref": "pt.move.mechanism"
+    },
+    {
+      "condition": "audit constraints satisfied",
+      "connection_id": "pt.c20",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "mechanism accepted",
+      "source_ref": "pt.move.mechanism_audit",
+      "target_ref": "pt.move.synthesize"
+    },
+    {
+      "condition": "material constraints remain unsatisfied",
+      "connection_id": "pt.c21",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "mechanism blocked",
+      "source_ref": "pt.move.mechanism_audit",
+      "target_ref": "pt.outcome.blocked"
+    },
+    {
+      "condition": "evidence discriminates within declared limits",
+      "connection_id": "pt.c22",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "bounded verdict",
+      "source_ref": "pt.move.synthesize",
+      "target_ref": "pt.outcome.bounded"
+    },
+    {
+      "condition": "stronger verdict unwarranted",
+      "connection_id": "pt.c23",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "qualify or remain indeterminate",
+      "source_ref": "pt.move.synthesize",
+      "target_ref": "pt.outcome.qualified"
+    },
+    {
+      "condition": "named source or mechanism gap remains",
+      "connection_id": "pt.c24",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "request more evidence",
+      "source_ref": "pt.move.synthesize",
+      "target_ref": "pt.outcome.acquire"
+    },
+    {
+      "condition": "refinement requested",
+      "connection_id": "pt.c25",
+      "connection_kind": "artifact_flow",
+      "creates_successor_version": false,
+      "label": "optional second reading",
+      "source_ref": "pt.move.synthesize",
+      "target_ref": "pt.move.refine"
+    },
+    {
+      "condition": "refinement changes rivals, evidence, or mechanisms",
+      "connection_id": "pt.c26",
+      "connection_kind": "feedback",
+      "creates_successor_version": true,
+      "label": "material successor analysis",
+      "source_ref": "pt.move.refine",
+      "target_ref": "pt.move.appraise"
+    },
+    {
+      "condition": "refinement is advisory or no-op",
+      "connection_id": "pt.c27",
+      "connection_kind": "control_gate",
+      "creates_successor_version": false,
+      "label": "preserve result",
+      "source_ref": "pt.move.refine",
+      "target_ref": "pt.outcome.bounded"
+    },
+    {
+      "condition": "hypotheses or exposed evidence cannot directly update support",
+      "connection_id": "pt.c28",
+      "connection_kind": "prohibited_transition",
+      "creates_successor_version": false,
+      "label": "do not bypass appraisal",
+      "source_ref": "pt.move.rivals",
+      "target_ref": "pt.move.update"
+    },
+    {
+      "condition": "mechanism audit cannot be bypassed",
+      "connection_id": "pt.c29",
+      "connection_kind": "prohibited_transition",
+      "creates_successor_version": false,
+      "label": "producer cannot self-certify",
+      "source_ref": "pt.move.mechanism",
+      "target_ref": "pt.move.synthesize"
+    },
+    {
+      "condition": "support interpretation preserves source coverage",
+      "connection_id": "pt.c30",
+      "connection_kind": "retained_context",
+      "creates_successor_version": false,
+      "label": "claim limits retained",
+      "source_ref": "pt.move.coverage",
+      "target_ref": "pt.move.update"
+    }
+  ],
+  "execution_actions": [
+    {
+      "action_id": "pt.action.validate_design",
+      "implementation_ref": "pt/schemas.py",
+      "label": "Validate typed inference design",
+      "parent_move_id": "pt.move.scope",
+      "performer": "deterministic_engine"
+    },
+    {
+      "action_id": "pt.action.extract",
+      "implementation_ref": "pt/pass_extract.py",
+      "label": "Run structured extraction",
+      "parent_move_id": "pt.move.extract",
+      "performer": "llm_pipeline"
+    },
+    {
+      "action_id": "pt.action.hypothesize",
+      "implementation_ref": "pt/pass_hypothesize.py",
+      "label": "Generate structured rivals",
+      "parent_move_id": "pt.move.rivals",
+      "performer": "llm_pipeline"
+    },
+    {
+      "action_id": "pt.action.audit_partition",
+      "implementation_ref": "pt/pass_partition_audit.py",
+      "label": "Audit and gate rival partition",
+      "parent_move_id": "pt.move.partition_audit",
+      "performer": "independent_llm_auditor"
+    },
+    {
+      "action_id": "pt.action.matrix",
+      "implementation_ref": "pt/pass_test.py",
+      "label": "Elicit complete likelihood vectors",
+      "parent_move_id": "pt.move.appraise",
+      "performer": "llm_pipeline"
+    },
+    {
+      "action_id": "pt.action.audit_discriminators",
+      "implementation_ref": "pt/pass_discriminator_audit.py",
+      "label": "Audit exact-quote contrasts",
+      "parent_move_id": "pt.move.discriminator_audit",
+      "performer": "independent_llm_auditor"
+    },
+    {
+      "action_id": "pt.action.update",
+      "implementation_ref": "pt/bayesian.py",
+      "label": "Compute coherent comparative update",
+      "parent_move_id": "pt.move.update",
+      "performer": "deterministic_engine"
+    },
+    {
+      "action_id": "pt.action.build_mechanism",
+      "implementation_ref": "pt/pass_mechanism.py",
+      "label": "Produce temporal mechanism graph",
+      "parent_move_id": "pt.move.mechanism",
+      "performer": "llm_pipeline"
+    },
+    {
+      "action_id": "pt.action.audit_mechanism",
+      "implementation_ref": "pt/pass_mechanism_audit.py",
+      "label": "Audit every stage and edge",
+      "parent_move_id": "pt.move.mechanism_audit",
+      "performer": "independent_llm_auditor"
+    },
+    {
+      "action_id": "pt.action.export",
+      "implementation_ref": "pt/export.py",
+      "label": "Produce the versioned workbench export",
+      "parent_move_id": "pt.move.synthesize",
+      "performer": "deterministic_engine"
+    }
+  ],
+  "label": "Single-case Process Tracing engine",
+  "method_id": "process_tracing.single_case_rival_explanations",
+  "moves": [
+    {
+      "implementation_refs": [
+        "pt/schemas.py:InferenceDesign",
+        "pt/main.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "research_question",
+        "case_boundary",
+        "inference_design"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Define the case and inference design",
+      "method_owned_rule": "Discovery, theory-first, and held-out designs do not receive the same inferential interpretation.",
+      "move_id": "pt.move.scope",
+      "output": "frozen_case_and_inference_design",
+      "performer": "researcher_with_validated_contract",
+      "permitted_conclusion": "The run has a declared case, outcome, mode, and claim boundary.",
+      "phase_id": "pt.phase.design",
+      "purpose": "Pin the outcome, source scope, inference mode, and exposure rules before appraisal.",
+      "refusal_or_qualification": "Refuse numerical updating when the design or exposure boundary is invalid.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/source_packet.py",
+        "pt/source_acquisition.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "frozen_case_and_inference_design",
+        "source_packet"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Review source packet and coverage",
+      "method_owned_rule": "Source silence is not world absence, and low coverage constrains the result.",
+      "move_id": "pt.move.coverage",
+      "output": "source_coverage_and_claim_limits",
+      "performer": "source_packet_tools_and_researcher",
+      "permitted_conclusion": "The source packet is adequate for bounded analysis or has named acquisition gaps.",
+      "phase_id": "pt.phase.design",
+      "purpose": "Establish which admitted sources could observe the proposed traces and what the packet cannot support.",
+      "refusal_or_qualification": "Return an acquisition agenda when source opportunity or coverage is inadequate.",
+      "reuse_disposition": "shared_shell_candidate"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_extract.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "source_coverage_and_claim_limits",
+        "admitted_source_text"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Extract evidence and causal traces",
+      "method_owned_rule": "Every analytical item remains anchored to the admitted corpus and source identity.",
+      "move_id": "pt.move.extract",
+      "output": "source_grounded_trace_inventory",
+      "performer": "llm_pipeline_with_deterministic_validation",
+      "permitted_conclusion": "The corpus contains a reviewable inventory for causal analysis.",
+      "phase_id": "pt.phase.rivals",
+      "purpose": "Identify source-grounded evidence, actors, events, mechanisms, and candidate causal edges.",
+      "refusal_or_qualification": "Qualify or stop when required grounding cannot be repaired.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_hypothesize.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "source_grounded_trace_inventory",
+        "frozen_case_and_inference_design"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Generate rivals and observable predictions",
+      "method_owned_rule": "Rivals retain formulation provenance and may not be treated as independently confirmed by exposed evidence.",
+      "move_id": "pt.move.rivals",
+      "output": "candidate_rivals_and_predictions",
+      "performer": "llm_pipeline",
+      "permitted_conclusion": "The candidate rival set is explicit enough to audit.",
+      "phase_id": "pt.phase.rivals",
+      "purpose": "Construct competing causal configurations and the evidence expected under each.",
+      "refusal_or_qualification": "Return for repair when rival relationships or opposed predictions are incomplete.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_partition_audit.py",
+        "pt/partition.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "candidate_rivals_and_predictions"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Audit the rival partition",
+      "method_owned_rule": "The current confirmatory engine requires complete pair coverage; exploratory relationships remain explicitly bounded.",
+      "move_id": "pt.move.partition_audit",
+      "output": "accepted_partition_or_repair_request",
+      "performer": "independent_llm_auditor_and_validator",
+      "permitted_conclusion": "Testing may proceed, the rivals must be repaired, or confirmatory updating is blocked.",
+      "phase_id": "pt.phase.rivals",
+      "purpose": "Independently review rival coverage and prediction contrasts before confirmatory updating.",
+      "refusal_or_qualification": "Block after the bounded repair budget is exhausted.",
+      "reuse_disposition": "shared_shell_candidate"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_test.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "accepted_partition_or_repair_request",
+        "source_grounded_trace_inventory"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Appraise evidence across every rival",
+      "method_owned_rule": "Every row addresses the complete rival set and exposed hypothesis-generating evidence is neutralized.",
+      "move_id": "pt.move.appraise",
+      "output": "candidate_evidence_likelihood_matrix",
+      "performer": "llm_pipeline_with_deterministic_matrix_checks",
+      "permitted_conclusion": "The candidate matrix states relative diagnostic implications without claiming truth probabilities.",
+      "phase_id": "pt.phase.test",
+      "purpose": "Build one coherent evidence-by-hypothesis likelihood vector for each admitted evidence item.",
+      "refusal_or_qualification": "Fail when vectors are incomplete, incoherent, or cannot preserve exposure lineage.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_discriminator_audit.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "candidate_evidence_likelihood_matrix",
+        "candidate_rivals_and_predictions"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Audit claimed diagnostic contrasts",
+      "method_owned_rule": "The estimator cannot certify its own discriminators; rejected splits are weakened, repaired, or block updating.",
+      "move_id": "pt.move.discriminator_audit",
+      "output": "audited_diagnostic_matrix",
+      "performer": "independent_llm_auditor_and_validator",
+      "permitted_conclusion": "Only independently accepted diagnostic contrasts may affect comparative support.",
+      "phase_id": "pt.phase.test",
+      "purpose": "Check each material split against the exact quote, source identity, and accepted rival predictions.",
+      "refusal_or_qualification": "Return for re-appraisal or block when the audit cannot be satisfied.",
+      "reuse_disposition": "shared_shell_candidate"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_absence.py"
+      ],
+      "implementation_status": "implemented_conditionally",
+      "inputs": [
+        "audited_diagnostic_matrix",
+        "source_coverage_and_claim_limits"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Evaluate meaningful source silence",
+      "method_owned_rule": "Absence is source-relative and mode-gated; it is never proof that an event did not occur in the world.",
+      "move_id": "pt.move.absence",
+      "output": "audited_absence_findings",
+      "performer": "llm_proposer_independent_auditor_and_validator",
+      "permitted_conclusion": "Eligible source silence may enter the comparative update with explicit limits.",
+      "phase_id": "pt.phase.test",
+      "purpose": "Assess missing predicted traces only when an admitted source was positioned to reveal them.",
+      "refusal_or_qualification": "Retain the absence qualitatively when observability, coverage, or mode requirements fail.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/bayesian.py",
+        "pt/pass_diagnostic.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "audited_diagnostic_matrix",
+        "audited_absence_findings",
+        "typed_priors"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Update comparative support",
+      "method_owned_rule": "The result is a within-case comparative ranking, not a probability of truth or population effect.",
+      "move_id": "pt.move.update",
+      "output": "comparative_support_with_sensitivity",
+      "performer": "deterministic_engine",
+      "permitted_conclusion": "Rival ranking, robustness, and sensitivity are available for bounded interpretation.",
+      "phase_id": "pt.phase.test",
+      "purpose": "Combine accepted diagnostic information with typed priors, dependence pooling, and sensitivity checks.",
+      "refusal_or_qualification": "Return an indeterminate result when evidence is uninformative or ranking is fragile.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_mechanism.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "comparative_support_with_sensitivity",
+        "source_grounded_trace_inventory"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Build the temporal mechanism graph",
+      "method_owned_rule": "Temporal order alone cannot certify a causal edge, and every unresolved edge names a missing test.",
+      "move_id": "pt.move.mechanism",
+      "output": "candidate_temporal_mechanism_graph",
+      "performer": "llm_pipeline_with_graph_validation",
+      "permitted_conclusion": "A candidate mechanism trace is available for independent review.",
+      "phase_id": "pt.phase.trace",
+      "purpose": "Order source-grounded stages and distinguish sequence, supported causation, contestation, and unresolved links.",
+      "refusal_or_qualification": "Leave unsupported edges contested or unresolved rather than strengthening them.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_mechanism_audit.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "candidate_temporal_mechanism_graph",
+        "candidate_rivals_and_predictions"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Audit the mechanism graph",
+      "method_owned_rule": "The mechanism producer cannot certify its own graph, and correction may weaken but never strengthen an edge.",
+      "move_id": "pt.move.mechanism_audit",
+      "output": "accepted_or_repaired_mechanism_graph",
+      "performer": "independent_llm_auditor_and_validator",
+      "permitted_conclusion": "The graph is accepted, conservatively repaired, replaced and re-audited, or blocked.",
+      "phase_id": "pt.phase.trace",
+      "purpose": "Independently review every stage and edge against the accepted corpus and frozen predictions.",
+      "refusal_or_qualification": "Block synthesis when material audit constraints remain unsatisfied.",
+      "reuse_disposition": "shared_shell_candidate"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_synthesize.py",
+        "pt/export.py"
+      ],
+      "implementation_status": "implemented",
+      "inputs": [
+        "accepted_or_repaired_mechanism_graph",
+        "comparative_support_with_sensitivity"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Synthesize the bounded explanation",
+      "method_owned_rule": "The report must preserve source limits, unresolved rivals, and missing mechanism links.",
+      "move_id": "pt.move.synthesize",
+      "output": "bounded_process_tracing_result",
+      "performer": "llm_pipeline_with_typed_export",
+      "permitted_conclusion": "Return a bounded conclusion, a qualified result, a refusal, or an evidence-acquisition agenda.",
+      "phase_id": "pt.phase.trace",
+      "purpose": "Integrate rival verdicts, comparative support, source limits, absences, and the audited mechanism trace.",
+      "refusal_or_qualification": "Withhold a determinate verdict when the admitted evidence cannot discriminate or complete the trace.",
+      "reuse_disposition": "method_owned"
+    },
+    {
+      "implementation_refs": [
+        "pt/pass_refine.py"
+      ],
+      "implementation_status": "implemented_conditionally",
+      "inputs": [
+        "bounded_process_tracing_result",
+        "admitted_source_text"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Refine or preserve the analysis",
+      "method_owned_rule": "Advisory or no-op refinement preserves prior inference; material change re-runs affected passes with lineage.",
+      "move_id": "pt.move.refine",
+      "output": "refinement_delta",
+      "performer": "llm_pipeline_with_deterministic_transition_checks",
+      "permitted_conclusion": "The result is preserved or a successor analysis is required.",
+      "phase_id": "pt.phase.trace",
+      "purpose": "Re-read source context and either preserve the existing result or create an explicit material successor state.",
+      "refusal_or_qualification": "Never rewrite the prior run or silently migrate its evidence and verdicts.",
+      "reuse_disposition": "shared_mechanic_candidate"
+    },
+    {
+      "implementation_refs": [
+        "pt/source_acquisition.py",
+        "pt/source_packet.py"
+      ],
+      "implementation_status": "human_review_available",
+      "inputs": [
+        "evidence_acquisition_agenda"
+      ],
+      "judgment_owner": "process_tracing_method_owner",
+      "label": "Acquire and admit additional evidence",
+      "method_owned_rule": "Retrieval does not admit evidence; human review and source-packet validation control admission.",
+      "move_id": "pt.move.acquire",
+      "output": "successor_source_packet",
+      "performer": "retrieval_tools_human_reviewer_and_validator",
+      "permitted_conclusion": "A reviewed successor packet may begin a new bounded run.",
+      "phase_id": "pt.phase.design",
+      "purpose": "Turn named source gaps into candidate retrieval, human review, and a successor source packet.",
+      "refusal_or_qualification": "Preserve the acquisition agenda without inference when no source is admitted.",
+      "reuse_disposition": "shared_shell_candidate"
+    }
+  ],
+  "phases": [
+    {
+      "label": "Bound the inquiry",
+      "order": 1,
+      "phase_id": "pt.phase.design",
+      "purpose": "Define the case, outcome, inference mode, admitted sources, and claim limits."
+    },
+    {
+      "label": "Build rival explanations",
+      "order": 2,
+      "phase_id": "pt.phase.rivals",
+      "purpose": "Extract causal traces and construct an auditable set of rival explanations and predictions."
+    },
+    {
+      "label": "Test diagnostic evidence",
+      "order": 3,
+      "phase_id": "pt.phase.test",
+      "purpose": "Appraise evidence against every rival and update comparative support only after independent checks."
+    },
+    {
+      "label": "Trace and bound the explanation",
+      "order": 4,
+      "phase_id": "pt.phase.trace",
+      "purpose": "Represent the temporal mechanism, audit it independently, and return a bounded result or evidence need."
+    }
+  ],
+  "record_version": "0.1.0",
+  "schema_version": "pt.method_topology.v0.1",
+  "source_authority_refs": [
+    "CLAUDE.md#project-overview",
+    "docs/PROJECT_THEORY_AND_GOALS.md"
+  ],
+  "status": "reviewed_prototype_fixture",
+  "summary": "Compare rival causal explanations for one bounded outcome and expose where the evidence, source design, or mechanism trace remains insufficient.",
+  "terminal_outcomes": [
+    {
+      "label": "Bounded explanation",
+      "meaning": "One or more rivals receive a source-bounded verdict with mechanism and sensitivity limits.",
+      "outcome_id": "pt.outcome.bounded",
+      "outcome_kind": "bounded_result"
+    },
+    {
+      "label": "Qualified or indeterminate result",
+      "meaning": "The method preserves what was learned while withholding a stronger verdict.",
+      "outcome_id": "pt.outcome.qualified",
+      "outcome_kind": "qualified_result"
+    },
+    {
+      "label": "Method gate blocks the run",
+      "meaning": "A required rival, evidence, or mechanism audit remains unsatisfied.",
+      "outcome_id": "pt.outcome.blocked",
+      "outcome_kind": "refusal"
+    },
+    {
+      "label": "Evidence-acquisition agenda",
+      "meaning": "Named source or mechanism gaps become a reviewed request for additional case evidence.",
+      "outcome_id": "pt.outcome.acquire",
+      "outcome_kind": "acquisition_agenda"
+    }
+  ],
+  "variant": "current rival-explanation pipeline with independent diagnostic and mechanism audits"
+}

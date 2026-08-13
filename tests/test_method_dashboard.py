@@ -18,7 +18,11 @@ from mixed_methods_workbench.method_dashboard import (
     dashboard_catalog,
     route_study,
 )
-from mixed_methods_workbench.method_dashboard_server import catalog_payload, route_payload
+from mixed_methods_workbench.method_dashboard_server import (
+    catalog_payload,
+    process_tracing_topology_payload,
+    route_payload,
+)
 
 HTML_PATH = (
     Path(__file__).resolve().parents[1]
@@ -242,7 +246,14 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "Capabilities &amp; workflows" in html
     assert "Methods are workflows built from support, analytical moves, and human judgment." in html
     assert 'id="workflow-library"' in html
-    assert "They are orientation views—not adopted executable recipes." in html
+    assert "Process Tracing is not a checklist." in html
+    assert 'id="topology-canvas"' in html
+    assert 'id="topology-inspector"' in html
+    assert 'window.location.hash === "#architecture"' in html
+    assert "Where can this method branch, loop, refuse a conclusion" in html
+    assert "Topology not yet reviewed" in html
+    assert "method.workflow_steps.map" not in html
+    assert ".workflow-move::after" not in html
     assert "Inspected method software" in html
     assert "Profile only" in html
     assert "Stress tests" in html
@@ -250,3 +261,11 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "no universally best method" in html
     assert "Run all methods" not in html
     assert "generic confidence" not in html.lower()
+
+
+def test_topology_json_operation_matches_the_browser_surface() -> None:
+    payload = process_tracing_topology_payload()
+
+    assert payload["topology"]["schema_version"] == "pt.method_topology.v0.1"
+    assert payload["topology"]["connections"]
+    assert payload["custody"]["relationship"] == "hash_bound_derived_fixture"
