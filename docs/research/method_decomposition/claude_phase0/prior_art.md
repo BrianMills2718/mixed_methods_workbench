@@ -9,9 +9,9 @@ evidence about what already composes and a candidate implementation
 substrate — not a schema any future decomposition must conform to.
 
 **Repository provenance:** see `repository_snapshots.yaml`. The
-`process_tracing` findings below (§3) describe a state confirmed to
-predate a since-landed merge (PR #83); treat the PT-side entries as
-revision-uncertain until re-verified. The Data Contracts and Theory Forge
+`process_tracing` findings below (§3) were reverified for the two frozen
+workflows at clean commit `4450d2e`; their implementation classifications did
+not change. The Data Contracts and Theory Forge
 findings (§1-2) rest on presumed-unchanged, not contemporaneously
 captured, commits.
 

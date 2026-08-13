@@ -8,10 +8,10 @@
 #
 # REPOSITORY PROVENANCE: see repository_snapshots.yaml for the exact commit
 # SHA recorded for each repository and its match/uncertainty status.
-# pt_core_rival_explanation and pt_source_acquisition rows describe
-# process_tracing as it stood BEFORE its confirmed-drifted current state
-# (a new merge landed after inspection) — treat those rows as
-# revision-uncertain until re-verified against current HEAD.
+# pt_core_rival_explanation and pt_source_acquisition were reverified against
+# clean process_tracing commit 4450d2e after detected repository drift. Their
+# cited implementation files were blob-identical and their 100%/50% status
+# classifications were unchanged; see repository_snapshots.yaml.
 #
 # Field notes:
 # - operation_kind frozen from sources BEFORE code inspection where an
@@ -692,7 +692,7 @@ steps:
   evidence_basis: "Bennett & Checkel 2015 ch.1 (causal mechanism as distinct from mere sequence)"
   execution_status: software_executable
   representation_status: implemented_artifact
-  implementation_ref: "pt/pass_mechanism_trace.py, pt/pass_mechanism_audit.py — LOWER CONFIDENCE: existence and passing status confirmed via tests/test_mechanism_trace.py and tests/test_mechanism_audit.py (163 passed, per agent's combined test run) and PT's own docs/METHODOLOGY.md:92-105 description; file:line detail not independently narrated by the inspecting agent in this pass — flagged for deeper Phase-1 verification"
+  implementation_ref: "pt/pass_mechanism.py:433-579 (run_mechanism_trace and bounded validation), pt/pass_mechanism_audit.py (independent audit and integrity enforcement); reverified through focused core suite at commit 4450d2e. The earlier citation to nonexistent pt/pass_mechanism_trace.py was a documentation error corrected during re-verification."
   optional: false
   repeatable: false
 

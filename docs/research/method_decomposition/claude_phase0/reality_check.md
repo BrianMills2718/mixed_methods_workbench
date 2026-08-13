@@ -7,16 +7,15 @@ rows, edges, or findings (rev 5.1 §0.1). Not yet migrated or compared.
 commit SHA, branch, and clean/dirty status recorded for every inspected
 repository, and for which claims are revision-uncertain. Read that file
 before treating any citation below as current. In particular:
-**`process_tracing` has confirmed-drifted since inspection** — a new merge
-(PR #83) landed after the sub-agent that produced
-`pt_core_rival_explanation` and `pt_source_acquisition` finished its read.
-No exact inspected SHA was captured contemporaneously for
-`qualitative_coding`, `process_tracing`, `theory-forge`, or `data-contracts`
-(only `mixed_methods_workbench`'s SHA was captured at the time); those four
-repos' findings are therefore "presumed unchanged, not proven" except
-`process_tracing`, which is "confirmed changed." No claim in this document
-should be read as asserting current-moment truth about `process_tracing`'s
-present state.
+`process_tracing` did drift after the original inspection, but the two frozen
+workflow claims were subsequently reverified against clean `master` commit
+`4450d2ec7fc898672d5b3b23a3669ea5dbddb881`. Their cited implementation files
+are blob-identical across the drift, and focused checks passed (core: 385
+passed, 1 skipped; acquisition: 60 passed in a fresh environment with the
+currently pinned retrieval dependency). The 100%/50% classifications remain
+current for those two workflows at that exact commit. No exact inspected SHA
+was captured contemporaneously for `qualitative_coding`, `theory-forge`, or
+`data-contracts`; their findings remain presumed unchanged, not proven.
 
 > **Interpretation note.** The 74.4% result measures callable software
 > implementation across this selected Phase 0 workflow set. It does not
@@ -345,26 +344,19 @@ not as a cited scientific claim.
    per-method PASS/FAIL would. This scoping choice is defended in §3 and
    should be an explicit point of scrutiny in any future migration/
    comparison against `ac27ab2`.
-6. **`process_tracing` has confirmed-drifted since inspection** (added in
-   the `repository_snapshots.yaml` corrective pass): a new merge (PR #83)
-   landed on `process_tracing`'s `master` after the sub-agent that produced
-   `pt_core_rival_explanation` and `pt_source_acquisition` read the
-   repository. No `git rev-parse HEAD` was captured contemporaneously by
-   that sub-agent, so the exact commit it actually inspected cannot be
-   reconstructed — only that it precedes commit `44556a0` (2026-08-12
-   18:44:57-04:00). Every `pt_core_rival_explanation` and
-   `pt_source_acquisition` row, and their 100%/50% shares, describes that
-   earlier, unrecorded state. This is the single most consequential
-   uncertainty introduced by this corrective pass, since it bears directly
-   on one of the two individually-failing methods
-   (`pt_source_acquisition`). Re-verification against current
-   `process_tracing` HEAD is recommended before this candidate is used to
-   support any promotion or build decision, independent of the eventual
-   comparison against `ac27ab2`.
-7. **Four of five repositories' claims rest on presumed, not proven,
+6. **`process_tracing` drift was reverified for the two frozen workflows.**
+   At clean commit `4450d2e`, every implementation file used by
+   `pt_core_rival_explanation` and `pt_source_acquisition` has the same Git
+   blob identity as at the corrective snapshot. The intervening changes add
+   a separate comparative study, change workbench presentation, and advance
+   `open_web_retrieval` to 0.11.0. Focused checks passed in a fresh pinned
+   environment, so the 100%/50% shares remain current at that exact commit.
+   The checkout's older virtual environment still held retrieval 0.8.0 and
+   failed two dependency assertions; that is environment drift, not a change
+   in the frozen analytic operations.
+7. **Three of five repositories' claims rest on presumed, not proven,
    revision stability** (`qualitative_coding`, `theory-forge`,
-   `data-contracts`, and — with confirmed-negative status —
-   `process_tracing`). Only `mixed_methods_workbench`'s inspected commit
+   and `data-contracts`). Only `mixed_methods_workbench`'s inspected commit
    (`10bc11f`) was captured contemporaneously. See
    `repository_snapshots.yaml` for the full per-repository accounting and
    the reasoning behind each "presumed unchanged" judgment.

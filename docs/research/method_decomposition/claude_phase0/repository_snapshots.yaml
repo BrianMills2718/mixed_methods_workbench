@@ -74,6 +74,20 @@ repositories:
       abort-gate shares computed for these two methods (100% and 50%
       respectively) should be treated as evidence about that earlier state,
       not a live claim about snapshot_commit_sha above, until re-verified.
+    reverified_at: "2026-08-13T08:17:18-07:00"
+    reverified_commit_sha: 4450d2ec7fc898672d5b3b23a3669ea5dbddb881
+    reverified_branch: master
+    reverified_clean_dirty: clean
+    reverified_disposition: >-
+      RESOLVED FOR THE TWO FROZEN WORKFLOWS ONLY. All implementation files
+      cited by pt_core_rival_explanation and pt_source_acquisition have
+      identical Git blob identities at the corrective snapshot and the
+      reverified commit. The intervening commits add a separate comparative
+      study, alter workbench presentation, and advance open_web_retrieval from
+      0.9.0 to 0.11.0; they do not change either frozen workflow's analytic
+      implementation. The original 100% and 50% classifications therefore
+      remain current at the pinned reverified commit. This does not refresh
+      unrelated Process Tracing claims.
       This is the single most important correction in this addendum.
     material_uncommitted_files: none observed at snapshot time
     test_commands_and_outcomes:
@@ -85,6 +99,9 @@ repositories:
       - {cmd: "pytest tests/test_revolution_corpus.py tests/test_revolution_selection.py tests/test_revolution_reconciliation.py tests/test_revolution_adjudication.py tests/test_revolution_case_trace.py tests/test_revolution_source_development.py", result: "76 passed (LLM calls mocked)"}
       - {cmd: "source-silence evaluation test family (names not individually enumerated in the source report)", result: "69 passed, 2 failed (stale preregistration-hash drift, unrelated to acquisition logic)"}
       - {cmd: "pytest tests/test_export.py tests/test_theory_test_return.py", result: "25 passed"}
+      - {cmd: ".venv/bin/python -m pytest [focused core rival-explanation files]", result: "385 passed, 1 skipped at reverified commit 4450d2e"}
+      - {cmd: "fresh temporary venv from current requirements.txt plus manifest-bound llm_client; pytest [focused source-acquisition files]", result: "60 passed at reverified commit 4450d2e with open_web_retrieval 0.11.0"}
+      - {cmd: "existing .venv; pytest [focused source-acquisition files]", result: "58 passed, 2 failed because the existing checkout environment still contained open_web_retrieval 0.8.0; environment drift, superseded for code verification by the fresh pinned run"}
 
   - repository: theory-forge
     absolute_path: /home/brian/projects/theory-forge
@@ -164,11 +181,11 @@ summary:
   fully_confirmed: [mixed_methods_workbench]
   presumed_unchanged_not_proven: [qualitative_coding, theory-forge, data-contracts]
   confirmed_drifted_since_inspection: [process_tracing]
+  subsequently_reverified_for_frozen_workflows: [process_tracing]
   action_taken: >-
-    No re-inspection was performed as part of this addendum — the
-    supervising request asked for honest disclosure of reconstructability,
-    not a fresh inspection pass. process_tracing's drift is flagged
-    prominently in reality_check.md and in the top-level report to the
-    user. A future comparison pass against ac27ab2, or any promotion
-    decision drawing on pt_core_rival_explanation / pt_source_acquisition,
-    should re-verify against process_tracing's current HEAD first.
+    The first corrective addendum disclosed the unreconstructable original
+    Process Tracing inspection and performed no re-inspection. A subsequent
+    bounded pass reverified only pt_core_rival_explanation and
+    pt_source_acquisition against clean commit 4450d2e before comparison with
+    ac27ab2. It preserved the original snapshot record, added exact current
+    evidence, and did not refresh unrelated repositories or workflows.
