@@ -15,6 +15,11 @@ EXPECTED_METHODS = {
     "P3-RESEARCH-B": {"p06", "p07", "p08", "p09"},
     "P3-RESEARCH-C": {"p05", "p10", "p11", "p12", "p13"},
 }
+SUBMITTED_EVIDENCE_REVISIONS = {
+    "P3-RESEARCH-A": "git:origin/phase3-research-a@6262b4da513d2a3e5dd094c47a9284c12572603c;archived-handoff;not-accepted",
+    "P3-RESEARCH-B": "git:origin/phase3-research-b@f8044648075468411d20bee1bfe71fec5c2023bf;archived-handoff;changes-requested",
+    "P3-RESEARCH-C": "git:origin/phase3-research-c@0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa;archived-handoff;not-accepted",
+}
 CONTROL_ID = "P3-CONTROL"
 INTEGRATION_ID = "P3-INTEGRATE"
 GRAPH_PATH = "docs/research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json"
@@ -23,7 +28,7 @@ PT_EVIDENCE_ID = "process-tracing-topology-prototype"
 PT_EVIDENCE_REVISION = "merged@1fd01bc;not-method-authority"
 PLAN_ID = "Plan #4"
 PLAN_REVISION = "4_phase3_portfolio_decomposition.md@approved-2026-08-13"
-SPEC_REVISION = "plan-4-phase3-work-graph-v3"
+SPEC_REVISION = "plan-4-phase3-work-graph-v4"
 
 
 def _method_id(target: str) -> str | None:
@@ -147,6 +152,20 @@ def validate_graph(
         all_methods.extend(owned)
         if unit.get("integration_owner_id") != CONTROL_ID:
             errors.append(f"{unit_id} must name {CONTROL_ID} as integration owner")
+        submitted = [
+            item
+            for item in unit.get("inputs", [])
+            if item.get("kind") == "SubmittedEvidence" and item.get("id") == unit_id
+        ]
+        if (
+            len(submitted) != 1
+            or submitted[0].get("revision") != SUBMITTED_EVIDENCE_REVISIONS[unit_id]
+        ):
+            errors.append(f"{unit_id} must bind its exact archived submitted evidence revision")
+        if unit.get("status") != "accepted" and any(
+            item.get("kind") == "CompletionReceipt" for item in unit.get("inputs", [])
+        ):
+            errors.append(f"{unit_id} cannot bind a CompletionReceipt before accepted status")
         if unit.get("status") == "accepted":
             receipts = [
                 item for item in unit.get("inputs", [])
@@ -165,8 +184,24 @@ def validate_graph(
         errors.append("exclusive method ownership must contain p01 through p14 exactly once")
 
     control = by_id.get(CONTROL_ID, {})
-    if control.get("claimability") != "ready_for_execution" or control.get("status") != "ready":
-        errors.append("P3-CONTROL must be ready_for_execution with ready status")
+    control_state = (
+        control.get("claimability"),
+        control.get("status"),
+        control.get("readiness", {}).get("status"),
+    )
+    if control_state not in {
+        ("ready_for_execution", "ready", "ready"),
+        ("not_applicable", "blocked", "blocked"),
+    }:
+        errors.append(
+            "P3-CONTROL must be either ready_for_execution/ready/ready or "
+            "not_applicable/blocked/blocked"
+        )
+    if control_state == ("not_applicable", "blocked", "blocked") and not any(
+        "product integration" in guard.lower()
+        for guard in control.get("readiness", {}).get("failed_guards", [])
+    ):
+        errors.append("paused P3-CONTROL must name the product-integration guard")
     if control.get("integration_owner_id") != CONTROL_ID:
         errors.append("P3-CONTROL must own its control mechanism")
     exclusive_control = {

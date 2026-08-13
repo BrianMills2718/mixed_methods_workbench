@@ -94,6 +94,28 @@ Phase 4 collision candidates, Phase 5 adjudication, Phase 6 coverage or
 automation claims, a shared production schema, infrastructure, producer
 changes, or product implementation.
 
+The four former Phase 3 Codex sessions were consolidated into the current
+Workbench coordinator on 2026-08-13. Their claims and worktrees are closed;
+their unmerged work remains recoverable at exact pushed refs:
+
+- `P3-RESEARCH-A`: `origin/phase3-research-a` at
+  `6262b4da513d2a3e5dd094c47a9284c12572603c`, independently reviewed `PASS`
+  and retained in `completion_review`, not accepted;
+- `P3-RESEARCH-B`: `origin/phase3-research-b` at
+  `f8044648075468411d20bee1bfe71fec5c2023bf`, retained as
+  `changes_requested` with its exact correction instructions; and
+- `P3-RESEARCH-C`: `origin/phase3-research-c` at
+  `0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa`, independently re-reviewed
+  `PASS` and retained in `completion_review`, not accepted.
+
+The superseded `P3-CONTROL` session is also closed. Plan #4 graph revision 4
+binds these submitted revisions and makes every Phase 3 lane non-claimable
+while the product-integration pause remains active. No receipt, acceptance,
+integration, or methodological promotion follows from consolidation. An
+explicit decision to lift the pause must first make `P3-CONTROL` available;
+only that control unit may then review exact evidence, issue later receipts,
+and advance lifecycle state.
+
 The approved denominator and completed research checkpoints remain valid.
 Additional lane execution and integration are paused until the product
 integration assessment and first visible Investigation Spine determine which

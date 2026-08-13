@@ -72,7 +72,7 @@ def accepted_lane(document: dict, evidence: str, receipt: str) -> None:
 def test_canonical_phase3_graph_passes() -> None:
     document = load_graph()
     assert validate_graph(document) == []
-    assert {item["spec_revision"] for item in document["units"]} == {"plan-4-phase3-work-graph-v3"}
+    assert {item["spec_revision"] for item in document["units"]} == {"plan-4-phase3-work-graph-v4"}
     assert all(
         sum(
             item.get("kind") == "CoordinationPlan"
@@ -80,6 +80,43 @@ def test_canonical_phase3_graph_passes() -> None:
             for item in work_unit["inputs"]
         ) == 1
         for work_unit in document["units"]
+    )
+
+
+def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
+    document = load_graph()
+    expected = {
+        "P3-RESEARCH-A": (
+            "completion_review",
+            "not_applicable",
+            "6262b4da513d2a3e5dd094c47a9284c12572603c",
+        ),
+        "P3-RESEARCH-B": (
+            "changes_requested",
+            "not_applicable",
+            "f8044648075468411d20bee1bfe71fec5c2023bf",
+        ),
+        "P3-RESEARCH-C": (
+            "completion_review",
+            "not_applicable",
+            "0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa",
+        ),
+    }
+    for unit_id, (status, claimability, revision) in expected.items():
+        lane = unit(document, unit_id)
+        submitted = [item for item in lane["inputs"] if item["kind"] == "SubmittedEvidence"]
+        assert lane["status"] == status
+        assert lane["claimability"] == claimability
+        assert lane["readiness"]["status"] == "blocked"
+        assert len(submitted) == 1
+        assert revision in submitted[0]["revision"]
+        assert not any(item["kind"] == "CompletionReceipt" for item in lane["inputs"])
+
+    control = unit(document, "P3-CONTROL")
+    assert (control["claimability"], control["status"], control["readiness"]["status"]) == (
+        "not_applicable",
+        "blocked",
+        "blocked",
     )
 
 
@@ -92,7 +129,13 @@ def test_rejects_missing_control_unit() -> None:
 def test_rejects_unready_control() -> None:
     document = load_graph()
     unit(document, "P3-CONTROL")["claimability"] = "blocked_dependencies"
-    assert any("must be ready_for_execution" in error for error in validate_graph(document))
+    assert any("must be either" in error for error in validate_graph(document))
+
+
+def test_rejects_paused_control_without_product_guard() -> None:
+    document = load_graph()
+    unit(document, "P3-CONTROL")["readiness"]["failed_guards"] = ["generic pause"]
+    assert any("product-integration guard" in error for error in validate_graph(document))
 
 
 def test_rejects_noncontrol_graph_owner() -> None:
@@ -108,6 +151,28 @@ def test_rejects_duplicate_or_missing_method() -> None:
     source = copy.deepcopy(unit(document, "P3-RESEARCH-A")["conflict_surfaces"][0])
     unit(document, "P3-RESEARCH-B")["conflict_surfaces"].append(source)
     assert any("exactly once" in error for error in validate_graph(document))
+
+
+def test_rejects_mutated_submitted_handoff_revision() -> None:
+    document = load_graph()
+    lane = unit(document, "P3-RESEARCH-C")
+    next(item for item in lane["inputs"] if item["kind"] == "SubmittedEvidence")["revision"] = (
+        "git:origin/phase3-research-c@" + "0" * 40 + ";archived-handoff;not-accepted"
+    )
+    assert any("exact archived submitted evidence" in error for error in validate_graph(document))
+
+
+def test_rejects_completion_receipt_before_acceptance() -> None:
+    document = load_graph()
+    lane = unit(document, "P3-RESEARCH-A")
+    lane["inputs"].append(
+        {
+            "kind": "CompletionReceipt",
+            "id": "P3-RESEARCH-A",
+            "revision": "premature",
+        }
+    )
+    assert any("before accepted status" in error for error in validate_graph(document))
 
 
 def test_rejects_missing_hard_dependency() -> None:
