@@ -261,38 +261,38 @@ AIM_OPTIONS = (
 STARTING_POINT_OPTIONS = (
     ChoiceOption(
         value=StartingPoint.POLICY_DECISION,
-        label="A decision or problem that needs action",
-        description="You need to choose, recommend, or prepare an action.",
+        label="I need to support a decision or action",
+        description="A choice, recommendation, or practical response is organizing the work.",
         help_text="Example: A city must choose a heat-risk strategy. The decision—not a particular dataset or method—is organizing the work.",
     ),
     ChoiceOption(
         value=StartingPoint.LITERATURE,
-        label="Existing research or reports",
-        description="You first need to understand what others have already found.",
+        label="I want to start by reviewing what is already known",
+        description="Finding and synthesizing prior research is the first analytical task.",
         help_text="Choose this when searching, comparing, or synthesizing prior studies could itself answer the question or reveal what should be studied next.",
     ),
     ChoiceOption(
         value=StartingPoint.EVIDENCE,
-        label="Interviews, documents, or observations",
-        description="You have source material but no settled explanation or model.",
+        label="I want to explore source material without a settled explanation",
+        description="Patterns, meanings, or possible explanations need to emerge from the material.",
         help_text="Example: You have interview transcripts and records and want to discover patterns, meanings, or possible explanations from them.",
     ),
     ChoiceOption(
         value=StartingPoint.PUBLISHED_THEORY,
-        label="An existing theory",
-        description="You want to apply, appraise, or test an established account.",
+        label="I want to use or examine a published theory",
+        description="An established account will guide what you look for or appraise.",
         help_text="Example: You want to use a published theory to decide what to look for in a new case. The theory guides the work but is not evidence by itself.",
     ),
     ChoiceOption(
         value=StartingPoint.CANDIDATE_EXPLANATION,
-        label="A possible explanation",
+        label="I want to challenge a possible explanation",
         description="You already have a tentative answer for why or how something happened.",
         help_text="Example: Interviews suggest that administrative burden discouraged disclosure, and you now want to challenge that explanation against alternatives.",
     ),
     ChoiceOption(
         value=StartingPoint.STRUCTURED_DATA,
-        label="A dataset ready to analyze",
-        description="You have measurements, rows and columns, or linked records.",
+        label="I want to analyze measured or structured observations",
+        description="The work begins from comparable measurements, records, or linked observations.",
         help_text="Example: You have neighborhood temperatures, demographics, service use, and dates in tables or relational data.",
     ),
 )
@@ -385,7 +385,10 @@ EVIDENCE_OPTIONS = (
 
 
 _AIM_PLAIN = {option.value: option.label.lower() for option in AIM_OPTIONS}
-_STARTING_PLAIN = {option.value: option.label.lower() for option in STARTING_POINT_OPTIONS}
+_STARTING_PLAIN = {
+    option.value: option.label.removeprefix("I want to ").removeprefix("I need to ")
+    for option in STARTING_POINT_OPTIONS
+}
 _SCOPE_PLAIN = {option.value: option.label.lower() for option in SCOPE_OPTIONS}
 _EVIDENCE_PLAIN = {option.value: option.label.lower() for option in EVIDENCE_OPTIONS}
 
@@ -1109,8 +1112,8 @@ def route_study(brief: StudyBrief) -> RoutePlan:
         else f"you plan to study {_SCOPE_PLAIN[brief.scope]}"
     )
     framing_summary = (
-        f"You want to {aim_words}. You are beginning with {_STARTING_PLAIN[brief.starting_point]}, "
-        f"and {study_scope}."
+        f"You want to {aim_words}. Your starting task is to "
+        f"{_STARTING_PLAIN[brief.starting_point]}. {study_scope.capitalize()}."
     )
     return RoutePlan(
         brief=brief,
