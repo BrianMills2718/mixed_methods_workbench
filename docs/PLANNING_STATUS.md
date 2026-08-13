@@ -30,6 +30,22 @@ replayed only when a near-term decision depends on them.
 This phase is documentation and research only. It does not authorize product
 code, producer changes, adapters, schema adoption, or another evaluation run.
 
+## Completed Exception: Simulation Result to Policy Appraisal
+
+Brian explicitly approved the bounded stress test in
+[`current_simulation_to_policy_appraisal_probe.md`](plans/current_simulation_to_policy_appraisal_probe.md)
+on 2026-08-13. The Workbench now consumes a pinned projection of three
+authentic Cybernetic Influence simulation runs and presents the comparison as
+model-generated input to a policy appraisal. The result deliberately refuses
+to recommend adoption: it licenses only investigation of the modeled verified
+allocation package and names the real-world evidence still required.
+
+This exception changed only the Workbench consumer. It did not modify or adopt
+a Cybernetic Influence contract, treat simulation output as observed evidence,
+generalize a shared schema, deploy the interface, or authorize another product
+slice. The implementation and source-check evidence are recorded in
+[`simulation_to_policy_appraisal_receipt.md`](plans/simulation_to_policy_appraisal_receipt.md).
+
 ## Prior Phase: MT-D1 Mist Trail Decision Review Implemented; Review Pending
 
 Brian authorized the bounded implementation in

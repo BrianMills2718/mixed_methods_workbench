@@ -13,9 +13,13 @@ from pydantic import ValidationError
 
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
 from .mist_trail_decision import mist_trail_payload
+from .simulation_policy_appraisal import simulation_policy_appraisal_payload
 
 STATIC_PATH = Path(__file__).with_name("static") / "method_dashboard.html"
 MIST_TRAIL_STATIC_PATH = Path(__file__).with_name("static") / "mist_trail_decision.html"
+SIMULATION_APPRAISAL_STATIC_PATH = (
+    Path(__file__).with_name("static") / "simulation_policy_appraisal.html"
+)
 MAX_REQUEST_BYTES = 100_000
 
 
@@ -34,6 +38,12 @@ def route_payload(payload: object) -> tuple[HTTPStatus, dict[str, object]]:
             "details": exc.errors(include_url=False, include_input=False),
         }
     return HTTPStatus.OK, route_study(brief).model_dump(mode="json")
+
+
+def simulation_appraisal_payload() -> dict[str, object]:
+    """Return the typed authentic simulation-to-appraisal boundary probe."""
+
+    return simulation_policy_appraisal_payload()
 
 
 class MethodDashboardHandler(BaseHTTPRequestHandler):
@@ -66,11 +76,20 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
         if self.path in {"/decision/mist-trail", "/decision/mist-trail/"}:
             self._write_html(MIST_TRAIL_STATIC_PATH)
             return
+        if self.path in {
+            "/appraisal/simulation-outbreak",
+            "/appraisal/simulation-outbreak/",
+        }:
+            self._write_html(SIMULATION_APPRAISAL_STATIC_PATH)
+            return
         if self.path == "/api/catalog":
             self._write_json(HTTPStatus.OK, catalog_payload())
             return
         if self.path == "/api/decision/mist-trail":
             self._write_json(HTTPStatus.OK, mist_trail_payload())
+            return
+        if self.path == "/api/appraisal/simulation-outbreak":
+            self._write_json(HTTPStatus.OK, simulation_appraisal_payload())
             return
         self._write_json(HTTPStatus.NOT_FOUND, {"error": "Route not found."})
 

@@ -1,0 +1,126 @@
+{
+  "schema_id": "cybernetic_influence.outbreak_comparison_projection",
+  "schema_version": "0.1.0",
+  "artifact_status": "authentic_pinned_projection",
+  "source": {
+    "api_url": "https://brian-mac-mini.tail9c321e.ts.net/waltzman/api/regional-outbreak-comparison",
+    "retrieved_at": "2026-08-13T17:11:29Z",
+    "producer_repository": "cybernetic_influence_v3",
+    "producer_revision": "eaa49adf398df718249c7828061722d3285b619a",
+    "projection_method": "Select the three clean matched run IDs and retain identity, execution, model configuration, simulated outcome, final decisions, requests, risks, and stabilization events. Each source_row_sha256 hashes the complete producer row encoded as sorted compact UTF-8 JSON followed by one newline."
+  },
+  "evidence_origin": "model_generated",
+  "scenario": "regional_outbreak",
+  "applicability": "A 12-role, three-round simulated regional outbreak coalition under the declared baseline, modeled capacity-conflict, and modeled stabilization conditions.",
+  "prohibited_inferences": [
+    "The verified allocation package will cause approval in a real coalition.",
+    "The simulated outcomes estimate a real-world probability or effect size.",
+    "The simulation establishes legal authority, operational feasibility, cost-effectiveness, equity, or public acceptability.",
+    "The comparison validates the simulator's assumptions or mechanisms against real outbreak decisions."
+  ],
+  "runs": [
+    {
+      "run_id": "run_8924342b56ce",
+      "source_row_sha256": "63eca0df24ec42c86302e4e5be82af550e33b21ff99fb614a92f7c29279ec7e7",
+      "created_at": "2026-08-05T15:11:02.124163+00:00",
+      "status": "completed",
+      "scenario": "regional_outbreak",
+      "profile": "position_context",
+      "condition": "baseline",
+      "producer_condition": "baseline",
+      "execution": "live",
+      "agent_count": 12,
+      "rounds_completed": 3,
+      "model_calls": 36,
+      "model": "codex/gpt-5.6-terra",
+      "reasoning_effort": "medium",
+      "llm_client_revision": "28dfa9928750baefe131e25ecc97c04ede81c174",
+      "outcome": "joint_response_approved",
+      "final_decisions": {
+        "support": 12
+      },
+      "final_requests": {
+        "none": 1,
+        "resources": 9,
+        "safeguards": 2
+      },
+      "final_risks": {
+        "capacity": 9,
+        "none": 1,
+        "sovereignty": 2
+      },
+      "exercise_injects": [],
+      "stabilization_events": []
+    },
+    {
+      "run_id": "run_946a10a820fc",
+      "source_row_sha256": "a3079cc3493ae5ab8f0f170716889dad194a611bfe02bb3fe918d6e0c79054c4",
+      "created_at": "2026-08-05T15:13:10.566006+00:00",
+      "status": "completed",
+      "scenario": "regional_outbreak",
+      "profile": "position_context",
+      "condition": "capacity_conflict",
+      "producer_condition": "responsive_exercise_injects",
+      "execution": "live",
+      "agent_count": 12,
+      "rounds_completed": 3,
+      "model_calls": 36,
+      "model": "codex/gpt-5.6-terra",
+      "reasoning_effort": "medium",
+      "llm_client_revision": "28dfa9928750baefe131e25ecc97c04ede81c174",
+      "outcome": "no_joint_response",
+      "final_decisions": {
+        "conditional": 1,
+        "defer": 11
+      },
+      "final_requests": {
+        "resources": 12
+      },
+      "final_risks": {
+        "capacity": 12
+      },
+      "exercise_injects": [
+        "round_1_capacity_conflict",
+        "round_2_capacity_conflict"
+      ],
+      "stabilization_events": []
+    },
+    {
+      "run_id": "run_05acbaea1137",
+      "source_row_sha256": "78f87ac4b68b306d12036e44142d016aad639f87156fa21f8262bc523e907870",
+      "created_at": "2026-08-05T15:15:31.604153+00:00",
+      "status": "completed",
+      "scenario": "regional_outbreak",
+      "profile": "position_context",
+      "condition": "capacity_conflict_with_verified_allocation",
+      "producer_condition": "capacity_inject_replay_with_stabilization",
+      "execution": "live",
+      "agent_count": 12,
+      "rounds_completed": 3,
+      "model_calls": 36,
+      "model": "codex/gpt-5.6-terra",
+      "reasoning_effort": "medium",
+      "llm_client_revision": "28dfa9928750baefe131e25ecc97c04ede81c174",
+      "outcome": "joint_response_approved",
+      "final_decisions": {
+        "support": 12
+      },
+      "final_requests": {
+        "none": 8,
+        "resources": 4
+      },
+      "final_risks": {
+        "capacity": 4,
+        "legitimacy": 1,
+        "none": 7
+      },
+      "exercise_injects": [
+        "round_1_capacity_conflict",
+        "round_2_capacity_conflict"
+      ],
+      "stabilization_events": [
+        "round_2_verified_minimum_capacity_package"
+      ]
+    }
+  ]
+}

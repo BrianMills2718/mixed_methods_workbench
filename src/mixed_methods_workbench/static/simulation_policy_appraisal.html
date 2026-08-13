@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulation evidence in policy appraisal · Mixed Methods Workbench</title>
+  <style>
+    :root {
+      --ink: #17211d;
+      --muted: #56645e;
+      --paper: #f5f2ea;
+      --panel: #fffdf8;
+      --line: #d8d4c8;
+      --pine: #174d3b;
+      --pine-soft: #e5f0eb;
+      --amber: #9a5b16;
+      --amber-soft: #fff1d9;
+      --red: #8a332d;
+      --red-soft: #f8e7e3;
+      --blue: #285b75;
+      --blue-soft: #e6f0f5;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.55 system-ui, sans-serif; }
+    header { border-bottom: 1px solid var(--line); background: rgba(255,253,248,.94); }
+    .bar { max-width: 1120px; margin: auto; padding: 1rem 1.25rem; display: flex; justify-content: space-between; gap: 1rem; }
+    a { color: var(--pine); font-weight: 750; text-decoration-thickness: 1px; }
+    main { max-width: 1120px; margin: auto; padding: 3.5rem 1.25rem 5rem; }
+    .tag { display: inline-block; padding: .35rem .6rem; border: 1px solid #cfaa70; border-radius: 999px; color: #6e410f; background: var(--amber-soft); font-size: .78rem; font-weight: 850; }
+    h1 { max-width: 850px; margin: .8rem 0; font-size: clamp(2.2rem, 6vw, 4.6rem); line-height: .98; letter-spacing: -.055em; }
+    .lede { max-width: 780px; color: var(--muted); font-size: 1.15rem; }
+    .flow { margin: 2.2rem 0 0; display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--panel); }
+    .flow div { padding: 1rem; border-right: 1px solid var(--line); }
+    .flow div:last-child { border: 0; }
+    .flow span { display: block; color: var(--pine); font-size: .76rem; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; }
+    .flow strong { display: block; margin-top: .25rem; }
+    section { margin-top: 4rem; }
+    .eyebrow { color: var(--pine); font-size: .78rem; font-weight: 900; text-transform: uppercase; letter-spacing: .09em; }
+    h2 { margin: .35rem 0 .65rem; font-size: clamp(1.65rem, 4vw, 2.7rem); line-height: 1.08; letter-spacing: -.035em; }
+    .section-intro { max-width: 760px; color: var(--muted); }
+    .runs { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 1.4rem; }
+    .card { padding: 1.25rem; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); box-shadow: 0 10px 30px rgba(38,45,40,.04); }
+    .card h3 { margin: .45rem 0 .35rem; font-size: 1.15rem; }
+    .card p { color: var(--muted); }
+    .condition { color: var(--blue); font-size: .75rem; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; }
+    .outcome { margin: 1rem 0; padding: .65rem .75rem; border-radius: 8px; font-weight: 850; }
+    .approved { color: var(--pine); background: var(--pine-soft); }
+    .not-approved { color: var(--red); background: var(--red-soft); }
+    .meta { padding-top: .8rem; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
+    code { overflow-wrap: anywhere; font-size: .78rem; }
+    .finding { margin-top: 1.25rem; padding: 1.5rem; border-left: 5px solid var(--blue); border-radius: 5px 14px 14px 5px; background: var(--blue-soft); }
+    .finding strong { display: block; margin-bottom: .35rem; }
+    .boundary { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.2rem; align-items: stretch; margin-top: 1.4rem; }
+    .conclusion { padding: 1.6rem; color: white; background: var(--pine); border-radius: 16px; }
+    .conclusion .eyebrow { color: #bfe5d7; }
+    .conclusion h3 { margin: .4rem 0; font-size: 1.8rem; line-height: 1.08; }
+    .conclusion p { color: #e2f1eb; }
+    .warning { padding: 1.5rem; border: 1px solid #d6ac6c; border-radius: 16px; background: var(--amber-soft); }
+    .warning h3 { margin-top: 0; color: #6e410f; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.3rem; }
+    ul { padding-left: 1.2rem; }
+    li + li { margin-top: .5rem; }
+    details { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+    summary { cursor: pointer; color: var(--pine); font-weight: 800; }
+    .loading, .error { padding: 3rem 0; text-align: center; }
+    .error { color: var(--red); }
+    [hidden] { display: none !important; }
+    @media (max-width: 780px) {
+      .flow, .runs, .boundary, .two { grid-template-columns: 1fr; }
+      .flow div { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <header><div class="bar"><a href="/">Mixed Methods Workbench</a><a href="/#stress">← Method dashboard</a></div></header>
+  <main>
+    <div id="loading" class="loading">Loading the authentic simulation comparison…</div>
+    <div id="error" class="error" hidden></div>
+    <div id="app" hidden>
+      <span class="tag">Boundary probe · model-generated evidence</span>
+      <h1>A simulation result enters policy appraisal</h1>
+      <p class="lede">This example asks what a real retained simulation comparison may legitimately contribute to a policy decision—and stops before the simulation is mistaken for evidence that a policy works in the real world.</p>
+
+      <div class="flow" aria-label="Simulation-to-appraisal workflow">
+        <div><span>1 · Simulate</span><strong>Run three declared conditions</strong></div>
+        <div><span>2 · Compare</span><strong>Retain exact model outcomes</strong></div>
+        <div><span>3 · Translate</span><strong>Create one bounded consequence</strong></div>
+        <div><span>4 · Appraise</span><strong>Investigate—or refuse to recommend</strong></div>
+      </div>
+
+      <section>
+        <div class="eyebrow">The policy-design question</div>
+        <h2 id="policy-question"></h2>
+        <p id="candidate-action" class="section-intro"></p>
+      </section>
+
+      <section>
+        <div class="eyebrow">Authentic retained simulations</div>
+        <h2>What happened inside the model</h2>
+        <p class="section-intro">These were live LLM simulations with twelve roles over three rounds. They are authentic executions, but every outcome is still generated inside a declared model.</p>
+        <div id="runs" class="runs"></div>
+        <div class="finding"><strong>The narrow finding this comparison supports</strong><span id="finding"></span></div>
+      </section>
+
+      <section>
+        <div class="eyebrow">Appraisal boundary</div>
+        <h2>Why this does not select a real policy</h2>
+        <div class="boundary">
+          <article class="conclusion">
+            <div class="eyebrow">Responsible result</div>
+            <h3 id="conclusion-headline"></h3>
+            <p id="conclusion-rationale"></p>
+          </article>
+          <article class="warning">
+            <h3>What changed at the handoff</h3>
+            <p>The simulation comparison became one model-conditional consequence input. It did not become an effect estimate, probability, score, or recommendation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="eyebrow">Before deciding</div>
+        <h2>Evidence needed before a recommendation</h2>
+        <div class="two">
+          <article class="card"><h3>Work still required</h3><ul id="evidence-needed"></ul></article>
+          <article class="card"><h3>Do not conclude</h3><ul id="non-claims"></ul></article>
+        </div>
+      </section>
+
+      <details>
+        <summary>Source identity and exact run custody</summary>
+        <p>Producer: <code id="producer"></code></p>
+        <p>Producer revision: <code id="producer-revision"></code></p>
+        <p>Retrieved: <code id="retrieved-at"></code></p>
+        <p>Each run card exposes the exact retained run ID and canonical source-row SHA-256. The page consumes a pinned Workbench projection; it does not import simulator internals or claim a stable producer export.</p>
+      </details>
+    </div>
+  </main>
+  <script>
+    const byId = (id) => document.getElementById(id);
+    const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"})[character]);
+    const labels = {
+      baseline: "Baseline",
+      capacity_conflict: "Capacity conflict",
+      capacity_conflict_with_verified_allocation: "Conflict + verified allocation"
+    };
+    const descriptions = {
+      baseline: "The coalition began with declared commitments and no capacity-conflict injects.",
+      capacity_conflict: "The model introduced competing laboratory, staffing, and supply requirements without a resolved allocation.",
+      capacity_conflict_with_verified_allocation: "The same modeled conflict was followed by a binding package protecting minimum capacity and documenting delivery."
+    };
+    const list = (items) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+
+    function renderRun(run) {
+      const approved = run.outcome === "joint_response_approved";
+      const tally = Object.entries(run.final_decisions).map(([key, value]) => `${value} ${key}`).join(", ");
+      return `<article class="card">
+        <div class="condition">${escapeHtml(labels[run.condition])}</div>
+        <h3>${escapeHtml(descriptions[run.condition])}</h3>
+        <div class="outcome ${approved ? "approved" : "not-approved"}">${approved ? "Joint response approved" : "No joint response"} · ${escapeHtml(tally)}</div>
+        <p>${run.stabilization_events.length ? "Modeled intervention: verified minimum-capacity allocation package." : "No stabilization event in this condition."}</p>
+        <div class="meta">Run <code>${escapeHtml(run.run_id)}</code><br>36 live model calls · 12 roles · 3 rounds<br>Source row <code>${escapeHtml(run.source_row_sha256)}</code></div>
+      </article>`;
+    }
+
+    fetch("/api/appraisal/simulation-outbreak")
+      .then((response) => { if (!response.ok) throw new Error(`Request failed: ${response.status}`); return response.json(); })
+      .then((artifact) => {
+        const appraisal = artifact.appraisal;
+        const comparison = artifact.source_comparison;
+        byId("policy-question").textContent = appraisal.policy_question;
+        byId("candidate-action").textContent = appraisal.candidate_action;
+        byId("runs").innerHTML = comparison.runs.map(renderRun).join("");
+        byId("finding").textContent = appraisal.model_conditional_finding;
+        byId("conclusion-headline").textContent = appraisal.conclusion.headline;
+        byId("conclusion-rationale").textContent = appraisal.conclusion.rationale;
+        byId("evidence-needed").innerHTML = list(appraisal.evidence_needed);
+        byId("non-claims").innerHTML = list(appraisal.non_claims);
+        byId("producer").textContent = comparison.source.producer_repository;
+        byId("producer-revision").textContent = comparison.source.producer_revision;
+        byId("retrieved-at").textContent = comparison.source.retrieved_at;
+        byId("loading").hidden = true;
+        byId("app").hidden = false;
+      })
+      .catch((error) => {
+        byId("loading").hidden = true;
+        byId("error").hidden = false;
+        byId("error").textContent = `Could not load the appraisal: ${error.message}`;
+      });
+  </script>
+</body>
+</html>

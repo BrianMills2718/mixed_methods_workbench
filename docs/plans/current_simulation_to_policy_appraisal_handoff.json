@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "record_type": "next_skill_handoff",
+  "handoff_id": "HANDOFF-SIM-APPRAISAL-PROBE-1",
+  "producer_skill": "work-unit-graph",
+  "next_skill": "evidence-first-development",
+  "reason": "The single coupled vertical has stable inputs, contract rules, failure behavior, conflict surfaces, and evidence-first acceptance under explicit user authorization.",
+  "source_records": [
+    {
+      "kind": "BoundedDesign",
+      "id": "current_simulation_to_policy_appraisal_probe",
+      "schema_version": "document-v1",
+      "revision": "sha256:66e8a894488847cdad9c28fae3c08a1474c04da0b74b425404b6db803886df7a",
+      "digest": "sha256:66e8a894488847cdad9c28fae3c08a1474c04da0b74b425404b6db803886df7a"
+    }
+  ],
+  "required_inputs": [
+    "SIM-APPRAISAL-PROBE-1",
+    "mixed_methods_workbench claimed worktree",
+    "Cybernetic Influence revision eaa49adf398df718249c7828061722d3285b619a",
+    "three-run source hashes captured at 2026-08-13T17:11:29Z"
+  ],
+  "lifecycle_state": "accepted"
+}

@@ -1,0 +1,117 @@
+{
+  "units": [
+    {
+      "schema_version": "1.0",
+      "record_type": "work_unit",
+      "id": "SIM-APPRAISAL-PROBE-1",
+      "initiative_id": "governed-knowledge-analysis",
+      "goal_id": "modular-policy-method-capability-system",
+      "design_revision": "sha256:66e8a894488847cdad9c28fae3c08a1474c04da0b74b425404b6db803886df7a",
+      "spec_revision": "1",
+      "title": "Consume one authentic simulation comparison as bounded appraisal evidence",
+      "class": "integration",
+      "objective": "Show one retained authentic Cybernetic Influence comparison inside a Workbench policy-appraisal review while refusing a real-world recommendation.",
+      "profile": "standard",
+      "execution_class": "independently_executable",
+      "claimability": "not_applicable",
+      "scope": {
+        "included": [
+          "pinned authentic three-run fixture",
+          "fixture-local Pydantic consumer and appraisal boundary",
+          "existing-service JSON route and browser view",
+          "positive, mutation, parity, and live drift checks"
+        ],
+        "excluded": [
+          "Cybernetic Influence mutations",
+          "shared schema adoption",
+          "live simulation execution",
+          "policy recommendation",
+          "deployment"
+        ]
+      },
+      "inputs": [
+        {
+          "kind": "BoundedDesign",
+          "id": "current_simulation_to_policy_appraisal_probe",
+          "revision": "sha256:66e8a894488847cdad9c28fae3c08a1474c04da0b74b425404b6db803886df7a"
+        },
+        {
+          "kind": "ProducerRevision",
+          "id": "cybernetic_influence_v3",
+          "revision": "eaa49adf398df718249c7828061722d3285b619a"
+        },
+        {
+          "kind": "AuthenticRunSet",
+          "id": "regional_outbreak_clean_triad",
+          "revision": "2026-08-13T17:11:29Z"
+        }
+      ],
+      "outputs": [
+        "typed simulation-comparison evidence artifact",
+        "bounded policy-appraisal result",
+        "matching JSON and browser projections",
+        "focused verification and live drift receipt"
+      ],
+      "dependencies": [],
+      "conflict_surfaces": [
+        {
+          "kind": "repository_path",
+          "target": "src/mixed_methods_workbench",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "simulation-to-policy-appraisal"
+        },
+        {
+          "kind": "repository_path",
+          "target": "examples/fixtures",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "simulation-to-policy-appraisal"
+        },
+        {
+          "kind": "repository_path",
+          "target": "tests",
+          "repository": "mixed_methods_workbench",
+          "access": "exclusive",
+          "coordination_key": "simulation-to-policy-appraisal"
+        },
+        {
+          "kind": "external_system",
+          "target": "Cybernetic Influence public comparison API",
+          "access": "read"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "SIM-APP-AC1",
+          "criterion": "Three exact authentic runs validate with source identity and row digests.",
+          "evidence_required": ["fixture validation test", "authentic live drift receipt"],
+          "negative_control": "duplicate a condition or change a source row digest"
+        },
+        {
+          "id": "SIM-APP-AC2",
+          "criterion": "The only permitted inference is explicitly model-conditional and the appraisal refuses recommendation.",
+          "evidence_required": ["typed contract test", "browser copy test"],
+          "negative_control": "label evidence observed or set the conclusion to recommend adoption"
+        },
+        {
+          "id": "SIM-APP-AC3",
+          "criterion": "The existing service serves matching typed JSON and browser views.",
+          "evidence_required": ["API/UI parity test", "focused local HTTP check"]
+        }
+      ],
+      "readiness": {
+        "status": "ready",
+        "required_approval_types": [],
+        "approvals": [],
+        "failed_guards": []
+      },
+      "authorization_mode": "registry_claim",
+      "integration_owner_id": "mixed_methods_workbench",
+      "status": "accepted",
+      "record_version": 1,
+      "created_at": "2026-08-13T17:12:47Z",
+      "updated_at": "2026-08-13T17:22:10Z"
+    }
+  ]
+}
