@@ -3,7 +3,26 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: Method-Capability Discovery; Phase 0 Reconciled
+## Current Phase: Phase 3 Portfolio Decomposition Authorized
+
+Brian approved the 14-method Phase 3 denominator on 2026-08-13. The exact
+denominator is `phase2b-proposal-0.3` (`P01`–`P13`) plus the separately named,
+non-substitutable theory-testing Process Tracing variant (`P14`). The canonical
+coordination graph and its lane boundaries are under
+[`docs/research/method_decomposition/phase3/`](research/method_decomposition/phase3/).
+
+Phase 3 is documentation-only method research: freeze the exact variant and
+authoritative sources, then produce three-level records, typed connections, and
+explicit uncertainty accounting for all 14 methods. It does not authorize
+Phase 4 collision candidates, Phase 5 adjudication, Phase 6 coverage or
+automation claims, a shared production schema, infrastructure, producer
+changes, or product implementation.
+
+The merged Process Tracing topology prototype and its still-live coordination
+claim are read-only implementation evidence for `P14`; they do not own the
+method frame or count as a completed Phase 3 decomposition.
+
+## Prior Phase: Method-Capability Discovery; Phase 0 Reconciled
 
 The code-derived Phase 0 candidate is merged at `c3d31aac`. It records four
 observed systems, five primary analytic variants, and six workflow graphs as 77

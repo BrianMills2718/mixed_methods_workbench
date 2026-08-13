@@ -1,8 +1,17 @@
-# Phase 2b method portfolio proposal
+# Phase 2b method portfolio
 
-Status: proposal for human approval; Phase 3 not authorized
+Status: 14-method alternative adopted by Brian on 2026-08-13; Phase 3
+decomposition authorized
 
 Portfolio proposal version: `phase2b-proposal-0.3`
+
+Adopted denominator: `phase2b-proposal-0.3` (`P01`–`P13`) plus `P14`, the
+theory-testing Process Tracing alternative defined below. The proposal's
+13-method recommendation and stop-rule analysis are retained as decision
+history; Brian deliberately selected the non-substitutable 14-method
+alternative. This approval authorizes Phase 3 decomposition only. It does not
+authorize collisions, adjudication, coverage claims, shared infrastructure,
+schema adoption, or product implementation.
 
 ## Decision boundary
 
@@ -129,12 +138,18 @@ central information forms exercised by the method, not every possible input.
 | `P12` | Three-round anonymous policy Delphi with purposive expert-panel construction, controlled feedback, stability/disagreement analysis, and no rule that consensus equals truth | Structured expert elicitation | RAND-derived `Delphi method`; Futures Toolkit Delphi; [RAND Delphi guidance](https://www.rand.org/pubs/tools/TLA3082-1.html) | Elicits and stabilizes expert judgments or maps disagreement under incomplete information | `R,I,D,E` | Uncertainty characterization and prioritization | Both catalogs; official RAND guidance documents broad policy use |
 | `P13` | Convergent mixed-methods policy evaluation with independently warranted qualitative and quantitative strands, explicit merge in a joint display, divergence disposition, and bounded meta-inference | Mixed-methods integration | The 2026 [Magenta Book](https://www.gov.uk/government/publications/the-magenta-book/magenta-book-central-government-guidance-on-evaluation-html) says most evaluation designs combine qualitative and quantitative methods; [NIH best practices](https://obssr.od.nih.gov/research-resources/mixed-methods-research) classify and define convergent integration | Produces a meta-inference from purposeful integration while preserving each strand's warrant and contradictions | `O,R,I,D` | Integration and meta-inference | A cross-government guide describes routine mixed-method evaluation use; the independent NIH authority defines the convergent variant |
 
-The recommendation is therefore **13 named variants across 13 families**. The
-original 14-member draft also selected theory-testing Process Tracing. That
-violated the frozen stop rule: its decision-role and family tests said
+The proposal recommendation was therefore **13 named variants across 13
+families**. The original 14-member draft also selected theory-testing Process
+Tracing. That exceeded the frozen minimum stop rule: its decision-role and family tests said
 “mechanism or configurational,” so `P04` already satisfied both. Process
-Tracing remains an eligible, non-substitutable method, but eligibility alone
-does not permit a second representative under this minimum portfolio.
+Tracing remained an eligible, non-substitutable method. Brian's later approval
+selected that explicit alternative despite its one-method denominator cost.
+
+### Adopted fourteenth variant
+
+| ID | Frozen method variant | Family | Source basis to freeze in Phase 3 | Inferential leverage | Evidence form | Decision role |
+| --- | --- | --- | --- | --- | --- | --- |
+| `P14` | Theory-testing Process Tracing in one bounded case, with frozen rival explanations, observable implications, explicit searches for present and absent evidence, and qualitative-Bayesian diagnostic comparison | Theory-based within-case causal inference | Bennett and Checkel (2015), *Process Tracing: From Metaphor to Analytic Tool*; Phase 3 must pin chapters/sections and corroborating conduct guidance | Discriminates among rival within-case causal explanations and assesses mechanism evidence; it does not estimate an average effect or identify cross-case necessity/sufficiency | `O,R,I,D` | Mechanism explanation |
 
 Seven variants overlap the accepted-format pilots or hostile stress sample.
 That does not give them implementation credit: those artifacts established
@@ -145,15 +160,15 @@ workbench implements them or that their Phase 3 decomposition is complete.
 
 | Required spread | Portfolio coverage |
 | --- | --- |
-| Observed information | `P01`–`P09`, `P11`, `P13` |
-| Reported information | `P01`, `P04`–`P07`, `P11`–`P13` |
-| Interpreted information | `P01`, `P04`, `P05`, `P07`, `P11`–`P13` |
+| Observed information | `P01`–`P09`, `P11`, `P13`, `P14` |
+| Reported information | `P01`, `P04`–`P07`, `P11`–`P14` |
+| Interpreted information | `P01`, `P04`, `P05`, `P07`, `P11`–`P14` |
 | Derived information | All except the central interpretive core of `P05`; even there, runtime actions may derive indexes without owning the interpretation |
 | Elicited information | `P10`–`P12` |
 | Simulated information | `P09`, `P10` |
 | Description/measurement | `P06`, `P07` |
 | Causal effect | `P02`, `P03` |
-| Mechanism/configuration | `P04` |
+| Mechanism/configuration | `P04`, `P14` |
 | Prediction | `P08` |
 | Synthesis | `P01` |
 | Appraisal/foresight | `P10`–`P12` |
@@ -185,6 +200,7 @@ than replacing the detailed variant table.
 | `P11` | Pass — RAND + Magenta A3 | Pass — staged public option appraisal | Pass — Green Book 2026 + 2024 supplement | Pass — two classifications | Pass — MCDA longlist only; CBA/CEA shortlist |
 | `P12` | Pass — RAND + Futures Toolkit | Pass — structured expert judgment/disagreement | Pass — RAND Delphi | Pass — two classifications | Pass — anonymous three-round policy Delphi |
 | `P13` | Pass — Magenta + NIH | Pass — integrated meta-inference | Pass — NIH best practices | Pass — cross-government guide + independent authority | Pass — convergent design; independent strands and explicit merge |
+| `P14` | Pass — accepted mechanism-inclusive expansion | Pass — within-case rival discrimination is non-substitutable for fsQCA | Pass — Bennett and Checkel 2015 | Pass — retained eligible alternative from the reviewed proposal | Pass — one bounded case; frozen rivals and qualitative-Bayesian diagnostic comparison |
 
 ## Exclusions and denominator consequences
 
@@ -197,7 +213,7 @@ versioned portfolio.
 | `policy evaluation`, `program evaluation`, `impact assessment`, `outcome`, `process`, `formative`, `summative` | Purposes or umbrellas, not frozen methods. Their relevant roles are exercised by named designs above. | Prevents inflating method counts with labels that would decompose into overlapping component methods; narrows claims to the selected variants. |
 | Generic `regression`, `causal inference`, `machine learning`, `NLP`, `validation`, `uncertainty analysis`, `sensitivity analysis` | Operations or technique families without a target estimand, evidence object, and warrant. | Makes all denominators smaller but more falsifiable; no coverage claim may extend to these umbrellas. |
 | Propensity-score matching, instrumental variables, regression discontinuity, synthetic control, interrupted time series, staggered-adoption DiD | Eligible quasi-experimental variants, but `P03` is the one minimal representative. They are not aliases for `P03`. | Makes semantic and complete-method coverage easier within quasi-experimental work and prevents any claim of general quasi-experimental coverage. |
-| Theory-testing Process Tracing, realist evaluation/synthesis, contribution analysis | Eligible theory-based variants, but the frozen minimum requires mechanism **or** configurational explanation, already represented by `P04`. Process Tracing is the first focused expansion candidate. | Makes theory-based and complete-method coverage easier and leaves within-case rival discrimination, context–mechanism–outcome, and contribution-claim interiors explicitly uncovered. |
+| Realist evaluation/synthesis, contribution analysis | Eligible theory-based variants outside the adopted denominator. Theory-testing Process Tracing is now `P14`; the other variants remain non-equivalent exclusions. | Leaves context–mechanism–outcome synthesis and contribution-claim interiors explicitly uncovered. |
 | Ethnography, focus groups, interviews, observations, case study, generic content analysis | Some are data-collection modes and some are broad designs. `P05` freezes one full qualitative analytic method; these remain non-equivalent. | Makes qualitative coverage easier and bars a claim that serving grounded theory serves ethnography, case study, or generic qualitative analysis. |
 | Rapid evidence assessment, literature review, knowledge synthesis, qualitative evidence synthesis, realist synthesis, network meta-analysis | `P01` freezes one high-integrity randomized-effect review variant. Faster, qualitative, realist, and network variants have different search, synthesis, and conclusion rules. | Makes synthesis coverage materially easier; future results apply only to `P01`. |
 | Microsimulation, system dynamics, discrete-event simulation | `P09` is the single simulation representative; model ontology and inference differ across these variants. | Makes simulation coverage easier and prohibits generalizing ABM support to other simulation families. |
@@ -215,29 +231,30 @@ clear:
 
 | §11 measure | Denominator under this proposal | Expected difficulty compared with an implementation-weighted portfolio |
 | --- | --- | --- |
-| `raw_shell_reuse` | All decomposed steps from these 13 variants, using the approved portfolio version beside the result | Harder: the set adds distinct evidence, simulation, elicitation, integration, and method-owned judgment shapes. Stable custody/version/review mechanics may recur, but broad verb similarity cannot count. |
+| `raw_shell_reuse` | All decomposed steps from these 14 variants, using the approved portfolio version beside the result | Harder: the set adds distinct evidence, simulation, elicitation, integration, and method-owned judgment shapes. Stable custody/version/review mechanics may recur, but broad verb similarity cannot count. |
 | `semantic_implementation_coverage` | Required steps reported separately for each named variant | Harder: an existing shell earns no credit for a missing method-owned interior, and narrow variants prevent “supports surveys/ML/evaluation” overclaims. |
-| `complete_method_coverage` | Thirteen equally weighted method variants | Materially harder: one missing required shell or semantic interior leaves that method uncovered, regardless of how many other methods are complete. |
-| `unattended_execution_coverage` | Required operations across the same 13 variants, with any human in `actor_chain` treated as attended under §11 | Harder and more honest: grounded theory, QCA calibration, appraisal, Delphi, systematic-review judgments, and mixed-methods reconciliation contain irreducible human authority; deterministic estimation, forecasting, and simulation do not offset them by method weight. |
+| `complete_method_coverage` | Fourteen equally weighted method variants | Materially harder: one missing required shell or semantic interior leaves that method uncovered, regardless of how many other methods are complete. |
+| `unattended_execution_coverage` | Required operations across the same 14 variants, with any human in `actor_chain` treated as attended under §11 | Harder and more honest: grounded theory, QCA calibration, Process Tracing diagnostic judgments, appraisal, Delphi, systematic-review judgments, and mixed-methods reconciliation contain irreducible human authority; deterministic estimation, forecasting, and simulation do not offset them by method weight. |
 
 The exclusions make all four measures easier than a universal policy-method
 claim would be. The effect is largest for complete-method and unattended
 coverage because facilitation-heavy foresight/gaming, legal judgment, other
 mixed-methods timings, and specialist spatial/network workflows are outside the
 set. Every Phase 6 result must therefore say
-`portfolio=phase2b-proposal-0.3` (or its approved successor) and repeat these
+`portfolio=phase2b-proposal-0.3+P14` and repeat these
 scope limits.
 
 ## Important alternative and tradeoff
 
-The strongest immediate alternative is a **14-variant mechanism-inclusive
+Brian selected the **14-variant mechanism-inclusive
 portfolio** that adds theory-testing Process Tracing in one bounded case, with
 frozen rivals, observable implications, and qualitative-Bayesian diagnostic
 comparison ([Bennett and Checkel](https://www.cambridge.org/core/books/process-tracing/4BCF053A25474F6B8A9EE5F46C20A7AE)). It would preserve both within-case
 mechanism discrimination and cross-case configurational inference. The tradeoff
 is that it knowingly relaxes the frozen minimum stop rule to buy a second,
 non-substitutable theory-based warrant before any Phase 3 collision result
-shows that the added decomposition changes a decision.
+shows that the added decomposition changes a decision. That tradeoff is now an
+accepted denominator property, not an unresolved alternative.
 
 A later **17-variant breadth-first portfolio** would add Process Tracing plus:
 
@@ -255,21 +272,19 @@ reasons that the predeclared minimum does not require. The recommendation
 remains the 13-variant portfolio; the 14-member set is the important human
 alternative, and the remaining three are later breadth candidates.
 
-## Human approval gate
+## Human approval disposition
 
-**Recommendation:** approve exactly `phase2b-proposal-0.3`, the 13 variants
-`P01`–`P13`, as the Phase 3 portfolio denominator.
+Brian approved the 14-method alternative on 2026-08-13: exactly
+`phase2b-proposal-0.3` (`P01`–`P13`) plus `P14` theory-testing Process Tracing.
 
 Approval means Phase 3 may decompose these variants using the accepted
 three-level discovery format and the cited methodology sources. Approval does
 not accept any capability collision, implementation status, automation claim,
 coverage result, schema, infrastructure design, product change, or promotion.
 
-The important alternative is the 14-variant mechanism-inclusive set above; the
-17-member breadth set is shown so its denominator cost is not hidden. The human
-decision is: **approve the 13-variant recommendation, revise to the 14-variant
-alternative, select the 17-variant breadth set, or reject/defer portfolio
-selection.** Until that disposition is recorded, Phase 3 remains blocked.
+The 13-method recommendation and 17-member breadth set remain decision history.
+Neither is the active denominator. Phase 3 may proceed under the coordination
+graph; Phases 4–6 and implementation remain separately unauthorized.
 
 ## Source verification note
 
