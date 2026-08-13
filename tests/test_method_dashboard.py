@@ -91,6 +91,27 @@ def test_policy_decision_composes_analysis_and_appraisal_paths() -> None:
     assert any("prediction target" in item for item in plan.missing_design_information)
 
 
+def test_multiple_organizing_inputs_contribute_without_becoming_evidence() -> None:
+    """Allow a decision, prior theory, and open exploration to shape one route set."""
+    brief = StudyBrief(
+        question="Which implementation option should we choose, and why did the earlier approach fail?",
+        aims=[AnalyticAim.EXPLAIN, AnalyticAim.DECIDE],
+        organizing_inputs=[
+            StartingPoint.POLICY_DECISION,
+            StartingPoint.CANDIDATE_EXPLANATION,
+            StartingPoint.PUBLISHED_THEORY,
+        ],
+        scope=ComparisonScope.WITHIN_CASE,
+        evidence=[EvidenceKind.DOCUMENTS],
+    )
+    plan = route_study(brief)
+    route_ids = {route.method.method_id for route in plan.routes}
+    assert {"evidence_synthesis", "policy_appraisal", "process_tracing"} <= route_ids
+    assert plan.brief.evidence == [EvidenceKind.DOCUMENTS]
+    assert "support a decision or action" in plan.framing_summary
+    assert "challenge a possible explanation" in plan.framing_summary
+
+
 def test_within_case_explanation_routes_to_pt_not_population_effects() -> None:
     """Preserve Process Tracing's bounded qualitative causal role."""
     brief = _example("program_failure")
@@ -129,7 +150,7 @@ def test_unsure_scope_names_missing_decision_and_retains_several_paths() -> None
     brief = StudyBrief(
         question="Why do implementation outcomes differ, and what might improve them?",
         aims=[AnalyticAim.EXPLAIN, AnalyticAim.INTERVENTION],
-        starting_point=StartingPoint.EVIDENCE,
+        organizing_inputs=[StartingPoint.EVIDENCE, StartingPoint.CANDIDATE_EXPLANATION],
         scope=ComparisonScope.UNSURE,
         evidence=[EvidenceKind.DOCUMENTS, EvidenceKind.STRUCTURED_DATA],
     )
@@ -147,22 +168,29 @@ def test_invalid_selection_combinations_fail_loud() -> None:
         StudyBrief(
             question="What is happening across the selected organizations?",
             aims=[AnalyticAim.DESCRIBE, AnalyticAim.DESCRIBE],
-            starting_point=StartingPoint.EVIDENCE,
+            organizing_inputs=[StartingPoint.EVIDENCE],
             evidence=[EvidenceKind.DOCUMENTS],
         )
     with pytest.raises(ValidationError, match="no_evidence_yet cannot be combined"):
         StudyBrief(
             question="What evidence should be collected for this policy study?",
             aims=[AnalyticAim.DESCRIBE],
-            starting_point=StartingPoint.POLICY_DECISION,
+            organizing_inputs=[StartingPoint.POLICY_DECISION],
             evidence=[EvidenceKind.NO_EVIDENCE_YET, EvidenceKind.DOCUMENTS],
+        )
+    with pytest.raises(ValidationError, match="organizing_inputs must not contain duplicates"):
+        StudyBrief(
+            question="What does the existing research suggest about this implementation problem?",
+            aims=[AnalyticAim.DESCRIBE],
+            organizing_inputs=[StartingPoint.LITERATURE, StartingPoint.LITERATURE],
+            evidence=[EvidenceKind.PUBLISHED_RESEARCH],
         )
 
 
 def test_json_operations_use_the_same_typed_router() -> None:
     """Give agents parity with the rendered dashboard without a second rule path."""
     catalog = catalog_payload()
-    assert catalog["schema_version"] == "method_dashboard.v2"
+    assert catalog["schema_version"] == "method_dashboard.v3"
     status, result = route_payload(_example("program_failure").model_dump(mode="json"))
     assert status == HTTPStatus.OK
     assert result["routes"]
@@ -180,7 +208,9 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "See a completed decision example" in html
     assert "does not yet run the selected methods" in html
     assert "Inspectable study map" in html
-    assert "What is organizing the work right now?" in html
+    assert "What are you bringing into the investigation?" in html
+    assert 'id="organizing-input-choices"' in html
+    assert 'id="starting-point"' not in html
     assert "You will identify the material you possess separately below." in html
     assert "What will you study or compare?" in html
     assert "What material do you already have?" in html

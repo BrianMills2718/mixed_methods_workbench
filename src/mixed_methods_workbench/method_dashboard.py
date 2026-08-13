@@ -84,7 +84,7 @@ class StudyBrief(DashboardModel):
 
     question: str = Field(min_length=12, max_length=1200)
     aims: list[AnalyticAim] = Field(min_length=1)
-    starting_point: StartingPoint
+    organizing_inputs: list[StartingPoint] = Field(min_length=1)
     scope: ComparisonScope = ComparisonScope.UNSURE
     evidence: list[EvidenceKind] = Field(min_length=1)
     same_evidence_generated_explanation: bool = False
@@ -94,6 +94,8 @@ class StudyBrief(DashboardModel):
         """Keep the requested aims and evidence set inspectable and deterministic."""
         if len(self.aims) != len(set(self.aims)):
             raise ValueError("aims must not contain duplicates")
+        if len(self.organizing_inputs) != len(set(self.organizing_inputs)):
+            raise ValueError("organizing_inputs must not contain duplicates")
         if len(self.evidence) != len(set(self.evidence)):
             raise ValueError("evidence must not contain duplicates")
         if EvidenceKind.NO_EVIDENCE_YET in self.evidence and len(self.evidence) > 1:
@@ -744,7 +746,7 @@ EXAMPLES = (
         brief=StudyBrief(
             question="Which package of heat-risk interventions should a city adopt, given unequal neighborhood exposure, uncertain future temperatures, implementation constraints, and competing stakeholder priorities?",
             aims=[AnalyticAim.DESCRIBE, AnalyticAim.PREDICT, AnalyticAim.INTERVENTION, AnalyticAim.DECIDE],
-            starting_point=StartingPoint.POLICY_DECISION,
+            organizing_inputs=[StartingPoint.POLICY_DECISION, StartingPoint.LITERATURE, StartingPoint.STRUCTURED_DATA],
             scope=ComparisonScope.SYSTEM,
             evidence=[EvidenceKind.PUBLISHED_RESEARCH, EvidenceKind.STRUCTURED_DATA, EvidenceKind.RELATIONAL_DATA],
         ),
@@ -756,7 +758,7 @@ EXAMPLES = (
         brief=StudyBrief(
             question="Why did one public program fail during a specific implementation episode despite formal organizational support?",
             aims=[AnalyticAim.DESCRIBE, AnalyticAim.EXPLAIN],
-            starting_point=StartingPoint.CANDIDATE_EXPLANATION,
+            organizing_inputs=[StartingPoint.CANDIDATE_EXPLANATION, StartingPoint.EVIDENCE],
             scope=ComparisonScope.WITHIN_CASE,
             evidence=[EvidenceKind.BOUNDED_CASE_RECORDS, EvidenceKind.DOCUMENTS, EvidenceKind.INTERVIEWS],
         ),
@@ -768,7 +770,7 @@ EXAMPLES = (
         brief=StudyBrief(
             question="What is already known about remote-work policies, for whom, in which settings, and with what evidence limitations?",
             aims=[AnalyticAim.DESCRIBE, AnalyticAim.INTERPRET],
-            starting_point=StartingPoint.LITERATURE,
+            organizing_inputs=[StartingPoint.LITERATURE],
             scope=ComparisonScope.POPULATION,
             evidence=[EvidenceKind.PUBLISHED_RESEARCH],
         ),
@@ -959,17 +961,18 @@ def _candidate_reason(method: MethodProfile, brief: StudyBrief) -> list[str]:
     matched_evidence = [_EVIDENCE_PLAIN[kind] for kind in brief.evidence if kind in method.evidence]
     if matched_evidence:
         reasons.append(f"Can use material you already have: {', '.join(matched_evidence)}.")
-    if method.method_id == "evidence_synthesis" and brief.starting_point in {
+    organizing_inputs = set(brief.organizing_inputs)
+    if method.method_id == "evidence_synthesis" and organizing_inputs & {
         StartingPoint.LITERATURE,
         StartingPoint.POLICY_DECISION,
         StartingPoint.PUBLISHED_THEORY,
     }:
-        reasons.append("Reviewing what is already known is useful in your current situation.")
-    if method.method_id == "policy_appraisal" and brief.starting_point == StartingPoint.POLICY_DECISION:
+        reasons.append("Reviewing what is already known supports one or more of your starting tasks.")
+    if method.method_id == "policy_appraisal" and StartingPoint.POLICY_DECISION in organizing_inputs:
         reasons.append("Your work needs to support a decision, not only analyze evidence.")
-    if method.method_id == "grounded_theory" and brief.starting_point == StartingPoint.EVIDENCE:
+    if method.method_id == "grounded_theory" and StartingPoint.EVIDENCE in organizing_inputs:
         reasons.append("You can develop concepts and possible explanations from the source material through comparison.")
-    if method.method_id == "process_tracing" and brief.starting_point in {
+    if method.method_id == "process_tracing" and organizing_inputs & {
         StartingPoint.CANDIDATE_EXPLANATION,
         StartingPoint.PUBLISHED_THEORY,
     }:
@@ -981,22 +984,23 @@ def _include_method(method: MethodProfile, brief: StudyBrief) -> bool:
     """Select plausible routes conservatively while retaining useful complements."""
     aims = set(brief.aims)
     evidence = set(brief.evidence)
+    organizing_inputs = set(brief.organizing_inputs)
     if method.method_id == "evidence_synthesis":
-        return brief.starting_point in {
+        return bool(organizing_inputs & {
             StartingPoint.LITERATURE,
             StartingPoint.POLICY_DECISION,
             StartingPoint.PUBLISHED_THEORY,
-        } or EvidenceKind.PUBLISHED_RESEARCH in evidence
+        }) or EvidenceKind.PUBLISHED_RESEARCH in evidence
     if method.method_id == "policy_appraisal":
-        return AnalyticAim.DECIDE in aims or brief.starting_point == StartingPoint.POLICY_DECISION
+        return AnalyticAim.DECIDE in aims or StartingPoint.POLICY_DECISION in organizing_inputs
     if method.method_id == "program_evaluation":
         return bool(aims & {AnalyticAim.INTERVENTION, AnalyticAim.DECIDE})
     if method.method_id == "legal_institutional":
-        return brief.starting_point == StartingPoint.POLICY_DECISION and AnalyticAim.DECIDE in aims
+        return StartingPoint.POLICY_DECISION in organizing_inputs and AnalyticAim.DECIDE in aims
     if not aims.intersection(method.aims):
         return False
     if method.method_id in {"thematic_analysis", "grounded_theory"}:
-        return bool(evidence & _TEXT_EVIDENCE) or brief.starting_point == StartingPoint.EVIDENCE
+        return bool(evidence & _TEXT_EVIDENCE) or StartingPoint.EVIDENCE in organizing_inputs
     if method.method_id == "process_tracing":
         return AnalyticAim.EXPLAIN in aims and brief.scope in {
             ComparisonScope.WITHIN_CASE,
@@ -1111,9 +1115,10 @@ def route_study(brief: StudyBrief) -> RoutePlan:
         if brief.scope == ComparisonScope.UNSURE
         else f"you plan to study {_SCOPE_PLAIN[brief.scope]}"
     )
+    starting_tasks = "; ".join(_STARTING_PLAIN[item] for item in brief.organizing_inputs)
     framing_summary = (
-        f"You want to {aim_words}. Your starting task is to "
-        f"{_STARTING_PLAIN[brief.starting_point]}. {study_scope.capitalize()}."
+        f"You want to {aim_words}. Your starting tasks are to {starting_tasks}. "
+        f"{study_scope.capitalize()}."
     )
     return RoutePlan(
         brief=brief,
@@ -1133,7 +1138,7 @@ def route_study(brief: StudyBrief) -> RoutePlan:
 def dashboard_catalog() -> DashboardCatalog:
     """Return the exact catalog rendered by the browser and available to agents."""
     return DashboardCatalog(
-        schema_version="method_dashboard.v2",
+        schema_version="method_dashboard.v3",
         artifact_status="local_review_prototype",
         aims=list(AnalyticAim),
         starting_points=list(StartingPoint),
