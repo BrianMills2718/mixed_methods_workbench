@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Evidence to Action · Research Design</title>
+  <link rel="icon" href="data:,">
+  <title>Mixed Methods Workbench · Research Design</title>
   <style>
     :root {
       color-scheme: light;
@@ -85,7 +86,7 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
-    .topnav { display: flex; gap: 8px; }
+    .topnav { display: flex; gap: 8px; overflow-x: auto; }
     .nav-button {
       padding: 9px 13px;
       border: 0;
@@ -93,8 +94,11 @@
       color: var(--muted);
       background: transparent;
       cursor: pointer;
+      white-space: nowrap;
     }
     .nav-button:hover, .nav-button.active { color: var(--ink); background: rgba(255,255,255,.7); }
+    .nav-button:focus-visible, .hero-action:focus-visible { outline: 3px solid rgba(37,106,83,.25); outline-offset: 2px; }
+    .nav-advanced { display: block; margin-top: 1px; color: var(--muted); font-size: 9px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 
     .hero {
       display: grid;
@@ -115,6 +119,24 @@
       line-height: .98;
     }
     .hero-copy { max-width: 760px; margin: 0; color: #48534d; font-size: clamp(17px, 1.7vw, 22px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .hero-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 16px;
+      border: 1px solid var(--forest);
+      border-radius: 11px;
+      color: #fff;
+      background: var(--forest);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .hero-action:hover { color: #fff; background: #0f3e30; }
+    .hero-action.secondary { color: var(--forest); background: rgba(255, 253, 247, .7); }
+    .hero-action.secondary:hover { background: var(--mint); }
+    .hero-limit { max-width: 720px; margin: 13px 0 0; color: var(--muted); font-size: 13px; }
     .mental-model {
       padding: 22px 24px;
       border: 1px solid var(--line);
@@ -344,6 +366,7 @@
       .prototype-badge { display: none; }
       .workspace { grid-template-columns: 1fr; }
       .hero { padding-top: 48px; }
+      .hero-action { flex: 1 1 220px; }
       .result-panel { padding: 18px; }
       .empty-state { min-height: 400px; padding: 30px 12px; }
       .detail-cols { grid-template-columns: 1fr; }
@@ -353,6 +376,7 @@
     @media (max-width: 540px) {
       .brand-text { display: none; }
       .nav-button { padding: 8px; font-size: 12px; }
+      .nav-advanced { display: none; }
       .choice-grid { grid-template-columns: 1fr; }
       .model-flow { grid-template-columns: 1fr; }
       .arrow { transform: rotate(90deg); }
@@ -366,31 +390,36 @@
     <header class="topbar">
       <div class="brand">
         <span class="brand-mark" aria-hidden="true">↗</span>
-        <span class="brand-text">Evidence to Action</span>
-        <span class="prototype-badge">Review prototype</span>
+        <span class="brand-text">Mixed Methods Workbench</span>
+        <span class="prototype-badge">Development preview</span>
       </div>
       <nav class="topnav" aria-label="Dashboard views">
-        <button class="nav-button active" type="button" data-view="planner">Plan a study</button>
-        <button class="nav-button" type="button" data-view="library">Method library</button>
-        <button class="nav-button" type="button" data-view="architecture">Capability map</button>
-        <button class="nav-button" type="button" data-view="stress">Stress tests</button>
+        <button class="nav-button active" type="button" data-view="planner">Plan an analysis</button>
+        <button class="nav-button" type="button" data-view="library">Explore methods</button>
+        <button class="nav-button" type="button" data-view="architecture">Architecture<span class="nav-advanced">Advanced</span></button>
+        <button class="nav-button" type="button" data-view="stress">Stress tests<span class="nav-advanced">Advanced</span></button>
       </nav>
     </header>
 
     <section class="hero">
       <div>
-        <p class="eyebrow">Research design workbench</p>
-        <h1>Start with the question—not the tool.</h1>
-        <p class="hero-copy">Describe what you need to learn or decide. See several ways to approach the work, why each may help, and what each one cannot show.</p>
+        <p class="eyebrow">Research-planning workbench</p>
+        <h1>Choose an analytical approach without losing sight of the evidence.</h1>
+        <p class="hero-copy">Describe a research or policy question and the material you have. The Workbench produces an explainable study map: possible methods, what each could establish, what each requires, and where each must stop.</p>
+        <div class="hero-actions" aria-label="Start here">
+          <a class="hero-action" href="#planner-view">Plan an analysis</a>
+          <a class="hero-action secondary" href="/decision/mist-trail">See a completed decision example</a>
+        </div>
+        <p class="hero-limit"><strong>Available now:</strong> research-design guidance and inspectable development examples. It does not yet run the selected methods, analyze your evidence, or make a decision for you.</p>
       </div>
       <aside class="mental-model" aria-label="Product mental model">
-        <strong>One continuous analytical record</strong>
+        <strong>What happens here</strong>
         <div class="model-flow">
-          <div class="model-node">Question<span>What must be learned or decided?</span></div>
+          <div class="model-node">Your starting point<span>A question, available evidence, and the kind of conclusion you need.</span></div>
           <div class="arrow" aria-hidden="true">→</div>
-          <div class="model-node">Possible approaches<span>What could support each kind of conclusion?</span></div>
+          <div class="model-node">Method comparison<span>The requirements, limits, and useful combinations of plausible approaches.</span></div>
           <div class="arrow" aria-hidden="true">→</div>
-          <div class="model-node">Actionable result<span>What follows—and what remains uncertain?</span></div>
+          <div class="model-node">Inspectable study map<span>Why each approach appears and what evidence or design work is still missing.</span></div>
         </div>
       </aside>
     </section>
@@ -441,7 +470,7 @@
             </fieldset>
 
             <div id="form-error" class="form-error" role="alert" hidden></div>
-            <button id="route-button" class="primary-button" type="submit">Build my study map</button>
+            <button id="route-button" class="primary-button" type="submit">Show possible approaches</button>
 
             <div class="examples">
               <strong>Or load a concrete example</strong>
