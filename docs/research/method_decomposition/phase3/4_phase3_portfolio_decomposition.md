@@ -1,6 +1,7 @@
-# Phase 3 decomposition work plan
+# Plan #4: Phase 3 portfolio decomposition
 
-Status: adopted coordination plan; execution is limited to `work_graph.json`
+Status: adopted coordination plan; execution is limited to
+`4_phase3_portfolio_decomposition_work_graph.json`
 
 ## Adopted inputs
 
@@ -23,7 +24,7 @@ control unit owns their completion transitions.
 | `P3-RESEARCH-A` | `P01` systematic review, `P02` RCT, `P03` DiD, `P04` fsQCA, `P14` Process Tracing | `methods/p01/`, `p02/`, `p03/`, `p04/`, `p14/` |
 | `P3-RESEARCH-B` | `P06` survey, `P07` quantitative text, `P08` forecasting, `P09` agent-based simulation | `methods/p06/`, `p07/`, `p08/`, `p09/` |
 | `P3-RESEARCH-C` | `P05` grounded theory, `P10` RDM, `P11` option appraisal, `P12` Delphi, `P13` convergent mixed methods | `methods/p05/`, `p10/`, `p11/`, `p12/`, `p13/` |
-| `P3-CONTROL` | Evidence review and lifecycle transitions; no methods | `lane_receipts/`, `work_graph.json` |
+| `P3-CONTROL` | Evidence review and lifecycle transitions; no methods | `lane_receipts/`, `4_phase3_portfolio_decomposition_work_graph.json` |
 | `P3-INTEGRATE` | Denominator and format validation only | `portfolio_manifest.yaml`, `integration_report.md`, `validation_report.json` |
 
 Each method directory must contain `frame.yaml`, `sources.md`,
@@ -43,8 +44,9 @@ directory to its owner; it may not repair or normalize method-owned semantics.
 
 ## Coordination and stop rules
 
-Every lane requires a canonical registry claim bound to `work_graph.json` and
-its exact unit ID. The completed `pt-topology-workbench` product lane merged at
+Every lane requires a canonical registry claim using `Plan #4` and bound to
+`4_phase3_portfolio_decomposition_work_graph.json` plus its exact unit ID. The
+completed `pt-topology-workbench` product lane merged at
 `1fd01bc`; that revision is a read-only evidence surface and grants no Phase 3
 ownership.
 
@@ -59,7 +61,8 @@ the start. The sequence for each research lane is intentionally three commits:
    and `disposition: accepted`. The receipt commit must be a descendant of the
    evidence commit and cannot equal it.
 3. In a subsequent `transition_commit`, `P3-CONTROL` exclusively edits
-   `work_graph.json`: it changes the lane to `accepted` and adds one
+   `4_phase3_portfolio_decomposition_work_graph.json`: it changes the lane to
+   `accepted` and adds one
    `CompletionReceipt` input with
    `<receipt-path>@<receipt_commit>`. The focused validator verifies both Git
    objects, the receipt bytes at that commit, its evidence binding and paths,

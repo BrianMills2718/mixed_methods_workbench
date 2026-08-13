@@ -5,7 +5,7 @@ from pathlib import Path
 
 from scripts.validate_phase3_work_graph import validate_graph
 
-GRAPH = Path("docs/research/method_decomposition/phase3/work_graph.json")
+GRAPH = Path("docs/research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json")
 
 
 def load_graph() -> dict:
@@ -70,7 +70,17 @@ def accepted_lane(document: dict, evidence: str, receipt: str) -> None:
 
 
 def test_canonical_phase3_graph_passes() -> None:
-    assert validate_graph(load_graph()) == []
+    document = load_graph()
+    assert validate_graph(document) == []
+    assert {item["spec_revision"] for item in document["units"]} == {"plan-4-phase3-work-graph-v3"}
+    assert all(
+        sum(
+            item.get("kind") == "CoordinationPlan"
+            and item.get("id") == "Plan #4"
+            for item in work_unit["inputs"]
+        ) == 1
+        for work_unit in document["units"]
+    )
 
 
 def test_rejects_missing_control_unit() -> None:

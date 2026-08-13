@@ -17,10 +17,13 @@ EXPECTED_METHODS = {
 }
 CONTROL_ID = "P3-CONTROL"
 INTEGRATION_ID = "P3-INTEGRATE"
-GRAPH_PATH = "docs/research/method_decomposition/phase3/work_graph.json"
+GRAPH_PATH = "docs/research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json"
 RECEIPT_ROOT = "docs/research/method_decomposition/phase3/lane_receipts"
 PT_EVIDENCE_ID = "process-tracing-topology-prototype"
 PT_EVIDENCE_REVISION = "merged@1fd01bc;not-method-authority"
+PLAN_ID = "Plan #4"
+PLAN_REVISION = "4_phase3_portfolio_decomposition.md@approved-2026-08-13"
+SPEC_REVISION = "plan-4-phase3-work-graph-v3"
 
 
 def _method_id(target: str) -> str | None:
@@ -113,6 +116,21 @@ def validate_graph(
     expected_units = {*EXPECTED_METHODS, CONTROL_ID, INTEGRATION_ID}
     if set(by_id) != expected_units or len(units) != 5:
         errors.append(f"units must be exactly {sorted(expected_units)}")
+
+    for unit_id, unit in by_id.items():
+        if unit.get("spec_revision") != SPEC_REVISION:
+            errors.append(f"{unit_id} must use spec revision {SPEC_REVISION}")
+        plan_inputs = [
+            item
+            for item in unit.get("inputs", [])
+            if item.get("kind") == "CoordinationPlan"
+        ]
+        if (
+            len(plan_inputs) != 1
+            or plan_inputs[0].get("id") != PLAN_ID
+            or plan_inputs[0].get("revision") != PLAN_REVISION
+        ):
+            errors.append(f"{unit_id} must bind exactly once to {PLAN_ID} at {PLAN_REVISION}")
 
     all_methods: list[str] = []
     for unit_id, expected in EXPECTED_METHODS.items():

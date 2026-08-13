@@ -7,9 +7,11 @@ Brian approved the 14-method alternative on 2026-08-13. The denominator is
 in one bounded case. Exact variant descriptions remain in
 [`../method_portfolio.md`](../method_portfolio.md).
 
-[`WORK_PLAN.md`](WORK_PLAN.md) explains the lane boundaries and stop rules.
-[`work_graph.json`](work_graph.json) is the machine-consumed WorkUnitV1 graph;
-Phase 3 claims must bind to one ready unit. [`validation_receipt.md`](validation_receipt.md)
+[`4_phase3_portfolio_decomposition.md`](4_phase3_portfolio_decomposition.md)
+is the adopted Plan #4 and explains the lane boundaries and stop rules.
+[`4_phase3_portfolio_decomposition_work_graph.json`](4_phase3_portfolio_decomposition_work_graph.json)
+is its machine-consumed WorkUnitV1 graph; Phase 3 claims must name `Plan #4`
+and bind to one ready unit. [`validation_receipt.md`](validation_receipt.md)
 records validation of the graph itself, not evidence that a method has been
 decomposed. `scripts/validate_phase3_work_graph.py` supplements the generic
 WorkUnitV1 validator with exact denominator and transition invariants.
