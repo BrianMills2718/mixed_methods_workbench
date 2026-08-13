@@ -46,7 +46,9 @@ Phases are human-readable landmarks such as “design the study,” “collect
 evidence,” or “appraise options.” They help someone understand the overall
 journey.
 
-Phases are allowed to be broad. Their number is not used to infer reuse.
+Phases are allowed to be broad. Their number is not used to infer reuse. Each
+phase records the set of `operation_kind` values present in its child moves so
+aggregation cannot hide support or delivery work.
 
 ### Level 2 — Analytical moves
 
@@ -71,6 +73,12 @@ review, or file production.
 
 These actions are essential for implementation audits, but they are not method
 semantics. Different implementations may realize the same analytical move.
+
+Every Level 2 move and Level 3 action retains exactly one rev-5.1
+`operation_kind`: `analytic`, `methodological_support`, or `runtime_delivery`.
+Level 1 records retain the exact set represented by their children. No kind is
+dropped from collision discovery; rev-5.1 exclusions apply only to the abort
+gate.
 
 ```text
 METHOD PHASE
@@ -121,6 +129,8 @@ schema may follow only after this survives broader use.
 | Authority | Who may set goals or values, accept the judgment, recommend, or decide? |
 | Incoming/outgoing connections | Does the connection carry an artifact, retained context, permission, control, or feedback? |
 | Implementation evidence | Is it manual, executable software, an implemented artifact, incomplete software, or design only? |
+| Source basis and exact anchors | Which frozen source locator and which compact/rerun records ground this move? |
+| Temporal/access/version guards | What must precede what, who may inspect protected information, and which immutable version is in force? |
 
 ## Five connection types
 
@@ -149,18 +159,31 @@ One inventory label may contain multiple methods. In that case, the instrument
 uses named subprofiles and an explicit reconciliation move rather than forcing
 the label into one artificial workflow.
 
-## Four authority roles
+## Six authority roles
 
 “Human in the loop” is too vague. The instrument distinguishes:
 
 - **performer** — carries out the operation;
 - **judgment owner** — is accountable for the method-specific assessment;
+- **acceptance authority** — accepts or rejects that assessment for the
+  workflow without thereby making the policy decision;
+- **recommender** — owns advice presented to a decision-maker;
 - **value or goal authority** — supplies objectives, criteria, weights, or
   priorities;
 - **decision authority** — accepts, rejects, or acts on advice.
 
 One person can occupy several roles. They remain separate because automation of
-the performer does not automatically transfer judgment or decision authority.
+the performer does not automatically transfer judgment, acceptance,
+recommendation, value-setting, or decision authority. Use `none` where a role
+does not exist; do not infer it from the performer.
+
+## Temporal, access, and version guards
+
+Each move records `temporal`, `access`, and `run_version` guards. They capture
+ordering/freeze rules, protected-information access, and immutable artifact or
+run identity plus successor-version behavior. If a future method cannot
+express a guard, the field is `blocked` with a reason; absence never implies
+that the issue is solved.
 
 ## How reuse is classified
 
@@ -210,8 +233,18 @@ Two moves are candidates for reuse only when all of these agree:
 If only the surrounding workflow agrees, classify a shared shell. If the
 warrant or conclusion differs, keep the capability method-owned.
 
-No capability is promoted from this instrument alone. Promotion still requires
-two authentic compatible producer/consumer seams and a hostile counterexample.
+Collision participation is level-specific. Level 1 phases never collide.
+Level 2 analytical moves collide only with Level 2 moves. Level 3 execution
+actions participate, including analytic, methodological-support, and
+runtime-delivery actions, but only against Level 3 actions. A Level 3 match
+cannot prove that its parent moves are the same. Cross-level matches are
+invalid.
+
+No capability is promoted from this instrument alone. Rev-5.1's threshold is
+unchanged: the capability must appear in **three materially different methods**
+and survive a deliberate attempt to break it with a **fourth**, chosen as a
+hostile case. Two authentic compatible producer/consumer seams are an
+additional workbench adoption requirement, not a replacement for that test.
 
 ## Exploratory readout
 
@@ -259,6 +292,8 @@ must again be hidden to make operations collide.
 - It does not select the broader RAND-derived method portfolio.
 - It does not measure percentage coverage.
 - It does not alter producer-owned contracts or analytical engines.
+- It does not select the Phase 2b/Phase 3 portfolio, run Phase 4 collisions, or
+  issue Phase 5 adjudication verdicts.
 
 ## Consulted authority and evidence
 

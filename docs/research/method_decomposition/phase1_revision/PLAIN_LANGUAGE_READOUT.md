@@ -109,7 +109,7 @@ misleading.
 | Twenty required arrows did not transfer compatible data. | Every arrow is typed as artifact flow, retained context, control gate, feedback, or prohibited transition. |
 | Important intermediate artifacts disappeared during compression. | Split when an artifact can be reviewed, handed off, targeted by feedback, or changes the warrant. |
 | Exact anchored observations disappeared from the compact process-tracing path. | Every move names its inspectable output and information origin; missing required artifacts remain visible failures. |
-| Performer, reviewer, value setter, recommender, and decision-maker were conflated. | Record performer, judgment owner, value/goal authority, and decision authority separately. |
+| Performer, reviewer, value setter, recommender, and decision-maker were conflated. | Record performer, judgment owner, acceptance/review authority, recommender, value/goal authority, and decision authority separately. |
 | Simulated output risked looking like observed evidence. | Preserve information origin across every move and handoff. |
 | Prespecification was represented as ordinary forward ordering. | Allow temporal/access barriers and prohibited transitions, not only directed edges. |
 | The compact systematic-review row exceeded the frozen source scope. | Every method move retains its source basis; source-scope mismatches block promotion. |
@@ -137,8 +137,13 @@ Keep the revised instrument as an exploratory discovery tool and preserve the
 70-row flat candidate as a failed instrument rather than repairing it into a
 universal schema.
 
-Do not yet build a shared schema or broad capability service. The next useful
-test is an authentic simulation-to-policy-appraisal handoff that preserves the
-fact that simulation output is model-conditional generated evidence. That seam
-would test the revised handoff and applicability fields in actual use; it would
-not by itself justify shared infrastructure.
+The completed hostile sample is a stress test, not selection of the Phase 2b
+portfolio. Phase 2 must first disposition the proposed format, verbs, and
+types; Phase 2b then proposes a portfolio for Brian's approval.
+
+Do not yet build a shared schema or broad capability service. Promotion still
+requires three materially different methods plus a deliberate fourth hostile
+case; the two-authentic-seam rule is a separate workbench adoption gate. After
+those decisions, an authentic simulation-to-policy-appraisal handoff is the
+strongest currently proposed seam test. It must preserve model-conditional
+generated evidence and would not by itself justify shared infrastructure.

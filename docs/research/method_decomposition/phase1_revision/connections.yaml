@@ -1,0 +1,67 @@
+schema_version: phase1-revision-connections-0.2
+status: exploratory_not_adopted
+connection_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+artifact_flow_defaults:
+  transfer_semantics: preserving
+  rule: >-
+    Every artifact_flow below inherits preserving unless the edge explicitly
+    declares transforming or lossy and names method_owner and change_or_loss.
+note: >-
+  All Level 2 moves and Level 3 actions are graph-addressable. Artifact flows
+  name matching producer outputs and consumer inputs; other connections name
+  their context, gate, feedback request, or invalidating event explicitly.
+
+connections:
+  - {id: gt.c01, method_id: grounded_theory, from: gt.move.gather, to: gt.move.segment, connection_type: artifact_flow, carries: source_material, from_output: source_material, to_input: source_material}
+  - {id: gt.c02, method_id: grounded_theory, from: gt.move.segment, to: gt.move.initial_code, connection_type: artifact_flow, carries: anchored_incidents, from_output: anchored_incidents, to_input: anchored_incidents}
+  - {id: gt.c03, method_id: grounded_theory, from: gt.move.initial_code, to: gt.move.compare, connection_type: artifact_flow, carries: initial_codes, from_output: initial_codes, to_input: initial_codes}
+  - {id: gt.c04, method_id: grounded_theory, from: gt.move.segment, to: gt.move.compare, connection_type: retained_context, carries: anchored_incidents, from_output: anchored_incidents, to_input: anchored_incidents}
+  - {id: gt.c05, method_id: grounded_theory, from: gt.move.compare, to: gt.move.memo, connection_type: artifact_flow, carries: comparison_record, from_output: comparison_record, to_input: comparison_record}
+  - {id: gt.c06, method_id: grounded_theory, from: gt.move.initial_code, to: gt.move.memo, connection_type: retained_context, carries: initial_codes, from_output: initial_codes, to_input: initial_codes}
+  - {id: gt.c07, method_id: grounded_theory, from: gt.move.memo, to: gt.move.focus, connection_type: artifact_flow, carries: versioned_memos, from_output: versioned_memos, to_input: versioned_memos}
+  - {id: gt.c08, method_id: grounded_theory, from: gt.move.compare, to: gt.move.focus, connection_type: retained_context, carries: comparison_record, from_output: comparison_record, to_input: comparison_record}
+  - {id: gt.c09, method_id: grounded_theory, from: gt.move.focus, to: gt.move.sample, connection_type: artifact_flow, carries: provisional_categories, from_output: provisional_categories, to_input: provisional_categories}
+  - {id: gt.c10, method_id: grounded_theory, from: gt.move.sample, to: gt.move.refine, connection_type: artifact_flow, carries: targeted_source_increment, from_output: targeted_source_increment, to_input: targeted_source_increment}
+  - {id: gt.c11, method_id: grounded_theory, from: gt.move.refine, to: gt.move.adequacy, connection_type: artifact_flow, carries: revised_analysis_bundle, from_output: revised_analysis_bundle, to_input: revised_analysis_bundle}
+  - {id: gt.c12, method_id: grounded_theory, from: gt.move.adequacy, to: gt.move.sample, connection_type: feedback, carries: category_development_request, condition: inadequate_and_access_possible, creates_successor_version: true}
+  - {id: gt.c13, method_id: grounded_theory, from: gt.move.adequacy, to: gt.move.integrate, connection_type: control_gate, carries: adequacy_acceptance, condition: adequate_for_bounded_account}
+  - {id: gt.c14, method_id: grounded_theory, from: gt.action.anchor_segments, to: gt.move.segment, connection_type: artifact_flow, carries: anchored_segment_artifact, from_output: anchored_segment_artifact, to_input: source_material, adapter_note: action_persists_the_move_output}
+  - {id: gt.c15, method_id: grounded_theory, from: gt.action.audit_sampling, to: gt.move.sample, connection_type: retained_context, carries: sampling_audit_record, to_input: provisional_categories, adapter_note: rationale_accompanies_not_replaces_categories}
+
+  - {id: rct.c01, method_id: causal_effect_estimation_rct, from: rct.move.estimand, to: rct.move.prespecify, connection_type: artifact_flow, carries: frozen_estimand, from_output: frozen_estimand, to_input: frozen_estimand}
+  - {id: rct.c02, method_id: causal_effect_estimation_rct, from: rct.move.prespecify, to: rct.move.allocate, connection_type: artifact_flow, carries: frozen_protocol_and_sap, from_output: frozen_protocol_and_sap, to_input: frozen_protocol_and_sap}
+  - {id: rct.c03, method_id: causal_effect_estimation_rct, from: rct.move.allocate, to: rct.move.conduct, connection_type: artifact_flow, carries: randomized_cohort, from_output: randomized_cohort, to_input: randomized_cohort}
+  - {id: rct.c04, method_id: causal_effect_estimation_rct, from: rct.move.allocate, to: rct.move.ascertain, connection_type: retained_context, carries: randomized_cohort, from_output: randomized_cohort, to_input: randomized_cohort}
+  - {id: rct.c05, method_id: causal_effect_estimation_rct, from: rct.move.prespecify, to: rct.move.ascertain, connection_type: retained_context, carries: frozen_protocol_and_sap, from_output: frozen_protocol_and_sap, to_input: frozen_protocol_and_sap}
+  - {id: rct.c06, method_id: causal_effect_estimation_rct, from: rct.move.ascertain, to: rct.move.lock_audit, connection_type: artifact_flow, carries: governed_outcome_dataset, from_output: governed_outcome_dataset, to_input: governed_outcome_dataset}
+  - {id: rct.c07, method_id: causal_effect_estimation_rct, from: rct.move.conduct, to: rct.move.lock_audit, connection_type: artifact_flow, carries: conduct_ledger, from_output: conduct_ledger, to_input: conduct_ledger}
+  - {id: rct.c08, method_id: causal_effect_estimation_rct, from: rct.move.lock_audit, to: rct.move.estimate, connection_type: artifact_flow, carries: locked_analysis_dataset_and_audit, from_output: locked_analysis_dataset_and_audit, to_input: locked_analysis_dataset_and_audit}
+  - {id: rct.c09, method_id: causal_effect_estimation_rct, from: rct.move.estimand, to: rct.move.estimate, connection_type: retained_context, carries: frozen_estimand, from_output: frozen_estimand, to_input: frozen_estimand}
+  - {id: rct.c10, method_id: causal_effect_estimation_rct, from: rct.move.estimate, to: rct.move.sensitivity, connection_type: artifact_flow, carries: primary_effect_estimate, from_output: primary_effect_estimate, to_input: primary_effect_estimate}
+  - {id: rct.c11, method_id: causal_effect_estimation_rct, from: rct.move.sensitivity, to: rct.move.auxiliary, connection_type: artifact_flow, carries: sensitivity_results, from_output: sensitivity_results, to_input: sensitivity_results}
+  - {id: rct.c12, method_id: causal_effect_estimation_rct, from: rct.move.auxiliary, to: rct.move.conclude, connection_type: artifact_flow, carries: qualification_record, from_output: qualification_record, to_input: qualification_record}
+  - {id: rct.c13, method_id: causal_effect_estimation_rct, from: rct.move.sensitivity, to: rct.move.conclude, connection_type: retained_context, carries: sensitivity_results, from_output: sensitivity_results, to_input: sensitivity_results}
+  - {id: rct.c14, method_id: causal_effect_estimation_rct, from: rct.move.conclude, to: rct.move.report, connection_type: artifact_flow, carries: bounded_trial_conclusion, from_output: bounded_trial_conclusion, to_input: bounded_trial_conclusion}
+  - {id: rct.c15, method_id: causal_effect_estimation_rct, from: rct.move.ascertain, to: rct.move.estimand, connection_type: prohibited_transition, carries: outcome_informed_estimand_rewrite, consequence: successor_analysis_is_exploratory_not_confirmatory}
+  - {id: rct.c16, method_id: causal_effect_estimation_rct, from: rct.action.compute_itt, to: rct.move.estimate, connection_type: artifact_flow, carries: estimate_receipt, from_output: estimate_receipt, to_input: locked_analysis_dataset_and_audit, adapter_note: receipt_realizes_move_without_replacing_inputs}
+  - {id: rct.c17, method_id: causal_effect_estimation_rct, from: rct.action.persist_lock, to: rct.move.lock_audit, connection_type: artifact_flow, carries: immutable_lock_receipt, from_output: immutable_lock_receipt, to_input: governed_outcome_dataset, adapter_note: receipt_attests_lock}
+
+  - {id: pa.c01, method_id: policy_option_appraisal, from: pa.move.rationale, to: pa.move.scope, connection_type: artifact_flow, carries: problem_and_action_case, from_output: problem_and_action_case, to_input: problem_and_action_case}
+  - {id: pa.c02, method_id: policy_option_appraisal, from: pa.move.scope, to: pa.move.objectives, connection_type: artifact_flow, carries: scoped_counterfactual, from_output: scoped_counterfactual, to_input: scoped_counterfactual}
+  - {id: pa.c03, method_id: policy_option_appraisal, from: pa.move.objectives, to: pa.move.longlist, connection_type: artifact_flow, carries: objective_authority_record, from_output: objective_authority_record, to_input: objective_authority_record}
+  - {id: pa.c04, method_id: policy_option_appraisal, from: pa.move.scope, to: pa.move.longlist, connection_type: retained_context, carries: scoped_counterfactual, from_output: scoped_counterfactual, to_input: scoped_counterfactual}
+  - {id: pa.c05, method_id: policy_option_appraisal, from: pa.move.longlist, to: pa.move.shortlist, connection_type: artifact_flow, carries: option_longlist, from_output: option_longlist, to_input: option_longlist}
+  - {id: pa.c06, method_id: policy_option_appraisal, from: pa.move.shortlist, to: pa.move.characterize, connection_type: artifact_flow, carries: shortlist_and_rejection_log, from_output: shortlist_and_rejection_log, to_input: shortlist_and_rejection_log}
+  - {id: pa.c07, method_id: policy_option_appraisal, from: pa.move.shortlist, to: pa.move.longlist, connection_type: feedback, carries: redesign_request, condition: screened_option_is_repairable, creates_successor_version: true}
+  - {id: pa.c08, method_id: policy_option_appraisal, from: pa.move.characterize, to: pa.move.social_value, connection_type: artifact_flow, carries: comparable_option_impact_models, from_output: comparable_option_impact_models, to_input: comparable_option_impact_models}
+  - {id: pa.c09, method_id: policy_option_appraisal, from: pa.move.characterize, to: pa.move.nonmonetized, connection_type: retained_context, carries: comparable_option_impact_models, from_output: comparable_option_impact_models, to_input: comparable_option_impact_models}
+  - {id: pa.c10, method_id: policy_option_appraisal, from: pa.move.characterize, to: pa.move.distribution, connection_type: retained_context, carries: comparable_option_impact_models, from_output: comparable_option_impact_models, to_input: comparable_option_impact_models}
+  - {id: pa.c11, method_id: policy_option_appraisal, from: pa.move.characterize, to: pa.move.uncertainty, connection_type: retained_context, carries: comparable_option_impact_models, from_output: comparable_option_impact_models, to_input: comparable_option_impact_models}
+  - {id: pa.c12, method_id: policy_option_appraisal, from: pa.move.social_value, to: pa.move.compare, connection_type: artifact_flow, carries: social_value_results, from_output: social_value_results, to_input: social_value_results}
+  - {id: pa.c13, method_id: policy_option_appraisal, from: pa.move.nonmonetized, to: pa.move.compare, connection_type: artifact_flow, carries: criteria_scores_weights_and_rationale, from_output: criteria_scores_weights_and_rationale, to_input: criteria_scores_weights_and_rationale}
+  - {id: pa.c14, method_id: policy_option_appraisal, from: pa.move.distribution, to: pa.move.compare, connection_type: artifact_flow, carries: distributional_results, from_output: distributional_results, to_input: distributional_results}
+  - {id: pa.c15, method_id: policy_option_appraisal, from: pa.move.uncertainty, to: pa.move.compare, connection_type: artifact_flow, carries: scenarios_sensitivities_and_switching_values, from_output: scenarios_sensitivities_and_switching_values, to_input: scenarios_sensitivities_and_switching_values}
+  - {id: pa.c16, method_id: policy_option_appraisal, from: pa.move.compare, to: pa.move.advise, connection_type: artifact_flow, carries: comparative_appraisal, from_output: comparative_appraisal, to_input: comparative_appraisal}
+  - {id: pa.c17, method_id: policy_option_appraisal, from: pa.move.advise, to: pa.move.decide_learn, connection_type: artifact_flow, carries: bounded_analyst_advice, from_output: bounded_analyst_advice, to_input: bounded_analyst_advice}
+  - {id: pa.c18, method_id: policy_option_appraisal, from: pa.move.decide_learn, to: pa.move.rationale, connection_type: feedback, carries: future_evaluation_evidence, condition: next_appraisal_version, creates_successor_version: true}
+  - {id: pa.c19, method_id: policy_option_appraisal, from: pa.action.render_option_table, to: pa.move.compare, connection_type: retained_context, carries: review_projection, to_input: social_value_results, adapter_note: projection_does_not_replace_native_branches}

@@ -1,0 +1,23 @@
+schema_version: phase1-revision-vocabulary-disposition-0.2
+status: pending_human_phase2_decision
+verbs:
+  source: ../phase1_pilot/verb_additions.md
+  observed_result: no_additions_proposed
+  disposition: retain_existing_list_as_input_only
+  adoption: false
+  phase2_question: >-
+    Does the controlled verb list remain a coarse discovery index, with
+    collision identity determined by level, typed inputs/outputs, warrant,
+    authority, origin, topology, and operation_kind?
+types:
+  source: ../phase1_pilot/type_additions.md
+  observed_proposal: analysis_plan
+  disposition: carry_forward_for_human_review
+  adoption: false
+  reason: >-
+    The pilot shows a real prespecification distinction from review_protocol and
+    configuration, but one pilot does not license a provisional shared enum.
+  phase2_question: >-
+    Adopt, revise, or reject analysis_plan only after checking RCT, policy
+    appraisal, and systematic-review prespecification without flattening their
+    method-owned amendment and deviation rules.

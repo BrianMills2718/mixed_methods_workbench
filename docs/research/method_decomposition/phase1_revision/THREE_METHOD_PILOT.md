@@ -2,6 +2,10 @@
 
 Status: exploratory readout
 
+The normative populated records are in `method_records.yaml`; typed edges are
+in `connections.yaml`. This prose is a human-readable projection, not a second
+source of record.
+
 This pilot re-expresses three deliberately different methods using phases,
 analytical moves, and connection types. It uses the already frozen methodology
 sources and audited blind reruns; it does not perform another methodology
@@ -193,8 +197,9 @@ flat row ledger:
 - non-data arrows are understandable as retained context, gates, feedback, or
   prohibited transitions.
 
-The format passes an internal traceability check on these three methods: every
-move has an inspectable output, method-owned boundary, and understandable
-connection type. It has not passed an independent usability review or a broader
-portfolio stress test. It remains possible that another method family exposes
-a missing connection type or an unstable analytical-move boundary.
+The format passes a deterministic structural check on these three methods:
+every move has the proposed fields, source basis, exact pilot anchors, six
+authority roles, guards, and typed connections. This is not methodological
+acceptance. Unstable identities remain `unresolved` in
+`audit_dispositions.yaml`; they were not forced into the move layer. No Phase
+2b portfolio has been selected.
