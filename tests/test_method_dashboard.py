@@ -229,6 +229,8 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "Plan an analysis" in html
     assert "Show possible approaches" in html
     assert "See a completed decision example" in html
+    assert "See an explanation tested with a new case" in html
+    assert 'href="/investigation/psychosisbank-disclosure"' in html
     assert "does not yet run the selected methods" in html
     assert "Inspectable study map" in html
     assert "What are you bringing into the investigation?" in html

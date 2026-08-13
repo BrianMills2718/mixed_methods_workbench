@@ -1,4 +1,4 @@
-"""Local HTTP and JSON surface for the METHOD-DASH-C1 review prototype."""
+"""Local HTTP and JSON surface for the Mixed Methods Workbench."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from typing import ClassVar
 
 from pydantic import ValidationError
 
+from .investigation_spine import InvestigationSpineError, investigation_spine_payload
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
 from .method_topology import process_tracing_topology_payload
 from .mist_trail_decision import mist_trail_payload
@@ -20,6 +21,9 @@ STATIC_PATH = Path(__file__).with_name("static") / "method_dashboard.html"
 MIST_TRAIL_STATIC_PATH = Path(__file__).with_name("static") / "mist_trail_decision.html"
 SIMULATION_APPRAISAL_STATIC_PATH = (
     Path(__file__).with_name("static") / "simulation_policy_appraisal.html"
+)
+INVESTIGATION_SPINE_STATIC_PATH = (
+    Path(__file__).with_name("static") / "investigation_spine.html"
 )
 MAX_REQUEST_BYTES = 100_000
 
@@ -48,7 +52,7 @@ def simulation_appraisal_payload() -> dict[str, object]:
 
 
 class MethodDashboardHandler(BaseHTTPRequestHandler):
-    """Serve one static work surface and the two matching typed JSON operations."""
+    """Serve the Workbench pages and their matching typed JSON operations."""
 
     server_version = "MethodDashboard/0.1"
     html_path: ClassVar[Path] = STATIC_PATH
@@ -83,6 +87,12 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
         }:
             self._write_html(SIMULATION_APPRAISAL_STATIC_PATH)
             return
+        if self.path in {
+            "/investigation/psychosisbank-disclosure",
+            "/investigation/psychosisbank-disclosure/",
+        }:
+            self._write_html(INVESTIGATION_SPINE_STATIC_PATH)
+            return
         if self.path == "/api/catalog":
             self._write_json(HTTPStatus.OK, catalog_payload())
             return
@@ -94,6 +104,17 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
             return
         if self.path == "/api/appraisal/simulation-outbreak":
             self._write_json(HTTPStatus.OK, simulation_appraisal_payload())
+            return
+        if self.path == "/api/investigation/psychosisbank-disclosure":
+            try:
+                payload = investigation_spine_payload()
+            except InvestigationSpineError as exc:
+                self._write_json(
+                    HTTPStatus.INTERNAL_SERVER_ERROR,
+                    {"error": f"Investigation boundary failed validation: {exc}"},
+                )
+                return
+            self._write_json(HTTPStatus.OK, payload)
             return
         self._write_json(HTTPStatus.NOT_FOUND, {"error": "Route not found."})
 

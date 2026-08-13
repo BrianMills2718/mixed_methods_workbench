@@ -3,7 +3,27 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: Product Integration Assessment
+## Current Phase: Investigation Spine Development Checkpoint Complete
+
+Brian approved the exact Investigation Spine recommended by the merged product
+integration assessment on 2026-08-13. The bounded implementation contract is
+[`investigation_spine.md`](plans/investigation_spine.md).
+
+The Workbench now has one typed projection, matching JSON route, and
+plain-language browser page over the already completed Qualitative Coding to
+Process Tracing round trip. The route uses exact pinned fixtures for portable
+validation and is linked from the existing dashboard.
+
+The completed slice did not rerun or modify producer engines, call an LLM, retrieve new
+evidence, generalize the P5-specific mapping, adopt Data Contracts, activate a
+shared schema, deploy the interface, or present the inconclusive result as
+confirmation or rejection.
+
+No later product implementation is active by implication. The recommended
+next decision is the short Mist Trail flagship source gate described in the
+product integration assessment.
+
+## Completed Phase: Product Integration Assessment
 
 On 2026-08-13 Brian raised the concern that independently developed QC,
 Process Tracing, theory, simulation, and method-catalog work might not converge
@@ -23,8 +43,8 @@ Current work may:
   derivation, review-state, and open-question mechanics;
 - select and source-check one understandable policy-analysis flagship;
 - preserve completed Phase 3 research batches as supporting evidence; and
-- plan one named Investigation Spine implementation slice for separate user
-  authorization.
+- preserve the named Investigation Spine implementation contract and its
+  product boundary.
 
 Current work must not:
 
@@ -35,8 +55,8 @@ Current work must not:
   populate the Workbench;
 - treat the Open Science/P5 example as the general policy-analysis flagship;
   or
-- start the Investigation Spine implementation without a separately named
-  authorization.
+- infer authorization for any implementation beyond the separately approved
+  Investigation Spine.
 
 ## Paused Supporting Phase: Phase 3 Portfolio Decomposition
 
