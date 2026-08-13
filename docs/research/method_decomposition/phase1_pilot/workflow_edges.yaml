@@ -1,0 +1,130 @@
+schema_version: phase1-pilot-0.1
+status: unresolved_granularity_candidate
+
+integration_notes:
+  systematic_review:
+    - Empty-review and refusal-to-pool routes must terminate in bounded findings, not runtime failure.
+    - Report, study, and result identities remain distinct even though the compact graph does not expand them.
+  grounded_theory:
+    - Reflexivity is a cross-cutting recurring relation, not one terminal checkbox.
+    - Failure to complete theoretical sampling or defend adequacy may terminate in a partial account, not a grounded-theory claim.
+  process_tracing:
+    - Exact anchored observation extraction is required between source admission and diagnostic appraisal.
+    - Priors, predictions, likelihood judgments, evidence dependence, and posterior rival comparison must remain temporally distinct.
+  causal_effect_estimation_rct:
+    - Prespecification is a temporal and access-control barrier, not merely forward edge direction.
+    - Random assignment, treatment received, intercurrent events, missing outcomes, estimator, and estimate must remain distinct.
+  policy_option_appraisal:
+    - Objectives and value priorities require authority provenance; analyst recommendation is not the final policy decision.
+    - Monitoring and evaluation feedback starts a versioned future appraisal and cannot rewrite the historical one.
+  agent_based_policy_simulation:
+    - Implementation verification, empirical fitness appraisal, parameter uncertainty, and structural sensitivity are distinct cycles.
+    - Generated model runs never become observed policy-world evidence through aggregation.
+
+edges:
+  # Systematic review: planned pipeline with explicit returns, not an arbitrary loop.
+  - {method_id: systematic_review, from_step: sr.01, to_step: sr.02, edge_type: sequence, condition: question accepted, required: true}
+  - {method_id: systematic_review, from_step: sr.02, to_step: sr.03, edge_type: sequence, condition: protocol registered, required: true}
+  - {method_id: systematic_review, from_step: sr.03, to_step: sr.04, edge_type: sequence, condition: eligibility frozen, required: true}
+  - {method_id: systematic_review, from_step: sr.04, to_step: sr.05, edge_type: sequence, condition: searches complete, required: true}
+  - {method_id: systematic_review, from_step: sr.05, to_step: sr.04, edge_type: optional_return, condition: citation chasing or updated search is prespecified, required: false}
+  - {method_id: systematic_review, from_step: sr.05, to_step: sr.06, edge_type: sequence, condition: eligible studies selected, required: true}
+  - {method_id: systematic_review, from_step: sr.06, to_step: sr.07, edge_type: sequence, condition: study data extracted, required: true}
+  - {method_id: systematic_review, from_step: sr.07, to_step: sr.08, edge_type: sequence, condition: bias judgments recorded, required: true}
+  - {method_id: systematic_review, from_step: sr.08, to_step: sr.09, edge_type: branch, condition: studies sufficiently comparable for pooling, required: false}
+  - {method_id: systematic_review, from_step: sr.08, to_step: sr.10, edge_type: alternative_path, condition: pooling refused; structured non-pooling synthesis proceeds, required: false}
+  - {method_id: systematic_review, from_step: sr.09, to_step: sr.10, edge_type: sequence, condition: primary synthesis complete, required: true}
+  - {method_id: systematic_review, from_step: sr.10, to_step: sr.11, edge_type: sequence, condition: robustness assessed, required: true}
+  - {method_id: systematic_review, from_step: sr.11, to_step: sr.12, edge_type: terminal, condition: certainty and reporting complete, required: true}
+
+  # Grounded theory: concurrent, cyclic data collection and analysis.
+  - {method_id: grounded_theory, from_step: gt.01, to_step: gt.02, edge_type: sequence, condition: inquiry framed, required: true}
+  - {method_id: grounded_theory, from_step: gt.02, to_step: gt.03, edge_type: sequence, condition: initial data available, required: true}
+  - {method_id: grounded_theory, from_step: gt.03, to_step: gt.04, edge_type: sequence, condition: initial codes exist, required: true}
+  - {method_id: grounded_theory, from_step: gt.04, to_step: gt.03, edge_type: loop_back, condition: comparisons require recoding, loop_termination: focused codes adequately capture current variation, termination_authority: human, required: true}
+  - {method_id: grounded_theory, from_step: gt.04, to_step: gt.05, edge_type: sequence, condition: significant initial codes identified, required: true}
+  - {method_id: grounded_theory, from_step: gt.03, to_step: gt.06, edge_type: branch, condition: analytic idea or question emerges, required: true}
+  - {method_id: grounded_theory, from_step: gt.05, to_step: gt.07, edge_type: sequence, condition: focused coding supports categories, required: true}
+  - {method_id: grounded_theory, from_step: gt.06, to_step: gt.07, edge_type: join, condition: memos develop categories, required: true}
+  - {method_id: grounded_theory, from_step: gt.07, to_step: gt.08, edge_type: sequence, condition: category gaps identified, required: true}
+  - {method_id: grounded_theory, from_step: gt.08, to_step: gt.09, edge_type: sequence, condition: targeted data can be sought, required: true}
+  - {method_id: grounded_theory, from_step: gt.09, to_step: gt.03, edge_type: loop_back, condition: new data enter coding and comparison, loop_termination: categories sufficiently developed or access exhausted, termination_authority: human, required: true}
+  - {method_id: grounded_theory, from_step: gt.07, to_step: gt.10, edge_type: sequence, condition: category development reviewed, required: true}
+  - {method_id: grounded_theory, from_step: gt.10, to_step: gt.08, edge_type: loop_back, condition: adequacy gaps remain, loop_termination: adequacy supported or unresolved limit accepted, termination_authority: human, required: true}
+  - {method_id: grounded_theory, from_step: gt.10, to_step: gt.11, edge_type: sequence, condition: bounded adequacy supported, required: true}
+  - {method_id: grounded_theory, from_step: gt.11, to_step: gt.12, edge_type: terminal, condition: integrated theory scrutinized, required: true}
+
+  # Process tracing: adaptive evidence acquisition with frozen rival identities.
+  - {method_id: process_tracing, from_step: pt.01, to_step: pt.02, edge_type: sequence, condition: case bounded, required: true}
+  - {method_id: process_tracing, from_step: pt.02, to_step: pt.03, edge_type: sequence, condition: rivals frozen, required: true}
+  - {method_id: process_tracing, from_step: pt.03, to_step: pt.04, edge_type: sequence, condition: mechanisms explicit, required: true}
+  - {method_id: process_tracing, from_step: pt.04, to_step: pt.05, edge_type: sequence, condition: predictions discriminating enough, required: true}
+  - {method_id: process_tracing, from_step: pt.05, to_step: pt.06, edge_type: sequence, condition: source opportunities exist, required: true}
+  - {method_id: process_tracing, from_step: pt.06, to_step: pt.07, edge_type: sequence, condition: sources acquired, required: true}
+  - {method_id: process_tracing, from_step: pt.07, to_step: pt.08, edge_type: sequence, condition: admissible evidence extracted, required: true}
+  - {method_id: process_tracing, from_step: pt.08, to_step: pt.09, edge_type: sequence, condition: evidence appraised across all rivals, required: true}
+  - {method_id: process_tracing, from_step: pt.09, to_step: pt.10, edge_type: sequence, condition: comparative update complete, required: true}
+  - {method_id: process_tracing, from_step: pt.10, to_step: pt.05, edge_type: optional_return, condition: sensitivity exposes a decisive evidence gap, required: false}
+  - {method_id: process_tracing, from_step: pt.10, to_step: pt.11, edge_type: branch, condition: rivals sufficiently distinguished, required: false}
+  - {method_id: process_tracing, from_step: pt.10, to_step: pt.12, edge_type: terminal, condition: rivals remain unresolved, required: false}
+  - {method_id: process_tracing, from_step: pt.11, to_step: pt.12, edge_type: alternative_path, condition: calibration forbids resolution, required: false}
+
+  # RCT: confirmatory path; outcome-informed redesign is prohibited.
+  - {method_id: causal_effect_estimation_rct, from_step: rct.01, to_step: rct.02, edge_type: sequence, condition: estimand defined, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.02, to_step: rct.03, edge_type: sequence, condition: protocol prespecified, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.03, to_step: rct.04, edge_type: sequence, condition: population and outcomes specified, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.04, to_step: rct.05, edge_type: sequence, condition: recruitment target feasible, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.05, to_step: rct.06, edge_type: sequence, condition: allocation concealed, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.06, to_step: rct.07, edge_type: sequence, condition: follow-up cutoff reached, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.07, to_step: rct.08, edge_type: sequence, condition: analysis data frozen, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.08, to_step: rct.09, edge_type: branch, condition: primary estimate produced, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.08, to_step: rct.10, edge_type: branch, condition: conduct and harms data available, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.09, to_step: rct.11, edge_type: join, condition: sensitivity complete, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.10, to_step: rct.11, edge_type: join, condition: harms and deviations assessed, required: true}
+  - {method_id: causal_effect_estimation_rct, from_step: rct.11, to_step: rct.12, edge_type: alternative_path, condition: material outcome-driven deviation discovered, required: false}
+
+  # Policy appraisal: ROAMEF permits later feedback without rewriting the original appraisal.
+  - {method_id: policy_option_appraisal, from_step: pa.01, to_step: pa.02, edge_type: sequence, condition: intervention rationale supported, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.02, to_step: pa.03, edge_type: sequence, condition: objectives defined, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.03, to_step: pa.04, edge_type: sequence, condition: theory of change explicit, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.04, to_step: pa.05, edge_type: sequence, condition: broad longlist generated, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.05, to_step: pa.06, edge_type: sequence, condition: shortlist and exclusions documented, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.06, to_step: pa.07, edge_type: sequence, condition: evidence assembled, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.07, to_step: pa.08, edge_type: branch, condition: distributional consequences available, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.07, to_step: pa.09, edge_type: branch, condition: uncertainties declared, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.08, to_step: pa.10, edge_type: join, condition: distribution visible, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.09, to_step: pa.10, edge_type: join, condition: robustness visible, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.10, to_step: pa.11, edge_type: branch, condition: robust preference exists, required: false}
+  - {method_id: policy_option_appraisal, from_step: pa.10, to_step: pa.12, edge_type: alternative_path, condition: no robust preference; evaluation still planned, required: false}
+  - {method_id: policy_option_appraisal, from_step: pa.11, to_step: pa.12, edge_type: sequence, condition: preferred option identified, required: true}
+  - {method_id: policy_option_appraisal, from_step: pa.12, to_step: pa.01, edge_type: optional_return, condition: future evaluation changes rationale or evidence, required: false}
+
+  # Agent-based simulation: model design and computational experiment can iterate.
+  - {method_id: agent_based_policy_simulation, from_step: sim.01, to_step: sim.02, edge_type: sequence, condition: purpose frozen, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.02, to_step: sim.03, edge_type: sequence, condition: entities and states specified, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.03, to_step: sim.04, edge_type: sequence, condition: rules specified, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.04, to_step: sim.05, edge_type: sequence, condition: parameterized implementation exists, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.05, to_step: sim.03, edge_type: loop_back, condition: verification exposes implementation or specification error, loop_termination: implementation matches frozen specification, termination_authority: either, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.05, to_step: sim.06, edge_type: sequence, condition: verification passes, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.06, to_step: sim.07, edge_type: sequence, condition: experiment frozen, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.07, to_step: sim.08, edge_type: sequence, condition: runs complete, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.08, to_step: sim.09, edge_type: sequence, condition: scenario summaries stable, required: true}
+  - {method_id: agent_based_policy_simulation, from_step: sim.09, to_step: sim.02, edge_type: optional_return, condition: structural sensitivity invalidates representation, required: false}
+  - {method_id: agent_based_policy_simulation, from_step: sim.09, to_step: sim.10, edge_type: terminal, condition: conditional insight calibrated, required: true}
+
+topologies:
+  - {method_id: systematic_review, shape: adaptive, required_cycles: [], optional_cycles: [updated or citation-chasing search], prohibited_cycles: [outcome-informed eligibility or synthesis changes], entry_points: [sr.01], terminal_points: [sr.12]}
+  - {method_id: grounded_theory, shape: cyclic, required_cycles: [coding-constant-comparison, theoretical-sampling-category-development], optional_cycles: [memo-driven recoding], prohibited_cycles: [], entry_points: [gt.01, gt.02], terminal_points: [gt.12]}
+  - {method_id: process_tracing, shape: adaptive, required_cycles: [], optional_cycles: [evidence-gap-driven acquisition], prohibited_cycles: [silent rival redefinition after diagnostic evidence], entry_points: [pt.01], terminal_points: [pt.11, pt.12]}
+  - method_id: causal_effect_estimation_rct
+    shape: dag
+    required_cycles: []
+    optional_cycles: []
+    prohibited_cycles: [outcome-informed redesign of estimand protocol allocation or primary analysis]
+    prohibited_edges:
+      - {from: rct.08, to: rct.01, reason: primary results cannot redefine the confirmatory estimand, if_taken: disclosed_deviation_result_exploratory}
+      - {from: rct.08, to: rct.02, reason: primary results cannot rewrite the prespecified analysis, if_taken: disclosed_deviation_result_exploratory}
+    entry_points: [rct.01]
+    terminal_points: [rct.11, rct.12]
+  - {method_id: policy_option_appraisal, shape: cyclic, required_cycles: [], optional_cycles: [ROAMEF evaluation feedback into future rationale], prohibited_cycles: [silent exclusion or reweighting to force a preferred option], entry_points: [pa.01], terminal_points: [pa.11, pa.12]}
+  - {method_id: agent_based_policy_simulation, shape: cyclic, required_cycles: [implementation verification and repair], optional_cycles: [structural revision after sensitivity], prohibited_cycles: [using calibration targets as independent validation without disclosure], entry_points: [sim.01], terminal_points: [sim.10]}
