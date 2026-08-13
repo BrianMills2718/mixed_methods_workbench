@@ -1,0 +1,76 @@
+{
+  "source_documents": [
+    {
+      "packet_id": "NYC-CRZ-MVP-v1",
+      "artifact_id": "reevaluation_2",
+      "official_url": "https://www.mta.info/document/158191",
+      "expected_sha256": "aee0e0b6c17a8e9585c24a808d2fa77a756b267fe9af326fb577ae181bb28733",
+      "observed_sha256": "aee0e0b6c17a8e9585c24a808d2fa77a756b267fe9af326fb577ae181bb28733",
+      "expected_bytes": 1430307,
+      "observed_bytes": 1430307,
+      "verified_at": "2026-08-13T20:02:00Z",
+      "exact_byte_verified": true
+    },
+    {
+      "packet_id": "NYC-CRZ-MVP-v1",
+      "artifact_id": "hearing_2022_08_25",
+      "official_url": "https://www.mta.info/document/95461",
+      "expected_sha256": "e42cbffeec77b2392cc6e74b36ba8978c08a69f63cfa5a341ee512c6e7a67cf1",
+      "observed_sha256": "e42cbffeec77b2392cc6e74b36ba8978c08a69f63cfa5a341ee512c6e7a67cf1",
+      "expected_bytes": 1470785,
+      "observed_bytes": 1470785,
+      "verified_at": "2026-08-13T20:02:00Z",
+      "exact_byte_verified": true
+    }
+  ],
+  "source_units": [
+    {
+      "source_unit_id": "reevaluation_2:pdf-page-15:table-2.2:objective-2",
+      "artifact_id": "reevaluation_2",
+      "artifact_sha256": "aee0e0b6c17a8e9585c24a808d2fa77a756b267fe9af326fb577ae181bb28733",
+      "pdf_page_index": 15,
+      "printed_page_label": "13",
+      "structural_locator": "Table 2-2, Objective 2, Phase 1 row",
+      "context_text": "Phase 1 ($9 peak auto toll) Criterion: Reduce by 10% (relative to No Action) Daily vehicle reduction (2023) 15.4% - 19.9% 13.4% 15.5% 17.3%",
+      "context_text_sha256": "2a02605d96ea874298de417648c37ab7fa895facb3bda857c43b72697ec06f90",
+      "derivation": "pypdf_text_extraction_then_deterministic_normalization"
+    },
+    {
+      "source_unit_id": "hearing_2022_08_25:pdf-page-82:printed-lines-13-17",
+      "artifact_id": "hearing_2022_08_25",
+      "artifact_sha256": "e42cbffeec77b2392cc6e74b36ba8978c08a69f63cfa5a341ee512c6e7a67cf1",
+      "pdf_page_index": 82,
+      "printed_page_label": "82",
+      "structural_locator": "printed lines 13-17; public speaker turn",
+      "context_text": "Two, the EA concedes that some vulnerable populations would incur additional costs, especially those accessing medical appointments.  This is problematic.",
+      "context_text_sha256": "30fd25e04b5aea4999c09ad3d274ad54cc0636c5ae956e799c0753e7be1b2ff1",
+      "derivation": "pypdf_text_extraction_then_deterministic_normalization"
+    }
+  ],
+  "anchors": [
+    {
+      "anchor_id": "anchor-prediction-reevaluation-2-objective-2",
+      "source_unit_id": "reevaluation_2:pdf-page-15:table-2.2:objective-2",
+      "source_artifact_sha256": "aee0e0b6c17a8e9585c24a808d2fa77a756b267fe9af326fb577ae181bb28733",
+      "selected_text": "Daily vehicle reduction (2023) 15.4% - 19.9% 13.4% 15.5% 17.3%",
+      "selected_text_sha256": "d1a66d5e425ed873c4a0be9d91dc6d2e8a9f2b2cb0821d171422033c104e9ef1",
+      "context_text_sha256": "2a02605d96ea874298de417648c37ab7fa895facb3bda857c43b72697ec06f90",
+      "selection_match": "exact",
+      "occurrence_index": 0,
+      "review_state": "model_generated_pending_human_review",
+      "lineage_ref": "prediction-reevaluation-2-objective-2"
+    },
+    {
+      "anchor_id": "anchor-concern-hearing-2022-08-25-medical-access",
+      "source_unit_id": "hearing_2022_08_25:pdf-page-82:printed-lines-13-17",
+      "source_artifact_sha256": "e42cbffeec77b2392cc6e74b36ba8978c08a69f63cfa5a341ee512c6e7a67cf1",
+      "selected_text": "the EA concedes that some vulnerable populations would incur additional costs, especially those accessing medical appointments.",
+      "selected_text_sha256": "10b7d0ffadb1388a5b0bbc80372639eb9b5f2228dfb58fda87e12ee95de404c7",
+      "context_text_sha256": "30fd25e04b5aea4999c09ad3d274ad54cc0636c5ae956e799c0753e7be1b2ff1",
+      "selection_match": "whitespace_normalized",
+      "occurrence_index": 0,
+      "review_state": "model_generated_pending_human_review",
+      "lineage_ref": "concern-hearing-2022-08-25-medical-access"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "mmw.candidate_review.v0.1",
+  "review": {
+    "status": "pending_human_review",
+    "reviewer_kind": "human",
+    "decision_ref": null,
+    "decided_at": null,
+    "field_dispositions": [
+      {
+        "field_path": "prediction.generated_limit",
+        "status": "rejected",
+        "reason": "The model-authored limit adds an unsupported 'caused solely' framing and is not the Workbench claim boundary."
+      },
+      {
+        "field_path": "concern.generated_limit",
+        "status": "rejected",
+        "reason": "The model-authored limit introduces a benefits tradeoff that the hearing passage does not make."
+      }
+    ],
+    "publication_disposition": "withhold_until_human_review"
+  },
+  "proposed_prediction_wording": "Before implementation, the agency's Phase 1 table projected a 13.4% reduction in daily vehicles entering the Manhattan CBD relative to its No Action basis.",
+  "proposed_concern_wording": "One public-hearing passage raised added travel costs for vulnerable people accessing medical appointments.",
+  "deterministic_claim_limits": [
+    "The agency prediction is not an observed result or an identified causal effect.",
+    "One hearing passage does not establish prevalence or representativeness across participants or affected populations.",
+    "The descriptive vehicle aggregate does not count unique vehicles, reproduce revenue, or identify a policy effect.",
+    "No recommendation follows from these candidates before method-owned analysis and human review."
+  ],
+  "review_questions": [
+    "Does each proposed wording preserve the assertion source and meaning of its exact anchored passage?",
+    "Should either candidate be rejected, edited with a new derivation record, or accepted for downstream method-owned analysis?"
+  ]
+}

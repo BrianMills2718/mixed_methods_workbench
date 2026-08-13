@@ -1,0 +1,29 @@
+{
+  "schema_version": "mmw.document_candidates.v0.1",
+  "packet_id": "NYC-CRZ-MVP-v1",
+  "assertion_source": "agency_and_hearing_participant",
+  "derivation": "llm_structured_extraction",
+  "prediction": {
+    "candidate_id": "prediction-reevaluation-2-objective-2",
+    "source_unit_id": "reevaluation_2:pdf-page-15:table-2.2:objective-2",
+    "statement": "Phase 1 ($9 peak auto toll) Criterion: Reduce by 10% (relative to No Action) Daily vehicle reduction (2023) 15.4% - 19.9% 13.4% 15.5% 17.3%",
+    "metric": "daily_vehicles_entering_manhattan_cbd",
+    "direction": "decrease",
+    "expected_change_percent": 13.4,
+    "basis": "No Action",
+    "scenario": "Phase 1 ($9 peak auto toll)",
+    "quote": "Daily vehicle reduction (2023) 15.4% - 19.9% 13.4% 15.5% 17.3%",
+    "generated_limit": "This record cannot establish that the predicted reduction in daily vehicles is caused solely by the Phase 1 toll or that the reduction would be uniform across all vehicle types and times."
+  },
+  "concern": {
+    "candidate_id": "concern-hearing-2022-08-25-medical-access",
+    "source_unit_id": "hearing_2022_08_25:pdf-page-82:printed-lines-13-17",
+    "statement": "Two, the EA concedes that some vulnerable populations would incur additional costs, especially those accessing medical appointments. This is problematic.",
+    "affected_groups": [
+      "vulnerable populations"
+    ],
+    "kind": "access_cost_burden",
+    "quote": "the EA concedes that some vulnerable populations would incur additional costs, especially those accessing medical appointments.",
+    "generated_limit": "This record cannot establish whether additional costs for vulnerable populations would be substantial or outweigh the benefits of reduced traffic."
+  }
+}

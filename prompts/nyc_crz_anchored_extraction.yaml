@@ -1,0 +1,28 @@
+name: nyc_crz_anchored_extraction_canary
+version: "1.0"
+description: Extract one policy prediction and one hearing concern without judging either.
+messages:
+  - role: system
+    content: |
+      You extract structured records from supplied source excerpts. Do not use outside
+      knowledge. Copy each evidence quote from its declared source unit. Preserve the
+      distinction between an agency prediction and a hearing participant's concern.
+      Do not judge whether either claim is true, representative, causal, or dispositive.
+  - role: user
+    content: |
+      Extract exactly one pre-implementation prediction from prediction_unit and exactly
+      one stakeholder concern from concern_unit. Use the supplied unit_id verbatim.
+      Copy each evidence quote as one contiguous selection of at least one full clause
+      from the corresponding source unit. Do not paraphrase, change a number, or join
+      noncontiguous text. Record expected_change_percent as the positive magnitude 13.4,
+      because expected_direction separately records decrease. Record the prediction
+      scenario exactly as "Phase 1 ($9 peak auto toll)". Limits must be complete
+      sentences that state what the record cannot establish.
+
+      prediction_unit_id: {{ prediction_unit_id }}
+      prediction_unit:
+      {{ prediction_context }}
+
+      concern_unit_id: {{ concern_unit_id }}
+      concern_unit:
+      {{ concern_context }}

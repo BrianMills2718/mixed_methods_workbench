@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>Why PsychosisBank uses controlled access · Mixed Methods Workbench</title>
+  <title>Investigation · Mixed Methods Workbench</title>
   <style>
     :root {
       color-scheme: light;
@@ -113,30 +113,30 @@
     </div>
   </header>
   <main>
-    <div id="loading" class="loading">Loading the completed investigation…</div>
+    <div id="loading" class="loading">Loading the investigation…</div>
     <div id="error" class="error" role="alert" hidden></div>
     <div id="app" hidden>
-      <p class="eyebrow">Completed investigation · explanation testing</p>
+      <p id="page-eyebrow" class="eyebrow">Completed investigation · explanation testing</p>
       <h1 id="title"></h1>
       <p id="research-question" class="lede"></p>
       <span id="status" class="status"></span><br>
       <a class="hero-action" href="#journey">Follow the investigation</a>
 
       <div class="flow" aria-label="Investigation overview">
-        <div><small>Qualitative research</small><strong>Proposed an explanation</strong></div>
-        <div><small>New case evidence</small><strong>Compared competing explanations</strong></div>
-        <div><small>Reviewed result</small><strong>Kept the explanation unconfirmed</strong></div>
+        <div><small id="flow-label-1">Qualitative research</small><strong id="flow-value-1">Proposed an explanation</strong></div>
+        <div><small id="flow-label-2">New case evidence</small><strong id="flow-value-2">Compared competing explanations</strong></div>
+        <div><small id="flow-label-3">Reviewed result</small><strong id="flow-value-3">Kept the explanation unconfirmed</strong></div>
       </div>
 
       <section class="result" aria-labelledby="result-title">
         <div>
-          <p class="eyebrow">What the new case established</p>
+          <p id="result-eyebrow" class="eyebrow">What the new case established</p>
           <h2 id="result-title"></h2>
           <p id="result-summary"></p>
         </div>
         <div class="result-limit">
-          <strong>This is a useful inconclusive result.</strong>
-          <p>The evidence documented burdens, possible responses, and the final access policy. It did not reveal the decision process needed to say why that option was chosen.</p>
+          <strong id="result-limit-title">This is a useful inconclusive result.</strong>
+          <p id="result-limit-copy">The evidence documented burdens, possible responses, and the final access policy. It did not reveal the decision process needed to say why that option was chosen.</p>
         </div>
       </section>
 
@@ -144,7 +144,7 @@
         <div class="section-head">
           <p class="eyebrow">One investigation, several owners</p>
           <h2 id="journey-title">How the analysis moved from interviews to a new case</h2>
-          <p>Each method kept control of its own judgment. The Workbench preserves the question, artifact identity, result, and handoff.</p>
+          <p id="journey-intro">Each method kept control of its own judgment. The Workbench preserves the question, artifact identity, result, and handoff.</p>
         </div>
         <div id="journey-stages" class="journey"></div>
       </section>
@@ -165,12 +165,12 @@
         </div>
         <div class="two-col">
           <article class="card unresolved">
-            <h3>Questions the evidence could not answer</h3>
+            <h3 id="unresolved-card-title">Questions the evidence could not answer</h3>
             <ul id="unresolved"></ul>
           </article>
           <article class="card blocked">
-            <h3>Why the public causal conclusion was withheld</h3>
-            <p><strong>One chronology statement exceeded its evidence.</strong></p>
+            <h3 id="publication-card-title">Why the public causal conclusion was withheld</h3>
+            <p><strong id="publication-card-lede">One chronology statement exceeded its evidence.</strong></p>
             <p id="publication-block"></p>
           </article>
         </div>
@@ -180,7 +180,7 @@
         <div class="section-head">
           <p class="eyebrow">Next evidence</p>
           <h2 id="next-title">What would make the explanation testable</h2>
-          <p>These are evidence requests, not another software step or an invitation to rerun the same sources.</p>
+          <p id="next-intro">These are evidence requests, not another software step or an invitation to rerun the same sources.</p>
         </div>
         <div id="needs" class="needs"></div>
       </section>
@@ -189,7 +189,7 @@
         <div class="section-head">
           <p class="eyebrow">Evidence packet</p>
           <h2 id="sources-title">The different-case sources used</h2>
-          <p>The original Open Science interviews generated the explanation. They were not counted as evidence in this case test.</p>
+          <p id="sources-intro">The original Open Science interviews generated the explanation. They were not counted as evidence in this case test.</p>
         </div>
         <div id="sources" class="card"></div>
       </section>
@@ -197,7 +197,7 @@
       <details>
         <summary>Inspect artifact identity, digests, and method custody</summary>
         <p class="provenance-intro">Internal IDs and hashes are kept here so they do not replace the plain-language result. “Producer-retained reference” means the Workbench has an exact ID and digest but does not copy the original run bytes.</p>
-        <p><a href="/api/investigation/psychosisbank-disclosure">Open the matching JSON projection</a></p>
+        <p><a id="json-link" href="/api/investigation/psychosisbank-disclosure">Open the matching JSON projection</a></p>
         <div id="artifacts" class="card"></div>
         <h3>What this result must not be used to claim</h3>
         <ul id="nonclaims"></ul>
@@ -213,7 +213,7 @@
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
 
-    function render(payload) {
+    function renderPsychosisBank(payload) {
       byId("title").textContent = payload.title;
       byId("research-question").textContent = payload.research_question;
       byId("status").textContent = payload.status_label;
@@ -240,11 +240,67 @@
       byId("nonclaims").innerHTML = payload.do_not_infer.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
     }
 
-    fetch("/api/investigation/psychosisbank-disclosure")
+    function renderNyc(payload) {
+      document.title = `${payload.title} · Mixed Methods Workbench`;
+      byId("page-eyebrow").textContent = "Authentic evidence slice · human review required";
+      byId("title").textContent = payload.title;
+      byId("research-question").textContent = payload.research_question;
+      byId("status").textContent = payload.status_label;
+      byId("flow-label-1").textContent = "Structural capability";
+      byId("flow-value-1").textContent = "Extracted typed candidates";
+      byId("flow-label-2").textContent = "Evidence provenance";
+      byId("flow-value-2").textContent = "Bound quotes to exact sources";
+      byId("flow-label-3").textContent = "Decision right";
+      byId("flow-value-3").textContent = "Withheld acceptance for a human";
+      byId("result-title").textContent = "The extraction ran and bound; the analytical finding has not been accepted.";
+      byId("result-eyebrow").textContent = "What this capability execution established";
+      byId("result-summary").textContent = `The canary retained one agency prediction and one hearing concern as candidates. The frozen vehicle table contains ${payload.observation.crz_entries.toLocaleString()} CRZ entries over ${payload.observation.observed_days} observed days.`;
+      byId("result-limit-title").textContent = "Validation is not interpretation.";
+      byId("result-limit-copy").textContent = "The model cannot promote its output, decide whether a concern is representative, infer a causal effect, or make a policy recommendation.";
+      byId("journey-title").textContent = "How a reusable extraction capability hands evidence to research methods";
+      byId("journey-intro").textContent = "The shared capability controls structure and provenance. A human controls promotion, and each research method retains authority over interpretation.";
+      byId("journey-stages").innerHTML = payload.capability_flow.map((step, index) => `
+        <article class="stage">
+          <span class="stage-number">${index + 1}</span>
+          <div><h3>${escapeHtml(step)}</h3><p>${index < 3 ? "Executed and recorded in this slice." : "Reserved for an accountable downstream owner."}</p></div>
+          <div class="stage-owner"><strong>${index === 4 ? "Method owner" : index === 3 ? "Human reviewer" : "Workbench capability"}</strong>${index === 4 ? "Interprets accepted evidence under a named method." : index === 3 ? "Controls candidate promotion." : "Preserves structure and provenance without deciding meaning."}</div>
+        </article>`).join("");
+      byId("findings-title").textContent = "Candidates presented for review";
+      byId("evidence-summary").textContent = "Both proposed wordings remain withheld; the model-authored limit fields were explicitly rejected.";
+      byId("findings").innerHTML = [
+        ["Agency prediction candidate", payload.review_packet.proposed_prediction_wording],
+        ["Hearing concern candidate", payload.review_packet.proposed_concern_wording],
+        ["Observed descriptive aggregate", `${payload.observation.crz_entries.toLocaleString()} CRZ entries from ${payload.observation.coverage_start} through ${payload.observation.coverage_end}; not a causal estimate.`]
+      ].map(([title, copy]) => `<article class="card"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(copy)}</p></article>`).join("");
+      byId("open-title").textContent = "Why these records remain candidates";
+      byId("unresolved-card-title").textContent = "Limits that travel with this packet";
+      byId("publication-card-title").textContent = "Why downstream use is withheld";
+      byId("publication-card-lede").textContent = "A structural pass cannot grant analytical authority.";
+      byId("unresolved").innerHTML = payload.review_packet.deterministic_claim_limits.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      byId("publication-block").textContent = "No attributable human decision exists, so the candidate records are unavailable to downstream method-owned analysis.";
+      byId("next-title").textContent = "Questions for the human reviewer";
+      byId("next-intro").textContent = "The next event is a decision about these exact candidate records, not another automatic model pass.";
+      byId("needs").innerHTML = payload.review_packet.review_questions.map((question, index) => `
+        <article class="need"><h3>Review question ${index + 1}</h3><p>${escapeHtml(question)}</p></article>`).join("");
+      byId("sources-title").textContent = "The exact source units used";
+      byId("sources-intro").textContent = "Both official PDFs were downloaded and matched the source-freeze byte counts and SHA-256 digests before text extraction.";
+      byId("sources").innerHTML = payload.source_documents.map((source) => `
+        <div class="source-row"><strong>${escapeHtml(source.artifact_id.replaceAll("_", " "))}</strong><span>SHA-256 verified · ${source.observed_bytes.toLocaleString()} bytes</span></div>`).join("");
+      byId("artifacts").innerHTML = payload.anchors.map((anchor) => `
+        <div class="artifact-row"><div><strong>${escapeHtml(anchor.anchor_id)}</strong><br><span>${escapeHtml(anchor.source_unit_id)}</span><br><code>source sha256:${escapeHtml(anchor.source_artifact_sha256)}</code><br><code>selection sha256:${escapeHtml(anchor.selected_text_sha256)}</code></div><span class="availability">pending human review</span></div>`).join("");
+      byId("nonclaims").innerHTML = payload.review_packet.deterministic_claim_limits.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      byId("json-link").href = "/api/investigation/nyc-congestion-relief-zone";
+    }
+
+    const isNyc = window.location.pathname.includes("nyc-congestion-relief-zone");
+    const endpoint = isNyc
+      ? "/api/investigation/nyc-congestion-relief-zone"
+      : "/api/investigation/psychosisbank-disclosure";
+    fetch(endpoint)
       .then(async (response) => {
         const payload = await response.json();
         if (!response.ok) throw new Error(payload.error || "The investigation could not be loaded.");
-        render(payload);
+        if (isNyc) renderNyc(payload); else renderPsychosisBank(payload);
         byId("loading").hidden = true;
         byId("app").hidden = false;
       })
