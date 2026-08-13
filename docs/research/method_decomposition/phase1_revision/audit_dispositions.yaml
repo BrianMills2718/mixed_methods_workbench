@@ -1,0 +1,120 @@
+schema_version: phase1-revision-audit-disposition-0.2
+status: exploratory_not_adopted
+allowed_dispositions: [phase, analytical_move, execution_action, unresolved]
+note: >-
+  Exact coverage of the three in-scope methods. A target is a trace, not an
+  equivalence claim. Unresolved preserves unstable identity instead of forcing
+  a move. Source IDs use compact:<row>, rerun:<item>, gap:<edge>, and
+  capability:<normalized-name>.
+
+dispositions:
+  # Grounded-theory compact rows (12/12)
+  - {source_id: compact:gt.01, method_id: grounded_theory, disposition: phase, target: gt.phase.inquiry, reason: inquiry framing is retained as broad orientation pending a stable handoff artifact}
+  - {source_id: compact:gt.02, method_id: grounded_theory, disposition: analytical_move, target: gt.move.gather, reason: stable source-material output}
+  - {source_id: compact:gt.03, method_id: grounded_theory, disposition: analytical_move, target: gt.move.initial_code, reason: stable code output after explicit segmentation}
+  - {source_id: compact:gt.04, method_id: grounded_theory, disposition: analytical_move, target: gt.move.compare, reason: stable comparison record}
+  - {source_id: compact:gt.05, method_id: grounded_theory, disposition: analytical_move, target: gt.move.focus, reason: focused coding is represented within category development}
+  - {source_id: compact:gt.06, method_id: grounded_theory, disposition: analytical_move, target: gt.move.memo, reason: stable memo artifact}
+  - {source_id: compact:gt.07, method_id: grounded_theory, disposition: analytical_move, target: gt.move.focus, reason: category development shares the focus boundary}
+  - {source_id: compact:gt.08, method_id: grounded_theory, disposition: analytical_move, target: gt.move.sample, reason: sampling gap and design stay together in this candidate but remain reviewable}
+  - {source_id: compact:gt.09, method_id: grounded_theory, disposition: analytical_move, target: gt.move.sample, reason: targeted corpus increment is inspectable}
+  - {source_id: compact:gt.10, method_id: grounded_theory, disposition: analytical_move, target: gt.move.adequacy, reason: appraisal is a control gate}
+  - {source_id: compact:gt.11, method_id: grounded_theory, disposition: analytical_move, target: gt.move.integrate, reason: integration output is inspectable}
+  - {source_id: compact:gt.12, method_id: grounded_theory, disposition: analytical_move, target: gt.move.integrate, reason: reflexive bounding remains part of final interpretive warrant}
+  # Grounded-theory blind rerun (14/14)
+  - {source_id: rerun:GT01, method_id: grounded_theory, disposition: analytical_move, target: gt.move.gather, reason: stable source increment}
+  - {source_id: rerun:GT02, method_id: grounded_theory, disposition: unresolved, target: null, reason: rerun label combines segmentation and coding whose outputs require a split}
+  - {source_id: rerun:GT03, method_id: grounded_theory, disposition: analytical_move, target: gt.move.compare, reason: stable comparison artifact}
+  - {source_id: rerun:GT04, method_id: grounded_theory, disposition: analytical_move, target: gt.move.memo, reason: stable memo artifact}
+  - {source_id: rerun:GT05, method_id: grounded_theory, disposition: analytical_move, target: gt.move.focus, reason: focused-code boundary}
+  - {source_id: rerun:GT06, method_id: grounded_theory, disposition: analytical_move, target: gt.move.focus, reason: category-development boundary}
+  - {source_id: rerun:GT07, method_id: grounded_theory, disposition: analytical_move, target: gt.move.sample, reason: gap defines sampling input}
+  - {source_id: rerun:GT08, method_id: grounded_theory, disposition: analytical_move, target: gt.move.sample, reason: sampling design and acquisition share one successor-version move pending review}
+  - {source_id: rerun:GT09, method_id: grounded_theory, disposition: analytical_move, target: gt.move.sample, reason: targeted data is move output}
+  - {source_id: rerun:GT10, method_id: grounded_theory, disposition: unresolved, target: null, reason: combines recoding category revision and memo revision with multiple outputs}
+  - {source_id: rerun:GT11, method_id: grounded_theory, disposition: analytical_move, target: gt.move.adequacy, reason: explicit method-owned gate}
+  - {source_id: rerun:GT12, method_id: grounded_theory, disposition: analytical_move, target: gt.move.integrate, reason: memo sorting is within integration but may later split}
+  - {source_id: rerun:GT13, method_id: grounded_theory, disposition: analytical_move, target: gt.move.integrate, reason: integrated account output}
+  - {source_id: rerun:GT14, method_id: grounded_theory, disposition: analytical_move, target: gt.move.integrate, reason: reflexive bound is part of licensed final account}
+  # Grounded-theory structural gaps (8/8)
+  - {source_id: 'gap:gt.02->gt.03', method_id: grounded_theory, disposition: analytical_move, target: gt.move.segment, reason: restores source-to-incident artifact}
+  - {source_id: 'gap:gt.04->gt.03', method_id: grounded_theory, disposition: analytical_move, target: gt.move.refine, reason: represented by a feedback connection rather than false artifact flow}
+  - {source_id: 'gap:gt.04->gt.05', method_id: grounded_theory, disposition: analytical_move, target: gt.move.focus, reason: comparison authorizes while prior codes remain context}
+  - {source_id: 'gap:gt.03->gt.06', method_id: grounded_theory, disposition: unresolved, target: null, reason: codes and findings need a union or separate memo inputs; no provisional type adopted}
+  - {source_id: 'gap:gt.09->gt.03', method_id: grounded_theory, disposition: analytical_move, target: gt.move.segment, reason: each successor corpus increment is segmented before coding}
+  - {source_id: 'gap:gt.10->gt.08', method_id: grounded_theory, disposition: analytical_move, target: gt.move.adequacy, reason: inadequate appraisal requests successor sampling through gt.c12}
+  - {source_id: 'gap:gt.10->gt.11', method_id: grounded_theory, disposition: analytical_move, target: gt.move.adequacy, reason: adequacy permits integration through gt.c13 while artifacts remain retained inputs}
+  - {source_id: capability:segment-source-material-into-incidents, method_id: grounded_theory, disposition: analytical_move, target: gt.move.segment, reason: explicit restored capability}
+
+  # RCT compact rows (12/12)
+  - {source_id: compact:rct.01, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.estimand, reason: objective and estimand retained together pending stability evidence}
+  - {source_id: compact:rct.02, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.prespecify, reason: frozen plan output}
+  - {source_id: compact:rct.03, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.allocate, reason: eligibility and assignment boundary partially represented}
+  - {source_id: compact:rct.04, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.prespecify, reason: sample-size design is part of frozen plan}
+  - {source_id: compact:rct.05, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.allocate, reason: concealed allocation output}
+  - {source_id: compact:rct.06, method_id: causal_effect_estimation_rct, disposition: unresolved, target: null, reason: compact dataset combines conduct follow-up and missing outcome ascertainment}
+  - {source_id: compact:rct.07, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.lock_audit, reason: lock and audit boundary}
+  - {source_id: compact:rct.08, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.estimate, reason: primary estimate output}
+  - {source_id: compact:rct.09, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.sensitivity, reason: sensitivity result output}
+  - {source_id: compact:rct.10, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.auxiliary, reason: deviations and auxiliary inference require qualification}
+  - {source_id: compact:rct.11, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.conclude, reason: bounded trial conclusion}
+  - {source_id: compact:rct.12, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.auxiliary, reason: outcome-driven departure downgrade}
+  # RCT blind rerun (14/14)
+  - {source_id: rerun:RCT-01, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.estimand, reason: objective retained in estimand record}
+  - {source_id: rerun:RCT-02, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.estimand, reason: stable estimand output}
+  - {source_id: rerun:RCT-03, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.prespecify, reason: frozen design and analysis}
+  - {source_id: rerun:RCT-04, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.allocate, reason: concealed allocation is retained within assignment move}
+  - {source_id: rerun:RCT-05, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.allocate, reason: enrolled assigned cohort output}
+  - {source_id: rerun:RCT-06, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.conduct, reason: conduct ledger output}
+  - {source_id: rerun:RCT-07, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.ascertain, reason: restores distinct governed outcome operation}
+  - {source_id: rerun:RCT-08, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.lock_audit, reason: locked analysis state}
+  - {source_id: rerun:RCT-09, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.lock_audit, reason: conduct validity audit shares the admission gate}
+  - {source_id: rerun:RCT-10, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.estimate, reason: stable primary estimate}
+  - {source_id: rerun:RCT-11, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.sensitivity, reason: stable stress output}
+  - {source_id: rerun:RCT-12, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.auxiliary, reason: auxiliary/deviation qualification}
+  - {source_id: rerun:RCT-13, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.conclude, reason: explicit superiority gate}
+  - {source_id: rerun:RCT-14, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.report, reason: distinct reporting move restored}
+  # RCT structural gaps (6/6)
+  - {source_id: 'gap:rct.02->rct.03', method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.prespecify, reason: frozen protocol permits conduct; target population is external context}
+  - {source_id: 'gap:rct.03->rct.04', method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.prespecify, reason: estimand remains context for design rather than flowing from eligibility}
+  - {source_id: 'gap:rct.04->rct.05', method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.allocate, reason: feasible frozen plan permits assignment}
+  - {source_id: 'gap:rct.08->rct.10', method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.auxiliary, reason: conduct ledger is retained for auxiliary appraisal}
+  - {source_id: capability:ascertain-the-primary-outcome-as-a-distinct-governed-operation, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.ascertain, reason: restored governed operation}
+  - {source_id: capability:report-the-trial-transparently-as-a-distinct-operation, method_id: causal_effect_estimation_rct, disposition: analytical_move, target: rct.move.report, reason: restored reporting operation}
+
+  # Policy-appraisal compact rows (12/12)
+  - {source_id: compact:pa.01, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.rationale, reason: intervention rationale; counterfactual split explicitly}
+  - {source_id: compact:pa.02, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.objectives, reason: objective authority record}
+  - {source_id: compact:pa.03, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.characterize, reason: option theory and dependencies are characterization inputs}
+  - {source_id: compact:pa.04, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.longlist, reason: option-set output}
+  - {source_id: compact:pa.05, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.shortlist, reason: shortlist and rejection log}
+  - {source_id: compact:pa.06, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.characterize, reason: evidence becomes comparable option models}
+  - {source_id: compact:pa.07, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.social_value, reason: impact quantification and valuation; distribution remains separate}
+  - {source_id: compact:pa.08, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.distribution, reason: distinct distributional result}
+  - {source_id: compact:pa.09, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.uncertainty, reason: distinct uncertainty branch}
+  - {source_id: compact:pa.10, method_id: policy_option_appraisal, disposition: unresolved, target: null, reason: compact value judgment combines nonmonetized appraisal and comparison}
+  - {source_id: compact:pa.11, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.advise, reason: analyst advice boundary}
+  - {source_id: compact:pa.12, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.decide_learn, reason: decision and successor feedback boundary}
+  # Policy-appraisal blind rerun (15/15)
+  - {source_id: rerun:PA01, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.rationale, reason: stable problem account}
+  - {source_id: rerun:PA02, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.scope, reason: explicit counterfactual and scope}
+  - {source_id: rerun:PA03, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.objectives, reason: explicit value-goal authority}
+  - {source_id: rerun:PA04, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.longlist, reason: stable longlist}
+  - {source_id: rerun:PA05, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.shortlist, reason: stable shortlist}
+  - {source_id: rerun:PA06, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.characterize, reason: comparable option models}
+  - {source_id: rerun:PA07, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.characterize, reason: impact mapping included in characterization}
+  - {source_id: rerun:PA08, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.social_value, reason: valuation operation}
+  - {source_id: rerun:PA09, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.social_value, reason: aggregate metric retained separately from impact characterization}
+  - {source_id: rerun:PA10, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.nonmonetized, reason: criteria weights and rationale artifact}
+  - {source_id: rerun:PA11, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.distribution, reason: distributional branch}
+  - {source_id: rerun:PA12, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.uncertainty, reason: uncertainty branch}
+  - {source_id: rerun:PA13, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.compare, reason: comparative judgment}
+  - {source_id: rerun:PA14, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.advise, reason: advice or no-preference output}
+  - {source_id: rerun:PA15, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.decide_learn, reason: decision and future version feedback}
+  # Policy-appraisal structural gaps (6/6)
+  - {source_id: 'gap:pa.03->pa.04', method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.longlist, reason: objectives and counterfactual remain context for longlisting}
+  - {source_id: 'gap:pa.08->pa.10', method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.compare, reason: distributional branch explicitly joins comparison through pa.c14}
+  - {source_id: 'gap:pa.09->pa.10', method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.compare, reason: uncertainty branch explicitly joins comparison through pa.c15}
+  - {source_id: capability:preserve-the-counterfactual-separately-from-intervention-rationale, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.scope, reason: restored explicit counterfactual artifact}
+  - {source_id: capability:aggregate-social-value-separately-from-impact-measurement, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.social_value, reason: restored explicit aggregation output}
+  - {source_id: capability:preserve-the-analyst-advice-accountable-decision-and-feedback-boundaries, method_id: policy_option_appraisal, disposition: analytical_move, target: pa.move.decide_learn, reason: six roles and successor-version feedback preserve boundaries}

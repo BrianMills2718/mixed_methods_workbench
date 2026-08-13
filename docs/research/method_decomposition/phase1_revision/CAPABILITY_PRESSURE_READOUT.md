@@ -76,8 +76,10 @@ These recur without claiming analytical equivalence:
    producer-owned meaning;
 9. declared information added, transformed, or lost at a handoff.
 
-These are architecture hypotheses until two authentic, materially different
-producer/consumer seams use the same boundary successfully.
+These are architecture hypotheses until the rev-5.1 promotion threshold is
+met: recurrence in three materially different methods plus a deliberate fourth
+hostile case. Two authentic, materially different producer/consumer seams are
+a separate workbench adoption requirement.
 
 ## Candidate shared shells
 
@@ -222,9 +224,10 @@ whether it is a warning, qualification, downgrade, or invalidity condition.
 - The phase / analytical-move / execution-action distinction survived.
 - The original five connection types were enough after artifact flow gained
   preserving/transforming/lossy metadata.
-- The four authority roles remain useful. Legal review reinforces, rather than
-  replaces, the distinction between performer, judgment owner, goal/value
-  authority, and decision authority.
+- The six authority roles remain useful. Legal review reinforces, rather than
+  replaces, the distinction between performer, judgment owner, judgment
+  acceptance/review authority, recommender, goal/value authority, and decision
+  authority.
 - Nonlinear topology remained permissive rather than mandatory. Systematic
   review can be predominantly staged; forecasting operationally cycles; QCA and
   simulation return iteratively; legal and institutional tracks converge.

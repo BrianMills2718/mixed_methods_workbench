@@ -17,6 +17,13 @@ Read in this order:
 5. [`CAPABILITY_PRESSURE_READOUT.md`](CAPABILITY_PRESSURE_READOUT.md) — what
    remained reusable, what stayed method-owned, what broke, and the smallest
    next authentic seam.
+6. [`method_records.yaml`](method_records.yaml) and
+   [`connections.yaml`](connections.yaml) — instantiated records and typed
+   graph fixtures for those methods.
+7. [`audit_dispositions.yaml`](audit_dispositions.yaml) — exact dispositions
+   for every compact row, blind-rerun item, and structural gap in scope.
+8. [`phase2_vocabulary_dispositions.yaml`](phase2_vocabulary_dispositions.yaml)
+   — verb/type proposals retained for Phase 2 without adopting enums.
 
 This is documentation/research only. It does not adopt a universal schema,
 select the RAND-derived portfolio, calculate coverage, change an analytical
