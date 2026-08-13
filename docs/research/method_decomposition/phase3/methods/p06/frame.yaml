@@ -1,0 +1,17 @@
+schema_version: phase3-method-frame-0.1
+status: frozen_before_decomposition
+method_id: p06
+variant: cross-sectional probability-sample survey estimating one named population prevalence
+purpose: estimate a declared finite-population prevalence with design-based uncertainty
+population_or_case_scope: one named target population and reference period covered by a declared sampling frame
+evidence_object: respondent reports or observations linked to probability-selected units
+target_conclusion: prevalence in the covered target population, with sampling and material nonsampling error disclosed
+decisive_design_choices: [target construct, reference period, frame, probability design, instrument, response protocol, weighting, variance estimator]
+included: [probability sampling, questionnaire pretest, field collection, editing, nonresponse analysis, weighting, variance estimation, release documentation]
+excluded: [nonprobability opt-in polling, longitudinal change estimation, causal effect estimation, respondent-level diagnosis]
+applicability_boundary: inference is limited to the covered frame population, reference period, measured construct, and documented response/error conditions
+source_freeze:
+  frozen_on: 2026-08-13
+  primary: OMB_2006_Standards_and_Guidelines_for_Statistical_Surveys_sections_1.1_through_5.3
+  corroborating: Groves_et_al_2009_Survey_Methodology_2e_chapters_2_3_5_6_7_10
+source_scope_caution: OMB governs US federal statistical surveys; its error-accounting and conduct rules are used here as a rigorous survey standard, not as a claim that every policy survey is federally governed.

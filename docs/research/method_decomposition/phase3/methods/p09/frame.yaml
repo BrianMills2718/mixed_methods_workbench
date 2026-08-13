@@ -1,0 +1,19 @@
+schema_version: phase3-method-frame-0.1
+status: frozen_before_decomposition
+method_id: p09
+variant: agent-based policy simulation with ODD description and frozen stochastic experiment
+purpose: compare what an explicit interacting-agent model generates under declared policy configurations
+population_or_case_scope: one purpose-bounded modeled system, model version, configuration space, and experimental ensemble
+evidence_object: empirical/model inputs and generated state/event trajectories bound to model, configuration, seed, and environment
+target_conclusion: model-conditional contrasts, mechanisms, sensitivities, and failure boundaries
+decisive_design_choices: [purpose, abstraction, agents, states, rules, schedule, initialization, inputs, empirical patterns, verification oracles, configurations, estimands, replications, uncertainty space]
+included: [ODD description, implementation correspondence, software verification, empirical fitness appraisal, frozen experiment, replicated ensembles, parameter/input and structural sensitivity, refusal gate]
+excluded: [discrete-event simulation without interacting agents, microsimulation without agent interaction, unconditional real-world prediction, simulation as self-validation]
+applicability_boundary: exact model purpose, abstraction, represented mechanisms, empirical grounding, model/build version, configurations, uncertainty domain, and experimental design
+source_freeze:
+  frozen_on: 2026-08-13
+  primary_description: Grimm_et_al_2020_ODD_sections_3_4_and_appendix_checklists
+  primary_experiment_and_verification: Railsback_and_Grimm_2019_2e_chapters_3_6_8_20_22_23
+  corroborating_verification: Sargent_2013_sections_2_through_6
+  corroborating_sensitivity: Azzini_et_al_JRC_2020_chapters_2_through_4
+source_scope_caution: ODD is a description protocol, not sufficient authority for experiment design, code verification, empirical validity, sensitivity analysis, or real-world extrapolation.

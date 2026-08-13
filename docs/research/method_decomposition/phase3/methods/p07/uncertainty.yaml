@@ -1,0 +1,9 @@
+schema_version: phase3-uncertainty-0.1
+method_id: p07
+items:
+  - {id: p07.u01, status: contested, topic: construct_validity, account: human coding operationalizes but does not prove the intended construct, downstream_effect: limits_interpretation_even_when_accuracy_is_high}
+  - {id: p07.u02, status: known, topic: heldout_label_reproduction, account: measured on frozen document-grouped holdout, downstream_effect: licenses_only_protocol_reproduction_claim}
+  - {id: p07.u03, status: source_limited, topic: domain_transport, account: language and label relationships may shift outside the bounded corpus, downstream_effect: new_domain_requires_new_validation}
+  - {id: p07.u04, status: contested, topic: prevalence_bias, account: individual classification metrics may not bound aggregate prevalence error, downstream_effect: requires_quantification_specific_evaluation_or_qualification}
+  - {id: p07.u05, status: known, topic: causal_scope, account: measured textual prevalence is not a treatment effect or mechanism, downstream_effect: causal_transition_is_prohibited}
+stopping_rule: stop when target labels lack defensible meaning, grouped holdout is contaminated, or prevalence error cannot be bounded for the intended corpus claim

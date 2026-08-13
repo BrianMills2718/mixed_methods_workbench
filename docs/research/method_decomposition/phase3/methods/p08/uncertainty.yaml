@@ -1,0 +1,9 @@
+schema_version: phase3-uncertainty-0.1
+method_id: p08
+items:
+  - {id: p08.u01, status: known, topic: out_of_sample_performance, account: estimated by horizon-specific rolling origins, downstream_effect: supports_comparative_predictive_claim_only}
+  - {id: p08.u02, status: source_limited, topic: future_regime_stability, account: historical folds may omit future structural change, downstream_effect: monitoring_and_refusal_boundary_required}
+  - {id: p08.u03, status: contested, topic: decision_loss, account: metric weights and asymmetric consequences depend on user purpose, downstream_effect: selection_may_change_with_authorized_loss}
+  - {id: p08.u04, status: known, topic: predictive_uncertainty, account: forecast distribution is evaluated with proper or interval scores, downstream_effect: point_forecast_alone_is_incomplete}
+  - {id: p08.u05, status: known, topic: causal_scope, account: predictive performance does not identify intervention effects, downstream_effect: causal_claim_is_refused}
+stopping_rule: refuse issuance when information leakage, unsupported horizon, failed baseline comparison, material miscalibration, or unrepresented regime shift defeats the intended use

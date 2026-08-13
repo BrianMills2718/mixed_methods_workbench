@@ -1,0 +1,17 @@
+schema_version: phase3-connections-0.1
+method_id: p08
+connections:
+  - {id: p08.c01, from: p08.move.target, to: p08.move.information, connection_type: artifact_flow, carries: frozen_forecast_specification, preservation: preserving, from_output: frozen_forecast_specification, to_input: frozen_forecast_specification}
+  - {id: p08.c02, from: p08.move.information, to: p08.move.baseline, connection_type: artifact_flow, carries: versioned_as_of_modeling_data, preservation: preserving, from_output: versioned_as_of_modeling_data, to_input: versioned_as_of_modeling_data}
+  - {id: p08.c03, from: p08.move.information, to: p08.move.folds, connection_type: artifact_flow, carries: versioned_as_of_modeling_data, preservation: preserving, from_output: versioned_as_of_modeling_data, to_input: versioned_as_of_modeling_data}
+  - {id: p08.c04, from: p08.move.baseline, to: p08.move.fit_score, connection_type: retained_context, carries: baseline_forecast_procedures, from_output: baseline_forecast_procedures, to_input: baseline_forecast_procedures}
+  - {id: p08.c05, from: p08.move.folds, to: p08.move.fit_score, connection_type: control_gate, carries: evaluation_permission, condition: folds_and_information_cutoffs_frozen}
+  - {id: p08.c06, from: p08.move.fit_score, to: p08.move.diagnose, connection_type: artifact_flow, carries: horizon_specific_comparative_scores, preservation: preserving, from_output: horizon_specific_comparative_scores, to_input: horizon_specific_comparative_scores}
+  - {id: p08.c07, from: p08.move.diagnose, to: p08.move.issue, connection_type: control_gate, carries: adequacy_judgment, condition: procedure_is_adequate_or_explicitly_qualified}
+  - {id: p08.c08, from: p08.move.target, to: p08.move.issue, connection_type: retained_context, carries: frozen_forecast_specification, from_output: frozen_forecast_specification, to_input: frozen_forecast_specification}
+  - {id: p08.c09, from: p08.move.issue, to: p08.move.monitor, connection_type: artifact_flow, carries: immutable_probabilistic_forecast, preservation: preserving, from_output: immutable_probabilistic_forecast, to_input: immutable_probabilistic_forecast}
+  - {id: p08.c10, from: p08.move.monitor, to: p08.move.information, connection_type: feedback, carries: drift_or_retraining_request, condition: successor_model_version, creates_successor_version: true}
+  - {id: p08.c11, from: p08.move.monitor, to: p08.move.issue, connection_type: prohibited_transition, carries: realized_outcome, condition: overwrite_prior_forecast, invalidates: historical_forecast_integrity}
+  - {id: p08.c12, from: p08.move.issue, to: p08.move.target, connection_type: prohibited_transition, carries: favorable_prediction, condition: redefine_loss_after_results, invalidates: evaluation_warrant}
+  - {id: p08.c13, from: p08.action.persist_issue, to: p08.move.monitor, connection_type: retained_context, carries: immutable_forecast_artifact, adapter_note: custody_preserves_forecast_identity}
+topology: {shape: operational_cycle_with_immutable_history, entry_points: [p08.move.target], terminal_points: [p08.move.issue, p08.move.monitor], required_feedback: [p08.c10], prohibited_transitions: [p08.c11, p08.c12]}

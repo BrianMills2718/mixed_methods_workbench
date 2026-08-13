@@ -1,0 +1,17 @@
+schema_version: phase3-method-frame-0.1
+status: frozen_before_decomposition
+method_id: p07
+variant: supervised quantitative-text prevalence measurement using a human-coded target
+purpose: estimate corpus-level prevalence of one declared textual construct
+population_or_case_scope: one versioned corpus with grouped document provenance and a declared unit of analysis
+evidence_object: texts plus independently human-coded labels for the target construct
+target_conclusion: prevalence of the coded construct in the bounded corpus with sampling and classification uncertainty
+decisive_design_choices: [construct definition, unitization, corpus boundary, annotation protocol, grouped split, baselines, prevalence estimator, uncertainty method]
+included: [human target definition, annotation, grouped holdout, simple baselines, supervised fitting, item-error analysis, prevalence estimation]
+excluded: [unsupervised topic discovery, individual high-stakes classification, causal inference from text, construct discovery by classifier accuracy]
+applicability_boundary: the exact construct, coding protocol, corpus, language/domain, unitization, and time period
+source_freeze:
+  frozen_on: 2026-08-13
+  primary: Grimmer_and_Stewart_2013_sections_2_through_5
+  corroborating: Moreo_and_Sebastiani_2019_supervised_prevalence_estimation
+source_scope_caution: Grimmer and Stewart govern social-science text measurement broadly; prevalence estimation additionally requires quantification-specific checks because classify-and-count accuracy is not itself prevalence validity.
