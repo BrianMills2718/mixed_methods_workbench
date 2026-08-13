@@ -59,6 +59,12 @@ def test_catalog_exposes_representative_profiles_and_policy_spine() -> None:
     assert next(option for option in catalog.aim_options if option.value == "interpret").label == (
         "Understand what it means to people"
     )
+    assert next(option for option in catalog.starting_point_options if option.value == "literature").label == (
+        "I want to start by reviewing what is already known"
+    )
+    assert next(option for option in catalog.starting_point_options if option.value == "evidence").label == (
+        "I want to explore source material without a settled explanation"
+    )
     assert len(catalog.capability_tiers) == 3
     assert len(catalog.architecture_stress_tests) == 5
     assert [item.rank for item in catalog.architecture_stress_tests] == [1, 2, 3, 4, 5]
@@ -174,7 +180,8 @@ def test_html_exposes_truthful_primary_action_and_views() -> None:
     assert "See a completed decision example" in html
     assert "does not yet run the selected methods" in html
     assert "Inspectable study map" in html
-    assert "What best describes your current situation?" in html
+    assert "What is organizing the work right now?" in html
+    assert "You will identify the material you possess separately below." in html
     assert "What will you study or compare?" in html
     assert "What material do you already have?" in html
     assert "Understand what it means to people" in html
