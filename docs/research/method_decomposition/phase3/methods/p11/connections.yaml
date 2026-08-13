@@ -1,0 +1,29 @@
+schema_version: phase3-method-connections-1.0
+method_id: P11
+allowed_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+connections:
+  - {id: p11.c01, type: artifact_flow, from: p11.move.rationale, to: p11.move.objectives, artifact: rationale_theory_and_bau_record, transfer: preserving}
+  - {id: p11.c02, type: artifact_flow, from: p11.move.objectives, to: p11.move.generate_off, artifact: objective_csf_and_authority_record, transfer: preserving}
+  - {id: p11.c03, type: retained_context, from: p11.move.rationale, to: p11.move.generate_off, artifact: rationale_theory_and_bau_record}
+  - {id: p11.c04, type: artifact_flow, from: p11.move.generate_off, to: p11.move.choose_longlist_route, artifact: off_choices_ratings_rationales_and_longlist, transfer: preserving}
+  - {id: p11.c05, type: control_gate, from: p11.move.choose_longlist_route, to: p11.move.mcda, condition: standard_off_does_not_resolve_complex_technical_tradeoffs_and_expert_facilitator_is_available, effect: activate_bounded_mcda}
+  - {id: p11.c06, type: control_gate, from: p11.move.choose_longlist_route, to: p11.move.shortlist, condition: off_route_is_sufficient, effect: bypass_mcda_and_form_shortlist_from_off}
+  - {id: p11.c07, type: artifact_flow, from: p11.move.mcda, to: p11.move.shortlist, artifact: facilitated_mcda_results_and_dissent, transfer: preserving}
+  - {id: p11.c08, type: retained_context, from: p11.move.generate_off, to: p11.move.shortlist, artifact: off_choices_ratings_rationales_and_longlist}
+  - {id: p11.c09, type: artifact_flow, from: p11.move.shortlist, to: p11.move.appraise_cba_cea, artifact: shortlist_rejection_log_and_preferred_way_forward, transfer: preserving}
+  - {id: p11.c10, type: retained_context, from: p11.move.rationale, to: p11.move.appraise_cba_cea, artifact: rationale_theory_and_bau_record}
+  - {id: p11.c11, type: artifact_flow, from: p11.action.calculate, to: p11.move.appraise_cba_cea, artifact: calculation_receipt, transfer: transforming, transformation_owner: P11, change: interpret_metrics_under_social_value_method_and_assumptions}
+  - {id: p11.c12, type: artifact_flow, from: p11.move.appraise_cba_cea, to: p11.move.qualify_impacts, artifact: comparable_incremental_social_value_or_cost_effectiveness_results, transfer: preserving}
+  - {id: p11.c13, type: artifact_flow, from: p11.move.appraise_cba_cea, to: p11.move.compare_advise, artifact: comparable_incremental_social_value_or_cost_effectiveness_results, transfer: preserving}
+  - {id: p11.c14, type: artifact_flow, from: p11.move.qualify_impacts, to: p11.move.compare_advise, artifact: unmonetized_distributional_and_uncertainty_results, transfer: preserving}
+  - {id: p11.c15, type: control_gate, from: p11.move.compare_advise, to: p11.move.decide_feedback, condition: appraisal_assurance_accepts_bounded_advice_or_no_preference, effect: present_advice_to_accountable_decision_maker}
+  - {id: p11.c16, type: artifact_flow, from: p11.move.compare_advise, to: p11.move.decide_feedback, artifact: assured_bounded_appraisal_advice, transfer: preserving}
+  - {id: p11.c17, type: feedback, from: p11.move.decide_feedback, to: p11.move.rationale, condition: monitoring_evaluation_or_material_change_requires_reappraisal, effect: create_successor_appraisal_version}
+  - {id: p11.c18, type: prohibited_transition, from: p11.move.mcda, to: p11.move.compare_advise, reason: longlist_mcda_cannot_replace_shortlist_cba_or_cea}
+  - {id: p11.c19, type: prohibited_transition, from: p11.move.generate_off, to: p11.move.decide_feedback, reason: longlist_rating_is_not_shortlist_appraisal_advice_or_decision}
+  - {id: p11.c20, type: artifact_flow, from: p11.action.publish_ast, to: p11.move.decide_feedback, artifact: appraisal_summary_artifact, transfer: preserving}
+topology_assertions:
+  - off_is_standard_route_and_mcda_is_conditional_longlist_branch
+  - shortlist_cba_or_cea_is_mandatory_after_either_longlist_route
+  - monetized_unmonetized_distributional_and_uncertainty_evidence_join_before_advice
+  - advice_assurance_decision_and_successor_feedback_remain_separate

@@ -1,0 +1,23 @@
+schema_version: phase3-method-frame-1.0
+method_id: P05
+name: constructivist_grounded_theory
+variant: "Charmaz constructivist grounded theory, third edition: initial and focused coding, constant comparison, memo-writing, theoretical sampling, adequacy appraisal, theoretical integration, and reflexive accounting"
+status: source_frozen_decomposition_candidate
+purpose: construct a bounded interpretive theory from iteratively generated and analyzed qualitative material
+applicability_boundary: qualitative inquiry seeking interpretive theory construction where data collection may respond to emerging categories
+exclusions:
+  - objectivist or Glaserian grounded theory
+  - generic thematic analysis or content analysis
+  - a fixed-corpus workflow claiming theoretical saturation
+  - automated category adequacy, theoretical sampling, or theory acceptance
+authorities:
+  performer: grounded_theory_researcher_and_research_team
+  judgment_owner: grounded_theory_lead
+  acceptance_authority: methodological_reviewer
+  recommender: none
+  value_goal_authority: study_sponsor_and_affected_participant_governance
+  decision_authority: none
+primary_source: charmaz_2024_3e
+corroborating_source: tie_et_al_2019
+source_freeze_date: 2026-08-13
+claim_limit: decomposition evidence only; no grounded-theory analysis or reusable-capability claim

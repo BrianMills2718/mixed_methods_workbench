@@ -1,0 +1,23 @@
+schema_version: phase3-method-frame-1.0
+method_id: P11
+name: green_book_staged_option_appraisal
+variant: "HM Treasury Green Book 2026 staged appraisal: rationale and objectives; Options Framework Filter longlist; expert-facilitated MCDA only when the standard longlist route cannot resolve complex technical trade-offs; shortlist CBA or CEA; unmonetized, distributional, risk and uncertainty evidence; accountable recommendation and decision"
+status: source_frozen_decomposition_candidate
+purpose: advise an accountable decision-maker on public-value trade-offs among viable options
+applicability_boundary: UK central-government appraisal or a declared adaptation preserving the Green Book social-value perspective and staged longlist/shortlist logic
+exclusions:
+  - simple weighted-and-scored MCA
+  - MCDA replacing shortlist CBA or CEA
+  - affordability treated as social value
+  - analyst recommendation treated as the accountable decision
+authorities:
+  performer: multidisciplinary_appraisal_team_and_facilitated_stakeholders
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+primary_source: green_book_2026
+corroborating_source: green_book_mcda_2024
+source_freeze_date: 2026-08-13
+claim_limit: decomposition evidence only; no option appraisal or policy recommendation

@@ -1,0 +1,7 @@
+schema_version: phase3-method-uncertainty-1.0
+method_id: P12
+items:
+  - {id: p12.u01, status: known, subject: panel_composition, statement: "Purposive expertise does not create population representativeness.", downstream_effect: "Report eligibility, recruitment, composition, nonresponse, and attrition."}
+  - {id: p12.u02, status: contested, subject: consensus_threshold, statement: "No universal statistical definition of Delphi consensus exists.", downstream_effect: "Prespecify measures and thresholds; report distributions and dissensus."}
+  - {id: p12.u03, status: known, subject: feedback_effect, statement: "Controlled feedback may inform revision but can also pressure convergence.", downstream_effect: "Preserve round histories, rationales, and stable minority views."}
+  - {id: p12.u04, status: known, subject: truth_status, statement: "Consensus is expert judgment evidence, not verification of the underlying proposition.", downstream_effect: "Prohibit truth or decision claims from consensus alone."}

@@ -1,0 +1,23 @@
+schema_version: phase3-method-frame-1.0
+method_id: P10
+name: robust_decision_making
+variant: "RAND Robust Decision Making under deep uncertainty using decision framing, many plausible futures, vulnerability/scenario discovery, trade-off analysis, and iterative adaptive-strategy revision"
+status: source_frozen_decomposition_candidate
+purpose: identify vulnerabilities and comparatively robust or adaptive strategies without selecting one predicted future
+applicability_boundary: decisions where parties cannot confidently agree on models, probabilities, or value functions and exploratory models can test strategies over plausible futures
+exclusions:
+  - expected-value optimization under an agreed probability distribution
+  - one forecast treated as the future
+  - scenario narratives without systematic strategy stress-testing
+  - analyst selection of goals or final policy choice
+authorities:
+  performer: rdm_analyst_modeling_team_and_stakeholders
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+primary_source: lempert_et_al_2003
+corroborating_source: groves_et_al_2019
+source_freeze_date: 2026-08-13
+claim_limit: decomposition evidence only; no simulation run, robust strategy, or recommendation

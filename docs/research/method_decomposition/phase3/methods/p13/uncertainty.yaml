@@ -1,0 +1,7 @@
+schema_version: phase3-method-uncertainty-1.0
+method_id: P13
+items:
+  - {id: p13.u01, status: known, subject: strand_warrants, statement: "Qualitative and quantitative conclusions have different inferential bases.", downstream_effect: "Validate each separately and prohibit cross-strand repair of invalidity."}
+  - {id: p13.u02, status: contested, subject: commensurability, statement: "Some constructs or units cannot be aligned without loss.", downstream_effect: "Declare nonalignment or lossy transformation and bound meta-inference."}
+  - {id: p13.u03, status: known, subject: divergence, statement: "Discordance may reflect bias, construct differences, subgroup/context variation, or genuine tension.", downstream_effect: "Require explicit disposition and permit unresolved divergence."}
+  - {id: p13.u04, status: known, subject: meta_inference, statement: "Integration can add insight but cannot exceed the combined scope and quality of its inputs.", downstream_effect: "Trace every meta-inference to both strand findings and qualifications."}

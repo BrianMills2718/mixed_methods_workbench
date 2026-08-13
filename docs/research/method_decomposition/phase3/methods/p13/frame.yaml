@@ -1,0 +1,23 @@
+schema_version: phase3-method-frame-1.0
+method_id: P13
+name: convergent_mixed_methods_policy_evaluation
+variant: "convergent mixed-methods policy evaluation with concurrent independently warranted qualitative and quantitative strands, explicit merging in a joint display, fit/divergence disposition, and bounded meta-inference"
+status: source_frozen_decomposition_candidate
+purpose: produce insights from purposeful integration while preserving what each strand independently warrants and where findings conflict
+applicability_boundary: evaluation questions for which qualitative and quantitative evidence address complementary aspects of the same intervention, implementation, outcome, or context and can be intentionally merged
+exclusions:
+  - parallel qualitative and quantitative studies with no integration
+  - sequential explanatory or exploratory designs
+  - transforming one strand so its original warrant disappears
+  - using one strand to repair invalidity in the other
+authorities:
+  performer: qualitative_team_quantitative_team_and_mixed_methods_integration_team
+  judgment_owner: strand_leads_for_strand_inferences_and_mixed_methods_lead_for_meta_inference
+  acceptance_authority: strand_reviewers_and_mixed_methods_reviewer
+  recommender: evaluation_lead_if_advice_is_in_scope
+  value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
+  decision_authority: accountable_policy_or_program_decision_maker
+primary_source: creswell_et_al_2011_nih
+corroborating_source: fetters_curry_creswell_2013
+source_freeze_date: 2026-08-13
+claim_limit: decomposition evidence only; no evaluation finding, meta-inference, or policy recommendation

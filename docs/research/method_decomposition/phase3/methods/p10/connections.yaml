@@ -1,0 +1,24 @@
+schema_version: phase3-method-connections-1.0
+method_id: P10
+allowed_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+connections:
+  - {id: p10.c01, type: artifact_flow, from: p10.move.frame, to: p10.move.generate_futures, artifact: frozen_xlrpm_frame, transfer: preserving}
+  - {id: p10.c02, type: artifact_flow, from: p10.move.generate_futures, to: p10.move.evaluate, artifact: plausible_future_ensemble, transfer: preserving}
+  - {id: p10.c03, type: retained_context, from: p10.move.frame, to: p10.move.evaluate, artifact: frozen_xlrpm_frame}
+  - {id: p10.c04, type: artifact_flow, from: p10.action.run_ensemble, to: p10.move.evaluate, artifact: model_run_receipts, transfer: transforming, transformation_owner: P10, change: aggregate_receipted_runs_into_comparable_performance_database}
+  - {id: p10.c05, type: artifact_flow, from: p10.move.evaluate, to: p10.move.discover_vulnerability, artifact: strategy_future_performance_database, transfer: transforming, transformation_owner: P10, change: derive_and_interpret_failure_conditions}
+  - {id: p10.c06, type: artifact_flow, from: p10.action.cluster_cases, to: p10.move.discover_vulnerability, artifact: candidate_cluster_statistics, transfer: transforming, transformation_owner: P10, change: analyst_validates_vulnerability_interpretation}
+  - {id: p10.c07, type: artifact_flow, from: p10.move.evaluate, to: p10.move.compare_robustness, artifact: strategy_future_performance_database, transfer: preserving}
+  - {id: p10.c08, type: artifact_flow, from: p10.move.discover_vulnerability, to: p10.move.compare_robustness, artifact: vulnerability_scenarios_with_interpretable_conditions, transfer: preserving}
+  - {id: p10.c09, type: retained_context, from: p10.move.frame, to: p10.move.compare_robustness, artifact: frozen_xlrpm_frame}
+  - {id: p10.c10, type: artifact_flow, from: p10.move.compare_robustness, to: p10.move.revise_strategy, artifact: robustness_and_tradeoff_readout, transfer: preserving}
+  - {id: p10.c11, type: retained_context, from: p10.move.discover_vulnerability, to: p10.move.revise_strategy, artifact: vulnerability_scenarios_with_interpretable_conditions}
+  - {id: p10.c12, type: feedback, from: p10.move.revise_strategy, to: p10.move.evaluate, condition: successor_strategy_or_future_request_is_approved_for_test, effect: create_successor_strategy_ensemble_and_experiment_batch}
+  - {id: p10.c13, type: artifact_flow, from: p10.move.compare_robustness, to: p10.move.advise, artifact: robustness_and_tradeoff_readout, transfer: preserving}
+  - {id: p10.c14, type: artifact_flow, from: p10.move.revise_strategy, to: p10.move.advise, artifact: successor_strategies_signposts_and_future_requests, transfer: preserving}
+  - {id: p10.c15, type: prohibited_transition, from: p10.move.generate_futures, to: p10.move.advise, reason: plausible_futures_without_strategy_evaluation_vulnerability_and_tradeoff_analysis_do_not_support_advice}
+  - {id: p10.c16, type: prohibited_transition, from: p10.move.advise, to: p10.move.frame, reason: decision_preferences_or_advice_cannot_rewrite_the_frozen_frame_without_a_successor_version}
+topology_assertions:
+  - adaptive_strategy_feedback_to_evaluation_is_required
+  - every_compared_strategy_uses_the_same_declared_future_ensemble_per_batch
+  - advice_is_conditional_and_does_not_execute_the_decision

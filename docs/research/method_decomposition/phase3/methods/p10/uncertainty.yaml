@@ -1,0 +1,7 @@
+schema_version: phase3-method-uncertainty-1.0
+method_id: P10
+items:
+  - {id: p10.u01, status: known, subject: deep_uncertainty, statement: "Models, probabilities, and values are disputed or unknown.", downstream_effect: "Conclusions are conditional robustness and vulnerability statements, not forecasts."}
+  - {id: p10.u02, status: contested, subject: plausible_future_boundary, statement: "No model ensemble can establish exhaustive plausibility.", downstream_effect: "Record inclusion rationales and residual blind spots."}
+  - {id: p10.u03, status: known, subject: robustness_metric, statement: "Satisficing thresholds and trade-offs are value choices.", downstream_effect: "Value authority remains human and sensitivity is reported."}
+  - {id: p10.u04, status: known, subject: adaptivity, statement: "Signposts and contingent actions depend on monitoring and institutional feasibility.", downstream_effect: "Strategy advice remains conditional and versioned."}

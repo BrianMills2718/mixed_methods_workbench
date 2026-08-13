@@ -1,0 +1,27 @@
+schema_version: phase3-method-connections-1.0
+method_id: P05
+allowed_types: [artifact_flow, retained_context, control_gate, feedback, prohibited_transition]
+connections:
+  - {id: p05.c01, type: artifact_flow, from: p05.move.orient, to: p05.move.gather, artifact: inquiry_and_reflexive_position_record, transfer: preserving}
+  - {id: p05.c02, type: artifact_flow, from: p05.move.gather, to: p05.move.initial_code, artifact: governed_source_increment, transfer: transforming, transformation_owner: P05, change: segment_and_interpret_incidents_as_provisional_codes}
+  - {id: p05.c03, type: artifact_flow, from: p05.move.initial_code, to: p05.move.compare_memo, artifact: anchored_provisional_codes, transfer: preserving}
+  - {id: p05.c04, type: retained_context, from: p05.move.orient, to: p05.move.compare_memo, artifact: inquiry_and_reflexive_position_record}
+  - {id: p05.c05, type: artifact_flow, from: p05.move.compare_memo, to: p05.move.focus_categories, artifact: comparison_and_memo_bundle, transfer: preserving}
+  - {id: p05.c06, type: retained_context, from: p05.move.initial_code, to: p05.move.focus_categories, artifact: anchored_provisional_codes}
+  - {id: p05.c07, type: artifact_flow, from: p05.move.focus_categories, to: p05.move.theoretical_sample, artifact: provisional_categories_with_properties_and_gaps, transfer: preserving}
+  - {id: p05.c08, type: retained_context, from: p05.move.compare_memo, to: p05.move.theoretical_sample, artifact: comparison_and_memo_bundle}
+  - {id: p05.c09, type: artifact_flow, from: p05.move.theoretical_sample, to: p05.move.refine, artifact: targeted_successor_source_increment, transfer: transforming, transformation_owner: P05, change: code_and_compare_successor_material}
+  - {id: p05.c10, type: retained_context, from: p05.move.focus_categories, to: p05.move.refine, artifact: provisional_categories_with_properties_and_gaps}
+  - {id: p05.c11, type: artifact_flow, from: p05.move.refine, to: p05.move.adequacy, artifact: revised_category_and_memo_bundle, transfer: preserving}
+  - {id: p05.c12, type: feedback, from: p05.move.adequacy, to: p05.move.theoretical_sample, condition: named_category_gap_requires_more_data, effect: create_successor_sampling_and_corpus_versions}
+  - {id: p05.c13, type: control_gate, from: p05.move.adequacy, to: p05.move.integrate, condition: adequacy_supported_or_partial_stop_accepted, effect: permit_bounded_integration}
+  - {id: p05.c14, type: artifact_flow, from: p05.move.refine, to: p05.move.integrate, artifact: revised_category_and_memo_bundle, transfer: preserving}
+  - {id: p05.c15, type: retained_context, from: p05.move.orient, to: p05.move.integrate, artifact: inquiry_and_reflexive_position_record}
+  - {id: p05.c16, type: prohibited_transition, from: p05.move.gather, to: p05.move.integrate, reason: raw_material_cannot_bypass_coding_comparison_memo_category_development_and_adequacy}
+  - {id: p05.c17, type: prohibited_transition, from: p05.move.focus_categories, to: p05.move.gather, reason: category_directed_collection_must_be_recorded_as_theoretical_sampling_not_retroactive_initial_sampling}
+  - {id: p05.c18, type: artifact_flow, from: p05.action.persist_anchors, to: p05.move.initial_code, artifact: anchor_manifest, transfer: preserving}
+  - {id: p05.c19, type: artifact_flow, from: p05.action.version_memos, to: p05.move.focus_categories, artifact: memo_version_receipt, transfer: preserving}
+topology_assertions:
+  - theoretical_sampling_feedback_loop_is_required
+  - reflexive_position_is_retained_through_integration
+  - adequacy_gates_integration_and_may_return_to_sampling
