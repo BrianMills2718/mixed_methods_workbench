@@ -56,11 +56,12 @@ authentic compatible consumer demonstrates a stable cross-project seam.
 
 ## Execution sequence and parallelism
 
-`NYC-EXTRACT-1` is the immediate critical-path unit. `NYC-QUANT-1` is a
-non-overlapping ready lane and may run in parallel when another contributor is
-available. `NYC-QC-1` starts only after the extraction/anchor/review contract is
-accepted, because the QC export must bind to that exact evidence semantics
-without copying Workbench product logic into the producer.
+At adoption, `NYC-EXTRACT-1` was the immediate critical-path unit and
+`NYC-QUANT-1` was its non-overlapping parallel lane. Both have now executed and
+are in completion review as recorded below; neither is claimable for a rerun.
+`NYC-QC-1` starts only after the extraction/anchor/review contract is accepted,
+because the QC export must bind to that exact evidence semantics without
+copying Workbench product logic into the producer.
 
 ```text
 NYC-EXTRACT-1 -----> NYC-QC-1 -----+
@@ -74,6 +75,33 @@ NYC-INTEGRATE-1 --optional evidence--> NYC-CONTRACT-PROMOTION-1 (deferred)
 Only `NYC-INTEGRATE-1` edits the final cross-strand presentation after the
 three inputs converge. Producer lanes do not edit the Workbench UI. This keeps
 parallel work independent and gives one owner the semantic integration point.
+
+## Current execution checkpoint
+
+Two independently executable units have finished implementation and are now
+in `completion_review`, not available for another claim:
+
+- `NYC-EXTRACT-1` is merged on canonical `main` at `6403fcf` (task commit
+  `84a9135`). Its authentic model run, deterministic anchors, two rejected
+  attempts, candidate-review packet, JSON route, and existing Investigation
+  Spine projection pass focused checks. The prediction and concern remain
+  withheld pending Brian's attributable human disposition.
+- `NYC-QUANT-1` is merged on canonical `main` at `103be94` (task commit
+  `88cb15f`). It recomputes the frozen 361-day snapshot, preserves
+  publication-version drift, and refuses causal attribution. Its comparison
+  remains pending Brian's attributable human disposition.
+
+The quantitative unit's corrected `spec_revision` is `2`. Its drift-receipt
+input now binds the actual canonical file SHA-256
+`0961133cc6a6441a944f00a45a7574e58a69bd0ca51fc2cb70da67540083f578`;
+the earlier `5c6af2bd...` graph value was not the digest of the referenced
+artifact. This correction does not change the frozen data or result.
+
+`NYC-QC-1` remains blocked. It becomes claimable only after the extraction
+work unit is accepted at the exact reviewed revision. `NYC-INTEGRATE-1`
+remains blocked until extraction, QC, and quantitative work are all accepted.
+Executing software and passing structural checks do not satisfy these human
+acceptance gates.
 
 ## MVP acceptance boundary
 
