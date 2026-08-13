@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -28,16 +29,82 @@ def _method_id(target: str) -> str | None:
     return suffix if re.fullmatch(r"p\d{2}", suffix) else None
 
 
-def _valid_receipt_revision(revision: str) -> bool:
+def _receipt_revision(revision: str) -> tuple[str, str, str] | None:
     match = re.fullmatch(
-        rf"{re.escape(RECEIPT_ROOT)}/[^@]+\.yaml@"
+        rf"({re.escape(RECEIPT_ROOT)}/[^@]+\.yaml)@"
         r"evidence=([0-9a-f]{40});receipt=([0-9a-f]{40})",
         revision,
     )
-    return match is not None and match.group(1) != match.group(2)
+    if match is None or match.group(2) == match.group(3):
+        return None
+    return match.group(1), match.group(2), match.group(3)
 
 
-def validate_graph(document: dict[str, Any]) -> list[str]:
+def _git(repo: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", "-C", str(repo), *args],
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+
+def _verify_receipt(
+    repo: Path,
+    transition_revision: str,
+    unit_id: str,
+    expected_methods: set[str],
+    revision: str,
+) -> list[str]:
+    parsed = _receipt_revision(revision)
+    if parsed is None:
+        return [f"{unit_id} accepted status requires distinct evidence and receipt commits"]
+    path, evidence_commit, receipt_commit = parsed
+    expected_path = f"{RECEIPT_ROOT}/{unit_id}.yaml"
+    if path != expected_path:
+        return [f"{unit_id} receipt path must be {expected_path}"]
+    errors: list[str] = []
+    for label, commit in (("evidence", evidence_commit), ("receipt", receipt_commit), ("transition", transition_revision)):
+        if _git(repo, "cat-file", "-e", f"{commit}^{{commit}}").returncode != 0:
+            errors.append(f"{unit_id} {label} commit does not exist: {commit}")
+    if errors:
+        return errors
+    if _git(repo, "merge-base", "--is-ancestor", evidence_commit, receipt_commit).returncode != 0:
+        errors.append(f"{unit_id} receipt commit must descend from evidence commit")
+    if receipt_commit == transition_revision or _git(repo, "merge-base", "--is-ancestor", receipt_commit, transition_revision).returncode != 0:
+        errors.append(f"{unit_id} graph transition must be later than receipt commit")
+    shown = _git(repo, "show", f"{receipt_commit}:{path}")
+    if shown.returncode != 0:
+        errors.append(f"{unit_id} receipt path is absent at receipt commit")
+        return errors
+    try:
+        receipt = json.loads(shown.stdout)
+    except json.JSONDecodeError:
+        errors.append(f"{unit_id} receipt must be JSON-compatible YAML")
+        return errors
+    expected_paths = sorted(f"docs/research/method_decomposition/phase3/methods/{method}" for method in expected_methods)
+    required_files = ("frame.yaml", "sources.md", "method_records.yaml", "connections.yaml", "uncertainty.yaml")
+    for method_path in expected_paths:
+        for filename in required_files:
+            if _git(repo, "cat-file", "-e", f"{evidence_commit}:{method_path}/{filename}").returncode != 0:
+                errors.append(f"{unit_id} evidence commit lacks {method_path}/{filename}")
+    if receipt.get("unit_id") != unit_id:
+        errors.append(f"{unit_id} receipt unit binding mismatches")
+    if receipt.get("evidence_commit") != evidence_commit:
+        errors.append(f"{unit_id} receipt evidence binding mismatches")
+    if receipt.get("method_paths") != expected_paths:
+        errors.append(f"{unit_id} receipt method paths mismatch")
+    if receipt.get("disposition") != "accepted" or not receipt.get("checks") or not receipt.get("reviewer"):
+        errors.append(f"{unit_id} receipt lacks reviewer, accepted disposition, or checks")
+    return errors
+
+
+def validate_graph(
+    document: dict[str, Any],
+    *,
+    repo: Path | None = None,
+    transition_revision: str | None = None,
+) -> list[str]:
     errors: list[str] = []
     units = document.get("units")
     if not isinstance(units, list):
@@ -68,8 +135,13 @@ def validate_graph(document: dict[str, Any]) -> list[str]:
                 if item.get("kind") == "CompletionReceipt" and item.get("id") == unit_id
             ]
             revision = str(receipts[0].get("revision", "")) if len(receipts) == 1 else ""
-            if len(receipts) != 1 or not _valid_receipt_revision(revision):
-                errors.append(f"{unit_id} accepted status requires distinct evidence and receipt commits")
+            if len(receipts) != 1:
+                errors.append(f"{unit_id} accepted status requires one CompletionReceipt")
+            elif repo is None or transition_revision is None:
+                if _receipt_revision(revision) is None:
+                    errors.append(f"{unit_id} accepted status requires distinct evidence and receipt commits")
+            else:
+                errors.extend(_verify_receipt(repo, transition_revision, unit_id, expected, revision))
 
     expected_all = {f"p{number:02d}" for number in range(1, 15)}
     if set(all_methods) != expected_all or len(all_methods) != 14:
@@ -135,8 +207,18 @@ def validate_graph(document: dict[str, Any]) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("graph", type=Path)
+    parser.add_argument("--repo", type=Path, default=Path.cwd())
+    parser.add_argument("--transition-revision", default="HEAD")
     args = parser.parse_args()
-    errors = validate_graph(json.loads(args.graph.read_text(encoding="utf-8")))
+    resolved = _git(args.repo, "rev-parse", args.transition_revision)
+    if resolved.returncode != 0:
+        print(f"ERROR: transition revision does not exist: {args.transition_revision}")
+        return 1
+    errors = validate_graph(
+        json.loads(args.graph.read_text(encoding="utf-8")),
+        repo=args.repo,
+        transition_revision=resolved.stdout.strip(),
+    )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
