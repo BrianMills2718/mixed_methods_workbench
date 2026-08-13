@@ -127,6 +127,24 @@ def test_within_case_explanation_routes_to_pt_not_population_effects() -> None:
     assert "a population average treatment effect" in pt_route.method.cannot_establish
 
 
+def test_process_tracing_card_preserves_implemented_engine_controls() -> None:
+    """Keep the PT card grounded in the inspected engine rather than a generic recipe."""
+    method = next(method for method in dashboard_catalog().methods if method.method_id == "process_tracing")
+    workflow = " ".join(method.workflow_steps).lower()
+    shape = method.workflow_shape.lower()
+
+    assert "sources" in workflow
+    assert "audit rivals" in workflow
+    assert "every rival" in workflow
+    assert "absences" in workflow
+    assert "comparative support" in workflow
+    assert "dependence" in workflow
+    assert "sensitivity" in workflow
+    assert "independently audit the mechanism graph" in workflow
+    assert "request more evidence" in workflow
+    assert "repair or stop" in shape
+
+
 def test_literature_first_study_can_stop_at_evidence_synthesis() -> None:
     """Keep literature review as a legitimate complete study, not only preparation."""
     plan = route_study(_example("remote_work_review"))
