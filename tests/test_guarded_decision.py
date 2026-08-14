@@ -160,7 +160,7 @@ def test_semantic_near_homonyms_reach_the_injected_native_validator(
     assert result.proposed_transition is None
 
 
-@pytest.mark.parametrize("corrupt", ["target", "policy", "transition"])
+@pytest.mark.parametrize("corrupt", ["target", "policy", "policy_source", "transition"])
 def test_corrupt_binding_refuses_before_native_dispatch(
     contents: dict[str, bytes], corrupt: str
 ) -> None:
@@ -173,6 +173,8 @@ def test_corrupt_binding_refuses_before_native_dispatch(
         request = request.model_copy(
             update={"policy": request.policy.model_copy(update={"policy_content_digest": "sha256:" + "0" * 64})}
         )
+    elif corrupt == "policy_source":
+        contents["policy-source:1"] = b"corrupt native rules"
     else:
         request = request.model_copy(
             update={
