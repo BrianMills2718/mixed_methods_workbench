@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 from collections.abc import Callable, Mapping
 
 from data_contracts.composition import ExecutionResult, OutcomeKind
@@ -15,23 +14,20 @@ from .models import (
     GuardedDecisionRequest,
     GuardedDecisionResult,
     NativeDecision,
+    canonical_digest,
 )
 
 ContentResolver = Callable[[str], bytes]
 NativePolicy = Callable[[GuardedDecisionRequest], NativeDecision]
+DATA_CONTRACTS_REVISION = "d845be0c5813ab26e9bf2f1eaf4473a262ac541b"
 
 
 def sha256_bytes(content: bytes) -> str:
     return f"sha256:{hashlib.sha256(content).hexdigest()}"
 
 
-def fingerprint(value: object) -> str:
-    if isinstance(value, BaseModel):
-        value = value.model_dump(mode="json")
-    encoded = json.dumps(
-        value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False
-    ).encode("utf-8")
-    return sha256_bytes(encoded)
+def fingerprint(value: BaseModel) -> str:
+    return canonical_digest(value)
 
 
 def mapping_resolver(contents: Mapping[str, bytes]) -> ContentResolver:
@@ -107,7 +103,7 @@ def _result(
 ) -> GuardedDecisionResult:
     outcome_map = {
         GuardedDecisionOutcome.VALIDATED: OutcomeKind.EXECUTION_SUCCEEDED,
-        GuardedDecisionOutcome.REFUSED: OutcomeKind.INVOCATION_REJECTED,
+        GuardedDecisionOutcome.REFUSED: OutcomeKind.EXECUTION_FAILED,
         GuardedDecisionOutcome.UNRESOLVED: OutcomeKind.EXECUTION_FAILED,
         GuardedDecisionOutcome.FAILED: OutcomeKind.EXECUTION_FAILED,
     }
@@ -120,6 +116,7 @@ def _result(
     )
     receipt = GuardedDecisionReceipt(
         request_digest=request_digest,
+        composition_contract_revision=DATA_CONTRACTS_REVISION,
         target_content_digest=request.target.content_digest,
         policy_content_digest=request.policy.policy_content_digest,
         decision_record_digest=request.decision_record.content_digest,

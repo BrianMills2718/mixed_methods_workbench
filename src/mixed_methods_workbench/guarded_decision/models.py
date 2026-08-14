@@ -2,13 +2,26 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from enum import StrEnum
 from typing import Annotated
 
-from data_contracts.composition import ExecutionResult, ProposedTransition
+from data_contracts.composition import ExecutionResult, OutcomeKind, ProposedTransition
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
 Digest = Annotated[str, StringConstraints(pattern=r"^sha256:[a-f0-9]{64}$")]
+
+
+def canonical_digest(value: BaseModel) -> str:
+    encoded = json.dumps(
+        value.model_dump(mode="json"),
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+        allow_nan=False,
+    ).encode("utf-8")
+    return f"sha256:{hashlib.sha256(encoded).hexdigest()}"
 
 
 class FrozenModel(BaseModel):
@@ -48,6 +61,8 @@ class GuardedDecisionRequest(FrozenModel):
     def canonical_evidence(self) -> GuardedDecisionRequest:
         if tuple(sorted(set(self.required_evidence_refs))) != self.required_evidence_refs:
             raise ValueError("required_evidence_refs must be canonical and duplicate-free")
+        if self.proposed_transition.outcome is not OutcomeKind.EXECUTION_SUCCEEDED:
+            raise ValueError("candidate proposed_transition must represent execution success")
         return self
 
 
@@ -80,6 +95,7 @@ class GuardedDecisionReceipt(FrozenModel):
     """Neutral traversal receipt; native artifacts remain authoritative."""
 
     request_digest: Digest
+    composition_contract_revision: str = Field(min_length=40, max_length=40)
     target_content_digest: Digest
     policy_content_digest: Digest
     decision_record_digest: Digest
@@ -107,4 +123,18 @@ class GuardedDecisionResult(FrozenModel):
             raise ValueError("non-validated result cannot propose a transition")
         if not validated and not self.semantic_reason_codes:
             raise ValueError("non-validated result requires semantic_reason_codes")
+        expected_execution = (
+            OutcomeKind.EXECUTION_SUCCEEDED if validated else OutcomeKind.EXECUTION_FAILED
+        )
+        if self.receipt.execution_result.outcome is not expected_execution:
+            raise ValueError("receipt execution outcome does not match guarded result")
+        if self.receipt.native_disposition_ref != self.native_disposition_ref:
+            raise ValueError("receipt native disposition does not match guarded result")
+        normalized_reasons = tuple(
+            f"{code}/1" if "/" not in code else code for code in self.semantic_reason_codes
+        )
+        if self.receipt.execution_result.reason_ids != normalized_reasons:
+            raise ValueError("receipt execution reasons do not match guarded result")
+        if self.receipt_ref != canonical_digest(self.receipt):
+            raise ValueError("receipt_ref must bind the exact receipt")
         return self

@@ -10,11 +10,13 @@ from data_contracts.composition import (
     OutcomeKind,
     ProposedTransition,
 )
+from pydantic import ValidationError
 
 from mixed_methods_workbench.guarded_decision import (
     ArtifactBinding,
     GuardedDecisionOutcome,
     GuardedDecisionRequest,
+    GuardedDecisionResult,
     NativeDecision,
     PolicyBinding,
     execute_guarded_decision,
@@ -174,3 +176,16 @@ def test_corrupt_binding_refuses_before_native_dispatch(
 def test_request_has_no_nominal_method_dispatch_field(contents: dict[str, bytes]) -> None:
     fields = set(GuardedDecisionRequest.model_fields)
     assert fields.isdisjoint({"method_id", "repository", "action_label", "record_type"})
+
+
+def test_result_rejects_a_tampered_receipt_reference(contents: dict[str, bytes]) -> None:
+    result = execute_guarded_decision(
+        _request(contents),
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(outcome=GuardedDecisionOutcome.VALIDATED),
+    )
+    payload = result.model_dump(mode="json")
+    payload["receipt_ref"] = "sha256:" + "0" * 64
+
+    with pytest.raises(ValidationError, match="receipt_ref must bind the exact receipt"):
+        GuardedDecisionResult.model_validate(payload)
