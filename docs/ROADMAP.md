@@ -1,14 +1,21 @@
 # Mixed Methods Workbench Roadmap
 
 Status: canonical future strategy; documentation only, no release is active
-Updated: 2026-07-12
+Updated: 2026-08-13
 
 ## Current Phase
 
-The project is currently clarifying plans and documentation. This roadmap is a
-proposed future release sequence, not an active schedule or authorization to
-implement any version. `docs/PLANNING_STATUS.md` is authoritative about what
-work is allowed now.
+The project is establishing the capability architecture and adoption baseline
+before another implementation vertical. This roadmap does not authorize
+implementation; `docs/PLANNING_STATUS.md` is authoritative about what work is
+allowed now.
+
+The controlling system description is
+[`SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md`](SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md).
+The current owner/seam/adoption evidence is
+[`CAPABILITY_ADOPTION_MAP.md`](CAPABILITY_ADOPTION_MAP.md). The older broad
+capability map and version ladder remain goal coverage and historical strategy;
+they do not override the adopted infrastructure-first MVP sequence below.
 
 ## North Star
 
@@ -22,6 +29,10 @@ source to meta-inference.
 The scope is intentionally broad. The execution strategy is not. Each release
 delivers one thin, real, inspectable research path and expands the number of
 method designs that the workbench can support deeply.
+
+The stable example remains the NYC Congestion Relief Zone investigation, but
+the example follows the capability architecture. It does not define shared
+primitives through case-specific code.
 
 ## What `1.0` Means
 
@@ -56,14 +67,122 @@ designs, not from adding generic buttons.
 | G6. Demonstrated SOTA or beyond-SOTA value | The system is faster or more rigorous on named tasks without hiding methodological failures. | F | Multi-domain benchmark with expert review, held-out cases, negative controls, and trace evaluation. |
 
 The detailed capability inventory and ownership map is in
-`docs/MIXED_METHODS_CAPABILITY_MAP.md`. The claim-licensing dependency table
-that states what each capability must prove before becoming a product claim is
-in `docs/CAPABILITY_DEPENDENCY_GRAPH.md`. The active long-term goal and current
-external comparison baseline are in
+`docs/MIXED_METHODS_CAPABILITY_MAP.md`; its current executable-seam and adoption
+dispositions are in `docs/CAPABILITY_ADOPTION_MAP.md`. The claim-licensing
+dependency table that states what each capability must prove before becoming a
+product claim is in `docs/CAPABILITY_DEPENDENCY_GRAPH.md`. The active long-term
+goal and current external comparison baseline are in
 `plan/goals/2026-07-12-sota-or-beyond.md` and
 `docs/SOTA_EVIDENCE_SCORECARD.md`.
 
+## Adopted execution roadmap to the authentic MVP
+
+### A. Existing-capability and adoption baseline
+
+Inventory the real owners at exact revisions. Separate internal code, stable
+typed boundaries, intended-consumer adoption, and authentic runtime evidence.
+Use `reuse`, `wrap`, `extend`, `supersede`, `keep_method_owned`, `defer`,
+`explicit_exception`, or `missing` for every MVP-relevant capability.
+
+Critical result: the Workbench knows what it can compose without rebuilding
+Data Contracts, `llm_client`, Open Web Retrieval, QC, Process Tracing, Theory
+Forge, Grounded Research, OntoCanon, DIGIMON, or a quantitative/simulation
+owner.
+
+### B. Layered architecture and shared-profile gate
+
+Map observed operations to generic execution forms, reusable research
+primitives, method-owned protocols, and study workflows. Preserve authority,
+information origin, exact evidence, prespecification barriers, reflexivity,
+feedback versions, and claim limits.
+
+Freeze a Project Meta-owned method-operation composition and
+evidence-round-trip profile subordinate to the existing shared artifact and
+composition architecture. The Workbench consumes that profile; it does not
+create a second ecosystem control plane.
+
+### C. First reusable semantic capability
+
+Adopt a narrow `ExtractStructuredCandidates` action composed from Data
+Contracts and `llm_client`. Method owners supply versioned output contracts,
+instructions, validators, and interpretation. The Workbench supplies source
+bindings, adapter resolution, investigation state, application-level review
+orchestration, integration acceptance, and value/publication decisions.
+Method owners retain authoritative method review, and OntoCanon retains any
+separate assertion-candidate review and promotion.
+
+The action produces candidates and receipts, never accepted evidence by
+itself.
+
+### D. Refactor the authentic NYC consumer
+
+Move the existing frozen NYC extraction through the shared action. Preserve
+the authentic model trace, rejected attempts, exact source anchors, and pending
+review state. Require a focused check that rejects bypass of the selected
+action. Do not accept or rewrite the pending substantive statements merely to
+complete the refactor.
+
+### E. Method-protocol seam proof
+
+Adapt one QC move and one Process Tracing move that share semantic transform
+plus deterministic validation but retain different candidate universes,
+method state, admissibility rules, reviewers, transitions, and conclusion
+limits. This proves composable machinery without declaring the methods
+equivalent.
+
+### F. Cohesive policy MVP
+
+Continue the existing NYC investigation through reviewed extraction,
+method-owned qualitative analysis, deterministic quantitative work, an
+explicit mixed-methods integration design, value-explicit policy appraisal,
+limitations, and reproducible export. Add Theory Forge, Process Tracing,
+OntoCanon, DIGIMON, simulation, or another method only when the study question
+requires it.
+
+### G. Growth after MVP
+
+Add methodology guidance, more study designs, optional governed graph
+navigation, broader quantitative methods, interoperability, and comparative
+evaluation only after the lower layers have authentic consumers.
+
+This sequence supersedes a direct jump from the current NYC review gate to
+another case-specific `NYC-QC-1` or `NYC-INTEGRATE-1` implementation. It
+preserves Plan #5 evidence and resumes its substantive workflow after the
+reusable seam is adopted.
+
+### Parallel execution shape
+
+```mermaid
+flowchart TD
+  A["A Capability/adoption baseline"] --> B["B Shared-profile gate"]
+  B --> C["C Workbench extraction action"]
+  C --> D["D NYC consumer refactor"]
+  C --> EQ["E-QC QC seam proof"]
+  C --> EP["E-PT PT seam proof"]
+  D --> F["F Cohesive policy MVP integration"]
+  EQ --> F
+  EP --> F
+  F --> G["G Post-MVP growth"]
+```
+
+Phase A is read-only portfolio discovery and may run in parallel by repository.
+Phase B has one coordinating writer because it owns a shared decision surface,
+with independent reviewers. After Phase C freezes the action contract, the NYC,
+QC, and PT consumer lanes may run in parallel in separate claimed worktrees and
+owner repositories. They must not edit the shared action contract independently.
+Phase F is a single Workbench integration lane over accepted inputs. Optional
+OntoCanon/DIGIMON, theory, simulation, or quantitative-engine lanes join only
+when the accepted study design makes them dependencies.
+
+Do not issue a machine-consumed work-unit graph for C-F until the Phase B
+profile and Phase C design are adopted. Before then, precise file ownership and
+unit readiness would be invented rather than coordinated.
+
 ## Version Ladder
+
+The version ladder below remains a long-range capability and claim ladder. Its
+historical numbering is not the current execution order where it conflicts
+with the adopted A-G sequence above.
 
 ### 0.0 — Truth and Clean-State Recovery
 

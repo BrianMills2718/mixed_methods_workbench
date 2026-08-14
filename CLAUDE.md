@@ -1,22 +1,38 @@
 # Mixed Methods Workbench
 
 This is the integration authority for a broad text-centered mixed-methods
-workbench built in thin, versioned slices. Read `docs/ROADMAP.md`,
+workbench built in thin, versioned slices. Read
+`docs/SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md`,
+`docs/CAPABILITY_ADOPTION_MAP.md`, `docs/ROADMAP.md`,
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/PLANNING_STATUS.md` before planning. The current product critical path is
-one cohesive policy investigation through an MVP, not further method-catalog
-expansion. The Investigation Spine checkpoint is complete. The Mist Trail
-source gate concluded that Mist Trail is useful for bounded pre-decision
-option appraisal but cannot serve as the sole MVP flagship. The replacement
-screen selected New York City's Congestion Relief Zone tolling program. The
-exact source freeze is now complete in
-`docs/research/nyc_crz_source_freeze.md`; the next product slice is one reviewed
-prediction, one hearing concern, and one frozen descriptive aggregate in the
-existing Investigation Spine. Do not expand the corpus, claim causality, or
-generalize its local seams before that slice is observed. Brian
-accepted the Phase 2 discovery format on
+`docs/PLANNING_STATUS.md` before planning.
+
+Brian approved a first-principles architecture reset on 2026-08-13. The current
+critical path is: verify existing capability owners and adoption; map the flat
+method inventories to generic execution forms, reusable research primitives,
+method-owned protocols, and study workflows; freeze the ecosystem-subordinate
+composition/evidence-round-trip profile; then refactor the existing NYC
+structured extraction as the first authentic consumer of a reusable action.
+Do not add another case-specific vertical or implement a universal schema,
+runtime, ontology, or method planner. The pending NYC prediction, hearing
+concern, and quantitative comparison remain unaccepted `completion_review`
+artifacts. Plan #5 is preserved but paused; this architecture decision does not
+dispose its review statements.
+
+The Workbench is the application/integration authority, not the ecosystem
+architecture authority. Project Meta owns the cross-project artifact and
+composition architecture, Data Contracts owns the neutral action grammar,
+`llm_client` owns model execution, and method repositories own their protocols
+and inference. OntoCanon owns governed semantic assertions; DIGIMON owns graph
+materialization and retrieval. Both remain optional to an MVP path unless the
+study question needs them.
+
+The Investigation Spine checkpoint is complete. Mist Trail remains a bounded
+secondary appraisal example. NYC Congestion Relief Zone remains the stable MVP
+example after the infrastructure gate, with its exact source freeze preserved.
+Brian accepted the Phase 2 discovery format on
 2026-08-13: method phase → analytical move → execution action, with
 `operation_kind` at Levels 2 and 3, typed connections, six authority roles,
 information origins, temporal/access/version guards, and exact anchors. Existing
@@ -54,6 +70,12 @@ explicitly authorizes a named implementation slice.
   not authorize it.
 - Every cross-repo seam must use Pydantic-style typed contracts; no raw `dict`
   or ad hoc JSON at durable boundaries.
+- Before adding an implementation, identify the current capability owner and
+  record `reuse`, `wrap`, `extend`, `supersede`, `keep_method_owned`, `defer`,
+  `explicit_exception`, or `missing`, plus authentic consumer evidence.
+- Treat prompt-plus-schema as a generic semantic execution form, not as a
+  complete research method. Preserve method-owned state, ordering, evidence
+  exposure, validators, review authority, feedback loops, and claim limits.
 - Preserve method distinctions:
   - qualitative coding discovers and anchors patterns/claims in a corpus;
   - process tracing tests rival causal explanations within a source scope;
@@ -100,6 +122,8 @@ make test-method-dashboard
 - `~/projects/theory-forge/CLAUDE.md`
 - `~/projects/theory-forge/docs/adr/0003-ac14-integration-deferred.md`
 - `docs/ROADMAP.md`
+- `docs/SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md`
+- `docs/CAPABILITY_ADOPTION_MAP.md`
 - `docs/CAPABILITY_DEPENDENCY_GRAPH.md`
 - `docs/PRE_IMPLEMENTATION_CHECKLIST.md`
 - `docs/PLANNING_STATUS.md`
