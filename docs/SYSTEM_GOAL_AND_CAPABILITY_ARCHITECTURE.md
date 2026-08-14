@@ -79,8 +79,8 @@ can exchange valid JSON and still form an invalid research workflow.
 
 | Term | Meaning |
 | --- | --- |
-| **Execution form** | A domain-neutral computational shape such as semantic transform, deterministic transform, validate, review, or apply transition. |
-| **Research primitive** | A reusable research-facing capability such as fetch a source, extract structured candidates, bind a field to exact evidence, or compare records. It may use one or more execution forms. |
+| **Execution step descriptor** | Three orthogonal dimensions: operation role, correctness boundary, and actor/backend. For example, human validation is `validate + semantic + human`; a checked LLM extraction may be `transform + mixed + model`. |
+| **Research primitive** | A reusable research-facing capability such as fetch a source, extract structured candidates, bind a field to exact evidence, or compare records. It may compile one or more execution steps. |
 | **Analytical move** | A method-framed action such as initial coding, negative-case analysis, partition auditing, or diagnostic evidence assessment. |
 | **Method protocol** | The method-owned state, ordering, guards, roles, iteration rules, and claim limits that make a set of analytical moves methodologically meaningful. |
 | **Study workflow** | A research-design-specific composition of primitives and method protocols across one or more strands. |
@@ -89,6 +89,45 @@ can exchange valid JSON and still form an invalid research workflow.
 This vocabulary prevents a common category error: a prompt is not a method, a
 Pydantic model is not a capability, and a chain of type-compatible functions is
 not necessarily a valid workflow.
+
+### Minimal data plane and research control plane
+
+At the most compressed level, almost every data-handling operation belongs to
+one of five data-plane families:
+
+| Data-plane family | Boundary change | Examples |
+| --- | --- | --- |
+| Locate/acquire | External universe -> selected external references or captured bytes. | Search, query, crawl, upload, API retrieval. |
+| Ingest/govern | Captured bytes or records -> immutable, identified, versioned internal artifacts. | Hash, freeze, parse, segment, normalize, deduplicate, attach custody metadata. |
+| Represent/interpret | Artifact(s) -> a meaning-bearing candidate representation. | Summarize, extract typed records, classify, code, translate, construct a table or knowledge graph. |
+| Compute/derive | Typed artifact(s) -> results determined by a declared program/model and configuration. | Word count on text, aggregation over records, centrality on a graph, statistical estimation, prediction, simulation. |
+| Project/deliver | Internal artifacts -> a consumer-specific view or external artifact. | Render a report, visualize a graph, export a bundle, serve an API response. |
+
+Selection and relation/binding recur inside these families and remain visible
+when they affect provenance: retrieval selects a declared universe; anchoring
+binds one artifact to another; a knowledge graph is a semantic representation
+whose nodes and edges retain derivation identities. Semantic and programmatic
+are not mutually exclusive implementation labels. An LLM or human may produce
+a semantic candidate; code may also produce one. The distinction is whether
+correctness follows from the declared computation alone or still requires a
+meaning-level judgment.
+
+This small algebra covers the **data plane**, but a rigorous research system
+also needs a **control plane** around it:
+
+- information-exposure and prespecification barriers;
+- evidence anchoring and admissibility;
+- comparison frames and candidate universes;
+- reflexive assessment;
+- review and decision authority;
+- guarded state transitions;
+- continuation and stopping rules; and
+- claim limits, refusal, and qualification.
+
+The control plane does not merely create another representation. It determines
+whether a proposed data-plane result may change authoritative state or support
+a conclusion. This is why the low-level kernel can be small while methods and
+research designs remain substantive.
 
 ## Layered capability architecture
 
@@ -104,12 +143,14 @@ Method modules and protocols
   statistical analysis, simulation, source criticism, policy appraisal
                          |
 Reusable research primitives
-  acquire, freeze, parse, segment, extract, anchor, compare, calculate,
-  retrieve, review, visualize, synthesize, export
+  acquire, freeze, parse, segment, extract, attest information boundary,
+  anchor, compare, record reflexivity, review, transition, evaluate stopping,
+  calculate, retrieve, visualize, synthesize, export
                          |
-Generic execution forms
-  semantic transform, deterministic transform, validate, bind, review,
-  transition, retrieve, iterate/control
+Generic execution-step descriptors
+  role: transform, retrieve/select, validate, render/export, judge
+  correctness: semantic, programmatic, mixed
+  actor/backend: human, model, program/engine, service
                          |
 Typed composition, custody, execution, and observability substrate
   Data Contracts, artifact references, llm_client, tool runtimes, traces
@@ -145,26 +186,30 @@ method state, governed-assertion state, retrieval-request state, and
 review/authority state remain distinct. They may refer to each other through
 typed identities; none is the universal state store.
 
-### Layer 1 — generic execution forms
+### Layer 1 — generic execution-step descriptors
 
-The smallest recurring forms observed across current method engines are:
+The smallest recurring description has three independent dimensions:
 
-| Form | Abstract behavior | Required result |
+| Dimension | Values | Question answered |
 | --- | --- | --- |
-| `semantic_transform[I, O]` | Typed inputs and source context plus a versioned instruction/prompt and output contract produce a candidate typed output. | Candidate artifact plus exact execution receipt; never implicit acceptance. |
-| `deterministic_transform[I, O]` | Versioned code applies a deterministic calculation or mapping. | Output, implementation/configuration identity, input/output hashes, and failure. |
-| `validate[T]` | Structural or method-owned rules inspect a candidate. | Typed findings and `pass`, `fail`, or `unresolved`; validation does not rewrite the candidate. |
-| `bind/anchor` | A candidate field or record is connected to exact source units. | Resolvable evidence references or a loud refusal. |
-| `review/adjudicate[T, D]` | An authorized reviewer considers a frozen candidate and context. | Attributable disposition, rationale, target digest, authority, and any explicit replacement. |
-| `apply_transition[S, D, S2]` | An accepted delta is applied to a particular prior state. | New immutable state identity and lineage, or refusal on stale/incompatible input. |
-| `retrieve/select` | A query and declared universe select source units or artifacts. | Results plus universe, ranking, coverage, and retrieval receipt. |
-| `iterate/control` | A typed state machine chooses and sequences the other forms. | Checkpoints, guards, bounded attempts, stop/block outcome, and state lineage. |
+| Operation role | `transform`, `retrieve_select`, `validate`, `render_export`, `judge` | What does this step do in the graph? |
+| Correctness boundary | `semantic`, `programmatic`, `mixed` | Can correctness follow from the declared computation, require meaning-level judgment, or require both? |
+| Actor/backend | `human`, `model`, `program_engine`, `service` | Who or what performs the step? |
 
-These are execution forms, not a new universal method ontology. Their exact
-portable contracts remain to be designed from adopted consumers.
+The dimensions are multi-composable, not sibling alternatives. A human can
+validate, a program can create a semantic representation, and an LLM transform
+can require programmatic validation. Each compiled step binds all three
+dimensions to the implementation/configuration identity and retains its own
+receipt. Programmatic steps disclose determinism or stochastic behavior and
+seed/randomness where relevant; semantic results remain candidates until the
+appropriate control-plane decision.
+
+These descriptors are not a new universal method ontology. Higher-order
+research actions may compile several steps. Their exact portable contracts
+remain to be designed from adopted consumers.
 
 Exact binding is primarily a validation or attestation fact over frozen
-candidate and source versions. It becomes a separate action when it also
+candidate and source versions. It becomes a higher-order action when it also
 materializes an attachment artifact; that does not transfer evidence-admission
 authority to the generic layer.
 
@@ -186,6 +231,33 @@ The first capability inventory should test, rather than assume, reuse for:
 - construct graph, table, vector, text, and joint-display projections;
 - synthesize bounded conclusions and appraise policy options; and
 - export a reproducible investigation bundle.
+
+Several fundamental controls should themselves be reusable action families,
+but only through a three-level split:
+
+```text
+generic mechanism and typed lifecycle
+  + versioned policy/configuration bound to an exact method or study
+  + method-owned warrant, authority, disposition, and claim effect
+```
+
+The first shared-family candidates are:
+
+| Family | Generic reusable part | What remains method- or study-owned |
+| --- | --- | --- |
+| Information boundary | Freeze/attest the protected universe, visible and withheld units, actual actor/model payload, and exposure receipt. | Why exposure matters, what a violation invalidates, and successor-run or claim consequences. |
+| Anchoring | Bind and validate exact target/source identities, locators, digests, quotes, and windows. | Which claims require evidence and what source roles may support them. |
+| Comparison | Apply a declared evaluator to a bounded item or pair set and return typed comparison candidates. | Comparison semantics, admissible dimensions, inference, and licensed conclusions. |
+| Reflexivity checkpoint | Append immutable exposure/positionality/memo records and route an attributable assessment. | The substantive reflexive judgment and downstream effect; acknowledgement of an LLM draft is not enough. |
+| Review | Request review and record a recommendation over an exact frozen target. | Qualified reviewer, acceptance standard, method disposition, transition, and claim effect. |
+| Guarded transition | Propose, validate, and commit immutable state changes with lineage and stale-target rejection. | State meaning and the conditions under which the method permits movement. |
+| Continuation/stopping | Evaluate declared criteria and return a control recommendation with evidence. | Saturation, adequacy, precision, convergence, or other stopping meaning and the claim it licenses. |
+
+Generic `accept` or `stop` tokens are proposals, not methodological decisions.
+They do not change state until the exact method policy, authorized decision,
+transition, and claim effect resolve. Likewise, a prespecification reference is
+not enough: protected work needs a receipt proving what the actor or model
+actually saw.
 
 Each capability must name its owner, callable seam, typed inputs and outputs,
 execution mode, guards, effects, provenance, failure behavior, authentic
@@ -273,7 +345,8 @@ A single coding proposal can compile onto the generic primitive:
 
 ```text
 frozen segment
-  -> semantic_transform[segment, CodeCandidate]
+  -> research.extract_structured_candidates
+       [role=transform, correctness=mixed, backends=model+program_engine]
   -> exact-anchor validation
   -> method-owned comparison and admissibility checks
   -> reviewer disposition
@@ -434,8 +507,19 @@ versions, explicit human inputs, or another declared root observation.
 
 ## Adoption rule for existing capabilities
 
-Before adding an implementation, record one of these dispositions against its
-current owner and authentic evidence:
+Repository existence triggers inspection, not integration. First record one
+selection disposition against the current need and evidence:
+
+- `adopt_now` — a named current need passes the owner/seam, total-complexity,
+  authority/provenance, and intended-consumer-proof gate;
+- `adapt_later` — useful after a named trigger or contract repair;
+- `donor_only` — borrow ideas, fixtures, or lessons without a dependency;
+- `defer` — no current decision benefits from adoption; or
+- `reject` — the capability conflicts with the target or costs more than its
+  likely value.
+
+Only `adopt_now` enters the implementation critical path. For it, record one
+implementation disposition against the current owner and authentic evidence:
 
 - `reuse` — use the existing seam unchanged;
 - `wrap` — keep the owner and add a Workbench adapter;
@@ -447,6 +531,10 @@ current owner and authentic evidence:
 - `explicit_exception` — a bounded local implementation is necessary and its
   non-reuse is visible; or
 - `missing` — no adequate implementation or owner exists.
+
+The default after a census is `donor_only` or `defer`, not integration. A
+repository can remain valuable prior art without becoming a Workbench
+dependency.
 
 Two authentic compatible consumers are required before a Workbench-local
 research extension is promoted to shared Data Contracts infrastructure. The
@@ -467,7 +555,8 @@ Exit evidence:
 - every MVP-relevant capability has an owner and disposition;
 - important false-positive seams are recorded;
 - OntoCanon, DIGIMON, computational-social-science, and SB Ontologies are
-  explicitly included or deferred; and
+  considered and assigned a selection disposition, with no integration implied;
+  and
 - the flat method-operation inventories are mapped to the layered model without
   erasing their 70-versus-90 operation disagreement.
 
@@ -562,8 +651,10 @@ The architecture is working only when all of these are true:
    artifact identity;
 3. a type-compatible but method-invalid composition is rejected;
 4. a generated candidate cannot promote itself;
-5. deterministic, LLM, human, hybrid, and represented-only operations are
-   distinguishable;
+5. every step independently records its operation role, correctness boundary,
+   actor/backend, determinism or stochastic execution details, and execution/
+   evidence status, so a represented-only or manual artifact cannot be
+   mistaken for an executed result;
 6. method-owned artifacts retain their native meaning and claim limits;
 7. optional OntoCanon/DIGIMON projections round-trip to evidence and native
    authority before supporting an answer; and
@@ -580,7 +671,7 @@ current findings are:
   consumer;
 - the current NYC extraction is authentic but case-specific and does not use
   Data Contracts;
-- QC and Process Tracing contain recurring generic execution forms but no
+- QC and Process Tracing contain recurring generic execution-step patterns but no
   neutral cross-repository method-operation ABI;
 - OntoCanon has a strong governed-assertion and semantic-projection producer,
   and Project Meta Plan 241 proves the public two-domain OntoCanon/DIGIMON
@@ -593,7 +684,8 @@ current findings are:
   `main@33526009e13b8b93b6adcd52fef7408cf99ab7dc`; F1 has a real reviewed
   source-to-table/finding path and a separate Data Contracts/DIGIMON vertical,
   while recurrence, manual baseline, value, and complementary-method gates
-  remain open; and
+  remain open. It is `donor_only` for the current MVP unless a later named need
+  passes the adoption gate; and
 - SB Ontologies is useful donor history, not a current platform owner.
 
 These gaps determine the next planning and implementation sequence. They are
