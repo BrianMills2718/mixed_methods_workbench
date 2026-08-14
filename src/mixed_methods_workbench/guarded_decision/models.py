@@ -96,3 +96,15 @@ class GuardedDecisionResult(FrozenModel):
     receipt: GuardedDecisionReceipt
     semantic_reason_codes: tuple[str, ...] = ()
 
+    @model_validator(mode="after")
+    def outcome_shape(self) -> GuardedDecisionResult:
+        validated = self.outcome is GuardedDecisionOutcome.VALIDATED
+        if validated and self.proposed_transition is None:
+            raise ValueError("validated result requires proposed_transition")
+        if validated and self.semantic_reason_codes:
+            raise ValueError("validated result cannot carry refusal reasons")
+        if not validated and self.proposed_transition is not None:
+            raise ValueError("non-validated result cannot propose a transition")
+        if not validated and not self.semantic_reason_codes:
+            raise ValueError("non-validated result requires semantic_reason_codes")
+        return self
