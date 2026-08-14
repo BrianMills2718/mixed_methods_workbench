@@ -58,6 +58,10 @@ from mixed_methods_workbench.guarded_decision import (
 PT_PIN = "ce87f630546a9193c999943aeb3319940e89cc95"
 QC_PIN = "68ac10eb3d7588bed547b89d58f0186db3f9ac85"
 DATA_CONTRACTS_PIN = "d845be0c5813ab26e9bf2f1eaf4473a262ac541b"
+POLICY_MANIFEST_DIGESTS = {
+    "process_tracing_partition_gate_policy.json": "sha256:c7eb0aa7cdf0f38120f3c98d47665f35b5b869f3f29e1721ed77634db6353ae3",
+    "qualitative_coding_f1_finalization_policy.json": "sha256:7101f302d0b2b5ce20a4992d9ea7d0bc164472616b60e44f3425e6706051bb52",
+}
 PT_CODES = (
     "pt.invalid_prediction_ownership",
     "pt.missing_rival_pairs",
@@ -197,7 +201,9 @@ def _request(
 def _policy_manifest(name: str) -> tuple[bytes, PolicyManifest]:
     path = Path(__file__).parent / "fixtures/guarded_decision" / name
     manifest = PolicyManifest.model_validate_json(path.read_bytes())
-    return canonical_json_bytes(manifest.model_dump(mode="json")), manifest
+    canonical = canonical_json_bytes(manifest.model_dump(mode="json"))
+    assert sha256_bytes(canonical) == POLICY_MANIFEST_DIGESTS[name]
+    return canonical, manifest
 
 
 def _policy_sources(root: Path, manifest: PolicyManifest, prefix: str) -> dict[str, bytes]:
