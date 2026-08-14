@@ -244,13 +244,23 @@ def _llm_manifest_request(
     call_fingerprint = sha256_bytes(canonical_json_bytes({"snapshot_version": 3}))
     snapshot = TraceStoreSnapshot(
         schema_version="plan242-trace-store-snapshot/1",
+        source_store_digest="sha256:" + "7" * 64,
         source_row_id=4,
+        timestamp="2026-08-14T00:00:00+00:00",
+        project="fixture-project",
+        caller="fixture-caller",
+        task="fixture-task",
         trace_id="trace:fixture-1",
         logical_call_id="4",
         call_fingerprint=call_fingerprint,
         response_digest=response_digest,
         runtime_revision="6" * 40,
         model_ref="fixture:model",
+        finish_reason="stop",
+        execution_path="fixture",
+        retry_count=0,
+        schema_hash="fixture-schema",
+        response_format_type="structured",
         call_snapshot_raw=call_snapshot_raw,
         response_raw=response_raw,
     )
@@ -298,7 +308,9 @@ def test_trace_substitution_refuses_before_native_dispatch(
     contents: dict[str, bytes],
 ) -> None:
     request, _ = _llm_manifest_request(contents)
-    contents["trace-snapshot:1"] = b'{"logical_call_id":"different-valid-call"}'
+    original = TraceStoreSnapshot.model_validate_json(contents["trace-snapshot:1"])
+    substituted = original.model_copy(update={"trace_id": "trace:different-valid-record"})
+    contents["trace-snapshot:1"] = canonical_json_bytes(substituted.model_dump(mode="json"))
 
     result = execute_guarded_decision(
         request,

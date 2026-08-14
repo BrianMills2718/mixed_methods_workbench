@@ -1,0 +1,1522 @@
+{
+  "schema_version": 1,
+  "bundle_id": "qc-f1-framing-observations-v1",
+  "run": {
+    "run_id": "f1-framing-run-2026-07-14-v2",
+    "packet_id": "css-s0-iran-election-2024-framing-v3-frozen-1",
+    "packet_sha256": "ea803b85cbb8ca73d8da2ab03883e39f85ac62375d1952d960321faab21eee8e",
+    "study_id": "css-iran-election-2024-framing",
+    "study_specification_sha256": "08e320e2fbcac40a1aa48e595a93aa508366145f042dc81f7e576f82a19b8f9a",
+    "theory_artifact_id": "tf-op-framing-theory-entman-1993-f1-v1",
+    "theory_artifact_sha256": "460e4d6de1dedc2cfa5cff7262244a7d7e6b3a046f3b90fe9a6e7d78f00af3d9",
+    "prompt_sha256": "cf9a27461aa7ce670562225d2948c37a22454321fc48c71724186c342937e9f6",
+    "requested_model": "gpt-5-mini",
+    "execution_models": [
+      "openrouter/openai/gpt-5-mini"
+    ],
+    "configuration_id": "f1-framing-config-v1",
+    "code_commit": "b6f826f4f68a5763fb4bb340975fa4673a2d71c9",
+    "trace_id": "qualitative_coding/f1-framing/2026-07-14-v2",
+    "max_budget_usd": 3.0,
+    "cash_cost_usd": 0.0118964,
+    "input_tokens": 5696,
+    "output_tokens": 5841,
+    "started_at": "2026-07-15T03:00:23.293740+00:00",
+    "completed_at": "2026-07-15T03:01:12.905696+00:00"
+  },
+  "window_registry": [
+    {
+      "window_id": "odni-2024-08-19-joint-p01",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "73a822f66c756929324a71018aaa558c3c43a0b30cb6201c24a6f267209ea577",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-08-19-joint-p02",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "b509667bca683a4183fe5ee2420e6c509dd81f69c2a2167e760726c0555641aa",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-08-19-joint-p03",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "04aaad7bd26b4bac3423385816ea19b8dae043c90a8683dee38aed3db4128190",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-08-19-joint-p04",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "4bc14df194eb33fe913ac71b809bd1422570514dd183f6ee7c8486eed290802a",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-08-19-joint-p05",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "a44133b57d75772eb52fc4ebab14962c590cd5d2545b8179f958d6e43dc501eb",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-08-19-joint-p06",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "cf569fc0b5a0f41c95a69a260b4a794eb1dcdaa9ceca704cf43f99a2e264fda1",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-08-19-joint-p07",
+      "resource_id": "odni-2024-08-19-joint",
+      "source_artifact_version_id": "art-odni-2024-08-19-bounded-html-v1",
+      "source_artifact_sha256": "9ac41943a13e50e5cec36190abf80a04eb9d6688c977fe4f855046227be2157b",
+      "source_view_version_id": "view-odni-2024-08-19-normalized-text-v1",
+      "source_view_sha256": "d949dd2d7ff30d31eaf5e06726b4dd4af7f9e173f21ca6fd24b6633ca804dbda",
+      "extracted_text_sha256": "348b0ae8c878c88ad03efce06f0119f93010bed2b42913f1ea2cbf768a06abd3",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p01",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "428e4961645d88563d3d781646a4d007624cc050e65f6bfcbfb28d62a7e2924d",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p02",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "c16d830208f5206332501dcea1442c14b6ab8857f3b8b1a9140ef70e82647461",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p03",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "807b4ce14b5da15845717519e8275b73335da8310ae8142076bbcf5a34cf14b4",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p04",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "c604e53782ab7180827adc240cd4c07f247af9b63df1d808e2d8f401d617c5ab",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p05",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "ba9449e6c5c4da4f929faaef17c6c018bf53dfa7d91cb18a965772835d4949cd",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p06",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "b95359b16a5607e3f3008e96b8b3b5dfd55d47953f715a6c461d72995871c622",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "odni-2024-09-18-joint-p07",
+      "resource_id": "odni-2024-09-18-joint",
+      "source_artifact_version_id": "art-odni-2024-09-18-bounded-html-v1",
+      "source_artifact_sha256": "8ee39eb714d496e8b8cf38d4765cf97d65be4016ba6331cc3eb79c8766a6232c",
+      "source_view_version_id": "view-odni-2024-09-18-normalized-text-v1",
+      "source_view_sha256": "55613b4f1f42adc46cc8c8e0679c91883dfe6b10cfdd90e7cf6d3975e6559b91",
+      "extracted_text_sha256": "fbeeeb5ef5e32a4d4571fc34687b251e8cde5575a2e541a2037a35a8e0c3d2f1",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-01",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "294bb2c0818aec39bb82e8a59bf8304b1368209a9150d5a3f755eb9bfdcac5c8",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-02",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "1fc39b09df059d26300a16db182bf35c2484032b1b7788c7b71d25deabdaa658",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-03",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "26b08c6a24d6eb4833ace5b2af901d2fef7f9b7d9e2dda2f0ca29605ac742585",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-04",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "9dc70c033da1ae3dee25c37c8ee4f602a544a252b3f6b845cc271631c9c7cf6b",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-05",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "c07f374460f1fcaf069fc4c04c92d70648539a74225d93cb35b33a907dcdfec4",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-06",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "0fc1047f475178e714e169df2d8ca7c1ed0291d29f14730042a4c5cd4bb53810",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-07",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "6615807d05b94d16de3f89bc8280f71ad148007889942fc61eee96be349788d1",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-08",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "fdd58a80ea31518626937f26532818a43da8be57c25086217ded5417392426be",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-09",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "836068039a1168e859cacfe593e68d5b92d58dce6aede43a97a62605de6c531f",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-10",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "0e5f912b1eac6e0bebaef38615b144b2c5277f7922f2cac0f58545b72ede2517",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-11",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "fa0695b31e1d8536482bf0c81bf1b5952422ffab0ccdb9d7d1d2cec83848c25e",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-12",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "cd682c5f23600d56869ba2450e52eab6372241f8809827b47ea101bdaf0ffef4",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-13",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "209a2ca8c67c7d8531c0d0c8a0b64eff8d0b9205df277e33841e8ef45f09a6f1",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-14",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "0930078ea2808a1a8c3c814a70729661a63ab1cc0c57f7edba20515aaea16179",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-15",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "7eca22e7682efa4b0f9c98688d00a951942ff54d9c5b56aa91da502f09aac378",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-16",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "9d2e0c4c3ad80e198a1fa7e754ba04731aaed4d7748c31cf6e8bb7cc348f4120",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-17",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "17217d5b0eff2aaebf6f7cdabd0ff1912fc2292aa615e1e14b4eb10d910502f0",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-18",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "aed0b7e17f8d686f9f221944062d51c830303cc0d733bc94f16df08e92c95a9a",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-19",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "25d480b58710a871ed896c161a4a4a83bbec9372e9403c0b1e2efee85db314e7",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-20",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "ca695561c5e07d12207d16f3a5c8ae4fdd67bc4042fbcd80cfcb45ef462cc4c5",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-21",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "091717e8e9b81f8f24b2aeadae4a95c47ff8ff3af3a055b716ecc66beb422fcf",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-22",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "2fb97d8deb09cca36e2724b3bd471bbacf175874accd1c0e17536bf20917b07a",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-23",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "b7c181667c0f5f468edf35fdd4377468cc1bb82a753708842a7b63b6ad55718c",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-24",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "3fb6cf8ab54b2d817e6882a43d0c21046d82a8fd52d25dd9989616ed449c72af",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-25",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "e9419dbbc5b97fe61e1d1bb5837eb444bedcc5c5dc66f73038c80a66bad689c2",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-26",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "d3aae2c641fdfccb7b172cf28891feb2b05beb896c33dbdc04432b71dcc8ef5e",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-27",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "bd1f5d94e853d35371933128e763625e5d2d68a82cb27fbafd91d1e802915d71",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-28",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "347de80fcdd40bdb46896fbaa3c339068404e6a02424f66a2ffdc82fdf851dcc",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-29",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "b12b60c6d8c2ab396ade3b34b0a8add14ebfdb99d2e73e79838144abef6ca453",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-30",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "11c92354b606207b872e2b55da90d7ed14d9b2dc9fcd0856552dc7b4ae8e34a4",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-31",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "3cd0f4bdc3deb877421d6586a89515659c75692c30dc2db18c7180523d4c704a",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-32",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "952bc64acf28faec8820c7eb3eb4e62d903973f0c35bcc739432596f3c70a397",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-33",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "729d3e3784e0c5609f5c7a2c38b5d011962e74f1e1f6b8267ba60f9a3e83b13e",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-34",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "6ac0d75e665b0ed1184d10810a6da00e23aae6b79e541df3fe581dfec138e2fe",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-35",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "57b04d11ce014e01a0abe6417bd24d33e10acbc45d6b94bbbb93f4f15108e188",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-36",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "39cf4053582e6090049586443d54c20023437f3c31f5d18aa8084b8ebaa07bf1",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "doj-2024-09-26-indictment-page-37",
+      "resource_id": "doj-2024-09-26-indictment",
+      "source_artifact_version_id": "art-doj-2024-09-26-official-pdf-v1",
+      "source_artifact_sha256": "96b8a6ade2503ba91dd5cab4fca9e4248b1361969fa2f1d8f871e702d0ba979b",
+      "source_view_version_id": "view-doj-2024-09-26-tesseract-ocr-v1",
+      "source_view_sha256": "3e68073d84069c5d7c18c72d34364e3e645ff11c5358cf9920858d8252a488d1",
+      "extracted_text_sha256": "e536ff9ecfcc0c7cd63a6feddc97e0b26f1349637a6fc05b35b521c30dc04731",
+      "review_status": "unreviewed_ocr"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p01",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "b0ce0283828360df1e7435c6e9afc70dc9562ba57d5f568c3c0f6a3edd5ac3d5",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p02",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "6704dbf1d072181377bb13494220264f8e3548470a533ab7669b2356a5df68da",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p03",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "facca1470de7f69f3ab99f4620fdef55f58b649356d97206cbbd72ced3166872",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p04",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "a69c88a98f3e5b6b92c65c427216b71bf549b8341266248ba338f3b6ed35ad46",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p05",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "5a7448d178c8fa84e514ea24e7a6e441b4650ff04d52a04bc4ad4fc82ac23764",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p06",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "9f89667e0974a14d640aea34376d6687bc3e433b47c9fab0c53e6ceca134b8f1",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p07",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "540b7aa98551062be41aa8a6f3e1067b2ed1d99887044ad494a02fc15887ce3d",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p08",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "685d0341f50fc652051895e73b953d1d554d8ff6bb94a36ef73f4e3a0826d553",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p09",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "1a5be05a6ac64efb5e6b01faf45e68e99cd5557b5bb1d74e807a62be6c5038cd",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p10",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "9daaf6d48fef35bc264f28247a9056ac3fc96df654ff73692de3283d595919a6",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p11",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "6119119b27ba25613eaf6d75b7a4cf970d33588236fa0a851ad1883ff9ccea60",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p12",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "88e825efbfdccc3d6abf739157cbc6c5e0da713c1349c58881f8a1945c5f62f6",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p13",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "3571d5a543e5d1991784cb7e4201df43f34770923111428b92dbfc009ae22553",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p14",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "0a4cb4a297dff9b36c92c717ee6bd4f5371eca08887e8ea5789ea90fbe99c928",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p15",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "cdaf277bd5d4c02647c5a54ac777f5dea7c2d92d18e360e6783ee1811ffdbc97",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p16",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "3abe3593d9889814c927d069e8963a69c0b346d86aa4eb92eaabcbfb14496fff",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p17",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "739d0b514345f44eb2463cce6655774d4250c3b87abcebe033fd916a96086568",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p18",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "0ee84e148267c2b288c3924a0e604ed9101ab9dc57c1eea52c1b0e285dc8c4aa",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p19",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "2024c0bfec85c61abec165b22b1bee5e4809d0fb6169670d34d23051292e1328",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p20",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "f5f580873f14f067e3b121a2084b4fc099ba7e61b0e646e77ebb3789abc679cc",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p21",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "51528f21d58e4c92884a428fdaabca57d96737a9a23d22bcf9d8d79ae54b8088",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p22",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "3c71e2790a1595122ddd7059f030d234e558c77ad80bc081b47a2b69295fa102",
+      "review_status": "verified_derived_text"
+    },
+    {
+      "window_id": "treasury-2024-09-27-sanctions-p23",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "source_artifact_version_id": "art-treasury-2024-09-27-bounded-html-v1",
+      "source_artifact_sha256": "8ed05edf21986894b99696226a9b81624c75bac8b2dedb13957daeae50cbf46c",
+      "source_view_version_id": "view-treasury-2024-09-27-normalized-text-v1",
+      "source_view_sha256": "2e48006730d8e55a35d2185c80f8f1be1090d799948c53b84f2619553a77b933",
+      "extracted_text_sha256": "d0ece8c073ef417481d8626822eb7ee8277e9f45dc43d3c85b567ff24e71c492",
+      "review_status": "verified_derived_text"
+    }
+  ],
+  "coverage_records": [
+    {
+      "coverage_id": "coverage-odni-2024-08-19-joint",
+      "resource_id": "odni-2024-08-19-joint",
+      "examined_window_ids": [
+        "odni-2024-08-19-joint-p01",
+        "odni-2024-08-19-joint-p02",
+        "odni-2024-08-19-joint-p03",
+        "odni-2024-08-19-joint-p04",
+        "odni-2024-08-19-joint-p05",
+        "odni-2024-08-19-joint-p06",
+        "odni-2024-08-19-joint-p07"
+      ],
+      "denominator_count": 7,
+      "denominator_sha256": "e9dd1667f4b12a3edc4ce455a0448951583117d75f0ed0103ca787829b9275f0",
+      "search_strategy": "exhaustive_window_review",
+      "reviewed": true
+    },
+    {
+      "coverage_id": "coverage-odni-2024-09-18-joint",
+      "resource_id": "odni-2024-09-18-joint",
+      "examined_window_ids": [
+        "odni-2024-09-18-joint-p01",
+        "odni-2024-09-18-joint-p02",
+        "odni-2024-09-18-joint-p03",
+        "odni-2024-09-18-joint-p04",
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06",
+        "odni-2024-09-18-joint-p07"
+      ],
+      "denominator_count": 7,
+      "denominator_sha256": "0a51d893462535ede0df7b302074e6917847e36a7b5e0517aca83615113aa318",
+      "search_strategy": "exhaustive_window_review",
+      "reviewed": true
+    },
+    {
+      "coverage_id": "coverage-doj-2024-09-26-indictment",
+      "resource_id": "doj-2024-09-26-indictment",
+      "examined_window_ids": [
+        "doj-2024-09-26-indictment-page-01",
+        "doj-2024-09-26-indictment-page-02",
+        "doj-2024-09-26-indictment-page-03",
+        "doj-2024-09-26-indictment-page-04",
+        "doj-2024-09-26-indictment-page-05",
+        "doj-2024-09-26-indictment-page-06",
+        "doj-2024-09-26-indictment-page-07",
+        "doj-2024-09-26-indictment-page-08",
+        "doj-2024-09-26-indictment-page-09",
+        "doj-2024-09-26-indictment-page-10",
+        "doj-2024-09-26-indictment-page-11",
+        "doj-2024-09-26-indictment-page-12",
+        "doj-2024-09-26-indictment-page-13",
+        "doj-2024-09-26-indictment-page-14",
+        "doj-2024-09-26-indictment-page-15",
+        "doj-2024-09-26-indictment-page-16",
+        "doj-2024-09-26-indictment-page-17",
+        "doj-2024-09-26-indictment-page-18",
+        "doj-2024-09-26-indictment-page-19",
+        "doj-2024-09-26-indictment-page-20",
+        "doj-2024-09-26-indictment-page-21",
+        "doj-2024-09-26-indictment-page-22",
+        "doj-2024-09-26-indictment-page-23",
+        "doj-2024-09-26-indictment-page-24",
+        "doj-2024-09-26-indictment-page-25",
+        "doj-2024-09-26-indictment-page-26",
+        "doj-2024-09-26-indictment-page-27",
+        "doj-2024-09-26-indictment-page-28",
+        "doj-2024-09-26-indictment-page-29",
+        "doj-2024-09-26-indictment-page-30",
+        "doj-2024-09-26-indictment-page-31",
+        "doj-2024-09-26-indictment-page-32",
+        "doj-2024-09-26-indictment-page-33",
+        "doj-2024-09-26-indictment-page-34",
+        "doj-2024-09-26-indictment-page-35",
+        "doj-2024-09-26-indictment-page-36",
+        "doj-2024-09-26-indictment-page-37"
+      ],
+      "denominator_count": 37,
+      "denominator_sha256": "694519c3417e7323e258164cdcde682a32739f73304ae5e5fd92fdde429bb200",
+      "search_strategy": "custody_constraint_review",
+      "reviewed": true
+    },
+    {
+      "coverage_id": "coverage-treasury-2024-09-27-sanctions",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "examined_window_ids": [
+        "treasury-2024-09-27-sanctions-p01",
+        "treasury-2024-09-27-sanctions-p02",
+        "treasury-2024-09-27-sanctions-p03",
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p05",
+        "treasury-2024-09-27-sanctions-p06",
+        "treasury-2024-09-27-sanctions-p07",
+        "treasury-2024-09-27-sanctions-p08",
+        "treasury-2024-09-27-sanctions-p09",
+        "treasury-2024-09-27-sanctions-p10",
+        "treasury-2024-09-27-sanctions-p11",
+        "treasury-2024-09-27-sanctions-p12",
+        "treasury-2024-09-27-sanctions-p13",
+        "treasury-2024-09-27-sanctions-p14",
+        "treasury-2024-09-27-sanctions-p15",
+        "treasury-2024-09-27-sanctions-p16",
+        "treasury-2024-09-27-sanctions-p17",
+        "treasury-2024-09-27-sanctions-p18",
+        "treasury-2024-09-27-sanctions-p19",
+        "treasury-2024-09-27-sanctions-p20",
+        "treasury-2024-09-27-sanctions-p21",
+        "treasury-2024-09-27-sanctions-p22",
+        "treasury-2024-09-27-sanctions-p23"
+      ],
+      "denominator_count": 23,
+      "denominator_sha256": "6bc11cc11abf55ca180a00af82d8994b3e1057f67858861df621060704539e8f",
+      "search_strategy": "exhaustive_window_review",
+      "reviewed": true
+    }
+  ],
+  "candidate_records": [
+    {
+      "candidate_id": "candidate-odni-2024-08-19-joint-problem_definition",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "problem_definition",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-08-19-joint-p04",
+        "odni-2024-08-19-joint-p05"
+      ],
+      "rationale": "Identifies foreign influence and cyber operations directed at U.S. elections—specifically efforts to stoke discord, undermine confidence in democratic institutions, and obtain sensitive campaign information—and notes increasingly aggressive activity during this election cycle.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-08-19-joint-causal_diagnosis",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "causal_diagnosis",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-08-19-joint-p04",
+        "odni-2024-08-19-joint-p05"
+      ],
+      "rationale": "Attributes the described influence and cyber activities to Iranian actors (and notes that Iran and Russia have used similar tactics), and describes use of social engineering and attempts to access individuals connected to presidential campaigns.",
+      "alternative_readings": [
+        "Some referenced activities could be read as involving multiple distinct actors or methods (e.g., separate Iranian operations versus other actors such as Russia) rather than a single source for all incidents."
+      ],
+      "uncertainty_notes": [
+        "Attribution is stated at the intelligence community level without detailed evidentiary support in the text."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-08-19-joint-moral_evaluation",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "moral_evaluation",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-08-19-joint-p06"
+      ],
+      "rationale": "Normatively condemns foreign efforts to influence or interfere in U.S. elections, states that such efforts will not be tolerated, and frames protecting election integrity as a priority.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-08-19-joint-treatment_recommendation",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "treatment_recommendation",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-08-19-joint-p06",
+        "odni-2024-08-19-joint-p07"
+      ],
+      "rationale": "Proposes concrete responses: investigative and disruption actions by the FBI, interagency information-sharing with public/private partners, practical cybersecurity measures for campaigns (password hygiene, MFA, software updates, caution with attachments/links), and reporting channels for suspicious activity.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-09-18-joint-problem_definition",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "problem_definition",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-09-18-joint-p04",
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06"
+      ],
+      "rationale": "The statement identifies foreign election influence activity—malicious cyber operations sending stolen, non-public campaign material and efforts to stoke discord—and frames these actions as undermining confidence in the U.S. electoral process.",
+      "alternative_readings": [
+        "Framing could be read narrowly as describing discrete malicious cyber incidents rather than a systemic, long-term threat."
+      ],
+      "uncertainty_notes": [
+        "Public statement does not quantify scope, scale, or concrete impacts of the described incidents; assessment is descriptive rather than evidentiary."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-09-18-joint-causal_diagnosis",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "causal_diagnosis",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-09-18-joint-p04",
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06"
+      ],
+      "rationale": "The communication attributes the identified influence activities to Iranian malicious cyber actors and also names other foreign actors (Russia, China) as increasing election influence efforts.",
+      "alternative_readings": [
+        "Attribution could be read as principally Iran-specific or alternatively as a broader category of foreign actors collectively responsible.",
+        "The term 'malicious cyber actors' could be interpreted as state-directed operatives or as non-state/criminal actors; the statement does not specify."
+      ],
+      "uncertainty_notes": [
+        "The statement does not provide technical attribution details or clarify whether actors are state-sponsored, proxies, or independent criminal actors."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-09-18-joint-moral_evaluation",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "moral_evaluation",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06"
+      ],
+      "rationale": "The agencies characterize the activity as 'malicious' and as actions that stoke discord, undermine democratic institutions, and constitute a direct threat that will not be tolerated, expressing normative condemnation.",
+      "alternative_readings": [
+        "Language could be read as a security assessment or threat characterization rather than an explicit moral judgment."
+      ],
+      "uncertainty_notes": [
+        "Normative language is broad and general; the statement does not link evaluations to legal findings or adjudicated determinations."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-odni-2024-09-18-joint-treatment_recommendation",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "treatment_recommendation",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "odni-2024-09-18-joint-p06",
+        "odni-2024-09-18-joint-p07"
+      ],
+      "rationale": "The statement sets out responses: the FBI will investigate, pursue, and disrupt the actors, and FBI/CISA urge campaigns and stakeholders to report suspicious activity and use provided reporting channels and protective resources.",
+      "alternative_readings": [
+        "The recommended actions could be read primarily as operational law-enforcement and reporting steps rather than broader policy or legislative remedies."
+      ],
+      "uncertainty_notes": [
+        "Recommendations are operationally oriented and lack detail on specific investigative, defensive, or legal measures, timelines, or thresholds for action."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-doj-2024-09-26-indictment-problem_definition",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "problem_definition",
+      "proposed_status": "not_observable",
+      "proposed_window_ids": [],
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-doj-2024-09-26-indictment-causal_diagnosis",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "causal_diagnosis",
+      "proposed_status": "not_observable",
+      "proposed_window_ids": [],
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-doj-2024-09-26-indictment-moral_evaluation",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "moral_evaluation",
+      "proposed_status": "not_observable",
+      "proposed_window_ids": [],
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-doj-2024-09-26-indictment-treatment_recommendation",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "treatment_recommendation",
+      "proposed_status": "not_observable",
+      "proposed_window_ids": [],
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-problem_definition",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "problem_definition",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "treasury-2024-09-27-sanctions-p03",
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p06",
+        "treasury-2024-09-27-sanctions-p14"
+      ],
+      "rationale": "The document identifies interference in U.S. elections—including hack-and-leak operations, spear-phishing, thefts, disclosures, intimidation, and disinformation—that undermine confidence in U.S. democratic institutions and aim to influence voters and campaigns.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-causal_diagnosis",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "causal_diagnosis",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "treasury-2024-09-27-sanctions-p06",
+        "treasury-2024-09-27-sanctions-p09",
+        "treasury-2024-09-27-sanctions-p13",
+        "treasury-2024-09-27-sanctions-p15",
+        "treasury-2024-09-27-sanctions-p10",
+        "treasury-2024-09-27-sanctions-p18"
+      ],
+      "rationale": "The instrument attributes responsibility to Iran-linked actors—including the Government of Iran, IRGC-associated individuals (e.g., Masoud Jalili), named Iran-based hacker groups, and Emennet Pasargad employees—and links those actors to the described operations.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "Attribution reflects the U.S. government’s identification and designations; the document does not present external verification or alternative attributions."
+      ],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-moral_evaluation",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "moral_evaluation",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p05",
+        "treasury-2024-09-27-sanctions-p14"
+      ],
+      "rationale": "The communication characterizes the actors’ conduct as malicious and harmful to election integrity, expresses condemnation, and asserts a commitment to hold those actors accountable, thereby providing a normative evaluation.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "disposition": "accepted"
+    },
+    {
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-treatment_recommendation",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "treatment_recommendation",
+      "proposed_status": "present",
+      "proposed_window_ids": [
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p11",
+        "treasury-2024-09-27-sanctions-p20",
+        "treasury-2024-09-27-sanctions-p21",
+        "treasury-2024-09-27-sanctions-p22"
+      ],
+      "rationale": "The document sets out remedial measures: OFAC designations, blocking of property and reporting obligations, transaction prohibitions, potential enforcement for counterparties, coordination with DOJ indictments and Rewards for Justice, and information on delisting procedures.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "The remedies are legal and regulatory (sanctions, blocking, enforcement); operational or defensive measures for third parties are not detailed here."
+      ],
+      "disposition": "revised"
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "observation-odni-2024-08-19-joint-problem_definition",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "problem_definition",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-08-19-joint-p04",
+        "odni-2024-08-19-joint-p05"
+      ],
+      "coverage_id": "coverage-odni-2024-08-19-joint",
+      "rationale": "Identifies foreign influence and cyber operations directed at U.S. elections—specifically efforts to stoke discord, undermine confidence in democratic institutions, and obtain sensitive campaign information—and notes increasingly aggressive activity during this election cycle.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "candidate_id": "candidate-odni-2024-08-19-joint-problem_definition",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; the cited problem definition is textually supported."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-08-19-joint-causal_diagnosis",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "causal_diagnosis",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-08-19-joint-p04",
+        "odni-2024-08-19-joint-p05"
+      ],
+      "coverage_id": "coverage-odni-2024-08-19-joint",
+      "rationale": "Attributes the described influence and cyber activities to Iranian actors (and notes that Iran and Russia have used similar tactics), and describes use of social engineering and attempts to access individuals connected to presidential campaigns.",
+      "alternative_readings": [
+        "Some referenced activities could be read as involving multiple distinct actors or methods (e.g., separate Iranian operations versus other actors such as Russia) rather than a single source for all incidents."
+      ],
+      "uncertainty_notes": [
+        "Attribution is stated at the intelligence community level without detailed evidentiary support in the text."
+      ],
+      "candidate_id": "candidate-odni-2024-08-19-joint-causal_diagnosis",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; the cited attribution is represented as the instrument's diagnosis, not verified truth."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-08-19-joint-moral_evaluation",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "moral_evaluation",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-08-19-joint-p06"
+      ],
+      "coverage_id": "coverage-odni-2024-08-19-joint",
+      "rationale": "Normatively condemns foreign efforts to influence or interfere in U.S. elections, states that such efforts will not be tolerated, and frames protecting election integrity as a priority.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "candidate_id": "candidate-odni-2024-08-19-joint-moral_evaluation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; the non-toleration and integrity language supports normative evaluation."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-08-19-joint-treatment_recommendation",
+      "resource_id": "odni-2024-08-19-joint",
+      "function_id": "treatment_recommendation",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-08-19-joint-p06",
+        "odni-2024-08-19-joint-p07"
+      ],
+      "coverage_id": "coverage-odni-2024-08-19-joint",
+      "rationale": "Proposes concrete responses: investigative and disruption actions by the FBI, interagency information-sharing with public/private partners, practical cybersecurity measures for campaigns (password hygiene, MFA, software updates, caution with attachments/links), and reporting channels for suspicious activity.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "candidate_id": "candidate-odni-2024-08-19-joint-treatment_recommendation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; institutional responses, cyber hygiene, and reporting routes are explicitly recommended."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-09-18-joint-problem_definition",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "problem_definition",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-09-18-joint-p04",
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06"
+      ],
+      "coverage_id": "coverage-odni-2024-09-18-joint",
+      "rationale": "The statement identifies foreign election influence activity—malicious cyber operations sending stolen, non-public campaign material and efforts to stoke discord—and frames these actions as undermining confidence in the U.S. electoral process.",
+      "alternative_readings": [
+        "Framing could be read narrowly as describing discrete malicious cyber incidents rather than a systemic, long-term threat."
+      ],
+      "uncertainty_notes": [
+        "Public statement does not quantify scope, scale, or concrete impacts of the described incidents; assessment is descriptive rather than evidentiary."
+      ],
+      "candidate_id": "candidate-odni-2024-09-18-joint-problem_definition",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; the issue and described electoral harms are explicit."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-09-18-joint-causal_diagnosis",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "causal_diagnosis",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-09-18-joint-p04",
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06"
+      ],
+      "coverage_id": "coverage-odni-2024-09-18-joint",
+      "rationale": "The communication attributes the identified influence activities to Iranian malicious cyber actors and also names other foreign actors (Russia, China) as increasing election influence efforts.",
+      "alternative_readings": [
+        "Attribution could be read as principally Iran-specific or alternatively as a broader category of foreign actors collectively responsible.",
+        "The term 'malicious cyber actors' could be interpreted as state-directed operatives or as non-state/criminal actors; the statement does not specify."
+      ],
+      "uncertainty_notes": [
+        "The statement does not provide technical attribution details or clarify whether actors are state-sponsored, proxies, or independent criminal actors."
+      ],
+      "candidate_id": "candidate-odni-2024-09-18-joint-causal_diagnosis",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; the instrument explicitly names the attributed foreign actors."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-09-18-joint-moral_evaluation",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "moral_evaluation",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-09-18-joint-p05",
+        "odni-2024-09-18-joint-p06"
+      ],
+      "coverage_id": "coverage-odni-2024-09-18-joint",
+      "rationale": "The agencies characterize the activity as 'malicious' and as actions that stoke discord, undermine democratic institutions, and constitute a direct threat that will not be tolerated, expressing normative condemnation.",
+      "alternative_readings": [
+        "Language could be read as a security assessment or threat characterization rather than an explicit moral judgment."
+      ],
+      "uncertainty_notes": [
+        "Normative language is broad and general; the statement does not link evaluations to legal findings or adjudicated determinations."
+      ],
+      "candidate_id": "candidate-odni-2024-09-18-joint-moral_evaluation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; malicious/direct-threat/non-toleration language supports the coding."
+      }
+    },
+    {
+      "observation_id": "observation-odni-2024-09-18-joint-treatment_recommendation",
+      "resource_id": "odni-2024-09-18-joint",
+      "function_id": "treatment_recommendation",
+      "status": "present",
+      "evidence_window_ids": [
+        "odni-2024-09-18-joint-p06",
+        "odni-2024-09-18-joint-p07"
+      ],
+      "coverage_id": "coverage-odni-2024-09-18-joint",
+      "rationale": "The statement sets out responses: the FBI will investigate, pursue, and disrupt the actors, and FBI/CISA urge campaigns and stakeholders to report suspicious activity and use provided reporting channels and protective resources.",
+      "alternative_readings": [
+        "The recommended actions could be read primarily as operational law-enforcement and reporting steps rather than broader policy or legislative remedies."
+      ],
+      "uncertainty_notes": [
+        "Recommendations are operationally oriented and lack detail on specific investigative, defensive, or legal measures, timelines, or thresholds for action."
+      ],
+      "candidate_id": "candidate-odni-2024-09-18-joint-treatment_recommendation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all seven windows; investigation, disruption, reporting, and protective resources are explicit responses."
+      }
+    },
+    {
+      "observation_id": "observation-doj-2024-09-26-indictment-problem_definition",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "problem_definition",
+      "status": "not_observable",
+      "evidence_window_ids": [],
+      "coverage_id": "coverage-doj-2024-09-26-indictment",
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "candidate_id": "candidate-doj-2024-09-26-indictment-problem_definition",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."
+      }
+    },
+    {
+      "observation_id": "observation-doj-2024-09-26-indictment-causal_diagnosis",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "causal_diagnosis",
+      "status": "not_observable",
+      "evidence_window_ids": [],
+      "coverage_id": "coverage-doj-2024-09-26-indictment",
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "candidate_id": "candidate-doj-2024-09-26-indictment-causal_diagnosis",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."
+      }
+    },
+    {
+      "observation_id": "observation-doj-2024-09-26-indictment-moral_evaluation",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "moral_evaluation",
+      "status": "not_observable",
+      "evidence_window_ids": [],
+      "coverage_id": "coverage-doj-2024-09-26-indictment",
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "candidate_id": "candidate-doj-2024-09-26-indictment-moral_evaluation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."
+      }
+    },
+    {
+      "observation_id": "observation-doj-2024-09-26-indictment-treatment_recommendation",
+      "resource_id": "doj-2024-09-26-indictment",
+      "function_id": "treatment_recommendation",
+      "status": "not_observable",
+      "evidence_window_ids": [],
+      "coverage_id": "coverage-doj-2024-09-26-indictment",
+      "rationale": "The only available source view is unreviewed OCR; emit not_observable.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "No substantive status was inferred from the unreviewed OCR view."
+      ],
+      "candidate_id": "candidate-doj-2024-09-26-indictment-treatment_recommendation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."
+      }
+    },
+    {
+      "observation_id": "observation-treasury-2024-09-27-sanctions-problem_definition",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "problem_definition",
+      "status": "present",
+      "evidence_window_ids": [
+        "treasury-2024-09-27-sanctions-p03",
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p06",
+        "treasury-2024-09-27-sanctions-p14"
+      ],
+      "coverage_id": "coverage-treasury-2024-09-27-sanctions",
+      "rationale": "The document identifies interference in U.S. elections—including hack-and-leak operations, spear-phishing, thefts, disclosures, intimidation, and disinformation—that undermine confidence in U.S. democratic institutions and aim to influence voters and campaigns.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-problem_definition",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all twenty-three windows; the cited interference activities and harms are explicit."
+      }
+    },
+    {
+      "observation_id": "observation-treasury-2024-09-27-sanctions-causal_diagnosis",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "causal_diagnosis",
+      "status": "present",
+      "evidence_window_ids": [
+        "treasury-2024-09-27-sanctions-p06",
+        "treasury-2024-09-27-sanctions-p09",
+        "treasury-2024-09-27-sanctions-p13",
+        "treasury-2024-09-27-sanctions-p15",
+        "treasury-2024-09-27-sanctions-p10",
+        "treasury-2024-09-27-sanctions-p18"
+      ],
+      "coverage_id": "coverage-treasury-2024-09-27-sanctions",
+      "rationale": "The instrument attributes responsibility to Iran-linked actors—including the Government of Iran, IRGC-associated individuals (e.g., Masoud Jalili), named Iran-based hacker groups, and Emennet Pasargad employees—and links those actors to the described operations.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "Attribution reflects the U.S. government’s identification and designations; the document does not present external verification or alternative attributions."
+      ],
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-causal_diagnosis",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all twenty-three windows; the named attributed actors and organizational relationships support the diagnosis."
+      }
+    },
+    {
+      "observation_id": "observation-treasury-2024-09-27-sanctions-moral_evaluation",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "moral_evaluation",
+      "status": "present",
+      "evidence_window_ids": [
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p05",
+        "treasury-2024-09-27-sanctions-p14"
+      ],
+      "coverage_id": "coverage-treasury-2024-09-27-sanctions",
+      "rationale": "The communication characterizes the actors’ conduct as malicious and harmful to election integrity, expresses condemnation, and asserts a commitment to hold those actors accountable, thereby providing a normative evaluation.",
+      "alternative_readings": [],
+      "uncertainty_notes": [],
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-moral_evaluation",
+      "review": {
+        "decision": "accepted",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "Checked against all twenty-three windows; maliciousness, harm, and accountability language support normative evaluation."
+      }
+    },
+    {
+      "observation_id": "observation-treasury-2024-09-27-sanctions-treatment_recommendation",
+      "resource_id": "treasury-2024-09-27-sanctions",
+      "function_id": "treatment_recommendation",
+      "status": "present",
+      "evidence_window_ids": [
+        "treasury-2024-09-27-sanctions-p04",
+        "treasury-2024-09-27-sanctions-p11",
+        "treasury-2024-09-27-sanctions-p20",
+        "treasury-2024-09-27-sanctions-p21",
+        "treasury-2024-09-27-sanctions-p22"
+      ],
+      "coverage_id": "coverage-treasury-2024-09-27-sanctions",
+      "rationale": "Implements a coordinated response through OFAC designations, property blocking, transaction prohibitions, DOJ charges, rewards, and possible enforcement; the instrument states that sanctions ultimately aim to change behavior.",
+      "alternative_readings": [],
+      "uncertainty_notes": [
+        "The instrument states the intended policy response and goal; this coding does not establish actual effectiveness."
+      ],
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-treatment_recommendation",
+      "review": {
+        "decision": "revised",
+        "reviewer_id": "agent:codex",
+        "reviewed_at": "2026-07-15T03:02:10Z",
+        "rationale": "The candidate found the right evidence, but its rationale treated delisting procedure as a remedy and omitted the document's stated behavioral aim."
+      }
+    }
+  ],
+  "excluded_claims": [
+    "agency effects",
+    "audience effects",
+    "communicator intent",
+    "prevalence",
+    "truth of allegations"
+  ],
+  "raw_source_content_included": false,
+  "scientific_review_status": "not_performed"
+}

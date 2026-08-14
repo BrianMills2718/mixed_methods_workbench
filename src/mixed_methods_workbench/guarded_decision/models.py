@@ -229,13 +229,24 @@ class TraceStoreSnapshot(FrozenModel):
     """Canonical export of the exact persisted call needed for cold custody checks."""
 
     schema_version: str = Field(pattern=r"^plan242-trace-store-snapshot/1$")
+    source_store_digest: Digest
     source_row_id: int = Field(gt=0)
+    timestamp: str = Field(min_length=1)
+    project: str = Field(min_length=1)
+    caller: str = Field(min_length=1)
+    task: str = Field(min_length=1)
     trace_id: str = Field(min_length=1)
     logical_call_id: str = Field(min_length=1)
     call_fingerprint: Digest
     response_digest: Digest
     runtime_revision: str = Field(pattern=r"^[a-f0-9]{40}$")
     model_ref: str = Field(min_length=1)
+    finish_reason: str = Field(min_length=1)
+    execution_path: str = Field(min_length=1)
+    retry_count: int = Field(ge=0)
+    schema_hash: str = Field(min_length=1)
+    response_format_type: str = Field(min_length=1)
+    error: str | None = None
     call_snapshot_raw: str = Field(min_length=1)
     response_raw: str = Field(min_length=1)
 

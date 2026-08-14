@@ -48,12 +48,15 @@ from mixed_methods_workbench.guarded_decision import (
     GuardedDecisionOutcome,
     GuardedDecisionRequest,
     NativeDecision,
+    NativeExecutionEvidenceManifest,
     PolicyBinding,
     PolicyManifest,
     canonical_json_bytes,
     execute_guarded_decision,
+    load_evidence_bundle,
     mapping_resolver,
     observed_composition_contract_revision,
+    replay_evidence_bundle,
     sha256_bytes,
 )
 
@@ -438,3 +441,110 @@ def test_native_callback_consumes_a_substituted_request_reference() -> None:
 
     assert result.outcome is GuardedDecisionOutcome.REFUSED
     assert "pt.unknown_hypothesis_ids" in result.semantic_reason_codes
+
+
+@pytest.mark.parametrize(
+    ("consumer", "case"),
+    [
+        ("process_tracing", "positive"),
+        ("process_tracing", "refusal"),
+        ("qualitative_coding", "positive"),
+        ("qualitative_coding", "refusal"),
+    ],
+)
+def test_committed_v3_bundle_cold_replays_native_disposition(
+    consumer: str,
+    case: str,
+) -> None:
+    repository_root = Path(__file__).parents[1]
+    bundle_path = (
+        repository_root / "docs/research/plan242/evidence" / consumer / case / "bundle.json"
+    )
+    bundle = load_evidence_bundle(bundle_path)
+
+    def resolve(ref: str) -> bytes:
+        path = (repository_root / ref).resolve()
+        if not path.is_relative_to(repository_root):
+            raise LookupError(f"evidence ref escapes repository: {ref}")
+        try:
+            return path.read_bytes()
+        except FileNotFoundError as exc:
+            raise LookupError(f"unresolved evidence ref: {ref}") from exc
+
+    manifest = NativeExecutionEvidenceManifest.model_validate_json(
+        resolve(bundle.native_execution_manifest_binding.ref)
+    )
+
+    def pt_policy(request: GuardedDecisionRequest) -> NativeDecision:
+        space = HypothesisSpace.model_validate_json(resolve(request.target.ref))
+        audit = PartitionAudit.model_validate_json(resolve(request.decision_record.ref))
+        try:
+            require_adequate_partition(space, audit)
+        except PartitionBlockedError:
+            reason_codes = _pt_codes(audit.decision_blockers)
+            decision = NativeDecision(
+                outcome=GuardedDecisionOutcome.REFUSED,
+                semantic_reason_codes=reason_codes,
+                native_disposition_ref="pt:pass3-blocked",
+            )
+            expected_output = canonical_json_bytes(
+                {
+                    "native_disposition_ref": "pt:pass3-blocked",
+                    "outcome": "refused",
+                    "semantic_reason_codes": reason_codes,
+                }
+            )
+        else:
+            decision = NativeDecision(
+                outcome=GuardedDecisionOutcome.VALIDATED,
+                native_disposition_ref="pt:pass3-eligible",
+            )
+            expected_output = canonical_json_bytes(audit.model_dump(mode="json"))
+        assert expected_output == resolve(manifest.native_output_binding.ref)
+        return decision
+
+    def qc_policy(request: GuardedDecisionRequest) -> NativeDecision:
+        review = F1CodingReviewPackage.model_validate_json(resolve(request.decision_record.ref))
+        try:
+            native_bundle = finalize_f1_bundle(
+                candidate_path=repository_root / request.target.ref,
+                review=review,
+                bundle_id="qc-f1-framing-observations-v1",
+            )
+        except DecisionUniverseMismatchError:
+            expected_output = canonical_json_bytes(
+                {
+                    "native_disposition_ref": "qc:decision-universe-mismatch",
+                    "outcome": "refused",
+                    "semantic_reason_codes": ["qc.decision_universe_mismatch"],
+                }
+            )
+            assert expected_output == resolve(manifest.native_output_binding.ref)
+            return NativeDecision(
+                outcome=GuardedDecisionOutcome.REFUSED,
+                semantic_reason_codes=("qc.decision_universe_mismatch",),
+                native_disposition_ref="qc:decision-universe-mismatch",
+            )
+        expected_output = (native_bundle.model_dump_json(indent=2) + "\n").encode()
+        assert native_bundle.scientific_review_status == "not_performed"
+        assert native_bundle.raw_source_content_included is False
+        assert hashlib.sha256(expected_output).hexdigest() == (
+            "c135da965f0fa61da85aa49008c7fe93711368ac8422c5c83816c69a0346934f"
+        )
+        assert expected_output == resolve(manifest.native_output_binding.ref)
+        return NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref="qc:bundle-finalized",
+        )
+
+    replayed = replay_evidence_bundle(
+        bundle,
+        resolve_content=resolve,
+        native_policy=pt_policy if consumer == "process_tracing" else qc_policy,
+    )
+
+    assert replayed == bundle.result_and_receipt
+    if consumer == "process_tracing" and case == "refusal":
+        assert replayed.semantic_reason_codes == PT_CODES
+    if consumer == "qualitative_coding" and case == "refusal":
+        assert replayed.semantic_reason_codes == ("qc.decision_universe_mismatch",)

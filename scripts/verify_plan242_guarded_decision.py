@@ -22,6 +22,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--qc-root", type=Path, required=True)
     parser.add_argument("--data-contracts-root", type=Path, required=True)
     parser.add_argument("--llm-client-root", type=Path, required=True)
+    parser.add_argument("--pinned-runtime", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument(
         "--contracts-only",
         action="store_true",
@@ -174,6 +175,21 @@ def main() -> int:
     args = _parser().parse_args()
     repository_root = Path(__file__).resolve().parents[1]
     pt_root = _require_revision("process_tracing", args.pt_root, PT_PIN)
+    pinned_python = pt_root / ".venv/bin/python"
+    if not args.pinned_runtime:
+        if not pinned_python.is_file():
+            raise RuntimeError(f"missing pinned process_tracing interpreter: {pinned_python}")
+        os.execv(
+            str(pinned_python),
+            [
+                str(pinned_python),
+                str(Path(__file__).resolve()),
+                *sys.argv[1:],
+                "--pinned-runtime",
+            ],
+        )
+    if Path(sys.executable).absolute() != pinned_python.absolute():
+        raise RuntimeError("canonical replay did not enter the pinned interpreter")
     qc_root = _require_revision("qualitative_coding", args.qc_root, QC_PIN)
     data_contracts_root = _require_revision(
         "data-contracts",

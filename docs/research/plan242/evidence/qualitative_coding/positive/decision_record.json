@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "review_id": "f1-framing-coding-review-2026-07-14-v1",
+  "candidate_run_sha256": "febdb3ccd36f06d7c9db1c1bf7c30d38f7879ea2406d6a19035a67f730d7ade3",
+  "reviewer_id": "agent:codex",
+  "reviewed_at": "2026-07-15T03:02:10Z",
+  "coverage_reviewed_resource_ids": [
+    "odni-2024-08-19-joint",
+    "odni-2024-09-18-joint",
+    "doj-2024-09-26-indictment",
+    "treasury-2024-09-27-sanctions"
+  ],
+  "decisions": [
+    {"candidate_id": "candidate-odni-2024-08-19-joint-problem_definition", "decision": "accepted", "rationale": "Checked against all seven windows; the cited problem definition is textually supported."},
+    {"candidate_id": "candidate-odni-2024-08-19-joint-causal_diagnosis", "decision": "accepted", "rationale": "Checked against all seven windows; the cited attribution is represented as the instrument's diagnosis, not verified truth."},
+    {"candidate_id": "candidate-odni-2024-08-19-joint-moral_evaluation", "decision": "accepted", "rationale": "Checked against all seven windows; the non-toleration and integrity language supports normative evaluation."},
+    {"candidate_id": "candidate-odni-2024-08-19-joint-treatment_recommendation", "decision": "accepted", "rationale": "Checked against all seven windows; institutional responses, cyber hygiene, and reporting routes are explicitly recommended."},
+    {"candidate_id": "candidate-odni-2024-09-18-joint-problem_definition", "decision": "accepted", "rationale": "Checked against all seven windows; the issue and described electoral harms are explicit."},
+    {"candidate_id": "candidate-odni-2024-09-18-joint-causal_diagnosis", "decision": "accepted", "rationale": "Checked against all seven windows; the instrument explicitly names the attributed foreign actors."},
+    {"candidate_id": "candidate-odni-2024-09-18-joint-moral_evaluation", "decision": "accepted", "rationale": "Checked against all seven windows; malicious/direct-threat/non-toleration language supports the coding."},
+    {"candidate_id": "candidate-odni-2024-09-18-joint-treatment_recommendation", "decision": "accepted", "rationale": "Checked against all seven windows; investigation, disruption, reporting, and protective resources are explicit responses."},
+    {"candidate_id": "candidate-doj-2024-09-26-indictment-problem_definition", "decision": "accepted", "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."},
+    {"candidate_id": "candidate-doj-2024-09-26-indictment-causal_diagnosis", "decision": "accepted", "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."},
+    {"candidate_id": "candidate-doj-2024-09-26-indictment-moral_evaluation", "decision": "accepted", "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."},
+    {"candidate_id": "candidate-doj-2024-09-26-indictment-treatment_recommendation", "decision": "accepted", "rationale": "Reviewed the custody state, not OCR substance; unreviewed OCR cannot support a substantive coding judgment."},
+    {"candidate_id": "candidate-treasury-2024-09-27-sanctions-problem_definition", "decision": "accepted", "rationale": "Checked against all twenty-three windows; the cited interference activities and harms are explicit."},
+    {"candidate_id": "candidate-treasury-2024-09-27-sanctions-causal_diagnosis", "decision": "accepted", "rationale": "Checked against all twenty-three windows; the named attributed actors and organizational relationships support the diagnosis."},
+    {"candidate_id": "candidate-treasury-2024-09-27-sanctions-moral_evaluation", "decision": "accepted", "rationale": "Checked against all twenty-three windows; maliciousness, harm, and accountability language support normative evaluation."},
+    {
+      "candidate_id": "candidate-treasury-2024-09-27-sanctions-treatment_recommendation",
+      "decision": "revised",
+      "rationale": "The candidate found the right evidence, but its rationale treated delisting procedure as a remedy and omitted the document's stated behavioral aim.",
+      "final_status": "present",
+      "final_window_ids": ["treasury-2024-09-27-sanctions-p04", "treasury-2024-09-27-sanctions-p11", "treasury-2024-09-27-sanctions-p20", "treasury-2024-09-27-sanctions-p21", "treasury-2024-09-27-sanctions-p22"],
+      "final_rationale": "Implements a coordinated response through OFAC designations, property blocking, transaction prohibitions, DOJ charges, rewards, and possible enforcement; the instrument states that sanctions ultimately aim to change behavior.",
+      "final_alternative_readings": [],
+      "final_uncertainty_notes": ["The instrument states the intended policy response and goal; this coding does not establish actual effectiveness."]
+    }
+  ],
+  "raw_source_content_included": false,
+  "scientific_review_status": "not_performed"
+}
