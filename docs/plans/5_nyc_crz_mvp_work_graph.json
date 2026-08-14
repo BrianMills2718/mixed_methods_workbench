@@ -148,10 +148,10 @@
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
-      "status": "completion_review",
-      "record_version": 2,
+      "status": "accepted",
+      "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-13T20:42:00Z"
+      "updated_at": "2026-08-14T14:16:35Z"
     },
     {
       "schema_version": "1.0",
@@ -160,13 +160,13 @@
       "initiative_id": "mixed-methods-workbench-authentic-mvp",
       "goal_id": "cohesive-nyc-policy-investigation",
       "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
-      "spec_revision": "1",
+      "spec_revision": "2",
       "title": "Run bounded QC Describe over all six frozen hearings",
       "class": "research",
       "objective": "Produce an authentic method-owned qualitative description of concerns, support, affected groups, alternatives, contradictions, and variation without population-prevalence claims.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "blocked_dependencies",
+      "claimability": "ready_for_execution",
       "scope": {
         "included": [
           "all six frozen August 2022 hearing transcripts as the declared denominator",
@@ -191,7 +191,7 @@
         {
           "kind": "AcceptedWorkUnit",
           "id": "NYC-EXTRACT-1",
-          "revision": "pending"
+          "revision": "c95488c:sha256:847e57e94eabbb0fc57a6416cabfd6e9b6712f424cd992862e7f45902651c067"
         }
       ],
       "outputs": [
@@ -256,19 +256,17 @@
         }
       ],
       "readiness": {
-        "status": "blocked",
+        "status": "ready",
         "required_approval_types": [],
         "approvals": [],
-        "failed_guards": [
-          "NYC-EXTRACT-1 awaits Brian's human disposition of the prediction and concern candidates"
-        ]
+        "failed_guards": []
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "qualitative_coding",
-      "status": "blocked",
-      "record_version": 2,
+      "status": "ready",
+      "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-13T20:42:00Z"
+      "updated_at": "2026-08-14T14:16:35Z"
     },
     {
       "schema_version": "1.0",
@@ -378,10 +376,10 @@
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
-      "status": "completion_review",
-      "record_version": 2,
+      "status": "accepted",
+      "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-13T20:42:00Z"
+      "updated_at": "2026-08-14T14:16:35Z"
     },
     {
       "schema_version": "1.0",
@@ -390,7 +388,7 @@
       "initiative_id": "mixed-methods-workbench-authentic-mvp",
       "goal_id": "cohesive-nyc-policy-investigation",
       "design_revision": "sha256:b48db0bba605b3f79270b014fa2c2d7d873511ca828120b886628592aaeb9b3e",
-      "spec_revision": "1",
+      "spec_revision": "2",
       "title": "Integrate qualitative, quantitative, and policy-appraisal strands",
       "class": "integration",
       "objective": "Present reviewed prediction, hearing analysis, quantitative comparison, policy appraisal, provenance, divergence, and limitations as one cohesive investigation without flattening method ownership.",
@@ -418,7 +416,7 @@
         {
           "kind": "AcceptedWorkUnit",
           "id": "NYC-EXTRACT-1",
-          "revision": "pending"
+          "revision": "c95488c:sha256:847e57e94eabbb0fc57a6416cabfd6e9b6712f424cd992862e7f45902651c067"
         },
         {
           "kind": "AcceptedWorkUnit",
@@ -428,7 +426,7 @@
         {
           "kind": "AcceptedWorkUnit",
           "id": "NYC-QUANT-1",
-          "revision": "pending"
+          "revision": "c95488c:sha256:847e57e94eabbb0fc57a6416cabfd6e9b6712f424cd992862e7f45902651c067"
         }
       ],
       "outputs": [
@@ -528,9 +526,7 @@
         "required_approval_types": [],
         "approvals": [],
         "failed_guards": [
-          "NYC-EXTRACT-1 awaits Brian's human disposition",
-          "NYC-QC-1 is not accepted",
-          "NYC-QUANT-1 awaits Brian's human disposition of the quantitative comparison"
+          "NYC-QC-1 is not accepted"
         ]
       },
       "claim_policy": {
@@ -543,9 +539,9 @@
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
       "status": "blocked",
-      "record_version": 2,
+      "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-13T20:42:00Z"
+      "updated_at": "2026-08-14T14:16:35Z"
     },
     {
       "schema_version": "1.0",

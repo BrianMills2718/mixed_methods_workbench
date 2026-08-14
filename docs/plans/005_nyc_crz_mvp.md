@@ -1,7 +1,7 @@
 # Plan #5 — Authentic NYC Congestion-Pricing MVP
 
-**Status:** active long-term execution authority; only graph-ready units may be
-claimed
+**Status:** active long-term execution authority; NYC-QC-1 is the next
+graph-ready unit
 
 **Goal:** deliver one cohesive policy investigation that composes reusable
 executable research capabilities with method-owned engines, typed boundaries,
@@ -78,18 +78,32 @@ parallel work independent and gives one owner the semantic integration point.
 
 ## Current execution checkpoint
 
-Two independently executable units have finished implementation and are now
-in `completion_review`, not available for another claim:
+Brian accepted all three exact review items on 2026-08-14. The immutable
+decision is recorded in
+[`nyc_crz_human_disposition.json`](../research/nyc_crz_human_disposition.json)
+at commit `c95488c`, artifact SHA-256
+`847e57e94eabbb0fc57a6416cabfd6e9b6712f424cd992862e7f45902651c067`.
+It accepts the two source-bound wordings for downstream method-owned analysis
+and the bounded quantitative arithmetic for policy integration, while retaining
+all causal, prevalence, representativeness, counterfactual, revenue, and
+publication limits. It does not rewrite the frozen model output or constitute a
+qualitative finding, causal finding, recommendation, publication approval, or
+deployment authority.
+
+Two independently executable units are therefore accepted at their exact
+implementation and decision revisions:
 
 - `NYC-EXTRACT-1` is merged on canonical `main` at `6403fcf` (task commit
   `84a9135`). Its authentic model run, deterministic anchors, two rejected
   attempts, candidate-review packet, JSON route, and existing Investigation
-  Spine projection pass focused checks. The prediction and concern remain
-  withheld pending Brian's attributable human disposition.
+  Spine projection pass focused checks. Brian accepted the proposed prediction
+  and concern wordings through decision commit `c95488c`; the rejected
+  model-authored limit fields remain historical and rejected.
 - `NYC-QUANT-1` is merged on canonical `main` at `103be94` (task commit
   `88cb15f`). It recomputes the frozen 361-day snapshot, preserves
-  publication-version drift, and refuses causal attribution. Its comparison
-  remains pending Brian's attributable human disposition.
+  publication-version drift, and refuses causal attribution. Brian accepted
+  the bounded comparison through decision commit `c95488c` without accepting a
+  causal effect or independently reconstructed counterfactual.
 
 The quantitative unit's corrected `spec_revision` is `2`. Its drift-receipt
 input now binds the actual canonical file SHA-256
@@ -97,11 +111,10 @@ input now binds the actual canonical file SHA-256
 the earlier `5c6af2bd...` graph value was not the digest of the referenced
 artifact. This correction does not change the frozen data or result.
 
-`NYC-QC-1` remains blocked. It becomes claimable only after the extraction
-work unit is accepted at the exact reviewed revision. `NYC-INTEGRATE-1`
-remains blocked until extraction, QC, and quantitative work are all accepted.
-Executing software and passing structural checks do not satisfy these human
-acceptance gates.
+`NYC-QC-1` is now ready for an exact claimed Qualitative Coding execution over
+all six frozen hearings. `NYC-INTEGRATE-1` remains blocked until that authentic
+method-owned QC artifact is accepted. Executing software and passing structural
+checks do not satisfy the remaining method and human acceptance gates.
 
 ## MVP acceptance boundary
 
