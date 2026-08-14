@@ -149,11 +149,13 @@ def _pt_codes(messages: list[str]) -> tuple[str, ...]:
     return tuple(sorted(codes))
 
 
-def _request(prefix: str, decision: bytes) -> tuple[GuardedDecisionRequest, dict[str, bytes]]:
+def _request(
+    prefix: str, *, target: bytes, policy: bytes, decision: bytes
+) -> tuple[GuardedDecisionRequest, dict[str, bytes]]:
     contents = {
-        f"{prefix}:target": f"{prefix} target".encode(),
+        f"{prefix}:target": target,
         f"{prefix}:state": f"{prefix} state".encode(),
-        f"{prefix}:policy": f"{prefix} native policy".encode(),
+        f"{prefix}:policy": policy,
         f"{prefix}:decision": decision,
         f"{prefix}:evidence": f"{prefix} evidence".encode(),
     }
@@ -178,10 +180,18 @@ def _request(prefix: str, decision: bytes) -> tuple[GuardedDecisionRequest, dict
 def test_pt_native_positive_and_qc_derived_near_homonym_reach_native_gate() -> None:
     space = _native_space()
     positive = _adequate_audit()
-    request, contents = _request("pt-positive", positive.model_dump_json().encode())
+    request, contents = _request(
+        "pt-positive",
+        target=space.model_dump_json().encode(),
+        policy=(Path(PT_ROOT) / "pt/pass_partition.py").read_bytes(),
+        decision=positive.model_dump_json().encode(),
+    )
 
     def accepts(_: GuardedDecisionRequest) -> NativeDecision:
-        require_adequate_partition(space, positive)
+        require_adequate_partition(
+            HypothesisSpace.model_validate_json(contents["pt-positive:target"]),
+            PartitionAudit.model_validate_json(contents["pt-positive:decision"]),
+        )
         return NativeDecision(
             outcome=GuardedDecisionOutcome.VALIDATED,
             native_disposition_ref="pt:pass3-eligible",
@@ -192,14 +202,22 @@ def test_pt_native_positive_and_qc_derived_near_homonym_reach_native_gate() -> N
     assert result.receipt.traversed_boundaries == ("neutral_binding", "native_policy")
 
     foreign = _foreign_pt_audit()
-    request, contents = _request("pt-foreign", foreign.model_dump_json().encode())
+    request, contents = _request(
+        "pt-foreign",
+        target=space.model_dump_json().encode(),
+        policy=(Path(PT_ROOT) / "pt/pass_partition.py").read_bytes(),
+        decision=foreign.model_dump_json().encode(),
+    )
 
     def rejects(_: GuardedDecisionRequest) -> NativeDecision:
+        bound_audit = PartitionAudit.model_validate_json(contents["pt-foreign:decision"])
         with pytest.raises(PartitionBlockedError):
-            require_adequate_partition(space, foreign)
+            require_adequate_partition(
+                HypothesisSpace.model_validate_json(contents["pt-foreign:target"]), bound_audit
+            )
         return NativeDecision(
             outcome=GuardedDecisionOutcome.REFUSED,
-            semantic_reason_codes=_pt_codes(foreign.decision_blockers),
+            semantic_reason_codes=_pt_codes(bound_audit.decision_blockers),
             native_disposition_ref="pt:pass3-blocked",
         )
 
@@ -214,10 +232,19 @@ def test_qc_native_positive_and_pt_derived_near_homonym_reach_native_gate() -> N
     candidate = qc_root / "docs/fixtures/f1/candidate_run_v1.json"
     review_path = qc_root / "docs/fixtures/f1/review_decisions_v1.json"
     review = load_coding_review(review_path)
-    request, contents = _request("qc-positive", review_path.read_bytes())
+    request, contents = _request(
+        "qc-positive",
+        target=candidate.read_bytes(),
+        policy=(qc_root / "qc_clean/core/f1_framing_review.py").read_bytes(),
+        decision=review_path.read_bytes(),
+    )
 
     def accepts(_: GuardedDecisionRequest) -> NativeDecision:
-        bundle = finalize_f1_bundle(candidate_path=candidate, review=review, bundle_id="qc-f1-framing-observations-v1")
+        assert candidate.read_bytes() == contents["qc-positive:target"]
+        bound_review = F1CodingReviewPackage.model_validate_json(contents["qc-positive:decision"])
+        bundle = finalize_f1_bundle(
+            candidate_path=candidate, review=bound_review, bundle_id="qc-f1-framing-observations-v1"
+        )
         assert len(bundle.observations) == 16
         return NativeDecision(outcome=GuardedDecisionOutcome.VALIDATED, native_disposition_ref="qc:bundle-finalized")
 
@@ -231,11 +258,20 @@ def test_qc_native_positive_and_pt_derived_near_homonym_reach_native_gate() -> N
         for identifier in QC_FOREIGN_IDS
     ]
     foreign = F1CodingReviewPackage.model_validate(payload)
-    request, contents = _request("qc-foreign", foreign.model_dump_json().encode())
+    request, contents = _request(
+        "qc-foreign",
+        target=candidate.read_bytes(),
+        policy=(qc_root / "qc_clean/core/f1_framing_review.py").read_bytes(),
+        decision=foreign.model_dump_json().encode(),
+    )
 
     def rejects(_: GuardedDecisionRequest) -> NativeDecision:
+        assert candidate.read_bytes() == contents["qc-foreign:target"]
+        bound_review = F1CodingReviewPackage.model_validate_json(contents["qc-foreign:decision"])
         with pytest.raises(DecisionUniverseMismatchError):
-            finalize_f1_bundle(candidate_path=candidate, review=foreign, bundle_id="qc-f1-framing-observations-v1")
+            finalize_f1_bundle(
+                candidate_path=candidate, review=bound_review, bundle_id="qc-f1-framing-observations-v1"
+            )
         return NativeDecision(
             outcome=GuardedDecisionOutcome.REFUSED,
             semantic_reason_codes=("qc.decision_universe_mismatch",),
