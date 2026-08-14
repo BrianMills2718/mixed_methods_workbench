@@ -1,0 +1,80 @@
+{
+  "schema_version": "mmw.nyc_crz_human_disposition.v0.1",
+  "decision_id": "nyc-crz-mvp-v1-brian-disposition-2026-08-14",
+  "packet_id": "NYC-CRZ-MVP-v1",
+  "investigation_id": "nyc-congestion-relief-zone-first-year",
+  "decided_by": "brian",
+  "authority_role": "contributor_and_human_reviewer",
+  "decided_at": "2026-08-14T07:16:35-07:00",
+  "decision_source": {
+    "surface": "coordinating_codex_session",
+    "session_id": "codex:019ffbc3-f657-7120-a621-3f2722ec0459",
+    "utterance": "accept all 3",
+    "utterance_sha256": "be67376a051dc5b43a27341e164ba50fe57cc11c30ffaa187b3de19c1b5d2d1f"
+  },
+  "reviewed_revision": {
+    "repository": "mixed_methods_workbench",
+    "git_commit": "f8198ff8d7c155a01a601e6dba26a948858efb1a",
+    "evidence_slice_payload_sha256": "b047b3205dac8fee8bf8334f3a4f64f5bcc227bf7521eb6d7a2087f3198590b7",
+    "quantitative_payload_sha256": "55a0a869f846bae4e45499bf07fd890552bf2cff3fd3cf43d152148b8ce3f08a"
+  },
+  "dispositions": [
+    {
+      "item_id": "prediction-reevaluation-2-objective-2",
+      "item_kind": "source_bound_candidate_wording",
+      "decision": "accepted_for_downstream_method_owned_analysis",
+      "accepted_wording": "Before implementation, the agency's Phase 1 table projected a 13.4% reduction in daily vehicles entering the Manhattan CBD relative to its No Action basis.",
+      "source_artifact_sha256": "aee0e0b6c17a8e9585c24a808d2fa77a756b267fe9af326fb577ae181bb28733",
+      "selected_text_sha256": "d1a66d5e425ed873c4a0be9d91dc6d2e8a9f2b2cb0821d171422033c104e9ef1",
+      "limits": [
+        "The agency prediction is not an observed result.",
+        "Acceptance does not license causal attribution."
+      ]
+    },
+    {
+      "item_id": "concern-hearing-2022-08-25-medical-access",
+      "item_kind": "source_bound_candidate_wording",
+      "decision": "accepted_for_downstream_method_owned_analysis",
+      "accepted_wording": "One public-hearing passage raised added travel costs for vulnerable people accessing medical appointments.",
+      "source_artifact_sha256": "e42cbffeec77b2392cc6e74b36ba8978c08a69f63cfa5a341ee512c6e7a67cf1",
+      "selected_text_sha256": "10b7d0ffadb1388a5b0bbc80372639eb9b5f2228dfb58fda87e12ee95de404c7",
+      "limits": [
+        "The wording describes one anchored hearing passage.",
+        "Acceptance does not establish prevalence, representativeness, or burden magnitude."
+      ]
+    },
+    {
+      "item_id": "nyc-crz-predicted-observed-audit-v1",
+      "item_kind": "descriptive_quantitative_comparison",
+      "decision": "accepted_for_policy_integration_input",
+      "accepted_wording": "Within the agency's No Action comparison frame, the current frozen January–October arithmetic is approximately 11.39% below its baseline—about 2.01 percentage points below the 13.4% Phase 1 prediction.",
+      "evidence_values": {
+        "agency_baseline_entry_events": 189820100,
+        "current_snapshot_entry_events": 168203504,
+        "current_snapshot_fewer_entry_events": 21616596,
+        "current_snapshot_percent_below_agency_baseline": 11.38793836901361,
+        "difference_from_prediction_percentage_points": 2.0120616309863912,
+        "publication_snapshot_drift_entry_events": 6246
+      },
+      "limits": [
+        "The comparison is descriptive arithmetic inside an agency-derived comparison frame.",
+        "The causal effect is not identified.",
+        "The agency counterfactual is not independently reconstructable from the frozen public data.",
+        "Entry events are not unique vehicles and cannot be used to calculate program revenue.",
+        "The current snapshot is not an exact reproduction of publication-time observations."
+      ]
+    }
+  ],
+  "rejected_model_fields_retained_as_history": [
+    "prediction.generated_limit",
+    "concern.generated_limit"
+  ],
+  "license_scope": "downstream method-owned analysis and bounded policy integration under Plan #5",
+  "nonclaims": [
+    "This decision is not a qualitative finding.",
+    "This decision is not a causal finding.",
+    "This decision is not a policy recommendation.",
+    "This decision is not publication or deployment authorization."
+  ],
+  "status": "current"
+}
