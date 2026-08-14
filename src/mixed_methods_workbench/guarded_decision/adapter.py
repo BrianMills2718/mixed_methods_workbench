@@ -78,7 +78,6 @@ def execute_guarded_decision(
 
     if request.proposed_transition.prior_state_fingerprint != request.prior_state.content_digest:
         mismatches.append("guarded-decision.transition-prior-state-mismatch/1")
-
     if mismatches:
         return _result(
             request=request,
