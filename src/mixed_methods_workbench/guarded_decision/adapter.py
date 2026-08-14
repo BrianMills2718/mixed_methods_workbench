@@ -14,12 +14,13 @@ from .models import (
     GuardedDecisionRequest,
     GuardedDecisionResult,
     NativeDecision,
+    PolicyManifest,
+    canonical_json_bytes,
     canonical_digest,
 )
 
 ContentResolver = Callable[[str], bytes]
 NativePolicy = Callable[[GuardedDecisionRequest], NativeDecision]
-DATA_CONTRACTS_REVISION = "d845be0c5813ab26e9bf2f1eaf4473a262ac541b"
 
 
 def sha256_bytes(content: bytes) -> str:
@@ -47,6 +48,7 @@ def execute_guarded_decision(
     *,
     resolve_content: ContentResolver,
     native_policy: NativePolicy,
+    composition_contract_revision: str,
 ) -> GuardedDecisionResult:
     """Verify exact bindings, dispatch once, and preserve the native disposition."""
 
@@ -72,6 +74,22 @@ def execute_guarded_decision(
         except LookupError:
             mismatches.append("guarded-decision.unresolved-evidence/1")
 
+    try:
+        policy_bytes = resolve_content(request.policy.policy_id)
+        manifest = PolicyManifest.model_validate_json(policy_bytes)
+        if canonical_json_bytes(manifest.model_dump(mode="json")) != policy_bytes:
+            mismatches.append("guarded-decision.policy-manifest-noncanonical/1")
+        for binding in manifest.source_bindings:
+            try:
+                actual = sha256_bytes(resolve_content(binding.ref))
+            except LookupError:
+                mismatches.append("guarded-decision.unresolved-policy-source/1")
+                continue
+            if actual != binding.content_digest:
+                mismatches.append("guarded-decision.policy-source-digest-mismatch/1")
+    except (LookupError, ValueError):
+        mismatches.append("guarded-decision.policy-manifest-invalid/1")
+
     if request.proposed_transition.prior_state_fingerprint != request.prior_state.content_digest:
         mismatches.append("guarded-decision.transition-prior-state-mismatch/1")
     if mismatches:
@@ -83,6 +101,7 @@ def execute_guarded_decision(
                 semantic_reason_codes=tuple(sorted(set(mismatches))),
             ),
             traversed=("neutral_binding",),
+            composition_contract_revision=composition_contract_revision,
         )
 
     decision = native_policy(request)
@@ -91,6 +110,7 @@ def execute_guarded_decision(
         request_digest=request_digest,
         decision=decision,
         traversed=("neutral_binding", "native_policy"),
+        composition_contract_revision=composition_contract_revision,
     )
 
 
@@ -100,6 +120,7 @@ def _result(
     request_digest: str,
     decision: NativeDecision,
     traversed: tuple[str, ...],
+    composition_contract_revision: str,
 ) -> GuardedDecisionResult:
     outcome_map = {
         GuardedDecisionOutcome.VALIDATED: OutcomeKind.EXECUTION_SUCCEEDED,
@@ -116,7 +137,7 @@ def _result(
     )
     receipt = GuardedDecisionReceipt(
         request_digest=request_digest,
-        composition_contract_revision=DATA_CONTRACTS_REVISION,
+        composition_contract_revision=composition_contract_revision,
         target_content_digest=request.target.content_digest,
         policy_content_digest=request.policy.policy_content_digest,
         decision_record_digest=request.decision_record.content_digest,

@@ -19,10 +19,14 @@ from mixed_methods_workbench.guarded_decision import (
     GuardedDecisionResult,
     NativeDecision,
     PolicyBinding,
+    PolicyManifest,
+    canonical_json_bytes,
     execute_guarded_decision,
     mapping_resolver,
     sha256_bytes,
 )
+
+DATA_CONTRACTS_PIN = "d845be0c5813ab26e9bf2f1eaf4473a262ac541b"
 
 
 def _transition(state: str) -> ProposedTransition:
@@ -46,13 +50,26 @@ def _transition(state: str) -> ProposedTransition:
 
 @pytest.fixture
 def contents() -> dict[str, bytes]:
-    return {
+    values = {
         "target:1": b"target bytes",
         "state:1": b"prior state bytes",
-        "policy:1": b'{"policy":"native rules"}',
+        "policy-source:1": b"native rules",
         "decision:1": b"native decision record",
         "evidence:1": b"required evidence",
     }
+    manifest = PolicyManifest(
+        canonicalization_profile="plan242-json-v1",
+        policy_name="fixture.native-rules",
+        repository_revision="1" * 40,
+        source_bindings=(
+            ArtifactBinding(
+                ref="policy-source:1",
+                content_digest=sha256_bytes(values["policy-source:1"]),
+            ),
+        ),
+    )
+    values["policy:1"] = canonical_json_bytes(manifest.model_dump(mode="json"))
+    return values
 
 
 def _request(contents: dict[str, bytes]) -> GuardedDecisionRequest:
@@ -90,7 +107,10 @@ def test_both_native_signs_share_the_neutral_path(
         )
 
     result = execute_guarded_decision(
-        request, resolve_content=mapping_resolver(contents), native_policy=native_policy
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=native_policy,
+        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert result.outcome is GuardedDecisionOutcome.VALIDATED
@@ -131,6 +151,7 @@ def test_semantic_near_homonyms_reach_the_injected_native_validator(
         _request(contents),
         resolve_content=mapping_resolver(contents),
         native_policy=native_policy,
+        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert calls == 1
@@ -165,7 +186,10 @@ def test_corrupt_binding_refuses_before_native_dispatch(
         raise AssertionError("native policy must not run after corrupt binding")
 
     result = execute_guarded_decision(
-        request, resolve_content=mapping_resolver(contents), native_policy=forbidden
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=forbidden,
+        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert result.outcome is GuardedDecisionOutcome.REFUSED
@@ -178,11 +202,46 @@ def test_request_has_no_nominal_method_dispatch_field(contents: dict[str, bytes]
     assert fields.isdisjoint({"method_id", "repository", "action_label", "record_type"})
 
 
+def test_semantically_equivalent_noncanonical_policy_bytes_fail_closed(
+    contents: dict[str, bytes],
+) -> None:
+    request = _request(contents)
+    pretty = b'{\n  "source_bindings": [{"ref": "policy-source:1", "content_digest": "' + sha256_bytes(
+        contents["policy-source:1"]
+    ).encode() + b'"}],\n  "repository_revision": "' + b"1" * 40 + b'",\n  "policy_name": "fixture.native-rules",\n  "canonicalization_profile": "plan242-json-v1"\n}'
+    contents["policy:pretty"] = pretty
+    request = request.model_copy(
+        update={
+            "policy": request.policy.model_copy(
+                update={
+                    "policy_id": "policy:pretty",
+                    "policy_content_digest": sha256_bytes(pretty),
+                }
+            )
+        }
+    )
+
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: (_ for _ in ()).throw(
+            AssertionError("noncanonical manifest must not dispatch")
+        ),
+        composition_contract_revision=DATA_CONTRACTS_PIN,
+    )
+
+    assert result.outcome is GuardedDecisionOutcome.REFUSED
+    assert result.semantic_reason_codes == (
+        "guarded-decision.policy-manifest-noncanonical/1",
+    )
+
+
 def test_result_rejects_a_tampered_receipt_reference(contents: dict[str, bytes]) -> None:
     result = execute_guarded_decision(
         _request(contents),
         resolve_content=mapping_resolver(contents),
         native_policy=lambda _: NativeDecision(outcome=GuardedDecisionOutcome.VALIDATED),
+        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
     payload = result.model_dump(mode="json")
     payload["receipt_ref"] = "sha256:" + "0" * 64

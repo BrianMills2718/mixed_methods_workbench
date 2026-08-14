@@ -1,0 +1,10 @@
+{
+  "canonicalization_profile": "plan242-json-v1",
+  "policy_name": "qualitative_coding.f1_coding_review.finalization",
+  "repository_revision": "68ac10eb3d7588bed547b89d58f0186db3f9ac85",
+  "source_bindings": [
+    {"ref": "qc:source:qc_clean/core/f1_framing.py", "content_digest": "sha256:55f98a34f28e6ccd55cc9b498755df148341332181ef9e38a0ed4f14a44854ef"},
+    {"ref": "qc:source:qc_clean/core/f1_framing_review.py", "content_digest": "sha256:a9b953584b5ee845d29286cf8cad9597c248fde9607f2c1561e8bf7e26af48fa"},
+    {"ref": "qc:source:scripts/finalize_f1_framing_bundle.py", "content_digest": "sha256:3ded06ce2ee42b1426c54aa639c4b524279afae2788cac6d74fdfd857e70bc63"}
+  ]
+}

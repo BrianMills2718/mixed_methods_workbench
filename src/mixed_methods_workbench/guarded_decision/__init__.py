@@ -9,6 +9,8 @@ from .models import (
     GuardedDecisionResult,
     NativeDecision,
     PolicyBinding,
+    PolicyManifest,
+    canonical_json_bytes,
 )
 
 __all__ = [
@@ -19,6 +21,8 @@ __all__ = [
     "GuardedDecisionResult",
     "NativeDecision",
     "PolicyBinding",
+    "PolicyManifest",
+    "canonical_json_bytes",
     "execute_guarded_decision",
     "fingerprint",
     "mapping_resolver",

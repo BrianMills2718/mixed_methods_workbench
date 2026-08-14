@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import unicodedata
 from enum import StrEnum
 from typing import Annotated
 
@@ -14,14 +15,31 @@ Digest = Annotated[str, StringConstraints(pattern=r"^sha256:[a-f0-9]{64}$")]
 
 
 def canonical_digest(value: BaseModel) -> str:
-    encoded = json.dumps(
-        value.model_dump(mode="json"),
+    encoded = canonical_json_bytes(value.model_dump(mode="json"))
+    return f"sha256:{hashlib.sha256(encoded).hexdigest()}"
+
+
+def canonical_json_bytes(value: object) -> bytes:
+    """Serialize the bounded plan242-json-v1 profile."""
+
+    def normalize(item: object) -> object:
+        if isinstance(item, str):
+            return unicodedata.normalize("NFC", item)
+        if isinstance(item, float):
+            raise TypeError("plan242-json-v1 forbids floating-point values")
+        if isinstance(item, dict):
+            return {normalize(key): normalize(nested) for key, nested in item.items()}
+        if isinstance(item, (list, tuple)):
+            return [normalize(nested) for nested in item]
+        return item
+
+    return json.dumps(
+        normalize(value),
         sort_keys=True,
         separators=(",", ":"),
         ensure_ascii=False,
         allow_nan=False,
     ).encode("utf-8")
-    return f"sha256:{hashlib.sha256(encoded).hexdigest()}"
 
 
 class FrozenModel(BaseModel):
@@ -43,6 +61,24 @@ class PolicyBinding(FrozenModel):
     policy_id: str = Field(min_length=1)
     policy_version: str = Field(min_length=1)
     policy_content_digest: Digest
+
+
+class PolicyManifest(FrozenModel):
+    """Exact native policy sources bound by the plan242-json-v1 profile."""
+
+    canonicalization_profile: str = Field(pattern=r"^plan242-json-v1$")
+    policy_name: str = Field(min_length=1)
+    repository_revision: str = Field(pattern=r"^[a-f0-9]{40}$")
+    source_bindings: tuple[ArtifactBinding, ...]
+
+    @model_validator(mode="after")
+    def canonical_sources(self) -> PolicyManifest:
+        refs = tuple(binding.ref for binding in self.source_bindings)
+        if refs != tuple(sorted(set(refs))):
+            raise ValueError("source_bindings must be sorted and duplicate-free")
+        if not refs:
+            raise ValueError("policy manifest requires at least one source binding")
+        return self
 
 
 class GuardedDecisionRequest(FrozenModel):
