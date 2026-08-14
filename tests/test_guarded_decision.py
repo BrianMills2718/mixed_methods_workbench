@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 from data_contracts.composition import (
     ActionKind,
@@ -14,18 +16,26 @@ from pydantic import ValidationError
 
 from mixed_methods_workbench.guarded_decision import (
     ArtifactBinding,
+    EvidenceBinding,
+    GuardedDecisionEvidenceBundle,
     GuardedDecisionOutcome,
     GuardedDecisionRequest,
     GuardedDecisionResult,
     NativeDecision,
+    NativeExecutionEvidenceManifest,
+    NativeExecutionKind,
     PolicyBinding,
     PolicyManifest,
+    TraceBinding,
+    canonical_digest,
     canonical_json_bytes,
     execute_guarded_decision,
+    load_evidence_bundle,
     mapping_resolver,
     sha256_bytes,
+    verify_evidence_bundle,
+    write_evidence_bundle,
 )
-
 
 
 def _transition(state: str) -> ProposedTransition:
@@ -76,9 +86,7 @@ def _request(contents: dict[str, bytes]) -> GuardedDecisionRequest:
     return GuardedDecisionRequest(
         request_id="request-1",
         target=ArtifactBinding(ref="target:1", content_digest=sha256_bytes(contents["target:1"])),
-        prior_state=ArtifactBinding(
-            ref="state:1", content_digest=prior_state_digest
-        ),
+        prior_state=ArtifactBinding(ref="state:1", content_digest=prior_state_digest),
         policy=PolicyBinding(
             policy_id="policy:1",
             policy_version="native-revision-1",
@@ -89,7 +97,15 @@ def _request(contents: dict[str, bytes]) -> GuardedDecisionRequest:
         ),
         decision_actor_or_system_ref="actor:reviewer-1",
         proposed_transition=_transition(prior_state_digest),
-        required_evidence_refs=("evidence:1",),
+        required_evidence_bindings=(
+            EvidenceBinding(
+                role="supporting_evidence",
+                artifact=ArtifactBinding(
+                    ref="evidence:1",
+                    content_digest=sha256_bytes(contents["evidence:1"]),
+                ),
+            ),
+        ),
     )
 
 
@@ -157,21 +173,29 @@ def test_semantic_near_homonyms_reach_the_injected_native_validator(
     assert result.proposed_transition is None
 
 
-@pytest.mark.parametrize("corrupt", ["target", "policy", "policy_source", "transition"])
+@pytest.mark.parametrize("corrupt", ["target", "policy", "policy_source", "evidence", "transition"])
 def test_corrupt_binding_refuses_before_native_dispatch(
     contents: dict[str, bytes], corrupt: str
 ) -> None:
     request = _request(contents)
     if corrupt == "target":
         request = request.model_copy(
-            update={"target": request.target.model_copy(update={"content_digest": "sha256:" + "0" * 64})}
+            update={
+                "target": request.target.model_copy(update={"content_digest": "sha256:" + "0" * 64})
+            }
         )
     elif corrupt == "policy":
         request = request.model_copy(
-            update={"policy": request.policy.model_copy(update={"policy_content_digest": "sha256:" + "0" * 64})}
+            update={
+                "policy": request.policy.model_copy(
+                    update={"policy_content_digest": "sha256:" + "0" * 64}
+                )
+            }
         )
     elif corrupt == "policy_source":
         contents["policy-source:1"] = b"corrupt native rules"
+    elif corrupt == "evidence":
+        contents["evidence:1"] = b"corrupt required evidence"
     else:
         request = request.model_copy(
             update={
@@ -195,6 +219,167 @@ def test_corrupt_binding_refuses_before_native_dispatch(
     assert any("mismatch" in code for code in result.semantic_reason_codes)
 
 
+def test_receipt_copies_exact_evidence_bindings(contents: dict[str, bytes]) -> None:
+    request = _request(contents)
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(outcome=GuardedDecisionOutcome.VALIDATED),
+    )
+
+    assert result.receipt.evidence_bindings == request.required_evidence_bindings
+
+
+def _llm_manifest_request(
+    contents: dict[str, bytes],
+) -> tuple[GuardedDecisionRequest, NativeExecutionEvidenceManifest]:
+    request = _request(contents)
+    contents["native-output:1"] = b'{"outcome":"adequate"}'
+    contents["trace-snapshot:1"] = b'{"logical_call_id":"4"}'
+    manifest = NativeExecutionEvidenceManifest(
+        schema_version="plan242-native-execution-evidence/1",
+        consumer_id="fixture-consumer",
+        consumer_revision="3" * 40,
+        execution_kind=NativeExecutionKind.LLM,
+        target_binding=request.target,
+        decision_record_binding=request.decision_record,
+        native_output_binding=ArtifactBinding(
+            ref="native-output:1",
+            content_digest=sha256_bytes(contents["native-output:1"]),
+        ),
+        native_disposition_ref="fixture:adequate",
+        trace_binding=TraceBinding(
+            trace_id="trace:fixture-1",
+            logical_call_id="4",
+            call_fingerprint="sha256:" + "4" * 64,
+            response_digest="sha256:" + "5" * 64,
+            trace_store_snapshot_binding=ArtifactBinding(
+                ref="trace-snapshot:1",
+                content_digest=sha256_bytes(contents["trace-snapshot:1"]),
+            ),
+            runtime_revision="6" * 40,
+            model_ref="fixture:model",
+        ),
+    )
+    contents["execution-manifest:1"] = canonical_json_bytes(manifest.model_dump(mode="json"))
+    evidence = (
+        EvidenceBinding(
+            role="native_execution_manifest",
+            artifact=ArtifactBinding(
+                ref="execution-manifest:1",
+                content_digest=sha256_bytes(contents["execution-manifest:1"]),
+            ),
+        ),
+        *request.required_evidence_bindings,
+    )
+    return request.model_copy(update={"required_evidence_bindings": evidence}), manifest
+
+
+def test_trace_substitution_refuses_before_native_dispatch(
+    contents: dict[str, bytes],
+) -> None:
+    request, _ = _llm_manifest_request(contents)
+    contents["trace-snapshot:1"] = b'{"logical_call_id":"different-valid-call"}'
+
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: (_ for _ in ()).throw(
+            AssertionError("native policy must not run after trace substitution")
+        ),
+    )
+
+    assert result.outcome is GuardedDecisionOutcome.REFUSED
+    assert result.semantic_reason_codes == (
+        "guarded-decision.trace-store-snapshot-digest-mismatch/1",
+    )
+    assert result.receipt.traversed_boundaries == ("neutral_binding",)
+
+
+def test_bundle_replay_verifies_transitive_content(contents: dict[str, bytes]) -> None:
+    request, manifest = _llm_manifest_request(contents)
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref=manifest.native_disposition_ref,
+        ),
+    )
+    bundle = GuardedDecisionEvidenceBundle(
+        bundle_version="plan242-guarded-decision-bundle/1",
+        request=request,
+        result_and_receipt=result,
+        native_execution_manifest_binding=request.required_evidence_bindings[0].artifact,
+        resolved_evidence_bindings=request.required_evidence_bindings,
+        native_disposition_ref=result.native_disposition_ref,
+    )
+
+    verify_evidence_bundle(
+        bundle,
+        resolve_content=mapping_resolver(contents),
+        expected_bundle_digest=canonical_digest(bundle),
+    )
+
+    contents["native-output:1"] = b'{"outcome":"substituted"}'
+    with pytest.raises(ValueError, match="native-output-digest-mismatch"):
+        verify_evidence_bundle(bundle, resolve_content=mapping_resolver(contents))
+
+
+def test_bundle_writer_is_canonical_and_immutable(
+    contents: dict[str, bytes], tmp_path: Path
+) -> None:
+    request, manifest = _llm_manifest_request(contents)
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref=manifest.native_disposition_ref,
+        ),
+    )
+    bundle = GuardedDecisionEvidenceBundle(
+        bundle_version="plan242-guarded-decision-bundle/1",
+        request=request,
+        result_and_receipt=result,
+        native_execution_manifest_binding=request.required_evidence_bindings[0].artifact,
+        resolved_evidence_bindings=request.required_evidence_bindings,
+        native_disposition_ref=result.native_disposition_ref,
+    )
+    path = tmp_path / "bundle.json"
+
+    digest = write_evidence_bundle(path, bundle)
+
+    assert digest == canonical_digest(bundle)
+    assert load_evidence_bundle(path) == bundle
+    assert write_evidence_bundle(path, bundle) == digest
+    with pytest.raises(FileExistsError, match="refusing to replace"):
+        write_evidence_bundle(
+            path,
+            bundle.model_copy(update={"bundle_version": "invalid-successor"}),
+        )
+
+
+def test_execution_manifest_binds_native_disposition(
+    contents: dict[str, bytes],
+) -> None:
+    request, _ = _llm_manifest_request(contents)
+
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref="fixture:different-disposition",
+        ),
+    )
+
+    assert result.outcome is GuardedDecisionOutcome.REFUSED
+    assert result.semantic_reason_codes == (
+        "guarded-decision.execution-manifest-disposition-mismatch/1",
+    )
+
+
 def test_request_has_no_nominal_method_dispatch_field(contents: dict[str, bytes]) -> None:
     fields = set(GuardedDecisionRequest.model_fields)
     assert fields.isdisjoint({"method_id", "repository", "action_label", "record_type"})
@@ -204,9 +389,13 @@ def test_semantically_equivalent_noncanonical_policy_bytes_fail_closed(
     contents: dict[str, bytes],
 ) -> None:
     request = _request(contents)
-    pretty = b'{\n  "source_bindings": [{"ref": "policy-source:1", "content_digest": "' + sha256_bytes(
-        contents["policy-source:1"]
-    ).encode() + b'"}],\n  "repository_revision": "' + b"1" * 40 + b'",\n  "policy_name": "fixture.native-rules",\n  "canonicalization_profile": "plan242-json-v1"\n}'
+    pretty = (
+        b'{\n  "source_bindings": [{"ref": "policy-source:1", "content_digest": "'
+        + sha256_bytes(contents["policy-source:1"]).encode()
+        + b'"}],\n  "repository_revision": "'
+        + b"1" * 40
+        + b'",\n  "policy_name": "fixture.native-rules",\n  "canonicalization_profile": "plan242-json-v1"\n}'
+    )
     contents["policy:pretty"] = pretty
     request = request.model_copy(
         update={
@@ -228,9 +417,7 @@ def test_semantically_equivalent_noncanonical_policy_bytes_fail_closed(
     )
 
     assert result.outcome is GuardedDecisionOutcome.REFUSED
-    assert result.semantic_reason_codes == (
-        "guarded-decision.policy-manifest-noncanonical/1",
-    )
+    assert result.semantic_reason_codes == ("guarded-decision.policy-manifest-noncanonical/1",)
 
 
 def test_result_rejects_a_tampered_receipt_reference(contents: dict[str, bytes]) -> None:

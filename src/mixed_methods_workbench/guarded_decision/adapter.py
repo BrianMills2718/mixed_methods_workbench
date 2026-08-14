@@ -12,14 +12,17 @@ from data_contracts.composition import ExecutionResult, OutcomeKind
 from pydantic import BaseModel
 
 from .models import (
+    ArtifactBinding,
+    GuardedDecisionEvidenceBundle,
     GuardedDecisionOutcome,
     GuardedDecisionReceipt,
     GuardedDecisionRequest,
     GuardedDecisionResult,
     NativeDecision,
+    NativeExecutionEvidenceManifest,
     PolicyManifest,
-    canonical_json_bytes,
     canonical_digest,
+    canonical_json_bytes,
 )
 
 ContentResolver = Callable[[str], bytes]
@@ -101,24 +104,36 @@ def execute_guarded_decision(
         if actual != expected:
             mismatches.append(f"guarded-decision.{label}-digest-mismatch/1")
 
-    for ref in request.required_evidence_refs:
+    for binding in request.required_evidence_bindings:
         try:
-            resolve_content(ref)
+            actual = sha256_bytes(resolve_content(binding.artifact.ref))
         except LookupError:
             mismatches.append("guarded-decision.unresolved-evidence/1")
+            continue
+        if actual != binding.artifact.content_digest:
+            mismatches.append("guarded-decision.evidence-digest-mismatch/1")
+            continue
+        if binding.role == "native_execution_manifest":
+            mismatches.extend(
+                _verify_native_execution_manifest(
+                    binding.artifact,
+                    request=request,
+                    resolve_content=resolve_content,
+                )
+            )
 
     try:
         policy_bytes = resolve_content(request.policy.policy_id)
-        manifest = PolicyManifest.model_validate_json(policy_bytes)
-        if canonical_json_bytes(manifest.model_dump(mode="json")) != policy_bytes:
+        policy_manifest = PolicyManifest.model_validate_json(policy_bytes)
+        if canonical_json_bytes(policy_manifest.model_dump(mode="json")) != policy_bytes:
             mismatches.append("guarded-decision.policy-manifest-noncanonical/1")
-        for binding in manifest.source_bindings:
+        for source_binding in policy_manifest.source_bindings:
             try:
-                actual = sha256_bytes(resolve_content(binding.ref))
+                actual = sha256_bytes(resolve_content(source_binding.ref))
             except LookupError:
                 mismatches.append("guarded-decision.unresolved-policy-source/1")
                 continue
-            if actual != binding.content_digest:
+            if actual != source_binding.content_digest:
                 mismatches.append("guarded-decision.policy-source-digest-mismatch/1")
     except (LookupError, ValueError):
         mismatches.append("guarded-decision.policy-manifest-invalid/1")
@@ -138,6 +153,22 @@ def execute_guarded_decision(
         )
 
     decision = native_policy(request)
+    manifests = tuple(
+        binding
+        for binding in request.required_evidence_bindings
+        if binding.role == "native_execution_manifest"
+    )
+    if manifests:
+        execution_manifest = NativeExecutionEvidenceManifest.model_validate_json(
+            resolve_content(manifests[0].artifact.ref)
+        )
+        if execution_manifest.native_disposition_ref != decision.native_disposition_ref:
+            decision = NativeDecision(
+                outcome=GuardedDecisionOutcome.REFUSED,
+                semantic_reason_codes=(
+                    "guarded-decision.execution-manifest-disposition-mismatch/1",
+                ),
+            )
     return _result(
         request=request,
         request_digest=request_digest,
@@ -161,7 +192,9 @@ def _result(
         GuardedDecisionOutcome.UNRESOLVED: OutcomeKind.EXECUTION_FAILED,
         GuardedDecisionOutcome.FAILED: OutcomeKind.EXECUTION_FAILED,
     }
-    reasons = tuple(f"{code}/1" if "/" not in code else code for code in decision.semantic_reason_codes)
+    reasons = tuple(
+        f"{code}/1" if "/" not in code else code for code in decision.semantic_reason_codes
+    )
     execution = ExecutionResult(
         execution_id=f"guarded-decision:{request.request_id}",
         invocation_fingerprint=request_digest,
@@ -174,11 +207,16 @@ def _result(
         target_content_digest=request.target.content_digest,
         policy_content_digest=request.policy.policy_content_digest,
         decision_record_digest=request.decision_record.content_digest,
+        evidence_bindings=request.required_evidence_bindings,
         traversed_boundaries=traversed,
         execution_result=execution,
         native_disposition_ref=decision.native_disposition_ref,
     )
-    proposed = request.proposed_transition if decision.outcome is GuardedDecisionOutcome.VALIDATED else None
+    proposed = (
+        request.proposed_transition
+        if decision.outcome is GuardedDecisionOutcome.VALIDATED
+        else None
+    )
     return GuardedDecisionResult(
         outcome=decision.outcome,
         proposed_transition=proposed,
@@ -187,3 +225,128 @@ def _result(
         receipt=receipt,
         semantic_reason_codes=decision.semantic_reason_codes,
     )
+
+
+def _verify_native_execution_manifest(
+    binding: ArtifactBinding,
+    *,
+    request: GuardedDecisionRequest,
+    resolve_content: ContentResolver,
+) -> list[str]:
+    """Verify generic execution-evidence structure and transitive custody."""
+
+    artifact = binding
+    try:
+        manifest_bytes = resolve_content(artifact.ref)
+        manifest = NativeExecutionEvidenceManifest.model_validate_json(manifest_bytes)
+        if canonical_json_bytes(manifest.model_dump(mode="json")) != manifest_bytes:
+            return ["guarded-decision.execution-manifest-noncanonical/1"]
+    except (LookupError, ValueError):
+        return ["guarded-decision.execution-manifest-invalid/1"]
+
+    reasons: list[str] = []
+    if manifest.target_binding != request.target:
+        reasons.append("guarded-decision.execution-manifest-target-mismatch/1")
+    if manifest.decision_record_binding != request.decision_record:
+        reasons.append("guarded-decision.execution-manifest-decision-mismatch/1")
+    transitive = [("native-output", manifest.native_output_binding)]
+    if manifest.trace_binding is not None:
+        transitive.append(
+            ("trace-store-snapshot", manifest.trace_binding.trace_store_snapshot_binding)
+        )
+    for label, nested in transitive:
+        try:
+            actual = sha256_bytes(resolve_content(nested.ref))
+        except LookupError:
+            reasons.append(f"guarded-decision.unresolved-{label}/1")
+            continue
+        if actual != nested.content_digest:
+            reasons.append(f"guarded-decision.{label}-digest-mismatch/1")
+    return reasons
+
+
+def verify_evidence_bundle(
+    bundle: GuardedDecisionEvidenceBundle,
+    *,
+    resolve_content: ContentResolver,
+    expected_bundle_digest: str | None = None,
+) -> None:
+    """Fail loud when a persisted bundle cannot be replayed byte-for-byte."""
+
+    if expected_bundle_digest is not None and canonical_digest(bundle) != expected_bundle_digest:
+        raise ValueError("bundle digest does not match canonical bundle bytes")
+    manifest_reasons = _verify_native_execution_manifest(
+        bundle.native_execution_manifest_binding,
+        request=bundle.request,
+        resolve_content=resolve_content,
+    )
+    evidence_reasons: list[str] = []
+    for label, artifact in (
+        ("target", bundle.request.target),
+        ("prior-state", bundle.request.prior_state),
+        ("decision-record", bundle.request.decision_record),
+    ):
+        try:
+            actual = sha256_bytes(resolve_content(artifact.ref))
+        except LookupError:
+            evidence_reasons.append(f"guarded-decision.unresolved-{label}/1")
+            continue
+        if actual != artifact.content_digest:
+            evidence_reasons.append(f"guarded-decision.{label}-digest-mismatch/1")
+    try:
+        policy_bytes = resolve_content(bundle.request.policy.policy_id)
+        if sha256_bytes(policy_bytes) != bundle.request.policy.policy_content_digest:
+            evidence_reasons.append("guarded-decision.policy-digest-mismatch/1")
+        else:
+            policy_manifest = PolicyManifest.model_validate_json(policy_bytes)
+            if canonical_json_bytes(policy_manifest.model_dump(mode="json")) != policy_bytes:
+                evidence_reasons.append("guarded-decision.policy-manifest-noncanonical/1")
+            for source_binding in policy_manifest.source_bindings:
+                try:
+                    actual = sha256_bytes(resolve_content(source_binding.ref))
+                except LookupError:
+                    evidence_reasons.append("guarded-decision.unresolved-policy-source/1")
+                    continue
+                if actual != source_binding.content_digest:
+                    evidence_reasons.append("guarded-decision.policy-source-digest-mismatch/1")
+    except (LookupError, ValueError):
+        evidence_reasons.append("guarded-decision.policy-manifest-invalid/1")
+    for binding in bundle.resolved_evidence_bindings:
+        try:
+            actual = sha256_bytes(resolve_content(binding.artifact.ref))
+        except LookupError:
+            evidence_reasons.append("guarded-decision.unresolved-evidence/1")
+            continue
+        if actual != binding.artifact.content_digest:
+            evidence_reasons.append("guarded-decision.evidence-digest-mismatch/1")
+    manifest_bytes = resolve_content(bundle.native_execution_manifest_binding.ref)
+    execution_manifest = NativeExecutionEvidenceManifest.model_validate_json(manifest_bytes)
+    if execution_manifest.native_disposition_ref != bundle.native_disposition_ref:
+        evidence_reasons.append("guarded-decision.execution-manifest-disposition-mismatch/1")
+    reasons = tuple(sorted(set(manifest_reasons + evidence_reasons)))
+    if reasons:
+        raise ValueError("bundle custody verification failed: " + ", ".join(reasons))
+
+
+def write_evidence_bundle(path: Path, bundle: GuardedDecisionEvidenceBundle) -> str:
+    """Persist canonical bytes once; refuse to rewrite successor evidence in place."""
+
+    payload = canonical_json_bytes(bundle.model_dump(mode="json"))
+    digest = sha256_bytes(payload)
+    if path.exists():
+        if path.read_bytes() != payload:
+            raise FileExistsError(f"refusing to replace immutable evidence bundle: {path}")
+        return digest
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(payload)
+    return digest
+
+
+def load_evidence_bundle(path: Path) -> GuardedDecisionEvidenceBundle:
+    """Load a canonical bundle and reject alternate byte serializations."""
+
+    payload = path.read_bytes()
+    bundle = GuardedDecisionEvidenceBundle.model_validate_json(payload)
+    if canonical_json_bytes(bundle.model_dump(mode="json")) != payload:
+        raise ValueError("evidence bundle is not canonical plan242-json-v1")
+    return bundle

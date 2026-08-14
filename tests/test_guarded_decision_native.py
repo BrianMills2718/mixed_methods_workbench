@@ -44,6 +44,7 @@ from test_guarded_decision import _transition
 
 from mixed_methods_workbench.guarded_decision import (
     ArtifactBinding,
+    EvidenceBinding,
     GuardedDecisionOutcome,
     GuardedDecisionRequest,
     NativeDecision,
@@ -82,7 +83,9 @@ def _head(path: str) -> str:
 
 
 if _head(PT_ROOT) != PT_PIN or _head(QC_ROOT) != QC_PIN:
-    raise RuntimeError("Plan 242 native integration test requires the registered exact repository pins")
+    raise RuntimeError(
+        "Plan 242 native integration test requires the registered exact repository pins"
+    )
 if observed_composition_contract_revision() != DATA_CONTRACTS_PIN:
     raise RuntimeError("Plan 242 test imported the wrong Data Contracts revision")
 
@@ -139,14 +142,14 @@ def _adequate_audit() -> PartitionAudit:
 
 def _foreign_pt_audit() -> PartitionAudit:
     candidate_path = Path(QC_ROOT) / "docs/fixtures/f1/candidate_run_v1.json"
-    candidates = sorted(json.loads(candidate_path.read_text())["candidates"], key=lambda row: row["candidate_id"])
+    candidates = sorted(
+        json.loads(candidate_path.read_text())["candidates"], key=lambda row: row["candidate_id"]
+    )
     source_keys = tuple(
-        f'{row["resource_id"]}:{row["function_id"]}:{row["candidate_id"]}'
-        for row in candidates[:3]
+        f"{row['resource_id']}:{row['function_id']}:{row['candidate_id']}" for row in candidates[:3]
     )
     rivals = tuple(
-        "qc-f1-" + hashlib.sha256(f"qc-f1:{key}".encode()).hexdigest()[:20]
-        for key in source_keys
+        "qc-f1-" + hashlib.sha256(f"qc-f1:{key}".encode()).hexdigest()[:20] for key in source_keys
     )
     predictions = {
         rival: "qc-pred-" + hashlib.sha256(f"qc-f1-pred:{key}".encode()).hexdigest()[:20]
@@ -154,7 +157,9 @@ def _foreign_pt_audit() -> PartitionAudit:
     }
     return PartitionAudit(
         research_question_adequate=True,
-        rival_pairs=[_pair(a, b, predictions[a], predictions[b]) for a, b in combinations(rivals, 2)],
+        rival_pairs=[
+            _pair(a, b, predictions[a], predictions[b]) for a, b in combinations(rivals, 2)
+        ],
         hypotheses_flagged=[],
         overall_quality="adequate",
         summary="Schema-valid foreign audit self-reports adequate.",
@@ -194,17 +199,29 @@ def _request(
     prior_digest = sha256_bytes(contents[f"{prefix}:state"])
     request = GuardedDecisionRequest(
         request_id=f"plan242-{prefix}",
-        target=ArtifactBinding(ref=f"{prefix}:target", content_digest=sha256_bytes(contents[f"{prefix}:target"])),
+        target=ArtifactBinding(
+            ref=f"{prefix}:target", content_digest=sha256_bytes(contents[f"{prefix}:target"])
+        ),
         prior_state=ArtifactBinding(ref=f"{prefix}:state", content_digest=prior_digest),
         policy=PolicyBinding(
             policy_id=f"{prefix}:policy",
             policy_version="plan242-pinned-native",
             policy_content_digest=sha256_bytes(contents[f"{prefix}:policy"]),
         ),
-        decision_record=ArtifactBinding(ref=f"{prefix}:decision", content_digest=sha256_bytes(decision)),
+        decision_record=ArtifactBinding(
+            ref=f"{prefix}:decision", content_digest=sha256_bytes(decision)
+        ),
         decision_actor_or_system_ref="plan242:integration-harness",
         proposed_transition=_transition(prior_digest),
-        required_evidence_refs=(f"{prefix}:evidence",),
+        required_evidence_bindings=(
+            EvidenceBinding(
+                role="supporting_evidence",
+                artifact=ArtifactBinding(
+                    ref=f"{prefix}:evidence",
+                    content_digest=sha256_bytes(contents[f"{prefix}:evidence"]),
+                ),
+            ),
+        ),
     )
     return request, contents
 
@@ -319,7 +336,9 @@ def test_qc_native_positive_and_pt_derived_near_homonym_reach_native_gate(
             bundle_id="qc-f1-framing-observations-v1",
         )
         assert len(bundle.observations) == 16
-        return NativeDecision(outcome=GuardedDecisionOutcome.VALIDATED, native_disposition_ref="qc:bundle-finalized")
+        return NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED, native_disposition_ref="qc:bundle-finalized"
+        )
 
     result = execute_guarded_decision(
         request,
@@ -331,7 +350,9 @@ def test_qc_native_positive_and_pt_derived_near_homonym_reach_native_gate(
     payload = review.model_dump(mode="json")
     payload["review_id"] = "plan242-pt-derived-near-homonym-v1"
     payload["decisions"] = [
-        CellReviewDecision(candidate_id=identifier, decision="accepted", rationale="Registered semantic control.").model_dump(mode="json")
+        CellReviewDecision(
+            candidate_id=identifier, decision="accepted", rationale="Registered semantic control."
+        ).model_dump(mode="json")
         for identifier in QC_FOREIGN_IDS
     ]
     foreign = F1CodingReviewPackage.model_validate(payload)

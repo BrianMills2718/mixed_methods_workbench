@@ -55,6 +55,13 @@ class ArtifactBinding(FrozenModel):
     content_digest: Digest
 
 
+class EvidenceBinding(FrozenModel):
+    """A stable evidence role bound to exact artifact bytes."""
+
+    role: str = Field(min_length=1)
+    artifact: ArtifactBinding
+
+
 class PolicyBinding(FrozenModel):
     """Exact identity of the native rules governing one dispatch."""
 
@@ -91,12 +98,15 @@ class GuardedDecisionRequest(FrozenModel):
     decision_record: ArtifactBinding
     decision_actor_or_system_ref: str = Field(min_length=1)
     proposed_transition: ProposedTransition
-    required_evidence_refs: tuple[str, ...] = ()
+    required_evidence_bindings: tuple[EvidenceBinding, ...] = ()
 
     @model_validator(mode="after")
     def canonical_evidence(self) -> GuardedDecisionRequest:
-        if tuple(sorted(set(self.required_evidence_refs))) != self.required_evidence_refs:
-            raise ValueError("required_evidence_refs must be canonical and duplicate-free")
+        keys = tuple(
+            (binding.role, binding.artifact.ref) for binding in self.required_evidence_bindings
+        )
+        if keys != tuple(sorted(set(keys))):
+            raise ValueError("required_evidence_bindings must be sorted and duplicate-free")
         if self.proposed_transition.outcome is not OutcomeKind.EXECUTION_SUCCEEDED:
             raise ValueError("candidate proposed_transition must represent execution success")
         return self
@@ -135,6 +145,7 @@ class GuardedDecisionReceipt(FrozenModel):
     target_content_digest: Digest
     policy_content_digest: Digest
     decision_record_digest: Digest
+    evidence_bindings: tuple[EvidenceBinding, ...]
     traversed_boundaries: tuple[str, ...]
     execution_result: ExecutionResult
     native_disposition_ref: str | None = None
@@ -173,4 +184,86 @@ class GuardedDecisionResult(FrozenModel):
             raise ValueError("receipt execution reasons do not match guarded result")
         if self.receipt_ref != canonical_digest(self.receipt):
             raise ValueError("receipt_ref must bind the exact receipt")
+        return self
+
+
+class NativeExecutionKind(StrEnum):
+    DETERMINISTIC = "deterministic"
+    LLM = "llm"
+
+
+class TraceBinding(FrozenModel):
+    """Exact identity and frozen-store custody for one authentic LLM call."""
+
+    trace_id: str = Field(min_length=1)
+    logical_call_id: str = Field(min_length=1)
+    call_fingerprint: Digest
+    response_digest: Digest
+    trace_store_snapshot_binding: ArtifactBinding
+    runtime_revision: str = Field(pattern=r"^[a-f0-9]{40}$")
+    model_ref: str = Field(min_length=1)
+
+
+class NativeExecutionEvidenceManifest(FrozenModel):
+    """Consumer-owned execution evidence with generic content bindings."""
+
+    schema_version: str = Field(pattern=r"^plan242-native-execution-evidence/1$")
+    consumer_id: str = Field(min_length=1)
+    consumer_revision: str = Field(pattern=r"^[a-f0-9]{40}$")
+    execution_kind: NativeExecutionKind
+    target_binding: ArtifactBinding
+    decision_record_binding: ArtifactBinding
+    native_output_binding: ArtifactBinding
+    native_disposition_ref: str = Field(min_length=1)
+    trace_binding: TraceBinding | None = None
+
+    @model_validator(mode="after")
+    def execution_shape(self) -> NativeExecutionEvidenceManifest:
+        if self.execution_kind is NativeExecutionKind.LLM and self.trace_binding is None:
+            raise ValueError("llm execution requires trace_binding")
+        if (
+            self.execution_kind is NativeExecutionKind.DETERMINISTIC
+            and self.trace_binding is not None
+        ):
+            raise ValueError("deterministic execution forbids trace_binding")
+        return self
+
+
+class GuardedDecisionEvidenceBundle(FrozenModel):
+    """Portable, immutable replay envelope for one guarded disposition."""
+
+    bundle_version: str = Field(pattern=r"^plan242-guarded-decision-bundle/1$")
+    request: GuardedDecisionRequest
+    result_and_receipt: GuardedDecisionResult
+    native_execution_manifest_binding: ArtifactBinding
+    resolved_evidence_bindings: tuple[EvidenceBinding, ...]
+    native_disposition_ref: str | None = None
+
+    @model_validator(mode="after")
+    def coherent_custody(self) -> GuardedDecisionEvidenceBundle:
+        result = self.result_and_receipt
+        request_digest = canonical_digest(self.request)
+        if result.receipt.request_digest != request_digest:
+            raise ValueError("bundle result does not bind the exact request")
+        if result.receipt.execution_result.invocation_fingerprint != request_digest:
+            raise ValueError("bundle execution does not bind the exact request")
+        if result.receipt.target_content_digest != self.request.target.content_digest:
+            raise ValueError("receipt target does not match request target")
+        if result.receipt.policy_content_digest != self.request.policy.policy_content_digest:
+            raise ValueError("receipt policy does not match request policy")
+        if result.receipt.decision_record_digest != self.request.decision_record.content_digest:
+            raise ValueError("receipt decision record does not match request")
+        if result.receipt.evidence_bindings != self.request.required_evidence_bindings:
+            raise ValueError("receipt evidence does not match request evidence")
+        if self.resolved_evidence_bindings != self.request.required_evidence_bindings:
+            raise ValueError("resolved evidence does not match request evidence")
+        manifests = tuple(
+            binding.artifact
+            for binding in self.resolved_evidence_bindings
+            if binding.role == "native_execution_manifest"
+        )
+        if manifests != (self.native_execution_manifest_binding,):
+            raise ValueError("bundle requires exactly one bound native execution manifest")
+        if self.native_disposition_ref != result.native_disposition_ref:
+            raise ValueError("bundle native disposition does not match result")
         return self
