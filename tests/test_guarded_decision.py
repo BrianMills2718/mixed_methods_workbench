@@ -1,0 +1,168 @@
+from __future__ import annotations
+
+import pytest
+from data_contracts.composition import (
+    ActionKind,
+    ControlTransitionContract,
+    ControlTransitionMode,
+    DecisionSource,
+    EffectKind,
+    OutcomeKind,
+    ProposedTransition,
+)
+
+from mixed_methods_workbench.guarded_decision import (
+    ArtifactBinding,
+    GuardedDecisionOutcome,
+    GuardedDecisionRequest,
+    NativeDecision,
+    PolicyBinding,
+    execute_guarded_decision,
+    mapping_resolver,
+    sha256_bytes,
+)
+
+
+def _transition() -> ProposedTransition:
+    state = "sha256:" + "1" * 64
+    return ProposedTransition(
+        transition_id="transition-1",
+        invocation_id="invocation-1",
+        manifest_digest="sha256:" + "2" * 64,
+        pack_id="workbench.guarded-decision/1",
+        pack_version="1.0.0",
+        action_id="workbench.guarded-decision/1",
+        descriptor_version="1.0.0",
+        decision_source=DecisionSource.HARNESS,
+        action_kind=ActionKind.CONTROL,
+        control_transition=ControlTransitionContract(mode=ControlTransitionMode.STATE_PRESERVING),
+        effect_kind=EffectKind.PURE,
+        outcome=OutcomeKind.EXECUTION_SUCCEEDED,
+        prior_state_fingerprint=state,
+        resulting_state_fingerprint=state,
+    )
+
+
+@pytest.fixture
+def contents() -> dict[str, bytes]:
+    return {
+        "target:1": b"target bytes",
+        "state:1": b"prior state bytes",
+        "policy:1": b'{"policy":"native rules"}',
+        "decision:1": b"native decision record",
+        "evidence:1": b"required evidence",
+    }
+
+
+def _request(contents: dict[str, bytes]) -> GuardedDecisionRequest:
+    return GuardedDecisionRequest(
+        request_id="request-1",
+        target=ArtifactBinding(ref="target:1", content_digest=sha256_bytes(contents["target:1"])),
+        prior_state=ArtifactBinding(
+            ref="state:1", content_digest=sha256_bytes(contents["state:1"])
+        ),
+        policy=PolicyBinding(
+            policy_id="policy:1",
+            policy_version="native-revision-1",
+            policy_content_digest=sha256_bytes(contents["policy:1"]),
+        ),
+        decision_record=ArtifactBinding(
+            ref="decision:1", content_digest=sha256_bytes(contents["decision:1"])
+        ),
+        decision_actor_or_system_ref="actor:reviewer-1",
+        proposed_transition=_transition(),
+        required_evidence_refs=("evidence:1",),
+    )
+
+
+@pytest.mark.parametrize("native_ref", ["pt:resolution-1", "qc:reviewed-bundle-1"])
+def test_both_native_signs_share_the_neutral_path(
+    contents: dict[str, bytes], native_ref: str
+) -> None:
+    request = _request(contents)
+
+    def native_policy(_: GuardedDecisionRequest) -> NativeDecision:
+        return NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref=native_ref,
+        )
+
+    result = execute_guarded_decision(
+        request, resolve_content=mapping_resolver(contents), native_policy=native_policy
+    )
+
+    assert result.outcome is GuardedDecisionOutcome.VALIDATED
+    assert result.proposed_transition == request.proposed_transition
+    assert result.native_disposition_ref == native_ref
+    assert result.receipt.traversed_boundaries == ("neutral_binding", "native_policy")
+    assert result.receipt.execution_result.outcome is OutcomeKind.EXECUTION_SUCCEEDED
+
+
+@pytest.mark.parametrize(
+    ("reason_codes", "expected"),
+    [
+        (
+            (
+                "pt.invalid_prediction_ownership",
+                "pt.missing_rival_pairs",
+                "pt.unknown_hypothesis_ids",
+            ),
+            "pt.unknown_hypothesis_ids",
+        ),
+        (("qc.decision_universe_mismatch",), "qc.decision_universe_mismatch"),
+    ],
+)
+def test_semantic_near_homonyms_reach_the_injected_native_validator(
+    contents: dict[str, bytes], reason_codes: tuple[str, ...], expected: str
+) -> None:
+    calls = 0
+
+    def native_policy(_: GuardedDecisionRequest) -> NativeDecision:
+        nonlocal calls
+        calls += 1
+        return NativeDecision(
+            outcome=GuardedDecisionOutcome.REFUSED,
+            semantic_reason_codes=reason_codes,
+        )
+
+    result = execute_guarded_decision(
+        _request(contents),
+        resolve_content=mapping_resolver(contents),
+        native_policy=native_policy,
+    )
+
+    assert calls == 1
+    assert expected in result.semantic_reason_codes
+    assert result.receipt.traversed_boundaries == ("neutral_binding", "native_policy")
+    assert result.proposed_transition is None
+
+
+@pytest.mark.parametrize("corrupt", ["target", "policy"])
+def test_corrupt_binding_refuses_before_native_dispatch(
+    contents: dict[str, bytes], corrupt: str
+) -> None:
+    request = _request(contents)
+    if corrupt == "target":
+        request = request.model_copy(
+            update={"target": request.target.model_copy(update={"content_digest": "sha256:" + "0" * 64})}
+        )
+    else:
+        request = request.model_copy(
+            update={"policy": request.policy.model_copy(update={"policy_content_digest": "sha256:" + "0" * 64})}
+        )
+
+    def forbidden(_: GuardedDecisionRequest) -> NativeDecision:
+        raise AssertionError("native policy must not run after corrupt binding")
+
+    result = execute_guarded_decision(
+        request, resolve_content=mapping_resolver(contents), native_policy=forbidden
+    )
+
+    assert result.outcome is GuardedDecisionOutcome.REFUSED
+    assert result.receipt.traversed_boundaries == ("neutral_binding",)
+    assert any("digest-mismatch" in code for code in result.semantic_reason_codes)
+
+
+def test_request_has_no_nominal_method_dispatch_field(contents: dict[str, bytes]) -> None:
+    fields = set(GuardedDecisionRequest.model_fields)
+    assert fields.isdisjoint({"method_id", "repository", "action_label", "record_type"})
