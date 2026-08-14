@@ -310,6 +310,7 @@ support.
 | Process Tracing | Rival explanations, predictions, source design, evidence exposure, diagnostic assessment, dependence/absence logic, within-case support, and publication gates. | Generic qualitative coding, population effects, or policy choice. |
 | Theory Forge | Theory extraction, operationalization, compilation, application stages, and theory-native limits. | Empirical support, method selection, or policy authority. |
 | Grounded Research | Independent analysis, disputed-claim verification, and adjudication workflows. | Universal truth, Workbench state, or replacement of source- and method-owned review. |
+| Computational Social Science | Study questions/manifests, application-local adapters, exact input cohorts, derived tables/findings/relational analyses, and scientific-review records. | Producer method/theory semantics, generic graph or assertion ownership, or cross-study Workbench orchestration. |
 | OntoCanon | Vocabulary packs, candidate assertions, semantic identity, evidence review, promotion, governed assertion exports, and deterministic semantic projections. | Method-native findings, Workbench investigation state, or graph retrieval. |
 | DIGIMON | Graph materialization, named projection surfaces, traversal, ranking, retrieval, analytics, and typed operator composition in its domain. | Canonical assertion storage, promotion authority, or method-native inference. |
 | Quantitative and simulation engines | Estimands or model state, calculations, uncertainty, validation, and native artifacts. | Workbench integration or human value judgments. |
@@ -364,12 +365,16 @@ typed action composition over Data Contracts. Its graph boundary distinguishes:
 - weak associations such as co-occurrence, which cannot silently act as
   semantic evidence.
 
-The current OntoCanon-to-DIGIMON evidence path is stronger than the direct
-semantic-projection path. OntoCanon produces a deterministic semantic
-projection, and DIGIMON has accepted parts of the consumer machinery, but the
-remaining gate is a real semantic traversal that re-enters its exact supporting
-assertion and source evidence. Until that passes, do not claim the full
-dual-surface round trip.
+Project Meta Plan 241 now proves the public OntoCanon `compile_corpus` ->
+DIGIMON `ask_governed_model` path across nanoGPT and DoDAF, including typed
+insufficiency, cited answers, and exact assertion/source-passage reopening. The
+general governed-corpus product round trip is therefore adopted and observed.
+
+A narrower direct `SemanticGraphProjectionV1` operator path may retain its own
+certification gate. For method-native use, the remaining architectural seam is
+different: a projected answer must return not only to exact source evidence but
+also to the authoritative method artifact and method-review decision from which
+the mapped assertion was derived.
 
 DIGIMON is optional for the first MVP unless graph or multi-hop retrieval is
 needed to answer the selected investigation question. It should never decide a
@@ -578,12 +583,17 @@ current findings are:
 - QC and Process Tracing contain recurring generic execution forms but no
   neutral cross-repository method-operation ABI;
 - OntoCanon has a strong governed-assertion and semantic-projection producer,
-  while the final DIGIMON semantic-edge-to-evidence re-entry proof remains
-  open;
+  and Project Meta Plan 241 proves the public two-domain OntoCanon/DIGIMON
+  compile/query/evidence round trip; a narrower direct-projection certification
+  and method-artifact reverse binding remain separate gates;
 - Grounded Research and OntoCanon have adjacent adapters but no proven current
   producer-to-consumer export path;
-- no governed standalone computational-social-science repository was found in
-  the current Project Graph or workspace census; and
+- Computational Social Science is an active governed study/application
+  repository at remote
+  `main@33526009e13b8b93b6adcd52fef7408cf99ab7dc`; F1 has a real reviewed
+  source-to-table/finding path and a separate Data Contracts/DIGIMON vertical,
+  while recurrence, manual baseline, value, and complementary-method gates
+  remain open; and
 - SB Ontologies is useful donor history, not a current platform owner.
 
 These gaps determine the next planning and implementation sequence. They are
