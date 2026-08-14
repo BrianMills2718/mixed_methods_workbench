@@ -21,6 +21,7 @@ from .models import (
     NativeDecision,
     NativeExecutionEvidenceManifest,
     PolicyManifest,
+    TraceStoreSnapshot,
     canonical_digest,
     canonical_json_bytes,
 )
@@ -251,9 +252,8 @@ def _verify_native_execution_manifest(
         reasons.append("guarded-decision.execution-manifest-decision-mismatch/1")
     transitive = [("native-output", manifest.native_output_binding)]
     if manifest.trace_binding is not None:
-        transitive.append(
-            ("trace-store-snapshot", manifest.trace_binding.trace_store_snapshot_binding)
-        )
+        trace_artifact = manifest.trace_binding.trace_store_snapshot_binding
+        transitive.append(("trace-store-snapshot", trace_artifact))
     for label, nested in transitive:
         try:
             actual = sha256_bytes(resolve_content(nested.ref))
@@ -262,6 +262,33 @@ def _verify_native_execution_manifest(
             continue
         if actual != nested.content_digest:
             reasons.append(f"guarded-decision.{label}-digest-mismatch/1")
+    if manifest.trace_binding is not None and not any(
+        reason.startswith(
+            (
+                "guarded-decision.unresolved-trace-store-snapshot",
+                "guarded-decision.trace-store-snapshot-digest-mismatch",
+            )
+        )
+        for reason in reasons
+    ):
+        trace_bytes = resolve_content(manifest.trace_binding.trace_store_snapshot_binding.ref)
+        try:
+            snapshot = TraceStoreSnapshot.model_validate_json(trace_bytes)
+            if canonical_json_bytes(snapshot.model_dump(mode="json")) != trace_bytes:
+                reasons.append("guarded-decision.trace-store-snapshot-noncanonical/1")
+            expected = manifest.trace_binding
+            for field in (
+                "trace_id",
+                "logical_call_id",
+                "call_fingerprint",
+                "response_digest",
+                "runtime_revision",
+                "model_ref",
+            ):
+                if getattr(snapshot, field) != getattr(expected, field):
+                    reasons.append(f"guarded-decision.{field.replace('_', '-')}-mismatch/1")
+        except ValueError:
+            reasons.append("guarded-decision.trace-store-snapshot-invalid/1")
     return reasons
 
 
@@ -326,6 +353,25 @@ def verify_evidence_bundle(
     reasons = tuple(sorted(set(manifest_reasons + evidence_reasons)))
     if reasons:
         raise ValueError("bundle custody verification failed: " + ", ".join(reasons))
+
+
+def replay_evidence_bundle(
+    bundle: GuardedDecisionEvidenceBundle,
+    *,
+    resolve_content: ContentResolver,
+    native_policy: NativePolicy,
+) -> GuardedDecisionResult:
+    """Recompute a persisted disposition through its consumer-owned native callback."""
+
+    verify_evidence_bundle(bundle, resolve_content=resolve_content)
+    replayed = execute_guarded_decision(
+        bundle.request,
+        resolve_content=resolve_content,
+        native_policy=native_policy,
+    )
+    if replayed != bundle.result_and_receipt:
+        raise ValueError("cold replay result differs from persisted guarded result")
+    return replayed
 
 
 def write_evidence_bundle(path: Path, bundle: GuardedDecisionEvidenceBundle) -> str:

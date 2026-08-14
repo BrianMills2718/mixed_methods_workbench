@@ -12,6 +12,7 @@ from pathlib import Path
 PT_PIN = "ce87f630546a9193c999943aeb3319940e89cc95"
 QC_PIN = "68ac10eb3d7588bed547b89d58f0186db3f9ac85"
 DATA_CONTRACTS_PIN = "d845be0c5813ab26e9bf2f1eaf4473a262ac541b"
+LLM_CLIENT_PIN = "16b9eb19ae6402c23271ee8384c0508dce0f5acd"
 EXPECTED_BUNDLES = 4
 
 
@@ -20,6 +21,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--pt-root", type=Path, required=True)
     parser.add_argument("--qc-root", type=Path, required=True)
     parser.add_argument("--data-contracts-root", type=Path, required=True)
+    parser.add_argument("--llm-client-root", type=Path, required=True)
     parser.add_argument(
         "--contracts-only",
         action="store_true",
@@ -32,11 +34,41 @@ def _head(root: Path) -> str:
     return subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
 
 
-def _require_revision(label: str, root: Path, expected: str) -> Path:
+def _require_revision(
+    label: str,
+    root: Path,
+    expected: str,
+    *,
+    import_scope: str = ".",
+) -> Path:
     resolved = root.resolve()
     actual = _head(resolved)
     if actual != expected:
         raise RuntimeError(f"{label} revision mismatch: expected {expected}, got {actual}")
+    tracked_drift = subprocess.check_output(
+        ["git", "-C", str(resolved), "status", "--porcelain", "--untracked-files=no"],
+        text=True,
+    )
+    untracked_python_paths = subprocess.check_output(
+        [
+            "git",
+            "-C",
+            str(resolved),
+            "ls-files",
+            "--others",
+            "--exclude-standard",
+            "--",
+            "*.py",
+        ],
+        text=True,
+    ).splitlines()
+    untracked_python = tuple(
+        path
+        for path in untracked_python_paths
+        if import_scope == "." or path.startswith(f"{import_scope}/")
+    )
+    if tracked_drift or untracked_python:
+        raise RuntimeError(f"{label} has executable checkout drift at {resolved}")
     return resolved
 
 
@@ -75,12 +107,20 @@ def _run_tests(
     )
 
 
-def _replay_bundles(repository_root: Path, data_contracts_root: Path) -> None:
+def _replay_bundles(
+    repository_root: Path,
+    data_contracts_root: Path,
+    *,
+    pt_root: Path,
+    qc_root: Path,
+    llm_client_root: Path,
+) -> None:
     sys.path[:0] = [
         str(repository_root / "src"),
         str(data_contracts_root / "src"),
     ]
     from mixed_methods_workbench.guarded_decision import (
+        NativeExecutionEvidenceManifest,
         load_evidence_bundle,
         verify_evidence_bundle,
     )
@@ -108,6 +148,20 @@ def _replay_bundles(repository_root: Path, data_contracts_root: Path) -> None:
         digest_path = bundle_path.with_suffix(".sha256")
         expected_digest = digest_path.read_text(encoding="utf-8").strip()
         bundle = load_evidence_bundle(bundle_path)
+        manifest_bytes = resolve_content(bundle.native_execution_manifest_binding.ref)
+        manifest = NativeExecutionEvidenceManifest.model_validate_json(manifest_bytes)
+        expected_consumer_revision = {
+            "process_tracing": _head(pt_root),
+            "qualitative_coding": _head(qc_root),
+        }.get(manifest.consumer_id)
+        if expected_consumer_revision is None:
+            raise RuntimeError(f"unknown registered consumer: {manifest.consumer_id}")
+        if manifest.consumer_revision != expected_consumer_revision:
+            raise RuntimeError(f"manifest consumer revision mismatch: {manifest.consumer_id}")
+        if manifest.trace_binding is not None and manifest.trace_binding.runtime_revision != _head(
+            llm_client_root
+        ):
+            raise RuntimeError("manifest llm_client runtime revision mismatch")
         verify_evidence_bundle(
             bundle,
             resolve_content=resolve_content,
@@ -122,8 +176,12 @@ def main() -> int:
     pt_root = _require_revision("process_tracing", args.pt_root, PT_PIN)
     qc_root = _require_revision("qualitative_coding", args.qc_root, QC_PIN)
     data_contracts_root = _require_revision(
-        "data-contracts", args.data_contracts_root, DATA_CONTRACTS_PIN
+        "data-contracts",
+        args.data_contracts_root,
+        DATA_CONTRACTS_PIN,
+        import_scope="src",
     )
+    llm_client_root = _require_revision("llm_client", args.llm_client_root, LLM_CLIENT_PIN)
     _run_tests(
         repository_root,
         pt_root=pt_root,
@@ -131,7 +189,13 @@ def main() -> int:
         data_contracts_root=data_contracts_root,
     )
     if not args.contracts_only:
-        _replay_bundles(repository_root, data_contracts_root)
+        _replay_bundles(
+            repository_root,
+            data_contracts_root,
+            pt_root=pt_root,
+            qc_root=qc_root,
+            llm_client_root=llm_client_root,
+        )
     return 0
 
 

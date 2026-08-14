@@ -20,6 +20,7 @@ from mixed_methods_workbench.guarded_decision import (
     GuardedDecisionEvidenceBundle,
     GuardedDecisionOutcome,
     GuardedDecisionRequest,
+    GuardedDecisionRequestV2,
     GuardedDecisionResult,
     NativeDecision,
     NativeExecutionEvidenceManifest,
@@ -27,11 +28,13 @@ from mixed_methods_workbench.guarded_decision import (
     PolicyBinding,
     PolicyManifest,
     TraceBinding,
+    TraceStoreSnapshot,
     canonical_digest,
     canonical_json_bytes,
     execute_guarded_decision,
     load_evidence_bundle,
     mapping_resolver,
+    replay_evidence_bundle,
     sha256_bytes,
     verify_evidence_bundle,
     write_evidence_bundle,
@@ -235,7 +238,23 @@ def _llm_manifest_request(
 ) -> tuple[GuardedDecisionRequest, NativeExecutionEvidenceManifest]:
     request = _request(contents)
     contents["native-output:1"] = b'{"outcome":"adequate"}'
-    contents["trace-snapshot:1"] = b'{"logical_call_id":"4"}'
+    response_raw = '{"research_question_adequate":true}'
+    response_digest = sha256_bytes(response_raw.encode())
+    call_snapshot_raw = '{"snapshot_version":3}'
+    call_fingerprint = sha256_bytes(canonical_json_bytes({"snapshot_version": 3}))
+    snapshot = TraceStoreSnapshot(
+        schema_version="plan242-trace-store-snapshot/1",
+        source_row_id=4,
+        trace_id="trace:fixture-1",
+        logical_call_id="4",
+        call_fingerprint=call_fingerprint,
+        response_digest=response_digest,
+        runtime_revision="6" * 40,
+        model_ref="fixture:model",
+        call_snapshot_raw=call_snapshot_raw,
+        response_raw=response_raw,
+    )
+    contents["trace-snapshot:1"] = canonical_json_bytes(snapshot.model_dump(mode="json"))
     manifest = NativeExecutionEvidenceManifest(
         schema_version="plan242-native-execution-evidence/1",
         consumer_id="fixture-consumer",
@@ -251,8 +270,8 @@ def _llm_manifest_request(
         trace_binding=TraceBinding(
             trace_id="trace:fixture-1",
             logical_call_id="4",
-            call_fingerprint="sha256:" + "4" * 64,
-            response_digest="sha256:" + "5" * 64,
+            call_fingerprint=call_fingerprint,
+            response_digest=response_digest,
             trace_store_snapshot_binding=ArtifactBinding(
                 ref="trace-snapshot:1",
                 content_digest=sha256_bytes(contents["trace-snapshot:1"]),
@@ -294,6 +313,46 @@ def test_trace_substitution_refuses_before_native_dispatch(
         "guarded-decision.trace-store-snapshot-digest-mismatch/1",
     )
     assert result.receipt.traversed_boundaries == ("neutral_binding",)
+
+
+def test_internally_inconsistent_trace_manifest_refuses_before_dispatch(
+    contents: dict[str, bytes],
+) -> None:
+    request, manifest = _llm_manifest_request(contents)
+    assert manifest.trace_binding is not None
+    mismatched = manifest.model_copy(
+        update={
+            "trace_binding": manifest.trace_binding.model_copy(
+                update={"trace_id": "trace:different-valid-record"}
+            )
+        }
+    )
+    contents["execution-manifest:1"] = canonical_json_bytes(mismatched.model_dump(mode="json"))
+    manifest_evidence = request.required_evidence_bindings[0].model_copy(
+        update={
+            "artifact": request.required_evidence_bindings[0].artifact.model_copy(
+                update={"content_digest": sha256_bytes(contents["execution-manifest:1"])}
+            )
+        }
+    )
+    request = request.model_copy(
+        update={
+            "required_evidence_bindings": (
+                manifest_evidence,
+                *request.required_evidence_bindings[1:],
+            )
+        }
+    )
+
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: (_ for _ in ()).throw(
+            AssertionError("native policy must not run after trace metadata mismatch")
+        ),
+    )
+
+    assert result.semantic_reason_codes == ("guarded-decision.trace-id-mismatch/1",)
 
 
 def test_bundle_replay_verifies_transitive_content(contents: dict[str, bytes]) -> None:
@@ -380,9 +439,59 @@ def test_execution_manifest_binds_native_disposition(
     )
 
 
+def test_cold_replay_rejects_methodologically_wrong_persisted_disposition(
+    contents: dict[str, bytes],
+) -> None:
+    request, manifest = _llm_manifest_request(contents)
+    persisted = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref=manifest.native_disposition_ref,
+        ),
+    )
+    bundle = GuardedDecisionEvidenceBundle(
+        bundle_version="plan242-guarded-decision-bundle/1",
+        request=request,
+        result_and_receipt=persisted,
+        native_execution_manifest_binding=request.required_evidence_bindings[0].artifact,
+        resolved_evidence_bindings=request.required_evidence_bindings,
+        native_disposition_ref=persisted.native_disposition_ref,
+    )
+
+    with pytest.raises(ValueError, match="cold replay result differs"):
+        replay_evidence_bundle(
+            bundle,
+            resolve_content=mapping_resolver(contents),
+            native_policy=lambda _: NativeDecision(
+                outcome=GuardedDecisionOutcome.REFUSED,
+                native_disposition_ref=manifest.native_disposition_ref,
+                semantic_reason_codes=("fixture.native-refusal",),
+            ),
+        )
+
+
 def test_request_has_no_nominal_method_dispatch_field(contents: dict[str, bytes]) -> None:
     fields = set(GuardedDecisionRequest.model_fields)
     assert fields.isdisjoint({"method_id", "repository", "action_label", "record_type"})
+
+
+def test_v2_request_is_historical_and_cannot_execute(contents: dict[str, bytes]) -> None:
+    request = _request(contents)
+    historical = GuardedDecisionRequestV2(
+        request_id=request.request_id,
+        target=request.target,
+        prior_state=request.prior_state,
+        policy=request.policy,
+        decision_record=request.decision_record,
+        decision_actor_or_system_ref=request.decision_actor_or_system_ref,
+        proposed_transition=request.proposed_transition,
+        required_evidence_refs=("evidence:1",),
+    )
+
+    with pytest.raises(ValidationError, match="required_evidence_refs"):
+        GuardedDecisionRequest.model_validate(historical.model_dump(mode="json"))
 
 
 def test_semantically_equivalent_noncanonical_policy_bytes_fail_closed(

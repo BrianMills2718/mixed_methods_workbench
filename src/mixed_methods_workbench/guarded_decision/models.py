@@ -88,6 +88,27 @@ class PolicyManifest(FrozenModel):
         return self
 
 
+class GuardedDecisionRequestV2(FrozenModel):
+    """Historical @2 parser; deliberately not accepted by the @3 executor."""
+
+    request_id: str = Field(min_length=1)
+    target: ArtifactBinding
+    prior_state: ArtifactBinding
+    policy: PolicyBinding
+    decision_record: ArtifactBinding
+    decision_actor_or_system_ref: str = Field(min_length=1)
+    proposed_transition: ProposedTransition
+    required_evidence_refs: tuple[str, ...] = ()
+
+    @model_validator(mode="after")
+    def historical_shape(self) -> GuardedDecisionRequestV2:
+        if tuple(sorted(set(self.required_evidence_refs))) != self.required_evidence_refs:
+            raise ValueError("required_evidence_refs must be canonical and duplicate-free")
+        if self.proposed_transition.outcome is not OutcomeKind.EXECUTION_SUCCEEDED:
+            raise ValueError("candidate proposed_transition must represent execution success")
+        return self
+
+
 class GuardedDecisionRequest(FrozenModel):
     """The frozen neutral request; it contains no method discriminator."""
 
@@ -202,6 +223,42 @@ class TraceBinding(FrozenModel):
     trace_store_snapshot_binding: ArtifactBinding
     runtime_revision: str = Field(pattern=r"^[a-f0-9]{40}$")
     model_ref: str = Field(min_length=1)
+
+
+class TraceStoreSnapshot(FrozenModel):
+    """Canonical export of the exact persisted call needed for cold custody checks."""
+
+    schema_version: str = Field(pattern=r"^plan242-trace-store-snapshot/1$")
+    source_row_id: int = Field(gt=0)
+    trace_id: str = Field(min_length=1)
+    logical_call_id: str = Field(min_length=1)
+    call_fingerprint: Digest
+    response_digest: Digest
+    runtime_revision: str = Field(pattern=r"^[a-f0-9]{40}$")
+    model_ref: str = Field(min_length=1)
+    call_snapshot_raw: str = Field(min_length=1)
+    response_raw: str = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def exact_content_digests(self) -> TraceStoreSnapshot:
+        response_digest = f"sha256:{hashlib.sha256(self.response_raw.encode('utf-8')).hexdigest()}"
+        if self.response_digest != response_digest:
+            raise ValueError("response_digest must bind exact UTF-8 response_raw bytes")
+        try:
+            call_snapshot = json.loads(self.call_snapshot_raw)
+            call_bytes = json.dumps(
+                call_snapshot,
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=True,
+                allow_nan=False,
+            ).encode("utf-8")
+        except (json.JSONDecodeError, ValueError) as exc:
+            raise ValueError("call_snapshot_raw must contain finite JSON") from exc
+        call_digest = f"sha256:{hashlib.sha256(call_bytes).hexdigest()}"
+        if self.call_fingerprint != call_digest:
+            raise ValueError("call_fingerprint must bind canonical call_snapshot_raw JSON")
+        return self
 
 
 class NativeExecutionEvidenceManifest(FrozenModel):
