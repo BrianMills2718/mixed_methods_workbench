@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import hashlib
+import subprocess
 from collections.abc import Callable, Mapping
+from pathlib import Path
 
+import data_contracts.composition as composition_contract
 from data_contracts.composition import ExecutionResult, OutcomeKind
 from pydantic import BaseModel
 
@@ -31,6 +34,36 @@ def fingerprint(value: BaseModel) -> str:
     return canonical_digest(value)
 
 
+def observed_composition_contract_revision() -> str:
+    """Bind receipts to the actually imported, tracked composition package."""
+
+    module_path = Path(composition_contract.__file__).resolve()
+    try:
+        repo_root = Path(
+            subprocess.check_output(
+                ["git", "-C", str(module_path.parent), "rev-parse", "--show-toplevel"],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        )
+        relative_package = module_path.parent.relative_to(repo_root)
+        revision = subprocess.check_output(
+            ["git", "-C", str(repo_root), "rev-parse", "HEAD"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        dirty = subprocess.check_output(
+            ["git", "-C", str(repo_root), "status", "--porcelain", "--", str(relative_package)],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+    except (subprocess.CalledProcessError, ValueError) as exc:
+        raise RuntimeError("cannot verify imported Data Contracts revision") from exc
+    if dirty:
+        raise RuntimeError("imported Data Contracts composition package differs from HEAD")
+    return revision
+
+
 def mapping_resolver(contents: Mapping[str, bytes]) -> ContentResolver:
     """Build a fail-loud exact-reference resolver for tests and local integrations."""
 
@@ -48,11 +81,11 @@ def execute_guarded_decision(
     *,
     resolve_content: ContentResolver,
     native_policy: NativePolicy,
-    composition_contract_revision: str,
 ) -> GuardedDecisionResult:
     """Verify exact bindings, dispatch once, and preserve the native disposition."""
 
     request_digest = fingerprint(request)
+    composition_contract_revision = observed_composition_contract_revision()
     mismatches: list[str] = []
     for label, ref, expected in (
         ("target", request.target.ref, request.target.content_digest),

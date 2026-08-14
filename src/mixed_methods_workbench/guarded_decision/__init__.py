@@ -1,6 +1,12 @@
 """Provisional guarded-decision seam; not a promoted shared contract."""
 
-from .adapter import execute_guarded_decision, fingerprint, mapping_resolver, sha256_bytes
+from .adapter import (
+    execute_guarded_decision,
+    fingerprint,
+    mapping_resolver,
+    observed_composition_contract_revision,
+    sha256_bytes,
+)
 from .models import (
     ArtifactBinding,
     GuardedDecisionOutcome,
@@ -26,5 +32,6 @@ __all__ = [
     "execute_guarded_decision",
     "fingerprint",
     "mapping_resolver",
+    "observed_composition_contract_revision",
     "sha256_bytes",
 ]

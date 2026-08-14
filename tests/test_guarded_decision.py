@@ -26,7 +26,6 @@ from mixed_methods_workbench.guarded_decision import (
     sha256_bytes,
 )
 
-DATA_CONTRACTS_PIN = "d845be0c5813ab26e9bf2f1eaf4473a262ac541b"
 
 
 def _transition(state: str) -> ProposedTransition:
@@ -110,7 +109,6 @@ def test_both_native_signs_share_the_neutral_path(
         request,
         resolve_content=mapping_resolver(contents),
         native_policy=native_policy,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert result.outcome is GuardedDecisionOutcome.VALIDATED
@@ -151,7 +149,6 @@ def test_semantic_near_homonyms_reach_the_injected_native_validator(
         _request(contents),
         resolve_content=mapping_resolver(contents),
         native_policy=native_policy,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert calls == 1
@@ -191,7 +188,6 @@ def test_corrupt_binding_refuses_before_native_dispatch(
         request,
         resolve_content=mapping_resolver(contents),
         native_policy=forbidden,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert result.outcome is GuardedDecisionOutcome.REFUSED
@@ -229,7 +225,6 @@ def test_semantically_equivalent_noncanonical_policy_bytes_fail_closed(
         native_policy=lambda _: (_ for _ in ()).throw(
             AssertionError("noncanonical manifest must not dispatch")
         ),
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert result.outcome is GuardedDecisionOutcome.REFUSED
@@ -243,7 +238,6 @@ def test_result_rejects_a_tampered_receipt_reference(contents: dict[str, bytes])
         _request(contents),
         resolve_content=mapping_resolver(contents),
         native_policy=lambda _: NativeDecision(outcome=GuardedDecisionOutcome.VALIDATED),
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
     payload = result.model_dump(mode="json")
     payload["receipt_ref"] = "sha256:" + "0" * 64

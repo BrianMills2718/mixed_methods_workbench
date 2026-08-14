@@ -8,6 +8,7 @@ for ordinary portable Workbench unit tests.
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import subprocess
 from itertools import combinations
@@ -17,10 +18,9 @@ import pytest
 
 PT_ROOT = os.environ.get("PLAN242_PT_ROOT")
 QC_ROOT = os.environ.get("PLAN242_QC_ROOT")
-DATA_CONTRACTS_ROOT = os.environ.get("PLAN242_DATA_CONTRACTS_ROOT")
-if PT_ROOT is None or QC_ROOT is None or DATA_CONTRACTS_ROOT is None:
+if PT_ROOT is None or QC_ROOT is None:
     pytest.skip(
-        "requires exact PLAN242_PT_ROOT, PLAN242_QC_ROOT, and PLAN242_DATA_CONTRACTS_ROOT",
+        "requires exact PLAN242_PT_ROOT and PLAN242_QC_ROOT",
         allow_module_level=True,
     )
 
@@ -52,6 +52,7 @@ from mixed_methods_workbench.guarded_decision import (
     canonical_json_bytes,
     execute_guarded_decision,
     mapping_resolver,
+    observed_composition_contract_revision,
     sha256_bytes,
 )
 
@@ -80,12 +81,10 @@ def _head(path: str) -> str:
     return subprocess.check_output(["git", "-C", path, "rev-parse", "HEAD"], text=True).strip()
 
 
-if (
-    _head(PT_ROOT) != PT_PIN
-    or _head(QC_ROOT) != QC_PIN
-    or _head(DATA_CONTRACTS_ROOT) != DATA_CONTRACTS_PIN
-):
+if _head(PT_ROOT) != PT_PIN or _head(QC_ROOT) != QC_PIN:
     raise RuntimeError("Plan 242 native integration test requires the registered exact repository pins")
+if observed_composition_contract_revision() != DATA_CONTRACTS_PIN:
+    raise RuntimeError("Plan 242 test imported the wrong Data Contracts revision")
 
 
 def _pair(h1: str, h2: str, p1: str, p2: str) -> RivalPairAudit:
@@ -139,8 +138,20 @@ def _adequate_audit() -> PartitionAudit:
 
 
 def _foreign_pt_audit() -> PartitionAudit:
-    rivals = tuple(f"qc-f1-{identifier[:20]}" for identifier in QC_FOREIGN_IDS[:3])
-    predictions = {rival: f"qc-pred-{identifier[:20]}" for rival, identifier in zip(rivals, QC_FOREIGN_IDS)}
+    candidate_path = Path(QC_ROOT) / "docs/fixtures/f1/candidate_run_v1.json"
+    candidates = sorted(json.loads(candidate_path.read_text())["candidates"], key=lambda row: row["candidate_id"])
+    source_keys = tuple(
+        f'{row["resource_id"]}:{row["function_id"]}:{row["candidate_id"]}'
+        for row in candidates[:3]
+    )
+    rivals = tuple(
+        "qc-f1-" + hashlib.sha256(f"qc-f1:{key}".encode()).hexdigest()[:20]
+        for key in source_keys
+    )
+    predictions = {
+        rival: "qc-pred-" + hashlib.sha256(f"qc-f1-pred:{key}".encode()).hexdigest()[:20]
+        for rival, key in zip(rivals, source_keys)
+    }
     return PartitionAudit(
         research_question_adequate=True,
         rival_pairs=[_pair(a, b, predictions[a], predictions[b]) for a, b in combinations(rivals, 2)],
@@ -240,7 +251,6 @@ def test_pt_native_positive_and_qc_derived_near_homonym_reach_native_gate() -> N
         request,
         resolve_content=resolver,
         native_policy=accepts,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
     assert result.outcome is GuardedDecisionOutcome.VALIDATED
     assert result.receipt.traversed_boundaries == ("neutral_binding", "native_policy")
@@ -274,7 +284,6 @@ def test_pt_native_positive_and_qc_derived_near_homonym_reach_native_gate() -> N
         request,
         resolve_content=resolver,
         native_policy=rejects,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
     assert result.outcome is GuardedDecisionOutcome.REFUSED
     assert result.semantic_reason_codes == PT_CODES
@@ -316,7 +325,6 @@ def test_qc_native_positive_and_pt_derived_near_homonym_reach_native_gate(
         request,
         resolve_content=resolver,
         native_policy=accepts,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
     assert result.outcome is GuardedDecisionOutcome.VALIDATED
 
@@ -358,7 +366,6 @@ def test_qc_native_positive_and_pt_derived_near_homonym_reach_native_gate(
         request,
         resolve_content=resolver,
         native_policy=rejects,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
     assert result.outcome is GuardedDecisionOutcome.REFUSED
     assert result.semantic_reason_codes == ("qc.decision_universe_mismatch",)
@@ -406,7 +413,6 @@ def test_native_callback_consumes_a_substituted_request_reference() -> None:
         request,
         resolve_content=resolver,
         native_policy=native_policy,
-        composition_contract_revision=DATA_CONTRACTS_PIN,
     )
 
     assert result.outcome is GuardedDecisionOutcome.REFUSED
