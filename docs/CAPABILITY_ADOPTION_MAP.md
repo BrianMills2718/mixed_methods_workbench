@@ -28,8 +28,9 @@ shape, not substantive behavior.
 
 | Repository | Inspected revision | Role in this census |
 | --- | --- | --- |
-| `mixed_methods_workbench` | `e06b1cbe49cee1b1e6ef995b68308342646381a4` | Product/integration authority and current NYC example. |
-| `data-contracts` | `d845be0c5813ab26e9bf2f1eaf4473a262ac541b` | Typed action, binding, guard, result, and transition grammar. |
+| `mixed_methods_workbench` | `e36de3bcdbab021149a78631cc8ade72e1824261` | Product/integration authority, current NYC example, and adopted capability architecture. |
+| `project-meta` | `origin/main@e2a2153a69c307c96f35b17e581a668cd2800c42` | Current ecosystem routing, shared architecture, CSS registration, and governed-graph adoption evidence. |
+| `data-contracts` | `origin/master@33746efd75b309aeb2850666859e7b7102190385` | Current default-branch typed contract owner; the composition evidence below also cites exact consumer pins. |
 | `llm_client` | `be189820d1412ec4d19ba148ed1cbdf79c387b3d` | Structured model execution and observability. |
 | `open_web_retrieval` | `531a0937258320cccbaac0e868a7f05f399e2de7` | Search/fetch/extract transport and receipts. |
 | `qualitative_coding` | `4ea0ce6ca15a63ba91b1a3790e4737b411389902` | Qualitative and grounded-theory protocol owner. |
@@ -38,15 +39,19 @@ shape, not substantive behavior.
 | `theory-forge` | `9ec293f96b05a56115cfa4c1686ab7032fd79411` | Theory compile/application owner. |
 | `onto-canon6` | `a271d37e07f827281070577eeb71c23589ecd4d0` | Governed assertion and semantic-projection owner. |
 | `Digimon_for_KG_application` | `96a838ff8d9fd9c8bb40e6e23699974681c9be0c` | Graph/retrieval owner and adopted Data Contracts consumer. |
+| `computational-social-science` | remote `main@33526009e13b8b93b6adcd52fef7408cf99ab7dc` | Study/application contracts, deterministic findings, reviewer decisions, and relational/graph composition. |
 | `sb_ontologies` | `ec1aea3f199b4ca19615679c5428c9e603349129` | Donor/idea source only; not registered as a current platform authority. |
 
-The Project Graph currently points to stale checkout locations for Data
-Contracts, `llm_client`, and Open Web Retrieval; this census used the current
-canonical work under `/home/brian/code/active/`. No separately governed
-computational-social-science repository, including a Desktop checkout, was
-discoverable from the current Project Graph or bounded workspace census.
-Project Meta contains a tentative computational-social-science program, which
-is not equivalent to an implemented repository.
+Project Graph now assigns Data Contracts, `llm_client`, Open Web Retrieval, and
+Computational Social Science to canonical `code-active` workspace slugs. Its
+legacy `path` fields for the first three still name older locations, so agents
+must resolve through `workspace_home` and `workspace_slug`. Computational
+Social Science is registered as a governed active repository, but no local
+checkout currently exists at either registered or legacy location; this census
+therefore inspected its private GitHub remote at the exact revision above. The
+repository is real and executable even though the broader Computational Social
+Science program remains tentative and its recurrence, manual-baseline, value,
+and complementary-method gates are open.
 
 Reverify revisions and Project Graph routing before implementation.
 
@@ -62,10 +67,10 @@ Reverify revisions and Project Graph routing before implementation.
 | Process Tracing | Generic internal LLM passes, deterministic Bayesian calculations, rival/partition/evidence/mechanism protocols, refinement transitions, source acquisition, and strict exports. | Strong method implementation and exports; no generic QC/PT operation ABI. | `keep_method_owned`; `wrap` selected public operations and receipts. |
 | Theory Forge | Theory-schema compilation and theory-specific application machinery. | Useful strict method seam and deterministic CPT/Choices13k counterexample; general provenance-complete application-run export remains incomplete. | `keep_method_owned`; use as a conformance example, not the universal extraction kernel. |
 | Grounded Research | Typed local `EvidenceBundle`, independent analysis, dispute/verification state, and adjudication. | Current outbound shared export writes plain JSONL dictionaries, while OntoCanon accepts typed `ClaimRecord`; the integration test constructs records directly. End-to-end adoption is not proven. | `keep_method_owned`; `wrap` only after a real typed producer-consumer seam is observed. |
-| OntoCanon | Ontology packs, candidate assertions, exact passages, validation/review/promotion, stable identity, Foundation IR 1.3, and deterministic rule-owned semantic projection. | Strong producer boundary. Current graph evidence path exists; projection consumers and claims must remain exact and versioned. | `reuse` conditionally for governed assertions/projections; not the generic arbitrary-output primitive or mandatory MVP path. |
-| DIGIMON | Graph materialization, typed graph/text/vector/structured-source actions, catalog compilation, guarded execution/commit, traversal, ranking, and retrieval. | Strongest current proof that Data Contracts can support a real composition runtime. Fully situational adaptive action-DAG value remains unproven. Semantic projection SP-03 evidence re-entry remains open. | `reuse` as retrieval/graph owner when needed; reuse its composition lessons, not its whole runtime as the Workbench. |
+| OntoCanon | Ontology packs, candidate assertions, exact passages, validation/review/promotion, stable identity, Foundation IR 1.3, governed corpus compilation, and deterministic rule-owned semantic projection. | Strong producer boundary. Project Meta Plan 241 records an adopted two-domain public compile/query path into DIGIMON with typed insufficiency and exact support reopening. | `reuse` conditionally for governed assertions/projections; not the generic arbitrary-output primitive or mandatory MVP path. |
+| DIGIMON | Graph materialization, typed graph/text/vector/structured-source actions, catalog compilation, guarded execution/commit, traversal, ranking, retrieval, and governed-model analysis. | Strongest current proof that Data Contracts can support a real composition runtime. Plan 241 proves two-domain OntoCanon/DIGIMON adoption; CSS separately consumes real DIGIMON graph analysis. Fully situational adaptive action-DAG value remains unproven, and a narrower direct-projection operator certification may remain open. | `reuse` as retrieval/graph owner when needed; reuse its composition lessons and supported public boundaries, not its whole runtime as the Workbench. |
+| Computational Social Science | Study questions/manifests, permissive producer readers, exact input cohorts, deterministic tables/findings, relational analysis, graph-projection composition, and reviewer decisions. | F1 authentically consumes reviewed QC/theory inputs into a 16-cell table, two cited licensed sentences, and an OCR custody non-result. A separate both-sign vertical composes Data Contracts and real DIGIMON analysis back to exact source rows. Recurrence, manual baseline, and value remain open. | `reuse` as the study/application owner and a prospective Workbench consumer; do not move method, theory, OntoCanon, or DIGIMON semantics into it. |
 | SB Ontologies | Earlier ontology/theory experimentation. | Direct provider calls, loose dictionaries, and reported fidelity gaps; not a registered current owner. Theory Forge and OntoCanon have stronger relevant seams. | `defer`; mine ideas only. |
-| Computational social science | Project Meta program language, but no governed standalone repository located. | No callable seam, exact revision, or consumer evidence to adopt. | `missing` as a repository-level owner; locate/register it before relying on it. |
 
 ## Capability-level adoption map
 
@@ -88,10 +93,10 @@ Reverify revisions and Project Graph routing before implementation.
 | CAP-15 | Rival-explanation Process Tracing | Process Tracing. | Strong method implementation and export. | `keep_method_owned`; invoke through adapter. |
 | CAP-16 | Theory operationalization and application | Theory Forge. | Bounded stable artifacts; complete general application export gap. | `keep_method_owned`; conditional MVP dependency only if study design requires it. |
 | CAP-17 | Independent claim adjudication | Grounded Research. | Strong local capability; current shared export mismatch. | `keep_method_owned`; defer cross-repo adoption until typed seam is real. |
-| CAP-18 | Governed semantic assertion lifecycle | OntoCanon. | `stable_seam` with authentic bounded producer evidence. | `reuse` when cross-document semantic governance is needed. |
-| CAP-19 | Semantic/evidence graph projection | OntoCanon producer plus DIGIMON consumer work. | Evidence projection adopted; direct semantic dual-surface path not fully proven. | `defer` from MVP critical path unless question requires graph; require exact evidence re-entry. |
-| CAP-20 | Graph/text/vector/structured retrieval | DIGIMON. | Substantial implementation and bounded runtime evidence; adaptive superiority unproven. | `reuse` only for named retrieval need; direct text/search may be sufficient. |
-| CAP-21 | Deterministic descriptive measurement | Workbench NYC audit and method/statistical libraries. | Authentic bounded example; no general quantitative adapter owner. | `wrap` established libraries through a narrow Workbench adapter after the target measure is named. |
+| CAP-18 | Governed semantic assertion lifecycle | OntoCanon. | `adopted_consumer` through the Plan 241 public governed-corpus path, with exact producer/review identities retained. | `reuse` when cross-document semantic governance is needed. |
+| CAP-19 | Semantic/evidence graph projection | OntoCanon plus DIGIMON. | Plan 241 proves a public two-domain compile/query/evidence round trip with exact support reopening. A narrower older direct `SemanticGraphProjectionV1` operator path may retain its own certification gap. | `reuse` only when the question requires graph/semantic analysis; require method-artifact reverse binding in addition to source reopening when method findings are projected. |
+| CAP-20 | Graph/text/vector/structured retrieval | DIGIMON. | Substantial implementation, Plan 241 two-domain adoption, and a real CSS graph-analysis consumer; adaptive superiority remains unproven. | `reuse` only for a named retrieval/analysis need; direct text/search may be sufficient. |
+| CAP-21 | Deterministic descriptive measurement | Workbench NYC audit, Computational Social Science F1, and established method/statistical libraries. | Authentic bounded examples exist; CSS owns study-specific source-to-table/finding derivation, not a general inference engine. | `reuse` CSS artifacts when the study is F1; otherwise wrap an established owner through a narrow adapter after the target measure is named. |
 | CAP-22 | Statistical, predictive, or causal analysis | Established engines and future adapters; owner unresolved for portfolio. | Mixed; not censused as one stable seam. | `keep_method_owned`/`missing`; decide per study design, never create one generic inference engine. |
 | CAP-23 | Simulation and scenario comparison | External simulation owners; Workbench has a bounded Cybernetic Influence projection. | Bounded authentic projection, not a canonical general seam. | `keep_method_owned`; adapter only when required. |
 | CAP-24 | Policy-option appraisal | Workbench plus explicit human/value authority; Mist Trail content is manually performed. | Product projection exists; no executing general appraisal engine. | `extend` later from a real decision case; do not treat typed artifacts as computed analysis. |
@@ -99,6 +104,7 @@ Reverify revisions and Project Graph routing before implementation.
 | CAP-26 | Investigation continuity and orchestration | Workbench Investigation Spine. | Authentic bounded UI/API; limited action runtime. | `extend` over Data Contracts; retain one investigation state without absorbing method state. |
 | CAP-27 | Reproducible investigation bundle | Workbench and method-native exports have pieces. | Partial local evidence. | `extend` after action/artifact/derivation identities stabilize. |
 | CAP-28 | Methodology recommendation | No adopted owner. | `missing`. | `defer` until lower layers work; future planner compiles accepted designs rather than choosing by schema match. |
+| CAP-29 | Study-level application composition and scientific review | Computational Social Science. | `observed_runtime`: F1 exact cohort -> 16-cell table -> cited finding/non-result -> named scientific license; recurrence/manual baseline/value remain open. | `reuse` as the application layer and prospective Workbench integration seam; do not generalize one study's contracts into a universal workflow. |
 
 ## False-positive seams and drift
 
@@ -120,19 +126,27 @@ sides have code; the claimed producer-to-consumer path is not demonstrated.
 
 ### OntoCanon to DIGIMON
 
-The assertion/evidence import path is real. OntoCanon also produces a typed
-deterministic semantic projection, and DIGIMON has accepted two consumer
-slices. The remaining promotion evidence is a real query that traverses a
-direct semantic edge and re-enters its exact supporting assertion and source
-evidence. Until then, do not describe the full dual-surface path as complete.
+Project Meta Plan 241 is complete and records one public OntoCanon
+`compile_corpus` -> DIGIMON `ask_governed_model` product path over both nanoGPT
+and DoDAF. It includes typed insufficiency and cited answers that reopen exact
+assertions and source passages. This is an adopted platform round trip, not a
+future hypothesis.
+
+A narrower older direct `SemanticGraphProjectionV1` operator path and its SP-03
+certification may remain incomplete. That local gate must not be broadened into
+a claim that the overall OntoCanon/DIGIMON product boundary lacks an authentic
+consumer. For method use, an additional binding is still required from the
+semantic assertion/projection back to the authoritative method artifact and
+its method-review decision.
 
 ### Repository routing
 
-Project Graph paths for several shared repositories lag the current canonical
-checkouts. This does not invalidate the inspected code, but it can cause future
-agents to inspect or modify the wrong clone. Project Meta owns the routing
-repair; this Workbench map records the dependency and does not edit cross-repo
-authority.
+Project Graph's `workspace_home`/`workspace_slug` routing now names the current
+canonical workspaces for Data Contracts, `llm_client`, Open Web Retrieval, and
+Computational Social Science. Some legacy `path` fields still lag, and the
+registered CSS local checkout is absent. This does not invalidate exact remote
+evidence, but Project Meta still owns path-field cleanup and checkout
+realization.
 
 ## Immediate decision
 
@@ -176,8 +190,17 @@ Key source locations used for this snapshot include:
 - Grounded Research: `src/grounded_research/models.py:340` and
   `src/grounded_research/shared_export.py:1`;
 - OntoCanon: `src/onto_canon6/adapters/foundation_assertion_export.py:69`
-  and `src/onto_canon6/adapters/semantic_graph_projection.py:1`; and
-- DIGIMON Plan 186 for the remaining semantic-projection consumer gate.
+  and `src/onto_canon6/adapters/semantic_graph_projection.py:1`;
+- Project Meta Plan 241 and
+  `docs/runs/plan241_gpa06_two_domain_adoption.md` for the completed public
+  OntoCanon/DIGIMON two-domain round trip;
+- DIGIMON Plan 186 for the narrower direct-projection certification boundary;
+  and
+- Computational Social Science remote `main@33526009e13b8b93b6adcd52fef7408cf99ab7dc`:
+  `src/computational_social_science/f1_table.py`, `f1_finding.py`,
+  `f1_review.py`, `linked_analysis_composition.py`,
+  `linked_analysis_vertical.py`, and
+  `integration_tests/test_linked_analysis_vertical.py`.
 
 These are inspection anchors, not permanent line-stable API references. Exact
 revisions above control this snapshot.
