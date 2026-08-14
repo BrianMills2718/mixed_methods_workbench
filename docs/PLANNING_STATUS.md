@@ -3,11 +3,51 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13
 
-## Current Phase: NYC Candidate Review Gate
+## Current Phase: Capability Architecture and Adoption Gate
 
-Plan #5 is the current long-term execution authority:
+Brian approved the first-principles initiative reset recorded in
+[`SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md`](SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md).
+The evidence-backed current inventory and reuse decisions are in
+[`CAPABILITY_ADOPTION_MAP.md`](CAPABILITY_ADOPTION_MAP.md).
+
+The immediate sequence is:
+
+1. reconcile current capability owners, callable seams, and authentic consumer
+   evidence, including Data Contracts, `llm_client`, Open Web Retrieval, QC,
+   Process Tracing, Theory Forge, Grounded Research, OntoCanon, DIGIMON, SB
+   Ontologies, and any governed computational-social-science owner;
+2. preserve the distinction among generic execution forms, reusable research
+   primitives, method-owned protocols, and study workflows;
+3. freeze a Project Meta-subordinate method-operation composition and complete
+   evidence-round-trip profile rather than creating a competing Workbench
+   ecosystem architecture;
+4. prepare the narrow Workbench consumer design for
+   `ExtractStructuredCandidates`; and
+5. only after that design is adopted, refactor the existing NYC extraction as
+   its first authentic consumer.
+
+Current work may update architecture, capability/adoption evidence, roadmap,
+and the exact next bounded design. It may not implement the extraction action,
+modify producer repositories, promote a Workbench-local contract into Data
+Contracts, or start another policy vertical without a separately adopted
+implementation packet.
+
+The former Plan #6 candidate at
+`origin/capability-kernel-design-candidate@f64b613c` remains useful donor
+material, but it is not adopted unchanged. Its exact-reference, guarded-action,
+review-authority, and consumer-runtime concepts require crosswalk to existing
+Project Meta, Data Contracts, OntoCanon, DIGIMON, and method-owner authority.
+
+The Phase 1 compact-versus-independent 70/90-operation disagreement remains
+supporting research evidence. It must not be resolved merely by assigning both
+inventories to the same generic execution label.
+
+## Paused Checkpoint: NYC Candidate Review Gate
+
+Plan #5 remains preserved at
 [`005_nyc_crz_mvp.md`](plans/005_nyc_crz_mvp.md) and its machine-consumed
-[`5_nyc_crz_mvp_work_graph.json`](plans/5_nyc_crz_mvp_work_graph.json).
+[`5_nyc_crz_mvp_work_graph.json`](plans/5_nyc_crz_mvp_work_graph.json), but it
+is paused while the capability architecture and adoption gate controls.
 
 The exact NYC source freeze remains controlling. Two independent Plan #5 units
 have now executed and are merged on canonical `main`:
@@ -25,8 +65,8 @@ have now executed and are merged on canonical `main`:
   is `completion_review`; it does not identify a causal effect or independently
   reconstruct the agency counterfactual.
 
-The immediate decision boundary is Brian's attributable disposition of three
-review statements: the proposed agency-prediction wording, the proposed
+The remaining Plan #5 decision boundary is Brian's attributable disposition of
+three review statements: the proposed agency-prediction wording, the proposed
 hearing-concern wording, and the bounded quantitative comparison. Passing
 Pydantic, anchor, arithmetic, browser, and runtime checks does not grant
 analytical acceptance.
@@ -36,6 +76,10 @@ are accepted. `NYC-INTEGRATE-1` remains blocked until extraction, QC, and
 quantitative artifacts are accepted. No agent may rerun the two completed
 units, start QC, integrate the result, adopt a shared schema, or resume method
 catalog expansion merely because the code exists.
+
+This pause does not reject those statements, discard their evidence, reopen
+source acquisition, or select a replacement flagship. When the reusable seam
+is ready, NYC should be refactored through it rather than rerun from scratch.
 
 The quantitative work graph now binds the actual canonical drift-receipt file
 digest `0961133cc6a6441a944f00a45a7574e58a69bd0ca51fc2cb70da67540083f578`.
