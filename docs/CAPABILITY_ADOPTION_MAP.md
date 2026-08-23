@@ -3,7 +3,8 @@
 Status: adopted initiative baseline; read-only census evidence, not capability
 certification or implementation authority
 
-Updated: 2026-08-13
+Updated: 2026-08-13; `graph_application_toolkit` row added 2026-08-23 (see
+below) — no other content revised.
 
 ## Purpose
 
@@ -62,6 +63,7 @@ themselves place a capability on the critical path.
 | `Digimon_for_KG_application` | `96a838ff8d9fd9c8bb40e6e23699974681c9be0c` | Graph/retrieval owner and adopted Data Contracts consumer. |
 | `computational-social-science` | remote `main@33526009e13b8b93b6adcd52fef7408cf99ab7dc` | Study/application contracts, deterministic findings, reviewer decisions, and relational/graph composition. |
 | `sb_ontologies` | `ec1aea3f199b4ca19615679c5428c9e603349129` | Donor/idea source only; not registered as a current platform authority. |
+| `graph_application_toolkit` | `f131000d3ceb70229490eb58b9f6bad52f94d8f0` | Composition/orchestration kernel over OntoCanon and DIGIMON as optional pinned providers; not previously censused here (added 2026-08-23). |
 
 Project Graph now assigns Data Contracts, `llm_client`, Open Web Retrieval, and
 Computational Social Science to canonical `code-active` workspace slugs. Its
@@ -92,6 +94,7 @@ Reverify revisions and Project Graph routing before implementation.
 | DIGIMON | Graph materialization, typed graph/text/vector/structured-source actions, catalog compilation, guarded execution/commit, traversal, ranking, retrieval, and governed-model analysis. | Strongest current proof that Data Contracts can support a real composition runtime. Plan 241 proves two-domain OntoCanon/DIGIMON adoption; CSS separately consumes real DIGIMON graph analysis. Fully situational adaptive action-DAG value remains unproven, and a narrower direct-projection operator certification may remain open. | `defer` — activate only for a named graph/retrieval need. | Conditional `reuse` of its supported public boundaries; never its whole runtime as the Workbench. |
 | Computational Social Science | Study questions/manifests, permissive producer readers, exact input cohorts, deterministic tables/findings, relational analysis, graph-projection composition, and reviewer decisions. | F1 authentically consumes reviewed QC/theory inputs into a 16-cell table, two cited licensed sentences, and an OCR custody non-result. A separate both-sign vertical composes Data Contracts and real DIGIMON analysis back to exact source rows. Recurrence, manual baseline, value, and fitness for the selected MVP remain open. | `donor_only` | Borrow exact-cohort, deterministic-derivation, reverse-binding, non-result, and scientific-review patterns. Take no CSS dependency unless a later named need passes the adoption gate. |
 | SB Ontologies | Earlier ontology/theory experimentation. | Direct provider calls, loose dictionaries, and reported fidelity gaps; not a registered current owner. Theory Forge and OntoCanon have stronger relevant seams. | `donor_only` | Mine ideas only; no implementation dependency. |
+| Graph Application Toolkit | Typed manifest/compiler kernel that composes governed-ontology and graph-retrieval providers as optional, explicit bindings (`ProviderBindingsV1`); pins exact OntoCanon and DIGIMON revisions; deliberately keeps domain/organization-specific behavior out of the kernel. A provider-free "structure-only" fixture and a real cross-provider browser lifecycle both pass (`plan/CONCERNS.md` C77, C84). Not previously registered in this census; found and added 2026-08-23 while investigating a separate neurosymbolic/graph-value question. | No current Workbench dependency; zero prior cross-reference existed in either repository's docs before this entry. Its optional-provider composition pattern is functionally the same shape the Workbench's own CLAUDE.md already commits to for OntoCanon/DIGIMON ("Both remain optional to an MVP path unless the study question needs them"), but the two repos independently built toward it without mutual awareness. | `defer` — same trigger as OntoCanon/DIGIMON: activate only for a named graph/semantic-projection need. | When CAP-18/CAP-19/CAP-20 activate, evaluate reusing this kernel's provider-binding pattern (`wrap`/`reuse`) before building bespoke Workbench-local OntoCanon+DIGIMON glue; a second, genuinely independent consumer is also the strongest available evidence for whether the kernel is reusable at all, not merely DIGIMON/OntoCanon-specific. |
 
 ## Capability-level adoption map
 
@@ -159,6 +162,20 @@ a claim that the overall OntoCanon/DIGIMON product boundary lacks an authentic
 consumer. For method use, an additional binding is still required from the
 semantic assertion/projection back to the authoritative method artifact and
 its method-review decision.
+
+### Workbench to Graph Application Toolkit
+
+Two repositories independently arrived at the same architectural idea —
+compose OntoCanon and DIGIMON as optional, pinned, explicit providers behind a
+neutral kernel — without ever referencing each other. `graph_application_toolkit`
+already implements and tests this pattern (`ProviderBindingsV1`, a provider-free
+fixture, a real cross-provider browser lifecycle). The Workbench states the
+same requirement in prose (CLAUDE.md: OntoCanon/DIGIMON "remain optional to an
+MVP path") but has not evaluated whether to consume the toolkit's kernel
+instead of building its own composition/adapter logic when CAP-18/19/20
+activate. This is not evidence that either repository is wrong; it is evidence
+that this census had a blind spot for a real, working, directly relevant
+sibling. Added 2026-08-23; see the `graph_application_toolkit` row above.
 
 ### Repository routing
 
