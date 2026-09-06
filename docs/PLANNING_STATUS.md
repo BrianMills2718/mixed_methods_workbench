@@ -1,7 +1,7 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-08-13
+Updated: 2026-08-13; correction note added 2026-09-06
 
 ## Current Phase: Capability Architecture and Adoption Gate
 
@@ -43,6 +43,19 @@ supporting research evidence. It must not be resolved merely by assigning both
 inventories to the same generic execution label.
 
 ## Paused Checkpoint: NYC Candidate Review Gate
+
+> **Correction, 2026-09-06.** The paragraphs below were written on 2026-08-13
+> and are retained as history. On 2026-08-14 Brian accepted all three review
+> statements (`docs/research/nyc_crz_human_disposition.json`, commit
+> `c95488c`); Plan #5 (`plans/005_nyc_crz_mvp.md`) was updated to mark
+> `NYC-QC-1` ready; and the QC-side lane was started the same day on
+> `qualitative_coding` branch `nyc-crz-six-hearing-qc` (five commits, pushed,
+> unmerged, no receipt). That readiness contradicts the reset sequence in
+> `ROADMAP.md`. The 2026-09-06 assessment records the evidence and the
+> recommended resolution: `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`.
+> The Plan 242 guarded-decision seam (`src/mixed_methods_workbench/guarded_decision/`,
+> evidence under `research/plan242/`) also exists and is not reflected below.
+
 
 Plan #5 remains preserved at
 [`005_nyc_crz_mvp.md`](plans/005_nyc_crz_mvp.md) and its machine-consumed

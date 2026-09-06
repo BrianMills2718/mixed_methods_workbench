@@ -44,7 +44,7 @@ test-demo:  ## Run all DEMO-C1 tests
 	@PYTHONPATH=src pytest -q tests
 
 typecheck-demo:  ## Type-check the DEMO-C1 package strictly
-	@mypy --strict src/mixed_methods_workbench
+	@$(PYTHON) -m mypy --strict src/mixed_methods_workbench
 
 method-dashboard:  ## Run the local METHOD-DASH-C1 review dashboard
 	@PYTHONPATH=src $(PYTHON) -m mixed_methods_workbench.method_dashboard_server

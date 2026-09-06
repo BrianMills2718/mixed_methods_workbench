@@ -7,7 +7,8 @@ workbench built in thin, versioned slices. Read
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/PLANNING_STATUS.md` before planning.
+`docs/PLANNING_STATUS.md` before planning. For current state as of
+2026-09-06, start with `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`.
 
 Brian approved a first-principles architecture reset on 2026-08-13. The current
 critical path is: verify existing capability owners and adoption; map the flat
@@ -16,10 +17,14 @@ method-owned protocols, and study workflows; freeze the ecosystem-subordinate
 composition/evidence-round-trip profile; then refactor the existing NYC
 structured extraction as the first authentic consumer of a reusable action.
 Do not add another case-specific vertical or implement a universal schema,
-runtime, ontology, or method planner. The pending NYC prediction, hearing
-concern, and quantitative comparison remain unaccepted `completion_review`
-artifacts. Plan #5 is preserved but paused; this architecture decision does not
-dispose its review statements.
+runtime, ontology, or method planner. Brian accepted the three NYC review
+statements (prediction wording, hearing-concern wording, bounded quantitative
+comparison) on 2026-08-14; the immutable record is
+`docs/research/nyc_crz_human_disposition.json` at `c95488c`. Plan #5 therefore
+marks `NYC-QC-1` as ready, and a QC-side lane for it exists unmerged at
+`qualitative_coding` branch `nyc-crz-six-hearing-qc`. That readiness conflicts
+with the 2026-08-13 reset's phase order; the conflict, the evidence, and the
+recommended resolution are in `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`. Read it before choosing a next step.
 
 The Workbench is the application/integration authority, not the ecosystem
 architecture authority. Project Meta owns the cross-project artifact and

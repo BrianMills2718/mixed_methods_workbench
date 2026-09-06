@@ -3,8 +3,18 @@
 Strategy, contracts, and planning scaffold for a broad text-centered
 mixed-methods research workbench delivered through versioned thin slices.
 
+Install (no venv is committed; `data_contracts` is a local checkout):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -e ~/code/data-contracts -e ".[dev]"
+.venv/bin/python -m pytest -q            # 161 tests
+make check PYTHON=.venv/bin/python
+```
+
 Start here:
 
+0. `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md` — current state, findings, and the next-agent brief (2026-09-06)
 1. `PROJECT.md`
 2. `docs/PLANNING_STATUS.md`
 3. `plan/goals/2026-07-12-sota-or-beyond.md`

@@ -1,15 +1,15 @@
-updated: "2026-07-12T18:30:00-07:00"
+updated: "2026-09-06T00:00:00-07:00"
 project: mixed_methods_workbench
 scope: ecosystem
-status: blocked
-current_mode: documentation_only
+status: superseded
+current_mode: see_assessment
 blocked_on: separately_authorized_producer_export_slices
 git_commit: "pending"
 git_branch: main
 evaluated_commit: "f26bc6ade93c475c7ebc4ca608e796a9b9fe2f1a"
 decision_record: "docs/adr/0004_demo_first_method_core_and_knowledge_infrastructure.md"
 summary: "DEMO-C1 is implemented and independently accepted at 6a8e0b5: typed Pydantic QC/PT/GT-I synthetic structural contracts, exact source step-down, typed cross-method links, non-authoritative prose markers, review assembly, CLI/Make surfaces, manifest, and both-sign controls. Producer repos remain untouched."
-next_action: "Choose and separately authorize producer-owned export work, preferably the GT-inspired populated-object inventory/export dependency subplan before adapters."
+next_action: "Read docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md; it carries the current state, the F1 decision for Brian, and the task brief."
 
 completed:
   - "Reconciled the roadmap, dependency graph, capability map, checklist, concern register, long-term goal, and handoff under ADR 0004."

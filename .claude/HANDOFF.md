@@ -1,3 +1,8 @@
+> **SUPERSEDED (2026-09-06).** This handoff dates from 2026-07-12 and
+> describes the ADR 0004 "demo-first, documentation-only" phase, which later
+> decisions on 2026-08-12, 2026-08-13 and 2026-08-14 replaced. Do not act on
+> it. Current state and the next-agent brief: `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`.
+
 # Mixed Methods Workbench Handoff
 
 ## Current Truth
