@@ -1,7 +1,7 @@
 # Mixed Methods Workbench Roadmap
 
 Status: canonical future strategy; documentation only, no release is active
-Updated: 2026-08-13
+Updated: 2026-08-13; phase order amended 2026-09-06
 
 ## Current Phase
 
@@ -145,10 +145,17 @@ Add methodology guidance, more study designs, optional governed graph
 navigation, broader quantitative methods, interoperability, and comparative
 evaluation only after the lower layers have authentic consumers.
 
-This sequence supersedes a direct jump from the current NYC review gate to
-another case-specific `NYC-QC-1` or `NYC-INTEGRATE-1` implementation. It
-preserves Plan #5 evidence and resumes its substantive workflow after the
-reusable seam is adopted.
+**Order change, 2026-09-06.** Brian approved Path A of the 2026-09-06
+assessment (`docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`): finish the NYC
+vertical first — `NYC-QC-1` on the existing `qualitative_coding` lane, then
+`NYC-INTEGRATE-1` and `NYC-MVP-REVIEW-1` — and enter Phases C and D afterwards
+with two real consumers (the workbench extraction and QC's Describe export).
+The paragraph that follows is retained as the 2026-08-13 wording it replaces.
+
+> This sequence supersedes a direct jump from the current NYC review gate to
+> another case-specific `NYC-QC-1` or `NYC-INTEGRATE-1` implementation. It
+> preserves Plan #5 evidence and resumes its substantive workflow after the
+> reusable seam is adopted.
 
 ### Parallel execution shape
 

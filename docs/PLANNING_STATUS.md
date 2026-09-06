@@ -3,7 +3,16 @@
 Status: canonical current-phase and authorization guide
 Updated: 2026-08-13; correction note added 2026-09-06
 
-## Current Phase: Capability Architecture and Adoption Gate
+## Current Phase: Finish the NYC vertical (Path A, approved 2026-09-06)
+
+Brian approved Path A of `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md` on
+2026-09-06: execute `NYC-QC-1` on `qualitative_coding` branch
+`nyc-crz-six-hearing-qc`, hand its artifact to Brian for acceptance, then
+`NYC-INTEGRATE-1` and `NYC-MVP-REVIEW-1`. The capability-architecture phases
+below (A–D) resume afterwards; they are not the current critical path. The
+section that follows is retained as the 2026-08-13 wording it replaces.
+
+## Prior Phase (2026-08-13): Capability Architecture and Adoption Gate
 
 Brian approved the first-principles initiative reset recorded in
 [`SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md`](SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md).

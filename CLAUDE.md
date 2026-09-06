@@ -24,7 +24,8 @@ comparison) on 2026-08-14; the immutable record is
 marks `NYC-QC-1` as ready, and a QC-side lane for it exists unmerged at
 `qualitative_coding` branch `nyc-crz-six-hearing-qc`. That readiness conflicts
 with the 2026-08-13 reset's phase order; the conflict, the evidence, and the
-recommended resolution are in `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`. Read it before choosing a next step.
+recommended resolution are in `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`. Brian chose Path A on 2026-09-06: finish `NYC-QC-1`, `NYC-INTEGRATE-1`, and
+`NYC-MVP-REVIEW-1` first; the shared-action refactor follows.
 
 The Workbench is the application/integration authority, not the ecosystem
 architecture authority. Project Meta owns the cross-project artifact and
