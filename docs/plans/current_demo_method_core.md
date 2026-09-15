@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#current-demo-method-core"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Current Plan: DEMO Method-Core Contract and Review Mockup
 
 Status: approved planning journey; implementation not yet authorized

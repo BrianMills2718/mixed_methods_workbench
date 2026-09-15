@@ -1,5 +1,7 @@
 # Simulation-to-policy-appraisal development receipt
 
+**Status:** Complete
+
 Observed at `2026-08-13T17:22:10Z` from Mixed Methods Workbench base
 revision `f5bb0f7fa023cc589cb2635d6f18a670ada19f4c`.
 

@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#3"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Detailed Future Integration and Versioning Blueprint (Planning File 003)
 
 Status: documentation only — future proposal, not authorized for execution

@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#demo-method-core-mockup"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # DEMO Method-Core Review Packet Mockup
 
 Status: synthetic planning mockup — approved by Brian on 2026-07-12

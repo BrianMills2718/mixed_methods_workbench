@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#investigation-spine"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Investigation Spine
 
 **Status:** authorized implementation slice

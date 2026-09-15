@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#mist-trail-policy-decision-vertical"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Mist Trail policy options to a reviewable decision
 
 **Status:** MT-D1 implemented as an unadopted development fixture; fresh

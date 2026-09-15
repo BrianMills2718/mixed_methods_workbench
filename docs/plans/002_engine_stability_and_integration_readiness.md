@@ -1,5 +1,7 @@
 # Plan 002: Engine Stability And Integration Readiness
 
+**Status:** Superseded by Plan #3
+
 > Sources: `CLAUDE.md`; `PROJECT.md`; `README.md`; `contracts/shared_contracts.md`;
 > `docs/ARCHITECTURE.md`; `docs/CONCERNS.md`;
 > `docs/adr/0001_method_engines_not_monorepo.md`;
