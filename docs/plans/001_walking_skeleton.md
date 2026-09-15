@@ -1,3 +1,9 @@
+---
+plan_id: "mixed_methods_workbench#1"
+dependencies: ["mixed_methods_workbench#2"]
+dependency_evidence:
+  "mixed_methods_workbench#2": "Blocks: `docs/plans/001_walking_skeleton.md`"
+---
 # Plan 001: Version 0.1 Fixture-Backed Multi-Method Qualitative Skeleton
 
 Status: future proposal — not authorized for execution

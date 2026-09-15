@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#method-dash-c2-plain-language"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # METHOD-DASH-C2: Plain-Language Study Brief
 
 Status: implemented comprehension repair; stakeholder re-review pending

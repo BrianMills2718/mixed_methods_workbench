@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#current-simulation-to-policy-appraisal-probe"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Authentic simulation-to-policy-appraisal boundary probe
 
 Status: active bounded implementation plan

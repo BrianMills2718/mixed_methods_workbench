@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#5"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # Plan #5 — Authentic NYC Congestion-Pricing MVP
 
 **Status:** active long-term execution authority; NYC-QC-1 is the next

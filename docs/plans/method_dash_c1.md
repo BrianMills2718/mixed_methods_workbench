@@ -1,3 +1,8 @@
+---
+plan_id: "mixed_methods_workbench#method-dash-c1"
+dependencies: []
+dependencies_reviewed: "2026-09-15"
+---
 # METHOD-DASH-C1: Question-First Methodology Dashboard
 
 Status: implemented local prototype; stakeholder review pending
