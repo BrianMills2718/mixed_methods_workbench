@@ -191,6 +191,7 @@
           <p class="eyebrow">New connected execution · 23 September 2026</p>
           <h2 id="connected-run-title">One agent carried the reviewed explanation to the publication guardrail</h2>
           <p id="connected-run-status"></p>
+        <p id="planning-receipt-status" class="provenance-intro"></p>
         </div>
         <div id="connected-run-attempts" class="card-grid"></div>
         <article class="card">
@@ -279,6 +280,8 @@
       if (connected) {
         byId("connected-run-section").hidden = false;
         byId("connected-run-status").textContent = "The reviewed Qualitative Coding proposition was reused. Process Tracing ran now on the frozen case corpus and stopped at its publication guardrail. A separate model challenged the blocked export; researcher review is still pending.";
+        const plan = connected.planning_receipt;
+        byId("planning-receipt-status").textContent = `Governed plan: ${plan.human_decision.replaceAll("_", " ")} until a human reviews the named evidence gaps. The independent check is advisory and cannot approve a causal conclusion.`;
         byId("connected-run-attempts").innerHTML = connected.attempts.map((attempt, index) => `
           <article class="card"><h3>Attempt ${index + 1}: ${attempt.outcome === "blocked_publication" ? "Stopped at publication guardrail" : "Stopped at rival-partition gate"}</h3><p>${escapeHtml(attempt.route)}</p><p><code>${escapeHtml(attempt.trace_id)}</code></p></article>`).join("");
         byId("connected-run-conclusion").textContent = connected.conclusion.public_headline_eligible ? "Process Tracing completed a bounded comparison" : "No public causal conclusion is ready";

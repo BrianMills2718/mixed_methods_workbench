@@ -235,6 +235,7 @@ def connected_run_payload(root: Path = RUN_ROOT) -> dict[str, object]:
         "check_trace_id": receipt.check_trace_id,
         "review_state": receipt.review_state,
         "publication_block_reason": receipt.publication_block_reason,
+        "planning_receipt": load_planning_receipt(root).model_dump(),
     }
 
 
@@ -245,6 +246,8 @@ def generate_connected_run(
     from llm_client import call_llm_structured, render_prompt
 
     export = load_export(root)
+    # load_export rejects a missing producer revision; make that invariant visible to mypy.
+    assert export.producer.git_commit is not None
     evidence = [
         {"evidence_id": item.evidence_id, "source_id": item.source_id,
          "source_quote": item.source_quote}
@@ -311,3 +314,47 @@ def generate_connected_run(
         ),
         challenge=challenge,
     )
+
+PLANNING_RECEIPT_NAME = "planning_receipt.json"
+
+
+class PlanningReceipt(_Owned):
+    """Workbench-owned, source-bound plan for the retained connected run."""
+
+    schema_version: Literal["mmw.psychosisbank_planning_receipt.v1"]
+    investigation_id: Literal["psychosisbank-disclosure-explanation"]
+    question: str = Field(min_length=20)
+    connected_run_receipt_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    source_input_digests: dict[str, str]
+    method_roles: dict[Literal["qualitative_coding", "process_tracing", "independent_check"], str]
+    prohibited_inferences: list[str] = Field(min_length=1)
+    terminal_review_state: Literal["withhold_causal_publication_pending_human_review"]
+    human_decision: Literal["withhold_causal_publication"]
+    next_evidence: list[str] = Field(min_length=1)
+
+
+def load_planning_receipt(root: Path = RUN_ROOT) -> PlanningReceipt:
+    """Load a plan only when it remains bound to the retained run and its guardrails."""
+    receipt, export = load_connected_run(root)
+    path = root / PLANNING_RECEIPT_NAME
+    try:
+        plan = PlanningReceipt.model_validate_json(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ConnectedRunError(f"planning receipt unavailable or invalid: {exc}") from exc
+    if plan.question != export.research_question:
+        raise ConnectedRunError("planning receipt question changed")
+    if plan.connected_run_receipt_sha256 != _digest(root / RECEIPT_NAME):
+        raise ConnectedRunError("planning receipt does not bind the connected run bytes")
+    if plan.source_input_digests != receipt.input_digests:
+        raise ConnectedRunError("planning receipt source inputs changed")
+    if plan.method_roles["qualitative_coding"] != "candidate proposition; no causal conclusion":
+        raise ConnectedRunError("planning receipt changes Qualitative Coding's role")
+    if plan.method_roles["process_tracing"] != "test rival explanations within the frozen source scope":
+        raise ConnectedRunError("planning receipt changes Process Tracing's role")
+    if plan.method_roles["independent_check"] != "advisory challenge; cannot approve a causal conclusion":
+        raise ConnectedRunError("planning receipt changes independent-check boundary")
+    if not any("causal" in item.casefold() for item in plan.prohibited_inferences):
+        raise ConnectedRunError("planning receipt omits the causal-claim prohibition")
+    if receipt.review_state != "blocked_publication_pending_researcher_review":
+        raise ConnectedRunError("planning receipt cannot override the connected-run review state")
+    return plan

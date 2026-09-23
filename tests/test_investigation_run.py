@@ -32,6 +32,9 @@ def test_native_run_and_model_check_are_bound_but_not_promoted() -> None:
     evidence = {item.evidence_id for item in export.evidence if item.source_quote}
     assert all(set(item.evidence_ids) <= evidence for item in receipt.challenge.findings)
     assert payload["publication_block_reason"]
+    plan = payload["planning_receipt"]
+    assert plan["human_decision"] == "withhold_causal_publication"
+    assert plan["connected_run_receipt_sha256"]
     assert investigation_spine_payload()["connected_run"]["run_id"] == receipt.run_id
 
 
@@ -63,3 +66,20 @@ def test_review_page_names_both_guards_and_the_human_boundary() -> None:
     assert "Stopped at rival-partition gate" in html
     assert "Stopped at publication guardrail" in html
     assert "researcher review is still pending" in html
+
+
+def test_planning_receipt_binds_inputs_and_human_publication_boundary(tmp_path: Path) -> None:
+    from mixed_methods_workbench.investigation_run import load_planning_receipt
+
+    root = tmp_path / "run"
+    shutil.copytree(RUN_ROOT, root)
+    plan = load_planning_receipt(root)
+    assert plan.human_decision == "withhold_causal_publication"
+    assert plan.terminal_review_state == "withhold_causal_publication_pending_human_review"
+
+    path = root / "planning_receipt.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload["human_decision"] = "publish_causal_conclusion"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ConnectedRunError, match="planning receipt unavailable or invalid"):
+        load_planning_receipt(root)
