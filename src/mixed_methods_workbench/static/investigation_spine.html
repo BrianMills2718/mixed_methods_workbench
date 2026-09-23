@@ -176,6 +176,16 @@
         </div>
       </section>
 
+      <section id="verification-section" class="section" aria-labelledby="verification-title" hidden>
+        <div class="section-head">
+          <p class="eyebrow">Independent challenge</p>
+          <h2 id="verification-title">A second model checked the bounded findings</h2>
+          <p id="verification-status">This challenge is advisory. A researcher still decides whether any wording changes.</p>
+        </div>
+        <div id="verification-cards" class="card-grid"></div>
+        <p id="verification-limit" class="provenance-intro"></p>
+      </section>
+
       <section class="section" aria-labelledby="next-title">
         <div class="section-head">
           <p class="eyebrow">Next evidence</p>
@@ -199,6 +209,7 @@
         <p class="provenance-intro">Internal IDs and hashes are kept here so they do not replace the plain-language result. “Producer-retained reference” means the Workbench has an exact ID and digest but does not copy the original run bytes.</p>
         <p><a id="json-link" href="/api/investigation/psychosisbank-disclosure">Open the matching JSON projection</a></p>
         <div id="artifacts" class="card"></div>
+        <p id="verification-identity" class="provenance-intro" hidden></p>
         <h3>What this result must not be used to claim</h3>
         <ul id="nonclaims"></ul>
       </details>
@@ -231,6 +242,20 @@
         <article class="card"><h3>Finding ${index + 1}</h3><p>${escapeHtml(finding)}</p></article>`).join("");
       byId("unresolved").innerHTML = payload.unresolved_questions.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
       byId("publication-block").textContent = payload.publication_block_reason;
+      byId("verification-section").hidden = false;
+      const verification = payload.independent_verification;
+      if (verification) {
+        const challenged = verification.challenge.findings.filter((item) => item.verdict === "needs_review").length;
+        byId("verification-status").textContent = `${challenged} of ${verification.challenge.findings.length} findings were flagged for researcher review. The model inspected retained excerpts, not the full source documents, and cannot approve a causal conclusion.`;
+        const excerpts = new Map(payload.independent_verification_excerpts.map((item) => [item.evidence_id, item]));
+        byId("verification-cards").innerHTML = verification.challenge.findings.map((item, index) => `
+          <article class="card"><h3>Finding ${index + 1}: ${item.verdict === "needs_review" ? "Review wording" : "Bounded support in excerpts"}</h3><p>${escapeHtml(item.reason)}</p><details><summary>Inspect cited excerpts</summary>${item.evidence_ids.map((id) => { const excerpt = excerpts.get(id); return `<blockquote><p>${escapeHtml(excerpt.source_quote)}</p><footer>${escapeHtml(excerpt.source_id)} · ${escapeHtml(id)}</footer></blockquote>`; }).join("")}</details>${item.source_gap ? `<p><strong>Still needed:</strong> ${escapeHtml(item.source_gap)}</p>` : ""}</article>`).join("");
+        byId("verification-limit").textContent = verification.challenge.overall_limit;
+        byId("verification-identity").hidden = false;
+        byId("verification-identity").textContent = `Second-model route: ${verification.model_resolved} · Trace: ${verification.trace_id} · Review state: ${verification.review_state}.`;
+      } else {
+        byId("verification-status").textContent = "The independent model challenge has not run. The existing Process Tracing result remains unchanged.";
+      }
       byId("needs").innerHTML = payload.next_evidence.map((need) => `
         <article class="need"><h3>${escapeHtml(need.label)}</h3><p>${escapeHtml(need.why_it_matters)}</p><p><strong>Likely location:</strong> ${escapeHtml(need.likely_location)}</p></article>`).join("");
       byId("sources").innerHTML = payload.sources.map((source) => `

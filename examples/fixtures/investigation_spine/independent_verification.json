@@ -1,0 +1,55 @@
+{
+  "schema_version": "mmw.independent_challenge.v1",
+  "review_state": "model_challenge_pending_human_review",
+  "case_id": "psychosisbank-disclosure-explanation",
+  "input_digests": {
+    "qualitative_explanation.json": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+    "independent_case_sources.json": "dc33be62aed976033d2ad5bf6a22456819649cfd7f02fab6857306d5165e2d8b",
+    "process_tracing_return.json": "513be8d2718f2a5176a8d6d1be6074efe851f3cb9e04d6091453d4848e532a8e"
+  },
+  "prompt_sha256": "fbc5719de3b9b5af05f17523773cd57e8a9e498b17e454b80826bf39999c0941",
+  "schema_sha256": "c9fe2d4eefb1ed5eb908260461a28174e745e1e7abdf43a27e674901e112062d",
+  "model_requested": "openrouter/google/gemini-3.1-pro-preview",
+  "model_resolved": "openrouter/google/gemini-3.1-pro-preview",
+  "trace_id": "portfolio/psychosisbank/independent-challenge/2026-09-23",
+  "generated_at": "2026-09-23T20:00:53.053756+00:00",
+  "cost_usd": 0.01757,
+  "challenge": {
+    "findings": [
+      {
+        "finding_id": "documented_burdens_and_responses",
+        "verdict": "bounded_support",
+        "reason": "The excerpts explicitly list concerns regarding consent, deidentification, credit, and misuse, paired with various control options like embargoes, vetting, and dynamic consent.",
+        "evidence_ids": [
+          "c01_evi_commentary_barriers_open_science",
+          "c01_evi_consent_multiple_responses",
+          "c01_evi_deidentification_options",
+          "c01_evi_credit_embargo_controls",
+          "c01_evi_misuse_vetting_controls"
+        ],
+        "source_gap": "No private deliberation or project-specific ethics determination is included to verify how these were internally weighed."
+      },
+      {
+        "finding_id": "multiple_options_not_one_rule",
+        "verdict": "bounded_support",
+        "reason": "The text lists menus of alternatives for handling consent and deidentification rather than a single mandated external rule.",
+        "evidence_ids": [
+          "c01_evi_consent_multiple_responses",
+          "c01_evi_deidentification_options"
+        ],
+        "source_gap": "The public commentary may report normative design logic rather than the complete causal sequence of implementation."
+      },
+      {
+        "finding_id": "controlled_access_outcome",
+        "verdict": "bounded_support",
+        "reason": "The policy excerpts clearly state that PsychosisBank requires a specific access level involving a special interview process and proof of CITI training.",
+        "evidence_ids": [
+          "c01_evi_four_talkbank_levels",
+          "c01_evi_psychosisbank_controlled_requirements"
+        ],
+        "source_gap": "Current policy pages are authoritative for the captured snapshot but are not full historical change records."
+      }
+    ],
+    "overall_limit": "The packet is source-selected, relies on normative public commentary and current policy snapshots, and lacks private deliberation records or full historical change logs."
+  }
+}

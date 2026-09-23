@@ -12,6 +12,7 @@ from typing import ClassVar
 from pydantic import ValidationError
 
 from .investigation_spine import InvestigationSpineError, investigation_spine_payload
+from .investigation_verification import VerificationError
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
 from .method_topology import process_tracing_topology_payload
 from .mist_trail_decision import mist_trail_payload
@@ -114,7 +115,7 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
         if self.path == "/api/investigation/psychosisbank-disclosure":
             try:
                 payload = investigation_spine_payload()
-            except InvestigationSpineError as exc:
+            except (InvestigationSpineError, VerificationError) as exc:
                 self._write_json(
                     HTTPStatus.INTERNAL_SERVER_ERROR,
                     {"error": f"Investigation boundary failed validation: {exc}"},
