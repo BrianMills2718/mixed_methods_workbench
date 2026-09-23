@@ -8,7 +8,7 @@ dependencies_reviewed: "2026-09-23"
 
 # PsychosisBank source-bound planning receipt
 
-Status: active, source-bound implementation slice authorized by Brian's active end-to-end workflow goal.
+Status: code complete and merged at `c8f132bd46ba92e74497642b0e67db889cf48e64`; public portfolio release remains pending.
 
 ## Authorization and outcome
 
@@ -99,5 +99,6 @@ must never contain raw producer internals as a new public contract.
    connected-run receipt in a new non-overlapping claimed lane.
 2. Add the read-only JSON/browser projection.
 3. Run focused contract, corruption, endpoint, and rendered checks.
-4. Prepare a portfolio release candidate that links to the review surface;
-   public deployment remains a separate authorization boundary.
+4. Prepare and complete the portfolio release review, deploy the linked public
+   review surface, and verify the live URL. The current merged code is not itself
+   evidence of public availability.
