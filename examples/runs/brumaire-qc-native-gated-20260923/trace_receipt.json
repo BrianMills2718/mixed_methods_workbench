@@ -1,0 +1,80 @@
+{
+  "calls": [
+    {
+      "completion_tokens": 2520,
+      "cost": 0.00261064,
+      "error": null,
+      "id": 3667055,
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "prompt_tokens": 13672,
+      "response_format_type": "json_schema",
+      "retry_count": 0,
+      "task": "qualitative_coding.thematic_coding",
+      "timestamp": "2026-09-23T23:26:04.803568+00:00",
+      "trace_id": "qualitative_coding/project/e9736999-2a6c-49a6-b676-37729c758633"
+    },
+    {
+      "completion_tokens": 1467,
+      "cost": 0.00195051,
+      "error": null,
+      "id": 3667057,
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "prompt_tokens": 16245,
+      "response_format_type": "json_schema",
+      "retry_count": 0,
+      "task": "qualitative_coding.perspective",
+      "timestamp": "2026-09-23T23:27:02.996905+00:00",
+      "trace_id": "qualitative_coding/project/e9736999-2a6c-49a6-b676-37729c758633"
+    },
+    {
+      "completion_tokens": 147,
+      "cost": 0.00109652,
+      "error": null,
+      "id": 3667059,
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "prompt_tokens": 18575,
+      "response_format_type": "json_schema",
+      "retry_count": 0,
+      "task": "qualitative_coding.relationship",
+      "timestamp": "2026-09-23T23:27:13.244935+00:00",
+      "trace_id": "qualitative_coding/project/e9736999-2a6c-49a6-b676-37729c758633"
+    },
+    {
+      "completion_tokens": 1022,
+      "cost": 0.00175111,
+      "error": null,
+      "id": 3667061,
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "prompt_tokens": 19978,
+      "response_format_type": "json_schema",
+      "retry_count": 0,
+      "task": "qualitative_coding.synthesis",
+      "timestamp": "2026-09-23T23:27:53.672295+00:00",
+      "trace_id": "qualitative_coding/project/e9736999-2a6c-49a6-b676-37729c758633"
+    },
+    {
+      "completion_tokens": 1011,
+      "cost": 0.00222255,
+      "error": null,
+      "id": 3667063,
+      "model": "openrouter/openai/gpt-5.6-luna",
+      "prompt_tokens": 4038,
+      "response_format_type": "json_schema",
+      "retry_count": 0,
+      "task": "qualitative_coding.synthesis_entailment",
+      "timestamp": "2026-09-23T23:28:00.093547+00:00",
+      "trace_id": "qualitative_coding/project/e9736999-2a6c-49a6-b676-37729c758633"
+    }
+  ],
+  "candidate_digest": "ddc03e0ea394fd2881f8c3388747010170d3fdcab18eafeb55421d4581683019",
+  "frozen_source_revision": "e5fc201fbd3967d3b3d3240b9677a58a4f1e0cbb",
+  "llm_client_revision": "518fda5b683a8f62413b86eac59e3d73b01baa09",
+  "pipeline_status": "failed",
+  "project_id": "e9736999-2a6c-49a6-b676-37729c758633",
+  "project_state_sha256": "6a95ae3fe4a5c69f8a02932a2cef26ba723e9ace06a7f5ad4d5581f44d584844",
+  "qc_runtime_revision": "c82c1e1b1e5d15fd461493d6d2dcf9fc59362629",
+  "rejection": "Synthesis entailment rejected clause finding:0:clause:0: partial",
+  "synthesis_promoted": false,
+  "total_cost_usd": 0.00963133,
+  "trace_id": "qualitative_coding/project/e9736999-2a6c-49a6-b676-37729c758633"
+}

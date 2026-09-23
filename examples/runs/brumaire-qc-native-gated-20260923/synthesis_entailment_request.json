@@ -1,0 +1,177 @@
+{
+  "candidate_digest": "ddc03e0ea394fd2881f8c3388747010170d3fdcab18eafeb55421d4581683019",
+  "clauses": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "evidence": [
+        {
+          "application_id": "12e706f3-f183-4bf5-b938-600ca24f36e3",
+          "code_id": "EXECUTIVE_POWERS",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 9557,
+          "exact_text": "The First Consul has special duties and prerogative in which he is temporarily replaced by one of his colleagues, when there is need.",
+          "quote_hash": "968fc7721ac7132471f17d28ae322e1f4b4a7d66cebe48a58de8d729b123199f",
+          "start_char": 9424
+        }
+      ],
+      "text": "The Constitution establishes a formal legal framework for the change of authority, detailing institutional roles and procedures."
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "evidence": [
+        {
+          "application_id": "0f22c327-96a1-4b69-9d7c-766ef884f97a",
+          "code_id": "GOVERNMENT_STRUCTURE",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 4670,
+          "exact_text": "The other two consuls, during the month following the expiration of their duties, can take seats in the Senate, but they are not required to make use of this right.",
+          "quote_hash": "d318fdf1e86c0bc2f29cf4c7c5e7d8ef98491496af599dfc36d6a97871060ba8",
+          "start_char": 4506
+        }
+      ],
+      "text": "The memoir portrays the change of authority as resulting from personal interactions and secret negotiations."
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "evidence": [
+        {
+          "application_id": "711190fe-d475-4e45-916d-452dc45df47e",
+          "code_id": "EXECUTIVE_POWERS",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 10285,
+          "exact_text": "if they wish, they there record their opinions; after that the decision of the First Consul suffices.",
+          "quote_hash": "e50a52287eacaa062643fdf06ccf2da7cf60dc66a5503228e7eaf541dd8a5f65",
+          "start_char": 10184
+        }
+      ],
+      "text": "Official documents emphasize collective governance, while the memoir focuses on individual agency and emotional dynamics."
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "evidence": [
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "code_id": "COMMUNICATION_PATTERNS",
+          "document_id": "1cdb4935-181d-479f-81bb-4c5b7d125511",
+          "end_char": 13975,
+          "exact_text": "said I: I cannot",
+          "quote_hash": "7cbe780079d969f7151e4b381ef382a311cfb23183afad63fc33bea38db2bdae",
+          "start_char": 13959
+        }
+      ],
+      "text": "The legal texts use formal language, while the memoir employs narrative and dialogue."
+    },
+    {
+      "clause_id": "finding:4:clause:0",
+      "evidence": [
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "code_id": "COMMUNICATION_PATTERNS",
+          "document_id": "1cdb4935-181d-479f-81bb-4c5b7d125511",
+          "end_char": 13975,
+          "exact_text": "said I: I cannot",
+          "quote_hash": "7cbe780079d969f7151e4b381ef382a311cfb23183afad63fc33bea38db2bdae",
+          "start_char": 13959
+        }
+      ],
+      "text": "Overall, the sources present differing views on the basis of authority, with official documents citing legal continuity and the memoir emphasizing personal ambition."
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "evidence": [
+        {
+          "application_id": "0f22c327-96a1-4b69-9d7c-766ef884f97a",
+          "code_id": "GOVERNMENT_STRUCTURE",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 4670,
+          "exact_text": "The other two consuls, during the month following the expiration of their duties, can take seats in the Senate, but they are not required to make use of this right.",
+          "quote_hash": "d318fdf1e86c0bc2f29cf4c7c5e7d8ef98491496af599dfc36d6a97871060ba8",
+          "start_char": 4506
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "code_id": "COMMUNICATION_PATTERNS",
+          "document_id": "1cdb4935-181d-479f-81bb-4c5b7d125511",
+          "end_char": 13975,
+          "exact_text": "said I: I cannot",
+          "quote_hash": "7cbe780079d969f7151e4b381ef382a311cfb23183afad63fc33bea38db2bdae",
+          "start_char": 13959
+        }
+      ],
+      "text": "Official and memoir sources consistently diverge in tone, with legal texts being formal and the memoir personal."
+    },
+    {
+      "clause_id": "pattern:1:clause:0",
+      "evidence": [
+        {
+          "application_id": "12e706f3-f183-4bf5-b938-600ca24f36e3",
+          "code_id": "EXECUTIVE_POWERS",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 9557,
+          "exact_text": "The First Consul has special duties and prerogative in which he is temporarily replaced by one of his colleagues, when there is need.",
+          "quote_hash": "968fc7721ac7132471f17d28ae322e1f4b4a7d66cebe48a58de8d729b123199f",
+          "start_char": 9424
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "code_id": "COMMUNICATION_PATTERNS",
+          "document_id": "1cdb4935-181d-479f-81bb-4c5b7d125511",
+          "end_char": 13975,
+          "exact_text": "said I: I cannot",
+          "quote_hash": "7cbe780079d969f7151e4b381ef382a311cfb23183afad63fc33bea38db2bdae",
+          "start_char": 13959
+        }
+      ],
+      "text": "Collective governance is consistently emphasized in official texts, while the memoir centers on individual actors."
+    },
+    {
+      "clause_id": "pattern:2:clause:0",
+      "evidence": [
+        {
+          "application_id": "0f22c327-96a1-4b69-9d7c-766ef884f97a",
+          "code_id": "GOVERNMENT_STRUCTURE",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 4670,
+          "exact_text": "The other two consuls, during the month following the expiration of their duties, can take seats in the Senate, but they are not required to make use of this right.",
+          "quote_hash": "d318fdf1e86c0bc2f29cf4c7c5e7d8ef98491496af599dfc36d6a97871060ba8",
+          "start_char": 4506
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "code_id": "COMMUNICATION_PATTERNS",
+          "document_id": "1cdb4935-181d-479f-81bb-4c5b7d125511",
+          "end_char": 13975,
+          "exact_text": "said I: I cannot",
+          "quote_hash": "7cbe780079d969f7151e4b381ef382a311cfb23183afad63fc33bea38db2bdae",
+          "start_char": 13959
+        }
+      ],
+      "text": "Legal continuity is contrasted with personal agency across all sources."
+    },
+    {
+      "clause_id": "pattern:3:clause:0",
+      "evidence": [
+        {
+          "application_id": "711190fe-d475-4e45-916d-452dc45df47e",
+          "code_id": "EXECUTIVE_POWERS",
+          "document_id": "55014240-5eaa-4cde-86bb-08acf68de201",
+          "end_char": 10285,
+          "exact_text": "if they wish, they there record their opinions; after that the decision of the First Consul suffices.",
+          "quote_hash": "e50a52287eacaa062643fdf06ccf2da7cf60dc66a5503228e7eaf541dd8a5f65",
+          "start_char": 10184
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "code_id": "COMMUNICATION_PATTERNS",
+          "document_id": "1cdb4935-181d-479f-81bb-4c5b7d125511",
+          "end_char": 13975,
+          "exact_text": "said I: I cannot",
+          "quote_hash": "7cbe780079d969f7151e4b381ef382a311cfb23183afad63fc33bea38db2bdae",
+          "start_char": 13959
+        }
+      ],
+      "text": "Institutional details dominate official accounts, whereas the memoir uses dialogue and narrative."
+    }
+  ],
+  "contract_version": 1
+}
