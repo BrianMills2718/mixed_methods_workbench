@@ -50,6 +50,10 @@ def test_spine_exposes_one_plain_language_investigation() -> None:
     assert spine.status == "unresolved"
     assert spine.evidence_item_count == 24
     assert len(spine.sources) == 3
+    assert {item.source_id for item in spine.sources} == {"source_a", "source_b", "source_c"}
+    assert str(next(item.source_url for item in spine.sources if item.source_id == "source_b")) == (
+        "https://talkbank.org/0share/access.html"
+    )
     assert [stage.owner for stage in spine.journey] == [
         "Qualitative Coding",
         "Process Tracing",
@@ -139,6 +143,8 @@ def test_json_projection_matches_the_browser_contract() -> None:
     assert "/api/investigation/psychosisbank-disclosure" in html
     assert "This is a useful inconclusive result." in html
     assert "What would make the explanation testable" in html
+    assert "Source-context check (23 September 2026)" in html
+    assert "Original source" in html
     assert "P5" not in html
     assert "See an explanation tested with a new case" in dashboard
     assert "/investigation/psychosisbank-disclosure" in dashboard

@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
 FIXTURE_ROOT = (
     Path(__file__).resolve().parents[2] / "examples" / "fixtures" / "investigation_spine"
@@ -66,6 +66,7 @@ class SourceCandidate(_ConsumerModel):
     title: str = Field(min_length=1)
     source_group: str = Field(min_length=1)
     source_kind: str = Field(min_length=1)
+    locator: HttpUrl
 
 
 class SourceGap(_ConsumerModel):
@@ -260,6 +261,8 @@ class JourneyStage(_OutputModel):
 
 
 class EvidenceSourceView(_OutputModel):
+    source_id: str
+    source_url: HttpUrl
     title: str
     source_kind: str
     evidence_count: int
@@ -396,6 +399,7 @@ def load_investigation_spine(root: Path = FIXTURE_ROOT) -> InvestigationSpine:
         raise InvestigationSpineError("this bounded journey requires its exact blocked result")
 
     source_gaps = {item.missing_source_class: item for item in sources.known_gaps}
+    source_candidates = {item.source_id: item for item in sources.source_candidates}
     if set(result.evidence_packet.high_priority_gaps) - set(source_gaps):
         raise InvestigationSpineError("returned evidence need is absent from the source packet")
 
@@ -529,6 +533,8 @@ def load_investigation_spine(root: Path = FIXTURE_ROOT) -> InvestigationSpine:
         ],
         sources=[
             EvidenceSourceView(
+                source_id=item.source_id,
+                source_url=source_candidates[item.source_id].locator,
                 title=item.title,
                 source_kind=item.source_kind.replace("_", " "),
                 evidence_count=item.evidence_count,

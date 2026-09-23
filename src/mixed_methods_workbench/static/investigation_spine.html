@@ -246,11 +246,13 @@
       const verification = payload.independent_verification;
       if (verification) {
         const challenged = verification.challenge.findings.filter((item) => item.verdict === "needs_review").length;
-        byId("verification-status").textContent = `${challenged} of ${verification.challenge.findings.length} findings were flagged for researcher review. The model inspected retained excerpts, not the full source documents, and cannot approve a causal conclusion.`;
+        byId("verification-status").textContent = `The model flagged ${challenged} of ${verification.challenge.findings.length} findings for researcher review. It inspected retained excerpts, not full source documents, and cannot approve a causal conclusion.`;
         const excerpts = new Map(payload.independent_verification_excerpts.map((item) => [item.evidence_id, item]));
+        const sourceUrls = new Map(payload.sources.map((item) => [item.source_id, item.source_url]));
         byId("verification-cards").innerHTML = verification.challenge.findings.map((item, index) => `
-          <article class="card"><h3>Finding ${index + 1}: ${item.verdict === "needs_review" ? "Review wording" : "Bounded support in excerpts"}</h3><p>${escapeHtml(item.reason)}</p><details><summary>Inspect cited excerpts</summary>${item.evidence_ids.map((id) => { const excerpt = excerpts.get(id); return `<blockquote><p>${escapeHtml(excerpt.source_quote)}</p><footer>${escapeHtml(excerpt.source_id)} · ${escapeHtml(id)}</footer></blockquote>`; }).join("")}</details>${item.source_gap ? `<p><strong>Still needed:</strong> ${escapeHtml(item.source_gap)}</p>` : ""}</article>`).join("");
+          <article class="card"><h3>Finding ${index + 1}: Model marked ${item.verdict === "needs_review" ? "Review wording" : "Bounded support in excerpts"}</h3><p>${escapeHtml(item.reason)}</p><details><summary>Inspect cited excerpts</summary>${item.evidence_ids.map((id) => { const excerpt = excerpts.get(id); return `<blockquote><p>${escapeHtml(excerpt.source_quote)}</p><footer><a href="${escapeHtml(sourceUrls.get(excerpt.source_id))}" target="_blank" rel="noopener noreferrer">Original source</a> · ${escapeHtml(id)}</footer></blockquote>`; }).join("")}</details>${item.source_gap ? `<p><strong>Still needed:</strong> ${escapeHtml(item.source_gap)}</p>` : ""}</article>`).join("");
         byId("verification-limit").textContent = verification.challenge.overall_limit;
+        byId("verification-limit").textContent += " Source-context check (23 September 2026): the shortened excerpt for Finding 3 says ‘this level’ without naming it. The SHA-256-matched TalkBank policy names that level ‘Controlled access.’ This verifies current policy wording, not when or why the choice was made.";
         byId("verification-identity").hidden = false;
         byId("verification-identity").textContent = `Second-model route: ${verification.model_resolved} · Trace: ${verification.trace_id} · Review state: ${verification.review_state}.`;
       } else {
@@ -259,7 +261,7 @@
       byId("needs").innerHTML = payload.next_evidence.map((need) => `
         <article class="need"><h3>${escapeHtml(need.label)}</h3><p>${escapeHtml(need.why_it_matters)}</p><p><strong>Likely location:</strong> ${escapeHtml(need.likely_location)}</p></article>`).join("");
       byId("sources").innerHTML = payload.sources.map((source) => `
-        <div class="source-row"><strong>${escapeHtml(source.title)}</strong><span>${escapeHtml(source.source_kind)} · ${source.evidence_count} evidence items</span></div>`).join("");
+        <div class="source-row"><strong><a href="${escapeHtml(source.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.title)}</a></strong><span>${escapeHtml(source.source_kind)} · ${source.evidence_count} evidence items</span></div>`).join("");
       byId("artifacts").innerHTML = payload.artifact_refs.map((artifact) => `
         <div class="artifact-row"><div><strong>${escapeHtml(artifact.title)}</strong><br><span>${escapeHtml(artifact.semantic_owner)} owns the meaning · ${escapeHtml(artifact.custody_note)}</span><br><code>${escapeHtml(artifact.object_identity)}</code><br><code>${escapeHtml(artifact.artifact_id)}</code><br><code>sha256:${escapeHtml(artifact.content_sha256)}</code></div><span class="availability">${escapeHtml(artifact.availability.replaceAll("_", " "))}</span></div>`).join("");
       byId("nonclaims").innerHTML = payload.do_not_infer.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
