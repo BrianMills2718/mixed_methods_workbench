@@ -84,8 +84,11 @@ must never contain raw producer internals as a new public contract.
   quotes dropped by `INV-1`. Its temporary project record is diagnostic
   evidence only; it cannot become a planning input, qualitative handoff, or
   public claim until the owning lane records a terminal disposition and a
-  stable, hash-bound artifact. The owner has one bounded saved-stage resume in
-  progress; consume only its terminal receipt, whether successful or failed.
+  stable, hash-bound artifact. Its first saved-stage resume then exited before
+  generation because OpenRouter Luna rejected QC structured parameters; the
+  saved stage remains intact. The owner has published one second bounded
+  synthesis candidate on the supported default DeepSeek route. Consume only
+  that terminal receipt, whether successful or failed.
 - Stop if the fresh-QC lane changes the source packet or Process Tracing export
   without a corresponding stable digest update.
 - Stop before deployment or any claim that the causal explanation is supported.
