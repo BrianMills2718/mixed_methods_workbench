@@ -1,0 +1,31 @@
+{
+  "schema_version": "mmw.psychosisbank_planning_receipt.v1",
+  "investigation_id": "psychosisbank-disclosure-explanation",
+  "question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+  "connected_run_receipt_sha256": "3ccec122c8a562839e352a2e82ffb131fbb800652ba768475da9010bcd25dc1a",
+  "source_input_digests": {
+    "qc_theory_input.json": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+    "case_source_packet.json": "dc33be62aed976033d2ad5bf6a22456819649cfd7f02fab6857306d5165e2d8b",
+    "case_corpus.txt": "c258e028ba796ca11f803856f5b5201f1fca1df3503c4137d7dc624fb7483a0a",
+    "pt-generated/result_blocked_prepublication.json": "7f857437b1be5636c528f96ca10c0b231be14fc578d8bdcbf13a7b689615c725",
+    "pt-generated/central_claim_review.json": "a569929e8b457105e166dd39dd5359bd22da42ada5c6684b8a7f7ffc3f1c0f86",
+    "pt-generated/pt_export_v2.json": "028aa7f43fe474c29d649303ac879df8b646c64c38e55c96edd87e09267b0d6c",
+    "pt/partition_resolution.json": "61bc3646b6b497da30a2c8d1ed87f0239410f0cf3b93a64b910a2969e1b45e5b"
+  },
+  "method_roles": {
+    "qualitative_coding": "candidate proposition; no causal conclusion",
+    "process_tracing": "test rival explanations within the frozen source scope",
+    "independent_check": "advisory challenge; cannot approve a causal conclusion"
+  },
+  "prohibited_inferences": [
+    "Do not publish a causal explanation from this source packet.",
+    "Do not treat comparative weights as probabilities of truth."
+  ],
+  "terminal_review_state": "withhold_causal_publication_pending_human_review",
+  "human_decision": "withhold_causal_publication",
+  "next_evidence": [
+    "Contemporaneous PsychosisBank decision records",
+    "Timestamped policy and repository change history",
+    "Project-specific consent, ethics, and governance determinations"
+  ]
+}

@@ -144,6 +144,8 @@ def test_json_projection_matches_the_browser_contract() -> None:
     assert "This is a useful inconclusive result." in html
     assert "What would make the explanation testable" in html
     assert "Source-context check (23 September 2026)" in html
+    assert "Governed plan:" in html
+    assert "human_decision" in html
     assert "Original source" in html
     assert "P5" not in html
     assert "See an explanation tested with a new case" in dashboard
