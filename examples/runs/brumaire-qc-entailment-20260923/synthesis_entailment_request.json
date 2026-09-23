@@ -1,0 +1,186 @@
+{
+  "contract_version": 1,
+  "candidate_digest": "fd29829e8beab861ff53b8674f39a92c47e3696cf3c5286779395db5dc8d094d",
+  "clauses": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "text": "The official decree and proclamation uniformly frame the coup as a legal and necessary measure to save the Republic from anarchy and royalist conspiracy.",
+      "evidence": [
+        {
+          "application_id": "646aba40-f5bb-4809-ae53-4c75924416e5",
+          "code_id": "CONSPIRACY_AND_INTRIGUE",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 543,
+          "end_char": 703,
+          "quote_hash": "17c324202f3b44306c6f6f77fc69c73c684b04b5d06af519bfe7d2e0056beffd",
+          "exact_text": "The parts of the great drama which was shortly to be enacted were well\ndistributed. During the three days preceding the 18th Brumaire every one\nwas at his post."
+        },
+        {
+          "application_id": "70907f5f-dbf0-4a0f-b31a-c2a518efcd1b",
+          "code_id": "CONSPIRACY_AND_INTRIGUE",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 4308,
+          "end_char": 4503,
+          "quote_hash": "f19144c3647e90a517228cf9debb6e17be376f3994ad863cb777b6ccddbad6c4",
+          "exact_text": "You shall therefore take my carriage, go there,\nsend in my name, and then enter yourself. Tell him that a severe\nheadache confines me to my bed, but that I will be with him without fail\ntomorrow."
+        },
+        {
+          "application_id": "aff0d371-be91-4c3c-b4c4-739f5c73db47",
+          "code_id": "OFFICIAL_VS_MEMOIR_ACCOUNT",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 7885,
+          "end_char": 8200,
+          "quote_hash": "86b1aed8177e3450525084cc472cf802421f41f75f751ff3210202d8c66ea7f3",
+          "exact_text": "That decree was adopted in the Council of the Ancients by what may be\ncalled a false majority, for the members of the Council were summoned at\ndifferent hours, and it was so contrived that sixty or eighty of them,\nwhom Lucien and his friends had not been able to gain over, should not\nreceive their notices in time."
+        }
+      ]
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "text": "The Constitution of Year VIII legally codifies the new government structure, presenting the transition as orderly and constitutional.",
+      "evidence": [
+        {
+          "application_id": "8b5f18c7-7a69-442d-9de1-3febb4b45f4f",
+          "code_id": "ROLE_OF_FORCE_AND_MILITARY",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 10649,
+          "end_char": 10869,
+          "quote_hash": "fa8d84fb63a2e56b86011ad15b0d45fae4d529bf158b8a93a544d6d5a073440a",
+          "exact_text": "On the 18th Brumaire a great number of military, amounting to about\n10,000 men, were assembled in the gardens of the Tuileries, and were\nreviewed by Bonaparte, accompanied by Generals Beurnonville, Moreau, and\nMacdonald."
+        }
+      ]
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "text": "Bourrienne's memoir consistently challenges the official account, detailing the coercion of directors, the false majority, and Bonaparte's near-fatal loss of composure at Saint-Cloud.",
+      "evidence": [
+        {
+          "application_id": "ee72cab9-dfc3-4e78-a6e7-a2cf57e92dc2",
+          "code_id": "ROLE_OF_FORCE_AND_MILITARY",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 12248,
+          "end_char": 12423,
+          "quote_hash": "f8a0bd5fa229ecf7c7ff20b5fceb2e7c9688b4a3465295d112989f265dbfff63",
+          "exact_text": "Moreau, who was a\nslave to military discipline, regarded his successful rival only as a\nchief nominated by the Council of the Ancients. He received his orders\nand obeyed them."
+        },
+        {
+          "application_id": "159cbff2-7ca8-4885-8654-5c85572ebf09",
+          "code_id": "KEY_PERSONNEL_AND_LOYALTIES",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 14235,
+          "end_char": 14359,
+          "quote_hash": "0bb232b0121988febff0fafb75628694984b2a5bc6f4c9d6b011a7d4edaee9d5",
+          "exact_text": "Bernadotte then said that\nhe would not take part in what he called a rebellion. A rebellion!\nBourrienne, only think of that!"
+        },
+        {
+          "application_id": "422416c1-5323-4777-8951-15011227292a",
+          "code_id": "OFFICIAL_VS_MEMOIR_ACCOUNT",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 16521,
+          "end_char": 16837,
+          "quote_hash": "cde47d9b5524046d93763c77805e761049b70f388dc38dc1898aeb24bfc8b636",
+          "exact_text": "All the speeches which have been subsequently passed off as having been\ndelivered by Bonaparte on this occasion differ from each other; as well\nthey may, for he delivered none to the Ancients, unless his confused\nconversation with the President, which was alike devoid of dignity and\nsense, is to be called a speech."
+        },
+        {
+          "application_id": "ebc3aa78-f1e0-41bf-8bec-d35a819aa704",
+          "code_id": "BONAPARTE_CHARACTER",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 18278,
+          "end_char": 18535,
+          "quote_hash": "557b3af13a87503830fc912f04439a16587a14db88dcdb902dcd4202f3da8951",
+          "exact_text": "Bonaparte, believing all his assertions to be admitted as proved, assumed\na little confidence, and accused the two directors Barras and Moulins of\nhaving proposed to put him at the head of a party whose object was to\noppose all men professing liberal ideas."
+        }
+      ]
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "text": "A cross-cutting pattern is the contrast between the official front stage narrative and the memoir's back stage exposure, with the memoir alleging that official documents later embellished or fabricated events.",
+      "evidence": [
+        {
+          "application_id": "bd24d4ae-d651-495d-8e90-aa43cfa58a82",
+          "code_id": "BONAPARTE_CHARACTER",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 20141,
+          "end_char": 20346,
+          "quote_hash": "8128e43e697a596c9e069cd36910f455421c5703d84e0f4180a43e9cec036a86",
+          "exact_text": "There was not the slightest\nconnection in what he stammered out. Bonaparte was then no orator. It\nmay well be supposed that he was more accustomed to the din of war than\nto the discussions of the tribunes."
+        },
+        {
+          "application_id": "194aeb36-7063-432b-8c18-d00fa40b22a2",
+          "code_id": "LEGITIMIZATION_STRATEGIES",
+          "document_id": "6cd9d542-7c40-4473-b021-085d08ef7c3c",
+          "start_char": 83,
+          "end_char": 263,
+          "quote_hash": "43bdd7653641f169b018e12615161c98d1d96904d3e273b269ce659012660f62",
+          "exact_text": "The constitution of the third year has perished. It knew not how to protect your rights, or to support itself. Multiplied attacks deprived it for ever of the respect of the people."
+        }
+      ]
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "text": "The official texts and memoir together reveal a pattern of using legal forms to legitimize a seizure of power, with Bourrienne exposing the gap between narrative and reality.",
+      "evidence": [
+        {
+          "application_id": "646aba40-f5bb-4809-ae53-4c75924416e5",
+          "code_id": "CONSPIRACY_AND_INTRIGUE",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 543,
+          "end_char": 703,
+          "quote_hash": "17c324202f3b44306c6f6f77fc69c73c684b04b5d06af519bfe7d2e0056beffd",
+          "exact_text": "The parts of the great drama which was shortly to be enacted were well\ndistributed. During the three days preceding the 18th Brumaire every one\nwas at his post."
+        },
+        {
+          "application_id": "ee72cab9-dfc3-4e78-a6e7-a2cf57e92dc2",
+          "code_id": "ROLE_OF_FORCE_AND_MILITARY",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 12248,
+          "end_char": 12423,
+          "quote_hash": "f8a0bd5fa229ecf7c7ff20b5fceb2e7c9688b4a3465295d112989f265dbfff63",
+          "exact_text": "Moreau, who was a\nslave to military discipline, regarded his successful rival only as a\nchief nominated by the Council of the Ancients. He received his orders\nand obeyed them."
+        },
+        {
+          "application_id": "a181d574-ed88-4fb3-98d9-8ea39e5d5663",
+          "code_id": "DEVELOPMENT_OF_CONSULAR_CONSTITUTION",
+          "document_id": "9995c6e4-7c45-4005-acab-40da0e4ed642",
+          "start_char": 8908,
+          "end_char": 9005,
+          "quote_hash": "530cec164c5f5e57a4db25a4e294814d65f0caad51e49b9f1e471ddad657aeb7",
+          "exact_text": "The government is confided to three Consuls appointed for ten years and indefinitely re-eligible."
+        }
+      ]
+    },
+    {
+      "clause_id": "pattern:1:clause:0",
+      "text": "Both source types engage with the theme of legitimization, but the memoir subverts it by portraying the legal steps as orchestrated.",
+      "evidence": [
+        {
+          "application_id": "70907f5f-dbf0-4a0f-b31a-c2a518efcd1b",
+          "code_id": "CONSPIRACY_AND_INTRIGUE",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 4308,
+          "end_char": 4503,
+          "quote_hash": "f19144c3647e90a517228cf9debb6e17be376f3994ad863cb777b6ccddbad6c4",
+          "exact_text": "You shall therefore take my carriage, go there,\nsend in my name, and then enter yourself. Tell him that a severe\nheadache confines me to my bed, but that I will be with him without fail\ntomorrow."
+        },
+        {
+          "application_id": "159cbff2-7ca8-4885-8654-5c85572ebf09",
+          "code_id": "KEY_PERSONNEL_AND_LOYALTIES",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 14235,
+          "end_char": 14359,
+          "quote_hash": "0bb232b0121988febff0fafb75628694984b2a5bc6f4c9d6b011a7d4edaee9d5",
+          "exact_text": "Bernadotte then said that\nhe would not take part in what he called a rebellion. A rebellion!\nBourrienne, only think of that!"
+        },
+        {
+          "application_id": "8b5f18c7-7a69-442d-9de1-3febb4b45f4f",
+          "code_id": "ROLE_OF_FORCE_AND_MILITARY",
+          "document_id": "4aab4925-13e6-4976-8ef5-cc403100a272",
+          "start_char": 10649,
+          "end_char": 10869,
+          "quote_hash": "fa8d84fb63a2e56b86011ad15b0d45fae4d529bf158b8a93a544d6d5a073440a",
+          "exact_text": "On the 18th Brumaire a great number of military, amounting to about\n10,000 men, were assembled in the gardens of the Tuileries, and were\nreviewed by Bonaparte, accompanied by Generals Beurnonville, Moreau, and\nMacdonald."
+        }
+      ]
+    }
+  ]
+}
