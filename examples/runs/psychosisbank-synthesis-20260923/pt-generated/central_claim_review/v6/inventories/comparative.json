@@ -1,0 +1,43 @@
+{
+  "input_sha256": "b1fc9ccaff42e8d6f8cf216a39251b8d2a282f191ca294cd9e93a2bbc5ad374a",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "comparative_c1",
+        "target_id": "comparative",
+        "claim_text": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access.",
+        "source_field": "comparative_analysis",
+        "target_start": 0,
+        "target_end": 159,
+        "covered_text": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access."
+      },
+      {
+        "claim_id": "comparative_c2",
+        "target_id": "comparative",
+        "claim_text": "It records no realized discriminator for h1 versus h3 or h2 versus h3.",
+        "source_field": "comparative_analysis",
+        "target_start": 160,
+        "target_end": 230,
+        "covered_text": "It records no realized discriminator for h1 versus h3 or h2 versus h3."
+      },
+      {
+        "claim_id": "comparative_c3",
+        "target_id": "comparative",
+        "claim_text": "The Bayesian ranking is h1, h3, residual, h2,",
+        "source_field": "comparative_analysis",
+        "target_start": 231,
+        "target_end": 276,
+        "covered_text": "The Bayesian ranking is h1, h3, residual, h2,"
+      },
+      {
+        "claim_id": "comparative_c4",
+        "target_id": "comparative",
+        "claim_text": "but the leading rank is not stable under the declared prior perturbation.",
+        "source_field": "comparative_analysis",
+        "target_start": 277,
+        "target_end": 350,
+        "covered_text": "but the leading rank is not stable under the declared prior perturbation."
+      }
+    ]
+  }
+}

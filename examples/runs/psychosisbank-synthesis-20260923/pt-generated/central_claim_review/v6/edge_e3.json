@@ -1,0 +1,52 @@
+{
+  "input_sha256": "94b1211f72d1b6eb5a88a04e34bc52ce41c44bb0c7cb63a36f969c69bf0a83e3",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "edge_e3_c1",
+        "target_id": "edge_e3",
+        "claim_text": "The commentary was published in 2022,",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "The commentary was published in 2022,",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The accepted commentary evidence is dated 2022."
+      },
+      {
+        "claim_id": "edge_e3_c2",
+        "target_id": "edge_e3",
+        "claim_text": " and AdminView funding was reported in 2023.",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": " and AdminView funding was reported in 2023.",
+            "evidence_ids": [
+              "c01_evi_psychosisbank_controlled_adminview"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The accepted evidence reports AdminView funding in 2023."
+      }
+    ],
+    "overall_assessment": "Both temporal claims are directly supported by the accepted evidence.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "e77ca5a4b9902bba563b0b29ba8c48307c6483efae3f61622daa465b13298f74",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

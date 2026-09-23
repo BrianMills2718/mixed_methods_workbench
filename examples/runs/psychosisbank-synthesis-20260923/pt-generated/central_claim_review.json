@@ -1,0 +1,2288 @@
+{
+  "status": "blocked",
+  "claims": [
+    {
+      "claim_id": "stage_s1_claim_1",
+      "target_id": "stage_s1",
+      "claim_text": "Project authors published a commentary on barriers to sharing psychiatric speech data.",
+      "source_field": "mechanism_established",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "Project authors published a commentary on barriers to sharing psychiatric speech data.",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The accepted evidence identifies the authors' commentary, its discussion of barriers to sharing spoken-language clinical data, and its relevance to psychiatric-disorder speech-bank infrastructures."
+    },
+    {
+      "claim_id": "stage_s2_c1",
+      "target_id": "stage_s2",
+      "claim_text": "The commentary identified multiple barriers,",
+      "source_field": "mechanism_established",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "The commentary identified multiple barriers",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence explicitly states that the authors identified at least six barriers."
+    },
+    {
+      "claim_id": "stage_s2_c2",
+      "target_id": "stage_s2",
+      "claim_text": " including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload.",
+      "source_field": "mechanism_established",
+      "severity": "composite_claim",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "resistance arising from institutional interpretations of regulations and public perceptions",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "transcription and file-organization workload",
+          "evidence_ids": [
+            "c01_evi_curation_support"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The regulatory/public-perception resistance and workload components are each supported, but the claim joins them into one composite proposition."
+    },
+    {
+      "claim_id": "stage_s3_c1",
+      "target_id": "stage_s3",
+      "claim_text": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses",
+      "source_field": "mechanism_established",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses",
+          "evidence_ids": [
+            "c01_evi_multiple_access_responses"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The cited commentary explicitly identifies multiple consent, governance, vetting, agreement, password, and purpose-limitation responses."
+    },
+    {
+      "claim_id": "stage_s3_c2",
+      "target_id": "stage_s3",
+      "claim_text": " rather than one universal access rule.",
+      "source_field": "mechanism_established",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": " rather than one universal access rule.",
+          "evidence_ids": [
+            "c01_evi_multiple_access_responses"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence explicitly contrasts the listed responses with one universal access rule."
+    },
+    {
+      "claim_id": "stage_s4_c1",
+      "target_id": "stage_s4",
+      "claim_text": "AdminView creation received NIH FAIR grant funding.",
+      "source_field": "mechanism_established",
+      "severity": "fabricated",
+      "supports": [],
+      "reasoning": "The supplied evidence only reports that AdminView was funded in 2023; it does not establish creation, NIH, or FAIR grant funding."
+    },
+    {
+      "claim_id": "stage_s5_c1",
+      "target_id": "stage_s5",
+      "claim_text": "TalkBank documented open, registration-required, approved, and controlled access levels.",
+      "source_field": "mechanism_established",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "TalkBank documented open, registration-required, approved, and controlled access levels.",
+          "evidence_ids": [
+            "c01_evi_four_access_levels"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The cited TalkBank access-levels evidence directly states that TalkBank offers these four levels."
+    },
+    {
+      "claim_id": "stage_s6_c1",
+      "target_id": "stage_s6",
+      "claim_text": "The policy placed PsychosisBank under controlled access with interview and CITI-training requirements;",
+      "source_field": "mechanism_established",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "PsychosisBank under controlled access with interview and CITI-training requirements",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence directly states that PsychosisBank requires controlled access, a special interview, and proof of CITI training."
+    },
+    {
+      "claim_id": "stage_s6_c2",
+      "target_id": "stage_s6",
+      "claim_text": " guidance also specified consent-, clinical-data-, and video-related controls.",
+      "source_field": "mechanism_established",
+      "severity": "composite_claim",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "consent-related controls",
+          "evidence_ids": [
+            "c02_evi_authorized_password_access",
+            "c02_evi_irb_consent_nonuniform",
+            "c02_evi_multiple_access_options"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "clinical-data-related controls",
+          "evidence_ids": [
+            "c02_evi_clinical_data_restrictions"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "video-related controls",
+          "evidence_ids": [
+            "c02_evi_video_consent_controls"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The cited guidance separately documents consent, clinical-data, and video controls; the claim joins these distinct supported elements."
+    },
+    {
+      "claim_id": "edge_e1_c1",
+      "target_id": "edge_e1",
+      "claim_text": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence identifies the work as a commentary, describes barriers to open sharing of spoken-language data, and connects it to future speech-bank infrastructures for psychiatric disorders."
+    },
+    {
+      "claim_id": "edge_e2_c1",
+      "target_id": "edge_e2",
+      "claim_text": "The commentary identifies barriers",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "identifies barriers",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence explicitly states that the authors identify at least six barriers."
+    },
+    {
+      "claim_id": "edge_e2_c2",
+      "target_id": "edge_e2",
+      "claim_text": " and describes multiple possible responses, including vetted access and governance controls.",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "describes multiple possible responses",
+          "evidence_ids": [
+            "c01_evi_multiple_access_responses"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "including vetted access and governance controls",
+          "evidence_ids": [
+            "c01_evi_misuse_vetted_access"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The commentary lists multiple responses and specifically describes vetted researchers, conduct rules, and governing-body preapproval."
+    },
+    {
+      "claim_id": "edge_e3_c1",
+      "target_id": "edge_e3",
+      "claim_text": "The commentary was published in 2022,",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "The commentary was published in 2022,",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The accepted commentary evidence is dated 2022."
+    },
+    {
+      "claim_id": "edge_e3_c2",
+      "target_id": "edge_e3",
+      "claim_text": " and AdminView funding was reported in 2023.",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": " and AdminView funding was reported in 2023.",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The accepted evidence reports AdminView funding in 2023."
+    },
+    {
+      "claim_id": "edge_e4_c1",
+      "target_id": "edge_e4",
+      "claim_text": "AdminView funding was reported in 2023,",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "AdminView funding was reported in 2023",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence explicitly reports AdminView funding in 2023."
+    },
+    {
+      "claim_id": "edge_e4_c2",
+      "target_id": "edge_e4",
+      "claim_text": "and TalkBank later documented four access levels.",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "TalkBank later documented four access levels",
+          "evidence_ids": [
+            "c01_evi_four_access_levels",
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence states that TalkBank offers four access levels and dates the relevant policy snapshot after the reported 2023 funding."
+    },
+    {
+      "claim_id": "edge_e5_c1",
+      "target_id": "edge_e5",
+      "claim_text": "TalkBank documented four access levels,",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "TalkBank documented four access levels",
+          "evidence_ids": [
+            "c01_evi_four_access_levels"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence directly states that TalkBank offers four access levels."
+    },
+    {
+      "claim_id": "edge_e5_c2",
+      "target_id": "edge_e5",
+      "claim_text": "and the policy places PsychosisBank in controlled access with interview and training requirements alongside additional controls for specified data and media conditions.",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "the policy places PsychosisBank in controlled access with interview and training requirements",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "additional controls for specified data and media conditions",
+          "evidence_ids": [
+            "c02_evi_clinical_data_restrictions",
+            "c02_evi_video_consent_controls"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence directly supports PsychosisBank's controlled-access interview and training requirements and describes additional controls for clinical data and video."
+    },
+    {
+      "claim_id": "edge_relationship_e1_c1",
+      "target_id": "edge_relationship_e1",
+      "claim_text": "authors identified barriers in the published commentary",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "authors identified barriers",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence states that the authors identify at least six barriers in the commentary."
+    },
+    {
+      "claim_id": "edge_relationship_e2_c1",
+      "target_id": "edge_relationship_e2",
+      "claim_text": "barriers were followed by proposed consent and governance responses",
+      "source_field": "mechanism_unresolved",
+      "severity": "substantive_overstatement",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "barriers",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "proposed consent and governance responses",
+          "evidence_ids": [
+            "c01_evi_multiple_access_responses"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence supports barriers and proposed responses, but does not establish that the responses followed the barriers in a temporal or causal sequence."
+    },
+    {
+      "claim_id": "edge_relationship_e3_c1",
+      "target_id": "edge_relationship_e3",
+      "claim_text": "the commentary and later funding occurred before the current policy snapshot",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "the commentary and later funding occurred before the current policy snapshot",
+          "evidence_ids": [
+            "c01_evi_curation_support",
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The commentary is dated 2022, the funding is dated 2023, and the current policy snapshot is dated 2026."
+    },
+    {
+      "claim_id": "edge_relationship_e4_claim_1",
+      "target_id": "edge_relationship_e4",
+      "claim_text": "funding preceded the documented access architecture",
+      "source_field": "mechanism_unresolved",
+      "severity": "substantive_overstatement",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "funding",
+          "evidence_ids": [
+            "c01_evi_curation_support"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence supports funding for formatting and curation, but does not establish that funding preceded the documented access architecture or support the claimed temporal relationship."
+    },
+    {
+      "claim_id": "edge_relationship_e5_c1",
+      "target_id": "edge_relationship_e5",
+      "claim_text": "the documented access architecture includes controlled PsychosisBank access",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "controlled PsychosisBank access",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The evidence explicitly states that PsychosisBank requires controlled access, a special interview, and proof of CITI training."
+    },
+    {
+      "claim_id": "edge_relationship_e5_c2",
+      "target_id": "edge_relationship_e5",
+      "claim_text": " and conditional controls",
+      "source_field": "mechanism_unresolved",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "conditional controls",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview",
+            "c02_evi_multiple_access_options",
+            "c02_evi_clinical_data_restrictions",
+            "c02_evi_video_consent_controls"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The cited evidence documents access conditions including interviews, training, selectable access options, additional restrictions, and consent or committee approval."
+    },
+    {
+      "claim_id": "verdict_h1_c1",
+      "target_id": "verdict_h1",
+      "claim_text": "H1 ranks first with comparative support of 0.288179,",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "H1 ranks first with comparative support of 0.288179,",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/ranking/0"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/0/final_posterior"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The Bayesian ranking places h1 first and reports a final posterior of 0.288179."
+    },
+    {
+      "claim_id": "verdict_h1_c2",
+      "target_id": "verdict_h1",
+      "claim_text": " above its 0.25 prior,",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": " above its 0.25 prior,",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/0/prior"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h1 posterior record gives a prior of 0.25."
+    },
+    {
+      "claim_id": "verdict_h1_c3",
+      "target_id": "verdict_h1",
+      "claim_text": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "diagnostic_matrix"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/1/discriminators"
+            },
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/pairs_without_discriminators/0"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h1-h3 diagnostic entry has no discriminators, and that pair is listed among pairs without discriminators."
+    },
+    {
+      "claim_id": "verdict_h1_c4",
+      "target_id": "verdict_h1",
+      "claim_text": " Its support is fragile",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": " Its support is fragile",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/0/robustness"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h1 posterior record labels robustness as fragile."
+    },
+    {
+      "claim_id": "verdict_h1_c5",
+      "target_id": "verdict_h1",
+      "claim_text": " and sensitivity ranges from 0.268777 to 0.308148.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": " and sensitivity ranges from 0.268777 to 0.308148.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/0/posterior_low"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/0/posterior_high"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h1 sensitivity record reports posterior_low 0.268777 and posterior_high 0.308148."
+    },
+    {
+      "claim_id": "verdict_h2_c1",
+      "target_id": "verdict_h2",
+      "claim_text": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/ranking/3"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/1/final_posterior"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/1/prior"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The ranking, final posterior, and prior exactly support the claim."
+    },
+    {
+      "claim_id": "verdict_h2_c2",
+      "target_id": "verdict_h2",
+      "claim_text": "The accepted comparisons favor alternatives to a single binding rule,",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "The accepted comparisons favor alternatives to a single binding rule,",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "testing",
+            "diagnostic_matrix"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "testing",
+              "json_pointer": "/accepted_semantic_comparisons"
+            },
+            {
+              "artifact_ref": "testing",
+              "json_pointer": "/evidence_likelihoods/0/hypothesis_likelihoods/1/relative_likelihood"
+            },
+            {
+              "artifact_ref": "testing",
+              "json_pointer": "/evidence_likelihoods/2/hypothesis_likelihoods/1/relative_likelihood"
+            },
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/0/discriminators"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The accepted h1-versus-h2 comparisons and both differential likelihoods favor h1 over h2, which represents an alternative to the binding-rule account."
+    },
+    {
+      "claim_id": "verdict_h2_c3",
+      "target_id": "verdict_h2",
+      "claim_text": "and the matrix contains no favorable discriminator for h2.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "the matrix contains no favorable discriminator for h2.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "diagnostic_matrix"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/0/discriminators"
+            },
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/1/discriminators"
+            },
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/2/discriminators"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The matrix has two h1-favoring h1/h2 discriminators and no discriminator favoring h2; the other rival pairs have none."
+    },
+    {
+      "claim_id": "verdict_h2_c4",
+      "target_id": "verdict_h2",
+      "claim_text": "Support is fragile",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "Support is fragile",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/1/robustness"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h2 posterior record explicitly labels robustness as fragile."
+    },
+    {
+      "claim_id": "verdict_h2_c5",
+      "target_id": "verdict_h2",
+      "claim_text": "and ranges from 0.197927 to 0.231903.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "ranges from 0.197927 to 0.231903.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/1/posterior_low"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/1/posterior_high"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h2 sensitivity record gives exactly the stated lower and upper bounds."
+    },
+    {
+      "claim_id": "verdict_h3_c1",
+      "target_id": "verdict_h3",
+      "claim_text": "H3 ranks second with comparative support of 0.248644,",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "H3 ranks second",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/ranking"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/final_posterior"
+            }
+          ]
+        },
+        {
+          "basis": "pipeline_artifact",
+          "covers": "comparative support of 0.248644",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/final_posterior"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The ranking places h3 second, and its final posterior is 0.248644."
+    },
+    {
+      "claim_id": "verdict_h3_c2",
+      "target_id": "verdict_h3",
+      "claim_text": "marginally below its 0.25 prior.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "marginally below its 0.25 prior",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/prior"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/final_posterior"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The prior is 0.25 and the final posterior is 0.248644."
+    },
+    {
+      "claim_id": "verdict_h3_c3",
+      "target_id": "verdict_h3",
+      "claim_text": "The diagnostic matrix contains no realized favorable discriminator for h3,",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "The diagnostic matrix contains no realized favorable discriminator for h3",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "diagnostic_matrix"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/1/discriminator_count"
+            },
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/2/discriminator_count"
+            }
+          ]
+        }
+      ],
+      "reasoning": "Both rival pairs involving h3 have zero discriminators."
+    },
+    {
+      "claim_id": "verdict_h3_c4",
+      "target_id": "verdict_h3",
+      "claim_text": "and its mechanical robustness is unknown.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "its mechanical robustness is unknown",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/robustness"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h3 posterior record labels robustness as unknown."
+    },
+    {
+      "claim_id": "verdict_h3_c5",
+      "target_id": "verdict_h3",
+      "claim_text": "Sensitivity ranges from 0.239428 to 0.257864.",
+      "source_field": "verdict_reasoning",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "Sensitivity ranges from 0.239428 to 0.257864",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/2/posterior_low"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/2/posterior_high"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The h3 sensitivity interval has the stated lower and upper bounds."
+    },
+    {
+      "claim_id": "comparative_c1",
+      "target_id": "comparative",
+      "claim_text": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access.",
+      "source_field": "comparative_analysis",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "diagnostic_matrix"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/rival_pair_diagnostics/0"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The diagnostic matrix lists exactly two limited discriminators for h1 versus h2, with the stated evidence IDs."
+    },
+    {
+      "claim_id": "comparative_c2",
+      "target_id": "comparative",
+      "claim_text": "It records no realized discriminator for h1 versus h3 or h2 versus h3.",
+      "source_field": "comparative_analysis",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "It records no realized discriminator for h1 versus h3 or h2 versus h3.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "diagnostic_matrix"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "diagnostic_matrix",
+              "json_pointer": "/pairs_without_discriminators"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The matrix explicitly lists both rival pairs among the pairs without discriminators."
+    },
+    {
+      "claim_id": "comparative_c3",
+      "target_id": "comparative",
+      "claim_text": "The Bayesian ranking is h1, h3, residual, h2,",
+      "source_field": "comparative_analysis",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "The Bayesian ranking is h1, h3, residual, h2,",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/ranking"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The Bayesian artifact gives the ranking h1, h3, H0_residual, h2, corresponding to the prose's residual shorthand."
+    },
+    {
+      "claim_id": "comparative_c4",
+      "target_id": "comparative",
+      "claim_text": "but the leading rank is not stable under the declared prior perturbation.",
+      "source_field": "comparative_analysis",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "but the leading rank is not stable under the declared prior perturbation.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/prior_sensitivity/stable_under_prior_perturbation"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The prior-sensitivity artifact explicitly records that the top hypothesis is not stable under prior perturbation."
+    },
+    {
+      "claim_id": "narrative_1_c1",
+      "target_id": "narrative_1",
+      "claim_text": "The corpus observes a sequence from public barrier commentary and proposed responses, through reported 2023 AdminView funding, to a later documented four-level access architecture and controlled PsychosisBank access with interview, training, consent, clinical-data, and video-related controls.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "public barrier commentary and proposed responses",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public",
+            "c01_evi_multiple_access_responses",
+            "c01_evi_misuse_vetted_access"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "reported 2023 AdminView funding and controlled PsychosisBank access with interview and training",
+          "evidence_ids": [
+            "c01_evi_psychosisbank_controlled_adminview"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "later documented four-level access architecture",
+          "evidence_ids": [
+            "c01_evi_four_access_levels"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "consent, clinical-data, and video-related controls",
+          "evidence_ids": [
+            "c02_evi_irb_consent_nonuniform",
+            "c02_evi_authorized_password_access",
+            "c02_evi_clinical_data_restrictions",
+            "c02_evi_video_consent_controls"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The cited evidence directly documents each event and control in the stated sequence."
+    },
+    {
+      "claim_id": "narrative_1_c2",
+      "target_id": "narrative_1",
+      "claim_text": "It supports causal links from commentary to barrier identification",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "causal links from commentary to barrier identification",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The source identifies the commentary and its barriers, matching the stated link."
+    },
+    {
+      "claim_id": "narrative_1_c3",
+      "target_id": "narrative_1",
+      "claim_text": "and from identified barriers to proposed responses.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "from identified barriers to proposed responses",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public",
+            "c01_evi_multiple_access_responses",
+            "c01_evi_misuse_vetted_access"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The commentary identifies barriers and describes corresponding possible consent and governance responses."
+    },
+    {
+      "claim_id": "narrative_1_c4",
+      "target_id": "narrative_1",
+      "claim_text": "The funding-to-policy connection is unresolved,",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "The funding-to-policy connection is unresolved",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "mechanism_trace"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/2/status"
+            },
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/2/missing_test"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The mechanism trace explicitly classifies this link as unresolved and identifies the missing linkage test."
+    },
+    {
+      "claim_id": "narrative_1_c5",
+      "target_id": "narrative_1",
+      "claim_text": "while funding preceding the documented architecture and the architecture containing the later controls are observed sequences only.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "funding preceding the documented architecture",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "mechanism_trace"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/3/status"
+            }
+          ]
+        },
+        {
+          "basis": "pipeline_artifact",
+          "covers": "the architecture containing the later controls are observed sequences only",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "mechanism_trace"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/4/status"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The mechanism trace classifies both transitions as observed sequences rather than established causal links."
+    },
+    {
+      "claim_id": "narrative_1_c6",
+      "target_id": "narrative_1",
+      "claim_text": "Thus, the mechanism supports chronology and some barrier-to-response production,",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "supports chronology and some barrier-to-response production",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "mechanism_trace"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/established_summary"
+            },
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/0/status"
+            },
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/1/status"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The established summary and first two edges support the chronology and barrier-to-response sequence."
+    },
+    {
+      "claim_id": "narrative_1_c7",
+      "target_id": "narrative_1",
+      "claim_text": "but not a complete causal account of the PsychosisBank selection.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "not a complete causal account of the PsychosisBank selection",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "mechanism_trace"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/unresolved_summary"
+            },
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/edges/2/status"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The unresolved summary states that the record does not connect the earlier responses and funding to the eventual selection."
+    },
+    {
+      "claim_id": "narrative_1_c8",
+      "target_id": "narrative_1",
+      "claim_text": "Comparative support ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533;",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/ranking"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/0/final_posterior"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/1/final_posterior"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/final_posterior"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/3/final_posterior"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The ranking and final posterior values exactly match the supplied Bayesian artifact."
+    },
+    {
+      "claim_id": "narrative_1_c9",
+      "target_id": "narrative_1",
+      "claim_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/0/robustness"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/1/robustness"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/posteriors/2/robustness"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The Bayesian artifact labels h1 and h2 fragile and h3 unknown."
+    },
+    {
+      "claim_id": "narrative_1_c10",
+      "target_id": "narrative_1",
+      "claim_text": "Local likelihood perturbation leaves the ranking stable,",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "Local likelihood perturbation leaves the ranking stable,",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/0/rank_stable"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/1/rank_stable"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/2/rank_stable"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/sensitivity/3/rank_stable"
+            }
+          ]
+        }
+      ],
+      "reasoning": "All reported local sensitivity cases have rank_stable true."
+    },
+    {
+      "claim_id": "narrative_1_c11",
+      "target_id": "narrative_1",
+      "claim_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "pipeline_artifact",
+          "covers": "prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "bayesian"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/prior_sensitivity/stable_under_prior_perturbation"
+            },
+            {
+              "artifact_ref": "bayesian",
+              "json_pointer": "/prior_sensitivity/top_hypothesis_id"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The artifact reports prior stability false for the leading hypothesis h1."
+    },
+    {
+      "claim_id": "narrative_1_c12",
+      "target_id": "narrative_1",
+      "claim_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "a 2022 secondary-analysis commentary",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "source_evidence",
+          "covers": "current primary TalkBank policy and guidance snapshots",
+          "evidence_ids": [
+            "c01_evi_four_access_levels",
+            "c02_evi_irb_consent_nonuniform"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        }
+      ],
+      "reasoning": "The accepted evidence metadata identifies the commentary as a 2022 secondary analysis and the TalkBank materials as current primary documents."
+    },
+    {
+      "claim_id": "narrative_1_c13",
+      "target_id": "narrative_1",
+      "claim_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records.",
+      "source_field": "analytical_narrative",
+      "severity": "grounded",
+      "supports": [
+        {
+          "basis": "source_evidence",
+          "covers": "the commentary is public design reasoning and the web pages are current policy documents",
+          "evidence_ids": [
+            "c01_evi_six_barriers_regulatory_public",
+            "c01_evi_four_access_levels",
+            "c02_evi_irb_consent_nonuniform"
+          ],
+          "artifact_refs": [],
+          "artifact_locators": []
+        },
+        {
+          "basis": "pipeline_artifact",
+          "covers": "rather than complete contemporaneous decision records",
+          "evidence_ids": [],
+          "artifact_refs": [
+            "mechanism_trace"
+          ],
+          "artifact_locators": [
+            {
+              "artifact_ref": "mechanism_trace",
+              "json_pointer": "/unresolved_summary"
+            }
+          ]
+        }
+      ],
+      "reasoning": "The source types establish public commentary and current policy guidance, while the mechanism trace explicitly says contemporaneous decision records are needed to connect them causally."
+    }
+  ],
+  "overall_assessment": "The sole claim is directly supported by the accepted commentary evidence. Both claims are supported by the supplied commentary evidence; the second is correctly identified as a composite conjunction of separately supported barrier components. Both atomic claims are directly supported by the supplied commentary evidence. The claim is fabricated because the supplied evidence does not support its specific funding attribution or the asserted creation event. The sole claim is directly supported by the accepted TalkBank access-levels evidence. Both claims are supported by the supplied evidence, with the second correctly treated as a composite because it joins three distinct control categories. The claim is directly supported by the accepted evidence describing the commentary and its focus on barriers to psychiatric speech-data sharing. Both claims are directly supported by the supplied commentary evidence. Both temporal claims are directly supported by the accepted evidence. Both inventory claims are directly supported by the accepted evidence, including the reported dates and access-level count. Both inventory claims are directly supported by the supplied TalkBank policy evidence. The claim is directly supported by the cited commentary evidence. The claim combines supported elements with an unsupported sequencing relationship. The claim is directly supported by the supplied dates for the commentary, funding, and current policy snapshot. The claim has partial support for funding but overstates the evidence by asserting an unestablished temporal sequence. Both inventory claims are directly supported by the supplied access-policy and guidance evidence. All five inventory claims are directly entailed by the supplied Bayesian and diagnostic artifacts. All five claims are directly supported by the supplied Bayesian, testing, and diagnostic-matrix artifacts. All five inventory claims are directly entailed by the supplied Bayesian and diagnostic-matrix artifacts. All four inventory claims are directly entailed by the supplied diagnostic and Bayesian artifacts. All eight inventory claims are supported by the supplied evidence or deterministic upstream artifacts, with no unsupported causal expansion. All five inventory claims are supported by the supplied evidence or deterministic analysis artifacts.",
+  "manifest": {
+    "contract_version": "v6",
+    "inventory_prompt_sha256": "aa2d3c7dde71a949539015ae8183c0b5ae33f93aef81fe6413870bdc13bc6b6a",
+    "review_prompt_sha256": "2b45bedee4758886f4c499e6c5fd1ce72b88c7c20604be567fe39faba84f1e0b",
+    "targets": [
+      {
+        "target_id": "stage_s1",
+        "source_field": "mechanism_established",
+        "target_text_sha256": "0c7944b0ce9b5ace056b2e244812b6b1999e535db31426ee50ce5aabe0781617",
+        "inventory_input_sha256": "3d002d635104c99156b74d904ebcfc175cbd2f69db36186530dcbd0703a73e4f",
+        "review_input_sha256": "0d2978cbc870831096de80ffb9b389c9d64299c40cbf10d3212b0c0641f3be30",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "stage_s1_claim_1",
+              "target_id": "stage_s1",
+              "claim_text": "Project authors published a commentary on barriers to sharing psychiatric speech data.",
+              "source_field": "mechanism_established",
+              "target_start": 0,
+              "target_end": 86,
+              "covered_text": "Project authors published a commentary on barriers to sharing psychiatric speech data."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "5956d7f8714510624d1cfd6423456f7a578b60c3a31b37264a321cde954151e5",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "stage_s2",
+        "source_field": "mechanism_established",
+        "target_text_sha256": "e5c1d9088dc0a0ab4a28697ed369b8fd84821f3b98632e8dd2f593f4eb5a4a24",
+        "inventory_input_sha256": "64e1c9186c5715e048ca1c976d835fe94deeff3438247d3ba1139f7d1b83caa6",
+        "review_input_sha256": "ca37ccfb3ffe5fd69b32f9efdd69cad7c4214c7b7be8f246a25fd5843163d61e",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "stage_s2_c1",
+              "target_id": "stage_s2",
+              "claim_text": "The commentary identified multiple barriers,",
+              "source_field": "mechanism_established",
+              "target_start": 0,
+              "target_end": 44,
+              "covered_text": "The commentary identified multiple barriers,"
+            },
+            {
+              "claim_id": "stage_s2_c2",
+              "target_id": "stage_s2",
+              "claim_text": " including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload.",
+              "source_field": "mechanism_established",
+              "target_start": 44,
+              "target_end": 204,
+              "covered_text": " including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "779992652269359a3dc01dffef05f968c4390d8f73665a961b65ffb76ac6dc25",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "stage_s3",
+        "source_field": "mechanism_established",
+        "target_text_sha256": "727c3e0119a7112a153348881b2779c1940c3d92d97e2cca47cbc07e25a2b7cd",
+        "inventory_input_sha256": "0430c69d2e99d96540932ab4e27e689f121806bc49d380c411bbfee51c7fdfa7",
+        "review_input_sha256": "4ce8775de3cafeeb64743c9da594e779441dac31238cc874711acb1dd31d061d",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "stage_s3_c1",
+              "target_id": "stage_s3",
+              "claim_text": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses",
+              "source_field": "mechanism_established",
+              "target_start": 0,
+              "target_end": 117,
+              "covered_text": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses"
+            },
+            {
+              "claim_id": "stage_s3_c2",
+              "target_id": "stage_s3",
+              "claim_text": " rather than one universal access rule.",
+              "source_field": "mechanism_established",
+              "target_start": 117,
+              "target_end": 156,
+              "covered_text": " rather than one universal access rule."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "56dbc0db5b01b6a22989a5e89d0a6d6e522c1a5263082404d9525f158f965149",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "stage_s4",
+        "source_field": "mechanism_established",
+        "target_text_sha256": "80c424b90739ce3debee911467754eb341334697cb1bec03388806c7fb234194",
+        "inventory_input_sha256": "48dcc220fff9198ce7baa30d8de76ffe98fe61d6f06e0a2510c6a2ebaf00dc93",
+        "review_input_sha256": "e43ac12dbf767c9c87a7402cca36c028716341a43c085c7028aed9c113375d9b",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "stage_s4_c1",
+              "target_id": "stage_s4",
+              "claim_text": "AdminView creation received NIH FAIR grant funding.",
+              "source_field": "mechanism_established",
+              "target_start": 0,
+              "target_end": 51,
+              "covered_text": "AdminView creation received NIH FAIR grant funding."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "51d6cb1f0570ec024602a3a627f3ab753ec42c8e8b94a9fad7b0ab1eca720b1c",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "stage_s5",
+        "source_field": "mechanism_established",
+        "target_text_sha256": "2e63b478c3ffd6beb3bc0cf6ab7a75cf36544db2f2d387911dad9b248a491ebf",
+        "inventory_input_sha256": "5474fd70a892c29a70c33c9922b51db11f04c6208a719890a19eb185e660ba93",
+        "review_input_sha256": "a6128e52ccaad9b3913645fd87fb7c3c738ee6287fd68f6e15e5901722530e1c",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "stage_s5_c1",
+              "target_id": "stage_s5",
+              "claim_text": "TalkBank documented open, registration-required, approved, and controlled access levels.",
+              "source_field": "mechanism_established",
+              "target_start": 0,
+              "target_end": 88,
+              "covered_text": "TalkBank documented open, registration-required, approved, and controlled access levels."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "6fb3235418258ac6401ba277f0238986876f494ab58882f7a148f147f1ceeded",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "stage_s6",
+        "source_field": "mechanism_established",
+        "target_text_sha256": "b9bb8e49192a340dad7ff09ecf15da4ede6ce15351476a5bd31ae231d1eec37a",
+        "inventory_input_sha256": "e221f8c58be6488275aab8dc33e2649cc5f44cd3ee7292ec46c3945923eb7ab2",
+        "review_input_sha256": "d74d5e365e538f351a2559d4199c3df6f1a25acb375ab26a69986ac461918e85",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "stage_s6_c1",
+              "target_id": "stage_s6",
+              "claim_text": "The policy placed PsychosisBank under controlled access with interview and CITI-training requirements;",
+              "source_field": "mechanism_established",
+              "target_start": 0,
+              "target_end": 102,
+              "covered_text": "The policy placed PsychosisBank under controlled access with interview and CITI-training requirements;"
+            },
+            {
+              "claim_id": "stage_s6_c2",
+              "target_id": "stage_s6",
+              "claim_text": " guidance also specified consent-, clinical-data-, and video-related controls.",
+              "source_field": "mechanism_established",
+              "target_start": 102,
+              "target_end": 180,
+              "covered_text": " guidance also specified consent-, clinical-data-, and video-related controls."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "d50e4b512d84b5b7ab03f244ad19c2a652b922e3f211b8294c0837f1258ea524",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_e1",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "979c00258cc627bf25ef48eba51e17ab7f7b343b6aa342af33127c89f78996ce",
+        "inventory_input_sha256": "4e4881654dba5733953e69b63ca05204ee52e8e0d61397283f32efb911d6444d",
+        "review_input_sha256": "ecfa30462a31d52910f52e82bf333fd87191d5a63589383e895fbc3018458348",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_e1_c1",
+              "target_id": "edge_e1",
+              "claim_text": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 91,
+              "covered_text": "The authors published a commentary identifying barriers to psychiatric speech-data sharing."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "76e76c48b721bebc2bcfb85fb9dcf95771cb3128621f58d8ddd6cd4f93d850a2",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_e2",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "0287ef9ff828fdbdb4a5110d73919d6f618e5cd65fb9b5c4b61625a8d56306da",
+        "inventory_input_sha256": "a62e278e74f490011d37c9958f246223d50d6886f82cfca753e7bb3dc94e2af9",
+        "review_input_sha256": "34cc6d459ea62d3ba141a61936ae0569ee15e6debf52035812fe40db67d1376d",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_e2_c1",
+              "target_id": "edge_e2",
+              "claim_text": "The commentary identifies barriers",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 34,
+              "covered_text": "The commentary identifies barriers"
+            },
+            {
+              "claim_id": "edge_e2_c2",
+              "target_id": "edge_e2",
+              "claim_text": " and describes multiple possible responses, including vetted access and governance controls.",
+              "source_field": "mechanism_unresolved",
+              "target_start": 34,
+              "target_end": 126,
+              "covered_text": " and describes multiple possible responses, including vetted access and governance controls."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "d3f6c8a631c483795fe52082ebed038e71299cede878b53273299f4c01badd9b",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_e3",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "ca98ee83b12705e3d87c0c932946296c4deda101534169d4cad6d70913c2e733",
+        "inventory_input_sha256": "510cdf1986d1c327347eb5d80456152072e627f5b6fa46eee4646f9c4b81da9a",
+        "review_input_sha256": "94b1211f72d1b6eb5a88a04e34bc52ce41c44bb0c7cb63a36f969c69bf0a83e3",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_e3_c1",
+              "target_id": "edge_e3",
+              "claim_text": "The commentary was published in 2022,",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 37,
+              "covered_text": "The commentary was published in 2022,"
+            },
+            {
+              "claim_id": "edge_e3_c2",
+              "target_id": "edge_e3",
+              "claim_text": " and AdminView funding was reported in 2023.",
+              "source_field": "mechanism_unresolved",
+              "target_start": 37,
+              "target_end": 81,
+              "covered_text": " and AdminView funding was reported in 2023."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "e77ca5a4b9902bba563b0b29ba8c48307c6483efae3f61622daa465b13298f74",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_e4",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "79cfa495a50f8d6b65c75d16ca20523bc91dbc263e5ea91cd2071db24d299e0b",
+        "inventory_input_sha256": "a57c799ab0e4a497631ea852ee7bfe8054c28d8cc90b3cdd46a46dcecf35f5bd",
+        "review_input_sha256": "8a866124860dff22b1f71793f6567d75f8d124e561b198ff755e75a7a491a9a5",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_e4_c1",
+              "target_id": "edge_e4",
+              "claim_text": "AdminView funding was reported in 2023,",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 39,
+              "covered_text": "AdminView funding was reported in 2023,"
+            },
+            {
+              "claim_id": "edge_e4_c2",
+              "target_id": "edge_e4",
+              "claim_text": "and TalkBank later documented four access levels.",
+              "source_field": "mechanism_unresolved",
+              "target_start": 40,
+              "target_end": 89,
+              "covered_text": "and TalkBank later documented four access levels."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "1ef010f3f0ecf59f981b3c2b49b53606efe6f51a618982ae35fdda6bb9b842de",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_e5",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "cb995d300306891919822ca3a5cd82ae23db06e31966ccc2c4261facf0e03673",
+        "inventory_input_sha256": "2b9477a72eb2b0849e68b55e88c861145ba16f907b8fea3aed64d21c9847a4f2",
+        "review_input_sha256": "0556432b815bc6873cf87c6796bd1778b69b26481d822a78d3c68df20bc323b0",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_e5_c1",
+              "target_id": "edge_e5",
+              "claim_text": "TalkBank documented four access levels,",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 39,
+              "covered_text": "TalkBank documented four access levels,"
+            },
+            {
+              "claim_id": "edge_e5_c2",
+              "target_id": "edge_e5",
+              "claim_text": "and the policy places PsychosisBank in controlled access with interview and training requirements alongside additional controls for specified data and media conditions.",
+              "source_field": "mechanism_unresolved",
+              "target_start": 40,
+              "target_end": 208,
+              "covered_text": "and the policy places PsychosisBank in controlled access with interview and training requirements alongside additional controls for specified data and media conditions."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "cac2ca1d5ece6847018ead67da5b782debe77cd7b2b3abb5b2c3843d08e909c1",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_relationship_e1",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "aeab515cafcc94b0669e64b0ee68c4c5414d8587f9c57310c7ad1ea604118e26",
+        "inventory_input_sha256": "3cc0ceb2e340233d6a8f71dfa0be5420811ed6438c1b5cffb3046febc6c9e917",
+        "review_input_sha256": "eaed056367f7d224914e464714cf1c4843d167b504de1a8a799a26821aad739a",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_relationship_e1_c1",
+              "target_id": "edge_relationship_e1",
+              "claim_text": "authors identified barriers in the published commentary",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 55,
+              "covered_text": "authors identified barriers in the published commentary"
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "1060ae311454262d798d10d3a00979d7d23c3e91202d3ebd0b8dd83aeed3a7e4",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_relationship_e2",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "82261f1c09e4da5eb0f1fbb995f3ec3a5a9707dd3dc56c7b64191a301fdafd6d",
+        "inventory_input_sha256": "11698f4f186c4f9854b5630b1258468a97a9115f167a825ff1a2063d67d1062f",
+        "review_input_sha256": "532dada6680c5897076ad9b4cf5cf88e287d954ed30d029880179f2e31e0b8f2",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_relationship_e2_c1",
+              "target_id": "edge_relationship_e2",
+              "claim_text": "barriers were followed by proposed consent and governance responses",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 67,
+              "covered_text": "barriers were followed by proposed consent and governance responses"
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "463ed6cd96ec2d2bf3e5ad62307b7a75ef2bca4fef9820db7f8d81179ff6cdcc",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_relationship_e3",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "3278c20022ffc9782e66590c79396a226ecfdb4d25f626ec68a7edb7f574a240",
+        "inventory_input_sha256": "4fd2cecd7ee5df6e4c6345b5fa85428f19a14909a75f2813ea3773991f3f029e",
+        "review_input_sha256": "46f7557c0058f029885690946d3bcbff70dbd7a170e1f943b5805a800c4df4a4",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_relationship_e3_c1",
+              "target_id": "edge_relationship_e3",
+              "claim_text": "the commentary and later funding occurred before the current policy snapshot",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 76,
+              "covered_text": "the commentary and later funding occurred before the current policy snapshot"
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "2850a6497ef6a43824b6f30c3d847c822ad58b3e3b1fad364eece625c8de9d61",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_relationship_e4",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "084cceacc50f3fa40c0d1fb71c830b8c9d29d421d4844f5881e27da60d283559",
+        "inventory_input_sha256": "229e9303d4b741347dffff801d96c7e2567ac2e873519dc1eab073e44e586be0",
+        "review_input_sha256": "591a5a5c6e819ebbec3a4086a0a91f68e43f371eafac26cc35bf750d984a08d6",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_relationship_e4_claim_1",
+              "target_id": "edge_relationship_e4",
+              "claim_text": "funding preceded the documented access architecture",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 51,
+              "covered_text": "funding preceded the documented access architecture"
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "43102fe59f4bd8a18cb33073462f9fce40617e8179623a478e6e50d3eb172bb1",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "edge_relationship_e5",
+        "source_field": "mechanism_unresolved",
+        "target_text_sha256": "37c614c233e1030fcaa363b8c3e7a1e8ccc669722fe1be981417b35b139d96e0",
+        "inventory_input_sha256": "757660ca42987078c3b3e6ebc79dd0291cb883762ed0bb8b2d5ea47a92b2c556",
+        "review_input_sha256": "94974b531f5b58995fc0ad64ddfb8327632470820ba6bf26f68b1a7c64fa970b",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "edge_relationship_e5_c1",
+              "target_id": "edge_relationship_e5",
+              "claim_text": "the documented access architecture includes controlled PsychosisBank access",
+              "source_field": "mechanism_unresolved",
+              "target_start": 0,
+              "target_end": 75,
+              "covered_text": "the documented access architecture includes controlled PsychosisBank access"
+            },
+            {
+              "claim_id": "edge_relationship_e5_c2",
+              "target_id": "edge_relationship_e5",
+              "claim_text": " and conditional controls",
+              "source_field": "mechanism_unresolved",
+              "target_start": 75,
+              "target_end": 100,
+              "covered_text": " and conditional controls"
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "93e930826a07e1c5faad04e1874a4a1c559dc08b6c5af8d996c263ec10b13fcb",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "verdict_h1",
+        "source_field": "verdict_reasoning",
+        "target_text_sha256": "659ed839a05e40851f2098f5d5ce2b1b7a9e7e88edb3587b6b7bfc3966ee1f75",
+        "inventory_input_sha256": "a4b94afed60020cfb0ef05ae96ef822693155f767486009e7bf3057480408c16",
+        "review_input_sha256": "3dccec86d4eb3282e416a0300ac8dd82cb49d170757d1f22c639d3c81ae4c11f",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "verdict_h1_c1",
+              "target_id": "verdict_h1",
+              "claim_text": "H1 ranks first with comparative support of 0.288179,",
+              "source_field": "verdict_reasoning",
+              "target_start": 0,
+              "target_end": 52,
+              "covered_text": "H1 ranks first with comparative support of 0.288179,"
+            },
+            {
+              "claim_id": "verdict_h1_c2",
+              "target_id": "verdict_h1",
+              "claim_text": " above its 0.25 prior,",
+              "source_field": "verdict_reasoning",
+              "target_start": 52,
+              "target_end": 74,
+              "covered_text": " above its 0.25 prior,"
+            },
+            {
+              "claim_id": "verdict_h1_c3",
+              "target_id": "verdict_h1",
+              "claim_text": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3.",
+              "source_field": "verdict_reasoning",
+              "target_start": 74,
+              "target_end": 191,
+              "covered_text": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3."
+            },
+            {
+              "claim_id": "verdict_h1_c4",
+              "target_id": "verdict_h1",
+              "claim_text": " Its support is fragile",
+              "source_field": "verdict_reasoning",
+              "target_start": 191,
+              "target_end": 214,
+              "covered_text": " Its support is fragile"
+            },
+            {
+              "claim_id": "verdict_h1_c5",
+              "target_id": "verdict_h1",
+              "claim_text": " and sensitivity ranges from 0.268777 to 0.308148.",
+              "source_field": "verdict_reasoning",
+              "target_start": 214,
+              "target_end": 264,
+              "covered_text": " and sensitivity ranges from 0.268777 to 0.308148."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "a6112fa08e69e550af985d4480ea15322e63a246281e10b601a01cc89b30c5b6",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "verdict_h2",
+        "source_field": "verdict_reasoning",
+        "target_text_sha256": "a86ff5617b98219db1006171134f095c0b8208a1b53327d224b26ea78d56837e",
+        "inventory_input_sha256": "731b85acc1a0d48d65e96221f6c85256157fef6437158b8eb5d3e35122d9398e",
+        "review_input_sha256": "6226061b276df067de3970b35c4ed2f0b60167687b48a035f9ff842c2fbd8cfe",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "verdict_h2_c1",
+              "target_id": "verdict_h2",
+              "claim_text": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior.",
+              "source_field": "verdict_reasoning",
+              "target_start": 0,
+              "target_end": 75,
+              "covered_text": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior."
+            },
+            {
+              "claim_id": "verdict_h2_c2",
+              "target_id": "verdict_h2",
+              "claim_text": "The accepted comparisons favor alternatives to a single binding rule,",
+              "source_field": "verdict_reasoning",
+              "target_start": 76,
+              "target_end": 145,
+              "covered_text": "The accepted comparisons favor alternatives to a single binding rule,"
+            },
+            {
+              "claim_id": "verdict_h2_c3",
+              "target_id": "verdict_h2",
+              "claim_text": "and the matrix contains no favorable discriminator for h2.",
+              "source_field": "verdict_reasoning",
+              "target_start": 146,
+              "target_end": 204,
+              "covered_text": "and the matrix contains no favorable discriminator for h2."
+            },
+            {
+              "claim_id": "verdict_h2_c4",
+              "target_id": "verdict_h2",
+              "claim_text": "Support is fragile",
+              "source_field": "verdict_reasoning",
+              "target_start": 205,
+              "target_end": 223,
+              "covered_text": "Support is fragile"
+            },
+            {
+              "claim_id": "verdict_h2_c5",
+              "target_id": "verdict_h2",
+              "claim_text": "and ranges from 0.197927 to 0.231903.",
+              "source_field": "verdict_reasoning",
+              "target_start": 224,
+              "target_end": 261,
+              "covered_text": "and ranges from 0.197927 to 0.231903."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "2166e32470c4980528b7eeac3951e28096fcb83c10ee97157adee41ea85c3ea7",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "verdict_h3",
+        "source_field": "verdict_reasoning",
+        "target_text_sha256": "56e6fb1fdce94285a876b2fb3c9393343e778bc77d66fed1278ebe0ed9901025",
+        "inventory_input_sha256": "f2455565ab3aa33c465a999049f92efe322b08d8c977db8ae47a6f3adf6ef21a",
+        "review_input_sha256": "12cb29e37d54c394187dcbb60b428d023868a99e3d901a50fee3f39ac52e6e71",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "verdict_h3_c1",
+              "target_id": "verdict_h3",
+              "claim_text": "H3 ranks second with comparative support of 0.248644,",
+              "source_field": "verdict_reasoning",
+              "target_start": 0,
+              "target_end": 53,
+              "covered_text": "H3 ranks second with comparative support of 0.248644,"
+            },
+            {
+              "claim_id": "verdict_h3_c2",
+              "target_id": "verdict_h3",
+              "claim_text": "marginally below its 0.25 prior.",
+              "source_field": "verdict_reasoning",
+              "target_start": 54,
+              "target_end": 86,
+              "covered_text": "marginally below its 0.25 prior."
+            },
+            {
+              "claim_id": "verdict_h3_c3",
+              "target_id": "verdict_h3",
+              "claim_text": "The diagnostic matrix contains no realized favorable discriminator for h3,",
+              "source_field": "verdict_reasoning",
+              "target_start": 87,
+              "target_end": 161,
+              "covered_text": "The diagnostic matrix contains no realized favorable discriminator for h3,"
+            },
+            {
+              "claim_id": "verdict_h3_c4",
+              "target_id": "verdict_h3",
+              "claim_text": "and its mechanical robustness is unknown.",
+              "source_field": "verdict_reasoning",
+              "target_start": 162,
+              "target_end": 203,
+              "covered_text": "and its mechanical robustness is unknown."
+            },
+            {
+              "claim_id": "verdict_h3_c5",
+              "target_id": "verdict_h3",
+              "claim_text": "Sensitivity ranges from 0.239428 to 0.257864.",
+              "source_field": "verdict_reasoning",
+              "target_start": 204,
+              "target_end": 249,
+              "covered_text": "Sensitivity ranges from 0.239428 to 0.257864."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "abae8c74e1c40b5d166101195b8bb832e17d772fd3eec5cd78ff77a309f53286",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "comparative",
+        "source_field": "comparative_analysis",
+        "target_text_sha256": "b54852b01494e8bbb9d9387da53743f96216936e3d07d29a5a18a3d90f78e3c1",
+        "inventory_input_sha256": "b1fc9ccaff42e8d6f8cf216a39251b8d2a282f191ca294cd9e93a2bbc5ad374a",
+        "review_input_sha256": "36606283970b1887cc1891d8c10ded4fa40ac23098b39ad646e1face95e9b8e4",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "comparative_c1",
+              "target_id": "comparative",
+              "claim_text": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access.",
+              "source_field": "comparative_analysis",
+              "target_start": 0,
+              "target_end": 159,
+              "covered_text": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access."
+            },
+            {
+              "claim_id": "comparative_c2",
+              "target_id": "comparative",
+              "claim_text": "It records no realized discriminator for h1 versus h3 or h2 versus h3.",
+              "source_field": "comparative_analysis",
+              "target_start": 160,
+              "target_end": 230,
+              "covered_text": "It records no realized discriminator for h1 versus h3 or h2 versus h3."
+            },
+            {
+              "claim_id": "comparative_c3",
+              "target_id": "comparative",
+              "claim_text": "The Bayesian ranking is h1, h3, residual, h2,",
+              "source_field": "comparative_analysis",
+              "target_start": 231,
+              "target_end": 276,
+              "covered_text": "The Bayesian ranking is h1, h3, residual, h2,"
+            },
+            {
+              "claim_id": "comparative_c4",
+              "target_id": "comparative",
+              "claim_text": "but the leading rank is not stable under the declared prior perturbation.",
+              "source_field": "comparative_analysis",
+              "target_start": 277,
+              "target_end": 350,
+              "covered_text": "but the leading rank is not stable under the declared prior perturbation."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "94e311af3b5e6e903eee07fea372d4a5e6b395f4280741e5fe49d7cc3d01a90a",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      },
+      {
+        "target_id": "narrative_1",
+        "source_field": "analytical_narrative",
+        "target_text_sha256": "2cb3694abc8ffd933ec069a9a08868250a35f48ed5ae3b8387fe1ab9e9f23619",
+        "inventory_input_sha256": "e96607191e08ec22026a72c8fdcf7dea39236350bd749fa6b041681d1eb00bfb",
+        "review_input_sha256": "cf87609a7f8f885e2c4c045d928b779d870f0671ac29295393bd77f69be547c8",
+        "inventory": {
+          "claims": [
+            {
+              "claim_id": "narrative_1_c1",
+              "target_id": "narrative_1",
+              "claim_text": "The corpus observes a sequence from public barrier commentary and proposed responses, through reported 2023 AdminView funding, to a later documented four-level access architecture and controlled PsychosisBank access with interview, training, consent, clinical-data, and video-related controls.",
+              "source_field": "analytical_narrative",
+              "target_start": 0,
+              "target_end": 293,
+              "covered_text": "The corpus observes a sequence from public barrier commentary and proposed responses, through reported 2023 AdminView funding, to a later documented four-level access architecture and controlled PsychosisBank access with interview, training, consent, clinical-data, and video-related controls."
+            },
+            {
+              "claim_id": "narrative_1_c2",
+              "target_id": "narrative_1",
+              "claim_text": "It supports causal links from commentary to barrier identification",
+              "source_field": "analytical_narrative",
+              "target_start": 294,
+              "target_end": 360,
+              "covered_text": "It supports causal links from commentary to barrier identification"
+            },
+            {
+              "claim_id": "narrative_1_c3",
+              "target_id": "narrative_1",
+              "claim_text": "and from identified barriers to proposed responses.",
+              "source_field": "analytical_narrative",
+              "target_start": 361,
+              "target_end": 412,
+              "covered_text": "and from identified barriers to proposed responses."
+            },
+            {
+              "claim_id": "narrative_1_c4",
+              "target_id": "narrative_1",
+              "claim_text": "The funding-to-policy connection is unresolved,",
+              "source_field": "analytical_narrative",
+              "target_start": 413,
+              "target_end": 460,
+              "covered_text": "The funding-to-policy connection is unresolved,"
+            },
+            {
+              "claim_id": "narrative_1_c5",
+              "target_id": "narrative_1",
+              "claim_text": "while funding preceding the documented architecture and the architecture containing the later controls are observed sequences only.",
+              "source_field": "analytical_narrative",
+              "target_start": 461,
+              "target_end": 592,
+              "covered_text": "while funding preceding the documented architecture and the architecture containing the later controls are observed sequences only."
+            },
+            {
+              "claim_id": "narrative_1_c6",
+              "target_id": "narrative_1",
+              "claim_text": "Thus, the mechanism supports chronology and some barrier-to-response production,",
+              "source_field": "analytical_narrative",
+              "target_start": 593,
+              "target_end": 673,
+              "covered_text": "Thus, the mechanism supports chronology and some barrier-to-response production,"
+            },
+            {
+              "claim_id": "narrative_1_c7",
+              "target_id": "narrative_1",
+              "claim_text": "but not a complete causal account of the PsychosisBank selection.",
+              "source_field": "analytical_narrative",
+              "target_start": 674,
+              "target_end": 739,
+              "covered_text": "but not a complete causal account of the PsychosisBank selection."
+            },
+            {
+              "claim_id": "narrative_1_c8",
+              "target_id": "narrative_1",
+              "claim_text": "Comparative support ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533;",
+              "source_field": "analytical_narrative",
+              "target_start": 740,
+              "target_end": 861,
+              "covered_text": "Comparative support ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533;"
+            },
+            {
+              "claim_id": "narrative_1_c9",
+              "target_id": "narrative_1",
+              "claim_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+              "source_field": "analytical_narrative",
+              "target_start": 862,
+              "target_end": 931,
+              "covered_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown."
+            },
+            {
+              "claim_id": "narrative_1_c10",
+              "target_id": "narrative_1",
+              "claim_text": "Local likelihood perturbation leaves the ranking stable,",
+              "source_field": "analytical_narrative",
+              "target_start": 932,
+              "target_end": 988,
+              "covered_text": "Local likelihood perturbation leaves the ranking stable,"
+            },
+            {
+              "claim_id": "narrative_1_c11",
+              "target_id": "narrative_1",
+              "claim_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+              "source_field": "analytical_narrative",
+              "target_start": 989,
+              "target_end": 1087,
+              "covered_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation."
+            },
+            {
+              "claim_id": "narrative_1_c12",
+              "target_id": "narrative_1",
+              "claim_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;",
+              "source_field": "analytical_narrative",
+              "target_start": 1088,
+              "target_end": 1221,
+              "covered_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;"
+            },
+            {
+              "claim_id": "narrative_1_c13",
+              "target_id": "narrative_1",
+              "claim_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records.",
+              "source_field": "analytical_narrative",
+              "target_start": 1222,
+              "target_end": 1403,
+              "covered_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records."
+            }
+          ]
+        },
+        "judgment_origin": "fresh",
+        "dependency_sha256": "52071305297753b0c228cd3cc219c942ef5039f735ebdd6cebdf4dcfd7344623",
+        "source_review_sha256": null,
+        "source_review_input_sha256": null
+      }
+    ]
+  }
+}

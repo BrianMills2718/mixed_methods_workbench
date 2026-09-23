@@ -1,0 +1,66 @@
+PsychosisBank and TalkBank graduated-access design: bounded source corpus
+
+Research question
+
+What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?
+
+Source A
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+Palaniyappan, Alonso-Sanchez, and MacWhinney, "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?", Schizophrenia Bulletin 48(5), 2022, pp. 963-966. The authors describe the article as a commentary that discusses why spoken-language datasets from people experiencing mental-health issues are difficult to obtain, highlights approaches used in other areas of clinical linguistics, and proposes ways forward for psychosis research.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+On page 963, under "Barriers to Sharing Speech Data," the authors write that Open Science encourages fully open access, but that open sharing of spoken-language data from clinical populations has met significant resistance. They identify at least six barriers and state that some arise from institutional interpretations of regulations while others concern public perceptions. They say they will consider each barrier and ways that systems such as TalkBank or Databrary manage to overcome it. They anticipate that the commentary will inform future speech-bank infrastructures for psychiatric disorders.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+On informed consent, page 963 states that sharing without participant consent would violate privacy and confidentiality, precluding retrospective sharing for many existing samples. The authors identify re-contact, an IRB waiver where permissible, explicit consent for qualified-researcher access, participant removal rights, governance-body vetting, signed agreements, password access, institutional qualification, purpose limitations, and dynamic consent as possible responses rather than one universal access rule.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+On deidentification, page 964 states that some IRBs and national policies may require deidentification even with full consent and password control. The authors describe several possible strategies: constrain speech-elicitation tasks; manually remove personal identifiers with participant input; share typed transcripts rather than audio; blur video or replace images with avatars; or use password-protected video with adequate consent. They describe GDPR as permitting identifiable-data sharing for otherwise unachievable scientific purposes with consent while also requiring risk mitigation and data minimization.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+Under "Credit assignment" on page 964, the authors write that researchers often worry that competitors could publish from shared data first. They state that TalkBank addresses this concern by permitting a data-use embargo, after which corpus citation, DOI assignment, and citation of a contributor's prior publication help preserve credit.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+Under "Use and misuse" on page 964, the authors write that researchers often fear misinterpretation or unethical use. They say that although such misuse had not occurred in TalkBank-affiliated databases, sharing could be restricted to vetted qualified researchers who agree to a code of conduct and whose intended use is pre-approved by a governing body.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+Under "Workload" on page 964, the authors state that repository inclusion can require substantial transcription and file-organization work, especially when a repository requires a particular format. They say funding agencies provide resources to TalkBank and similar projects to help researchers and database workers achieve correct formatting and curation. Once data are in TalkBank format, additional analyses and cross-dataset comparisons become possible.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+Under "Jurisdictional barriers" on page 964, the authors state that GDPR limits transfer of identifiable data to other jurisdictions. They describe two responses: render data anonymous, or establish EU repositories that make data available in a compatible format through a federated content-access system. They say federation provides greater contributor and institutional control but requires close adherence to data standards and systematic installation of database-management software.
+
+[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]
+On page 965, the authors argue that progress requires collaboration, immediate access to speech-based measures from consenting patients, and shared elicitation and analysis methods. They call for researchers, clinicians, universities, and funders to work together to remove barriers to Open Science. The acknowledgments say the commentary's material was discussed by the DISCOURSE in Psychosis Steering Committee; the authors also disclose support to DISCOURSE in Psychosis and NIH support to Brian MacWhinney.
+
+Source B
+
+[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]
+The hash-frozen TalkBank Data Access Levels page states that TalkBank offers four levels. Open access requires no restrictions or registration. Registration-required access requires an account and password. Approved access is available to verified academic researchers who request access and agree to data-use ground rules; the page says this level is used for several banks containing clinical data and most of HomeBank.
+
+[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]
+The same page states: "Controlled access is required for some corpora and media. For example, corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training."
+
+[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]
+The page states that TalkBank uses its AdminView system to control access and that creation of AdminView was funded by a FAIR grant in 2023 from the NIH Office of Data Science Strategy.
+
+[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]
+The page also describes a possible alternative in which a contributor implements a data-use agreement before TalkBank provides access. It says TalkBank has not used this method "because of the extra administrative burden for all parties and the fact that this system is not approved by NIH."
+
+Source C
+
+[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]
+The hash-frozen TalkBank IRB guidance says contributions should obtain study IRB approval and participant informed consent for data sharing. It states that there are no standard IRB forms because each institution has its own procedures and templates.
+
+[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]
+Under informed consent, the page says contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research. It says participants should permit access for authorized researchers using password protection, and it notes a participant's continuing right to request removal of some or all contributed data.
+
+[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]
+For archival data, the page says inclusion may be possible when original consent language is not exclusionary, only qualified researchers receive necessary passwords, data are anonymized, and additional protections are used where needed. It separately notes that contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation.
+
+[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]
+The guidance says video can be made available only with explicit informed consent or a higher level of password protection involving committee approval. For completed projects that lack permission to share video, TalkBank offers to extract audio tracks instead.
+
+Declared source limitations
+
+The packet does not include contemporaneous PsychosisBank minutes, correspondence, policy change history, project-specific ethics decisions, consent forms, or a focused interview about the bounded disclosure decision. The 2022 commentary can reveal articulated design logic and the current pages can reveal implemented policy, but together they may not prove the complete temporal mechanism or rule out private alternatives.

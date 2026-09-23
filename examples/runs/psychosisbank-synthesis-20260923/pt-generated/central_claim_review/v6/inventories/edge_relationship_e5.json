@@ -1,0 +1,25 @@
+{
+  "input_sha256": "757660ca42987078c3b3e6ebc79dd0291cb883762ed0bb8b2d5ea47a92b2c556",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e5_c1",
+        "target_id": "edge_relationship_e5",
+        "claim_text": "the documented access architecture includes controlled PsychosisBank access",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 75,
+        "covered_text": "the documented access architecture includes controlled PsychosisBank access"
+      },
+      {
+        "claim_id": "edge_relationship_e5_c2",
+        "target_id": "edge_relationship_e5",
+        "claim_text": " and conditional controls",
+        "source_field": "mechanism_unresolved",
+        "target_start": 75,
+        "target_end": 100,
+        "covered_text": " and conditional controls"
+      }
+    ]
+  }
+}

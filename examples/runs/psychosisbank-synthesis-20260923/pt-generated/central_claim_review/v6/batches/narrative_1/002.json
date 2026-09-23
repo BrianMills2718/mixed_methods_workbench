@@ -1,0 +1,174 @@
+{
+  "input_sha256": "8559f9350e3b1014e14e363097000e550ba72a16b613b5514b371d69c36166de",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "narrative_1_c9",
+        "target_id": "narrative_1",
+        "claim_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/0/robustness"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/1/robustness"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/robustness"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The Bayesian artifact labels h1 and h2 fragile and h3 unknown."
+      },
+      {
+        "claim_id": "narrative_1_c10",
+        "target_id": "narrative_1",
+        "claim_text": "Local likelihood perturbation leaves the ranking stable,",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "Local likelihood perturbation leaves the ranking stable,",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/0/rank_stable"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/1/rank_stable"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/2/rank_stable"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/3/rank_stable"
+              }
+            ]
+          }
+        ],
+        "reasoning": "All reported local sensitivity cases have rank_stable true."
+      },
+      {
+        "claim_id": "narrative_1_c11",
+        "target_id": "narrative_1",
+        "claim_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/prior_sensitivity/stable_under_prior_perturbation"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/prior_sensitivity/top_hypothesis_id"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The artifact reports prior stability false for the leading hypothesis h1."
+      },
+      {
+        "claim_id": "narrative_1_c12",
+        "target_id": "narrative_1",
+        "claim_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "a 2022 secondary-analysis commentary",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "current primary TalkBank policy and guidance snapshots",
+            "evidence_ids": [
+              "c01_evi_four_access_levels",
+              "c02_evi_irb_consent_nonuniform"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The accepted evidence metadata identifies the commentary as a 2022 secondary analysis and the TalkBank materials as current primary documents."
+      },
+      {
+        "claim_id": "narrative_1_c13",
+        "target_id": "narrative_1",
+        "claim_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "the commentary is public design reasoning and the web pages are current policy documents",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public",
+              "c01_evi_four_access_levels",
+              "c02_evi_irb_consent_nonuniform"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "pipeline_artifact",
+            "covers": "rather than complete contemporaneous decision records",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/unresolved_summary"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The source types establish public commentary and current policy guidance, while the mechanism trace explicitly says contemporaneous decision records are needed to connect them causally."
+      }
+    ],
+    "overall_assessment": "All five inventory claims are supported by the supplied evidence or deterministic analysis artifacts.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": null,
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

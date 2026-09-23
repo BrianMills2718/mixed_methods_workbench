@@ -1,0 +1,229 @@
+{
+  "status": "blocked",
+  "attempts": [
+    {
+      "attempt": 1,
+      "action": "initial_audit",
+      "hypothesis_space": {
+        "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+        "hypotheses": [
+          {
+            "id": "h1",
+            "description": "Individualized governance, curation, credit, misuse, and jurisdiction burdens entered a deliberative tradeoff with Open Science goals and led the team toward graduated and controlled access.",
+            "source": "generated",
+            "generation_evidence_ids": [],
+            "generation_rationale": "Case-specific version of reviewed QC proposition P5 / p5-v1, frozen without exposure to the case corpus used for automated extraction.",
+            "theoretical_basis": "P5 proposes that researchers weigh labour, risk, timing, and exposure and may choose delayed, restricted, or minimum-compliance disclosure while still valuing openness.",
+            "causal_mechanism": "The project team recognizes specific disclosure burdens and risks, weighs open access against those constraints, and selects graduated or controlled access as the workable disclosure strategy.",
+            "observable_predictions": [
+              {
+                "id": "pred_h1_01",
+                "description": "Records before or during access-design selection identify concrete governance, curation, credit, scrutiny, or jurisdiction burdens rather than only stating the final policy."
+              },
+              {
+                "id": "pred_h1_02",
+                "description": "The record connects identified burdens to considered strategy features such as password protection, vetting, restricted media, embargo, deidentification, or federated access."
+              },
+              {
+                "id": "pred_h1_03",
+                "description": "When support absorbs a salient burden, the considered or selected strategy changes, or the burden is explicitly retained as a boundary on a more open strategy."
+              }
+            ]
+          },
+          {
+            "id": "h2",
+            "description": "External ethics, legal, funder, or repository rules directly determined controlled access, leaving little material project-level deliberation over disclosure strategy.",
+            "source": "generated",
+            "generation_evidence_ids": [],
+            "generation_rationale": "Frozen from QC's documented rival that journal, funder, ethics, legal, or repository rules can determine a strategy directly.",
+            "theoretical_basis": "A direct-rule account predicts compliance with binding requirements rather than the P5 sequence of project-specific weighing among feasible alternatives.",
+            "causal_mechanism": "A binding external rule specifies who may access the data and under what conditions; the project implements that requirement without a consequential burden-risk tradeoff selecting among disclosure strategies.",
+            "observable_predictions": [
+              {
+                "id": "pred_h2_01",
+                "description": "An authoritative rule explicitly mandates the material controlled-access features for psychiatric speech data before the project selects them."
+              },
+              {
+                "id": "pred_h2_02",
+                "description": "Policy changes track changes in the controlling external rule more closely than changes in project workload, support, credit, or perceived misuse risk."
+              },
+              {
+                "id": "pred_h2_03",
+                "description": "Alternative disclosure strategies are treated as unavailable under the rule rather than weighed and rejected as impracticable or risky."
+              }
+            ]
+          },
+          {
+            "id": "h3",
+            "description": "A stable prior preference or established TalkBank routine selected controlled access, while cited burdens and risks mainly justified or elaborated a choice made for other reasons.",
+            "source": "generated",
+            "generation_evidence_ids": [],
+            "generation_rationale": "Frozen from QC's documented stable-preference and retrospective-justification rivals.",
+            "theoretical_basis": "If a stable disposition or routine explains the outcome, similar strategies should recur without project-specific deliberation, and burden accounts need not precede or change the choice.",
+            "causal_mechanism": "The team begins with a settled institutional preference or standard access routine, applies it to the project, and later presents burden and risk considerations as justification or implementation detail rather than as the mechanism selecting the strategy.",
+            "observable_predictions": [
+              {
+                "id": "pred_h3_01",
+                "description": "The controlled-access preference or routine is documented before project-specific burden and risk appraisal."
+              },
+              {
+                "id": "pred_h3_02",
+                "description": "Comparable TalkBank projects receive the same strategy despite materially different burdens, risks, or support conditions."
+              },
+              {
+                "id": "pred_h3_03",
+                "description": "Burden and risk explanations appear retrospectively or remain unchanged when support absorbs those burdens."
+              }
+            ]
+          }
+        ]
+      },
+      "audit": {
+        "research_question_adequate": true,
+        "rival_pairs": [
+          {
+            "h1_id": "h1",
+            "h2_id": "h2",
+            "overlap_concern": false,
+            "complementary_concern": false,
+            "absorptive_concern": false,
+            "prediction_contrasts": [
+              {
+                "h1_prediction_id": "pred_h1_02",
+                "h2_prediction_id": "pred_h2_03",
+                "contrast_dimension": "mechanism",
+                "reasoning": "H1 predicts that strategy features emerge from weighing burdens and feasible alternatives, whereas H2 predicts that alternatives are unavailable under a binding rule; observing consequential weighing weakens the direct-rule account."
+              },
+              {
+                "h1_prediction_id": "pred_h1_03",
+                "h2_prediction_id": "pred_h2_02",
+                "contrast_dimension": "control",
+                "reasoning": "H1 predicts that changes in salient burdens can alter or constrain the selected strategy, whereas H2 predicts that policy changes track external rules rather than project conditions."
+              }
+            ],
+            "discriminator_count": 2,
+            "concern_detail": ""
+          },
+          {
+            "h1_id": "h1",
+            "h2_id": "h3",
+            "overlap_concern": false,
+            "complementary_concern": false,
+            "absorptive_concern": false,
+            "prediction_contrasts": [
+              {
+                "h1_prediction_id": "pred_h1_01",
+                "h2_prediction_id": "pred_h3_01",
+                "contrast_dimension": "sequence",
+                "reasoning": "H1 predicts project-specific burden appraisal before or during selection, whereas H3 predicts a pre-existing preference before that appraisal; evidence of prior routine weakens H1 as the selecting mechanism."
+              },
+              {
+                "h1_prediction_id": "pred_h1_03",
+                "h2_prediction_id": "pred_h3_03",
+                "contrast_dimension": "necessity",
+                "reasoning": "H1 predicts that absorbing a salient burden can change or constrain the strategy, whereas H3 predicts that burden explanations remain retrospective or unchanged; observed strategy responsiveness weakens H3."
+              }
+            ],
+            "discriminator_count": 2,
+            "concern_detail": ""
+          },
+          {
+            "h1_id": "h2",
+            "h2_id": "h3",
+            "overlap_concern": false,
+            "complementary_concern": true,
+            "absorptive_concern": false,
+            "prediction_contrasts": [],
+            "discriminator_count": 0,
+            "concern_detail": "A binding external rule and an established institutional routine could both jointly explain the same controlled-access choice without a specified causal bottleneck."
+          }
+        ],
+        "hypotheses_flagged": [
+          "h2",
+          "h3"
+        ],
+        "overall_quality": "needs_review",
+        "cap_applied": true,
+        "decision_blockers": [
+          "pair h2<->h3: complementarity, no valid concrete prediction contrast",
+          "hypotheses require split, merge, or reframing: ['h2', 'h3']"
+        ],
+        "decision_warnings": [],
+        "summary": "The strongest concern is the unresolved h2\u2013h3 relationship: direct external determination and stable institutional routine can coexist, but the hypotheses provide no concrete opposed prediction separating causal primacy. H1 is more sharply partitioned against each rival, and the focal outcome and timing window are otherwise adequate, but the winning account could not absorb all rivals without resolving this complementary pair."
+      }
+    }
+  ],
+  "final_audit": {
+    "research_question_adequate": true,
+    "rival_pairs": [
+      {
+        "h1_id": "h1",
+        "h2_id": "h2",
+        "overlap_concern": false,
+        "complementary_concern": false,
+        "absorptive_concern": false,
+        "prediction_contrasts": [
+          {
+            "h1_prediction_id": "pred_h1_02",
+            "h2_prediction_id": "pred_h2_03",
+            "contrast_dimension": "mechanism",
+            "reasoning": "H1 predicts that strategy features emerge from weighing burdens and feasible alternatives, whereas H2 predicts that alternatives are unavailable under a binding rule; observing consequential weighing weakens the direct-rule account."
+          },
+          {
+            "h1_prediction_id": "pred_h1_03",
+            "h2_prediction_id": "pred_h2_02",
+            "contrast_dimension": "control",
+            "reasoning": "H1 predicts that changes in salient burdens can alter or constrain the selected strategy, whereas H2 predicts that policy changes track external rules rather than project conditions."
+          }
+        ],
+        "discriminator_count": 2,
+        "concern_detail": ""
+      },
+      {
+        "h1_id": "h1",
+        "h2_id": "h3",
+        "overlap_concern": false,
+        "complementary_concern": false,
+        "absorptive_concern": false,
+        "prediction_contrasts": [
+          {
+            "h1_prediction_id": "pred_h1_01",
+            "h2_prediction_id": "pred_h3_01",
+            "contrast_dimension": "sequence",
+            "reasoning": "H1 predicts project-specific burden appraisal before or during selection, whereas H3 predicts a pre-existing preference before that appraisal; evidence of prior routine weakens H1 as the selecting mechanism."
+          },
+          {
+            "h1_prediction_id": "pred_h1_03",
+            "h2_prediction_id": "pred_h3_03",
+            "contrast_dimension": "necessity",
+            "reasoning": "H1 predicts that absorbing a salient burden can change or constrain the strategy, whereas H3 predicts that burden explanations remain retrospective or unchanged; observed strategy responsiveness weakens H3."
+          }
+        ],
+        "discriminator_count": 2,
+        "concern_detail": ""
+      },
+      {
+        "h1_id": "h2",
+        "h2_id": "h3",
+        "overlap_concern": false,
+        "complementary_concern": true,
+        "absorptive_concern": false,
+        "prediction_contrasts": [],
+        "discriminator_count": 0,
+        "concern_detail": "A binding external rule and an established institutional routine could both jointly explain the same controlled-access choice without a specified causal bottleneck."
+      }
+    ],
+    "hypotheses_flagged": [
+      "h2",
+      "h3"
+    ],
+    "overall_quality": "needs_review",
+    "cap_applied": true,
+    "decision_blockers": [
+      "pair h2<->h3: complementarity, no valid concrete prediction contrast",
+      "hypotheses require split, merge, or reframing: ['h2', 'h3']"
+    ],
+    "decision_warnings": [],
+    "summary": "The strongest concern is the unresolved h2\u2013h3 relationship: direct external determination and stable institutional routine can coexist, but the hypotheses provide no concrete opposed prediction separating causal primacy. H1 is more sharply partitioned against each rival, and the focal outcome and timing window are otherwise adequate, but the winning account could not absorb all rivals without resolving this complementary pair."
+  }
+}

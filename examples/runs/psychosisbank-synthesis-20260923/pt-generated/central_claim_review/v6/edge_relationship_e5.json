@@ -1,0 +1,55 @@
+{
+  "input_sha256": "94974b531f5b58995fc0ad64ddfb8327632470820ba6bf26f68b1a7c64fa970b",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e5_c1",
+        "target_id": "edge_relationship_e5",
+        "claim_text": "the documented access architecture includes controlled PsychosisBank access",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "controlled PsychosisBank access",
+            "evidence_ids": [
+              "c01_evi_psychosisbank_controlled_adminview"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The evidence explicitly states that PsychosisBank requires controlled access, a special interview, and proof of CITI training."
+      },
+      {
+        "claim_id": "edge_relationship_e5_c2",
+        "target_id": "edge_relationship_e5",
+        "claim_text": " and conditional controls",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "conditional controls",
+            "evidence_ids": [
+              "c01_evi_psychosisbank_controlled_adminview",
+              "c02_evi_multiple_access_options",
+              "c02_evi_clinical_data_restrictions",
+              "c02_evi_video_consent_controls"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The cited evidence documents access conditions including interviews, training, selectable access options, additional restrictions, and consent or committee approval."
+      }
+    ],
+    "overall_assessment": "Both inventory claims are directly supported by the supplied access-policy and guidance evidence.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "93e930826a07e1c5faad04e1874a4a1c559dc08b6c5af8d996c263ec10b13fcb",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

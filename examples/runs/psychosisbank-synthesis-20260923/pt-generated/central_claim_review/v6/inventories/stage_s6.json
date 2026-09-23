@@ -1,0 +1,25 @@
+{
+  "input_sha256": "e221f8c58be6488275aab8dc33e2649cc5f44cd3ee7292ec46c3945923eb7ab2",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "stage_s6_c1",
+        "target_id": "stage_s6",
+        "claim_text": "The policy placed PsychosisBank under controlled access with interview and CITI-training requirements;",
+        "source_field": "mechanism_established",
+        "target_start": 0,
+        "target_end": 102,
+        "covered_text": "The policy placed PsychosisBank under controlled access with interview and CITI-training requirements;"
+      },
+      {
+        "claim_id": "stage_s6_c2",
+        "target_id": "stage_s6",
+        "claim_text": " guidance also specified consent-, clinical-data-, and video-related controls.",
+        "source_field": "mechanism_established",
+        "target_start": 102,
+        "target_end": 180,
+        "covered_text": " guidance also specified consent-, clinical-data-, and video-related controls."
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "input_sha256": "64e1c9186c5715e048ca1c976d835fe94deeff3438247d3ba1139f7d1b83caa6",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "stage_s2_c1",
+        "target_id": "stage_s2",
+        "claim_text": "The commentary identified multiple barriers,",
+        "source_field": "mechanism_established",
+        "target_start": 0,
+        "target_end": 44,
+        "covered_text": "The commentary identified multiple barriers,"
+      },
+      {
+        "claim_id": "stage_s2_c2",
+        "target_id": "stage_s2",
+        "claim_text": " including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload.",
+        "source_field": "mechanism_established",
+        "target_start": 44,
+        "target_end": 204,
+        "covered_text": " including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload."
+      }
+    ]
+  }
+}

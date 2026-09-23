@@ -1,0 +1,279 @@
+{
+  "status": "accepted",
+  "attempts": [
+    {
+      "attempt": 1,
+      "action": "initial_audit",
+      "hypothesis_space": {
+        "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+        "hypotheses": [
+          {
+            "id": "h1",
+            "description": "Project-specific burden and risk deliberation caused the team to choose graduated and controlled access.",
+            "source": "generated",
+            "generation_evidence_ids": [],
+            "generation_rationale": "This is the reviewed candidate process and the principal rival to rule-driven and routine-driven explanations.",
+            "theoretical_basis": "A bounded-rationality account predicts that researchers adapt disclosure to individualized labour, permissions, privacy, timing, and reputational risks. The mechanism should vary with the project's exposure and resource conditions rather than remain constant across projects.",
+            "causal_mechanism": "The team identified project-specific cleaning, anonymization, permission, priority, scrutiny, and publication costs; it then weighed those costs against openness and selected graduated access as a risk-management compromise. If the salient burden were reduced or absorbed, the selected access strategy would become more permissive.",
+            "observable_predictions": [
+              {
+                "id": "pred_h1_01",
+                "description": "Decision records should show burden or risk recognition before the access choice, followed by explicit weighing of openness against labour, permissions, privacy, priority, or scrutiny."
+              },
+              {
+                "id": "pred_h1_02",
+                "description": "The strategy should change with project conditions: comparable datasets with lower individualized burden should receive more open access, while higher-burden datasets should receive more restrictions; external rules need not change."
+              },
+              {
+                "id": "pred_h1_03",
+                "description": "The record should contain little evidence that a pre-existing routine or direct mandate alone fixed the outcome before project-specific deliberation."
+              }
+            ]
+          },
+          {
+            "id": "h2",
+            "description": "Direct external rules caused the team to choose graduated and controlled access by constraining the permissible disclosure options.",
+            "source": "generated",
+            "generation_evidence_ids": [],
+            "generation_rationale": "This is an explicitly specified rival in which journal, funder, ethics, legal, copyright, or repository requirements are decisive rather than merely considered inputs.",
+            "theoretical_basis": "An institutional-constraint account predicts conformity to authoritative requirements and limited discretion. The decisive causal actor is an external regulator or gatekeeper, not the team's project-specific cost calculation.",
+            "causal_mechanism": "An external rule or approval condition required restricted, staged, or permissioned access; the team translated that requirement into repository and user-access procedures. Compliance therefore preceded or dominated internal deliberation, and removing the rule would relax the restriction.",
+            "observable_predictions": [
+              {
+                "id": "pred_h2_01",
+                "description": "Records should cite a specific external requirement as binding and show that the access design was selected after, or directly because of, that requirement rather than after an open-ended internal weighing process."
+              },
+              {
+                "id": "pred_h2_02",
+                "description": "Projects subject to the same rule should display similar access restrictions even when their labour, privacy, or publication burdens differ; rule changes should produce discrete strategy changes."
+              },
+              {
+                "id": "pred_h2_03",
+                "description": "If external rules were decisive, comparable cases without the mandate should be more permissive, and removing the mandate should matter more than reducing individualized burden."
+              }
+            ]
+          },
+          {
+            "id": "h3",
+            "description": "Stable prior preference and routine caused the team to choose graduated and controlled access independently of the project's immediate burden or binding external rules.",
+            "source": "generated",
+            "generation_evidence_ids": [],
+            "generation_rationale": "This is the specified rival that treats the decision as path-dependent practice or a durable organizational preference rather than a project-specific response.",
+            "theoretical_basis": "Path dependence and organizational-routine theory predict persistence through habituated procedures, identity, and prior commitments. Repeated practice can make a disclosure template self-reinforcing even when circumstances and formal rules vary.",
+            "causal_mechanism": "Earlier choices established a default preference for controlled access and routinized approval procedures; decision-makers reproduced that template for the psychiatric speech data, interpreting new circumstances through the existing routine. The routine, rather than a newly calculated burden or direct mandate, made the strategy the path of least resistance.",
+            "observable_predictions": [
+              {
+                "id": "pred_h3_01",
+                "description": "Earlier and later projects should exhibit similar graduated-access language, procedures, and timing despite variation in project-specific burdens and external requirements."
+              },
+              {
+                "id": "pred_h3_02",
+                "description": "Records should show the access design appearing as a default or inherited practice, with no clear prior risk calculation and no binding rule required to explain adoption."
+              },
+              {
+                "id": "pred_h3_03",
+                "description": "Reducing a project's salient burden or removing a particular mandate should not substantially alter the strategy unless the established routine or leadership preference changes; quantitative variation across projects should be low."
+              }
+            ]
+          }
+        ]
+      },
+      "audit": {
+        "research_question_adequate": true,
+        "rival_pairs": [
+          {
+            "h1_id": "h1",
+            "h2_id": "h2",
+            "overlap_concern": false,
+            "complementary_concern": false,
+            "absorptive_concern": false,
+            "prediction_contrasts": [
+              {
+                "h1_prediction_id": "pred_h1_01",
+                "h2_prediction_id": "pred_h2_01",
+                "contrast_dimension": "sequence",
+                "reasoning": "H1 predicts project-specific deliberation before the choice, whereas H2 predicts a binding external requirement preceding or dominating deliberation."
+              },
+              {
+                "h1_prediction_id": "pred_h1_02",
+                "h2_prediction_id": "pred_h2_02",
+                "contrast_dimension": "control",
+                "reasoning": "H1 predicts access variation with individualized burden, whereas H2 predicts similar restrictions across projects governed by the same rule despite differing burdens."
+              },
+              {
+                "h1_prediction_id": "pred_h1_02",
+                "h2_prediction_id": "pred_h2_03",
+                "contrast_dimension": "necessity",
+                "reasoning": "H1 predicts that reducing burden should relax access, whereas H2 predicts that removing the mandate matters more than reducing burden."
+              }
+            ],
+            "discriminator_count": 3,
+            "concern_detail": ""
+          },
+          {
+            "h1_id": "h1",
+            "h2_id": "h3",
+            "overlap_concern": false,
+            "complementary_concern": false,
+            "absorptive_concern": false,
+            "prediction_contrasts": [
+              {
+                "h1_prediction_id": "pred_h1_01",
+                "h2_prediction_id": "pred_h3_02",
+                "contrast_dimension": "sequence",
+                "reasoning": "H1 predicts explicit project-specific risk deliberation before the choice, whereas H3 predicts inherited default practice without a necessary prior risk calculation."
+              },
+              {
+                "h1_prediction_id": "pred_h1_02",
+                "h2_prediction_id": "pred_h3_03",
+                "contrast_dimension": "outcome",
+                "reasoning": "H1 predicts access variation with project burden, whereas H3 predicts low quantitative variation despite changing burdens unless the routine changes."
+              },
+              {
+                "h1_prediction_id": "pred_h1_03",
+                "h2_prediction_id": "pred_h3_02",
+                "contrast_dimension": "mechanism",
+                "reasoning": "H1 predicts little evidence of a pre-existing routine fixing the outcome, whereas H3 predicts default or inherited practice as the principal explanation."
+              }
+            ],
+            "discriminator_count": 3,
+            "concern_detail": ""
+          },
+          {
+            "h1_id": "h2",
+            "h2_id": "h3",
+            "overlap_concern": false,
+            "complementary_concern": false,
+            "absorptive_concern": false,
+            "prediction_contrasts": [
+              {
+                "h1_prediction_id": "pred_h2_01",
+                "h2_prediction_id": "pred_h3_02",
+                "contrast_dimension": "sequence",
+                "reasoning": "H2 predicts a specific binding requirement preceding or dominating the decision, whereas H3 predicts inherited practice without a binding rule."
+              },
+              {
+                "h1_prediction_id": "pred_h2_02",
+                "h2_prediction_id": "pred_h3_01",
+                "contrast_dimension": "control",
+                "reasoning": "H2 predicts convergence among projects subject to the same rule and discrete changes when rules change, whereas H3 predicts persistence across variation in formal requirements."
+              },
+              {
+                "h1_prediction_id": "pred_h2_03",
+                "h2_prediction_id": "pred_h3_03",
+                "contrast_dimension": "necessity",
+                "reasoning": "H2 predicts that removing the mandate should relax restrictions, whereas H3 predicts that mandate removal should not substantially matter unless the routine changes."
+              }
+            ],
+            "discriminator_count": 3,
+            "concern_detail": ""
+          }
+        ],
+        "hypotheses_flagged": [],
+        "overall_quality": "adequate",
+        "cap_applied": false,
+        "decision_blockers": [],
+        "decision_warnings": [],
+        "summary": "The hypotheses are sharply partitioned around distinct causal bottlenecks\u2014project-specific deliberation, binding external constraint, and inherited routine\u2014with concrete contrasts in timing, control, and counterfactual dependence. The winning hypothesis cannot absorb all rivals without contradicting their decisive claims, and the single outcome and project-focused window are sufficiently tight for discrimination."
+      }
+    }
+  ],
+  "final_audit": {
+    "research_question_adequate": true,
+    "rival_pairs": [
+      {
+        "h1_id": "h1",
+        "h2_id": "h2",
+        "overlap_concern": false,
+        "complementary_concern": false,
+        "absorptive_concern": false,
+        "prediction_contrasts": [
+          {
+            "h1_prediction_id": "pred_h1_01",
+            "h2_prediction_id": "pred_h2_01",
+            "contrast_dimension": "sequence",
+            "reasoning": "H1 predicts project-specific deliberation before the choice, whereas H2 predicts a binding external requirement preceding or dominating deliberation."
+          },
+          {
+            "h1_prediction_id": "pred_h1_02",
+            "h2_prediction_id": "pred_h2_02",
+            "contrast_dimension": "control",
+            "reasoning": "H1 predicts access variation with individualized burden, whereas H2 predicts similar restrictions across projects governed by the same rule despite differing burdens."
+          },
+          {
+            "h1_prediction_id": "pred_h1_02",
+            "h2_prediction_id": "pred_h2_03",
+            "contrast_dimension": "necessity",
+            "reasoning": "H1 predicts that reducing burden should relax access, whereas H2 predicts that removing the mandate matters more than reducing burden."
+          }
+        ],
+        "discriminator_count": 3,
+        "concern_detail": ""
+      },
+      {
+        "h1_id": "h1",
+        "h2_id": "h3",
+        "overlap_concern": false,
+        "complementary_concern": false,
+        "absorptive_concern": false,
+        "prediction_contrasts": [
+          {
+            "h1_prediction_id": "pred_h1_01",
+            "h2_prediction_id": "pred_h3_02",
+            "contrast_dimension": "sequence",
+            "reasoning": "H1 predicts explicit project-specific risk deliberation before the choice, whereas H3 predicts inherited default practice without a necessary prior risk calculation."
+          },
+          {
+            "h1_prediction_id": "pred_h1_02",
+            "h2_prediction_id": "pred_h3_03",
+            "contrast_dimension": "outcome",
+            "reasoning": "H1 predicts access variation with project burden, whereas H3 predicts low quantitative variation despite changing burdens unless the routine changes."
+          },
+          {
+            "h1_prediction_id": "pred_h1_03",
+            "h2_prediction_id": "pred_h3_02",
+            "contrast_dimension": "mechanism",
+            "reasoning": "H1 predicts little evidence of a pre-existing routine fixing the outcome, whereas H3 predicts default or inherited practice as the principal explanation."
+          }
+        ],
+        "discriminator_count": 3,
+        "concern_detail": ""
+      },
+      {
+        "h1_id": "h2",
+        "h2_id": "h3",
+        "overlap_concern": false,
+        "complementary_concern": false,
+        "absorptive_concern": false,
+        "prediction_contrasts": [
+          {
+            "h1_prediction_id": "pred_h2_01",
+            "h2_prediction_id": "pred_h3_02",
+            "contrast_dimension": "sequence",
+            "reasoning": "H2 predicts a specific binding requirement preceding or dominating the decision, whereas H3 predicts inherited practice without a binding rule."
+          },
+          {
+            "h1_prediction_id": "pred_h2_02",
+            "h2_prediction_id": "pred_h3_01",
+            "contrast_dimension": "control",
+            "reasoning": "H2 predicts convergence among projects subject to the same rule and discrete changes when rules change, whereas H3 predicts persistence across variation in formal requirements."
+          },
+          {
+            "h1_prediction_id": "pred_h2_03",
+            "h2_prediction_id": "pred_h3_03",
+            "contrast_dimension": "necessity",
+            "reasoning": "H2 predicts that removing the mandate should relax restrictions, whereas H3 predicts that mandate removal should not substantially matter unless the routine changes."
+          }
+        ],
+        "discriminator_count": 3,
+        "concern_detail": ""
+      }
+    ],
+    "hypotheses_flagged": [],
+    "overall_quality": "adequate",
+    "cap_applied": false,
+    "decision_blockers": [],
+    "decision_warnings": [],
+    "summary": "The hypotheses are sharply partitioned around distinct causal bottlenecks\u2014project-specific deliberation, binding external constraint, and inherited routine\u2014with concrete contrasts in timing, control, and counterfactual dependence. The winning hypothesis cannot absorb all rivals without contradicting their decisive claims, and the single outcome and project-focused window are sufficiently tight for discrimination."
+  }
+}

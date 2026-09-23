@@ -1,0 +1,124 @@
+{
+  "input_sha256": "e96607191e08ec22026a72c8fdcf7dea39236350bd749fa6b041681d1eb00bfb",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "narrative_1_c1",
+        "target_id": "narrative_1",
+        "claim_text": "The corpus observes a sequence from public barrier commentary and proposed responses, through reported 2023 AdminView funding, to a later documented four-level access architecture and controlled PsychosisBank access with interview, training, consent, clinical-data, and video-related controls.",
+        "source_field": "analytical_narrative",
+        "target_start": 0,
+        "target_end": 293,
+        "covered_text": "The corpus observes a sequence from public barrier commentary and proposed responses, through reported 2023 AdminView funding, to a later documented four-level access architecture and controlled PsychosisBank access with interview, training, consent, clinical-data, and video-related controls."
+      },
+      {
+        "claim_id": "narrative_1_c2",
+        "target_id": "narrative_1",
+        "claim_text": "It supports causal links from commentary to barrier identification",
+        "source_field": "analytical_narrative",
+        "target_start": 294,
+        "target_end": 360,
+        "covered_text": "It supports causal links from commentary to barrier identification"
+      },
+      {
+        "claim_id": "narrative_1_c3",
+        "target_id": "narrative_1",
+        "claim_text": "and from identified barriers to proposed responses.",
+        "source_field": "analytical_narrative",
+        "target_start": 361,
+        "target_end": 412,
+        "covered_text": "and from identified barriers to proposed responses."
+      },
+      {
+        "claim_id": "narrative_1_c4",
+        "target_id": "narrative_1",
+        "claim_text": "The funding-to-policy connection is unresolved,",
+        "source_field": "analytical_narrative",
+        "target_start": 413,
+        "target_end": 460,
+        "covered_text": "The funding-to-policy connection is unresolved,"
+      },
+      {
+        "claim_id": "narrative_1_c5",
+        "target_id": "narrative_1",
+        "claim_text": "while funding preceding the documented architecture and the architecture containing the later controls are observed sequences only.",
+        "source_field": "analytical_narrative",
+        "target_start": 461,
+        "target_end": 592,
+        "covered_text": "while funding preceding the documented architecture and the architecture containing the later controls are observed sequences only."
+      },
+      {
+        "claim_id": "narrative_1_c6",
+        "target_id": "narrative_1",
+        "claim_text": "Thus, the mechanism supports chronology and some barrier-to-response production,",
+        "source_field": "analytical_narrative",
+        "target_start": 593,
+        "target_end": 673,
+        "covered_text": "Thus, the mechanism supports chronology and some barrier-to-response production,"
+      },
+      {
+        "claim_id": "narrative_1_c7",
+        "target_id": "narrative_1",
+        "claim_text": "but not a complete causal account of the PsychosisBank selection.",
+        "source_field": "analytical_narrative",
+        "target_start": 674,
+        "target_end": 739,
+        "covered_text": "but not a complete causal account of the PsychosisBank selection."
+      },
+      {
+        "claim_id": "narrative_1_c8",
+        "target_id": "narrative_1",
+        "claim_text": "Comparative support ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533;",
+        "source_field": "analytical_narrative",
+        "target_start": 740,
+        "target_end": 861,
+        "covered_text": "Comparative support ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533;"
+      },
+      {
+        "claim_id": "narrative_1_c9",
+        "target_id": "narrative_1",
+        "claim_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+        "source_field": "analytical_narrative",
+        "target_start": 862,
+        "target_end": 931,
+        "covered_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown."
+      },
+      {
+        "claim_id": "narrative_1_c10",
+        "target_id": "narrative_1",
+        "claim_text": "Local likelihood perturbation leaves the ranking stable,",
+        "source_field": "analytical_narrative",
+        "target_start": 932,
+        "target_end": 988,
+        "covered_text": "Local likelihood perturbation leaves the ranking stable,"
+      },
+      {
+        "claim_id": "narrative_1_c11",
+        "target_id": "narrative_1",
+        "claim_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+        "source_field": "analytical_narrative",
+        "target_start": 989,
+        "target_end": 1087,
+        "covered_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation."
+      },
+      {
+        "claim_id": "narrative_1_c12",
+        "target_id": "narrative_1",
+        "claim_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;",
+        "source_field": "analytical_narrative",
+        "target_start": 1088,
+        "target_end": 1221,
+        "covered_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;"
+      },
+      {
+        "claim_id": "narrative_1_c13",
+        "target_id": "narrative_1",
+        "claim_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records.",
+        "source_field": "analytical_narrative",
+        "target_start": 1222,
+        "target_end": 1403,
+        "covered_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records."
+      }
+    ]
+  }
+}

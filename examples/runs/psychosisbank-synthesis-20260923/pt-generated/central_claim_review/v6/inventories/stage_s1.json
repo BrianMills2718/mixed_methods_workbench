@@ -1,0 +1,16 @@
+{
+  "input_sha256": "3d002d635104c99156b74d904ebcfc175cbd2f69db36186530dcbd0703a73e4f",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "stage_s1_claim_1",
+        "target_id": "stage_s1",
+        "claim_text": "Project authors published a commentary on barriers to sharing psychiatric speech data.",
+        "source_field": "mechanism_established",
+        "target_start": 0,
+        "target_end": 86,
+        "covered_text": "Project authors published a commentary on barriers to sharing psychiatric speech data."
+      }
+    ]
+  }
+}

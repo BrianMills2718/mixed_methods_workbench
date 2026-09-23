@@ -1,0 +1,16 @@
+{
+  "input_sha256": "11698f4f186c4f9854b5630b1258468a97a9115f167a825ff1a2063d67d1062f",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e2_c1",
+        "target_id": "edge_relationship_e2",
+        "claim_text": "barriers were followed by proposed consent and governance responses",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 67,
+        "covered_text": "barriers were followed by proposed consent and governance responses"
+      }
+    ]
+  }
+}

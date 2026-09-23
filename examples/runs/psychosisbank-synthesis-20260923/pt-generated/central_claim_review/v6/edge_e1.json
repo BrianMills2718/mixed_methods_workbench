@@ -1,0 +1,33 @@
+{
+  "input_sha256": "ecfa30462a31d52910f52e82bf333fd87191d5a63589383e895fbc3018458348",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "edge_e1_c1",
+        "target_id": "edge_e1",
+        "claim_text": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The evidence identifies the work as a commentary, describes barriers to open sharing of spoken-language data, and connects it to future speech-bank infrastructures for psychiatric disorders."
+      }
+    ],
+    "overall_assessment": "The claim is directly supported by the accepted evidence describing the commentary and its focus on barriers to psychiatric speech-data sharing.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "76e76c48b721bebc2bcfb85fb9dcf95771cb3128621f58d8ddd6cd4f93d850a2",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

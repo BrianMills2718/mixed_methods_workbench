@@ -1,0 +1,164 @@
+{
+  "input_sha256": "12cb29e37d54c394187dcbb60b428d023868a99e3d901a50fee3f39ac52e6e71",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "verdict_h3_c1",
+        "target_id": "verdict_h3",
+        "claim_text": "H3 ranks second with comparative support of 0.248644,",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "H3 ranks second",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/ranking"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/final_posterior"
+              }
+            ]
+          },
+          {
+            "basis": "pipeline_artifact",
+            "covers": "comparative support of 0.248644",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/final_posterior"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The ranking places h3 second, and its final posterior is 0.248644."
+      },
+      {
+        "claim_id": "verdict_h3_c2",
+        "target_id": "verdict_h3",
+        "claim_text": "marginally below its 0.25 prior.",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "marginally below its 0.25 prior",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/prior"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/final_posterior"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The prior is 0.25 and the final posterior is 0.248644."
+      },
+      {
+        "claim_id": "verdict_h3_c3",
+        "target_id": "verdict_h3",
+        "claim_text": "The diagnostic matrix contains no realized favorable discriminator for h3,",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "The diagnostic matrix contains no realized favorable discriminator for h3",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "diagnostic_matrix"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "diagnostic_matrix",
+                "json_pointer": "/rival_pair_diagnostics/1/discriminator_count"
+              },
+              {
+                "artifact_ref": "diagnostic_matrix",
+                "json_pointer": "/rival_pair_diagnostics/2/discriminator_count"
+              }
+            ]
+          }
+        ],
+        "reasoning": "Both rival pairs involving h3 have zero discriminators."
+      },
+      {
+        "claim_id": "verdict_h3_c4",
+        "target_id": "verdict_h3",
+        "claim_text": "and its mechanical robustness is unknown.",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "its mechanical robustness is unknown",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/robustness"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The h3 posterior record labels robustness as unknown."
+      },
+      {
+        "claim_id": "verdict_h3_c5",
+        "target_id": "verdict_h3",
+        "claim_text": "Sensitivity ranges from 0.239428 to 0.257864.",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "Sensitivity ranges from 0.239428 to 0.257864",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/2/posterior_low"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/2/posterior_high"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The h3 sensitivity interval has the stated lower and upper bounds."
+      }
+    ],
+    "overall_assessment": "All five inventory claims are directly entailed by the supplied Bayesian and diagnostic-matrix artifacts.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "abae8c74e1c40b5d166101195b8bb832e17d772fd3eec5cd78ff77a309f53286",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

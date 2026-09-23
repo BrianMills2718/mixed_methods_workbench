@@ -1,0 +1,90 @@
+{
+  "schema_version": "pt-frozen-hypothesis-receipt/1",
+  "frozen_contract_sha256": "93bbfe776a47011a41acef5f3fbe0d6daf8ae4dcb146a06f737ce88a79320767",
+  "theory_input_contract_sha256": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+  "compiled_material_sha256": "8f13f94fbb0b31a54e217e9bc8357c765263780bd2c91bd8748dd8552e66938b",
+  "source_trace_id": "qc-p5-psychosisbank-freeze-20260811a",
+  "source_model": "deterministic-reviewed-design",
+  "theory_evidence_relationship": "independent",
+  "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+  "hypothesis_ids": [
+    "h1",
+    "h2",
+    "h3"
+  ],
+  "canonical_hypothesis_space_sha256": "c7887a941917be4648374231feaca4998994bddde63a1870de120d0ba965f101",
+  "hypothesis_space": {
+    "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+    "hypotheses": [
+      {
+        "id": "h1",
+        "description": "Individualized governance, curation, credit, misuse, and jurisdiction burdens entered a deliberative tradeoff with Open Science goals and led the team toward graduated and controlled access.",
+        "source": "generated",
+        "generation_evidence_ids": [],
+        "generation_rationale": "Case-specific version of reviewed QC proposition P5 / p5-v1, frozen without exposure to the case corpus used for automated extraction.",
+        "theoretical_basis": "P5 proposes that researchers weigh labour, risk, timing, and exposure and may choose delayed, restricted, or minimum-compliance disclosure while still valuing openness.",
+        "causal_mechanism": "The project team recognizes specific disclosure burdens and risks, weighs open access against those constraints, and selects graduated or controlled access as the workable disclosure strategy.",
+        "observable_predictions": [
+          {
+            "id": "pred_h1_01",
+            "description": "Records before or during access-design selection identify concrete governance, curation, credit, scrutiny, or jurisdiction burdens rather than only stating the final policy."
+          },
+          {
+            "id": "pred_h1_02",
+            "description": "The record connects identified burdens to considered strategy features such as password protection, vetting, restricted media, embargo, deidentification, or federated access."
+          },
+          {
+            "id": "pred_h1_03",
+            "description": "When support absorbs a salient burden, the considered or selected strategy changes, or the burden is explicitly retained as a boundary on a more open strategy."
+          }
+        ]
+      },
+      {
+        "id": "h2",
+        "description": "External ethics, legal, funder, or repository rules directly determined controlled access, leaving little material project-level deliberation over disclosure strategy.",
+        "source": "generated",
+        "generation_evidence_ids": [],
+        "generation_rationale": "Frozen from QC's documented rival that journal, funder, ethics, legal, or repository rules can determine a strategy directly.",
+        "theoretical_basis": "A direct-rule account predicts compliance with binding requirements rather than the P5 sequence of project-specific weighing among feasible alternatives.",
+        "causal_mechanism": "A binding external rule specifies who may access the data and under what conditions; the project implements that requirement without a consequential burden-risk tradeoff selecting among disclosure strategies.",
+        "observable_predictions": [
+          {
+            "id": "pred_h2_01",
+            "description": "An authoritative rule explicitly mandates the material controlled-access features for psychiatric speech data before the project selects them."
+          },
+          {
+            "id": "pred_h2_02",
+            "description": "Policy changes track changes in the controlling external rule more closely than changes in project workload, support, credit, or perceived misuse risk."
+          },
+          {
+            "id": "pred_h2_03",
+            "description": "Alternative disclosure strategies are treated as unavailable under the rule rather than weighed and rejected as impracticable or risky."
+          }
+        ]
+      },
+      {
+        "id": "h3",
+        "description": "A stable prior preference or established TalkBank routine selected controlled access, while cited burdens and risks mainly justified or elaborated a choice made for other reasons.",
+        "source": "generated",
+        "generation_evidence_ids": [],
+        "generation_rationale": "Frozen from QC's documented stable-preference and retrospective-justification rivals.",
+        "theoretical_basis": "If a stable disposition or routine explains the outcome, similar strategies should recur without project-specific deliberation, and burden accounts need not precede or change the choice.",
+        "causal_mechanism": "The team begins with a settled institutional preference or standard access routine, applies it to the project, and later presents burden and risk considerations as justification or implementation detail rather than as the mechanism selecting the strategy.",
+        "observable_predictions": [
+          {
+            "id": "pred_h3_01",
+            "description": "The controlled-access preference or routine is documented before project-specific burden and risk appraisal."
+          },
+          {
+            "id": "pred_h3_02",
+            "description": "Comparable TalkBank projects receive the same strategy despite materially different burdens, risks, or support conditions."
+          },
+          {
+            "id": "pred_h3_03",
+            "description": "Burden and risk explanations appear retrospectively or remain unchanged when support absorbs those burdens."
+          }
+        ]
+      }
+    ]
+  }
+}

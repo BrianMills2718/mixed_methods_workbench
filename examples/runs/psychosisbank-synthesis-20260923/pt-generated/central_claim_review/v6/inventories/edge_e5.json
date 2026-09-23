@@ -1,0 +1,25 @@
+{
+  "input_sha256": "2b9477a72eb2b0849e68b55e88c861145ba16f907b8fea3aed64d21c9847a4f2",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_e5_c1",
+        "target_id": "edge_e5",
+        "claim_text": "TalkBank documented four access levels,",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 39,
+        "covered_text": "TalkBank documented four access levels,"
+      },
+      {
+        "claim_id": "edge_e5_c2",
+        "target_id": "edge_e5",
+        "claim_text": "and the policy places PsychosisBank in controlled access with interview and training requirements alongside additional controls for specified data and media conditions.",
+        "source_field": "mechanism_unresolved",
+        "target_start": 40,
+        "target_end": 208,
+        "covered_text": "and the policy places PsychosisBank in controlled access with interview and training requirements alongside additional controls for specified data and media conditions."
+      }
+    ]
+  }
+}

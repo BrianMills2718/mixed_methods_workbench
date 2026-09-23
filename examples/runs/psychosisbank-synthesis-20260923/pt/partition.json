@@ -1,0 +1,73 @@
+{
+  "research_question_adequate": true,
+  "rival_pairs": [
+    {
+      "h1_id": "h1",
+      "h2_id": "h2",
+      "overlap_concern": false,
+      "complementary_concern": false,
+      "absorptive_concern": false,
+      "prediction_contrasts": [
+        {
+          "h1_prediction_id": "pred_h1_02",
+          "h2_prediction_id": "pred_h2_03",
+          "contrast_dimension": "mechanism",
+          "reasoning": "H1 predicts that strategy features emerge from weighing burdens and feasible alternatives, whereas H2 predicts that alternatives are unavailable under a binding rule; observing consequential weighing weakens the direct-rule account."
+        },
+        {
+          "h1_prediction_id": "pred_h1_03",
+          "h2_prediction_id": "pred_h2_02",
+          "contrast_dimension": "control",
+          "reasoning": "H1 predicts that changes in salient burdens can alter or constrain the selected strategy, whereas H2 predicts that policy changes track external rules rather than project conditions."
+        }
+      ],
+      "discriminator_count": 2,
+      "concern_detail": ""
+    },
+    {
+      "h1_id": "h1",
+      "h2_id": "h3",
+      "overlap_concern": false,
+      "complementary_concern": false,
+      "absorptive_concern": false,
+      "prediction_contrasts": [
+        {
+          "h1_prediction_id": "pred_h1_01",
+          "h2_prediction_id": "pred_h3_01",
+          "contrast_dimension": "sequence",
+          "reasoning": "H1 predicts project-specific burden appraisal before or during selection, whereas H3 predicts a pre-existing preference before that appraisal; evidence of prior routine weakens H1 as the selecting mechanism."
+        },
+        {
+          "h1_prediction_id": "pred_h1_03",
+          "h2_prediction_id": "pred_h3_03",
+          "contrast_dimension": "necessity",
+          "reasoning": "H1 predicts that absorbing a salient burden can change or constrain the strategy, whereas H3 predicts that burden explanations remain retrospective or unchanged; observed strategy responsiveness weakens H3."
+        }
+      ],
+      "discriminator_count": 2,
+      "concern_detail": ""
+    },
+    {
+      "h1_id": "h2",
+      "h2_id": "h3",
+      "overlap_concern": false,
+      "complementary_concern": true,
+      "absorptive_concern": false,
+      "prediction_contrasts": [],
+      "discriminator_count": 0,
+      "concern_detail": "A binding external rule and an established institutional routine could both jointly explain the same controlled-access choice without a specified causal bottleneck."
+    }
+  ],
+  "hypotheses_flagged": [
+    "h2",
+    "h3"
+  ],
+  "overall_quality": "needs_review",
+  "cap_applied": true,
+  "decision_blockers": [
+    "pair h2<->h3: complementarity, no valid concrete prediction contrast",
+    "hypotheses require split, merge, or reframing: ['h2', 'h3']"
+  ],
+  "decision_warnings": [],
+  "summary": "The strongest concern is the unresolved h2\u2013h3 relationship: direct external determination and stable institutional routine can coexist, but the hypotheses provide no concrete opposed prediction separating causal primacy. H1 is more sharply partitioned against each rival, and the focal outcome and timing window are otherwise adequate, but the winning account could not absorb all rivals without resolving this complementary pair."
+}
