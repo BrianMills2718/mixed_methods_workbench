@@ -1,0 +1,508 @@
+{
+  "schema_version": "mmw.investigation_spine.p5.v1",
+  "investigation_id": "psychosisbank-disclosure-explanation",
+  "title": "Why did PsychosisBank use controlled access?",
+  "status": "unresolved",
+  "status_label": "The new case was informative, but it did not settle the explanation.",
+  "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+  "case_name": "PsychosisBank and TalkBank graduated-access design",
+  "focal_window": "2022 design commentary through the 2023 AdminView implementation and the hash-frozen current access-policy snapshot retrieved 2026-08-11",
+  "observed_outcome": "PsychosisBank uses controlled access with an interview and CITI-training requirement inside TalkBank's graduated four-level access system.",
+  "plain_language_explanation": "Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness.",
+  "result_headline": "The evidence fits the explanation, but does not confirm it.",
+  "result_summary": "The packet documents disclosure burdens, several possible responses, and PsychosisBank's controlled-access outcome. It weakens a direct-rule-only rival, but it does not distinguish the disclosure-burden explanation from stable prior preference or routine and lacks the contemporaneous decision record needed to establish the disclosure-burden explanation's deliberative mechanism.",
+  "journey": [
+    {
+      "number": 1,
+      "title": "Qualitative research proposed an explanation",
+      "owner": "Qualitative Coding",
+      "status": "accepted_input",
+      "question_answered": "What explanation should be tested in a different case?",
+      "outcome": "Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness.",
+      "artifact_ids": [
+        "qualitative-explanation"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "A different case supplied new evidence",
+      "owner": "Process Tracing",
+      "status": "new_evidence",
+      "question_answered": "What happened in a named project that was not used to create the explanation?",
+      "outcome": "24 evidence items from 3 sources documented relevant barriers, response options, and the controlled-access outcome.",
+      "artifact_ids": [
+        "independent-case-sources"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Process Tracing compared competing explanations",
+      "owner": "Process Tracing",
+      "status": "unresolved",
+      "question_answered": "Did burden-sensitive deliberation explain the choice better than rules or established routine?",
+      "outcome": "The packet documents disclosure burdens, several possible responses, and PsychosisBank's controlled-access outcome. It weakens a direct-rule-only rival, but it does not distinguish the disclosure-burden explanation from stable prior preference or routine and lacks the contemporaneous decision record needed to establish the disclosure-burden explanation's deliberative mechanism.",
+      "artifact_ids": [
+        "process-tracing-return",
+        "p5-psychosisbank-case-20260811a/run-exact-p5/result_blocked_prepublication.json"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "The explanation stayed open",
+      "owner": "Qualitative Coding",
+      "status": "retained_unconfirmed",
+      "question_answered": "What should happen to the original explanation now?",
+      "outcome": "Keep it as an unconfirmed candidate and collect the missing decision records; do not treat the case as confirmation or rejection.",
+      "artifact_ids": [
+        "process-tracing-return"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "source_a",
+      "source_url": "https://talkbank.org/psychosis/publications/papers/Palaniyappan22.pdf",
+      "title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?",
+      "source_kind": "secondary analysis",
+      "evidence_count": 11
+    },
+    {
+      "source_id": "source_b",
+      "source_url": "https://talkbank.org/0share/access.html",
+      "title": "TalkBank Data Access Levels",
+      "source_kind": "primary document",
+      "evidence_count": 4
+    },
+    {
+      "source_id": "source_c",
+      "source_url": "https://talkbank.org/0share/irb/index.html",
+      "title": "TalkBank IRB Approval and Informed Consent Guidance",
+      "source_kind": "primary document",
+      "evidence_count": 9
+    }
+  ],
+  "evidence_item_count": 24,
+  "supported_findings": [
+    "The new sources document consent, deidentification, credit, and misuse burdens alongside several possible disclosure controls.",
+    "The documented response set contains alternatives rather than showing that one external rule directly dictated every access feature.",
+    "The current TalkBank policy places PsychosisBank in controlled access with an interview and CITI-training requirement."
+  ],
+  "unresolved_questions": [
+    "The packet lacks a contemporaneous PsychosisBank decision record linking recognized burdens to the selected access strategy.",
+    "The packet does not distinguish the disclosure-burden explanation's deliberative account from a stable prior preference or established TalkBank routine.",
+    "The accepted evidence does not establish that the documented conditional controls preceded AdminView's recorded funding date."
+  ],
+  "next_evidence": [
+    {
+      "label": "Contemporaneous PsychosisBank decision records",
+      "why_it_matters": "Minutes, correspondence, or design tickets are needed to establish temporal order, options actually considered, and who selected controlled access.",
+      "likely_location": "PsychosisBank, DISCOURSE in Psychosis, or TalkBank project records and correspondence",
+      "priority": "high"
+    },
+    {
+      "label": "Timestamped policy and repository change history",
+      "why_it_matters": "The current pages do not independently establish when PsychosisBank moved to controlled access or whether policy changed after the 2022 design commentary.",
+      "likely_location": "TalkBank repository history, web archive, AdminView change log, or project release record",
+      "priority": "high"
+    },
+    {
+      "label": "Project-specific consent, ethics, and governance determinations",
+      "why_it_matters": "These records would show which constraints were mandatory and which disclosure options remained discretionary.",
+      "likely_location": "Contributing-project IRB records, consent forms, governance review, or approved access protocol",
+      "priority": "high"
+    }
+  ],
+  "publication_block_reason": "The draft statement \u201cand conditional controls precede the recorded AdminView funding date\u201d was withheld because The evidence documents conditional controls and a 2023 AdminView funding date separately, but does not establish that the controls preceded that date.",
+  "do_not_infer": [
+    "The case independently confirms or rejects the disclosure-burden explanation.",
+    "Comparative support is a probability that the disclosure-burden explanation is true or a qualitative confidence score.",
+    "The publication-blocked mechanism narrative is a publishable causal conclusion."
+  ],
+  "artifact_refs": [
+    {
+      "artifact_id": "qualitative-explanation",
+      "object_identity": "P5 / p5-v1",
+      "title": "Frozen qualitative explanation",
+      "producer": "process_tracing intake fixture",
+      "semantic_owner": "qualitative_coding",
+      "artifact_type": "qualitative_explanation_input",
+      "schema_version": "qc-p5-process-tracing-input/1",
+      "content_sha256": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+      "producer_revision": "d921baaf6f2b661e68d24aa243ee05da7fbe1823",
+      "availability": "embedded",
+      "native_route": "/public/example/data/theory-model",
+      "custody_note": "Exact producer-authored QC proposition frozen by Process Tracing before case appraisal."
+    },
+    {
+      "artifact_id": "independent-case-sources",
+      "object_identity": "PsychosisBank and TalkBank graduated-access design",
+      "title": "PsychosisBank/TalkBank source packet",
+      "producer": "process_tracing",
+      "semantic_owner": "process_tracing",
+      "artifact_type": "source_packet",
+      "schema_version": null,
+      "content_sha256": "dc33be62aed976033d2ad5bf6a22456819649cfd7f02fab6857306d5165e2d8b",
+      "producer_revision": "3775f783acf3e619d91f0d7acb667604c5c59272",
+      "availability": "embedded",
+      "native_route": null,
+      "custody_note": "Exact three-source packet used for the bounded independent case appraisal."
+    },
+    {
+      "artifact_id": "process-tracing-return",
+      "object_identity": "p5-psychosisbank-case-20260811a",
+      "title": "Publication-aware Process Tracing return",
+      "producer": "process_tracing",
+      "semantic_owner": "process_tracing",
+      "artifact_type": "theory_test_return",
+      "schema_version": "pt_theory_test_return_v1",
+      "content_sha256": "513be8d2718f2a5176a8d6d1be6074efe851f3cb9e04d6091453d4848e532a8e",
+      "producer_revision": "3775f783acf3e619d91f0d7acb667604c5c59272",
+      "availability": "embedded",
+      "native_route": "/public/example/data/p5-theory-test-return",
+      "custody_note": "Exact return bytes are identical in the pinned Process Tracing and QC fixtures."
+    },
+    {
+      "artifact_id": "p5-psychosisbank-case-20260811a/run-exact-p5/theory_input_receipt.json",
+      "object_identity": "p5-psychosisbank-case-20260811a/run-exact-p5/theory_input_receipt.json",
+      "title": "Theory input receipt",
+      "producer": "process_tracing",
+      "semantic_owner": "process_tracing",
+      "artifact_type": "theory_input_receipt",
+      "schema_version": null,
+      "content_sha256": "5b40d6063bf36425fd534467e04c27e62ee0286ebe4a2e4a667eb63d1497d7d8",
+      "producer_revision": "3775f783acf3e619d91f0d7acb667604c5c59272",
+      "availability": "producer_retained_reference",
+      "native_route": null,
+      "custody_note": "The producer return binds this artifact by ID and digest; its bytes are not copied into the Workbench."
+    },
+    {
+      "artifact_id": "p5-psychosisbank-case-20260811a/run-exact-p5/result_blocked_prepublication.json",
+      "object_identity": "p5-psychosisbank-case-20260811a/run-exact-p5/result_blocked_prepublication.json",
+      "title": "Blocked prepublication result",
+      "producer": "process_tracing",
+      "semantic_owner": "process_tracing",
+      "artifact_type": "process_tracing_result",
+      "schema_version": null,
+      "content_sha256": "7de3e7cf2fdce6c38f7aff78411aa0491da53b3677846b40aa0a9a9d66c0a962",
+      "producer_revision": "3775f783acf3e619d91f0d7acb667604c5c59272",
+      "availability": "producer_retained_reference",
+      "native_route": null,
+      "custody_note": "The producer return binds this artifact by ID and digest; its bytes are not copied into the Workbench."
+    },
+    {
+      "artifact_id": "p5-psychosisbank-case-20260811a/run-exact-p5/central_claim_review.json",
+      "object_identity": "p5-psychosisbank-case-20260811a/run-exact-p5/central_claim_review.json",
+      "title": "Central claim review",
+      "producer": "process_tracing",
+      "semantic_owner": "process_tracing",
+      "artifact_type": "publication_review",
+      "schema_version": null,
+      "content_sha256": "c9660e7d32c061f300609182a9f89b979213c7d9f1294c31ca314fe6e9d0aa28",
+      "producer_revision": "3775f783acf3e619d91f0d7acb667604c5c59272",
+      "availability": "producer_retained_reference",
+      "native_route": null,
+      "custody_note": "The producer return binds this artifact by ID and digest; its bytes are not copied into the Workbench."
+    }
+  ],
+  "independent_verification": {
+    "schema_version": "mmw.independent_challenge.v1",
+    "review_state": "model_challenge_pending_human_review",
+    "case_id": "psychosisbank-disclosure-explanation",
+    "input_digests": {
+      "qualitative_explanation.json": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+      "independent_case_sources.json": "dc33be62aed976033d2ad5bf6a22456819649cfd7f02fab6857306d5165e2d8b",
+      "process_tracing_return.json": "513be8d2718f2a5176a8d6d1be6074efe851f3cb9e04d6091453d4848e532a8e"
+    },
+    "prompt_sha256": "fbc5719de3b9b5af05f17523773cd57e8a9e498b17e454b80826bf39999c0941",
+    "schema_sha256": "c9fe2d4eefb1ed5eb908260461a28174e745e1e7abdf43a27e674901e112062d",
+    "model_requested": "openrouter/google/gemini-3.1-pro-preview",
+    "model_resolved": "openrouter/google/gemini-3.1-pro-preview",
+    "trace_id": "portfolio/psychosisbank/independent-challenge/2026-09-23",
+    "generated_at": "2026-09-23T20:00:53.053756+00:00",
+    "cost_usd": 0.01757,
+    "challenge": {
+      "findings": [
+        {
+          "finding_id": "documented_burdens_and_responses",
+          "verdict": "bounded_support",
+          "reason": "The excerpts explicitly list concerns regarding consent, deidentification, credit, and misuse, paired with various control options like embargoes, vetting, and dynamic consent.",
+          "evidence_ids": [
+            "c01_evi_commentary_barriers_open_science",
+            "c01_evi_consent_multiple_responses",
+            "c01_evi_deidentification_options",
+            "c01_evi_credit_embargo_controls",
+            "c01_evi_misuse_vetting_controls"
+          ],
+          "source_gap": "No private deliberation or project-specific ethics determination is included to verify how these were internally weighed."
+        },
+        {
+          "finding_id": "multiple_options_not_one_rule",
+          "verdict": "bounded_support",
+          "reason": "The text lists menus of alternatives for handling consent and deidentification rather than a single mandated external rule.",
+          "evidence_ids": [
+            "c01_evi_consent_multiple_responses",
+            "c01_evi_deidentification_options"
+          ],
+          "source_gap": "The public commentary may report normative design logic rather than the complete causal sequence of implementation."
+        },
+        {
+          "finding_id": "controlled_access_outcome",
+          "verdict": "bounded_support",
+          "reason": "The policy excerpts clearly state that PsychosisBank requires a specific access level involving a special interview process and proof of CITI training.",
+          "evidence_ids": [
+            "c01_evi_four_talkbank_levels",
+            "c01_evi_psychosisbank_controlled_requirements"
+          ],
+          "source_gap": "Current policy pages are authoritative for the captured snapshot but are not full historical change records."
+        }
+      ],
+      "overall_limit": "The packet is source-selected, relies on normative public commentary and current policy snapshots, and lacks private deliberation records or full historical change logs."
+    }
+  },
+  "independent_verification_excerpts": [
+    {
+      "evidence_id": "c01_evi_commentary_barriers_open_science",
+      "source_id": "source_a",
+      "source_quote": "Open Science encourages fully open access, but that open sharing of spoken-language data from clinical populations has met significant resistance."
+    },
+    {
+      "evidence_id": "c01_evi_consent_multiple_responses",
+      "source_id": "source_a",
+      "source_quote": "re-contact, an IRB waiver where permissible, explicit consent for qualified-researcher access, participant removal rights, governance-body vetting, signed agreements, password access, institutional qualification, purpose limitations, and dynamic consent"
+    },
+    {
+      "evidence_id": "c01_evi_deidentification_options",
+      "source_id": "source_a",
+      "source_quote": "share typed transcripts rather than audio; blur video or replace images with avatars; or use password-protected video with adequate consent"
+    },
+    {
+      "evidence_id": "c01_evi_credit_embargo_controls",
+      "source_id": "source_a",
+      "source_quote": "TalkBank addresses this concern by permitting a data-use embargo, after which corpus citation, DOI assignment, and citation of a contributor's prior publication help preserve credit."
+    },
+    {
+      "evidence_id": "c01_evi_misuse_vetting_controls",
+      "source_id": "source_a",
+      "source_quote": "although such misuse had not occurred in TalkBank-affiliated databases, sharing could be restricted to vetted qualified researchers who agree to a code of conduct and whose intended use is pre-approved by a governing body"
+    },
+    {
+      "evidence_id": "c01_evi_four_talkbank_levels",
+      "source_id": "source_b",
+      "source_quote": "TalkBank offers four levels. Open access requires no restrictions or registration. Registration-required access requires an account and password. Approved access is available to verified academic researchers"
+    },
+    {
+      "evidence_id": "c01_evi_psychosisbank_controlled_requirements",
+      "source_id": "source_b",
+      "source_quote": "corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training"
+    }
+  ],
+  "connected_run": {
+    "run_id": "psychosisbank-synthesis-20260923",
+    "qc_input_state": "reused_reviewed_proposition",
+    "attempts": [
+      {
+        "trace_id": "mmw-psychosisbank-connected-20260923",
+        "route": "frozen reviewed rivals",
+        "outcome": "blocked_partition",
+        "evidence_path": "pt/partition_resolution.json",
+        "evidence_sha256": "61bc3646b6b497da30a2c8d1ed87f0239410f0cf3b93a64b910a2969e1b45e5b"
+      },
+      {
+        "trace_id": "mmw-psychosisbank-generated-20260923",
+        "route": "theory-first generated and audited rivals",
+        "outcome": "blocked_publication",
+        "evidence_path": "pt-generated/pt_export_v2.json",
+        "evidence_sha256": "028aa7f43fe474c29d649303ac879df8b646c64c38e55c96edd87e09267b0d6c"
+      }
+    ],
+    "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+    "conclusion": {
+      "status": "unique_leader",
+      "leading_hypothesis_ids": [
+        "h1"
+      ],
+      "public_headline_eligible": false,
+      "public_headline_reason": "The bounded MVP label-invariance smoke did not preserve the same qualitative leader or tie set after a fresh label permutation. Comparative-support values remain inspectable experimental diagnostics, not a public conclusion."
+    },
+    "inference": {
+      "mode": "theory_first",
+      "status": "confirmatory_eligible_theory_first",
+      "rationale": "The typed QC theory input is compiled before corpus evidence is exposed. Same-case reuse is declared separately and blocks independent confirmation when present."
+    },
+    "methodology": {
+      "status": "verified",
+      "incomplete_reasons": []
+    },
+    "claim_limits": [
+      "3 high-priority source gap(s) remain unresolved; declared high-priority gaps: Contemporaneous PsychosisBank decision records, Timestamped policy and repository change history, Project-specific consent, ethics, and governance determinations",
+      "At least one rival pair lacks discriminating evidence."
+    ],
+    "hypotheses": [
+      {
+        "hypothesis_id": "h1",
+        "description": "Project-specific burden and risk deliberation caused the team to choose graduated and controlled access."
+      },
+      {
+        "hypothesis_id": "h2",
+        "description": "Direct external rules caused the team to choose graduated and controlled access by constraining the permissible disclosure options."
+      },
+      {
+        "hypothesis_id": "h3",
+        "description": "Stable prior preference and routine caused the team to choose graduated and controlled access independently of the project's immediate burden or binding external rules."
+      },
+      {
+        "hypothesis_id": "H0_residual",
+        "description": "None of the listed explanations (other cause, or a genuinely conjunctural combination)"
+      }
+    ],
+    "verdicts": [
+      {
+        "hypothesis_id": "h1",
+        "status": "indeterminate",
+        "reasoning": "H1 ranks first with comparative support of 0.288179, above its 0.25 prior, but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3. Its support is fragile and sensitivity ranges from 0.268777 to 0.308148.",
+        "key_evidence_for": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ],
+        "key_evidence_against": []
+      },
+      {
+        "hypothesis_id": "h2",
+        "status": "weakened",
+        "reasoning": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior. The accepted comparisons favor alternatives to a single binding rule, and the matrix contains no favorable discriminator for h2. Support is fragile and ranges from 0.197927 to 0.231903.",
+        "key_evidence_for": [],
+        "key_evidence_against": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ]
+      },
+      {
+        "hypothesis_id": "h3",
+        "status": "weakened",
+        "reasoning": "H3 ranks second with comparative support of 0.248644, marginally below its 0.25 prior. The diagnostic matrix contains no realized favorable discriminator for h3, and its mechanical robustness is unknown. Sensitivity ranges from 0.239428 to 0.257864.",
+        "key_evidence_for": [],
+        "key_evidence_against": []
+      }
+    ],
+    "challenge": {
+      "findings": [
+        {
+          "finding_id": "h1",
+          "verdict": "bounded_support",
+          "reason": "The finding cautiously describes the support as fragile and indeterminate, which accurately reflects the mixed evidence indicating deliberation over multiple access responses and misuse prevention without definitively proving it as the sole cause.",
+          "evidence_ids": [
+            "c01_evi_multiple_access_responses",
+            "c01_evi_misuse_vetted_access"
+          ],
+          "source_gap": "Contemporaneous PsychosisBank decision records"
+        },
+        {
+          "finding_id": "h2",
+          "verdict": "bounded_support",
+          "reason": "The conclusion that h2 is weakened aligns with the excerpts showing multiple possible responses rather than a single binding rule.",
+          "evidence_ids": [
+            "c01_evi_multiple_access_responses",
+            "c01_evi_misuse_vetted_access"
+          ],
+          "source_gap": "Contemporaneous PsychosisBank decision records"
+        },
+        {
+          "finding_id": "h3",
+          "verdict": "bounded_support",
+          "reason": "The finding correctly identifies h3 as weakened and lacking realized favorable discriminators, which is consistent with the evidence showing varied access options rather than a single stable prior preference.",
+          "evidence_ids": [
+            "c01_evi_four_access_levels",
+            "c02_evi_multiple_access_options"
+          ],
+          "source_gap": "Timestamped policy and repository change history"
+        }
+      ],
+      "overall_limit": "3 high-priority source gap(s) remain unresolved; declared high-priority gaps: Contemporaneous PsychosisBank decision records, Timestamped policy and repository change history, Project-specific consent, ethics, and governance determinations"
+    },
+    "cited_evidence": {
+      "c01_evi_multiple_access_responses": {
+        "source_id": "source_a",
+        "source_quote": "re-contact, an IRB waiver where permissible, explicit consent for qualified-researcher access, participant removal rights, governance-body vetting, signed agreements, password access, institutional qualification, purpose limitations, and dynamic consent as possible responses rather than one universal access rule"
+      },
+      "c01_evi_six_barriers_regulatory_public": {
+        "source_id": "source_a",
+        "source_quote": "They identify at least six barriers and state that some arise from institutional interpretations of regulations while others concern public perceptions."
+      },
+      "c01_evi_misuse_vetted_access": {
+        "source_id": "source_a",
+        "source_quote": "although such misuse had not occurred in TalkBank-affiliated databases, sharing could be restricted to vetted qualified researchers who agree to a code of conduct and whose intended use is pre-approved by a governing body"
+      },
+      "c01_evi_curation_support": {
+        "source_id": "source_a",
+        "source_quote": "funding agencies provide resources to TalkBank and similar projects to help researchers and database workers achieve correct formatting and curation"
+      },
+      "c01_evi_four_access_levels": {
+        "source_id": "source_b",
+        "source_quote": "TalkBank offers four levels"
+      },
+      "c01_evi_psychosisbank_controlled_adminview": {
+        "source_id": "source_b",
+        "source_quote": "corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training"
+      },
+      "c02_evi_dua_burden_nih": {
+        "source_id": "source_b",
+        "source_quote": "TalkBank has not used this method \"because of the extra administrative burden for all parties and the fact that this system is not approved by NIH.\""
+      },
+      "c02_evi_irb_consent_nonuniform": {
+        "source_id": "source_c",
+        "source_quote": "there are no standard IRB forms because each institution has its own procedures and templates"
+      },
+      "c02_evi_multiple_access_options": {
+        "source_id": "source_c",
+        "source_quote": "contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research"
+      },
+      "c02_evi_authorized_password_access": {
+        "source_id": "source_c",
+        "source_quote": "participants should permit access for authorized researchers using password protection"
+      },
+      "c02_evi_clinical_data_restrictions": {
+        "source_id": "source_c",
+        "source_quote": "contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation"
+      },
+      "c02_evi_video_consent_controls": {
+        "source_id": "source_c",
+        "source_quote": "video can be made available only with explicit informed consent or a higher level of password protection involving committee approval"
+      }
+    },
+    "check_model": "openrouter/google/gemini-3.1-pro-preview",
+    "check_trace_id": "mmw-psychosisbank-fresh-export-challenge-20260923",
+    "review_state": "blocked_publication_pending_researcher_review",
+    "publication_block_reason": "Process Tracing terminal claim review found unsupported claims and blocked publication. The exported comparative weights are diagnostics only.",
+    "planning_receipt": {
+      "schema_version": "mmw.psychosisbank_planning_receipt.v1",
+      "investigation_id": "psychosisbank-disclosure-explanation",
+      "question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+      "connected_run_receipt_sha256": "3ccec122c8a562839e352a2e82ffb131fbb800652ba768475da9010bcd25dc1a",
+      "source_input_digests": {
+        "qc_theory_input.json": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+        "case_source_packet.json": "dc33be62aed976033d2ad5bf6a22456819649cfd7f02fab6857306d5165e2d8b",
+        "case_corpus.txt": "c258e028ba796ca11f803856f5b5201f1fca1df3503c4137d7dc624fb7483a0a",
+        "pt-generated/result_blocked_prepublication.json": "7f857437b1be5636c528f96ca10c0b231be14fc578d8bdcbf13a7b689615c725",
+        "pt-generated/central_claim_review.json": "a569929e8b457105e166dd39dd5359bd22da42ada5c6684b8a7f7ffc3f1c0f86",
+        "pt-generated/pt_export_v2.json": "028aa7f43fe474c29d649303ac879df8b646c64c38e55c96edd87e09267b0d6c",
+        "pt/partition_resolution.json": "61bc3646b6b497da30a2c8d1ed87f0239410f0cf3b93a64b910a2969e1b45e5b"
+      },
+      "method_roles": {
+        "qualitative_coding": "candidate proposition; no causal conclusion",
+        "process_tracing": "test rival explanations within the frozen source scope",
+        "independent_check": "advisory challenge; cannot approve a causal conclusion"
+      },
+      "prohibited_inferences": [
+        "Do not publish a causal explanation from this source packet.",
+        "Do not treat comparative weights as probabilities of truth."
+      ],
+      "terminal_review_state": "withhold_causal_publication_pending_human_review",
+      "human_decision": "withhold_causal_publication",
+      "next_evidence": [
+        "Contemporaneous PsychosisBank decision records",
+        "Timestamped policy and repository change history",
+        "Project-specific consent, ethics, and governance determinations"
+      ]
+    }
+  }
+}
