@@ -1,0 +1,134 @@
+{
+  "actionable_recommendations": [
+    {
+      "description": "When using Bourrienne's memoir, cross-reference claims with the Constitution and decrees to distinguish personal recollection from legal fact.",
+      "priority": "High",
+      "supporting_themes": [
+        "GOVERNMENT_STRUCTURE",
+        "COMMUNICATION_PATTERNS"
+      ],
+      "title": "Cross-reference memoir details with official documents"
+    },
+    {
+      "description": "In future analyses, use the exact legal terminology from the Constitution when discussing authority changes to avoid misinterpretation.",
+      "priority": "Medium",
+      "supporting_themes": [
+        "LEGAL_PROCEDURES"
+      ],
+      "title": "Use precise legal language in analyses"
+    },
+    {
+      "description": "When quoting memoir dialogue, clarify that it is narrative framing, not direct transcription of events.",
+      "priority": "Medium",
+      "supporting_themes": [
+        "COMMUNICATION_PATTERNS"
+      ],
+      "title": "Note narrative framing in reports"
+    },
+    {
+      "description": "Explain in methods sections why official documents were prioritized over memoir accounts for legal questions.",
+      "priority": "Low",
+      "supporting_themes": [
+        "GOVERNMENT_STRUCTURE"
+      ],
+      "title": "Document source selection rationale"
+    }
+  ],
+  "analytical_memo": "I distinguished official legal texts from memoir narrative to prevent conflation. The emotional intensity of Bourrienne's account contrasted with dry legal prose, suggesting a need for context. Uncertainties remain about memoir reliability due to later biases.",
+  "confidence_assessment": [
+    {
+      "evidence": "Explicit provisions in Constitution.",
+      "level": "high",
+      "score": 0.9,
+      "theme": "GOVERNMENT_STRUCTURE"
+    },
+    {
+      "evidence": "Recurring in memoir, less in official texts.",
+      "level": "medium",
+      "score": 0.7,
+      "theme": "COMMUNICATION_PATTERNS"
+    },
+    {
+      "evidence": "Mentioned in official and memoir, less detail.",
+      "level": "medium",
+      "score": 0.65,
+      "theme": "LEGAL_PROCEDURES"
+    }
+  ],
+  "cross_cutting_pattern_support": [
+    {
+      "statement_index": 0,
+      "supporting_application_ids": [
+        "A0015",
+        "A0007"
+      ]
+    },
+    {
+      "statement_index": 1,
+      "supporting_application_ids": [
+        "A0016",
+        "A0007"
+      ]
+    },
+    {
+      "statement_index": 2,
+      "supporting_application_ids": [
+        "A0015",
+        "A0007"
+      ]
+    },
+    {
+      "statement_index": 3,
+      "supporting_application_ids": [
+        "A0017",
+        "A0007"
+      ]
+    }
+  ],
+  "cross_cutting_patterns": [
+    "Official and memoir sources consistently diverge in tone, with legal texts being formal and the memoir personal.",
+    "Collective governance is consistently emphasized in official texts, while the memoir centers on individual actors.",
+    "Legal continuity is contrasted with personal agency across all sources.",
+    "Institutional details dominate official accounts, whereas the memoir uses dialogue and narrative."
+  ],
+  "executive_summary": "The official documents emphasize legal continuity and collective governance, while Bourrienne's memoir highlights personal agency and secret negotiations. The change of authority is framed as lawful in the legal texts, but as a personal maneuver in the memoir.",
+  "key_finding_support": [
+    {
+      "statement_index": 0,
+      "supporting_application_ids": [
+        "A0016"
+      ]
+    },
+    {
+      "statement_index": 1,
+      "supporting_application_ids": [
+        "A0015"
+      ]
+    },
+    {
+      "statement_index": 2,
+      "supporting_application_ids": [
+        "A0017"
+      ]
+    },
+    {
+      "statement_index": 3,
+      "supporting_application_ids": [
+        "A0007"
+      ]
+    },
+    {
+      "statement_index": 4,
+      "supporting_application_ids": [
+        "A0007"
+      ]
+    }
+  ],
+  "key_findings": [
+    "The Constitution establishes a formal legal framework for the change of authority, detailing institutional roles and procedures.",
+    "The memoir portrays the change of authority as resulting from personal interactions and secret negotiations.",
+    "Official documents emphasize collective governance, while the memoir focuses on individual agency and emotional dynamics.",
+    "The legal texts use formal language, while the memoir employs narrative and dialogue.",
+    "Overall, the sources present differing views on the basis of authority, with official documents citing legal continuity and the memoir emphasizing personal ambition."
+  ]
+}

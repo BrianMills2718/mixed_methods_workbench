@@ -1,0 +1,121 @@
+{
+  "candidate_digest": "ddc03e0ea394fd2881f8c3388747010170d3fdcab18eafeb55421d4581683019",
+  "contract_version": 1,
+  "verdicts": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "12e706f3-f183-4bf5-b938-600ca24f36e3",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passage supports an institutional role and a replacement procedure, but does not establish a broader formal legal framework or detail multiple procedures."
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "disposition": "unsupported",
+      "evidence_verdicts": [
+        {
+          "application_id": "0f22c327-96a1-4b69-9d7c-766ef884f97a",
+          "disposition": "does_not_support"
+        }
+      ],
+      "rationale": "The passage describes consuls’ eligibility for Senate seats and contains no personal interactions or secret negotiations."
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "711190fe-d475-4e45-916d-452dc45df47e",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passage supports an official decision-making arrangement involving the First Consul, but provides no memoir evidence or emotional dynamics."
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The fragment indicates dialogue, but it does not establish the broader contrast between legal-text formality and memoir narrative."
+    },
+    {
+      "clause_id": "finding:4:clause:0",
+      "disposition": "unsupported",
+      "evidence_verdicts": [
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "disposition": "does_not_support"
+        }
+      ],
+      "rationale": "The fragment is a brief first-person dialogue excerpt and does not address legal continuity, differing views on authority, or personal ambition."
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "0f22c327-96a1-4b69-9d7c-766ef884f97a",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passages support a formal institutional passage and a personal dialogue fragment, but cannot establish consistent divergence in tone across the source sets."
+    },
+    {
+      "clause_id": "pattern:1:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "12e706f3-f183-4bf5-b938-600ca24f36e3",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The official passage supports institutional roles and the memoir fragment supports an individual speaker, but the evidence does not establish consistent emphasis across official texts or memoir-centered actors."
+    },
+    {
+      "clause_id": "pattern:2:clause:0",
+      "disposition": "unsupported",
+      "evidence_verdicts": [
+        {
+          "application_id": "0f22c327-96a1-4b69-9d7c-766ef884f97a",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "disposition": "does_not_support"
+        }
+      ],
+      "rationale": "The official passage concerns institutional status, while the dialogue fragment does not address legal continuity or personal agency as a basis of authority, nor does the evidence cover all sources."
+    },
+    {
+      "clause_id": "pattern:3:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "711190fe-d475-4e45-916d-452dc45df47e",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "b46da7bb-e7fe-4d3e-94ee-1d4e4afe3eb2",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The official passage supports institutional decision-making and the memoir fragment supports dialogue, but neither alone establishes that institutional details dominate official accounts or that the memoir uses narrative more broadly."
+    }
+  ]
+}
