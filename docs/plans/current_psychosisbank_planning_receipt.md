@@ -79,11 +79,13 @@ must never contain raw producer internals as a new public contract.
   run directory; it currently owns the run evidence and its changes must be
   consumed only after it publishes a stable receipt.
 - The first fresh native QC execution ended on 2026-09-23 with
-  `pipeline_status: failed` during synthesis and reported 13 unanchored quotes
-  dropped by `INV-1`. Its temporary project record is diagnostic evidence only;
-  it cannot become a planning input, qualitative handoff, or public claim until
-  the owning lane records a terminal disposition and a stable, hash-bound
-  artifact.
+  `pipeline_status: failed` during synthesis: after four successful calls it
+  referenced nonexistent application `A0017`, and it reported 13 unanchored
+  quotes dropped by `INV-1`. Its temporary project record is diagnostic
+  evidence only; it cannot become a planning input, qualitative handoff, or
+  public claim until the owning lane records a terminal disposition and a
+  stable, hash-bound artifact. The owner has one bounded saved-stage resume in
+  progress; consume only its terminal receipt, whether successful or failed.
 - Stop if the fresh-QC lane changes the source packet or Process Tracing export
   without a corresponding stable digest update.
 - Stop before deployment or any claim that the causal explanation is supported.
