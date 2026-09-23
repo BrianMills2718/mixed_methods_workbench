@@ -1,0 +1,112 @@
+{
+  "contract_version": 1,
+  "candidate_digest": "fd29829e8beab861ff53b8674f39a92c47e3696cf3c5286779395db5dc8d094d",
+  "verdicts": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "disposition": "unsupported",
+      "evidence_verdicts": [
+        {
+          "application_id": "646aba40-f5bb-4809-ae53-4c75924416e5",
+          "disposition": "does_not_support"
+        },
+        {
+          "application_id": "70907f5f-dbf0-4a0f-b31a-c2a518efcd1b",
+          "disposition": "does_not_support"
+        },
+        {
+          "application_id": "aff0d371-be91-4c3c-b4c4-739f5c73db47",
+          "disposition": "does_not_support"
+        }
+      ],
+      "rationale": "The passages show planning, deception, and manipulation of a council vote, but do not establish that official decree and proclamation uniformly framed the coup as legal and necessary to save the Republic from both anarchy and royalist conspiracy."
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "disposition": "unsupported",
+      "evidence_verdicts": [
+        {
+          "application_id": "8b5f18c7-7a69-442d-9de1-3febb4b45f4f",
+          "disposition": "does_not_support"
+        }
+      ],
+      "rationale": "The passage concerns the assembly and review of troops, not the Year VIII Constitution or its presentation of the new government as orderly and constitutional."
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "disposition": "non_atomic",
+      "evidence_verdicts": [
+        {
+          "application_id": "ee72cab9-dfc3-4e78-a6e7-a2cf57e92dc2",
+          "disposition": "does_not_support"
+        },
+        {
+          "application_id": "159cbff2-7ca8-4885-8654-5c85572ebf09",
+          "disposition": "does_not_support"
+        },
+        {
+          "application_id": "422416c1-5323-4777-8951-15011227292a",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "ebc3aa78-f1e0-41bf-8bec-d35a819aa704",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The clause combines several independently decidable claims. The selected passages support aspects of Bourrienne's critical account and Bonaparte's disordered conduct, but do not jointly establish coercion of directors, the false majority, and near-fatal loss of composure as one complete claim."
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "bd24d4ae-d651-495d-8e90-aa43cfa58a82",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "194aeb36-7063-432b-8c18-d00fa40b22a2",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passages contribute to a contrast between official legitimizing language and the memoir's critical exposure of events, but they do not establish the broader front-stage/back-stage pattern or that official documents embellished or fabricated events."
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "646aba40-f5bb-4809-ae53-4c75924416e5",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "ee72cab9-dfc3-4e78-a6e7-a2cf57e92dc2",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "a181d574-ed88-4fb3-98d9-8ea39e5d5663",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The evidence supports a planned seizure, a constitutional legal form, and the resulting consular structure, but does not show that Bourrienne specifically exposes the gap between the official narrative and reality."
+    },
+    {
+      "clause_id": "pattern:1:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "70907f5f-dbf0-4a0f-b31a-c2a518efcd1b",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "159cbff2-7ca8-4885-8654-5c85572ebf09",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "8b5f18c7-7a69-442d-9de1-3febb4b45f4f",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passages support orchestrated activity and the military context of the seizure, but do not establish that both source types engage with legitimization or that the legal steps themselves were subverted as orchestrated."
+    }
+  ]
+}

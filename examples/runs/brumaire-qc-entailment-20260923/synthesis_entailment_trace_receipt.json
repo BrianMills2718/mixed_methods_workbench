@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "purpose": "posthoc_internal_qc_semantic_verifier_replay",
+  "run_date": "2026-09-23",
+  "qc_runtime_commit": "728809b497fc85b688a1967d9c0bd35bb9268eff",
+  "llm_client_commit": "518fda5b683a8f62413b86eac59e3d73b01baa09",
+  "source_packet_merge_commit": "e5fc201fbd3967d3b3d3240b9677a58a4f1e0cbb",
+  "source_state_sha256": "9bd1c7e981ecc25b234df308793b4504301c8c2a6054563aecb0fb59a710441d",
+  "candidate_digest": "fd29829e8beab861ff53b8674f39a92c47e3696cf3c5286779395db5dc8d094d",
+  "request_file_sha256": "29e9246af55e85b670b7e26340bd06ae08b9ff8b596a1431af0064f814c2b227",
+  "response_file_sha256": "8aad0276c96e9f84ba3f344a7df4ce922b774ce4ed83432d7ccaf2a063cb4f5a",
+  "prompt_sha256": "047fd6263c7ea3ff5fa1184e824e4ffe1ceae3db7ab9bf35f430aef54e909b07",
+  "verifier_model": "openrouter/openai/gpt-5.6-luna",
+  "trace_id": "qualitative_coding/brumaire-entailment-20260923-v1",
+  "trace_call": {
+    "logical_call_id": "llmcall_5f2b9e5ac7084a1a871beeaf2c2a8ba8",
+    "model": "openrouter/openai/gpt-5.6-luna",
+    "task": "qualitative_coding.synthesis_entailment",
+    "prompt_tokens": 4674,
+    "completion_tokens": 1020,
+    "reasoning_tokens": 0,
+    "total_tokens": 5694,
+    "cost": 0.00239235,
+    "retry_count": 0,
+    "error": null,
+    "execution_path": "native_schema"
+  },
+  "structured_attempt_events": [
+    {
+      "logical_call_id": "llmcall_5f2b9e5ac7084a1a871beeaf2c2a8ba8",
+      "attempt_ordinal": 0,
+      "event_type": "started",
+      "failure_class": null,
+      "recovery_decision": null,
+      "execution_error_type": null
+    },
+    {
+      "logical_call_id": "llmcall_5f2b9e5ac7084a1a871beeaf2c2a8ba8",
+      "attempt_ordinal": 0,
+      "event_type": "received",
+      "failure_class": null,
+      "recovery_decision": null,
+      "execution_error_type": null
+    },
+    {
+      "logical_call_id": "llmcall_5f2b9e5ac7084a1a871beeaf2c2a8ba8",
+      "attempt_ordinal": 0,
+      "event_type": "validated",
+      "failure_class": null,
+      "recovery_decision": null,
+      "execution_error_type": null
+    }
+  ],
+  "verdict_dispositions": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "disposition": "unsupported"
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "disposition": "unsupported"
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "disposition": "non_atomic"
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "disposition": "partial"
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "disposition": "partial"
+    },
+    {
+      "clause_id": "pattern:1:clause:0",
+      "disposition": "partial"
+    }
+  ],
+  "identity_validation": "passed",
+  "semantic_validation": "rejected",
+  "semantic_validation_error": "Synthesis entailment rejected clause finding:0:clause:0: unsupported",
+  "pt_consumption": "withheld",
+  "limits": [
+    "This is a posthoc replay against an already-promoted QC state, not integrated pre-promotion verification.",
+    "The original full QC state and raw LLM trace remain in local temporary/project observability storage; the exact verifier request and response are retained here."
+  ]
+}
