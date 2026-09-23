@@ -15,6 +15,11 @@ from publication. The second model saw selected excerpts, not full documents;
 its output remains pending researcher review and does not alter any
 method-owned finding or create a reusable adjudication capability. This
 portfolio demonstration does not change the NYC Path A critical path below.
+On 2026-09-23, the three public source URLs returned bytes matching all three
+frozen source digests in `independent_case_sources.json`. A source-context audit
+found that the selected quote for Finding 3 omits the antecedent of “this
+level”; the exact-hash TalkBank policy names it “Controlled access.” The page
+links each cited excerpt to its original source and states this distinction.
 
 ## Current Phase: Finish the NYC vertical (Path A, approved 2026-09-06)
 
