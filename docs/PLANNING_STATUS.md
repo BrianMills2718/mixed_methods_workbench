@@ -1,7 +1,20 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-08-13; correction note added 2026-09-06
+Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23
+
+## Bounded PsychosisBank portfolio demonstration (2026-09-23)
+
+Brian separately authorized an independent second-model check of the existing
+Open Science → Qualitative Coding → Process Tracing PsychosisBank demonstration.
+The Workbench retains one source-bound, advisory challenge in
+`examples/fixtures/investigation_spine/independent_verification.json` and
+shows each finding's verdict, cited excerpts, and remaining source gap on the
+existing review page. The retained result remains inconclusive and blocked
+from publication. The second model saw selected excerpts, not full documents;
+its output remains pending researcher review and does not alter any
+method-owned finding or create a reusable adjudication capability. This
+portfolio demonstration does not change the NYC Path A critical path below.
 
 ## Current Phase: Finish the NYC vertical (Path A, approved 2026-09-06)
 

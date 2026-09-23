@@ -560,5 +560,15 @@ def load_investigation_spine(root: Path = FIXTURE_ROOT) -> InvestigationSpine:
 
 def investigation_spine_payload(root: Path = FIXTURE_ROOT) -> dict[str, object]:
     """Return the same typed projection consumed by the browser."""
+    payload = load_investigation_spine(root).model_dump(mode="json")
+    from .investigation_verification import RECEIPT_PATH, _case_inputs, load_verification
 
-    return load_investigation_spine(root).model_dump(mode="json")
+    receipt_path = root / RECEIPT_PATH.name
+    if receipt_path.exists():
+        payload["independent_verification"] = load_verification(root).model_dump(mode="json")
+        _, excerpts = _case_inputs(root)
+        payload["independent_verification_excerpts"] = [item.model_dump() for item in excerpts]
+    else:
+        payload["independent_verification"] = None
+        payload["independent_verification_excerpts"] = []
+    return payload
