@@ -1,0 +1,61 @@
+{
+  "input_sha256": "ca37ccfb3ffe5fd69b32f9efdd69cad7c4214c7b7be8f246a25fd5843163d61e",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "stage_s2_c1",
+        "target_id": "stage_s2",
+        "claim_text": "The commentary identified multiple barriers,",
+        "source_field": "mechanism_established",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "The commentary identified multiple barriers",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The evidence explicitly states that the authors identified at least six barriers."
+      },
+      {
+        "claim_id": "stage_s2_c2",
+        "target_id": "stage_s2",
+        "claim_text": " including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload.",
+        "source_field": "mechanism_established",
+        "severity": "composite_claim",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "resistance arising from institutional interpretations of regulations and public perceptions",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "transcription and file-organization workload",
+            "evidence_ids": [
+              "c01_evi_curation_support"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The regulatory/public-perception resistance and workload components are each supported, but the claim joins them into one composite proposition."
+      }
+    ],
+    "overall_assessment": "Both claims are supported by the supplied commentary evidence; the second is correctly identified as a composite conjunction of separately supported barrier components.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "779992652269359a3dc01dffef05f968c4390d8f73665a961b65ffb76ac6dc25",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

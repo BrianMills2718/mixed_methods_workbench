@@ -1,0 +1,53 @@
+{
+  "input_sha256": "8a866124860dff22b1f71793f6567d75f8d124e561b198ff755e75a7a491a9a5",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "edge_e4_c1",
+        "target_id": "edge_e4",
+        "claim_text": "AdminView funding was reported in 2023,",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "AdminView funding was reported in 2023",
+            "evidence_ids": [
+              "c01_evi_psychosisbank_controlled_adminview"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The evidence explicitly reports AdminView funding in 2023."
+      },
+      {
+        "claim_id": "edge_e4_c2",
+        "target_id": "edge_e4",
+        "claim_text": "and TalkBank later documented four access levels.",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "TalkBank later documented four access levels",
+            "evidence_ids": [
+              "c01_evi_four_access_levels",
+              "c01_evi_psychosisbank_controlled_adminview"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The evidence states that TalkBank offers four access levels and dates the relevant policy snapshot after the reported 2023 funding."
+      }
+    ],
+    "overall_assessment": "Both inventory claims are directly supported by the accepted evidence, including the reported dates and access-level count.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "1ef010f3f0ecf59f981b3c2b49b53606efe6f51a618982ae35fdda6bb9b842de",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

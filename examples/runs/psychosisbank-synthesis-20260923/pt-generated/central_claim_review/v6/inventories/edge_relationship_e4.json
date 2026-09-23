@@ -1,0 +1,16 @@
+{
+  "input_sha256": "229e9303d4b741347dffff801d96c7e2567ac2e873519dc1eab073e44e586be0",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e4_claim_1",
+        "target_id": "edge_relationship_e4",
+        "claim_text": "funding preceded the documented access architecture",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 51,
+        "covered_text": "funding preceded the documented access architecture"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "mechanism-stage-description-patch-v1",
+  "base_mechanism_trace_sha256": "f8b0490b990933614f19a07038acd7f26e7c161a608dc03b62d533e3ca378468",
+  "source_critique_sha256": "5c11b5cc101433f14be458f175ece07bf90ebc3cf09838a17f7a45800e5222e9",
+  "operations": [
+    {
+      "stage_id": "s2",
+      "expected_stage_sha256": "1dbd2ebd6d6bcfc826b5664ff87c5b2cc7f0fab7174f8f3a9aa158ee968eb084",
+      "source_judgment_sha256": "36f2400f61bd0cc1696f67c8f10b3ef74cde695a6e40ec3d95aff2861ec054f7",
+      "replacement_description": "The commentary identified multiple barriers, including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload."
+    }
+  ]
+}

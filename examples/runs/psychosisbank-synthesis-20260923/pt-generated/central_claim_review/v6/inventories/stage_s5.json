@@ -1,0 +1,16 @@
+{
+  "input_sha256": "5474fd70a892c29a70c33c9922b51db11f04c6208a719890a19eb185e660ba93",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "stage_s5_c1",
+        "target_id": "stage_s5",
+        "claim_text": "TalkBank documented open, registration-required, approved, and controlled access levels.",
+        "source_field": "mechanism_established",
+        "target_start": 0,
+        "target_end": 88,
+        "covered_text": "TalkBank documented open, registration-required, approved, and controlled access levels."
+      }
+    ]
+  }
+}

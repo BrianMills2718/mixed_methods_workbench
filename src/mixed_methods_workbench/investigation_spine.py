@@ -577,4 +577,11 @@ def investigation_spine_payload(root: Path = FIXTURE_ROOT) -> dict[str, object]:
     else:
         payload["independent_verification"] = None
         payload["independent_verification_excerpts"] = []
+    from .investigation_run import RECEIPT_NAME, RUN_ROOT, connected_run_payload
+
+    payload["connected_run"] = (
+        connected_run_payload()
+        if root.resolve() == FIXTURE_ROOT.resolve() and (RUN_ROOT / RECEIPT_NAME).exists()
+        else None
+    )
     return payload

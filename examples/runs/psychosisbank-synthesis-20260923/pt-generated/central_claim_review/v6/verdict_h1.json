@@ -1,0 +1,146 @@
+{
+  "input_sha256": "3dccec86d4eb3282e416a0300ac8dd82cb49d170757d1f22c639d3c81ae4c11f",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "verdict_h1_c1",
+        "target_id": "verdict_h1",
+        "claim_text": "H1 ranks first with comparative support of 0.288179,",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "H1 ranks first with comparative support of 0.288179,",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/ranking/0"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/0/final_posterior"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The Bayesian ranking places h1 first and reports a final posterior of 0.288179."
+      },
+      {
+        "claim_id": "verdict_h1_c2",
+        "target_id": "verdict_h1",
+        "claim_text": " above its 0.25 prior,",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": " above its 0.25 prior,",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/0/prior"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The h1 posterior record gives a prior of 0.25."
+      },
+      {
+        "claim_id": "verdict_h1_c3",
+        "target_id": "verdict_h1",
+        "claim_text": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3.",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "diagnostic_matrix"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "diagnostic_matrix",
+                "json_pointer": "/rival_pair_diagnostics/1/discriminators"
+              },
+              {
+                "artifact_ref": "diagnostic_matrix",
+                "json_pointer": "/pairs_without_discriminators/0"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The h1-h3 diagnostic entry has no discriminators, and that pair is listed among pairs without discriminators."
+      },
+      {
+        "claim_id": "verdict_h1_c4",
+        "target_id": "verdict_h1",
+        "claim_text": " Its support is fragile",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": " Its support is fragile",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/0/robustness"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The h1 posterior record labels robustness as fragile."
+      },
+      {
+        "claim_id": "verdict_h1_c5",
+        "target_id": "verdict_h1",
+        "claim_text": " and sensitivity ranges from 0.268777 to 0.308148.",
+        "source_field": "verdict_reasoning",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": " and sensitivity ranges from 0.268777 to 0.308148.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/0/posterior_low"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/0/posterior_high"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The h1 sensitivity record reports posterior_low 0.268777 and posterior_high 0.308148."
+      }
+    ],
+    "overall_assessment": "All five inventory claims are directly entailed by the supplied Bayesian and diagnostic artifacts.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "a6112fa08e69e550af985d4480ea15322e63a246281e10b601a01cc89b30c5b6",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

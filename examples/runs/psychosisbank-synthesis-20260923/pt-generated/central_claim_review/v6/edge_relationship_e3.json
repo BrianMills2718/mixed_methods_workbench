@@ -1,0 +1,34 @@
+{
+  "input_sha256": "46f7557c0058f029885690946d3bcbff70dbd7a170e1f943b5805a800c4df4a4",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e3_c1",
+        "target_id": "edge_relationship_e3",
+        "claim_text": "the commentary and later funding occurred before the current policy snapshot",
+        "source_field": "mechanism_unresolved",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "the commentary and later funding occurred before the current policy snapshot",
+            "evidence_ids": [
+              "c01_evi_curation_support",
+              "c01_evi_psychosisbank_controlled_adminview"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The commentary is dated 2022, the funding is dated 2023, and the current policy snapshot is dated 2026."
+      }
+    ],
+    "overall_assessment": "The claim is directly supported by the supplied dates for the commentary, funding, and current policy snapshot.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "2850a6497ef6a43824b6f30c3d847c822ad58b3e3b1fad364eece625c8de9d61",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

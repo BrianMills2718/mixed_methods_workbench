@@ -1,0 +1,440 @@
+{
+  "attempt": 2,
+  "action": "stage_description_patch_audit",
+  "reviewer_model": "openrouter/openai/gpt-5.6-luna",
+  "candidate_mechanism_trace": {
+    "stages": [
+      {
+        "stage_id": "s1",
+        "sequence_index": 1,
+        "label": "Public design commentary",
+        "description": "Project authors published a commentary on barriers to sharing psychiatric speech data.",
+        "approximate_date": "2022",
+        "stage_type": "initiation",
+        "status": "observed",
+        "evidence_ids": [
+          "c01_evi_six_barriers_regulatory_public"
+        ],
+        "prediction_ids": [],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ]
+      },
+      {
+        "stage_id": "s2",
+        "sequence_index": 2,
+        "label": "Barriers identified",
+        "description": "The commentary identified multiple barriers, including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload.",
+        "approximate_date": "2022",
+        "stage_type": "precondition",
+        "status": "observed",
+        "evidence_ids": [
+          "c01_evi_six_barriers_regulatory_public",
+          "c01_evi_curation_support"
+        ],
+        "prediction_ids": [
+          "pred_h1_01"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ]
+      },
+      {
+        "stage_id": "s3",
+        "sequence_index": 3,
+        "label": "Access responses described",
+        "description": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses rather than one universal access rule.",
+        "approximate_date": "2022",
+        "stage_type": "decision",
+        "status": "observed",
+        "evidence_ids": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ],
+        "prediction_ids": [
+          "pred_h1_01",
+          "pred_h2_01",
+          "pred_h3_02"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ]
+      },
+      {
+        "stage_id": "s4",
+        "sequence_index": 4,
+        "label": "Repository support funded",
+        "description": "AdminView creation received NIH FAIR grant funding.",
+        "approximate_date": "2023",
+        "stage_type": "implementation",
+        "status": "observed",
+        "evidence_ids": [
+          "c01_evi_psychosisbank_controlled_adminview"
+        ],
+        "prediction_ids": [
+          "pred_h1_02"
+        ],
+        "hypothesis_ids": [
+          "h1"
+        ]
+      },
+      {
+        "stage_id": "s5",
+        "sequence_index": 5,
+        "label": "Graduated access architecture documented",
+        "description": "TalkBank documented open, registration-required, approved, and controlled access levels.",
+        "approximate_date": "2026-08-11",
+        "stage_type": "consolidation",
+        "status": "observed",
+        "evidence_ids": [
+          "c01_evi_four_access_levels",
+          "c02_evi_multiple_access_options"
+        ],
+        "prediction_ids": [
+          "pred_h1_02",
+          "pred_h3_01"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ]
+      },
+      {
+        "stage_id": "s6",
+        "sequence_index": 6,
+        "label": "PsychosisBank controlled access and conditional controls",
+        "description": "The policy placed PsychosisBank under controlled access with interview and CITI-training requirements; guidance also specified consent-, clinical-data-, and video-related controls.",
+        "approximate_date": "2026-08-11",
+        "stage_type": "outcome",
+        "status": "observed",
+        "evidence_ids": [
+          "c01_evi_psychosisbank_controlled_adminview",
+          "c02_evi_irb_consent_nonuniform",
+          "c02_evi_authorized_password_access",
+          "c02_evi_clinical_data_restrictions",
+          "c02_evi_video_consent_controls"
+        ],
+        "prediction_ids": [
+          "pred_h1_02",
+          "pred_h2_02",
+          "pred_h3_03"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "e1",
+        "source_stage_id": "s1",
+        "target_stage_id": "s2",
+        "relationship": "authors identified barriers in the published commentary",
+        "status": "supported_causal_link",
+        "evidence_ids": [
+          "c01_evi_six_barriers_regulatory_public"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "reasoning": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+        "missing_test": null
+      },
+      {
+        "edge_id": "e2",
+        "source_stage_id": "s2",
+        "target_stage_id": "s3",
+        "relationship": "barriers were followed by proposed consent and governance responses",
+        "status": "supported_causal_link",
+        "evidence_ids": [
+          "c01_evi_six_barriers_regulatory_public",
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "reasoning": "The commentary identifies barriers and describes multiple possible responses, including vetted access and governance controls.",
+        "missing_test": null
+      },
+      {
+        "edge_id": "e3",
+        "source_stage_id": "s3",
+        "target_stage_id": "s4",
+        "relationship": "the commentary and later funding occurred before the current policy snapshot",
+        "status": "unresolved_link",
+        "evidence_ids": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_psychosisbank_controlled_adminview"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "reasoning": "The 2022 commentary describes responses, and AdminView funding is reported for 2023.",
+        "missing_test": "Seek contemporaneous project records or an AdminView change history linking the described responses to the 2023 implementation."
+      },
+      {
+        "edge_id": "e4",
+        "source_stage_id": "s4",
+        "target_stage_id": "s5",
+        "relationship": "funding preceded the documented access architecture",
+        "status": "observed_sequence",
+        "evidence_ids": [
+          "c01_evi_psychosisbank_controlled_adminview",
+          "c01_evi_four_access_levels"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h3"
+        ],
+        "reasoning": "AdminView funding is reported for 2023, while TalkBank's four access levels are documented in the 2026 policy snapshot.",
+        "missing_test": null
+      },
+      {
+        "edge_id": "e5",
+        "source_stage_id": "s5",
+        "target_stage_id": "s6",
+        "relationship": "the documented access architecture includes controlled PsychosisBank access and conditional controls",
+        "status": "observed_sequence",
+        "evidence_ids": [
+          "c01_evi_four_access_levels",
+          "c01_evi_psychosisbank_controlled_adminview",
+          "c02_evi_clinical_data_restrictions",
+          "c02_evi_video_consent_controls"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "reasoning": "TalkBank documents four access levels, places PsychosisBank in controlled access, and specifies stronger controls for particular data and consent conditions.",
+        "missing_test": null
+      }
+    ],
+    "established_summary": "In 2022, the authors identified several barriers to sharing psychiatric speech data and described multiple consent and governance responses. AdminView funding was reported in 2023. The later TalkBank policy documents four access levels and places PsychosisBank in controlled access with interview and training requirements, alongside conditional controls for sensitive data and media.",
+    "unresolved_summary": "The available record does not connect the 2022 proposed responses or the 2023 funding directly to the eventual PsychosisBank access selection. The same observed policy outcome remains compatible with burden and risk deliberation, external constraints, or an established TalkBank routine; contemporaneous decision records, policy history, and project-specific ethics determinations are needed to trace that transition."
+  },
+  "candidate_mechanism_trace_sha256": "a32ccb54f7b67b373bdfd63b601339817c1dc15368f760845f44d59a51b95019",
+  "critique": {
+    "mechanism_trace_sha256": "a32ccb54f7b67b373bdfd63b601339817c1dc15368f760845f44d59a51b95019",
+    "stage_judgments": [
+      {
+        "stage_id": "s1",
+        "disposition": "accepted",
+        "reasoning": "The accepted commentary evidence directly records publication identifying barriers to psychiatric speech-data sharing.",
+        "recommendation": "Retain the observed publication stage.",
+        "evidence_ids": [
+          "c01_evi_six_barriers_regulatory_public"
+        ],
+        "prediction_ids": [],
+        "missing_test": null
+      },
+      {
+        "stage_id": "s2",
+        "disposition": "accepted",
+        "reasoning": "The revised description is fully supported: cited evidence identifies regulatory interpretations and public perceptions as barriers, and separately documents transcription and file-organization workload.",
+        "recommendation": "Retain the patched description.",
+        "evidence_ids": [],
+        "prediction_ids": [],
+        "missing_test": null
+      },
+      {
+        "stage_id": "s3",
+        "disposition": "accepted",
+        "reasoning": "The cited commentary directly describes multiple consent, governance, vetting, agreement, password, and purpose-limitation responses.",
+        "recommendation": "Retain as an observed set of proposed responses, without treating it as the implemented choice.",
+        "evidence_ids": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ],
+        "prediction_ids": [
+          "pred_h1_01",
+          "pred_h2_01",
+          "pred_h3_02"
+        ],
+        "missing_test": null
+      },
+      {
+        "stage_id": "s4",
+        "disposition": "accepted",
+        "reasoning": "The policy evidence directly reports NIH FAIR funding for AdminView in 2023.",
+        "recommendation": "Retain the observed funding stage.",
+        "evidence_ids": [
+          "c01_evi_psychosisbank_controlled_adminview"
+        ],
+        "prediction_ids": [
+          "pred_h1_02"
+        ],
+        "missing_test": null
+      },
+      {
+        "stage_id": "s5",
+        "disposition": "accepted",
+        "reasoning": "The cited policy evidence directly documents four TalkBank access levels.",
+        "recommendation": "Retain as a current-policy observation, not as evidence of why the architecture was adopted.",
+        "evidence_ids": [
+          "c01_evi_four_access_levels",
+          "c02_evi_multiple_access_options"
+        ],
+        "prediction_ids": [
+          "pred_h1_02",
+          "pred_h3_01"
+        ],
+        "missing_test": null
+      },
+      {
+        "stage_id": "s6",
+        "disposition": "accepted",
+        "reasoning": "The cited policy and guidance directly document controlled PsychosisBank access, interview and training requirements, and conditional consent, clinical-data, and video controls.",
+        "recommendation": "Retain the observed policy outcome while keeping its causal origin unresolved.",
+        "evidence_ids": [
+          "c01_evi_psychosisbank_controlled_adminview",
+          "c02_evi_irb_consent_nonuniform",
+          "c02_evi_authorized_password_access",
+          "c02_evi_clinical_data_restrictions",
+          "c02_evi_video_consent_controls"
+        ],
+        "prediction_ids": [
+          "pred_h1_02",
+          "pred_h2_02",
+          "pred_h3_03"
+        ],
+        "missing_test": null
+      }
+    ],
+    "edge_judgments": [
+      {
+        "edge_id": "e1",
+        "disposition": "accepted",
+        "recommended_status": "supported_causal_link",
+        "evidence_assessment": "direct_transition",
+        "reasoning": "The revised stage still accurately records that the commentary identified barriers; the edge status and reasoning remain accurate.",
+        "replacement_reasoning": null,
+        "missing_test": null
+      },
+      {
+        "edge_id": "e2",
+        "disposition": "accepted",
+        "recommended_status": "supported_causal_link",
+        "evidence_assessment": "direct_transition",
+        "reasoning": "The revised barriers remain the basis for the commentary's proposed consent and governance responses, including vetted access and controls; the edge remains accurate.",
+        "replacement_reasoning": null,
+        "missing_test": null
+      },
+      {
+        "edge_id": "e3",
+        "disposition": "accepted",
+        "recommended_status": "unresolved_link",
+        "evidence_assessment": "temporal_order_only",
+        "reasoning": "The evidence dates the commentary to 2022 and AdminView funding to 2023 but does not connect the proposed responses to that implementation.",
+        "replacement_reasoning": "The commentary was published in 2022, and AdminView funding was reported in 2023.",
+        "missing_test": "Seek contemporaneous project records, correspondence, or AdminView change history linking the proposed responses to the 2023 implementation."
+      },
+      {
+        "edge_id": "e4",
+        "disposition": "accepted",
+        "recommended_status": "observed_sequence",
+        "evidence_assessment": "temporal_order_only",
+        "reasoning": "The evidence places AdminView funding in 2023 and the documented four-level architecture in the later policy snapshot.",
+        "replacement_reasoning": "AdminView funding was reported in 2023, and TalkBank later documented four access levels.",
+        "missing_test": null
+      },
+      {
+        "edge_id": "e5",
+        "disposition": "accepted",
+        "recommended_status": "observed_sequence",
+        "evidence_assessment": "direct_transition",
+        "reasoning": "The policy materials document the access architecture, PsychosisBank's controlled level, and conditional controls, but do not establish that the architecture caused the project-specific outcome.",
+        "replacement_reasoning": "TalkBank documented four access levels, and the policy places PsychosisBank in controlled access with interview and training requirements alongside additional controls for specified data and media conditions.",
+        "missing_test": null
+      }
+    ],
+    "omission_findings": [],
+    "repair_constraint_judgments": [
+      {
+        "constraint_id": "mrc_b9dd31310d64592235017788",
+        "disposition": "satisfied",
+        "satisfied_by_stage_ids": [
+          "s2"
+        ],
+        "satisfied_by_edge_ids": [],
+        "reasoning": "The patched s2 description removes the unsupported complete enumeration while retaining supported regulatory, public-perception, transcription, and file-organization barriers."
+      },
+      {
+        "constraint_id": "mrc_fa6bb86afbc49154b26fd353",
+        "disposition": "satisfied",
+        "satisfied_by_stage_ids": [
+          "s1"
+        ],
+        "satisfied_by_edge_ids": [],
+        "reasoning": "The exact accepted stage object is hash-identical to the source audit candidate and retains the required grounding."
+      },
+      {
+        "constraint_id": "mrc_3b079139ab2bc12b8e7926c4",
+        "disposition": "satisfied",
+        "satisfied_by_stage_ids": [
+          "s3"
+        ],
+        "satisfied_by_edge_ids": [],
+        "reasoning": "The exact accepted stage object is hash-identical to the source audit candidate and retains the required grounding."
+      },
+      {
+        "constraint_id": "mrc_cf028cffb94f74a0588ff29f",
+        "disposition": "satisfied",
+        "satisfied_by_stage_ids": [
+          "s4"
+        ],
+        "satisfied_by_edge_ids": [],
+        "reasoning": "The exact accepted stage object is hash-identical to the source audit candidate and retains the required grounding."
+      },
+      {
+        "constraint_id": "mrc_43f08abfd6a8401f3bb8ef24",
+        "disposition": "satisfied",
+        "satisfied_by_stage_ids": [
+          "s5"
+        ],
+        "satisfied_by_edge_ids": [],
+        "reasoning": "The exact accepted stage object is hash-identical to the source audit candidate and retains the required grounding."
+      },
+      {
+        "constraint_id": "mrc_7c6ca6442256e1ed3b186f78",
+        "disposition": "satisfied",
+        "satisfied_by_stage_ids": [
+          "s6"
+        ],
+        "satisfied_by_edge_ids": [],
+        "reasoning": "The exact accepted stage object is hash-identical to the source audit candidate and retains the required grounding."
+      }
+    ],
+    "recommended_established_summary": "In 2022, the authors identified several barriers to sharing psychiatric speech data and described multiple consent and governance responses. AdminView funding was reported in 2023. The later TalkBank policy documents four access levels and places PsychosisBank in controlled access with interview and training requirements, alongside conditional controls for sensitive data and media.",
+    "recommended_unresolved_summary": "The available record does not connect the 2022 proposed responses or the 2023 funding directly to the eventual PsychosisBank access selection. The same observed policy outcome remains compatible with burden and risk deliberation, external constraints, or an established TalkBank routine; contemporaneous decision records, policy history, and project-specific ethics determinations are needed to trace that transition.",
+    "overall_assessment": "The description-only patch resolves the prior material finding. Both incident edges, the affected repair constraint, and the current summaries remain accurate."
+  },
+  "stage_description_patch": {
+    "schema_version": "mechanism-stage-description-patch-v1",
+    "base_mechanism_trace_sha256": "f8b0490b990933614f19a07038acd7f26e7c161a608dc03b62d533e3ca378468",
+    "source_critique_sha256": "5c11b5cc101433f14be458f175ece07bf90ebc3cf09838a17f7a45800e5222e9",
+    "operations": [
+      {
+        "stage_id": "s2",
+        "expected_stage_sha256": "1dbd2ebd6d6bcfc826b5664ff87c5b2cc7f0fab7174f8f3a9aa158ee968eb084",
+        "source_judgment_sha256": "36f2400f61bd0cc1696f67c8f10b3ef74cde695a6e40ec3d95aff2861ec054f7",
+        "replacement_description": "The commentary identified multiple barriers, including resistance arising from institutional interpretations of regulations and public perceptions, as well as transcription and file-organization workload."
+      }
+    ]
+  }
+}

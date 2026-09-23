@@ -1,0 +1,16 @@
+{
+  "input_sha256": "4e4881654dba5733953e69b63ca05204ee52e8e0d61397283f32efb911d6444d",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_e1_c1",
+        "target_id": "edge_e1",
+        "claim_text": "The authors published a commentary identifying barriers to psychiatric speech-data sharing.",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 91,
+        "covered_text": "The authors published a commentary identifying barriers to psychiatric speech-data sharing."
+      }
+    ]
+  }
+}

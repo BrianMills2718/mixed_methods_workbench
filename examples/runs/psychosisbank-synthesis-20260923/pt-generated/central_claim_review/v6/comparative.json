@@ -1,0 +1,110 @@
+{
+  "input_sha256": "36606283970b1887cc1891d8c10ded4fa40ac23098b39ad646e1face95e9b8e4",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "comparative_c1",
+        "target_id": "comparative",
+        "claim_text": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access.",
+        "source_field": "comparative_analysis",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "The positive-evidence matrix contains two limited discriminators, both favoring h1 over h2: c01_evi_multiple_access_responses and c01_evi_misuse_vetted_access.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "diagnostic_matrix"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "diagnostic_matrix",
+                "json_pointer": "/rival_pair_diagnostics/0"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The diagnostic matrix lists exactly two limited discriminators for h1 versus h2, with the stated evidence IDs."
+      },
+      {
+        "claim_id": "comparative_c2",
+        "target_id": "comparative",
+        "claim_text": "It records no realized discriminator for h1 versus h3 or h2 versus h3.",
+        "source_field": "comparative_analysis",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "It records no realized discriminator for h1 versus h3 or h2 versus h3.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "diagnostic_matrix"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "diagnostic_matrix",
+                "json_pointer": "/pairs_without_discriminators"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The matrix explicitly lists both rival pairs among the pairs without discriminators."
+      },
+      {
+        "claim_id": "comparative_c3",
+        "target_id": "comparative",
+        "claim_text": "The Bayesian ranking is h1, h3, residual, h2,",
+        "source_field": "comparative_analysis",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "The Bayesian ranking is h1, h3, residual, h2,",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/ranking"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The Bayesian artifact gives the ranking h1, h3, H0_residual, h2, corresponding to the prose's residual shorthand."
+      },
+      {
+        "claim_id": "comparative_c4",
+        "target_id": "comparative",
+        "claim_text": "but the leading rank is not stable under the declared prior perturbation.",
+        "source_field": "comparative_analysis",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "but the leading rank is not stable under the declared prior perturbation.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/prior_sensitivity/stable_under_prior_perturbation"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The prior-sensitivity artifact explicitly records that the top hypothesis is not stable under prior perturbation."
+      }
+    ],
+    "overall_assessment": "All four inventory claims are directly entailed by the supplied diagnostic and Bayesian artifacts.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "94e311af3b5e6e903eee07fea372d4a5e6b395f4280741e5fe49d7cc3d01a90a",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

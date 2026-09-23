@@ -1,0 +1,16 @@
+{
+  "input_sha256": "4fd2cecd7ee5df6e4c6345b5fa85428f19a14909a75f2813ea3773991f3f029e",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e3_c1",
+        "target_id": "edge_relationship_e3",
+        "claim_text": "the commentary and later funding occurred before the current policy snapshot",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 76,
+        "covered_text": "the commentary and later funding occurred before the current policy snapshot"
+      }
+    ]
+  }
+}

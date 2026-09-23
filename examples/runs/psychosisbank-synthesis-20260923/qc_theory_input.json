@@ -1,0 +1,58 @@
+{
+  "schema_version": "qc-p5-process-tracing-input/1",
+  "producer": {
+    "repository": "BrianMills2718/qc",
+    "revision": "d921baaf6f2b661e68d24aa243ee05da7fbe1823",
+    "source_route": "/public/example/data/theory-model",
+    "proposition_id": "P5",
+    "proposition_version_id": "p5-v1"
+  },
+  "proposition_sha256": "7dc4da5a56dbc9db15e3f526f57ecb7f604a893ef4ff453e282af93696a7170e",
+  "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+  "observation_unit": "One research project's disclosure decision over time.",
+  "allowed_use": "bounded_independent_case_process_appraisal",
+  "selection_disclosure": "The proposition and rival families predate this case packet; the case was selected after an analyst scan of public source availability.",
+  "excluded_inferences": [
+    "The QC interviews are not evidence in this case appraisal.",
+    "Case selection after a public-source scan is not blinded or preregistered evidence.",
+    "A public design commentary and current access policy do not by themselves reveal every internal decision or establish a causal effect.",
+    "The bounded project-level transfer does not establish population prevalence or validate P5 across research settings."
+  ],
+  "proposition": {
+    "id": "P5",
+    "version_id": "p5-v1",
+    "authoritative_statement": "Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness.",
+    "relation_type": "processual",
+    "temporal_form": "transition",
+    "epistemic_status": "mechanism_hypothesis",
+    "modality": "possible",
+    "condition": "Cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized.",
+    "reviewed_process_or_response": "Researchers calculate labour, risk, timing, and exposure in disclosure decisions.",
+    "mechanism": {
+      "actor": "Researchers",
+      "predicate": "weighs_in_disclosure_decision",
+      "considerations": "Labour, risk, timing, and exposure"
+    },
+    "strategies": [
+      "delayed_disclosure",
+      "restricted_disclosure",
+      "minimum_compliance"
+    ],
+    "strategy_force": "inclusive_alternative",
+    "boundary": "Researchers may still value openness while choosing a restrictive disclosure strategy.",
+    "boundary_conditions": [
+      "Support, mandates, and established workflows can reduce the individualized burden.",
+      "The form of risk differs for sensitive, copyrighted, and long-labour datasets."
+    ]
+  },
+  "observable_implications": [
+    "Burden or risk is recognized before the restrictive strategy is selected.",
+    "Decision records show weighing of openness against permissions, labour, priority, scrutiny, or publication pressure.",
+    "Removing or absorbing the salient burden changes the considered or selected strategy within a comparable case."
+  ],
+  "rival_explanations": [
+    "The strategy reflects stable researcher preference rather than project-specific deliberation.",
+    "Journal, funder, ethics, legal, or repository rules determine the strategy directly.",
+    "The apparent burden is a retrospective justification for a decision made for another reason."
+  ]
+}

@@ -186,6 +186,23 @@
         <p id="verification-limit" class="provenance-intro"></p>
       </section>
 
+      <section id="connected-run-section" class="section" aria-labelledby="connected-run-title" hidden>
+        <div class="section-head">
+          <p class="eyebrow">New connected execution · 23 September 2026</p>
+          <h2 id="connected-run-title">One agent carried the reviewed explanation to the publication guardrail</h2>
+          <p id="connected-run-status"></p>
+        </div>
+        <div id="connected-run-attempts" class="card-grid"></div>
+        <article class="card">
+          <h3 id="connected-run-conclusion"></h3>
+          <p id="connected-run-conclusion-reason"></p>
+          <p id="connected-run-inference"></p>
+          <ul id="connected-run-limits"></ul>
+        </article>
+        <div id="connected-run-verdicts" class="card-grid"></div>
+        <p id="connected-run-identity" class="provenance-intro"></p>
+      </section>
+
       <section class="section" aria-labelledby="next-title">
         <div class="section-head">
           <p class="eyebrow">Next evidence</p>
@@ -257,6 +274,33 @@
         byId("verification-identity").textContent = `Second-model route: ${verification.model_resolved} · Trace: ${verification.trace_id} · Review state: ${verification.review_state}.`;
       } else {
         byId("verification-status").textContent = "The independent model challenge has not run. The existing Process Tracing result remains unchanged.";
+      }
+      const connected = payload.connected_run;
+      if (connected) {
+        byId("connected-run-section").hidden = false;
+        byId("connected-run-status").textContent = "The reviewed Qualitative Coding proposition was reused. Process Tracing ran now on the frozen case corpus and stopped at its publication guardrail. A separate model challenged the blocked export; researcher review is still pending.";
+        byId("connected-run-attempts").innerHTML = connected.attempts.map((attempt, index) => `
+          <article class="card"><h3>Attempt ${index + 1}: ${attempt.outcome === "blocked_publication" ? "Stopped at publication guardrail" : "Stopped at rival-partition gate"}</h3><p>${escapeHtml(attempt.route)}</p><p><code>${escapeHtml(attempt.trace_id)}</code></p></article>`).join("");
+        byId("connected-run-conclusion").textContent = connected.conclusion.public_headline_eligible ? "Process Tracing completed a bounded comparison" : "No public causal conclusion is ready";
+        byId("connected-run-conclusion-reason").textContent = `${connected.publication_block_reason} ${connected.conclusion.public_headline_reason}`;
+        byId("connected-run-inference").textContent = `Inference: ${connected.inference.status.replaceAll("_", " ")} · Exported method integrity: ${connected.methodology.status.replaceAll("_", " ")} · Terminal publication review: blocked. Comparative support is a within-case ranking, not a probability of truth.`;
+        byId("connected-run-limits").innerHTML = connected.claim_limits.map((limit) => `<li>${escapeHtml(limit)}</li>`).join("");
+        const verdicts = new Map(connected.verdicts.map((item) => [item.hypothesis_id, item]));
+        const sourceUrls = new Map(payload.sources.map((item) => [item.source_id, item.source_url]));
+        byId("connected-run-verdicts").innerHTML = connected.hypotheses.map((hypothesis) => {
+          const verdict = verdicts.get(hypothesis.hypothesis_id);
+          const challenge = connected.challenge.findings.find((item) => item.finding_id === hypothesis.hypothesis_id);
+          if (!verdict || !challenge) {
+            return `<article class="card"><h3>${escapeHtml(hypothesis.hypothesis_id)} · Unranked residual alternative</h3><p>${escapeHtml(hypothesis.description)}</p><p>No Process Tracing verdict or independent challenge was produced for this residual alternative.</p></article>`;
+          }
+          const excerpts = challenge.evidence_ids.map((id) => {
+            const evidence = connected.cited_evidence[id];
+            const url = sourceUrls.get(evidence.source_id);
+            return `<blockquote><p>${escapeHtml(evidence.source_quote)}</p><footer><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Original source</a> · ${escapeHtml(id)}</footer></blockquote>`;
+          }).join("");
+          return `<article class="card"><h3>${escapeHtml(hypothesis.hypothesis_id)} · ${escapeHtml(verdict.status.replaceAll("_", " "))}</h3><p>${escapeHtml(hypothesis.description)}</p><p><strong>Process Tracing:</strong> ${escapeHtml(verdict.reasoning)}</p><p><strong>Independent model:</strong> ${escapeHtml(challenge.verdict.replaceAll("_", " "))} · ${escapeHtml(challenge.reason)}</p><details><summary>Inspect cited excerpts</summary>${excerpts}</details>${challenge.source_gap ? `<p><strong>Still needed:</strong> ${escapeHtml(challenge.source_gap)}</p>` : ""}</article>`;
+        }).join("");
+        byId("connected-run-identity").textContent = `Process Tracing trace: ${connected.attempts[1].trace_id} · Independent check: ${connected.check_model} / ${connected.check_trace_id} · ${connected.review_state.replaceAll("_", " ")}.`;
       }
       byId("needs").innerHTML = payload.next_evidence.map((need) => `
         <article class="need"><h3>${escapeHtml(need.label)}</h3><p>${escapeHtml(need.why_it_matters)}</p><p><strong>Likely location:</strong> ${escapeHtml(need.likely_location)}</p></article>`).join("");

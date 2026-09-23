@@ -1,0 +1,98 @@
+{
+  "research_question_adequate": true,
+  "rival_pairs": [
+    {
+      "h1_id": "h1",
+      "h2_id": "h2",
+      "overlap_concern": false,
+      "complementary_concern": false,
+      "absorptive_concern": false,
+      "prediction_contrasts": [
+        {
+          "h1_prediction_id": "pred_h1_01",
+          "h2_prediction_id": "pred_h2_01",
+          "contrast_dimension": "sequence",
+          "reasoning": "H1 predicts project-specific deliberation before the choice, whereas H2 predicts a binding external requirement preceding or dominating deliberation."
+        },
+        {
+          "h1_prediction_id": "pred_h1_02",
+          "h2_prediction_id": "pred_h2_02",
+          "contrast_dimension": "control",
+          "reasoning": "H1 predicts access variation with individualized burden, whereas H2 predicts similar restrictions across projects governed by the same rule despite differing burdens."
+        },
+        {
+          "h1_prediction_id": "pred_h1_02",
+          "h2_prediction_id": "pred_h2_03",
+          "contrast_dimension": "necessity",
+          "reasoning": "H1 predicts that reducing burden should relax access, whereas H2 predicts that removing the mandate matters more than reducing burden."
+        }
+      ],
+      "discriminator_count": 3,
+      "concern_detail": ""
+    },
+    {
+      "h1_id": "h1",
+      "h2_id": "h3",
+      "overlap_concern": false,
+      "complementary_concern": false,
+      "absorptive_concern": false,
+      "prediction_contrasts": [
+        {
+          "h1_prediction_id": "pred_h1_01",
+          "h2_prediction_id": "pred_h3_02",
+          "contrast_dimension": "sequence",
+          "reasoning": "H1 predicts explicit project-specific risk deliberation before the choice, whereas H3 predicts inherited default practice without a necessary prior risk calculation."
+        },
+        {
+          "h1_prediction_id": "pred_h1_02",
+          "h2_prediction_id": "pred_h3_03",
+          "contrast_dimension": "outcome",
+          "reasoning": "H1 predicts access variation with project burden, whereas H3 predicts low quantitative variation despite changing burdens unless the routine changes."
+        },
+        {
+          "h1_prediction_id": "pred_h1_03",
+          "h2_prediction_id": "pred_h3_02",
+          "contrast_dimension": "mechanism",
+          "reasoning": "H1 predicts little evidence of a pre-existing routine fixing the outcome, whereas H3 predicts default or inherited practice as the principal explanation."
+        }
+      ],
+      "discriminator_count": 3,
+      "concern_detail": ""
+    },
+    {
+      "h1_id": "h2",
+      "h2_id": "h3",
+      "overlap_concern": false,
+      "complementary_concern": false,
+      "absorptive_concern": false,
+      "prediction_contrasts": [
+        {
+          "h1_prediction_id": "pred_h2_01",
+          "h2_prediction_id": "pred_h3_02",
+          "contrast_dimension": "sequence",
+          "reasoning": "H2 predicts a specific binding requirement preceding or dominating the decision, whereas H3 predicts inherited practice without a binding rule."
+        },
+        {
+          "h1_prediction_id": "pred_h2_02",
+          "h2_prediction_id": "pred_h3_01",
+          "contrast_dimension": "control",
+          "reasoning": "H2 predicts convergence among projects subject to the same rule and discrete changes when rules change, whereas H3 predicts persistence across variation in formal requirements."
+        },
+        {
+          "h1_prediction_id": "pred_h2_03",
+          "h2_prediction_id": "pred_h3_03",
+          "contrast_dimension": "necessity",
+          "reasoning": "H2 predicts that removing the mandate should relax restrictions, whereas H3 predicts that mandate removal should not substantially matter unless the routine changes."
+        }
+      ],
+      "discriminator_count": 3,
+      "concern_detail": ""
+    }
+  ],
+  "hypotheses_flagged": [],
+  "overall_quality": "adequate",
+  "cap_applied": false,
+  "decision_blockers": [],
+  "decision_warnings": [],
+  "summary": "The hypotheses are sharply partitioned around distinct causal bottlenecks\u2014project-specific deliberation, binding external constraint, and inherited routine\u2014with concrete contrasts in timing, control, and counterfactual dependence. The winning hypothesis cannot absorb all rivals without contradicting their decisive claims, and the single outcome and project-focused window are sufficiently tight for discrimination."
+}

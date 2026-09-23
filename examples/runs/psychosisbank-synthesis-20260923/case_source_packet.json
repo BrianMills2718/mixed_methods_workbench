@@ -1,0 +1,161 @@
+{
+  "case_name": "PsychosisBank and TalkBank graduated-access design",
+  "research_question": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+  "focal_window": "2022 design commentary through the 2023 AdminView implementation and the hash-frozen current access-policy snapshot retrieved 2026-08-11",
+  "outcome": "PsychosisBank uses controlled access with an interview and CITI-training requirement inside TalkBank's graduated four-level access system.",
+  "source_candidates": [
+    {
+      "source_id": "source_a",
+      "title": "Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?",
+      "author_or_originator": "Lena Palaniyappan, Maria F. Alonso-Sanchez, and Brian MacWhinney",
+      "work_id": "palaniyappan-2022-schizophrenia-bulletin",
+      "source_group": "project_design_commentary",
+      "source_kind": "secondary_analysis",
+      "date_coverage": "Published 2022; downloaded TalkBank copy hash-frozen 2026-08-11",
+      "locator": "https://talkbank.org/psychosis/publications/papers/Palaniyappan22.pdf",
+      "provenance_note": "Publisher-formatted commentary downloaded from TalkBank; local SHA-256 0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915. The authors include the DISCOURSE in Psychosis convener and TalkBank's Brian MacWhinney.",
+      "reliability_note": "The article is a prospective and normative design commentary, not minutes or a complete record of one access decision. It can show articulated barriers, considered responses, and design recommendations, but not exhaust private deliberation or prove implementation causation.",
+      "expected_observability": "Should reveal which burdens and risks project leaders publicly identified and which disclosure strategies they proposed before or during infrastructure development; should not reveal every internal option, sequence, or veto.",
+      "relevance_to_question": "Directly distinguishes burden-risk deliberation from an account containing only a final access rule, while remaining vulnerable to retrospective or public-rationale bias.",
+      "text_markers": [
+        "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]"
+      ]
+    },
+    {
+      "source_id": "source_b",
+      "title": "TalkBank Data Access Levels",
+      "author_or_originator": "TalkBank",
+      "work_id": "talkbank-access-policy",
+      "source_group": "implemented_access_policy",
+      "source_kind": "primary_document",
+      "date_coverage": "Current policy snapshot retrieved 2026-08-11; page identifies AdminView funding in 2023",
+      "locator": "https://talkbank.org/0share/access.html",
+      "provenance_note": "HTML retrieved from TalkBank and hash-frozen locally at SHA-256 e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb.",
+      "reliability_note": "Authoritative for the current public access policy, but mutable and not a contemporaneous record of when or why PsychosisBank's level was selected.",
+      "expected_observability": "Should reveal the implemented access levels, PsychosisBank's current level, named controls, infrastructure timing, and any public rejection of an alternative because of burden or rule incompatibility.",
+      "relevance_to_question": "Establishes the observable policy outcome and can connect at least one administrative burden to rejection of a DUA-based alternative.",
+      "text_markers": [
+        "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]"
+      ]
+    },
+    {
+      "source_id": "source_c",
+      "title": "TalkBank IRB Approval and Informed Consent Guidance",
+      "author_or_originator": "TalkBank",
+      "work_id": "talkbank-irb-guidance",
+      "source_group": "governance_guidance",
+      "source_kind": "primary_document",
+      "date_coverage": "Current guidance snapshot retrieved 2026-08-11",
+      "locator": "https://talkbank.org/0share/irb/index.html",
+      "provenance_note": "HTML retrieved from TalkBank and hash-frozen locally at SHA-256 83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b.",
+      "reliability_note": "Authoritative guidance about available consent and access options, but not project-specific internal deliberation and not proof that every recommendation controlled PsychosisBank's decision.",
+      "expected_observability": "Should reveal whether the policy presents multiple access options and how consent, authorization, passwords, deidentification, audio, and video constrain those options.",
+      "relevance_to_question": "Helps distinguish direct mandates from a design space in which researchers select among more and less restrictive strategies.",
+      "text_markers": [
+        "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]"
+      ]
+    }
+  ],
+  "rival_interpretations": [
+    {
+      "interpretation": "P5 transfer: project leaders weighed governance, curation, credit, misuse, and jurisdiction burdens against open-science value and selected graduated or controlled access.",
+      "supporting_sources": [
+        "Palaniyappan et al. 2022",
+        "TalkBank Data Access Levels"
+      ],
+      "discriminating_implication": "The sources should identify burdens before or during design and explicitly connect them to considered access features or rejected alternatives."
+    },
+    {
+      "interpretation": "Direct-rule account: external ethics, legal, funder, or repository requirements dictated the material access controls.",
+      "supporting_sources": [
+        "TalkBank IRB Guidance",
+        "TalkBank Data Access Levels"
+      ],
+      "discriminating_implication": "A binding rule should mandate the controlling features and leave little feasible alternative for project-level weighing."
+    },
+    {
+      "interpretation": "Stable-preference or routine account: TalkBank applied an established access preference, and burden language mainly justified or elaborated the choice.",
+      "supporting_sources": [
+        "TalkBank Data Access Levels"
+      ],
+      "discriminating_implication": "The same routine should predate project-specific burden appraisal and persist across materially different burden conditions."
+    }
+  ],
+  "observability_notes": [
+    "The 2022 commentary is public design reasoning from relevant project leaders, not a complete contemporaneous decision archive.",
+    "The two TalkBank web pages establish current policy and available options but may have changed since the focal decision.",
+    "The packet contains no QC interview evidence and is independent of the corpus that generated P5.",
+    "The case was selected after an analyst scanned public source availability, so the run is not blinded or preregistered."
+  ],
+  "known_gaps": [
+    {
+      "missing_source_class": "Contemporaneous PsychosisBank decision records",
+      "why_it_matters": "Minutes, correspondence, or design tickets are needed to establish temporal order, options actually considered, and who selected controlled access.",
+      "expected_location": "PsychosisBank, DISCOURSE in Psychosis, or TalkBank project records and correspondence",
+      "priority": "high"
+    },
+    {
+      "missing_source_class": "Timestamped policy and repository change history",
+      "why_it_matters": "The current pages do not independently establish when PsychosisBank moved to controlled access or whether policy changed after the 2022 design commentary.",
+      "expected_location": "TalkBank repository history, web archive, AdminView change log, or project release record",
+      "priority": "high"
+    },
+    {
+      "missing_source_class": "Project-specific consent, ethics, and governance determinations",
+      "why_it_matters": "These records would show which constraints were mandatory and which disclosure options remained discretionary.",
+      "expected_location": "Contributing-project IRB records, consent forms, governance review, or approved access protocol",
+      "priority": "high"
+    },
+    {
+      "missing_source_class": "Focused decision-maker accounts",
+      "why_it_matters": "A source-bounded interview could test whether the public barrier account reflects actual deliberation or retrospective justification.",
+      "expected_location": "New interviews with PsychosisBank and TalkBank decision makers tied to the bounded 2022-2023 decision",
+      "priority": "medium"
+    }
+  ],
+  "pre_specified_tests": [
+    {
+      "test_name": "Burden-before-strategy sequence",
+      "target_rival_pair": "h1 versus h2 and h3",
+      "expected_trace": "Specific burdens and risks are identified before or during selection, then connected to feasible access alternatives and the chosen controls.",
+      "contrary_trace": "The strategy is already fixed by a binding rule or stable routine before project-specific burdens are considered.",
+      "source_classes": [
+        "project design commentary",
+        "contemporaneous decision records",
+        "policy change history"
+      ]
+    },
+    {
+      "test_name": "Support changes strategy",
+      "target_rival_pair": "h1 versus h3",
+      "expected_trace": "Providing curation, governance, or access-control support changes the considered strategy or absorbs a stated barrier.",
+      "contrary_trace": "The same strategy persists without relation to changing support or burden.",
+      "source_classes": [
+        "funding and implementation record",
+        "policy decision record",
+        "project correspondence"
+      ]
+    },
+    {
+      "test_name": "Mandatory rule versus discretionary choice",
+      "target_rival_pair": "h1 versus h2",
+      "expected_trace": "The source presents multiple legally or ethically permissible options that are weighed for usefulness, burden, and risk.",
+      "contrary_trace": "An authoritative rule makes the material controlled-access outcome mandatory and rules out alternatives.",
+      "source_classes": [
+        "IRB and consent guidance",
+        "project-specific governance determination"
+      ]
+    }
+  ],
+  "proposed_next_steps": [
+    "Run the bounded appraisal while preserving the public-record source limits.",
+    "If the mechanism remains unresolved, acquire one contemporaneous decision record before broadening the case or theory contract.",
+    "Do not reuse the QC interviews as confirming evidence."
+  ],
+  "limitations": [
+    "The packet is source-selected and not a blinded held-out validation.",
+    "The public commentary may report normative design logic rather than the complete causal sequence of implementation.",
+    "Current policy pages are authoritative for the captured snapshot but are not full historical change records.",
+    "No private deliberation, project-specific ethics determination, or focused follow-up interview is included."
+  ]
+}

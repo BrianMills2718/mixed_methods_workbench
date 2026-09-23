@@ -1,0 +1,28 @@
+# Reviewed QC proposition supplied before automated case extraction
+
+Proposition: P5 / p5-v1
+Reviewed wording: Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness.
+Research question: What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?
+Observation unit: One research project's disclosure decision over time.
+
+Condition: Cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized.
+Reviewed analytic process: Researchers calculate labour, risk, timing, and exposure in disclosure decisions.
+Mechanism: Researchers weigh labour, risk, timing, and exposure in a disclosure decision.
+Possible strategies: delayed disclosure, restricted disclosure, minimum compliance
+Boundary: Researchers may still value openness while choosing a restrictive disclosure strategy.
+Additional reviewed boundaries:
+- Support, mandates, and established workflows can reduce the individualized burden.
+- The form of risk differs for sensitive, copyrighted, and long-labour datasets.
+
+Observable implications inherited from the reviewed QC design:
+- Burden or risk is recognized before the restrictive strategy is selected.
+- Decision records show weighing of openness against permissions, labour, priority, scrutiny, or publication pressure.
+- Removing or absorbing the salient burden changes the considered or selected strategy within a comparable case.
+
+Rival explanations inherited from the reviewed QC design:
+- The strategy reflects stable researcher preference rather than project-specific deliberation.
+- Journal, funder, ethics, legal, or repository rules determine the strategy directly.
+- The apparent burden is a retrospective justification for a decision made for another reason.
+
+Selection disclosure: The proposition and rival families predate this case packet; the case was selected after an analyst scan of public source availability.
+Treat P5 as a candidate process explanation, not as evidence. Preserve the burden/risk -> deliberative weighing -> disclosure-strategy sequence, compare it with whole-story rivals, and do not treat source availability or case selection as confirmation.

@@ -21,6 +21,20 @@ found that the selected quote for Finding 3 omits the antecedent of “this
 level”; the exact-hash TalkBank policy names it “Controlled access.” The page
 links each cited excerpt to its original source and states this distinction.
 
+Brian then authorized one connected run. The reviewed QC P5 theory input was
+reused; no new QC analysis or review was performed. Native Process Tracing ran
+twice against the frozen three-source corpus. Its frozen-rivals route stopped
+at the rival-partition audit. Its theory-first route passed that audit but
+stopped at the terminal central-claim review because generated claims included
+unsupported funding attribution and sequence language. The supported public
+`pt_export_v2` is retained with the blocked native result, audit artifacts,
+exact input bytes, trace IDs, and a fresh Gemini 3.1 Pro challenge in
+`examples/runs/psychosisbank-synthesis-20260923/`. The challenge is advisory.
+The Investigation Spine presents both stops, the diagnostic comparison,
+source-linked challenge excerpts, and the pending researcher review boundary.
+No causal conclusion is ready for publication. This bounded portfolio run does
+not change the NYC Path A critical path.
+
 ## Current Phase: Finish the NYC vertical (Path A, approved 2026-09-06)
 
 Brian approved Path A of `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md` on

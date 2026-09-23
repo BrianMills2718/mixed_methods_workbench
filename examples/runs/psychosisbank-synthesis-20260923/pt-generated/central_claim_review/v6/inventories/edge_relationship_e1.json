@@ -1,0 +1,16 @@
+{
+  "input_sha256": "3cc0ceb2e340233d6a8f71dfa0be5420811ed6438c1b5cffb3046febc6c9e917",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e1_c1",
+        "target_id": "edge_relationship_e1",
+        "claim_text": "authors identified barriers in the published commentary",
+        "source_field": "mechanism_unresolved",
+        "target_start": 0,
+        "target_end": 55,
+        "covered_text": "authors identified barriers in the published commentary"
+      }
+    ]
+  }
+}

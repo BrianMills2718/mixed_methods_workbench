@@ -1,0 +1,52 @@
+{
+  "input_sha256": "731b85acc1a0d48d65e96221f6c85256157fef6437158b8eb5d3e35122d9398e",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "verdict_h2_c1",
+        "target_id": "verdict_h2",
+        "claim_text": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior.",
+        "source_field": "verdict_reasoning",
+        "target_start": 0,
+        "target_end": 75,
+        "covered_text": "H2 ranks fourth with comparative support of 0.214533, below its 0.25 prior."
+      },
+      {
+        "claim_id": "verdict_h2_c2",
+        "target_id": "verdict_h2",
+        "claim_text": "The accepted comparisons favor alternatives to a single binding rule,",
+        "source_field": "verdict_reasoning",
+        "target_start": 76,
+        "target_end": 145,
+        "covered_text": "The accepted comparisons favor alternatives to a single binding rule,"
+      },
+      {
+        "claim_id": "verdict_h2_c3",
+        "target_id": "verdict_h2",
+        "claim_text": "and the matrix contains no favorable discriminator for h2.",
+        "source_field": "verdict_reasoning",
+        "target_start": 146,
+        "target_end": 204,
+        "covered_text": "and the matrix contains no favorable discriminator for h2."
+      },
+      {
+        "claim_id": "verdict_h2_c4",
+        "target_id": "verdict_h2",
+        "claim_text": "Support is fragile",
+        "source_field": "verdict_reasoning",
+        "target_start": 205,
+        "target_end": 223,
+        "covered_text": "Support is fragile"
+      },
+      {
+        "claim_id": "verdict_h2_c5",
+        "target_id": "verdict_h2",
+        "claim_text": "and ranges from 0.197927 to 0.231903.",
+        "source_field": "verdict_reasoning",
+        "target_start": 224,
+        "target_end": 261,
+        "covered_text": "and ranges from 0.197927 to 0.231903."
+      }
+    ]
+  }
+}

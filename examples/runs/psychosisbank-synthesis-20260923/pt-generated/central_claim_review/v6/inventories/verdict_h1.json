@@ -1,0 +1,52 @@
+{
+  "input_sha256": "a4b94afed60020cfb0ef05ae96ef822693155f767486009e7bf3057480408c16",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "verdict_h1_c1",
+        "target_id": "verdict_h1",
+        "claim_text": "H1 ranks first with comparative support of 0.288179,",
+        "source_field": "verdict_reasoning",
+        "target_start": 0,
+        "target_end": 52,
+        "covered_text": "H1 ranks first with comparative support of 0.288179,"
+      },
+      {
+        "claim_id": "verdict_h1_c2",
+        "target_id": "verdict_h1",
+        "claim_text": " above its 0.25 prior,",
+        "source_field": "verdict_reasoning",
+        "target_start": 52,
+        "target_end": 74,
+        "covered_text": " above its 0.25 prior,"
+      },
+      {
+        "claim_id": "verdict_h1_c3",
+        "target_id": "verdict_h1",
+        "claim_text": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3.",
+        "source_field": "verdict_reasoning",
+        "target_start": 74,
+        "target_end": 191,
+        "covered_text": " but remains indeterminate because the positive-evidence matrix provides no accepted favorable comparison against h3."
+      },
+      {
+        "claim_id": "verdict_h1_c4",
+        "target_id": "verdict_h1",
+        "claim_text": " Its support is fragile",
+        "source_field": "verdict_reasoning",
+        "target_start": 191,
+        "target_end": 214,
+        "covered_text": " Its support is fragile"
+      },
+      {
+        "claim_id": "verdict_h1_c5",
+        "target_id": "verdict_h1",
+        "claim_text": " and sensitivity ranges from 0.268777 to 0.308148.",
+        "source_field": "verdict_reasoning",
+        "target_start": 214,
+        "target_end": 264,
+        "covered_text": " and sensitivity ranges from 0.268777 to 0.308148."
+      }
+    ]
+  }
+}

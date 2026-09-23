@@ -1,0 +1,52 @@
+{
+  "input_sha256": "f2455565ab3aa33c465a999049f92efe322b08d8c977db8ae47a6f3adf6ef21a",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "verdict_h3_c1",
+        "target_id": "verdict_h3",
+        "claim_text": "H3 ranks second with comparative support of 0.248644,",
+        "source_field": "verdict_reasoning",
+        "target_start": 0,
+        "target_end": 53,
+        "covered_text": "H3 ranks second with comparative support of 0.248644,"
+      },
+      {
+        "claim_id": "verdict_h3_c2",
+        "target_id": "verdict_h3",
+        "claim_text": "marginally below its 0.25 prior.",
+        "source_field": "verdict_reasoning",
+        "target_start": 54,
+        "target_end": 86,
+        "covered_text": "marginally below its 0.25 prior."
+      },
+      {
+        "claim_id": "verdict_h3_c3",
+        "target_id": "verdict_h3",
+        "claim_text": "The diagnostic matrix contains no realized favorable discriminator for h3,",
+        "source_field": "verdict_reasoning",
+        "target_start": 87,
+        "target_end": 161,
+        "covered_text": "The diagnostic matrix contains no realized favorable discriminator for h3,"
+      },
+      {
+        "claim_id": "verdict_h3_c4",
+        "target_id": "verdict_h3",
+        "claim_text": "and its mechanical robustness is unknown.",
+        "source_field": "verdict_reasoning",
+        "target_start": 162,
+        "target_end": 203,
+        "covered_text": "and its mechanical robustness is unknown."
+      },
+      {
+        "claim_id": "verdict_h3_c5",
+        "target_id": "verdict_h3",
+        "claim_text": "Sensitivity ranges from 0.239428 to 0.257864.",
+        "source_field": "verdict_reasoning",
+        "target_start": 204,
+        "target_end": 249,
+        "covered_text": "Sensitivity ranges from 0.239428 to 0.257864."
+      }
+    ]
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "chunk_index": 2,
+  "chunk_sha256": "5901c79bc9a137d405d478c4026a03ba0e96cfb821e86ea63b29b7f8f026069d",
+  "contract_sha256": "51b6f20ea574622347dab44ead5152446ff93776c32f740c9fc1584c45a384da",
+  "inventory": {
+    "actors": [
+      {
+        "description": "Repository providing access levels, IRB guidance, and data-sharing infrastructure.",
+        "id": "c02_actor_talkbank",
+        "name": "TalkBank"
+      },
+      {
+        "description": "Researchers or institutions contributing speech data and selecting access options.",
+        "id": "c02_actor_contributors",
+        "name": "TalkBank contributors"
+      },
+      {
+        "description": "External institution whose approval status is cited for one access method.",
+        "id": "c02_actor_nih",
+        "name": "NIH"
+      },
+      {
+        "description": "Data subjects whose consent and removal rights constrain sharing.",
+        "id": "c02_actor_participants",
+        "name": "Research participants"
+      },
+      {
+        "description": "Institutional review bodies with their own procedures and consent requirements.",
+        "id": "c02_actor_irb_institutions",
+        "name": "Contributing institutions' IRBs"
+      }
+    ],
+    "causal_edges": [],
+    "events": [
+      {
+        "date": null,
+        "description": "TalkBank describes not using contributor-implemented data-use agreements.",
+        "id": "c02_evt_dua_alternative_rejected",
+        "location": null,
+        "normalized_year": null
+      },
+      {
+        "date": null,
+        "description": "TalkBank guidance allows contributors to select among access options.",
+        "id": "c02_evt_access_options_offered",
+        "location": null,
+        "normalized_year": null
+      },
+      {
+        "date": null,
+        "description": "The guidance specifies additional restrictions for clinical data, communication disabilities, and video.",
+        "id": "c02_evt_restrictions_for_sensitive_data",
+        "location": null,
+        "normalized_year": null
+      },
+      {
+        "date": null,
+        "description": "TalkBank offers audio extraction when completed projects lack permission to share video.",
+        "id": "c02_evt_audio_substitution_offered",
+        "location": null,
+        "normalized_year": null
+      }
+    ],
+    "evidence": [
+      {
+        "approximate_date": null,
+        "date_confidence": "low",
+        "description": "TalkBank says it has not used contributor-implemented data-use agreements because they create extra administrative burden and are not approved by NIH.",
+        "evidence_type": "empirical",
+        "id": "c02_evi_dua_rejected_burden_nih",
+        "normalized_year": null,
+        "source_genre": "primary_document",
+        "source_group": "Access policy",
+        "source_id": "source_b",
+        "source_quote": "because of the extra administrative burden for all parties and the fact that this system is not approved by NIH",
+        "source_span_id": "span_c02_001",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe page also describes a possible alternative in which a contributor implements a data-use agreement before TalkBank provides access. It says TalkBank has not used this method \"because of the extra administrative burden for all parties and the fact that this system is not approved by NIH.\"",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": null,
+        "date_confidence": "low",
+        "description": "TalkBank guidance states that contributors can select among access options and that less restrictive access improves research usefulness.",
+        "evidence_type": "empirical",
+        "id": "c02_evi_multiple_access_options",
+        "normalized_year": null,
+        "source_genre": "primary_document",
+        "source_group": "IRB guidance",
+        "source_id": "source_c",
+        "source_quote": "contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research",
+        "source_span_id": "span_c02_004",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nUnder informed consent, the page says contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research. It says participants should permit access for authorized researchers using password protection, and it notes a participant's continuing right to request removal of some or all contributed data.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": null,
+        "date_confidence": "low",
+        "description": "The guidance recommends participant permission for access by authorized researchers using password protection.",
+        "evidence_type": "empirical",
+        "id": "c02_evi_authorized_password_access",
+        "normalized_year": null,
+        "source_genre": "primary_document",
+        "source_group": "IRB guidance",
+        "source_id": "source_c",
+        "source_quote": "participants should permit access for authorized researchers using password protection",
+        "source_span_id": "span_c02_004",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nUnder informed consent, the page says contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research. It says participants should permit access for authorized researchers using password protection, and it notes a participant's continuing right to request removal of some or all contributed data.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": null,
+        "date_confidence": "low",
+        "description": "Archival data sharing may proceed when consent is non-exclusionary, passwords are limited to qualified researchers, data are anonymized, and additional protections are used as needed.",
+        "evidence_type": "empirical",
+        "id": "c02_evi_archival_data_conditions",
+        "normalized_year": null,
+        "source_genre": "primary_document",
+        "source_group": "IRB guidance",
+        "source_id": "source_c",
+        "source_quote": "only qualified researchers receive necessary passwords, data are anonymized, and additional protections are used where needed",
+        "source_span_id": "span_c02_005",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nFor archival data, the page says inclusion may be possible when original consent language is not exclusionary, only qualified researchers receive necessary passwords, data are anonymized, and additional protections are used where needed. It separately notes that contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": null,
+        "date_confidence": "low",
+        "description": "The guidance says clinical data or communication disabilities can require additional password restrictions and more complete IRB documentation.",
+        "evidence_type": "empirical",
+        "id": "c02_evi_sensitive_data_extra_restrictions",
+        "normalized_year": null,
+        "source_genre": "primary_document",
+        "source_group": "IRB guidance",
+        "source_id": "source_c",
+        "source_quote": "contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation",
+        "source_span_id": "span_c02_005",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nFor archival data, the page says inclusion may be possible when original consent language is not exclusionary, only qualified researchers receive necessary passwords, data are anonymized, and additional protections are used where needed. It separately notes that contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": null,
+        "date_confidence": "low",
+        "description": "Video sharing requires explicit consent or stronger committee-approved password protection, while audio extraction is offered when video permission is absent.",
+        "evidence_type": "empirical",
+        "id": "c02_evi_video_consent_alternatives",
+        "normalized_year": null,
+        "source_genre": "primary_document",
+        "source_group": "IRB guidance",
+        "source_id": "source_c",
+        "source_quote": "video can be made available only with explicit informed consent or a higher level of password protection involving committee approval",
+        "source_span_id": "span_c02_006",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nThe guidance says video can be made available only with explicit informed consent or a higher level of password protection involving committee approval. For completed projects that lack permission to share video, TalkBank offers to extract audio tracks instead.",
+        "trace_production_relevance": "direct"
+      }
+    ],
+    "hypotheses_in_text": [
+      {
+        "description": "TalkBank attributes rejection of contributor-managed data-use agreements to administrative burden and lack of NIH approval.",
+        "id": "c02_hyp_dua_burden_and_nih",
+        "source_id": "source_b",
+        "source_quote": "TalkBank has not used this method \"because of the extra administrative burden for all parties and the fact that this system is not approved by NIH.\"",
+        "source_span_id": "span_c02_001",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe page also describes a possible alternative in which a contributor implements a data-use agreement before TalkBank provides access. It says TalkBank has not used this method \"because of the extra administrative burden for all parties and the fact that this system is not approved by NIH.\""
+      },
+      {
+        "description": "TalkBank presents less restrictive access as increasing data usefulness for research while retaining selectable access levels.",
+        "id": "c02_hyp_less_restrictive_more_useful",
+        "source_id": "source_c",
+        "source_quote": "less restrictive options make data more useful for research",
+        "source_span_id": "span_c02_004",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nUnder informed consent, the page says contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research. It says participants should permit access for authorized researchers using password protection, and it notes a participant's continuing right to request removal of some or all contributed data."
+      },
+      {
+        "description": "TalkBank links sensitive clinical, disability, and video materials to stronger access, consent, or IRB controls.",
+        "id": "c02_hyp_sensitive_material_requires_stronger_controls",
+        "source_id": "source_c",
+        "source_quote": "contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation",
+        "source_span_id": "span_c02_005",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nFor archival data, the page says inclusion may be possible when original consent language is not exclusionary, only qualified researchers receive necessary passwords, data are anonymized, and additional protections are used where needed. It separately notes that contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation."
+      }
+    ],
+    "mechanisms": [
+      {
+        "description": "Administrative burden discourages a contributor-managed data-use agreement system.",
+        "id": "c02_mech_administrative_burden"
+      },
+      {
+        "description": "NIH approval status constrains the feasibility of one access method.",
+        "id": "c02_mech_external_approval_constraint"
+      },
+      {
+        "description": "Consent and authorization support selection among less or more restrictive access options.",
+        "id": "c02_mech_graduated_consent_design"
+      },
+      {
+        "description": "Clinical content, communication disabilities, and video trigger stronger password, IRB, or consent protections.",
+        "id": "c02_mech_sensitive_data_restriction"
+      }
+    ],
+    "source_anchor_exclusions": [],
+    "source_spans": [
+      {
+        "allowed_source_ids": [
+          "source_b"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c02_001",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe page also describes a possible alternative in which a contributor implements a data-use agreement before TalkBank provides access. It says TalkBank has not used this method \"because of the extra administrative burden for all parties and the fact that this system is not approved by NIH.\"",
+        "source_text_sha256": "ccba0ad0ca914b6926bd7b459a22627802c599ba6820d02ac8dcd5b473408484"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c02_002",
+        "source_text": "Source C",
+        "source_text_sha256": "01e83a5f292d6aab8a845daefe6ffaa911116713c6e6111ffa6edfd2bb15c7e1"
+      },
+      {
+        "allowed_source_ids": [
+          "source_c"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c02_003",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nThe hash-frozen TalkBank IRB guidance says contributions should obtain study IRB approval and participant informed consent for data sharing. It states that there are no standard IRB forms because each institution has its own procedures and templates.",
+        "source_text_sha256": "746d33cd85b8ca991910521501c9a986e8a43ba5216df589edddd268799c937e"
+      },
+      {
+        "allowed_source_ids": [
+          "source_c"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c02_004",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nUnder informed consent, the page says contributors can select from a series of TalkBank access options and that less restrictive options make data more useful for research. It says participants should permit access for authorized researchers using password protection, and it notes a participant's continuing right to request removal of some or all contributed data.",
+        "source_text_sha256": "b879ce51def6b2ac77999690bd2fbb3510ea742c8d0c741cf2827be576bfd3d8"
+      },
+      {
+        "allowed_source_ids": [
+          "source_c"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c02_005",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nFor archival data, the page says inclusion may be possible when original consent language is not exclusionary, only qualified researchers receive necessary passwords, data are anonymized, and additional protections are used where needed. It separately notes that contributions involving clinical data or communication disabilities can require additional password restriction and more complete IRB documentation.",
+        "source_text_sha256": "6e100af4666437c705dbc5c6cd3ce43c85b53cc82dcacc31d7982e3fd0bcff49"
+      },
+      {
+        "allowed_source_ids": [
+          "source_c"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c02_006",
+        "source_text": "[Source C | TalkBank IRB Guidance | sha256:83d29b09ee0eede4c2df62b3ff2b2b158540b00668a118c9681daa2c225c484b]\nThe guidance says video can be made available only with explicit informed consent or a higher level of password protection involving committee approval. For completed projects that lack permission to share video, TalkBank offers to extract audio tracks instead.",
+        "source_text_sha256": "e414800f3388805a075674038fc87ee586f89dde14b04cab9ffcb9fa4ce9a57b"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c02_007",
+        "source_text": "Declared source limitations",
+        "source_text_sha256": "dd75750cd887bea929701a2a50dbe8430ace079cf7815139c67389ebae13503c"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c02_008",
+        "source_text": "The packet does not include contemporaneous PsychosisBank minutes, correspondence, policy change history, project-specific ethics decisions, consent forms, or a focused interview about the bounded disclosure decision. The 2022 commentary can reveal articulated design logic and the current pages can reveal implemented policy, but together they may not prove the complete temporal mechanism or rule out private alternatives.",
+        "source_text_sha256": "7e6a4984ce0c3a3d2eba11c70818e9ef74b82899185c81acaa2241cc95f8f84e"
+      }
+    ],
+    "summary": "TalkBank describes rejecting contributor-implemented data-use agreements because of administrative burden and lack of NIH approval. Its IRB guidance presents multiple access options, with authorization, password protection, anonymization, consent, and additional restrictions for clinical data, communication disabilities, and video shaping the available strategies."
+  },
+  "schema_version": 2
+}

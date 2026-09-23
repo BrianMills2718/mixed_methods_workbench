@@ -1,0 +1,42 @@
+{
+  "input_sha256": "532dada6680c5897076ad9b4cf5cf88e287d954ed30d029880179f2e31e0b8f2",
+  "review": {
+    "status": "blocked",
+    "claims": [
+      {
+        "claim_id": "edge_relationship_e2_c1",
+        "target_id": "edge_relationship_e2",
+        "claim_text": "barriers were followed by proposed consent and governance responses",
+        "source_field": "mechanism_unresolved",
+        "severity": "substantive_overstatement",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "barriers",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "proposed consent and governance responses",
+            "evidence_ids": [
+              "c01_evi_multiple_access_responses"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The evidence supports barriers and proposed responses, but does not establish that the responses followed the barriers in a temporal or causal sequence."
+      }
+    ],
+    "overall_assessment": "The claim combines supported elements with an unsupported sequencing relationship.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "463ed6cd96ec2d2bf3e5ad62307b7a75ef2bca4fef9820db7f8d81179ff6cdcc",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

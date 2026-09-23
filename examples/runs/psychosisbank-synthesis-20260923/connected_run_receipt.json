@@ -1,0 +1,74 @@
+{
+  "schema_version": "mmw.psychosisbank_connected_run.v1",
+  "run_id": "psychosisbank-synthesis-20260923",
+  "generated_at": "2026-09-23T21:05:13.165487+00:00",
+  "qc_input_state": "reused_reviewed_proposition",
+  "qc_producer_revision": "d921baaf6f2b661e68d24aa243ee05da7fbe1823",
+  "pt_producer_revision": "befeb9387f632b0989d6e04912d3657b47d8efe2",
+  "input_digests": {
+    "qc_theory_input.json": "52e5a5bef8575b3b006c61bda6e2947858ff1c5d27a16c6fed9319130a5e0ce2",
+    "case_source_packet.json": "dc33be62aed976033d2ad5bf6a22456819649cfd7f02fab6857306d5165e2d8b",
+    "case_corpus.txt": "c258e028ba796ca11f803856f5b5201f1fca1df3503c4137d7dc624fb7483a0a",
+    "pt-generated/result_blocked_prepublication.json": "7f857437b1be5636c528f96ca10c0b231be14fc578d8bdcbf13a7b689615c725",
+    "pt-generated/central_claim_review.json": "a569929e8b457105e166dd39dd5359bd22da42ada5c6684b8a7f7ffc3f1c0f86",
+    "pt-generated/pt_export_v2.json": "028aa7f43fe474c29d649303ac879df8b646c64c38e55c96edd87e09267b0d6c",
+    "pt/partition_resolution.json": "61bc3646b6b497da30a2c8d1ed87f0239410f0cf3b93a64b910a2969e1b45e5b"
+  },
+  "attempts": [
+    {
+      "trace_id": "mmw-psychosisbank-connected-20260923",
+      "route": "frozen reviewed rivals",
+      "outcome": "blocked_partition",
+      "evidence_path": "pt/partition_resolution.json",
+      "evidence_sha256": "61bc3646b6b497da30a2c8d1ed87f0239410f0cf3b93a64b910a2969e1b45e5b"
+    },
+    {
+      "trace_id": "mmw-psychosisbank-generated-20260923",
+      "route": "theory-first generated and audited rivals",
+      "outcome": "blocked_publication",
+      "evidence_path": "pt-generated/pt_export_v2.json",
+      "evidence_sha256": "028aa7f43fe474c29d649303ac879df8b646c64c38e55c96edd87e09267b0d6c"
+    }
+  ],
+  "check_model": "openrouter/google/gemini-3.1-pro-preview",
+  "check_trace_id": "mmw-psychosisbank-fresh-export-challenge-20260923",
+  "check_cost_usd": 0.028130000000000002,
+  "check_prompt_sha256": "fbc5719de3b9b5af05f17523773cd57e8a9e498b17e454b80826bf39999c0941",
+  "review_state": "blocked_publication_pending_researcher_review",
+  "publication_block_reason": "Process Tracing terminal claim review found unsupported claims and blocked publication. The exported comparative weights are diagnostics only.",
+  "challenge": {
+    "findings": [
+      {
+        "finding_id": "h1",
+        "verdict": "bounded_support",
+        "reason": "The finding cautiously describes the support as fragile and indeterminate, which accurately reflects the mixed evidence indicating deliberation over multiple access responses and misuse prevention without definitively proving it as the sole cause.",
+        "evidence_ids": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ],
+        "source_gap": "Contemporaneous PsychosisBank decision records"
+      },
+      {
+        "finding_id": "h2",
+        "verdict": "bounded_support",
+        "reason": "The conclusion that h2 is weakened aligns with the excerpts showing multiple possible responses rather than a single binding rule.",
+        "evidence_ids": [
+          "c01_evi_multiple_access_responses",
+          "c01_evi_misuse_vetted_access"
+        ],
+        "source_gap": "Contemporaneous PsychosisBank decision records"
+      },
+      {
+        "finding_id": "h3",
+        "verdict": "bounded_support",
+        "reason": "The finding correctly identifies h3 as weakened and lacking realized favorable discriminators, which is consistent with the evidence showing varied access options rather than a single stable prior preference.",
+        "evidence_ids": [
+          "c01_evi_four_access_levels",
+          "c02_evi_multiple_access_options"
+        ],
+        "source_gap": "Timestamped policy and repository change history"
+      }
+    ],
+    "overall_limit": "3 high-priority source gap(s) remain unresolved; declared high-priority gaps: Contemporaneous PsychosisBank decision records, Timestamped policy and repository change history, Project-specific consent, ethics, and governance determinations"
+  }
+}

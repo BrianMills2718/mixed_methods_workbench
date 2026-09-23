@@ -1,0 +1,431 @@
+{
+  "input_sha256": "cf87609a7f8f885e2c4c045d928b779d870f0671ac29295393bd77f69be547c8",
+  "review": {
+    "status": "accepted",
+    "claims": [
+      {
+        "claim_id": "narrative_1_c1",
+        "target_id": "narrative_1",
+        "claim_text": "The corpus observes a sequence from public barrier commentary and proposed responses, through reported 2023 AdminView funding, to a later documented four-level access architecture and controlled PsychosisBank access with interview, training, consent, clinical-data, and video-related controls.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "public barrier commentary and proposed responses",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public",
+              "c01_evi_multiple_access_responses",
+              "c01_evi_misuse_vetted_access"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "reported 2023 AdminView funding and controlled PsychosisBank access with interview and training",
+            "evidence_ids": [
+              "c01_evi_psychosisbank_controlled_adminview"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "later documented four-level access architecture",
+            "evidence_ids": [
+              "c01_evi_four_access_levels"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "consent, clinical-data, and video-related controls",
+            "evidence_ids": [
+              "c02_evi_irb_consent_nonuniform",
+              "c02_evi_authorized_password_access",
+              "c02_evi_clinical_data_restrictions",
+              "c02_evi_video_consent_controls"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The cited evidence directly documents each event and control in the stated sequence."
+      },
+      {
+        "claim_id": "narrative_1_c2",
+        "target_id": "narrative_1",
+        "claim_text": "It supports causal links from commentary to barrier identification",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "causal links from commentary to barrier identification",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The source identifies the commentary and its barriers, matching the stated link."
+      },
+      {
+        "claim_id": "narrative_1_c3",
+        "target_id": "narrative_1",
+        "claim_text": "and from identified barriers to proposed responses.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "from identified barriers to proposed responses",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public",
+              "c01_evi_multiple_access_responses",
+              "c01_evi_misuse_vetted_access"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The commentary identifies barriers and describes corresponding possible consent and governance responses."
+      },
+      {
+        "claim_id": "narrative_1_c4",
+        "target_id": "narrative_1",
+        "claim_text": "The funding-to-policy connection is unresolved,",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "The funding-to-policy connection is unresolved",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/2/status"
+              },
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/2/missing_test"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The mechanism trace explicitly classifies this link as unresolved and identifies the missing linkage test."
+      },
+      {
+        "claim_id": "narrative_1_c5",
+        "target_id": "narrative_1",
+        "claim_text": "while funding preceding the documented architecture and the architecture containing the later controls are observed sequences only.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "funding preceding the documented architecture",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/3/status"
+              }
+            ]
+          },
+          {
+            "basis": "pipeline_artifact",
+            "covers": "the architecture containing the later controls are observed sequences only",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/4/status"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The mechanism trace classifies both transitions as observed sequences rather than established causal links."
+      },
+      {
+        "claim_id": "narrative_1_c6",
+        "target_id": "narrative_1",
+        "claim_text": "Thus, the mechanism supports chronology and some barrier-to-response production,",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "supports chronology and some barrier-to-response production",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/established_summary"
+              },
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/0/status"
+              },
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/1/status"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The established summary and first two edges support the chronology and barrier-to-response sequence."
+      },
+      {
+        "claim_id": "narrative_1_c7",
+        "target_id": "narrative_1",
+        "claim_text": "but not a complete causal account of the PsychosisBank selection.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "not a complete causal account of the PsychosisBank selection",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/unresolved_summary"
+              },
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/edges/2/status"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The unresolved summary states that the record does not connect the earlier responses and funding to the eventual selection."
+      },
+      {
+        "claim_id": "narrative_1_c8",
+        "target_id": "narrative_1",
+        "claim_text": "Comparative support ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533;",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "ranks h1 first at 0.288179, followed by h3 at 0.248644, the residual at 0.248644, and h2 at 0.214533",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/ranking"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/0/final_posterior"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/1/final_posterior"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/final_posterior"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/3/final_posterior"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The ranking and final posterior values exactly match the supplied Bayesian artifact."
+      },
+      {
+        "claim_id": "narrative_1_c9",
+        "target_id": "narrative_1",
+        "claim_text": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "this ranking is fragile for h1 and h2 and h3's robustness is unknown.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/0/robustness"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/1/robustness"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/posteriors/2/robustness"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The Bayesian artifact labels h1 and h2 fragile and h3 unknown."
+      },
+      {
+        "claim_id": "narrative_1_c10",
+        "target_id": "narrative_1",
+        "claim_text": "Local likelihood perturbation leaves the ranking stable,",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "Local likelihood perturbation leaves the ranking stable,",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/0/rank_stable"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/1/rank_stable"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/2/rank_stable"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/sensitivity/3/rank_stable"
+              }
+            ]
+          }
+        ],
+        "reasoning": "All reported local sensitivity cases have rank_stable true."
+      },
+      {
+        "claim_id": "narrative_1_c11",
+        "target_id": "narrative_1",
+        "claim_text": "but prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "pipeline_artifact",
+            "covers": "prior sensitivity is false: the leading rank does not survive the declared prior perturbation.",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "bayesian"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/prior_sensitivity/stable_under_prior_perturbation"
+              },
+              {
+                "artifact_ref": "bayesian",
+                "json_pointer": "/prior_sensitivity/top_hypothesis_id"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The artifact reports prior stability false for the leading hypothesis h1."
+      },
+      {
+        "claim_id": "narrative_1_c12",
+        "target_id": "narrative_1",
+        "claim_text": "The source-scope artifact identifies a 2022 secondary-analysis commentary and current primary TalkBank policy and guidance snapshots;",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "a 2022 secondary-analysis commentary",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "source_evidence",
+            "covers": "current primary TalkBank policy and guidance snapshots",
+            "evidence_ids": [
+              "c01_evi_four_access_levels",
+              "c02_evi_irb_consent_nonuniform"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          }
+        ],
+        "reasoning": "The accepted evidence metadata identifies the commentary as a 2022 secondary analysis and the TalkBank materials as current primary documents."
+      },
+      {
+        "claim_id": "narrative_1_c13",
+        "target_id": "narrative_1",
+        "claim_text": "their transmission constraint is that the commentary is public design reasoning and the web pages are current policy documents rather than complete contemporaneous decision records.",
+        "source_field": "analytical_narrative",
+        "severity": "grounded",
+        "supports": [
+          {
+            "basis": "source_evidence",
+            "covers": "the commentary is public design reasoning and the web pages are current policy documents",
+            "evidence_ids": [
+              "c01_evi_six_barriers_regulatory_public",
+              "c01_evi_four_access_levels",
+              "c02_evi_irb_consent_nonuniform"
+            ],
+            "artifact_refs": [],
+            "artifact_locators": []
+          },
+          {
+            "basis": "pipeline_artifact",
+            "covers": "rather than complete contemporaneous decision records",
+            "evidence_ids": [],
+            "artifact_refs": [
+              "mechanism_trace"
+            ],
+            "artifact_locators": [
+              {
+                "artifact_ref": "mechanism_trace",
+                "json_pointer": "/unresolved_summary"
+              }
+            ]
+          }
+        ],
+        "reasoning": "The source types establish public commentary and current policy guidance, while the mechanism trace explicitly says contemporaneous decision records are needed to connect them causally."
+      }
+    ],
+    "overall_assessment": "All eight inventory claims are supported by the supplied evidence or deterministic upstream artifacts, with no unsupported causal expansion. All five inventory claims are supported by the supplied evidence or deterministic analysis artifacts.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "52071305297753b0c228cd3cc219c942ef5039f735ebdd6cebdf4dcfd7344623",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

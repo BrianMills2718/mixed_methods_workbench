@@ -1,0 +1,23 @@
+{
+  "input_sha256": "e43ac12dbf767c9c87a7402cca36c028716341a43c085c7028aed9c113375d9b",
+  "review": {
+    "status": "blocked",
+    "claims": [
+      {
+        "claim_id": "stage_s4_c1",
+        "target_id": "stage_s4",
+        "claim_text": "AdminView creation received NIH FAIR grant funding.",
+        "source_field": "mechanism_established",
+        "severity": "fabricated",
+        "supports": [],
+        "reasoning": "The supplied evidence only reports that AdminView was funded in 2023; it does not establish creation, NIH, or FAIR grant funding."
+      }
+    ],
+    "overall_assessment": "The claim is fabricated because the supplied evidence does not support its specific funding attribution or the asserted creation event.",
+    "manifest": null
+  },
+  "judgment_origin": "fresh",
+  "dependency_sha256": "51d6cb1f0570ec024602a3a627f3ab753ec42c8e8b94a9fad7b0ab1eca720b1c",
+  "source_review_sha256": null,
+  "source_review_input_sha256": null
+}

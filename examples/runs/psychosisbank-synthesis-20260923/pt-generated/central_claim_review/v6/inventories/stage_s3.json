@@ -1,0 +1,25 @@
+{
+  "input_sha256": "0430c69d2e99d96540932ab4e27e689f121806bc49d380c411bbfee51c7fdfa7",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "stage_s3_c1",
+        "target_id": "stage_s3",
+        "claim_text": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses",
+        "source_field": "mechanism_established",
+        "target_start": 0,
+        "target_end": 117,
+        "covered_text": "The commentary described multiple consent, governance, vetting, agreement, password, and purpose-limitation responses"
+      },
+      {
+        "claim_id": "stage_s3_c2",
+        "target_id": "stage_s3",
+        "claim_text": " rather than one universal access rule.",
+        "source_field": "mechanism_established",
+        "target_start": 117,
+        "target_end": 156,
+        "covered_text": " rather than one universal access rule."
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "input_sha256": "48dcc220fff9198ce7baa30d8de76ffe98fe61d6f06e0a2510c6a2ebaf00dc93",
+  "inventory": {
+    "claims": [
+      {
+        "claim_id": "stage_s4_c1",
+        "target_id": "stage_s4",
+        "claim_text": "AdminView creation received NIH FAIR grant funding.",
+        "source_field": "mechanism_established",
+        "target_start": 0,
+        "target_end": 51,
+        "covered_text": "AdminView creation received NIH FAIR grant funding."
+      }
+    ]
+  }
+}

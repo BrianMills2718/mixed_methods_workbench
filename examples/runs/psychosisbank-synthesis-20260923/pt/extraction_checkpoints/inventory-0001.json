@@ -1,0 +1,349 @@
+{
+  "chunk_index": 1,
+  "chunk_sha256": "20bc28cbf28ead2fb68de0984a7df7150b04a30fd4cba55453032f23f51418d2",
+  "contract_sha256": "bc988d3349726e20b687858228ea7cbe7df1914f9616ac397e84094e952a5f42",
+  "inventory": {
+    "actors": [
+      {
+        "description": "Authors of the 2022 commentary on sharing psychiatric speech data.",
+        "id": "c01_actor_palaniyappan_alonso_macwhinney",
+        "name": "Palaniyappan, Alonso-Sanchez, and MacWhinney"
+      },
+      {
+        "description": "Repository and policy-setting institution offering graduated data-access levels.",
+        "id": "c01_actor_talkbank",
+        "name": "TalkBank"
+      },
+      {
+        "description": "Speech-data corpus subject to controlled access.",
+        "id": "c01_actor_psychosisbank",
+        "name": "PsychosisBank"
+      },
+      {
+        "description": "Funders described as providing resources for formatting and curation.",
+        "id": "c01_actor_funding_agencies",
+        "name": "Funding agencies"
+      },
+      {
+        "description": "Body described as vetting researchers and pre-approving intended data uses.",
+        "id": "c01_actor_governing_body",
+        "name": "Governing body"
+      }
+    ],
+    "causal_edges": [],
+    "events": [
+      {
+        "date": "2022",
+        "description": "Publication of the Palaniyappan et al. commentary identifying barriers and proposed responses.",
+        "id": "c01_evt_commentary_2022",
+        "location": null,
+        "normalized_year": 2022
+      },
+      {
+        "date": "2022",
+        "description": "The commentary identifies multiple barriers to open sharing of clinical speech data.",
+        "id": "c01_evt_barriers_identified",
+        "location": null,
+        "normalized_year": 2022
+      },
+      {
+        "date": "2023",
+        "description": "Creation of TalkBank's AdminView system was funded by a FAIR grant.",
+        "id": "c01_evt_adminview_funded",
+        "location": null,
+        "normalized_year": 2023
+      },
+      {
+        "date": "2026-08-11",
+        "description": "The captured TalkBank policy places PsychosisBank in controlled access with interview and CITI-training requirements.",
+        "id": "c01_evt_policy_snapshot",
+        "location": "TalkBank",
+        "normalized_year": 2026
+      }
+    ],
+    "evidence": [
+      {
+        "approximate_date": "2022",
+        "date_confidence": "high",
+        "description": "The authors present several consent and governance responses, including qualified-researcher access, vetting, agreements, passwords, and purpose limits, rather than one universal access rule.",
+        "evidence_type": "empirical",
+        "id": "c01_evi_multiple_consent_options",
+        "normalized_year": 2022,
+        "source_genre": "secondary_analysis",
+        "source_group": "Source A barriers",
+        "source_id": "source_a",
+        "source_quote": "possible responses rather than one universal access rule",
+        "source_span_id": "span_c01_007",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn informed consent, page 963 states that sharing without participant consent would violate privacy and confidentiality, precluding retrospective sharing for many existing samples. The authors identify re-contact, an IRB waiver where permissible, explicit consent for qualified-researcher access, participant removal rights, governance-body vetting, signed agreements, password access, institutional qualification, purpose limitations, and dynamic consent as possible responses rather than one universal access rule.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": "2022",
+        "date_confidence": "high",
+        "description": "The commentary identifies multiple deidentification and media-sharing strategies, including transcripts, blurred video, avatars, and password-protected video.",
+        "evidence_type": "empirical",
+        "id": "c01_evi_deidentification_alternatives",
+        "normalized_year": 2022,
+        "source_genre": "secondary_analysis",
+        "source_group": "Source A barriers",
+        "source_id": "source_a",
+        "source_quote": "share typed transcripts rather than audio; blur video or replace images with avatars; or use password-protected video",
+        "source_span_id": "span_c01_008",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn deidentification, page 964 states that some IRBs and national policies may require deidentification even with full consent and password control. The authors describe several possible strategies: constrain speech-elicitation tasks; manually remove personal identifiers with participant input; share typed transcripts rather than audio; blur video or replace images with avatars; or use password-protected video with adequate consent. They describe GDPR as permitting identifiable-data sharing for otherwise unachievable scientific purposes with consent while also requiring risk mitigation and data minimization.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": "2022",
+        "date_confidence": "high",
+        "description": "TalkBank is described as addressing competitive-credit concerns through a data-use embargo and contributor citation practices.",
+        "evidence_type": "empirical",
+        "id": "c01_evi_credit_embargo",
+        "normalized_year": 2022,
+        "source_genre": "secondary_analysis",
+        "source_group": "Source A barriers",
+        "source_id": "source_a",
+        "source_quote": "TalkBank addresses this concern by permitting a data-use embargo",
+        "source_span_id": "span_c01_009",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Credit assignment\" on page 964, the authors write that researchers often worry that competitors could publish from shared data first. They state that TalkBank addresses this concern by permitting a data-use embargo, after which corpus citation, DOI assignment, and citation of a contributor's prior publication help preserve credit.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": "2022",
+        "date_confidence": "high",
+        "description": "The authors propose restricting access to vetted researchers subject to a code of conduct and governing-body pre-approval, while noting no such misuse had occurred in affiliated databases.",
+        "evidence_type": "empirical",
+        "id": "c01_evi_misuse_controls",
+        "normalized_year": 2022,
+        "source_genre": "secondary_analysis",
+        "source_group": "Source A barriers",
+        "source_id": "source_a",
+        "source_quote": "although such misuse had not occurred in TalkBank-affiliated databases",
+        "source_span_id": "span_c01_010",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Use and misuse\" on page 964, the authors write that researchers often fear misinterpretation or unethical use. They say that although such misuse had not occurred in TalkBank-affiliated databases, sharing could be restricted to vetted qualified researchers who agree to a code of conduct and whose intended use is pre-approved by a governing body.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": "2022",
+        "date_confidence": "high",
+        "description": "The commentary states that repository inclusion creates substantial transcription and file-organization work and that funders provide resources for formatting and curation.",
+        "evidence_type": "empirical",
+        "id": "c01_evi_curation_support",
+        "normalized_year": 2022,
+        "source_genre": "secondary_analysis",
+        "source_group": "Source A barriers",
+        "source_id": "source_a",
+        "source_quote": "funding agencies provide resources to TalkBank and similar projects to help researchers and database workers achieve correct formatting and curation",
+        "source_span_id": "span_c01_011",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Workload\" on page 964, the authors state that repository inclusion can require substantial transcription and file-organization work, especially when a repository requires a particular format. They say funding agencies provide resources to TalkBank and similar projects to help researchers and database workers achieve correct formatting and curation. Once data are in TalkBank format, additional analyses and cross-dataset comparisons become possible.",
+        "trace_production_relevance": "direct"
+      },
+      {
+        "approximate_date": "Current policy snapshot retrieved 2026-08-11",
+        "date_confidence": "medium",
+        "description": "TalkBank's policy states that PsychosisBank requires controlled access with a special interview and proof of CITI training, within a four-level access system.",
+        "evidence_type": "empirical",
+        "id": "c01_evi_psychosisbank_controlled_policy",
+        "normalized_year": 2026,
+        "source_genre": "primary_document",
+        "source_group": "Source B access policy",
+        "source_id": "source_b",
+        "source_quote": "corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training",
+        "source_span_id": "span_c01_016",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe same page states: \"Controlled access is required for some corpora and media. For example, corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training.\"",
+        "trace_production_relevance": "direct"
+      }
+    ],
+    "hypotheses_in_text": [
+      {
+        "description": "The commentary argues that clinical speech-data sharing faces significant barriers that must be addressed through infrastructure and governance responses.",
+        "id": "c01_hyp_open_science_barriers",
+        "source_id": "source_a",
+        "source_quote": "open sharing of spoken-language data from clinical populations has met significant resistance",
+        "source_span_id": "span_c01_006",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn page 963, under \"Barriers to Sharing Speech Data,\" the authors write that Open Science encourages fully open access, but that open sharing of spoken-language data from clinical populations has met significant resistance. They identify at least six barriers and state that some arise from institutional interpretations of regulations while others concern public perceptions. They say they will consider each barrier and ways that systems such as TalkBank or Databrary manage to overcome it. They anticipate that the commentary will inform future speech-bank infrastructures for psychiatric disorders."
+      },
+      {
+        "description": "The commentary proposes anonymous data or federated EU repositories as responses to jurisdictional limits on identifiable-data transfer.",
+        "id": "c01_hyp_federated_jurisdiction_response",
+        "source_id": "source_a",
+        "source_quote": "establish EU repositories that make data available in a compatible format through a federated content-access system",
+        "source_span_id": "span_c01_012",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Jurisdictional barriers\" on page 964, the authors state that GDPR limits transfer of identifiable data to other jurisdictions. They describe two responses: render data anonymous, or establish EU repositories that make data available in a compatible format through a federated content-access system. They say federation provides greater contributor and institutional control but requires close adherence to data standards and systematic installation of database-management software."
+      },
+      {
+        "description": "The authors argue that progress in Open Science requires collaboration among researchers, clinicians, universities, and funders to remove barriers.",
+        "id": "c01_hyp_collaborative_infrastructure",
+        "source_id": "source_a",
+        "source_quote": "progress requires collaboration, immediate access to speech-based measures from consenting patients, and shared elicitation and analysis methods",
+        "source_span_id": "span_c01_013",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn page 965, the authors argue that progress requires collaboration, immediate access to speech-based measures from consenting patients, and shared elicitation and analysis methods. They call for researchers, clinicians, universities, and funders to work together to remove barriers to Open Science. The acknowledgments say the commentary's material was discussed by the DISCOURSE in Psychosis Steering Committee; the authors also disclose support to DISCOURSE in Psychosis and NIH support to Brian MacWhinney."
+      }
+    ],
+    "mechanisms": [
+      {
+        "description": "Identified privacy, misuse, credit, workload, and jurisdiction burdens are matched to differentiated controls and access strategies.",
+        "id": "c01_mech_burden_risk_deliberation"
+      },
+      {
+        "description": "TalkBank offers multiple access levels varying in registration, verification, and control requirements.",
+        "id": "c01_mech_graduated_access"
+      },
+      {
+        "description": "Funding and repository support absorb transcription, formatting, and curation workload.",
+        "id": "c01_mech_curation_support"
+      },
+      {
+        "description": "Vetting, agreements, purpose limits, codes of conduct, and pre-approval restrict access or use.",
+        "id": "c01_mech_governance_controls"
+      }
+    ],
+    "source_anchor_exclusions": [],
+    "source_spans": [
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c01_001",
+        "source_text": "PsychosisBank and TalkBank graduated-access design: bounded source corpus",
+        "source_text_sha256": "c021b746a151dd7fcb8590fccdb717121ae6c4d78a9d925270e3bcc41c42da97"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c01_002",
+        "source_text": "Research question",
+        "source_text_sha256": "3d246493e896f9411e684e3919098e7e1ef0e9992803a866429976841572bc89"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c01_003",
+        "source_text": "What best explains the PsychosisBank and TalkBank team's choice of graduated and controlled access for psychiatric speech data: burden and risk deliberation, direct external rules, or stable prior preference and routine?",
+        "source_text_sha256": "07457939ba00b6c5422b94dadd1577f6f159cf11f5b351b6bd7c5d069b29b29b"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c01_004",
+        "source_text": "Source A",
+        "source_text_sha256": "f72338465fc2cf2f1a63981f0288d2085e08249261311bb68a20a021db354f06"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_005",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nPalaniyappan, Alonso-Sanchez, and MacWhinney, \"Is Collaborative Open Science Possible With Speech Data in Psychiatric Disorders?\", Schizophrenia Bulletin 48(5), 2022, pp. 963-966. The authors describe the article as a commentary that discusses why spoken-language datasets from people experiencing mental-health issues are difficult to obtain, highlights approaches used in other areas of clinical linguistics, and proposes ways forward for psychosis research.",
+        "source_text_sha256": "99f8f43f77be234f0ee1809441b2761050997b7e7c4771ad6f48676afa40e883"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_006",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn page 963, under \"Barriers to Sharing Speech Data,\" the authors write that Open Science encourages fully open access, but that open sharing of spoken-language data from clinical populations has met significant resistance. They identify at least six barriers and state that some arise from institutional interpretations of regulations while others concern public perceptions. They say they will consider each barrier and ways that systems such as TalkBank or Databrary manage to overcome it. They anticipate that the commentary will inform future speech-bank infrastructures for psychiatric disorders.",
+        "source_text_sha256": "ad99a7144bb313cfe0415511d19685fa64b21da5572a2bcf2bb1ad0edc9bf5e4"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_007",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn informed consent, page 963 states that sharing without participant consent would violate privacy and confidentiality, precluding retrospective sharing for many existing samples. The authors identify re-contact, an IRB waiver where permissible, explicit consent for qualified-researcher access, participant removal rights, governance-body vetting, signed agreements, password access, institutional qualification, purpose limitations, and dynamic consent as possible responses rather than one universal access rule.",
+        "source_text_sha256": "bc05d6b2688e72671a0f50683e881bea802dd597e3c27d0512761392620b4182"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_008",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn deidentification, page 964 states that some IRBs and national policies may require deidentification even with full consent and password control. The authors describe several possible strategies: constrain speech-elicitation tasks; manually remove personal identifiers with participant input; share typed transcripts rather than audio; blur video or replace images with avatars; or use password-protected video with adequate consent. They describe GDPR as permitting identifiable-data sharing for otherwise unachievable scientific purposes with consent while also requiring risk mitigation and data minimization.",
+        "source_text_sha256": "c71fc5aa8f4eb5d950ae85012161414fc2098456e6f69dcd23df4dea57842c8c"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_009",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Credit assignment\" on page 964, the authors write that researchers often worry that competitors could publish from shared data first. They state that TalkBank addresses this concern by permitting a data-use embargo, after which corpus citation, DOI assignment, and citation of a contributor's prior publication help preserve credit.",
+        "source_text_sha256": "47a72878988900aac786608c41e2f7da909032006190c2de4f2bf5b7f8a867b1"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_010",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Use and misuse\" on page 964, the authors write that researchers often fear misinterpretation or unethical use. They say that although such misuse had not occurred in TalkBank-affiliated databases, sharing could be restricted to vetted qualified researchers who agree to a code of conduct and whose intended use is pre-approved by a governing body.",
+        "source_text_sha256": "56eb02bcad4c46b87760f39b6f39f2d597798bc56d2d65153e2658978f4bc9f7"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_011",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Workload\" on page 964, the authors state that repository inclusion can require substantial transcription and file-organization work, especially when a repository requires a particular format. They say funding agencies provide resources to TalkBank and similar projects to help researchers and database workers achieve correct formatting and curation. Once data are in TalkBank format, additional analyses and cross-dataset comparisons become possible.",
+        "source_text_sha256": "3a87cfd3707bf68e3347779a1ffd57aceb7c06e42956e6f8967ae1ec21ff41bc"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_012",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nUnder \"Jurisdictional barriers\" on page 964, the authors state that GDPR limits transfer of identifiable data to other jurisdictions. They describe two responses: render data anonymous, or establish EU repositories that make data available in a compatible format through a federated content-access system. They say federation provides greater contributor and institutional control but requires close adherence to data standards and systematic installation of database-management software.",
+        "source_text_sha256": "79993bf525cea362925cd2eae42dbcbec29dca92fd3a4241b2a06c1ea623d2a8"
+      },
+      {
+        "allowed_source_ids": [
+          "source_a"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_013",
+        "source_text": "[Source A | Palaniyappan et al. 2022 | sha256:0e67dc2ff778883c8ff509b84b8de233ce31d69ac887674998e0d87d0f16d915]\nOn page 965, the authors argue that progress requires collaboration, immediate access to speech-based measures from consenting patients, and shared elicitation and analysis methods. They call for researchers, clinicians, universities, and funders to work together to remove barriers to Open Science. The acknowledgments say the commentary's material was discussed by the DISCOURSE in Psychosis Steering Committee; the authors also disclose support to DISCOURSE in Psychosis and NIH support to Brian MacWhinney.",
+        "source_text_sha256": "5807f073491c968c6094c242982146e39921b7c4c200cb25916cff1c4f259bcb"
+      },
+      {
+        "allowed_source_ids": [],
+        "attribution": "unassigned",
+        "id": "span_c01_014",
+        "source_text": "Source B",
+        "source_text_sha256": "6f0f415dec910c547a8d03223d224bdcca7f0fd6b96cac66b5552d103e35307e"
+      },
+      {
+        "allowed_source_ids": [
+          "source_b"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_015",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe hash-frozen TalkBank Data Access Levels page states that TalkBank offers four levels. Open access requires no restrictions or registration. Registration-required access requires an account and password. Approved access is available to verified academic researchers who request access and agree to data-use ground rules; the page says this level is used for several banks containing clinical data and most of HomeBank.",
+        "source_text_sha256": "3e2165b4c8847d5de5c08777f57df40089fcee826a9125d718c3ab74a2a44217"
+      },
+      {
+        "allowed_source_ids": [
+          "source_b"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_016",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe same page states: \"Controlled access is required for some corpora and media. For example, corpora in HomeBank and PsychosisBank require this level along with a special interview process and proof of CITI training.\"",
+        "source_text_sha256": "1131ab02420b3802461fa18a5e0dccbd25ddc1974b70c69fbcb74b75b1f8de77"
+      },
+      {
+        "allowed_source_ids": [
+          "source_b"
+        ],
+        "attribution": "explicit_marker",
+        "id": "span_c01_017",
+        "source_text": "[Source B | TalkBank Data Access Levels | sha256:e6f470800bb8c67b8e9e5d1d70db14ca9bb19744ab27f9aee95fcfb9896b53cb]\nThe page states that TalkBank uses its AdminView system to control access and that creation of AdminView was funded by a FAIR grant in 2023 from the NIH Office of Data Science Strategy.",
+        "source_text_sha256": "b2a9191806a87e9c596c06e44a095dacad5e63fc1603da43a48016c0b9734aa5"
+      }
+    ],
+    "summary": "The 2022 commentary identifies consent, deidentification, credit, misuse, workload, and jurisdiction as barriers to open sharing and describes multiple possible governance, technical, and access responses. The current TalkBank policy records four access levels and places PsychosisBank in controlled access with an interview and CITI-training requirement; AdminView creation was funded in 2023."
+  },
+  "schema_version": 2
+}
