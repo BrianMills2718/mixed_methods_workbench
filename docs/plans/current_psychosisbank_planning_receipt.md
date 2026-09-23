@@ -8,7 +8,7 @@ dependencies_reviewed: "2026-09-23"
 
 # PsychosisBank source-bound planning receipt
 
-Status: prepared implementation plan; no code is authorized by this document.
+Status: active, source-bound implementation slice authorized by Brian's active end-to-end workflow goal.
 
 ## Authorization and outcome
 
@@ -75,9 +75,10 @@ must never contain raw producer internals as a new public contract.
 
 ## Preconditions and stop points
 
-- Re-check the active `goal/psychosisbank-fresh-qc` lane before touching the
-  run directory; it currently owns the run evidence and its changes must be
-  consumed only after it publishes a stable receipt.
+- The `goal/psychosisbank-fresh-qc` lane closed at 2026-09-23T22:04Z with
+  no changes and no terminal artifact; its tracker directs the work to a QC
+  method-owner repair. Its transient attempts are excluded from this slice.
+  The retained `connected_run_receipt.json` is the sole source-bound input.
 - The first fresh native QC execution ended on 2026-09-23 with
   `pipeline_status: failed` during synthesis: after four successful calls it
   referenced nonexistent application `A0017`, and it reported 13 unanchored
@@ -85,20 +86,18 @@ must never contain raw producer internals as a new public contract.
   evidence only; it cannot become a planning input, qualitative handoff, or
   public claim until the owning lane records a terminal disposition and a
   stable, hash-bound artifact. Its first saved-stage resume then exited before
-  generation because OpenRouter Luna rejected QC structured parameters; the
-  saved stage remains intact. The owner has published one second bounded
-  synthesis candidate on the supported default DeepSeek route. Consume only
-  that terminal receipt, whether successful or failed.
+  generation because OpenRouter Luna rejected QC structured parameters. The
+  lane subsequently closed with no durable output, so this diagnostic remains
+  excluded from planning inputs, qualitative handoff, and public claims.
 - Stop if the fresh-QC lane changes the source packet or Process Tracing export
   without a corresponding stable digest update.
 - Stop before deployment or any claim that the causal explanation is supported.
 
 ## Next implementation sequence
 
-1. Wait for, or read, the fresh-QC lane's stable receipt and exact digests.
-2. Implement the strict receipt and its integrity checks in a non-overlapping
-   claimed lane.
-3. Add the read-only JSON/browser projection.
-4. Run focused contract, corruption, endpoint, and rendered checks.
-5. Prepare a portfolio release candidate that links to the review surface;
+1. Implement the strict receipt and its integrity checks against the retained
+   connected-run receipt in a new non-overlapping claimed lane.
+2. Add the read-only JSON/browser projection.
+3. Run focused contract, corruption, endpoint, and rendered checks.
+4. Prepare a portfolio release candidate that links to the review surface;
    public deployment remains a separate authorization boundary.
