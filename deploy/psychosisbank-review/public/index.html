@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Investigation · Mixed Methods Workbench</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17231d;
+      --muted: #59665e;
+      --paper: #f6f3eb;
+      --panel: #fffdf8;
+      --line: #d8d6ca;
+      --pine: #174d3a;
+      --pine-soft: #e2eee8;
+      --ochre: #885217;
+      --ochre-soft: #fbedd6;
+      --blue: #315e78;
+      --blue-soft: #e6f0f4;
+      --red: #8b3f35;
+      --red-soft: #f7e8e4;
+      --shadow: 0 18px 45px rgba(32, 45, 38, .08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.55; }
+    a { color: var(--pine); }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #d99535; outline-offset: 3px; }
+    .topbar { border-bottom: 1px solid var(--line); background: rgba(246,243,235,.96); }
+    .topbar-inner { max-width: 1160px; margin: auto; padding: .9rem 1.25rem; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .brand { color: var(--ink); text-decoration: none; font-weight: 850; letter-spacing: -.02em; }
+    .back { font-size: .91rem; font-weight: 750; }
+    main { max-width: 1160px; margin: auto; padding: 2.4rem 1.25rem 5rem; }
+    .eyebrow { margin: 0; color: var(--pine); font-size: .76rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    h1 { max-width: 900px; margin: .7rem 0 .8rem; font-size: clamp(2.5rem, 6vw, 5.25rem); line-height: .98; letter-spacing: -.06em; }
+    .lede { max-width: 850px; margin: 0; color: var(--muted); font-size: clamp(1.04rem, 2vw, 1.28rem); }
+    .status { display: inline-flex; margin-top: 1.2rem; padding: .48rem .72rem; border-radius: 999px; color: #6f410f; background: var(--ochre-soft); font-size: .82rem; font-weight: 850; }
+    .hero-action { display: inline-flex; margin-top: 1.25rem; padding: .72rem 1rem; border-radius: 10px; color: white; background: var(--pine); text-decoration: none; font-weight: 800; }
+    .hero-action:hover { background: #0f3d2e; }
+    .flow { margin: 2rem 0; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--panel); box-shadow: var(--shadow); }
+    .flow > div { padding: 1.05rem; border-right: 1px solid var(--line); }
+    .flow > div:last-child { border-right: 0; }
+    .flow small { display: block; color: var(--pine); font-size: .71rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .flow strong { display: block; margin-top: .25rem; }
+    .result { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); gap: 1.5rem; padding: 1.6rem; border-radius: 18px; color: white; background: var(--pine); box-shadow: var(--shadow); }
+    .result .eyebrow { color: #bfe0cf; }
+    .result h2 { margin: .35rem 0 .55rem; font-size: clamp(1.75rem, 3.5vw, 2.9rem); line-height: 1.08; letter-spacing: -.04em; }
+    .result p { margin: 0; color: #e8f1ed; }
+    .result-limit { padding-left: 1.35rem; border-left: 1px solid rgba(255,255,255,.25); }
+    .result-limit strong { display: block; margin-bottom: .3rem; font-size: 1.04rem; }
+    .section { margin-top: 3.4rem; }
+    .section-head { max-width: 790px; }
+    .section h2 { margin: .2rem 0 .45rem; font-size: clamp(1.75rem, 3vw, 2.55rem); letter-spacing: -.04em; }
+    .section-head > p:last-child { margin: 0; color: var(--muted); }
+    .journey { display: grid; gap: .9rem; margin-top: 1.35rem; }
+    .stage { display: grid; grid-template-columns: 3rem minmax(0, 1fr) minmax(220px, .55fr); gap: 1rem; align-items: start; padding: 1.15rem; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .stage-number { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--pine); font-weight: 900; }
+    .stage h3 { margin: 0 0 .25rem; font-size: 1.14rem; }
+    .stage p { margin: 0; color: var(--muted); }
+    .stage-owner { padding: .65rem .75rem; border-radius: 9px; color: #335447; background: var(--pine-soft); font-size: .82rem; }
+    .stage-owner strong { display: block; color: var(--pine); }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.3rem; }
+    .card { padding: 1.1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); box-shadow: 0 7px 22px rgba(32,45,38,.045); }
+    .card h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.3rem; }
+    .unresolved { border-color: #dfb879; background: #fff9ee; }
+    .blocked { border-color: #d5a39c; background: var(--red-soft); }
+    .blocked strong { color: var(--red); }
+    ul { padding-left: 1.2rem; }
+    li + li { margin-top: .5rem; }
+    .needs { display: grid; gap: .8rem; margin-top: 1.3rem; }
+    .need { padding: 1rem 1.1rem; border-left: 4px solid var(--blue); border-radius: 5px 12px 12px 5px; background: var(--blue-soft); }
+    .need h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+    .need p { margin: .15rem 0 0; color: #405b69; }
+    .source-row, .artifact-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+    .source-row:last-child, .artifact-row:last-child { border-bottom: 0; }
+    .source-row span, .artifact-row span { color: var(--muted); font-size: .85rem; }
+    details { margin-top: 2.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+    summary { cursor: pointer; color: var(--pine); font-weight: 800; }
+    .provenance-intro { max-width: 810px; color: var(--muted); }
+    code { overflow-wrap: anywhere; font-size: .77rem; }
+    .availability { white-space: nowrap; font-weight: 800; }
+    .loading, .error { padding: 4rem 1rem; text-align: center; }
+    .error { color: var(--red); }
+    [hidden] { display: none !important; }
+    @media (max-width: 820px) {
+      .result, .two-col { grid-template-columns: 1fr; }
+      .result-limit { padding: 1rem 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.25); }
+      .stage { grid-template-columns: 3rem 1fr; }
+      .stage-owner { grid-column: 2; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; }
+      .flow { grid-template-columns: 1fr; }
+      .flow > div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .flow > div:last-child { border-bottom: 0; }
+      .stage { grid-template-columns: 1fr; }
+      .stage-owner { grid-column: 1; }
+      .source-row, .artifact-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">Mixed Methods Workbench</a>
+      <a class="back" href="/">← Plan another investigation</a>
+    </div>
+  </header>
+  <main>
+    <div id="loading" class="loading">Loading the investigation…</div>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="app" hidden>
+      <p id="page-eyebrow" class="eyebrow">Completed investigation · explanation testing</p>
+      <h1 id="title"></h1>
+      <p id="research-question" class="lede"></p>
+      <span id="status" class="status"></span><br>
+      <a class="hero-action" href="#journey">Follow the investigation</a>
+
+      <div class="flow" aria-label="Investigation overview">
+        <div><small id="flow-label-1">Qualitative research</small><strong id="flow-value-1">Proposed an explanation</strong></div>
+        <div><small id="flow-label-2">New case evidence</small><strong id="flow-value-2">Compared competing explanations</strong></div>
+        <div><small id="flow-label-3">Reviewed result</small><strong id="flow-value-3">Kept the explanation unconfirmed</strong></div>
+      </div>
+
+      <section class="result" aria-labelledby="result-title">
+        <div>
+          <p id="result-eyebrow" class="eyebrow">What the new case established</p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary"></p>
+        </div>
+        <div class="result-limit">
+          <strong id="result-limit-title">This is a useful inconclusive result.</strong>
+          <p id="result-limit-copy">The evidence documented burdens, possible responses, and the final access policy. It did not reveal the decision process needed to say why that option was chosen.</p>
+        </div>
+      </section>
+
+      <section id="journey" class="section" aria-labelledby="journey-title">
+        <div class="section-head">
+          <p class="eyebrow">One investigation, several owners</p>
+          <h2 id="journey-title">How the analysis moved from interviews to a new case</h2>
+          <p id="journey-intro">Each method kept control of its own judgment. The Workbench preserves the question, artifact identity, result, and handoff.</p>
+        </div>
+        <div id="journey-stages" class="journey"></div>
+      </section>
+
+      <section class="section" aria-labelledby="findings-title">
+        <div class="section-head">
+          <p class="eyebrow">What changed</p>
+          <h2 id="findings-title">What the new sources added</h2>
+          <p id="evidence-summary"></p>
+        </div>
+        <div id="findings" class="card-grid"></div>
+      </section>
+
+      <section class="section" aria-labelledby="open-title">
+        <div class="section-head">
+          <p class="eyebrow">What remains open</p>
+          <h2 id="open-title">Why the explanation is still unconfirmed</h2>
+        </div>
+        <div class="two-col">
+          <article class="card unresolved">
+            <h3 id="unresolved-card-title">Questions the evidence could not answer</h3>
+            <ul id="unresolved"></ul>
+          </article>
+          <article class="card blocked">
+            <h3 id="publication-card-title">Why the public causal conclusion was withheld</h3>
+            <p><strong id="publication-card-lede">One chronology statement exceeded its evidence.</strong></p>
+            <p id="publication-block"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="verification-section" class="section" aria-labelledby="verification-title" hidden>
+        <div class="section-head">
+          <p class="eyebrow">Independent challenge</p>
+          <h2 id="verification-title">A second model checked the bounded findings</h2>
+          <p id="verification-status">This challenge is advisory. A researcher still decides whether any wording changes.</p>
+        </div>
+        <div id="verification-cards" class="card-grid"></div>
+        <p id="verification-limit" class="provenance-intro"></p>
+      </section>
+
+      <section id="connected-run-section" class="section" aria-labelledby="connected-run-title" hidden>
+        <div class="section-head">
+          <p class="eyebrow">New connected execution · 23 September 2026</p>
+          <h2 id="connected-run-title">One agent carried the reviewed explanation to the publication guardrail</h2>
+          <p id="connected-run-status"></p>
+        <p id="planning-receipt-status" class="provenance-intro"></p>
+        </div>
+        <div id="connected-run-attempts" class="card-grid"></div>
+        <article class="card">
+          <h3 id="connected-run-conclusion"></h3>
+          <p id="connected-run-conclusion-reason"></p>
+          <p id="connected-run-inference"></p>
+          <ul id="connected-run-limits"></ul>
+        </article>
+        <div id="connected-run-verdicts" class="card-grid"></div>
+        <p id="connected-run-identity" class="provenance-intro"></p>
+      </section>
+
+      <section class="section" aria-labelledby="next-title">
+        <div class="section-head">
+          <p class="eyebrow">Next evidence</p>
+          <h2 id="next-title">What would make the explanation testable</h2>
+          <p id="next-intro">These are evidence requests, not another software step or an invitation to rerun the same sources.</p>
+        </div>
+        <div id="needs" class="needs"></div>
+      </section>
+
+      <section class="section" aria-labelledby="sources-title">
+        <div class="section-head">
+          <p class="eyebrow">Evidence packet</p>
+          <h2 id="sources-title">The different-case sources used</h2>
+          <p id="sources-intro">The original Open Science interviews generated the explanation. They were not counted as evidence in this case test.</p>
+        </div>
+        <div id="sources" class="card"></div>
+      </section>
+
+      <details>
+        <summary>Inspect artifact identity, digests, and method custody</summary>
+        <p class="provenance-intro">Internal IDs and hashes are kept here so they do not replace the plain-language result. “Producer-retained reference” means the Workbench has an exact ID and digest but does not copy the original run bytes.</p>
+        <p><a id="json-link" href="/api/investigation/psychosisbank-disclosure">Open the matching JSON projection</a></p>
+        <div id="artifacts" class="card"></div>
+        <p id="verification-identity" class="provenance-intro" hidden></p>
+        <h3>What this result must not be used to claim</h3>
+        <ul id="nonclaims"></ul>
+      </details>
+    </div>
+  </main>
+  <script>
+    const byId = (id) => document.getElementById(id);
+    const escapeHtml = (value) => String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+    function renderPsychosisBank(payload) {
+      byId("title").textContent = payload.title;
+      byId("research-question").textContent = payload.research_question;
+      byId("status").textContent = payload.status_label;
+      byId("result-title").textContent = payload.result_headline;
+      byId("result-summary").textContent = payload.result_summary;
+      byId("evidence-summary").textContent = `${payload.evidence_item_count} evidence items from ${payload.sources.length} sources supported several bounded findings.`;
+
+      byId("journey-stages").innerHTML = payload.journey.map((stage) => `
+        <article class="stage">
+          <span class="stage-number">${stage.number}</span>
+          <div><h3>${escapeHtml(stage.title)}</h3><p>${escapeHtml(stage.outcome)}</p></div>
+          <div class="stage-owner"><strong>${escapeHtml(stage.owner)}</strong>${escapeHtml(stage.question_answered)}</div>
+        </article>`).join("");
+      byId("findings").innerHTML = payload.supported_findings.map((finding, index) => `
+        <article class="card"><h3>Finding ${index + 1}</h3><p>${escapeHtml(finding)}</p></article>`).join("");
+      byId("unresolved").innerHTML = payload.unresolved_questions.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      byId("publication-block").textContent = payload.publication_block_reason;
+      byId("verification-section").hidden = false;
+      const verification = payload.independent_verification;
+      if (verification) {
+        const challenged = verification.challenge.findings.filter((item) => item.verdict === "needs_review").length;
+        byId("verification-status").textContent = `The model flagged ${challenged} of ${verification.challenge.findings.length} findings for researcher review. It inspected retained excerpts, not full source documents, and cannot approve a causal conclusion.`;
+        const excerpts = new Map(payload.independent_verification_excerpts.map((item) => [item.evidence_id, item]));
+        const sourceUrls = new Map(payload.sources.map((item) => [item.source_id, item.source_url]));
+        byId("verification-cards").innerHTML = verification.challenge.findings.map((item, index) => `
+          <article class="card"><h3>Finding ${index + 1}: Model marked ${item.verdict === "needs_review" ? "Review wording" : "Bounded support in excerpts"}</h3><p>${escapeHtml(item.reason)}</p><details><summary>Inspect cited excerpts</summary>${item.evidence_ids.map((id) => { const excerpt = excerpts.get(id); return `<blockquote><p>${escapeHtml(excerpt.source_quote)}</p><footer><a href="${escapeHtml(sourceUrls.get(excerpt.source_id))}" target="_blank" rel="noopener noreferrer">Original source</a> · ${escapeHtml(id)}</footer></blockquote>`; }).join("")}</details>${item.source_gap ? `<p><strong>Still needed:</strong> ${escapeHtml(item.source_gap)}</p>` : ""}</article>`).join("");
+        byId("verification-limit").textContent = verification.challenge.overall_limit;
+        byId("verification-limit").textContent += " Source-context check (23 September 2026): the shortened excerpt for Finding 3 says ‘this level’ without naming it. The SHA-256-matched TalkBank policy names that level ‘Controlled access.’ This verifies current policy wording, not when or why the choice was made.";
+        byId("verification-identity").hidden = false;
+        byId("verification-identity").textContent = `Second-model route: ${verification.model_resolved} · Trace: ${verification.trace_id} · Review state: ${verification.review_state}.`;
+      } else {
+        byId("verification-status").textContent = "The independent model challenge has not run. The existing Process Tracing result remains unchanged.";
+      }
+      const connected = payload.connected_run;
+      if (connected) {
+        byId("connected-run-section").hidden = false;
+        byId("connected-run-status").textContent = "The reviewed Qualitative Coding proposition was reused. Process Tracing ran now on the frozen case corpus and stopped at its publication guardrail. A separate model challenged the blocked export; researcher review is still pending.";
+        const plan = connected.planning_receipt;
+        byId("planning-receipt-status").textContent = `Governed plan: ${plan.human_decision.replaceAll("_", " ")} until a human reviews the named evidence gaps. The independent check is advisory and cannot approve a causal conclusion.`;
+        byId("connected-run-attempts").innerHTML = connected.attempts.map((attempt, index) => `
+          <article class="card"><h3>Attempt ${index + 1}: ${attempt.outcome === "blocked_publication" ? "Stopped at publication guardrail" : "Stopped at rival-partition gate"}</h3><p>${escapeHtml(attempt.route)}</p><p><code>${escapeHtml(attempt.trace_id)}</code></p></article>`).join("");
+        byId("connected-run-conclusion").textContent = connected.conclusion.public_headline_eligible ? "Process Tracing completed a bounded comparison" : "No public causal conclusion is ready";
+        byId("connected-run-conclusion-reason").textContent = `${connected.publication_block_reason} ${connected.conclusion.public_headline_reason}`;
+        byId("connected-run-inference").textContent = `Inference: ${connected.inference.status.replaceAll("_", " ")} · Exported method integrity: ${connected.methodology.status.replaceAll("_", " ")} · Terminal publication review: blocked. Comparative support is a within-case ranking, not a probability of truth.`;
+        byId("connected-run-limits").innerHTML = connected.claim_limits.map((limit) => `<li>${escapeHtml(limit)}</li>`).join("");
+        const verdicts = new Map(connected.verdicts.map((item) => [item.hypothesis_id, item]));
+        const sourceUrls = new Map(payload.sources.map((item) => [item.source_id, item.source_url]));
+        byId("connected-run-verdicts").innerHTML = connected.hypotheses.map((hypothesis) => {
+          const verdict = verdicts.get(hypothesis.hypothesis_id);
+          const challenge = connected.challenge.findings.find((item) => item.finding_id === hypothesis.hypothesis_id);
+          if (!verdict || !challenge) {
+            return `<article class="card"><h3>${escapeHtml(hypothesis.hypothesis_id)} · Unranked residual alternative</h3><p>${escapeHtml(hypothesis.description)}</p><p>No Process Tracing verdict or independent challenge was produced for this residual alternative.</p></article>`;
+          }
+          const excerpts = challenge.evidence_ids.map((id) => {
+            const evidence = connected.cited_evidence[id];
+            const url = sourceUrls.get(evidence.source_id);
+            return `<blockquote><p>${escapeHtml(evidence.source_quote)}</p><footer><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Original source</a> · ${escapeHtml(id)}</footer></blockquote>`;
+          }).join("");
+          return `<article class="card"><h3>${escapeHtml(hypothesis.hypothesis_id)} · ${escapeHtml(verdict.status.replaceAll("_", " "))}</h3><p>${escapeHtml(hypothesis.description)}</p><p><strong>Process Tracing:</strong> ${escapeHtml(verdict.reasoning)}</p><p><strong>Independent model:</strong> ${escapeHtml(challenge.verdict.replaceAll("_", " "))} · ${escapeHtml(challenge.reason)}</p><details><summary>Inspect cited excerpts</summary>${excerpts}</details>${challenge.source_gap ? `<p><strong>Still needed:</strong> ${escapeHtml(challenge.source_gap)}</p>` : ""}</article>`;
+        }).join("");
+        byId("connected-run-identity").textContent = `Process Tracing trace: ${connected.attempts[1].trace_id} · Independent check: ${connected.check_model} / ${connected.check_trace_id} · ${connected.review_state.replaceAll("_", " ")}.`;
+      }
+      byId("needs").innerHTML = payload.next_evidence.map((need) => `
+        <article class="need"><h3>${escapeHtml(need.label)}</h3><p>${escapeHtml(need.why_it_matters)}</p><p><strong>Likely location:</strong> ${escapeHtml(need.likely_location)}</p></article>`).join("");
+      byId("sources").innerHTML = payload.sources.map((source) => `
+        <div class="source-row"><strong><a href="${escapeHtml(source.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.title)}</a></strong><span>${escapeHtml(source.source_kind)} · ${source.evidence_count} evidence items</span></div>`).join("");
+      byId("artifacts").innerHTML = payload.artifact_refs.map((artifact) => `
+        <div class="artifact-row"><div><strong>${escapeHtml(artifact.title)}</strong><br><span>${escapeHtml(artifact.semantic_owner)} owns the meaning · ${escapeHtml(artifact.custody_note)}</span><br><code>${escapeHtml(artifact.object_identity)}</code><br><code>${escapeHtml(artifact.artifact_id)}</code><br><code>sha256:${escapeHtml(artifact.content_sha256)}</code></div><span class="availability">${escapeHtml(artifact.availability.replaceAll("_", " "))}</span></div>`).join("");
+      byId("nonclaims").innerHTML = payload.do_not_infer.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    }
+
+    function renderNyc(payload) {
+      document.title = `${payload.title} · Mixed Methods Workbench`;
+      byId("page-eyebrow").textContent = "Authentic evidence slice · human review required";
+      byId("title").textContent = payload.title;
+      byId("research-question").textContent = payload.research_question;
+      byId("status").textContent = payload.status_label;
+      byId("flow-label-1").textContent = "Structural capability";
+      byId("flow-value-1").textContent = "Extracted typed candidates";
+      byId("flow-label-2").textContent = "Evidence provenance";
+      byId("flow-value-2").textContent = "Bound quotes to exact sources";
+      byId("flow-label-3").textContent = "Decision right";
+      byId("flow-value-3").textContent = "Withheld acceptance for a human";
+      byId("result-title").textContent = "The extraction ran and bound; the analytical finding has not been accepted.";
+      byId("result-eyebrow").textContent = "What this capability execution established";
+      byId("result-summary").textContent = `The canary retained one agency prediction and one hearing concern as candidates. The frozen vehicle table contains ${payload.observation.crz_entries.toLocaleString()} CRZ entries over ${payload.observation.observed_days} observed days.`;
+      byId("result-limit-title").textContent = "Validation is not interpretation.";
+      byId("result-limit-copy").textContent = "The model cannot promote its output, decide whether a concern is representative, infer a causal effect, or make a policy recommendation.";
+      byId("journey-title").textContent = "How a reusable extraction capability hands evidence to research methods";
+      byId("journey-intro").textContent = "The shared capability controls structure and provenance. A human controls promotion, and each research method retains authority over interpretation.";
+      byId("journey-stages").innerHTML = payload.capability_flow.map((step, index) => `
+        <article class="stage">
+          <span class="stage-number">${index + 1}</span>
+          <div><h3>${escapeHtml(step)}</h3><p>${index < 3 ? "Executed and recorded in this slice." : "Reserved for an accountable downstream owner."}</p></div>
+          <div class="stage-owner"><strong>${index === 4 ? "Method owner" : index === 3 ? "Human reviewer" : "Workbench capability"}</strong>${index === 4 ? "Interprets accepted evidence under a named method." : index === 3 ? "Controls candidate promotion." : "Preserves structure and provenance without deciding meaning."}</div>
+        </article>`).join("");
+      byId("findings-title").textContent = "Candidates presented for review";
+      byId("evidence-summary").textContent = "Both proposed wordings remain withheld; the model-authored limit fields were explicitly rejected.";
+      byId("findings").innerHTML = [
+        ["Agency prediction candidate", payload.review_packet.proposed_prediction_wording],
+        ["Hearing concern candidate", payload.review_packet.proposed_concern_wording],
+        ["Observed descriptive aggregate", `${payload.observation.crz_entries.toLocaleString()} CRZ entries from ${payload.observation.coverage_start} through ${payload.observation.coverage_end}; not a causal estimate.`]
+      ].map(([title, copy]) => `<article class="card"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(copy)}</p></article>`).join("");
+      byId("open-title").textContent = "Why these records remain candidates";
+      byId("unresolved-card-title").textContent = "Limits that travel with this packet";
+      byId("publication-card-title").textContent = "Why downstream use is withheld";
+      byId("publication-card-lede").textContent = "A structural pass cannot grant analytical authority.";
+      byId("unresolved").innerHTML = payload.review_packet.deterministic_claim_limits.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      byId("publication-block").textContent = "No attributable human decision exists, so the candidate records are unavailable to downstream method-owned analysis.";
+      byId("next-title").textContent = "Questions for the human reviewer";
+      byId("next-intro").textContent = "The next event is a decision about these exact candidate records, not another automatic model pass.";
+      byId("needs").innerHTML = payload.review_packet.review_questions.map((question, index) => `
+        <article class="need"><h3>Review question ${index + 1}</h3><p>${escapeHtml(question)}</p></article>`).join("");
+      byId("sources-title").textContent = "The exact source units used";
+      byId("sources-intro").textContent = "Both official PDFs were downloaded and matched the source-freeze byte counts and SHA-256 digests before text extraction.";
+      byId("sources").innerHTML = payload.source_documents.map((source) => `
+        <div class="source-row"><strong>${escapeHtml(source.artifact_id.replaceAll("_", " "))}</strong><span>SHA-256 verified · ${source.observed_bytes.toLocaleString()} bytes</span></div>`).join("");
+      byId("artifacts").innerHTML = payload.anchors.map((anchor) => `
+        <div class="artifact-row"><div><strong>${escapeHtml(anchor.anchor_id)}</strong><br><span>${escapeHtml(anchor.source_unit_id)}</span><br><code>source sha256:${escapeHtml(anchor.source_artifact_sha256)}</code><br><code>selection sha256:${escapeHtml(anchor.selected_text_sha256)}</code></div><span class="availability">pending human review</span></div>`).join("");
+      byId("nonclaims").innerHTML = payload.review_packet.deterministic_claim_limits.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      byId("json-link").href = "/api/investigation/nyc-congestion-relief-zone";
+    }
+
+    const isNyc = window.location.pathname.includes("nyc-congestion-relief-zone");
+    const endpoint = isNyc
+      ? "/api/investigation/nyc-congestion-relief-zone"
+      : "/api/investigation/psychosisbank-disclosure";
+    fetch(endpoint)
+      .then(async (response) => {
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.error || "The investigation could not be loaded.");
+        if (isNyc) renderNyc(payload); else renderPsychosisBank(payload);
+        byId("loading").hidden = true;
+        byId("app").hidden = false;
+      })
+      .catch((error) => {
+        byId("loading").hidden = true;
+        byId("error").hidden = false;
+        byId("error").textContent = `Investigation unavailable: ${error.message}`;
+      });
+  </script>
+</body>
+</html>
