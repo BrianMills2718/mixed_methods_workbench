@@ -1,5 +1,12 @@
 # Brumaire public-source trial, frozen 2026-09-23
 
+**Historical input only.** Three official-text files were extracted from the
+Napoleon Series, whose [copyright notice](https://www.napoleon-series.org/about/copyright/)
+restricts redistribution of its page content. This packet is not the cleared
+source basis for a connected QC → PT review candidate. Use the separately
+acquired [replacement packet](../brumaire-independent-20260923/README.md) for
+any new run; its changed hashes require a new QC project.
+
 These four UTF-8 files are the exact document inputs used for the fresh
 Qualitative Coding trial on 2026-09-23. They are retained so the trial can be
 replayed even if the public pages change. The associated QC synthesis was **not

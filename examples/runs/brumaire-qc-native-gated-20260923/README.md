@@ -3,6 +3,11 @@
 **Disposition: rejected before synthesis promotion; no PT inference.** This
 2026-09-23 Qualitative Coding project ran from the four committed public texts
 in [`examples/sources/brumaire-20260923`](../../sources/brumaire-20260923/README.md).
+That historical packet used three site-extracted official texts whose reuse
+boundary is unresolved; the project state here must not be resumed as the
+source basis of a public review candidate. The independently acquired
+[replacement packet](../../sources/brumaire-independent-20260923/README.md)
+has changed hashes and requires a new QC project.
 Unlike the earlier posthoc verifier replay, this native project run enabled
 `--verify-synthesis-entailment` before synthesis could enter project state.
 
