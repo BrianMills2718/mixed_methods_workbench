@@ -446,7 +446,7 @@ Planning readiness does not mean implementation readiness.
 
 ## Sources Consulted
 
-> Sources: `README.md`; `PROJECT.md`; `CLAUDE.md`;
+> Sources: `README.md`; `PROJECT.md`; `AGENTS.md`;
 > `contracts/shared_contracts.md`; `docs/ARCHITECTURE.md`;
 > `docs/CONCERNS.md`; `docs/IMPLEMENTING_AGENT_NOTES.md`;
 > `docs/CAPABILITY_DEPENDENCY_GRAPH.md`;

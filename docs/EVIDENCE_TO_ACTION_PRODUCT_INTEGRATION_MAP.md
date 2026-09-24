@@ -50,7 +50,7 @@ existing method roadmaps remain authoritative only inside their repositories.
 | `process_tracing/CLAUDE.md`, `docs/INITIATIVE_ROADMAP.md`, `docs/CURRENT_STATUS.md`, and current source | Process Tracing boundary, exports, workbench, and current inference limits |
 | `theory-forge/CLAUDE.md`, `docs/ROADMAP.md`, and current source | Theory producer boundary and implemented Entman/CPT seams |
 | Project Meta `PROJECT_GRAPH.json` and `cybernetic_influence_v2` authorities | Canonical simulator identity and current simulation capability |
-| `data-contracts/CLAUDE.md` | Existing shared-boundary mechanics and known limitations |
+| `data-contracts/AGENTS.md` | Existing shared-boundary mechanics and known limitations |
 
 Historical plans, schema experiments, archived Cybernetic Influence versions,
 and method-decomposition candidates were used only where a current authority
