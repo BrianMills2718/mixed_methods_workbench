@@ -1,0 +1,74 @@
+{
+  "contract_version": 1,
+  "candidate_digest": "610e03e8f8574833729410290b56107402852c29e03fc4d27ec72bdb442cb691",
+  "verdicts": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "disposition": "supported",
+      "evidence_verdicts": [
+        {
+          "application_id": "dbf8bb10-21e2-42e2-94e2-c076e1a0c509",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "644f24e2-67a9-4cb6-937e-3dae23527182",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The decree records creation of a provisional consular commission, while the constitution specifies three consuls appointed for ten years, jointly establishing formal legal mechanisms for the authority change."
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "5587f380-faaf-45d9-a297-a739c37c565e",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "31d8315a-10e6-44f2-a8bb-554ee5edaf2d",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passages support the memoir's characterization of the remarks as confused, lacking dignity, sense, and coherence. They do not address or contradict later narratives claiming a coherent speech, so that comparative claim is unsupported by the selected evidence."
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "33942ddc-2f0f-4a54-8865-ca589dbe6bf6",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "cfb7bb2c-475b-48d8-b0c1-dbd2883e54e3",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The evidence supports contingency, possible failure, and the prospect of execution, but it does not explicitly establish that execution was a real possibility in the precise sense asserted beyond Bourrienne's retrospective conditional account."
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "5587f380-faaf-45d9-a297-a739c37c565e",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "31d8315a-10e6-44f2-a8bb-554ee5edaf2d",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "a5280639-46da-44f5-8923-7342c2c2f7a0",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "95ef2df8-4f44-4fba-81cb-6f51793a7395",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The memoir passages support the characterization of Bonaparte's remarks as confused and undignified, and the official passages present constitutional failure and Directory crimes as justifications. However, the selected evidence does not itself establish the broader relational claim of a tension between the two accounts."
+    }
+  ]
+}

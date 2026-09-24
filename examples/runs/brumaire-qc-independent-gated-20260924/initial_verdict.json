@@ -1,0 +1,89 @@
+{
+  "contract_version": 1,
+  "candidate_digest": "fd51794a0255319f7bd68aecfd32ebc2102edad27203289764a9b969d3f18e8b",
+  "verdicts": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "disposition": "supported",
+      "evidence_verdicts": [
+        {
+          "application_id": "dbf8bb10-21e2-42e2-94e2-c076e1a0c509",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "644f24e2-67a9-4cb6-937e-3dae23527182",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The decree expressly creates a provisional consular commission, and the constitution expressly entrusts government to three consuls appointed for ten years. Together these support the stated formal legal mechanisms."
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "5587f380-faaf-45d9-a297-a739c37c565e",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "31d8315a-10e6-44f2-a8bb-554ee5edaf2d",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The passages support Bourrienne's characterization of Bonaparte's remarks as confused, undignified, disconnected, and lacking sense. They do not establish a contradiction of every official or later narrative claiming a coherent speech."
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "33942ddc-2f0f-4a54-8865-ca589dbe6bf6",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "cfb7bb2c-475b-48d8-b0c1-dbd2883e54e3",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The memoir passages support contingency, possible failure, and possible execution. The selected evidence does not establish that the official documents adopt a tone of necessity and inevitability."
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "disposition": "unsupported",
+      "evidence_verdicts": [
+        {
+          "application_id": "3d696f2c-2803-49e4-9d49-dc931f856c7f",
+          "disposition": "does_not_support"
+        },
+        {
+          "application_id": "caddcebf-bfbc-4b1f-856a-3256067a6b63",
+          "disposition": "does_not_support"
+        }
+      ],
+      "rationale": "Neither selected passage contains the claimed headache pretext or clearly establishes the specific deception described. The passages also cannot support the comparative absence claim about the formal legal record."
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "disposition": "partial",
+      "evidence_verdicts": [
+        {
+          "application_id": "5587f380-faaf-45d9-a297-a739c37c565e",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "31d8315a-10e6-44f2-a8bb-554ee5edaf2d",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "a5280639-46da-44f5-8923-7342c2c2f7a0",
+          "disposition": "contributes"
+        },
+        {
+          "application_id": "95ef2df8-4f44-4fba-81cb-6f51793a7395",
+          "disposition": "contributes"
+        }
+      ],
+      "rationale": "The memoir passages support the claims of incoherent speech, while the official passages support a crisis-based justification for replacing the prior constitutional order and Directory. They do not establish the full characterization of official presentation as necessary, lawfully executed, and justified by republican principles, nor that the memoir claim directly undermines all of those elements."
+    }
+  ]
+}

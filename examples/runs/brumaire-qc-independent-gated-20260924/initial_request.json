@@ -1,0 +1,144 @@
+{
+  "contract_version": 1,
+  "candidate_digest": "fd51794a0255319f7bd68aecfd32ebc2102edad27203289764a9b969d3f18e8b",
+  "clauses": [
+    {
+      "clause_id": "finding:0:clause:0",
+      "text": "The official documents (the Brumaire decree and the Year VIII Constitution) establish the change of authority through formal legal mechanisms: the creation of a provisional consular commission (A0017) and the appointment of three consuls for ten years (A0002).",
+      "evidence": [
+        {
+          "application_id": "dbf8bb10-21e2-42e2-94e2-c076e1a0c509",
+          "code_id": "OFFICIAL_CHANGE_OF_AUTHORITY",
+          "document_id": "ea3016da-a2b8-42b2-8b96-4eb582481f51",
+          "start_char": 523,
+          "end_char": 724,
+          "quote_hash": "516e5ed26b43074623a215d7920d58d000daa7b954acef655b445d5f930f1fb8",
+          "exact_text": "The Corps-Legislatif creates provisionally a consular executive commission, consisting of Citizens Sieyes, Roger-Ducos, and General Bonaparte, who shall bear the name of Consuls of the French Republic."
+        },
+        {
+          "application_id": "644f24e2-67a9-4cb6-937e-3dae23527182",
+          "code_id": "OFFICIAL_CHANGE_OF_AUTHORITY",
+          "document_id": "1cbaf0c2-8cac-4de9-bb17-9df380b727d7",
+          "start_char": 9116,
+          "end_char": 9213,
+          "quote_hash": "530cec164c5f5e57a4db25a4e294814d65f0caad51e49b9f1e471ddad657aeb7",
+          "exact_text": "The government is confided to three Consuls appointed for ten years and indefinitely re-eligible."
+        }
+      ]
+    },
+    {
+      "clause_id": "finding:1:clause:0",
+      "text": "Bourrienne's memoir directly contradicts any official or later narrative that Bonaparte delivered a coherent speech at St. Cloud, stating that his remarks were confused and devoid of dignity and sense (A0010, A0012).",
+      "evidence": [
+        {
+          "application_id": "5587f380-faaf-45d9-a297-a739c37c565e",
+          "code_id": "MEMOIR_CORRECTS_OFFICIAL_NARRATIVE",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 16521,
+          "end_char": 16837,
+          "quote_hash": "cde47d9b5524046d93763c77805e761049b70f388dc38dc1898aeb24bfc8b636",
+          "exact_text": "All the speeches which have been subsequently passed off as having been\ndelivered by Bonaparte on this occasion differ from each other; as well\nthey may, for he delivered none to the Ancients, unless his confused\nconversation with the President, which was alike devoid of dignity and\nsense, is to be called a speech."
+        },
+        {
+          "application_id": "31d8315a-10e6-44f2-a8bb-554ee5edaf2d",
+          "code_id": "MEMOIR_CORRECTS_OFFICIAL_NARRATIVE",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 20141,
+          "end_char": 20346,
+          "quote_hash": "8128e43e697a596c9e069cd36910f455421c5703d84e0f4180a43e9cec036a86",
+          "exact_text": "There was not the slightest\nconnection in what he stammered out. Bonaparte was then no orator. It\nmay well be supposed that he was more accustomed to the din of war than\nto the discussions of the tribunes."
+        }
+      ]
+    },
+    {
+      "clause_id": "finding:2:clause:0",
+      "text": "The memoir emphasizes the contingent nature of the coup, suggesting that failure and even Bonaparte's execution were real possibilities (A0009, A0013), in contrast to the official documents' tone of necessity and inevitability.",
+      "evidence": [
+        {
+          "application_id": "33942ddc-2f0f-4a54-8865-ca589dbe6bf6",
+          "code_id": "CONTINGENCY_AND_UNCERTAINTY",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 15571,
+          "end_char": 15723,
+          "quote_hash": "cf0a781ff94840be4ec10d80abce2dc7c9b5541418c01b387d3837bdd4d22e01",
+          "exact_text": "Who could tell which of the two things\nwould happen!  Success legalised a bold enterprise, which the slightest\naccident might have changed into a crime."
+        },
+        {
+          "application_id": "cfb7bb2c-475b-48d8-b0c1-dbd2883e54e3",
+          "code_id": "CONTINGENCY_AND_UNCERTAINTY",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 21254,
+          "end_char": 21379,
+          "quote_hash": "66adbbb021683c75c1da3035d15b7f3a096ee5adb366a7bf493171056033f18a",
+          "exact_text": "Instead of\nsleeping next day at the Luxembourg he would, I am convinced, have ended\nhis career on the Place de la Revolution."
+        }
+      ]
+    },
+    {
+      "clause_id": "finding:3:clause:0",
+      "text": "Bourrienne's narrative details specific strategic deceptions, such as Bonaparte sending him to deceive Barras by pretending to have a headache (A0004, A0005), which are absent from the formal legal record.",
+      "evidence": [
+        {
+          "application_id": "3d696f2c-2803-49e4-9d49-dc931f856c7f",
+          "code_id": "NARRATIVE_OF_COUP_EXECUTION",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 1923,
+          "end_char": 2137,
+          "quote_hash": "4de121519d6a79aef963f5041429246e01d32d117355a99e663889a537287f68",
+          "exact_text": "On the 17th, Regnault de St. Jean d'Angely told Bonaparte that the\novertures made to Cambaceres and Lebrun had not been received in a very\ndecided way. \"I will have no tergiversation,\" replied Bonaparte with\nwarmth"
+        },
+        {
+          "application_id": "caddcebf-bfbc-4b1f-856a-3256067a6b63",
+          "code_id": "NARRATIVE_OF_COUP_EXECUTION",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 5050,
+          "end_char": 5277,
+          "quote_hash": "12fad5d55b92f0ad83710c5edd68cb6b6c402927ce5c576da5874eb2c22af859",
+          "exact_text": "I executed my\ncommission, and stayed only a short time. I rose to take my leave, and\nhe said, while showing me out, \"I see that Bonaparte is deceiving me: he\nwill not come again. He has settled everything; yet to me he owes all"
+        }
+      ]
+    },
+    {
+      "clause_id": "pattern:0:clause:0",
+      "text": "The memoir's claim that Bonaparte's speech was incoherent and that the coup was contingent directly undermines the official documents' presentation of the event as a necessary, lawfully executed change of authority justified by republican principles.",
+      "evidence": [
+        {
+          "application_id": "5587f380-faaf-45d9-a297-a739c37c565e",
+          "code_id": "MEMOIR_CORRECTS_OFFICIAL_NARRATIVE",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 16521,
+          "end_char": 16837,
+          "quote_hash": "cde47d9b5524046d93763c77805e761049b70f388dc38dc1898aeb24bfc8b636",
+          "exact_text": "All the speeches which have been subsequently passed off as having been\ndelivered by Bonaparte on this occasion differ from each other; as well\nthey may, for he delivered none to the Ancients, unless his confused\nconversation with the President, which was alike devoid of dignity and\nsense, is to be called a speech."
+        },
+        {
+          "application_id": "31d8315a-10e6-44f2-a8bb-554ee5edaf2d",
+          "code_id": "MEMOIR_CORRECTS_OFFICIAL_NARRATIVE",
+          "document_id": "bd3dd89a-2a09-4684-a50c-67fe106a9b4b",
+          "start_char": 20141,
+          "end_char": 20346,
+          "quote_hash": "8128e43e697a596c9e069cd36910f455421c5703d84e0f4180a43e9cec036a86",
+          "exact_text": "There was not the slightest\nconnection in what he stammered out. Bonaparte was then no orator. It\nmay well be supposed that he was more accustomed to the din of war than\nto the discussions of the tribunes."
+        },
+        {
+          "application_id": "a5280639-46da-44f5-8923-7342c2c2f7a0",
+          "code_id": "OFFICIAL_JUSTIFICATION_FOR_COUP",
+          "document_id": "c0857d08-2ad2-40f1-8486-e42c97e56581",
+          "start_char": 84,
+          "end_char": 264,
+          "quote_hash": "43bdd7653641f169b018e12615161c98d1d96904d3e273b269ce659012660f62",
+          "exact_text": "The constitution of the third year has perished. It knew not how to protect your rights, or to support itself. Multiplied attacks deprived it for ever of the respect of the people."
+        },
+        {
+          "application_id": "95ef2df8-4f44-4fba-81cb-6f51793a7395",
+          "code_id": "OFFICIAL_JUSTIFICATION_FOR_COUP",
+          "document_id": "ea3016da-a2b8-42b2-8b96-4eb582481f51",
+          "start_char": 198,
+          "end_char": 464,
+          "quote_hash": "3b55a8ed1af9ee9b2b412c61a50a6ad30fa65e70cc93f5a1e06db1a8542f7731",
+          "exact_text": "The Directory is no more, and the following named persons, owing to the excesses and the crimes in which they have constantly engaged, and especially as regards the majority of them in the session of this morning, are no longer members of the national representation"
+        }
+      ]
+    }
+  ]
+}
