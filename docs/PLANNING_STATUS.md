@@ -83,62 +83,68 @@ The Phase 1 compact-versus-independent 70/90-operation disagreement remains
 supporting research evidence. It must not be resolved merely by assigning both
 inventories to the same generic execution label.
 
-## Paused Checkpoint: NYC Candidate Review Gate
+## NYC Candidate: Current State (updated 2026-09-24)
 
-> **Correction, 2026-09-06.** The paragraphs below were written on 2026-08-13
-> and are retained as history. On 2026-08-14 Brian accepted all three review
-> statements (`docs/research/nyc_crz_human_disposition.json`, commit
-> `c95488c`); Plan #5 (`plans/005_nyc_crz_mvp.md`) was updated to mark
-> `NYC-QC-1` ready; and the QC-side lane was started the same day on
-> `qualitative_coding` branch `nyc-crz-six-hearing-qc` (five commits, pushed,
-> unmerged, no receipt). That readiness contradicts the reset sequence in
-> `ROADMAP.md`. The 2026-09-06 assessment records the evidence and the
-> recommended resolution: `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`.
-> The Plan 242 guarded-decision seam (`src/mixed_methods_workbench/guarded_decision/`,
-> evidence under `research/plan242/`) also exists and is not reflected below.
+**Brian's decision boundary is already resolved, twice.** On 2026-08-14 he
+accepted all three review statements (`docs/research/nyc_crz_human_disposition.json`
+at commit `c95488c`: the agency-prediction wording, the hearing-concern wording,
+and the bounded quantitative comparison), which marked `NYC-QC-1` ready. On
+2026-09-06 he chose Path A: finish `NYC-QC-1`, `NYC-INTEGRATE-1`, and
+`NYC-MVP-REVIEW-1` before the shared-action refactor. Neither of those is an
+open question. Do not re-ask Brian to review the three statements or re-decide
+the path; both already happened.
 
+**What is actually blocking progress is stalled implementation, not a pending
+decision.** The QC-side lane on `qualitative_coding` branch
+`nyc-crz-six-hearing-qc` has 24 real commits (corpus receipt, source-unit
+receipt, medical-access canary receipt, coverage-stability check) but stopped
+mid-review on 2026-09-14 in a `paused_for_review` state, was never merged, has
+no PR, and its coordination claim expired 2026-09-15 with no follow-up
+(surfaced 2026-09-24; see `project-meta` issue #2155 for why the stale-claim
+detector didn't catch this). The worktree is also now behind `main` and needs
+reconciling before the QC review can resume.
 
-Plan #5 remains preserved at
-[`005_nyc_crz_mvp.md`](plans/005_nyc_crz_mvp.md) and its machine-consumed
-[`5_nyc_crz_mvp_work_graph.json`](plans/5_nyc_crz_mvp_work_graph.json), but it
-is paused while the capability architecture and adoption gate controls.
+Two other Plan #5 units are merged on canonical `main` and technically
+complete, but do **not** themselves constitute analytical acceptance (passing
+Pydantic/anchor/arithmetic/browser/runtime checks is not acceptance):
 
-The exact NYC source freeze remains controlling. Two independent Plan #5 units
-have now executed and are merged on canonical `main`:
+- `NYC-EXTRACT-1` at `6403fcf` — verifies exact Reevaluation 2 and hearing PDF
+  bytes, binds one prediction and one hearing concern to exact source units.
+- `NYC-QUANT-1` at `103be94` — recomputes 12 monthly observations from the
+  frozen 25,992-row vehicle-entry snapshot and compares against the agency's
+  No Action baseline. Binds the canonical drift-receipt digest
+  `0961133cc6a6441a944f00a45a7574e58a69bd0ca51fc2cb70da67540083f578`
+  (an earlier `5c6af2bd...` value was wrong provenance, now corrected).
 
-- `NYC-EXTRACT-1` at `6403fcf` verifies exact Reevaluation 2 and hearing PDF
-  bytes, retains an authentic non-cached structured-output trace, binds one
-  prediction and one hearing concern to exact source units, preserves two
-  rejected attempts, and presents the candidates in the existing
-  Investigation Spine. Its status is `completion_review`; neither candidate
-  is accepted evidence.
-- `NYC-QUANT-1` at `103be94` recomputes 12 monthly observations from the frozen
-  25,992-row vehicle-entry snapshot, exactly replays five publication-version
-  drift months and the 6,246-entry total difference, and compares the current
-  January–October arithmetic with the agency's No Action baseline. Its status
-  is `completion_review`; it does not identify a causal effect or independently
-  reconstruct the agency counterfactual.
+**Next action to actually move this forward:** resume `nyc-crz-six-hearing-qc`
+from its `paused_for_review` state and produce the reviewable export, then
+proceed to `NYC-INTEGRATE-1` and `NYC-MVP-REVIEW-1`. This does not reopen
+source acquisition, discard the accepted statements, or select a replacement
+flagship case.
 
-The remaining Plan #5 decision boundary is Brian's attributable disposition of
-three review statements: the proposed agency-prediction wording, the proposed
-hearing-concern wording, and the bounded quantitative comparison. Passing
-Pydantic, anchor, arithmetic, browser, and runtime checks does not grant
-analytical acceptance.
+<details>
+<summary>History (superseded 2026-09-06/2026-09-14/2026-09-24 — kept for provenance, not current status)</summary>
 
-`NYC-QC-1` remains blocked until the extraction semantics and reviewed fields
-are accepted. `NYC-INTEGRATE-1` remains blocked until extraction, QC, and
-quantitative artifacts are accepted. No agent may rerun the two completed
-units, start QC, integrate the result, adopt a shared schema, or resume method
-catalog expansion merely because the code exists.
+The section below was written 2026-08-13, before the 2026-08-14 acceptance and
+2026-09-06 Path A decision described above. It is retained verbatim as a
+record of what the plan looked like at that point; do not read it as current.
 
-This pause does not reject those statements, discard their evidence, reopen
-source acquisition, or select a replacement flagship. When the reusable seam
-is ready, NYC should be refactored through it rather than rerun from scratch.
+> Plan #5 remains preserved at
+> [`005_nyc_crz_mvp.md`](plans/005_nyc_crz_mvp.md) and its machine-consumed
+> [`5_nyc_crz_mvp_work_graph.json`](plans/5_nyc_crz_mvp_work_graph.json), but
+> it is paused while the capability architecture and adoption gate controls.
+> The remaining Plan #5 decision boundary is Brian's attributable disposition
+> of three review statements... `NYC-QC-1` remains blocked until the
+> extraction semantics and reviewed fields are accepted. `NYC-INTEGRATE-1`
+> remains blocked until extraction, QC, and quantitative artifacts are
+> accepted.
 
-The quantitative work graph now binds the actual canonical drift-receipt file
-digest `0961133cc6a6441a944f00a45a7574e58a69bd0ca51fc2cb70da67540083f578`.
-The earlier `5c6af2bd...` value did not match that referenced artifact; the
-correction changes planning provenance, not the frozen comparison.
+The 2026-09-06 assessment that first flagged this contradiction is
+`docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`. The Plan 242
+guarded-decision seam (`src/mixed_methods_workbench/guarded_decision/`,
+evidence under `research/plan242/`) also exists and is not reflected above.
+
+</details>
 
 ## Completed Phase: Product Integration Assessment
 
