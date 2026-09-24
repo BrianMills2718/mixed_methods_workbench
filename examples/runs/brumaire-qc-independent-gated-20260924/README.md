@@ -16,13 +16,17 @@ promoted separately. No process-tracing inference was started.
 
 The recurring failure was a claim that crossed beyond its selected passages.
 The correction narrowed Bourrienne's account of Bonaparte's confused remarks,
-but still said it contradicted unspecified later narratives of a coherent
-speech. The selected memoir passages describe the remarks; they do not contain
-those later narratives. A second corrected finding described execution as a
-real possibility where the selected passage supplies a retrospective
-conditional account. The corrected pattern also inferred a broader tension
-between memoir and official narrative beyond what its selected passages
-established. These are verifier dispositions, not accepted historical findings.
+but still said it contradicted later narratives of a *coherent* speech. One
+selected memoir passage does discuss speeches later attributed to Bonaparte;
+it does not say those accounts described a coherent speech. The verifier's
+categorical rationale that the passages do not address later narratives at all
+overstates the gap, although its `partial` disposition remains justified by
+the added coherence qualifier. A second corrected finding described execution
+as a real possibility where the selected passage supplies a retrospective
+conditional account. The corrected pattern inferred a broader tension between
+memoir and official narrative beyond what its selected passages established.
+These are verifier dispositions and a source-bound review of them, not accepted
+historical findings.
 
 ## Inspectable evidence
 
@@ -45,7 +49,10 @@ established. These are verifier dispositions, not accepted historical findings.
   All seven calls completed without retry or provider error; aggregate cost
   was **$0.0181869288**, below the authorized $0.05 ceiling.
 
-The useful next experiment is a method-owned QC correction that prevents the
-repair from retaining unsupported comparisons or stronger modal claims. It
-requires its own verification on this saved state and a new spend approval
-before any paid replay. PT must wait for a source-supported, typed QC handoff.
+The method-owned next step is an unpaid review of why the repair retained
+unsupported qualifiers and why one verifier rationale overstated the source
+gap. The goal allows at most two reproduced attempts at the same blocker per
+case. The earlier historical Brumaire QC trial and this independently sourced
+trial both stopped at source support; do not treat a third paid Brumaire trial
+as an automatic continuation. PT must wait for a source-supported, typed QC
+handoff.
