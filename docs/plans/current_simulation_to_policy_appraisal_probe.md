@@ -208,7 +208,7 @@ governance.
 
 ## Consulted sources
 
-- `CLAUDE.md`, `docs/PLANNING_STATUS.md`, `docs/ROADMAP.md`,
+- `AGENTS.md`, `docs/PLANNING_STATUS.md`, `docs/ROADMAP.md`,
   `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
   `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
   `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and `docs/CONCERNS.md`;

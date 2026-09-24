@@ -5,7 +5,7 @@ publish:
     type: ProjectOverview
     title: Readme
     tags: [portfolio, mixed_methods_workbench]
-  - path: CLAUDE.md
+  - path: AGENTS.md
     type: ProjectOverview
     title: Claude
     tags: [portfolio, mixed_methods_workbench]

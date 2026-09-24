@@ -14,7 +14,7 @@ Planning scaffold for a mixed-methods research workbench that composes qualitati
 
 ## Read next
 
-- [Operating rules](../CLAUDE.md)
+- [Operating rules](../AGENTS.md)
 - [Project overview](../README.md)
 
 ## Coverage and unknowns
