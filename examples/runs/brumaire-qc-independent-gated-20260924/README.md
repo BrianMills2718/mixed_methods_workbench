@@ -49,10 +49,23 @@ historical findings.
   All seven calls completed without retry or provider error; aggregate cost
   was **$0.0181869288**, below the authorized $0.05 ceiling.
 
-The method-owned next step is an unpaid review of why the repair retained
-unsupported qualifiers and why one verifier rationale overstated the source
-gap. The goal allows at most two reproduced attempts at the same blocker per
-case. The earlier historical Brumaire QC trial and this independently sourced
-trial both stopped at source support; do not treat a third paid Brumaire trial
-as an automatic continuation. PT must wait for a source-supported, typed QC
-handoff.
+## Offline method review and case bound
+
+The unpaid review compared the exact repaired clauses and selected passages
+above with QC runtime `31a9e1f6b2bd958f1266cdd624c9125f1de34207`.
+`_build_phase4_prompt` already requires atomic findings, source support for
+every qualifier, and evidence from both sides of a comparison.
+`_build_synthesis_entailment_repair_prompt` repeats those requirements and
+supplies the first verifier's exact reasons and passages. The generator still
+retained unsupported wording. The second gate therefore did its job; this
+trace does not establish a deterministic validation defect or an empirically
+verified prompt fix. Its overbroad rationale on later speeches remains a
+calibration concern, even though the `partial` verdict is defensible.
+
+The goal allows at most two reproduced attempts at the same blocker per case.
+The earlier historical Brumaire QC trial and this independently sourced trial
+both stopped at source support. A third paid Brumaire trial would require an
+explicit strategy reset and new spend authority. The other in-scope case,
+PsychosisBank, lacks the contemporaneous decision records needed for strong
+PT discrimination. The two-pillar goal is still unmet; no PT run may consume
+this rejected QC state as a supported handoff.
