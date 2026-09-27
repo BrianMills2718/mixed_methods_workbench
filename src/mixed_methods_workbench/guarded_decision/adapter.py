@@ -346,10 +346,14 @@ def verify_evidence_bundle(
             continue
         if actual != binding.artifact.content_digest:
             evidence_reasons.append("guarded-decision.evidence-digest-mismatch/1")
-    manifest_bytes = resolve_content(bundle.native_execution_manifest_binding.ref)
-    execution_manifest = NativeExecutionEvidenceManifest.model_validate_json(manifest_bytes)
-    if execution_manifest.native_disposition_ref != bundle.native_disposition_ref:
-        evidence_reasons.append("guarded-decision.execution-manifest-disposition-mismatch/1")
+    try:
+        manifest_bytes = resolve_content(bundle.native_execution_manifest_binding.ref)
+        execution_manifest = NativeExecutionEvidenceManifest.model_validate_json(manifest_bytes)
+    except (LookupError, ValueError):
+        evidence_reasons.append("guarded-decision.execution-manifest-invalid/1")
+    else:
+        if execution_manifest.native_disposition_ref != bundle.native_disposition_ref:
+            evidence_reasons.append("guarded-decision.execution-manifest-disposition-mismatch/1")
     reasons = tuple(sorted(set(manifest_reasons + evidence_reasons)))
     if reasons:
         raise ValueError("bundle custody verification failed: " + ", ".join(reasons))
