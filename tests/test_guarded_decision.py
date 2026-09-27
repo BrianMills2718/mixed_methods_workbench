@@ -397,6 +397,56 @@ def test_bundle_replay_verifies_transitive_content(contents: dict[str, bytes]) -
         verify_evidence_bundle(bundle, resolve_content=mapping_resolver(contents))
 
 
+def _verified_llm_bundle(
+    contents: dict[str, bytes],
+) -> tuple[GuardedDecisionEvidenceBundle, NativeExecutionEvidenceManifest]:
+    request, manifest = _llm_manifest_request(contents)
+    result = execute_guarded_decision(
+        request,
+        resolve_content=mapping_resolver(contents),
+        native_policy=lambda _: NativeDecision(
+            outcome=GuardedDecisionOutcome.VALIDATED,
+            native_disposition_ref=manifest.native_disposition_ref,
+        ),
+    )
+    bundle = GuardedDecisionEvidenceBundle(
+        bundle_version="plan242-guarded-decision-bundle/1",
+        request=request,
+        result_and_receipt=result,
+        native_execution_manifest_binding=request.required_evidence_bindings[0].artifact,
+        resolved_evidence_bindings=request.required_evidence_bindings,
+        native_disposition_ref=result.native_disposition_ref,
+    )
+    verify_evidence_bundle(bundle, resolve_content=mapping_resolver(contents))
+    return bundle, manifest
+
+
+def test_bundle_rejects_substituted_schema_valid_execution_manifest(
+    contents: dict[str, bytes],
+) -> None:
+    bundle, manifest = _verified_llm_bundle(contents)
+    substituted = manifest.model_copy(update={"consumer_id": "other-consumer"})
+    contents["execution-manifest:1"] = canonical_json_bytes(substituted.model_dump(mode="json"))
+
+    with pytest.raises(ValueError, match="evidence-digest-mismatch"):
+        verify_evidence_bundle(bundle, resolve_content=mapping_resolver(contents))
+
+
+@pytest.mark.parametrize("manifest_bytes", [None, b"not a manifest"])
+def test_bundle_with_unusable_execution_manifest_fails_with_aggregated_reasons(
+    contents: dict[str, bytes], manifest_bytes: bytes | None
+) -> None:
+    bundle, _ = _verified_llm_bundle(contents)
+    if manifest_bytes is None:
+        del contents["execution-manifest:1"]
+    else:
+        contents["execution-manifest:1"] = manifest_bytes
+
+    with pytest.raises(ValueError, match="bundle custody verification failed") as raised:
+        verify_evidence_bundle(bundle, resolve_content=mapping_resolver(contents))
+    assert "guarded-decision.execution-manifest-invalid/1" in str(raised.value)
+
+
 def test_bundle_writer_is_canonical_and_immutable(
     contents: dict[str, bytes], tmp_path: Path
 ) -> None:
