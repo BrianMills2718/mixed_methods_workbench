@@ -20,8 +20,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
-
+addopts = "-rfE"
 [tool.mypy]
 python_version = "3.12"
 strict = true
