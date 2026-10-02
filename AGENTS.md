@@ -121,12 +121,12 @@ make test-method-dashboard
 ## References
 
 - `~/projects/qualitative_coding/CLAUDE.md`
-- `~/projects/qualitative_coding/docs/PROJECT_THEORY_AND_GOALS.md`
+- `~/code/qualitative_coding/docs/PROJECT_THEORY_AND_GOALS.md`
 - `~/projects/process_tracing/CLAUDE.md`
 - `~/projects/process_tracing/docs/PROJECT_THEORY_AND_GOALS.md`
 - `~/projects/process_tracing/docs/SOTA_PLUS_TARGET_ARCHITECTURE.md`
 - `~/projects/grounded-research/CLAUDE.md`
-- `~/projects/grounded-research/docs/ROADMAP.md`
+- `~/code/grounded-research/docs/ROADMAP.md`
 - `~/projects/theory-forge/CLAUDE.md`
 - `~/projects/theory-forge/docs/adr/0003-ac14-integration-deferred.md`
 - `docs/ROADMAP.md`
