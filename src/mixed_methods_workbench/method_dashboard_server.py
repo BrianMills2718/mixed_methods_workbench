@@ -17,10 +17,8 @@ from .investigation_verification import VerificationError
 from .method_dashboard import StudyBrief, dashboard_catalog, route_study
 from .method_topology import process_tracing_topology_payload
 from .mist_trail_decision import mist_trail_payload
-from .nyc_crz_evidence_slice import (
-    NycCrzEvidenceSliceError,
-    nyc_crz_evidence_slice_payload,
-)
+from .nyc_crz_evidence_slice import NycCrzEvidenceSliceError
+from .nyc_crz_integrated import NycCrzIntegrationError, nyc_crz_integrated_payload
 from .simulation_policy_appraisal import simulation_policy_appraisal_payload
 
 STATIC_PATH = Path(__file__).with_name("static") / "method_dashboard.html"
@@ -126,11 +124,11 @@ class MethodDashboardHandler(BaseHTTPRequestHandler):
             return
         if self.path == "/api/investigation/nyc-congestion-relief-zone":
             try:
-                payload = nyc_crz_evidence_slice_payload()
-            except NycCrzEvidenceSliceError as exc:
+                payload = nyc_crz_integrated_payload()
+            except (NycCrzEvidenceSliceError, NycCrzIntegrationError) as exc:
                 self._write_json(
                     HTTPStatus.INTERNAL_SERVER_ERROR,
-                    {"error": f"NYC evidence boundary failed validation: {exc}"},
+                    {"error": f"NYC integration boundary failed validation: {exc}"},
                 )
                 return
             self._write_json(HTTPStatus.OK, payload)
