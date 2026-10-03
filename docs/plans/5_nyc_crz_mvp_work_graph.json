@@ -544,9 +544,17 @@
         }
       ],
       "readiness": {
-        "status": "ready",
+        "status": "accepted",
         "required_approval_types": [],
-        "approvals": [],
+        "approvals": [
+          {
+            "type": "human_mvp_review",
+            "reviewer": "Brian",
+            "decision": "accepted_integrated_presentation",
+            "reviewed_at": "2026-10-02T21:01:00-04:00",
+            "evidence_ref": "docs/runs/2026-10-02-nyc-mvp-review-1.md"
+          }
+        ],
         "failed_guards": []
       },
       "claim_policy": {
@@ -558,10 +566,10 @@
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
-      "status": "completion_review",
+      "status": "accepted",
       "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-10-02T00:00:00Z"
+      "updated_at": "2026-10-02T21:01:00-04:00"
     },
     {
       "schema_version": "1.0",
@@ -576,7 +584,7 @@
       "objective": "Demonstrate the exact integrated NYC investigation to a human reviewer, capture methodological and product objections, and accept or revise the bounded MVP claim.",
       "profile": "standard",
       "execution_class": "decision",
-      "claimability": "blocked_dependencies",
+      "claimability": "complete",
       "scope": {
         "included": [
           "fresh-browser five-minute investigation walkthrough",
@@ -597,7 +605,7 @@
         {
           "kind": "AcceptedWorkUnit",
           "id": "NYC-INTEGRATE-1",
-          "revision": "pending"
+          "revision": "a3b3b83f121ea5892c2deec64f2d20d9428a524a"
         }
       ],
       "outputs": [
@@ -658,19 +666,28 @@
         }
       ],
       "readiness": {
-        "status": "blocked",
+        "status": "human_decision_accepted_verification_receipts_outstanding",
         "required_approval_types": [],
-        "approvals": [],
+        "approvals": [
+          {
+            "type": "human_completion_decision",
+            "reviewer": "Brian",
+            "decision": "accepted_integrated_nyc_mvp_presentation",
+            "reviewed_at": "2026-10-02T21:01:00-04:00",
+            "evidence_ref": "docs/runs/2026-10-02-nyc-mvp-review-1.md"
+          }
+        ],
         "failed_guards": [
-          "NYC-INTEGRATE-1 is not accepted"
+          "fresh-browser observation receipt not separately captured",
+          "offline replay/artifact digest receipt not separately captured for NYC-MVP-REVIEW-1"
         ]
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
-      "status": "blocked",
+      "status": "accepted_decision_verification_receipts_outstanding",
       "record_version": 1,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-13T20:05:00Z"
+      "updated_at": "2026-10-02T21:01:00-04:00"
     },
     {
       "schema_version": "1.0",
