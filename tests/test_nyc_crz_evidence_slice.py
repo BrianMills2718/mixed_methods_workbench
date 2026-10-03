@@ -160,8 +160,9 @@ def test_server_exposes_matching_nyc_html_and_json_routes() -> None:
         ) as response:
             payload = json.loads(response.read())
             assert response.headers.get_content_type() == "application/json"
-            assert payload["status"] == "candidate_review_required"
-            assert payload["review_packet"]["review"]["status"] == "pending_human_review"
+            assert payload["status"] == "integration_complete_pending_mvp_review"
+            assert payload["qualitative"]["review_status"] == "human_review_approved"
+            assert payload["policy_appraisal"]["status"] == "needs_human_priorities"
     finally:
         server.shutdown()
         server.server_close()

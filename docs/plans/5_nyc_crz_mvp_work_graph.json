@@ -166,7 +166,7 @@
       "objective": "Produce an authentic method-owned qualitative description of concerns, support, affected groups, alternatives, contradictions, and variation without population-prevalence claims.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "complete",
       "scope": {
         "included": [
           "all six frozen August 2022 hearing transcripts as the declared denominator",
@@ -256,17 +256,39 @@
         }
       ],
       "readiness": {
-        "status": "ready",
+        "status": "accepted",
         "required_approval_types": [],
-        "approvals": [],
+        "approvals": [
+          {
+            "type": "human_review",
+            "reviewer": "Brian",
+            "decision": "approved_all_14",
+            "reviewed_at": "2026-10-02T20:50:43.990630+00:00",
+            "evidence_ref": "examples/fixtures/nyc_crz_integrated/qc/nyc_crz_describe_v1_analyst_review.json"
+          }
+        ],
         "failed_guards": []
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "qualitative_coding",
-      "status": "ready",
+      "status": "accepted",
       "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-14T14:16:35Z"
+      "updated_at": "2026-10-02T00:00:00Z",
+      "accepted_evidence": {
+        "producer_revision": "5560ce71546a30dc6aa4a264dacbce3028b005eb",
+        "binding_ref": "examples/fixtures/nyc_crz_integrated/qc_binding.json",
+        "artifacts": [
+          {
+            "path": "examples/fixtures/nyc_crz_integrated/qc/nyc_crz_describe_v1_handoff.json",
+            "sha256": "d3b02dcb4e7ce9e3ec8b9d06489ced3e444c425a2099bc5b287e503f4092f3cc"
+          },
+          {
+            "path": "examples/fixtures/nyc_crz_integrated/qc/nyc_crz_describe_v1_analyst_review.json",
+            "sha256": "76e8271a8645336bcf8fde730c3043304a9ab9f92085fefe21b796c1cbeb51ea"
+          }
+        ]
+      }
     },
     {
       "schema_version": "1.0",
@@ -394,7 +416,7 @@
       "objective": "Present reviewed prediction, hearing analysis, quantitative comparison, policy appraisal, provenance, divergence, and limitations as one cohesive investigation without flattening method ownership.",
       "profile": "standard",
       "execution_class": "named_owner",
-      "claimability": "blocked_dependencies",
+      "claimability": "complete",
       "scope": {
         "included": [
           "Workbench permissive typed consumers for accepted QC and quantitative artifacts",
@@ -421,7 +443,7 @@
         {
           "kind": "AcceptedWorkUnit",
           "id": "NYC-QC-1",
-          "revision": "pending"
+          "revision": "5560ce71546a30dc6aa4a264dacbce3028b005eb:sha256:d3b02dcb4e7ce9e3ec8b9d06489ced3e444c425a2099bc5b287e503f4092f3cc:review:76e8271a8645336bcf8fde730c3043304a9ab9f92085fefe21b796c1cbeb51ea"
         },
         {
           "kind": "AcceptedWorkUnit",
@@ -522,12 +544,18 @@
         }
       ],
       "readiness": {
-        "status": "blocked",
+        "status": "accepted",
         "required_approval_types": [],
-        "approvals": [],
-        "failed_guards": [
-          "NYC-QC-1 is not accepted"
-        ]
+        "approvals": [
+          {
+            "type": "human_mvp_review",
+            "reviewer": "Brian",
+            "decision": "accepted_integrated_presentation",
+            "reviewed_at": "2026-10-02T21:01:00-04:00",
+            "evidence_ref": "docs/runs/2026-10-02-nyc-mvp-review-1.md"
+          }
+        ],
+        "failed_guards": []
       },
       "claim_policy": {
         "eligibility_rule": "The active Workbench integration coordinator may claim after all three hard dependencies are accepted.",
@@ -538,10 +566,10 @@
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
-      "status": "blocked",
+      "status": "accepted",
       "record_version": 3,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-14T14:16:35Z"
+      "updated_at": "2026-10-02T21:01:00-04:00"
     },
     {
       "schema_version": "1.0",
@@ -556,7 +584,7 @@
       "objective": "Demonstrate the exact integrated NYC investigation to a human reviewer, capture methodological and product objections, and accept or revise the bounded MVP claim.",
       "profile": "standard",
       "execution_class": "decision",
-      "claimability": "blocked_dependencies",
+      "claimability": "complete",
       "scope": {
         "included": [
           "fresh-browser five-minute investigation walkthrough",
@@ -577,7 +605,7 @@
         {
           "kind": "AcceptedWorkUnit",
           "id": "NYC-INTEGRATE-1",
-          "revision": "pending"
+          "revision": "a3b3b83f121ea5892c2deec64f2d20d9428a524a"
         }
       ],
       "outputs": [
@@ -638,19 +666,28 @@
         }
       ],
       "readiness": {
-        "status": "blocked",
+        "status": "human_decision_accepted_verification_receipts_outstanding",
         "required_approval_types": [],
-        "approvals": [],
+        "approvals": [
+          {
+            "type": "human_completion_decision",
+            "reviewer": "Brian",
+            "decision": "accepted_integrated_nyc_mvp_presentation",
+            "reviewed_at": "2026-10-02T21:01:00-04:00",
+            "evidence_ref": "docs/runs/2026-10-02-nyc-mvp-review-1.md"
+          }
+        ],
         "failed_guards": [
-          "NYC-INTEGRATE-1 is not accepted"
+          "fresh-browser observation receipt not separately captured",
+          "offline replay/artifact digest receipt not separately captured for NYC-MVP-REVIEW-1"
         ]
       },
       "authorization_mode": "registry_claim",
       "integration_owner_id": "mixed_methods_workbench",
-      "status": "blocked",
+      "status": "accepted_decision_verification_receipts_outstanding",
       "record_version": 1,
       "created_at": "2026-08-13T20:05:00Z",
-      "updated_at": "2026-08-13T20:05:00Z"
+      "updated_at": "2026-10-02T21:01:00-04:00"
     },
     {
       "schema_version": "1.0",

@@ -116,11 +116,22 @@ Pydantic/anchor/arithmetic/browser/runtime checks is not acceptance):
   `0961133cc6a6441a944f00a45a7574e58a69bd0ca51fc2cb70da67540083f578`
   (an earlier `5c6af2bd...` value was wrong provenance, now corrected).
 
-**Next action to actually move this forward:** resume `nyc-crz-six-hearing-qc`
-from its `paused_for_review` state and produce the reviewable export, then
-proceed to `NYC-INTEGRATE-1` and `NYC-MVP-REVIEW-1`. This does not reopen
-source acquisition, discard the accepted statements, or select a replacement
-flagship case.
+**Current NYC critical path (2026-10-02):** `NYC-QC-1` is complete and
+human-approved at Qualitative Coding revision
+`5560ce71546a30dc6aa4a264dacbce3028b005eb`. Workbench pins the method
+handoff and approved analyst review by exact SHA-256 under
+`examples/fixtures/nyc_crz_integrated/`. `NYC-INTEGRATE-1` now exposes the
+accepted qualitative result beside the extraction baseline and quantitative
+audit on the existing NYC route, with explicit convergence, complementarity,
+divergence, and silence records. The policy appraisal intentionally remains
+`needs_human_priorities`; integration does not invent retain/change/monitor
+weights or a recommendation.
+
+The next decision boundary is `NYC-MVP-REVIEW-1`: review the integrated
+investigation and decide whether to accept the MVP presentation and whether to
+supply explicit policy-appraisal priorities. See
+`docs/runs/2026-10-02-nyc-integrate-1.md` for the baseline-vs-federated
+comparison and verification boundary.
 
 <details>
 <summary>History (superseded 2026-09-06/2026-09-14/2026-09-24 — kept for provenance, not current status)</summary>

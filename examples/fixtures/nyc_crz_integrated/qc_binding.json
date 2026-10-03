@@ -1,0 +1,26 @@
+{
+  "schema_version": "mmw.nyc_qc_binding.v1",
+  "producer_repository": "BrianMills2718/qualitative_coding",
+  "producer_revision": "5560ce71546a30dc6aa4a264dacbce3028b005eb",
+  "source_branch": "wip/nyc-qc-1-execution-closeout-20261001-20261002",
+  "artifacts": [
+    {
+      "path": "qc/nyc_crz_describe_v1_handoff.json",
+      "sha256": "d3b02dcb4e7ce9e3ec8b9d06489ced3e444c425a2099bc5b287e503f4092f3cc",
+      "role": "method_owned_handoff"
+    },
+    {
+      "path": "qc/nyc_crz_describe_v1_analyst_review.json",
+      "sha256": "76e8271a8645336bcf8fde730c3043304a9ab9f92085fefe21b796c1cbeb51ea",
+      "role": "human_approved_analyst_review"
+    }
+  ],
+  "review_state": "human_review_approved",
+  "review_scope": "14 analyst-bounded items: 12 substantive findings, 1 boundary case, 1 unresolved negative-case-search result",
+  "limits": [
+    "hearing corpus is not a representative population sample",
+    "coded recurrence is not population prevalence",
+    "qualitative findings do not establish causal policy effects",
+    "approval does not supply policy priority weights"
+  ]
+}
