@@ -1,7 +1,21 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23
+Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23; NYC pause added 2026-10-04
+
+## NYC lane paused (2026-10-04)
+
+> **NYC lane paused — Brian, 2026-10-04.** Do not continue `NYC-MVP-REVIEW-1`
+> or extend the NYC vertical. Brian's personal plan
+> (`weekly-plans/personal/THIS_WEEK.md`, Priority 1) records that he did not
+> knowingly choose NYC as the use case ("not sure he had decided it, or at least
+> not on purpose"). A 2026-10-04 review of the pinned Qualitative Coding result
+> found its evidence is single printed transcript lines (72 quotes averaging 49
+> characters) with no speaker attribution, and its 14 findings carry one
+> blanket approval rather than item-level review; treat it as unreviewed.
+> Qualitative Coding is speed-running its grounded-theory finish instead (its
+> `docs/CURRENT_STATE_AND_ROADMAP.md`, "Speed-run to finish"). The Path A text
+> below is the earlier record.
 
 ## Bounded PsychosisBank portfolio demonstration (2026-09-23)
 
