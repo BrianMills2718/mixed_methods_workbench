@@ -1,0 +1,181 @@
+schema_version: phase3-connections-0.1
+method_id: p03
+connection_types:
+- artifact_flow
+- retained_context
+- control_gate
+- feedback
+- prohibited_transition
+topology:
+  shape: adaptive
+  required_cycles: []
+  optional_cycles:
+  - - p03.move.sensitivity
+    - p03.move.design
+  prohibited_cycles:
+  - - p03.move.estimate
+    - p03.move.design
+    - p03.move.panel
+  prohibited_edges:
+  - p03.c17
+  - p03.c18
+  entry_points:
+  - p03.move.design
+  terminal_points:
+  - p03.move.interpret
+  - refusal:no_defensible_comparison
+  - refusal:identification_not_defensible
+connections:
+- id: p03.c01
+  from: p03.move.design
+  to: p03.move.comparison
+  connection_type: retained_context
+  carries: frozen_did_design
+  from_output: frozen_did_design
+  to_input: frozen_did_design
+- id: p03.c02
+  from: p03.move.design
+  to: p03.move.panel
+  connection_type: retained_context
+  carries: frozen_did_design
+  from_output: frozen_did_design
+  to_input: frozen_did_design
+- id: p03.c03
+  from: p03.action.build_panel
+  to: p03.move.panel
+  connection_type: retained_context
+  carries: panel_build_receipt
+  note: receipt_attests_alignment_but_does_not_replace_outcome_records
+  from_output: panel_build_receipt
+  to_input: panel_build_receipt
+- id: p03.c04
+  from: p03.move.panel
+  to: p03.move.assumptions
+  connection_type: artifact_flow
+  carries: analysis_panel
+  from_output: analysis_panel
+  to_input: analysis_panel
+  transfer_semantics: preserving
+- id: p03.c05
+  from: p03.move.comparison
+  to: p03.move.assumptions
+  connection_type: retained_context
+  carries: comparison_group_justification
+  from_output: comparison_group_justification
+  to_input: comparison_group_justification
+- id: p03.c06
+  from: p03.move.panel
+  to: p03.move.pretrend
+  connection_type: artifact_flow
+  carries: analysis_panel
+  from_output: analysis_panel
+  to_input: analysis_panel
+  transfer_semantics: preserving
+- id: p03.c07
+  from: p03.move.assumptions
+  to: p03.move.estimate
+  connection_type: control_gate
+  carries: identification_appraisal
+  condition: assumptions_are_defensible_enough_for_bounded_causal_estimation
+- id: p03.c08
+  from: p03.move.pretrend
+  to: p03.move.estimate
+  connection_type: retained_context
+  carries: pretrend_diagnostics
+  from_output: pretrend_diagnostics
+  to_input: pretrend_diagnostics
+- id: p03.c09
+  from: p03.move.panel
+  to: p03.action.compute_did
+  connection_type: artifact_flow
+  carries: analysis_panel
+  from_output: analysis_panel
+  to_input: analysis_panel
+  transfer_semantics: preserving
+- id: p03.c10
+  from: p03.action.compute_did
+  to: p03.move.estimate
+  connection_type: retained_context
+  carries: estimate_receipt
+  note: computation_does_not_accept_identifying_assumptions
+  from_output: estimate_receipt
+  to_input: estimate_receipt
+- id: p03.c11
+  from: p03.move.estimate
+  to: p03.move.sensitivity
+  connection_type: artifact_flow
+  carries: did_effect_estimate
+  from_output: did_effect_estimate
+  to_input: did_effect_estimate
+  transfer_semantics: preserving
+- id: p03.c12
+  from: p03.move.estimate
+  to: p03.move.interpret
+  connection_type: artifact_flow
+  carries: did_effect_estimate
+  from_output: did_effect_estimate
+  to_input: did_effect_estimate
+  transfer_semantics: preserving
+- id: p03.c13
+  from: p03.move.assumptions
+  to: p03.move.interpret
+  connection_type: retained_context
+  carries: identification_appraisal
+  from_output: identification_appraisal
+  to_input: identification_appraisal
+- id: p03.c14
+  from: p03.move.pretrend
+  to: p03.move.interpret
+  connection_type: retained_context
+  carries: pretrend_diagnostics
+  from_output: pretrend_diagnostics
+  to_input: pretrend_diagnostics
+- id: p03.c15
+  from: p03.move.sensitivity
+  to: p03.move.interpret
+  connection_type: artifact_flow
+  carries: sensitivity_findings
+  from_output: sensitivity_findings
+  to_input: sensitivity_findings
+  transfer_semantics: preserving
+- id: p03.c16
+  from: p03.move.sensitivity
+  to: p03.move.design
+  connection_type: feedback
+  carries: successor_design_request
+  condition: diagnostics_reveal_repairable_scope_or_measurement_problem
+  creates_successor_version: true
+- id: p03.c17
+  from: p03.move.pretrend
+  to: p03.move.assumptions
+  connection_type: prohibited_transition
+  carries: nonrejection_as_proof_of_parallel_trends
+  consequence: causal_warrant_is_invalid
+- id: p03.c18
+  from: p03.move.estimate
+  to: p03.move.design
+  connection_type: prohibited_transition
+  carries: result_informed_comparison_or_window_selection
+  consequence: successor_analysis_must_be_labeled_exploratory
+- id: p03.c07a
+  from: p03.move.panel
+  to: p03.move.estimate
+  connection_type: artifact_flow
+  carries: analysis_panel
+  from_output: analysis_panel
+  to_input: analysis_panel
+  transfer_semantics: preserving
+- id: p03.c07b
+  from: p03.move.design
+  to: p03.move.estimate
+  connection_type: retained_context
+  carries: frozen_did_design
+  from_output: frozen_did_design
+  to_input: frozen_did_design
+- id: p03.c11a
+  from: p03.move.panel
+  to: p03.move.sensitivity
+  connection_type: retained_context
+  carries: analysis_panel
+  from_output: analysis_panel
+  to_input: analysis_panel

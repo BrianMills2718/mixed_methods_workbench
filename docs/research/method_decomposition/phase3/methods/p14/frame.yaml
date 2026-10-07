@@ -1,0 +1,22 @@
+schema_version: phase3-method-frame-0.1
+method_id: p14
+portfolio_revision: phase2b-proposal-0.3+P14
+frozen_at: 2026-08-13T18:34:00Z
+variant: Theory-testing Process Tracing in one bounded case with frozen rival explanations, observable implications, explicit searches for present and absent evidence, and qualitative-Bayesian diagnostic comparison
+unit_of_analysis: diagnostic_evidence_opportunity_within_one_case
+applicability_boundary:
+  case: one explicitly bounded case and outcome
+  explanations: prespecified rival causal explanations and mechanisms
+  inference: comparative within-case diagnostic updating
+exclusions:
+  - theory-building Process Tracing
+  - explaining-outcome Process Tracing without frozen rivals
+  - cross-case effect estimation
+  - interpreting unsearched silence as absence
+  - mechanical multiplication of dependent evidence likelihoods
+source_freeze:
+  primary: Bennett and Checkel 2015, introduction chapter 1 and appendix on disciplining conjectures
+  corroborating: Fairfield and Charman 2017, sections 2-6 and appendices
+source_scope_caution: Product topology at 1fd01bc is read-only implementation evidence and is not authority for the ideal method.
+claim_boundary: Comparatively updates bounded rival explanations from diagnostic within-case evidence; it does not estimate population effects or prove a mechanism from chronology alone.
+
