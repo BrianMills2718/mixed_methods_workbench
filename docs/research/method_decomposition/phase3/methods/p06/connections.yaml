@@ -1,0 +1,19 @@
+schema_version: phase3-connections-0.1
+method_id: p06
+connections:
+  - {id: p06.c01, from: p06.move.define, to: p06.move.frame, connection_type: artifact_flow, carries: frozen_survey_estimand, preservation: preserving, from_output: frozen_survey_estimand, to_input: frozen_survey_estimand}
+  - {id: p06.c02, from: p06.move.frame, to: p06.move.design, connection_type: artifact_flow, carries: frame_coverage_assessment, preservation: preserving, from_output: frame_coverage_assessment, to_input: frame_coverage_assessment}
+  - {id: p06.c03, from: p06.move.design, to: p06.move.select, connection_type: control_gate, carries: design_freeze_permission, condition: design_accepted}
+  - {id: p06.c04, from: p06.move.select, to: p06.move.collect, connection_type: artifact_flow, carries: selected_sample_with_base_weights, preservation: preserving, from_output: selected_sample_with_base_weights, to_input: selected_sample_with_base_weights}
+  - {id: p06.c05, from: p06.move.design, to: p06.move.collect, connection_type: retained_context, carries: frozen_survey_design, from_output: frozen_survey_design, to_input: frozen_survey_design}
+  - {id: p06.c06, from: p06.move.collect, to: p06.move.process, connection_type: artifact_flow, carries: raw_response_and_paradata_set, preservation: transforming, transformation_owner: p06, change: standardized_edits_coding_and_dispositions, from_output: raw_response_and_paradata_set, to_input: raw_response_and_paradata_set}
+  - {id: p06.c07, from: p06.move.process, to: p06.move.adjust, connection_type: artifact_flow, carries: processed_response_set_and_quality_report, preservation: preserving, from_output: processed_response_set_and_quality_report, to_input: processed_response_set_and_quality_report}
+  - {id: p06.c08, from: p06.move.select, to: p06.move.adjust, connection_type: retained_context, carries: selected_sample_with_base_weights, from_output: selected_sample_with_base_weights, to_input: selected_sample_with_base_weights}
+  - {id: p06.c09, from: p06.move.adjust, to: p06.move.estimate, connection_type: artifact_flow, carries: weighted_analysis_dataset_and_bias_assessment, preservation: preserving, from_output: weighted_analysis_dataset_and_bias_assessment, to_input: weighted_analysis_dataset_and_bias_assessment}
+  - {id: p06.c10, from: p06.move.define, to: p06.move.estimate, connection_type: retained_context, carries: frozen_survey_estimand, from_output: frozen_survey_estimand, to_input: frozen_survey_estimand}
+  - {id: p06.c11, from: p06.move.estimate, to: p06.move.report, connection_type: artifact_flow, carries: prevalence_estimate_and_error_account, preservation: preserving, from_output: prevalence_estimate_and_error_account, to_input: prevalence_estimate_and_error_account}
+  - {id: p06.c12, from: p06.move.process, to: p06.move.report, connection_type: retained_context, carries: processed_response_set_and_quality_report, from_output: processed_response_set_and_quality_report, to_input: processed_response_set_and_quality_report}
+  - {id: p06.c13, from: p06.move.report, to: p06.move.design, connection_type: feedback, carries: documented_error_or_revision_need, condition: successor_survey_wave, creates_successor_version: true}
+  - {id: p06.c14, from: p06.move.collect, to: p06.move.define, connection_type: prohibited_transition, carries: observed_responses, condition: redefine_construct_to_improve_observed_prevalence, invalidates: prespecification_and_measurement_warrant}
+  - {id: p06.c15, from: p06.action.compute_variance, to: p06.move.estimate, connection_type: retained_context, carries: estimate_receipt, adapter_note: computation_does_not_own_population_inference}
+topology: {shape: cyclic_successor_versions, entry_points: [p06.move.define], terminal_points: [p06.move.report], required_feedback: [p06.c13], prohibited_transitions: [p06.c14]}

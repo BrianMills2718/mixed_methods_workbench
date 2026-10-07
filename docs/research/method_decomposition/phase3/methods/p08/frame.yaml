@@ -1,0 +1,17 @@
+schema_version: phase3-method-frame-0.1
+status: frozen_before_decomposition
+method_id: p08
+variant: operational probabilistic time-series forecast for one named numerical target and horizon
+purpose: issue versioned predictions from a time-respecting information set and evaluate them against realized outcomes
+population_or_case_scope: one regularly observed time series, declared forecast origins, horizons, and operational use
+evidence_object: as-of historical observations, forecast distributions, and later realized outcomes
+target_conclusion: predictive distribution for the target at the frozen horizon under the current information regime
+decisive_design_choices: [target, horizon, origin, loss, information cutoff, baselines, rolling origins, candidate models, issue cadence]
+included: [as-of data, naive and seasonal baselines, rolling-origin evaluation, distributional scoring, diagnostics, immutable forecast issuance, monitoring]
+excluded: [causal effect estimation, scenario planning, judgment-only forecasting, retrospective fitted values presented as forecasts]
+applicability_boundary: exact target definition, frequency, horizon, information regime, loss, model/data version, and issue origin
+source_freeze:
+  frozen_on: 2026-08-13
+  primary: Hyndman_and_Athanasopoulos_2021_FPP3_sections_1.4_1.6_3.5_5.2_5.10
+  corroborating: Gneiting_and_Raftery_2007_sections_2_3_4
+source_scope_caution: FPP3 supplies operational time-series conduct; Gneiting and Raftery govern probabilistic scoring, not target selection or causal interpretation.

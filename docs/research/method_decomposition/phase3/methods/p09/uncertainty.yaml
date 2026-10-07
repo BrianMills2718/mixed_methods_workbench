@@ -1,0 +1,10 @@
+schema_version: phase3-uncertainty-0.1
+method_id: p09
+items:
+  - {id: p09.u01, status: known, topic: Monte_Carlo_error, account: replication quantifies stochastic precision for frozen configurations, downstream_effect: insufficient_precision_blocks_contrast}
+  - {id: p09.u02, status: contested, topic: structural_uncertainty, account: alternative mechanisms schedules networks and submodels may change conclusions, downstream_effect: requires_structural_sensitivity_or_explicit_gap}
+  - {id: p09.u03, status: source_limited, topic: empirical_fitness, account: available patterns may constrain only selected outputs and calibration may reuse them, downstream_effect: limits_real_world_extrapolation}
+  - {id: p09.u04, status: contested, topic: abstraction_adequacy, account: fitness for purpose depends on domain judgment and omitted processes, downstream_effect: acceptance_authority_may_refuse_model_use}
+  - {id: p09.u05, status: known, topic: information_origin, account: run outputs are simulated even when parameterized with observed data, downstream_effect: cannot_become_observed_effect_evidence}
+  - {id: p09.u06, status: source_limited, topic: experiment_power_and_factor_space, account: finite ensembles cover only declared contrasts ranges and structures, downstream_effect: findings_do_not_generalize_beyond_experiment_space}
+stopping_rule: refuse a policy-world effect or prediction when verification, empirical fitness, experiment provenance, replication precision, or decisive sensitivity evidence is absent; report only model-conditional findings when the bounded gate passes

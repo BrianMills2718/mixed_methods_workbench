@@ -1,0 +1,218 @@
+schema_version: phase3-method-records-0.1
+method_id: p06
+variant: cross-sectional probability-sample prevalence survey
+phases:
+  - {phase_id: p06.phase.design, level: method_phase, label: define and design, operation_kinds: [analytic, methodological_support], collision_participation: none}
+  - {phase_id: p06.phase.collect, level: method_phase, label: select and collect, operation_kinds: [analytic, methodological_support, runtime_delivery], collision_participation: none}
+  - {phase_id: p06.phase.estimate, level: method_phase, label: adjust estimate and report, operation_kinds: [analytic, methodological_support], collision_participation: none}
+moves:
+  - record_id: p06.move.define
+    level: analytical_move
+    parent_phase: p06.phase.design
+    label: define construct population reference period and estimand
+    operation_kind: analytic
+    inputs: [policy_measurement_question, population_definition]
+    output: frozen_survey_estimand
+    information_origin: [interpreted]
+    source_authority_or_inferential_role: OMB_2006_sections_1.1_1.2
+    applicability_boundary: declared_construct_population_and_period
+    method_owned_rule: every reported prevalence must map to a defined concept and target population
+    permitted_conclusion: this survey is designed to estimate the named population prevalence
+    refusal_or_qualification: refuse_population_prevalence_if_construct_or_population_is_undefined
+    performer: survey_methodologist
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: policy_sponsor
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_1.1_1.2;Groves_2009_ch2
+    exact_anchors: [frame:p06:source_freeze, OMB:1.1, OMB:1.2]
+    guards: {temporal: freeze_before_questionnaire_and_sample_selection, access: aggregate_design_information_only, run_version: estimand_version_immutable_for_release}
+  - record_id: p06.move.frame
+    level: analytical_move
+    parent_phase: p06.phase.design
+    label: construct and assess sampling frame
+    operation_kind: analytic
+    inputs: [frozen_survey_estimand, frame_sources]
+    output: frame_coverage_assessment
+    information_origin: [observed, derived]
+    source_authority_or_inferential_role: OMB_2006_section_2.1
+    applicability_boundary: enumerated_frame_population
+    method_owned_rule: coverage gaps and multiplicities remain visible in the target-to-frame mapping
+    permitted_conclusion: the covered population and known coverage defects are identified
+    refusal_or_qualification: qualify_or_refuse_target_population_inference_for_material_unresolved_undercoverage
+    performer: survey_methodologist
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_2.1;Groves_2009_ch3
+    exact_anchors: [OMB:2.1, Groves:ch3]
+    guards: {temporal: precedes_sample_selection, access: protected_frame_access_by_authorized_staff, run_version: frame_snapshot_and_coverage_report_are_bound}
+  - record_id: p06.move.design
+    level: analytical_move
+    parent_phase: p06.phase.design
+    label: freeze probability design instrument and error plan
+    operation_kind: methodological_support
+    inputs: [frozen_survey_estimand, frame_coverage_assessment]
+    output: frozen_survey_design
+    information_origin: [interpreted, derived]
+    source_authority_or_inferential_role: OMB_2006_sections_1.2_1.4
+    applicability_boundary: selected_design_and_collection_mode
+    method_owned_rule: every sampled unit has a known nonzero selection probability and the instrument is pretested
+    permitted_conclusion: selection collection and analysis may proceed under a prespecified design
+    refusal_or_qualification: redesign_if_selection_probabilities_or_measurement_are_not_defensible
+    performer: survey_design_team
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: policy_sponsor
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_1.2_1.4
+    exact_anchors: [OMB:1.2, OMB:1.4]
+    guards: {temporal: pretest_and_freeze_before_main_collection, access: no_response_data_before_design_freeze, run_version: amendments_create_dated_successors}
+  - record_id: p06.move.select
+    level: analytical_move
+    parent_phase: p06.phase.collect
+    label: select probability sample and retain inclusion probabilities
+    operation_kind: analytic
+    inputs: [frozen_survey_design, frame_snapshot]
+    output: selected_sample_with_base_weights
+    information_origin: [derived]
+    source_authority_or_inferential_role: probability_sampling_design
+    applicability_boundary: frozen_frame_and_randomization_receipt
+    method_owned_rule: selection follows the frozen probability mechanism without convenience substitution
+    permitted_conclusion: sampled units represent the frame through declared inclusion probabilities
+    refusal_or_qualification: refuse_design_based_inference_if_selection_receipt_is_missing_or_compromised
+    performer: deterministic_sampling_engine
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_1.2_2.1;Groves_2009_ch5
+    exact_anchors: [OMB:1.2, OMB:2.1, Groves:ch5]
+    guards: {temporal: after_frame_freeze_before_contact, access: sample_identifiers_restricted, run_version: seed_frame_and_selection_receipt_bound}
+  - record_id: p06.move.collect
+    level: analytical_move
+    parent_phase: p06.phase.collect
+    label: collect responses and paradata under the frozen protocol
+    operation_kind: analytic
+    inputs: [selected_sample_with_base_weights, frozen_survey_design]
+    output: raw_response_and_paradata_set
+    information_origin: [reported, observed]
+    source_authority_or_inferential_role: respondent_reports_under_standardized_collection
+    applicability_boundary: declared_mode_questions_and_reference_period
+    method_owned_rule: protocol departures and response disposition are recorded rather than silently imputed
+    permitted_conclusion: responses and collection outcomes are available for governed processing
+    refusal_or_qualification: qualify_for_mode_measurement_or_response_breakdowns
+    performer: data_collection_team
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_2.2_2.3
+    exact_anchors: [OMB:2.2, OMB:2.3]
+    guards: {temporal: collection_window_and_reference_period_enforced, access: respondent_data_need_to_know, run_version: collection_protocol_and_dispositions_bound}
+  - record_id: p06.move.process
+    level: analytical_move
+    parent_phase: p06.phase.collect
+    label: edit code and evaluate response quality
+    operation_kind: methodological_support
+    inputs: [raw_response_and_paradata_set, frozen_survey_design]
+    output: processed_response_set_and_quality_report
+    information_origin: [reported, observed, derived]
+    source_authority_or_inferential_role: OMB_2006_sections_3.1_3.5
+    applicability_boundary: declared_edit_coding_and_response_rules
+    method_owned_rule: edits coding and missingness do not invent undocumented respondent information
+    permitted_conclusion: response data and material quality limitations are explicit
+    refusal_or_qualification: retain_missingness_and_flag_unresolved_processing_error
+    performer: survey_processing_team
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_3.1_3.5
+    exact_anchors: [OMB:3.1, OMB:3.2, OMB:3.3, OMB:3.5]
+    guards: {temporal: processing_rules_precede_final_estimation, access: protected_microdata_only, run_version: every_edit_and_imputation_version_retained}
+  - record_id: p06.move.adjust
+    level: analytical_move
+    parent_phase: p06.phase.estimate
+    label: assess nonresponse and derive final weights
+    operation_kind: analytic
+    inputs: [processed_response_set_and_quality_report, selected_sample_with_base_weights]
+    output: weighted_analysis_dataset_and_bias_assessment
+    information_origin: [derived]
+    source_authority_or_inferential_role: design_based_adjustment_with_declared_auxiliary_information
+    applicability_boundary: adjustment_cells_models_and_available_auxiliaries
+    method_owned_rule: weighting adjustments disclose assumptions and cannot prove absent nonresponse bias
+    permitted_conclusion: respondents represent the covered population under stated adjustment assumptions
+    refusal_or_qualification: qualify_or_refuse_when_nonresponse_bias_is_material_and_unbounded
+    performer: survey_statistician
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_3.2_4.1;Groves_2009_ch6
+    exact_anchors: [OMB:3.2, OMB:4.1, Groves:ch6]
+    guards: {temporal: response_dispositions_frozen_before_final_adjustment, access: auxiliary_linkage_restricted, run_version: weights_bind_sample_response_and_model_versions}
+  - record_id: p06.move.estimate
+    level: analytical_move
+    parent_phase: p06.phase.estimate
+    label: estimate prevalence and design-based uncertainty
+    operation_kind: analytic
+    inputs: [weighted_analysis_dataset_and_bias_assessment, frozen_survey_estimand]
+    output: prevalence_estimate_and_error_account
+    information_origin: [derived]
+    source_authority_or_inferential_role: probability_design_and_variance_estimator
+    applicability_boundary: covered_population_construct_period_and_design
+    method_owned_rule: variance reflects the actual complex design and nonsampling limitations remain separate
+    permitted_conclusion: bounded_population_prevalence_with_design_based_uncertainty
+    refusal_or_qualification: do_not_report_precision_if_design_or_variance_cannot_be_reconstructed
+    performer: survey_statistician
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_4.1_4.3
+    exact_anchors: [OMB:4.1, OMB:4.2, OMB:4.3]
+    guards: {temporal: after_weight_freeze, access: approved_analysis_view, run_version: estimate_binds_data_weights_code_and_variance_method}
+  - record_id: p06.move.report
+    level: analytical_move
+    parent_phase: p06.phase.estimate
+    label: review release and document prevalence
+    operation_kind: methodological_support
+    inputs: [prevalence_estimate_and_error_account, processed_response_set_and_quality_report]
+    output: auditable_survey_release
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: OMB_2006_sections_4.3_5.3
+    applicability_boundary: release_population_period_and_revision
+    method_owned_rule: uncertainty coverage nonresponse measurement and processing limits accompany the estimate
+    permitted_conclusion: users can interpret the prevalence within its declared scope
+    refusal_or_qualification: suppress_or_qualify_unreliable_or_disclosive_estimates
+    performer: survey_release_team
+    judgment_owner: survey_method_lead
+    acceptance_authority: statistical_release_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_4.3_5.3
+    exact_anchors: [OMB:4.3, OMB:4.4, OMB:5.1, OMB:5.3]
+    guards: {temporal: independent_review_before_release, access: disclosure_review_required, run_version: releases_are_immutable_and_corrections_are_successors}
+actions:
+  - {record_id: p06.action.draw_sample, level: execution_action, parent_move: p06.move.select, label: execute seeded probability selection, operation_kind: analytic, inputs: [frame_snapshot, frozen_survey_design], output: selection_receipt, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution, applicability_boundary: frozen_frame_and_design, method_owned_rule: selection_algorithm_matches_design, permitted_conclusion: numerical_selection_only, refusal_or_qualification: execution_failure_blocks_selection, performer: deterministic_sampling_engine, judgment_owner: none, acceptance_authority: survey_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: OMB_2006_1.2, exact_anchors: [OMB:1.2], guards: {temporal: after_design_freeze, access: frame_access_restricted, run_version: seed_and_inputs_bound}}
+  - {record_id: p06.action.compute_variance, level: execution_action, parent_move: p06.move.estimate, label: execute complex-design estimator, operation_kind: analytic, inputs: [weighted_analysis_dataset_and_bias_assessment], output: estimate_receipt, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution, applicability_boundary: frozen_analysis_design, method_owned_rule: variance_method_matches_sample_design, permitted_conclusion: numerical_estimate_only, refusal_or_qualification: invalid_design_metadata_blocks_output, performer: deterministic_statistics_engine, judgment_owner: none, acceptance_authority: survey_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: OMB_2006_4.1_4.2, exact_anchors: [OMB:4.1, OMB:4.2], guards: {temporal: after_weight_freeze, access: approved_analysis_view, run_version: receipt_binds_inputs_code_and_environment}}

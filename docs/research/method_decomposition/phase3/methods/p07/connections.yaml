@@ -1,0 +1,17 @@
+schema_version: phase3-connections-0.1
+method_id: p07
+connections:
+  - {id: p07.c01, from: p07.move.bound, to: p07.move.operationalize, connection_type: artifact_flow, carries: frozen_text_measurement_frame, preservation: preserving, from_output: frozen_text_measurement_frame, to_input: frozen_text_measurement_frame}
+  - {id: p07.c02, from: p07.move.operationalize, to: p07.move.annotate, connection_type: artifact_flow, carries: codebook_and_adjudication_protocol, preservation: preserving, from_output: codebook_and_adjudication_protocol, to_input: codebook_and_adjudication_protocol}
+  - {id: p07.c03, from: p07.move.annotate, to: p07.move.split, connection_type: artifact_flow, carries: provenance_bound_human_label_set, preservation: preserving, from_output: provenance_bound_human_label_set, to_input: provenance_bound_human_label_set}
+  - {id: p07.c04, from: p07.move.split, to: p07.move.fit, connection_type: control_gate, carries: development_access_only, condition: split_frozen}
+  - {id: p07.c05, from: p07.move.fit, to: p07.move.validate, connection_type: artifact_flow, carries: candidate_model_bundle, preservation: preserving, from_output: candidate_model_bundle, to_input: candidate_model_bundle}
+  - {id: p07.c06, from: p07.move.validate, to: p07.move.quantify, connection_type: control_gate, carries: validation_acceptance, condition: errors_within_declared_bound}
+  - {id: p07.c07, from: p07.move.validate, to: p07.move.operationalize, connection_type: feedback, carries: construct_or_coding_failure, condition: successor_version_required, creates_successor_version: true}
+  - {id: p07.c08, from: p07.move.quantify, to: p07.move.interpret, connection_type: artifact_flow, carries: corpus_prevalence_estimate, preservation: preserving, from_output: corpus_prevalence_estimate, to_input: corpus_prevalence_estimate}
+  - {id: p07.c09, from: p07.move.validate, to: p07.move.interpret, connection_type: retained_context, carries: validation_and_item_error_record, from_output: validation_and_item_error_record, to_input: validation_and_item_error_record}
+  - {id: p07.c10, from: p07.move.operationalize, to: p07.move.interpret, connection_type: retained_context, carries: codebook_and_adjudication_protocol, from_output: codebook_and_adjudication_protocol, to_input: codebook_and_adjudication_protocol}
+  - {id: p07.c11, from: p07.move.fit, to: p07.move.operationalize, connection_type: prohibited_transition, carries: favorable_model_output, condition: redefine_construct_to_match_predictions, invalidates: construct_independence}
+  - {id: p07.c12, from: p07.move.quantify, to: p07.move.interpret, connection_type: prohibited_transition, carries: corpus_prevalence_estimate, condition: infer_policy_effect_from_prevalence, invalidates: measurement_only_warrant}
+  - {id: p07.c13, from: p07.action.persist_errors, to: p07.move.validate, connection_type: retained_context, carries: anchored_error_projection, adapter_note: projection_supports_but_does_not_own_validation_judgment}
+topology: {shape: cyclic_successor_versions, entry_points: [p07.move.bound], terminal_points: [p07.move.interpret], required_feedback: [p07.c07], prohibited_transitions: [p07.c11, p07.c12]}
