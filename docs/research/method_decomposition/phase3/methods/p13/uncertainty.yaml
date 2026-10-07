@@ -1,0 +1,9 @@
+schema_version: phase3-method-uncertainty-1.0
+method_id: P13
+items:
+  - {id: p13.u01, status: known, subject: strand_warrants, statement: "Qualitative and quantitative conclusions have different inferential bases.", downstream_effect: "Validate each separately and prohibit cross-strand repair of invalidity."}
+  - {id: p13.u02, status: contested, subject: commensurability, statement: "Some constructs or units cannot be aligned without loss.", downstream_effect: "Declare nonalignment or lossy transformation and bound meta-inference."}
+  - {id: p13.u03, status: known, subject: divergence, statement: "Discordance may reflect bias, construct differences, subgroup/context variation, or genuine tension.", downstream_effect: "Require explicit disposition and permit unresolved divergence."}
+  - {id: p13.u04, status: known, subject: meta_inference, statement: "Integration can add insight but cannot exceed the combined scope and quality of its inputs.", downstream_effect: "Trace every meta-inference to both strand findings and qualifications."}
+  - {id: p13.u05, status: unknown, subject: divergence_resolution, statement: "Before integration, it is unknown whether discordant findings will be explained, persist, or prove noncommensurable.", downstream_effect: "Preserve return paths and an unresolved-divergence terminal rather than promise reconciliation."}
+  - {id: p13.u06, status: source_limited, subject: policy_domain_transfer, statement: "The primary and corroborating conduct sources are health-science and health-services authorities rather than a universal policy-evaluation standard.", downstream_effect: "Claims are limited to the frozen convergent design and require domain-specific strand methods in each application."}

@@ -1,0 +1,23 @@
+schema_version: phase3-method-frame-1.0
+method_id: P12
+name: three_round_anonymous_policy_delphi
+variant: "three-round anonymous policy Delphi with purposive expert-panel construction, prespecified items and analysis, controlled quantitative/qualitative feedback, stability and disagreement analysis, and no rule that consensus equals truth"
+status: source_frozen_decomposition_candidate
+purpose: elicit, revise, and transparently summarize expert judgments under uncertainty while retaining stable disagreement
+applicability_boundary: policy questions with incomplete or inconclusive evidence where a purposively constituted expert panel can provide relevant technical or experiential judgment
+exclusions:
+  - open face-to-face consensus conference
+  - real-time Delphi without discrete rounds
+  - convenience polling
+  - treating consensus as empirical truth or a policy decision
+authorities:
+  performer: delphi_conveners_panelists_and_analysis_team
+  judgment_owner: individual_anonymous_panelists
+  acceptance_authority: delphi_method_lead_and_independent_reviewer
+  recommender: policy_analysis_sponsor_if_results_support_advice
+  value_goal_authority: study_sponsor_with_declared_stakeholder_governance
+  decision_authority: accountable_policy_decision_maker
+primary_source: khodyakov_et_al_2023
+corroborating_source: linstone_turoff_2002
+source_freeze_date: 2026-08-13
+claim_limit: decomposition evidence only; no expert elicitation, consensus, or recommendation

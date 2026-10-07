@@ -1,0 +1,340 @@
+schema_version: phase3-method-connections-1.0
+method_id: P13
+allowed_types:
+- artifact_flow
+- retained_context
+- control_gate
+- feedback
+- prohibited_transition
+connections:
+- id: p13.c01
+  from: p13.move.design
+  to: p13.move.qual_warrant
+  artifact: frozen_convergent_design
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: frozen_convergent_design
+  to_input: frozen_convergent_design
+  slot_compatibility:
+    type: design_parameters
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c02
+  from: p13.move.design
+  to: p13.move.quant_warrant
+  artifact: frozen_convergent_design
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: frozen_convergent_design
+  to_input: frozen_convergent_design
+  slot_compatibility:
+    type: design_parameters
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c03
+  from: p13.move.qual_warrant
+  to: p13.move.check_readiness
+  artifact: qualified_qualitative_findings
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: qualified_qualitative_findings
+  to_input: qualified_qualitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c04
+  from: p13.move.quant_warrant
+  to: p13.move.check_readiness
+  artifact: qualified_quantitative_findings
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: qualified_quantitative_findings
+  to_input: qualified_quantitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c05
+  from: p13.move.check_readiness
+  to: p13.move.align
+  condition: both_strands_have_accepted_method_specific_warrants_and_compatible_scope
+  effect: permit_integration
+  connection_type: control_gate
+  from_output: integration_readiness_record
+  to_input: qualified_qualitative_findings
+  slot_compatibility: not_artifact_transfer
+- id: p13.c06
+  from: p13.move.check_readiness
+  to: p13.move.qual_warrant
+  condition: qualitative_strand_warrant_or_scope_is_inadequate
+  effect: return_to_qualitative_owner_without_quantitative_repair
+  connection_type: feedback
+  from_output: integration_readiness_record
+  to_input: frozen_convergent_design
+  slot_compatibility: not_artifact_transfer
+- id: p13.c07
+  from: p13.move.check_readiness
+  to: p13.move.quant_warrant
+  condition: quantitative_strand_warrant_or_scope_is_inadequate
+  effect: return_to_quantitative_owner_without_qualitative_repair
+  connection_type: feedback
+  from_output: integration_readiness_record
+  to_input: frozen_convergent_design
+  slot_compatibility: not_artifact_transfer
+- id: p13.c08
+  from: p13.move.qual_warrant
+  to: p13.move.align
+  artifact: qualified_qualitative_findings
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: qualified_qualitative_findings
+  to_input: qualified_qualitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c09
+  from: p13.move.quant_warrant
+  to: p13.move.align
+  artifact: qualified_quantitative_findings
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: qualified_quantitative_findings
+  to_input: qualified_quantitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c10
+  from: p13.move.align
+  to: p13.move.joint_display
+  artifact: explicit_alignment_and_nonalignment_map
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: explicit_alignment_and_nonalignment_map
+  to_input: explicit_alignment_and_nonalignment_map
+  slot_compatibility:
+    type: relation
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c11
+  from: p13.move.qual_warrant
+  to: p13.move.joint_display
+  artifact: qualified_qualitative_findings
+  connection_type: retained_context
+  from_output: qualified_qualitative_findings
+  to_input: qualified_qualitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c12
+  from: p13.move.quant_warrant
+  to: p13.move.joint_display
+  artifact: qualified_quantitative_findings
+  connection_type: retained_context
+  from_output: qualified_quantitative_findings
+  to_input: qualified_quantitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c13
+  from: p13.action.link_findings
+  to: p13.move.joint_display
+  artifact: joint_display_render_receipt
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: joint_display_render_receipt
+  to_input: joint_display_render_receipt
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_trace
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p13.c14
+  from: p13.move.joint_display
+  to: p13.move.fit
+  artifact: joint_display_with_strand_lineage
+  transfer: transforming
+  transformation_owner: P13
+  change: judge_fit_and_disposition_without_erasing_cells
+  connection_type: artifact_flow
+  from_output: joint_display_with_strand_lineage
+  to_input: joint_display_with_strand_lineage
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c15
+  from: p13.move.fit
+  to: p13.move.align
+  condition: apparent_discordance_may_result_from_misalignment
+  effect: create_successor_alignment_and_joint_display_versions
+  connection_type: feedback
+  from_output: fit_and_divergence_disposition
+  to_input: qualified_qualitative_findings
+  slot_compatibility: not_artifact_transfer
+- id: p13.c16
+  from: p13.move.fit
+  to: p13.move.qual_warrant
+  condition: divergence_requires_qualitative_reanalysis_or_more_evidence
+  effect: return_to_qualitative_owner_with_named_question
+  connection_type: feedback
+  from_output: fit_and_divergence_disposition
+  to_input: frozen_convergent_design
+  slot_compatibility: not_artifact_transfer
+- id: p13.c17
+  from: p13.move.fit
+  to: p13.move.quant_warrant
+  condition: divergence_requires_quantitative_reanalysis_or_more_evidence
+  effect: return_to_quantitative_owner_with_named_question
+  connection_type: feedback
+  from_output: fit_and_divergence_disposition
+  to_input: frozen_convergent_design
+  slot_compatibility: not_artifact_transfer
+- id: p13.c18
+  from: p13.move.fit
+  to: p13.move.meta_infer
+  artifact: fit_and_divergence_disposition
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: fit_and_divergence_disposition
+  to_input: fit_and_divergence_disposition
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c19
+  from: p13.move.qual_warrant
+  to: p13.move.meta_infer
+  artifact: qualified_qualitative_findings
+  connection_type: retained_context
+  from_output: qualified_qualitative_findings
+  to_input: qualified_qualitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c20
+  from: p13.move.quant_warrant
+  to: p13.move.meta_infer
+  artifact: qualified_quantitative_findings
+  connection_type: retained_context
+  from_output: qualified_quantitative_findings
+  to_input: qualified_quantitative_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p13.c21
+  from: p13.move.joint_display
+  to: p13.move.meta_infer
+  artifact: joint_display_with_strand_lineage
+  connection_type: retained_context
+  from_output: joint_display_with_strand_lineage
+  to_input: joint_display_with_strand_lineage
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c22
+  from: p13.action.trace_meta
+  to: p13.move.meta_infer
+  artifact: meta_inference_trace_receipt
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: meta_inference_trace_receipt
+  to_input: meta_inference_trace_receipt
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_trace
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p13.c23
+  from: p13.move.qual_warrant
+  to: p13.move.meta_infer
+  reason: one_strand_alone_cannot_license_a_mixed_methods_meta_inference
+  connection_type: prohibited_transition
+  from_output: qualified_qualitative_findings
+  to_input: qualified_qualitative_findings
+  slot_compatibility: not_artifact_transfer
+- id: p13.c24
+  from: p13.move.quant_warrant
+  to: p13.move.meta_infer
+  reason: one_strand_alone_cannot_license_a_mixed_methods_meta_inference
+  connection_type: prohibited_transition
+  from_output: qualified_quantitative_findings
+  to_input: qualified_qualitative_findings
+  slot_compatibility: not_artifact_transfer
+- id: p13.c25
+  from: p13.move.fit
+  to: p13.move.design
+  reason: observed_fit_cannot_rewrite_the_prespecified_design_without_a_successor_version
+  connection_type: prohibited_transition
+  from_output: fit_and_divergence_disposition
+  to_input: evaluation_questions
+  slot_compatibility: not_artifact_transfer
+topology_assertions:
+- qualitative_and_quantitative_strands_are_independently_warranted
+- integration_readiness_can_return_only_the_affected_strand
+- joint_display_preserves_both_strand_lineages_and_explicit_nonalignment
+- divergence_may_return_to_alignment_or_either_strand_and_may_remain_unresolved
+- meta_inference_requires_both_strands_joint_display_and_divergence_disposition
+topology:
+  shape: adaptive
+  required_cycles: []
+  optional_cycles:
+  - cycle: p13.move.fit -> p13.move.align -> p13.move.joint_display -> p13.move.fit
+    condition: apparent discordance may be alignment error
+  - cycle: p13.move.fit -> p13.move.qual_warrant
+    condition: qualitative reanalysis or evidence is justified
+  - cycle: p13.move.fit -> p13.move.quant_warrant
+    condition: quantitative reanalysis or evidence is justified
+  prohibited_cycles:
+  - cycle: p13.move.fit -> p13.move.design
+    reason: observed fit cannot rewrite frozen convergent design in place
+  prohibited_edges:
+  - p13.c23
+  - p13.c24
+  - p13.c25
+  entry_points:
+  - p13.move.design
+  terminal_points:
+  - step: p13.move.meta_infer
+    state: bounded_meta_inference
+  - step: p13.move.fit
+    state: honest_stop_unresolved_divergence_or_noncommensurability
+  - step: p13.move.check_readiness
+    state: honest_stop_one_or_both_strands_invalid

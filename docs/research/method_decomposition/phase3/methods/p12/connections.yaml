@@ -1,0 +1,293 @@
+schema_version: phase3-method-connections-1.0
+method_id: P12
+allowed_types:
+- artifact_flow
+- retained_context
+- control_gate
+- feedback
+- prohibited_transition
+connections:
+- id: p12.c01
+  from: p12.move.design
+  to: p12.move.panel
+  artifact: frozen_delphi_protocol
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c02
+  from: p12.move.panel
+  to: p12.move.round1
+  artifact: eligible_invited_and_enrolled_panel_ledger
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: eligible_invited_and_enrolled_panel_ledger
+  to_input: eligible_invited_and_enrolled_panel_ledger
+  slot_compatibility:
+    type: case_set
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c03
+  from: p12.move.design
+  to: p12.move.round1
+  artifact: frozen_delphi_protocol
+  connection_type: retained_context
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c04
+  from: p12.move.round1
+  to: p12.move.feedback1
+  artifact: round1_pseudonymous_responses
+  transfer: transforming
+  transformation_owner: P12
+  change: aggregate_distributions_and_anonymized_rationales
+  connection_type: artifact_flow
+  from_output: round1_pseudonymous_responses
+  to_input: round1_pseudonymous_responses
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c05
+  from: p12.move.feedback1
+  to: p12.move.round2
+  artifact: round1_feedback_packet
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: round1_feedback_packet
+  to_input: round1_feedback_packet
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c06
+  from: p12.move.round1
+  to: p12.move.round2
+  artifact: round1_pseudonymous_responses
+  connection_type: retained_context
+  from_output: round1_pseudonymous_responses
+  to_input: round1_pseudonymous_responses
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c07
+  from: p12.move.round2
+  to: p12.move.feedback2
+  artifact: round2_pseudonymous_responses_and_change_reasons
+  transfer: transforming
+  transformation_owner: P12
+  change: compare_rounds_and_prepare_controlled_feedback
+  connection_type: artifact_flow
+  from_output: round2_pseudonymous_responses_and_change_reasons
+  to_input: round2_pseudonymous_responses_and_change_reasons
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c08
+  from: p12.move.round1
+  to: p12.move.feedback2
+  artifact: round1_pseudonymous_responses
+  connection_type: retained_context
+  from_output: round1_pseudonymous_responses
+  to_input: round1_pseudonymous_responses
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c09
+  from: p12.action.compute_summary
+  to: p12.move.feedback2
+  artifact: summary_statistics_receipt
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: summary_statistics_receipt
+  to_input: summary_statistics_receipt
+  slot_compatibility:
+    type: estimate
+    role_transition: result_to_trace
+    source_cardinality: many
+    target_cardinality: optional_many
+    optional_target: true
+- id: p12.c10
+  from: p12.move.feedback2
+  to: p12.move.round3
+  artifact: round2_feedback_packet_with_stability_and_dissensus
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: round2_feedback_packet_with_stability_and_dissensus
+  to_input: round2_feedback_packet_with_stability_and_dissensus
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c11
+  from: p12.move.round2
+  to: p12.move.round3
+  artifact: round2_pseudonymous_responses_and_change_reasons
+  connection_type: retained_context
+  from_output: round2_pseudonymous_responses_and_change_reasons
+  to_input: round2_pseudonymous_responses_and_change_reasons
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c12
+  from: p12.move.round3
+  to: p12.move.interpret
+  artifact: round3_final_pseudonymous_responses
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: round3_final_pseudonymous_responses
+  to_input: round3_final_pseudonymous_responses
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c13
+  from: p12.move.round1
+  to: p12.move.interpret
+  artifact: round1_pseudonymous_responses
+  connection_type: retained_context
+  from_output: round1_pseudonymous_responses
+  to_input: round1_pseudonymous_responses
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c14
+  from: p12.move.round2
+  to: p12.move.interpret
+  artifact: round2_pseudonymous_responses_and_change_reasons
+  connection_type: retained_context
+  from_output: round2_pseudonymous_responses_and_change_reasons
+  to_input: round2_pseudonymous_responses_and_change_reasons
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c15
+  from: p12.move.panel
+  to: p12.move.interpret
+  artifact: eligible_invited_and_enrolled_panel_ledger
+  connection_type: retained_context
+  from_output: eligible_invited_and_enrolled_panel_ledger
+  to_input: eligible_invited_and_enrolled_panel_ledger
+  slot_compatibility:
+    type: case_set
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c16
+  from: p12.move.interpret
+  to: p12.move.report
+  artifact: bounded_delphi_findings
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: bounded_delphi_findings
+  to_input: bounded_delphi_findings
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c17
+  from: p12.move.round1
+  to: p12.move.report
+  reason: one_round_polling_is_not_the_frozen_three_round_delphi
+  connection_type: prohibited_transition
+  from_output: round1_pseudonymous_responses
+  to_input: bounded_delphi_findings
+  slot_compatibility: not_artifact_transfer
+- id: p12.c18
+  from: p12.move.feedback1
+  to: p12.move.round1
+  reason: future_group_feedback_cannot_rewrite_frozen_independent_round_one_judgments
+  connection_type: prohibited_transition
+  from_output: round1_feedback_packet
+  to_input: frozen_delphi_protocol
+  slot_compatibility: not_artifact_transfer
+- id: p12.c19
+  from: p12.move.interpret
+  to: p12.move.design
+  reason: consensus_or_dissensus_cannot_rewrite_the_frozen_protocol_or_be_recast_as_truth_without_a_successor_study
+  connection_type: prohibited_transition
+  from_output: bounded_delphi_findings
+  to_input: policy_question
+  slot_compatibility: not_artifact_transfer
+- id: p12.c20
+  from: p12.action.deliver_round
+  to: p12.move.round1
+  artifact: round_delivery_receipt
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: round_delivery_receipt
+  to_input: round_delivery_receipt
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_trace
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+topology_assertions:
+- exactly_three_rounds_are_preserved
+- each_later_round_receives_controlled_anonymous_feedback_and_preserves_prior_history
+- stable_disagreement_and_attrition_are_reportable_outputs
+- consensus_never_transitions_directly_to_truth_or_policy_decision
+topology:
+  shape: dag
+  required_cycles: []
+  optional_cycles: []
+  prohibited_cycles:
+  - cycle: p12.move.feedback1 -> p12.move.round1
+    reason: later feedback cannot rewrite independent round one
+  - cycle: p12.move.interpret -> p12.move.design
+    reason: results cannot rewrite prespecified protocol
+  prohibited_edges:
+  - p12.c17
+  - p12.c18
+  - p12.c19
+  entry_points:
+  - p12.move.design
+  terminal_points:
+  - step: p12.move.report
+    state: consensus_dissensus_or_insufficient_panel_evidence
+  - step: p12.move.interpret
+    state: honest_stop_attrition_or_missingness_precludes_interpretation

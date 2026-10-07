@@ -1,0 +1,7 @@
+# P13 source freeze
+
+Primary conduct authority: Creswell, Klassen, Plano Clark, and Smith for NIH OBSSR, *Best Practices for Mixed Methods Research in the Health Sciences*, August 2011. Frozen locators: “Nature and Design” (rigorous collection/analysis of both data forms, mixing and integration, design timing/priority) and application/review guidance. [Official NIH record](https://obssr.od.nih.gov/research-resources/mixed-methods-research) and [official PDF](https://obssr.od.nih.gov/sites/g/files/mnhszr296/files/Best_Practices_for_Mixed_Methods_Research.pdf), accessed 2026-08-13. Locally fetched official PDF SHA-256: `641dabd50750dead8506c025fb7e0cc6a619b4b544daa0c55900b772ac196218`.
+
+Corroborating conduct source: Fetters, Curry, and Creswell, “Achieving Integration in Mixed Methods Designs—Principles and Practices,” *Health Services Research* 48(6 Pt 2), 2013, pp. 2134–2156, DOI [10.1111/1475-6773.12117](https://doi.org/10.1111/1475-6773.12117), PMCID [PMC4097839](https://pmc.ncbi.nlm.nih.gov/articles/PMC4097839/). Frozen locators: convergent design; merging; narrative/data-transformation/joint-display integration; fit as confirmation, expansion, or discordance; follow-up responses to discordance.
+
+Variant guard: the strands are concurrent and independently analyzed under their own methodological warrants before merging. A joint display aligns rather than homogenizes strand findings. Discordance triggers explanation, reanalysis, additional evidence, qualification, or preserved disagreement; it is never silently averaged away.

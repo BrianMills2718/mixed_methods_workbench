@@ -1,0 +1,245 @@
+schema_version: phase3-method-connections-1.0
+method_id: P10
+allowed_types:
+- artifact_flow
+- retained_context
+- control_gate
+- feedback
+- prohibited_transition
+connections:
+- id: p10.c01
+  from: p10.move.frame
+  to: p10.move.generate_futures
+  artifact: frozen_xlrpm_frame
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: frozen_xlrpm_frame
+  to_input: frozen_xlrpm_frame
+  slot_compatibility:
+    type: configuration
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c02
+  from: p10.move.generate_futures
+  to: p10.move.evaluate
+  artifact: plausible_future_ensemble
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: plausible_future_ensemble
+  to_input: plausible_future_ensemble
+  slot_compatibility:
+    type: scenario
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c03
+  from: p10.move.frame
+  to: p10.move.evaluate
+  artifact: frozen_xlrpm_frame
+  connection_type: retained_context
+  from_output: frozen_xlrpm_frame
+  to_input: frozen_xlrpm_frame
+  slot_compatibility:
+    type: configuration
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c04
+  from: p10.action.run_ensemble
+  to: p10.move.evaluate
+  artifact: model_run_receipts
+  transfer: transforming
+  transformation_owner: P10
+  change: aggregate_receipted_runs_into_comparable_performance_database
+  connection_type: artifact_flow
+  from_output: model_run_receipts
+  to_input: model_run_receipts
+  slot_compatibility:
+    type: model_run
+    role_transition: result_to_trace
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p10.c05
+  from: p10.move.evaluate
+  to: p10.move.discover_vulnerability
+  artifact: strategy_future_performance_database
+  transfer: transforming
+  transformation_owner: P10
+  change: derive_and_interpret_failure_conditions
+  connection_type: artifact_flow
+  from_output: strategy_future_performance_database
+  to_input: strategy_future_performance_database
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c06
+  from: p10.action.cluster_cases
+  to: p10.move.discover_vulnerability
+  artifact: candidate_cluster_statistics
+  transfer: transforming
+  transformation_owner: P10
+  change: analyst_validates_vulnerability_interpretation
+  connection_type: artifact_flow
+  from_output: candidate_cluster_statistics
+  to_input: candidate_cluster_statistics
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_trace
+    source_cardinality: many
+    target_cardinality: optional_many
+    optional_target: true
+- id: p10.c07
+  from: p10.move.evaluate
+  to: p10.move.compare_robustness
+  artifact: strategy_future_performance_database
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: strategy_future_performance_database
+  to_input: strategy_future_performance_database
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c08
+  from: p10.move.discover_vulnerability
+  to: p10.move.compare_robustness
+  artifact: vulnerability_scenarios_with_interpretable_conditions
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: vulnerability_scenarios_with_interpretable_conditions
+  to_input: vulnerability_scenarios_with_interpretable_conditions
+  slot_compatibility:
+    type: scenario
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p10.c09
+  from: p10.move.frame
+  to: p10.move.compare_robustness
+  artifact: frozen_xlrpm_frame
+  connection_type: retained_context
+  from_output: frozen_xlrpm_frame
+  to_input: frozen_xlrpm_frame
+  slot_compatibility:
+    type: configuration
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c10
+  from: p10.move.compare_robustness
+  to: p10.move.revise_strategy
+  artifact: robustness_and_tradeoff_readout
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: robustness_and_tradeoff_readout
+  to_input: robustness_and_tradeoff_readout
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c11
+  from: p10.move.discover_vulnerability
+  to: p10.move.revise_strategy
+  artifact: vulnerability_scenarios_with_interpretable_conditions
+  connection_type: retained_context
+  from_output: vulnerability_scenarios_with_interpretable_conditions
+  to_input: vulnerability_scenarios_with_interpretable_conditions
+  slot_compatibility:
+    type: scenario
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p10.c12
+  from: p10.move.revise_strategy
+  to: p10.move.evaluate
+  condition: successor_strategy_or_future_request_is_approved_for_test
+  effect: create_successor_strategy_ensemble_and_experiment_batch
+  connection_type: feedback
+  from_output: successor_strategies_signposts_and_future_requests
+  to_input: frozen_xlrpm_frame
+  slot_compatibility: not_artifact_transfer
+- id: p10.c13
+  from: p10.move.compare_robustness
+  to: p10.move.advise
+  artifact: robustness_and_tradeoff_readout
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: robustness_and_tradeoff_readout
+  to_input: robustness_and_tradeoff_readout
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c14
+  from: p10.move.revise_strategy
+  to: p10.move.advise
+  artifact: successor_strategies_signposts_and_future_requests
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: successor_strategies_signposts_and_future_requests
+  to_input: successor_strategies_signposts_and_future_requests
+  slot_compatibility:
+    type: recommendation
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p10.c15
+  from: p10.move.generate_futures
+  to: p10.move.advise
+  reason: plausible_futures_without_strategy_evaluation_vulnerability_and_tradeoff_analysis_do_not_support_advice
+  connection_type: prohibited_transition
+  from_output: plausible_future_ensemble
+  to_input: robustness_and_tradeoff_readout
+  slot_compatibility: not_artifact_transfer
+- id: p10.c16
+  from: p10.move.advise
+  to: p10.move.frame
+  reason: decision_preferences_or_advice_cannot_rewrite_the_frozen_frame_without_a_successor_version
+  connection_type: prohibited_transition
+  from_output: bounded_rdm_advice
+  to_input: decision_problem
+  slot_compatibility: not_artifact_transfer
+topology_assertions:
+- adaptive_strategy_feedback_to_evaluation_is_required
+- every_compared_strategy_uses_the_same_declared_future_ensemble_per_batch
+- advice_is_conditional_and_does_not_execute_the_decision
+topology:
+  shape: adaptive
+  required_cycles:
+  - cycle: p10.move.evaluate -> p10.move.discover_vulnerability -> p10.move.compare_robustness -> p10.move.revise_strategy -> p10.move.evaluate
+    termination: no approved successor strategy or analysis budget reached
+    termination_authority: human
+  optional_cycles:
+  - cycle: p10.move.generate_futures -> p10.move.evaluate -> p10.move.revise_strategy -> p10.move.generate_futures
+    condition: approved successor future request
+  prohibited_cycles:
+  - cycle: p10.move.advise -> p10.move.frame
+    reason: advice cannot rewrite the frozen frame in place
+  prohibited_edges:
+  - p10.c15
+  - p10.c16
+  entry_points:
+  - p10.move.frame
+  terminal_points:
+  - step: p10.move.advise
+    state: conditional_advice_with_residual_uncertainty
+  - step: p10.move.compare_robustness
+    state: honest_stop_no_strategy_is_robust_under_declared_values

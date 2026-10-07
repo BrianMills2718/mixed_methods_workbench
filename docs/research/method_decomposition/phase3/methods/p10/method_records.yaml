@@ -1,0 +1,478 @@
+schema_version: phase3-method-records-1.0
+method_id: P10
+variant: rand_robust_decision_making_deep_uncertainty
+defaults:
+  move:
+    level: analytical_move
+    operation_kind: analytic
+    source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+    applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+    refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+    performer: rdm_analysis_team
+    judgment_owner: rdm_analysis_lead
+    acceptance_authority: independent_model_and_method_reviewer
+    recommender: strategy_sponsor_or_design_team
+    value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+    decision_authority: accountable_decision_maker
+    implementation_evidence: methodology_reference_only
+    collision_participation: level_2_only
+    guards: &id001
+      temporal: preserve_framing_ensemble_and_iteration_order
+      access: declared_models_data_and_stakeholder_inputs
+      run_version: immutable_experiment_batch_and_successor_strategy_versions
+  action:
+    level: execution_action
+    operation_kind: runtime_delivery
+    information_origin: &id002
+    - derived
+    - simulated
+    source_authority_or_inferential_role: parent_move_execution_support
+    applicability_boundary: parent_move_only
+    refusal_or_qualification: failed_execution_blocks_parent_move
+    performer: deterministic_model_runner
+    judgment_owner: none
+    acceptance_authority: rdm_analysis_lead
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    collision_participation: level_3_only
+    guards: &id003
+      temporal: execute_only_frozen_batch
+      access: approved_models_and_inputs_only
+      run_version: receipt_binds_code_model_inputs_outputs
+phases:
+- record_id: p10.phase.frame
+  level: method_phase
+  label: frame the decision and uncertainty
+  operation_kinds:
+  - methodological_support
+  collision_participation: none
+- record_id: p10.phase.explore
+  level: method_phase
+  label: evaluate strategies and discover vulnerabilities
+  operation_kinds:
+  - analytic
+  - runtime_delivery
+  collision_participation: none
+- record_id: p10.phase.adapt
+  level: method_phase
+  label: compare revise and advise
+  operation_kinds:
+  - analytic
+  collision_participation: none
+moves:
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.frame
+  parent_phase: p10.phase.frame
+  label: frame decisions uncertainties outcomes relationships and values
+  information_origin:
+  - reported
+  - elicited
+  - interpreted
+  method_owned_rule: frame_separates_actions_exogenous_uncertainties_relations_outcomes_and_value_thresholds
+  permitted_conclusion: exploratory_experiment_has_declared_scope
+  source_basis: lempert_2003_chs_1_3
+  exact_anchors:
+  - lempert_2003_ch1
+  - lempert_2003_ch2
+  - groves_2019_step1
+  verb: define
+  inputs:
+  - slot: decision_problem
+    type: claim
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: candidate_actions
+    type: option
+    role: context
+    cardinality: one
+    optional: false
+  - slot: stakeholder_values
+    type: value_judgment
+    role: context
+    cardinality: many
+    optional: false
+  - slot: models_and_evidence
+    type: evidence_item
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: frozen_xlrpm_frame
+    type: configuration
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.generate_futures
+  parent_phase: p10.phase.explore
+  label: generate a diverse ensemble of plausible futures
+  information_origin:
+  - derived
+  - simulated
+  - elicited
+  method_owned_rule: ensemble_explores_disputed_uncertainties_without_assigning_one_predictive_probability
+  permitted_conclusion: strategies_can_be_stressed_across_declared_possibilities
+  source_basis: lempert_2003_chs_2_3
+  exact_anchors:
+  - lempert_2003_ch2
+  - groves_2019_step2
+  verb: simulate
+  inputs:
+  - slot: frozen_xlrpm_frame
+    type: configuration
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: plausible_future_ensemble
+    type: scenario
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.evaluate
+  parent_phase: p10.phase.explore
+  label: evaluate candidate strategies across the same futures
+  information_origin:
+  - simulated
+  - derived
+  method_owned_rule: comparable_models_metrics_and_future_ensemble_apply_to_each_strategy
+  permitted_conclusion: conditional_performance_is_available_not_predicted
+  source_basis: groves_2019_step2
+  exact_anchors:
+  - groves_2019_step2
+  verb: simulate
+  inputs:
+  - slot: frozen_xlrpm_frame
+    type: configuration
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: plausible_future_ensemble
+    type: scenario
+    role: context
+    cardinality: one
+    optional: false
+  - slot: candidate_strategies
+    type: option
+    role: context
+    cardinality: many
+    optional: false
+  - slot: model_run_receipts
+    type: model_run
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: strategy_future_performance_database
+    type: dataset
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.discover_vulnerability
+  parent_phase: p10.phase.explore
+  label: discover conditions associated with unacceptable outcomes
+  information_origin:
+  - derived
+  - simulated
+  - interpreted
+  method_owned_rule: vulnerabilities_are_decision_relevant_compact_conditions_validated_against_runs
+  permitted_conclusion: strategies_have_named_failure_regions_in_the_explored_ensemble
+  source_basis: groves_2019_step3
+  exact_anchors:
+  - groves_2019_step3
+  verb: identify
+  inputs:
+  - slot: strategy_future_performance_database
+    type: dataset
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: frozen_xlrpm_frame
+    type: configuration
+    role: context
+    cardinality: one
+    optional: false
+  - slot: candidate_cluster_statistics
+    type: finding
+    role: context
+    cardinality: optional_many
+    optional: true
+  outputs:
+  - slot: vulnerability_scenarios_with_interpretable_conditions
+    type: scenario
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.compare_robustness
+  parent_phase: p10.phase.adapt
+  label: compare robustness and trade-offs under stated values
+  information_origin:
+  - derived
+  - simulated
+  - elicited
+  - interpreted
+  method_owned_rule: robustness_measures_and_satisficing_thresholds_remain_visible_value_choices
+  permitted_conclusion: strategies_are_comparatively_robust_or_fragile_under_declared_metrics_and_ensemble
+  source_basis: lempert_2003_chs_3_6_and_groves_2019_step5
+  exact_anchors:
+  - lempert_2003_ch3
+  - groves_2019_step5
+  verb: compare
+  inputs:
+  - slot: strategy_future_performance_database
+    type: dataset
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: vulnerability_scenarios_with_interpretable_conditions
+    type: scenario
+    role: context
+    cardinality: many
+    optional: false
+  - slot: frozen_xlrpm_frame
+    type: configuration
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: robustness_and_tradeoff_readout
+    type: appraisal
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.revise_strategy
+  parent_phase: p10.phase.adapt
+  label: design hedges adaptations and new tests from vulnerabilities
+  information_origin:
+  - elicited
+  - interpreted
+  - derived
+  method_owned_rule: revisions_target_named_vulnerabilities_and_preserve_trigger_logic
+  permitted_conclusion: successor_designs_merit_retest_not_adoption
+  source_basis: groves_2019_step4
+  exact_anchors:
+  - groves_2019_step4
+  verb: revise
+  inputs:
+  - slot: robustness_and_tradeoff_readout
+    type: appraisal
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: vulnerability_scenarios_with_interpretable_conditions
+    type: scenario
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: successor_strategies_signposts_and_future_requests
+    type: recommendation
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
+  applicability_boundary: selected_rdm_variant_and_declared_decision_scope
+  refusal_or_qualification: conditional_result_with_unexplored_uncertainty
+  performer: rdm_analysis_team
+  judgment_owner: rdm_analysis_lead
+  acceptance_authority: independent_model_and_method_reviewer
+  recommender: strategy_sponsor_or_design_team
+  value_goal_authority: accountable_decision_makers_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p10.move.advise
+  parent_phase: p10.phase.adapt
+  label: present conditional robust strategy advice and residual uncertainty
+  information_origin:
+  - interpreted
+  - derived
+  method_owned_rule: advice_exposes_tradeoffs_blind_spots_signposts_and_conditions_and_does_not_choose_policy
+  permitted_conclusion: decision_maker_can_consider_conditional_strategy_advice
+  source_basis: lempert_2003_ch6
+  exact_anchors:
+  - lempert_2003_ch6
+  verb: recommend
+  inputs:
+  - slot: robustness_and_tradeoff_readout
+    type: appraisal
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: successor_strategies_signposts_and_future_requests
+    type: recommendation
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: bounded_rdm_advice
+    type: recommendation
+    role: result
+    cardinality: one
+    optional: false
+actions:
+- level: execution_action
+  operation_kind: runtime_delivery
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: failed_execution_blocks_parent_move
+  performer: deterministic_model_runner
+  judgment_owner: none
+  acceptance_authority: rdm_analysis_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p10.action.run_ensemble
+  parent_move: p10.move.evaluate
+  label: execute frozen strategy-future model matrix
+  method_owned_rule: none
+  permitted_conclusion: numerical_simulation_outputs_only
+  source_basis: groves_2019_step2
+  exact_anchors:
+  - groves_2019_step2
+  verb: simulate
+  inputs:
+  - slot: plausible_future_ensemble
+    type: scenario
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: candidate_strategies
+    type: option
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: model_run_receipts
+    type: model_run
+    role: result
+    cardinality: one
+    optional: false
+- level: execution_action
+  operation_kind: analytic
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: failed_execution_blocks_parent_move
+  performer: deterministic_model_runner
+  judgment_owner: none
+  acceptance_authority: rdm_analysis_lead
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p10.action.cluster_cases
+  parent_move: p10.move.discover_vulnerability
+  label: derive candidate vulnerability clusters
+  method_owned_rule: analyst_validates_interpretability_and_decision_relevance
+  permitted_conclusion: candidate_conditions_only
+  source_basis: groves_2019_step3
+  exact_anchors:
+  - groves_2019_step3
+  verb: classify
+  inputs:
+  - slot: strategy_future_performance_database
+    type: dataset
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: candidate_cluster_statistics
+    type: finding
+    role: result
+    cardinality: many
+    optional: false

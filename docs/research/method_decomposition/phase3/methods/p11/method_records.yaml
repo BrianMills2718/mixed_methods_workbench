@@ -1,0 +1,607 @@
+schema_version: phase3-method-records-1.0
+method_id: P11
+variant: green_book_2026_staged_appraisal
+defaults:
+  move:
+    level: analytical_move
+    operation_kind: analytic
+    source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+    applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+    refusal_or_qualification: return_for_rework_or_no_robust_preference
+    performer: multidisciplinary_appraisal_team
+    judgment_owner: senior_responsible_owner_for_appraisal
+    acceptance_authority: appraisal_assurance_reviewer
+    recommender: senior_responsible_owner_for_appraisal
+    value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+    decision_authority: accountable_decision_maker
+    implementation_evidence: methodology_reference_only
+    collision_participation: level_2_only
+    guards: &id001
+      temporal: rationale_objectives_longlist_shortlist_advice_decision
+      access: declared_evidence_and_protected_commercial_inputs
+      run_version: immutable_appraisal_stage_and_successor_revision
+  action:
+    level: execution_action
+    operation_kind: runtime_delivery
+    information_origin: &id002
+    - derived
+    source_authority_or_inferential_role: parent_move_execution_support
+    applicability_boundary: parent_move_only
+    refusal_or_qualification: action_failure_blocks_parent_move
+    performer: appraisal_analysis_system
+    judgment_owner: none
+    acceptance_authority: senior_responsible_owner_for_appraisal
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    collision_participation: level_3_only
+    guards: &id003
+      temporal: parent_move_order
+      access: approved_inputs_only
+      run_version: receipt_binds_input_and_output_versions
+phases:
+- record_id: p11.phase.frame
+  level: method_phase
+  label: establish rationale objectives baseline and governance
+  operation_kinds:
+  - analytic
+  - methodological_support
+  collision_participation: none
+- record_id: p11.phase.longlist
+  level: method_phase
+  label: generate and filter longlist
+  operation_kinds:
+  - analytic
+  - methodological_support
+  collision_participation: none
+- record_id: p11.phase.shortlist
+  level: method_phase
+  label: appraise shortlist and advise decision
+  operation_kinds:
+  - analytic
+  - runtime_delivery
+  - methodological_support
+  collision_participation: none
+moves:
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.rationale
+  parent_phase: p11.phase.frame
+  label: establish case for change theory of change and business as usual
+  information_origin:
+  - observed
+  - reported
+  - interpreted
+  method_owned_rule: sponsored_solution_is_not_problem_evidence_and_bau_is_explicit
+  permitted_conclusion: intervention_case_and_counterfactual_are_bounded
+  source_basis: green_book_2026_ch4
+  exact_anchors:
+  - green_book_2026_sections_4_1_4_28
+  verb: define
+  inputs:
+  - slot: policy_problem_evidence
+    type: evidence_item
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: existing_arrangements
+    type: configuration
+    role: context
+    cardinality: one
+    optional: false
+  - slot: stakeholder_evidence
+    type: evidence_item
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: rationale_theory_and_bau_record
+    type: configuration
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.objectives
+  parent_phase: p11.phase.frame
+  label: set SMART objectives critical success factors and authority
+  information_origin:
+  - elicited
+  - interpreted
+  method_owned_rule: objectives_and_csfs_do_not_encode_a_favored_option
+  permitted_conclusion: option_generation_and_screening_have_declared_criteria
+  source_basis: green_book_2026_chs4_5
+  exact_anchors:
+  - green_book_2026_ch4_objectives
+  - green_book_2026_ch5_csfs
+  verb: define
+  inputs:
+  - slot: rationale_theory_and_bau_record
+    type: configuration
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: stakeholder_goals
+    type: value_judgment
+    role: criteria
+    cardinality: many
+    optional: false
+  - slot: constraints
+    type: criterion
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: objective_csf_and_authority_record
+    type: criterion
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.generate_off
+  parent_phase: p11.phase.longlist
+  label: generate materially distinct options using the Options Framework Filter
+  information_origin:
+  - elicited
+  - interpreted
+  - reported
+  method_owned_rule: scope_solution_delivery_implementation_funding_choices_include_bau_do_minimum_and_genuine_variation
+  permitted_conclusion: broad_option_space_and_ratings_are_documented
+  source_basis: green_book_2026_ch5
+  exact_anchors:
+  - green_book_2026_sections_5_13_5_35
+  verb: construct
+  inputs:
+  - slot: objective_csf_and_authority_record
+    type: criterion
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: rationale_theory_and_bau_record
+    type: configuration
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: off_choices_ratings_rationales_and_longlist
+    type: option
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.choose_longlist_route
+  parent_phase: p11.phase.longlist
+  label: decide whether OFF resolves trade-offs or expert-facilitated MCDA is needed
+  information_origin:
+  - interpreted
+  method_owned_rule: mcda_only_for_unresolved_complex_technical_tradeoffs_with_expert_facilitation
+  permitted_conclusion: continue_with_off_or_activate_bounded_mcda
+  source_basis: green_book_2026_sections_5_13_5_16_and_mcda_2024
+  exact_anchors:
+  - green_book_2026_5_13_5_16
+  - mcda_2024_scope
+  verb: review
+  inputs:
+  - slot: off_choices_ratings_rationales_and_longlist
+    type: option
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: objective_csf_and_authority_record
+    type: criterion
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: longlist_route_decision
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: authorized_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.mcda
+  parent_phase: p11.phase.longlist
+  label: conduct bounded swing-weighted MCDA when activated
+  information_origin:
+  - elicited
+  - derived
+  - interpreted
+  method_owned_rule: expert_facilitation_swing_weighting_rationales_and_sensitivity_not_simple_mca
+  permitted_conclusion: technical_longlist_tradeoffs_are_structured_for_shortlisting
+  source_basis: green_book_mcda_2024
+  exact_anchors:
+  - mcda_2024_steps_1_6
+  verb: rank
+  inputs:
+  - slot: off_choices_ratings_rationales_and_longlist
+    type: option
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: objective_csf_and_authority_record
+    type: criterion
+    role: context
+    cardinality: one
+    optional: false
+  - slot: longlist_route_decision
+    type: review_event
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: facilitated_mcda_results_and_dissent
+    type: appraisal
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.shortlist
+  parent_phase: p11.phase.longlist
+  label: form viable shortlist and rejection log
+  information_origin:
+  - interpreted
+  - elicited
+  method_owned_rule: bau_always_continues_and_viability_rationales_remain_visible
+  permitted_conclusion: shortlisted_options_merit_detailed_appraisal
+  source_basis: green_book_2026_ch5
+  exact_anchors:
+  - green_book_2026_shortlist_selection
+  verb: screen
+  inputs:
+  - slot: off_choices_ratings_rationales_and_longlist
+    type: option
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: longlist_route_decision
+    type: review_event
+    role: context
+    cardinality: one
+    optional: false
+  - slot: facilitated_mcda_results_and_dissent
+    type: appraisal
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: shortlist_rejection_log_and_preferred_way_forward
+    type: option
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.appraise_cba_cea
+  parent_phase: p11.phase.shortlist
+  label: appraise shortlist using social CBA or CEA
+  information_origin:
+  - observed
+  - reported
+  - derived
+  method_owned_rule: cba_when_benefits_can_be_monetized_cea_when_benefits_are_unmonetizable_with_consistent_social_perspective
+  permitted_conclusion: shortlist_has_comparable_primary_economic_results
+  source_basis: green_book_2026_ch6
+  exact_anchors:
+  - green_book_2026_ch6_cba_cea
+  verb: value
+  inputs:
+  - slot: shortlist_rejection_log_and_preferred_way_forward
+    type: option
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: rationale_theory_and_bau_record
+    type: configuration
+    role: context
+    cardinality: one
+    optional: false
+  - slot: calculation_receipt
+    type: estimate
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: comparable_incremental_social_value_or_cost_effectiveness_results
+    type: estimate
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.qualify_impacts
+  parent_phase: p11.phase.shortlist
+  label: preserve unmonetized distributional risk and uncertainty evidence
+  information_origin:
+  - observed
+  - reported
+  - derived
+  - interpreted
+  method_owned_rule: aggregate_metrics_cannot_erase_material_unmonetized_impacts_group_harms_or_fragility
+  permitted_conclusion: material_nonaggregate_tradeoffs_and_switching_conditions_are_visible
+  source_basis: green_book_2026_chs6_9
+  exact_anchors:
+  - green_book_2026_ch6_unmonetized
+  - green_book_2026_ch7
+  - green_book_2026_ch8
+  verb: review
+  inputs:
+  - slot: shortlist_rejection_log_and_preferred_way_forward
+    type: option
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: comparable_incremental_social_value_or_cost_effectiveness_results
+    type: estimate
+    role: context
+    cardinality: many
+    optional: false
+  outputs:
+  - slot: unmonetized_distributional_and_uncertainty_results
+    type: appraisal
+    role: result
+    cardinality: many
+    optional: false
+- level: analytical_move
+  operation_kind: analytic
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: multidisciplinary_appraisal_team
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.compare_advise
+  parent_phase: p11.phase.shortlist
+  label: form balanced comparative judgment and recommendation or no preference
+  information_origin:
+  - interpreted
+  - derived
+  method_owned_rule: value_for_money_is_balanced_judgment_and_fragility_may_withhold_preference
+  permitted_conclusion: conditional_recommendation_or_no_robust_preference
+  source_basis: green_book_2026_ch9
+  exact_anchors:
+  - green_book_2026_ch9_presentation
+  verb: recommend
+  inputs:
+  - slot: comparable_incremental_social_value_or_cost_effectiveness_results
+    type: estimate
+    role: subject
+    cardinality: many
+    optional: false
+  - slot: unmonetized_distributional_and_uncertainty_results
+    type: appraisal
+    role: context
+    cardinality: many
+    optional: false
+  - slot: shortlist_rejection_log_and_preferred_way_forward
+    type: option
+    role: context
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: assured_bounded_appraisal_advice
+    type: recommendation
+    role: result
+    cardinality: one
+    optional: false
+- level: analytical_move
+  operation_kind: methodological_support
+  source_authority_or_inferential_role: green_book_2026_and_declared_appraisal_evidence
+  applicability_boundary: uk_public_appraisal_or_explicitly_declared_adaptation
+  refusal_or_qualification: return_for_rework_or_no_robust_preference
+  performer: decision_secretariat
+  judgment_owner: senior_responsible_owner_for_appraisal
+  acceptance_authority: appraisal_assurance_reviewer
+  recommender: senior_responsible_owner_for_appraisal
+  value_goal_authority: policy_sponsor_accountable_officer_and_affected_stakeholders
+  decision_authority: accountable_decision_maker
+  implementation_evidence: methodology_reference_only
+  collision_participation: level_2_only
+  guards: *id001
+  record_id: p11.move.decide_feedback
+  parent_phase: p11.phase.shortlist
+  label: record accountable decision and successor monitoring evaluation feedback
+  information_origin:
+  - elicited
+  method_owned_rule: recommendation_is_not_decision_and_feedback_opens_a_successor_version
+  permitted_conclusion: accountable_choice_and_future_review_trigger_are_recorded
+  source_basis: green_book_2026_roamref
+  exact_anchors:
+  - green_book_2026_roamref
+  verb: monitor
+  inputs:
+  - slot: assured_bounded_appraisal_advice
+    type: recommendation
+    role: subject
+    cardinality: one
+    optional: false
+  - slot: appraisal_summary_artifact
+    type: finding
+    role: context
+    cardinality: optional_one
+    optional: true
+  outputs:
+  - slot: decision_record_and_successor_learning_trigger
+    type: review_event
+    role: result
+    cardinality: one
+    optional: false
+actions:
+- level: execution_action
+  operation_kind: analytic
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: action_failure_blocks_parent_move
+  performer: appraisal_analysis_system
+  judgment_owner: none
+  acceptance_authority: senior_responsible_owner_for_appraisal
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p11.action.calculate
+  parent_move: p11.move.appraise_cba_cea
+  label: calculate discounted CBA or CEA metrics from frozen assumptions
+  method_owned_rule: economic_method_and_assumptions_are_reviewed
+  permitted_conclusion: numerical_metrics_only
+  source_basis: green_book_2026_ch6
+  exact_anchors:
+  - green_book_2026_ch6
+  verb: aggregate
+  inputs:
+  - slot: shortlist_rejection_log_and_preferred_way_forward
+    type: option
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: calculation_receipt
+    type: estimate
+    role: result
+    cardinality: one
+    optional: false
+- level: execution_action
+  operation_kind: runtime_delivery
+  information_origin: *id002
+  source_authority_or_inferential_role: parent_move_execution_support
+  applicability_boundary: parent_move_only
+  refusal_or_qualification: action_failure_blocks_parent_move
+  performer: appraisal_analysis_system
+  judgment_owner: none
+  acceptance_authority: senior_responsible_owner_for_appraisal
+  recommender: none
+  value_goal_authority: none
+  decision_authority: none
+  implementation_evidence: design_only
+  collision_participation: level_3_only
+  guards: *id003
+  record_id: p11.action.publish_ast
+  parent_move: p11.move.compare_advise
+  label: render balanced appraisal summary table
+  method_owned_rule: none
+  permitted_conclusion: no_additional_analytic_conclusion
+  source_basis: green_book_2026_ch9
+  exact_anchors:
+  - green_book_2026_ch9_ast
+  verb: project
+  inputs:
+  - slot: assured_bounded_appraisal_advice
+    type: recommendation
+    role: subject
+    cardinality: one
+    optional: false
+  outputs:
+  - slot: appraisal_summary_artifact
+    type: finding
+    role: result
+    cardinality: one
+    optional: false

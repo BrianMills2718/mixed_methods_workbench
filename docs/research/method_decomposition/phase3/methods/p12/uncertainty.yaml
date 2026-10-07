@@ -1,0 +1,9 @@
+schema_version: phase3-method-uncertainty-1.0
+method_id: P12
+items:
+  - {id: p12.u01, status: known, subject: panel_composition, statement: "Purposive expertise does not create population representativeness.", downstream_effect: "Report eligibility, recruitment, composition, nonresponse, and attrition."}
+  - {id: p12.u02, status: contested, subject: consensus_threshold, statement: "No universal statistical definition of Delphi consensus exists.", downstream_effect: "Prespecify measures and thresholds; report distributions and dissensus."}
+  - {id: p12.u03, status: known, subject: feedback_effect, statement: "Controlled feedback may inform revision but can also pressure convergence.", downstream_effect: "Preserve round histories, rationales, and stable minority views."}
+  - {id: p12.u04, status: known, subject: truth_status, statement: "Consensus is expert judgment evidence, not verification of the underlying proposition.", downstream_effect: "Prohibit truth or decision claims from consensus alone."}
+  - {id: p12.u05, status: unknown, subject: round_three_retention, statement: "Panel retention and the direction of final judgment revision are unknown before the rounds occur.", downstream_effect: "Report attrition and missingness and permit an insufficient-panel-evidence terminal."}
+  - {id: p12.u06, status: source_limited, subject: exact_round_count, statement: "RAND says two or three rounds are generally sufficient but does not make exactly three universal; three is the portfolio-frozen policy-Delphi variant.", downstream_effect: "Do not generalize this topology to every Delphi design."}

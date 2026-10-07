@@ -1,0 +1,7 @@
+# P11 source freeze
+
+Primary conduct authority: HM Treasury and Government Finance Function, *The Green Book: UK government guidance on appraisal*, 2026 edition. Frozen locators: ch. 4 rationale/objectives; ch. 5 options generation and longlist/OFF; ch. 6 CBA/CEA shortlist appraisal; chs. 7–8 distribution, valuation, risk and uncertainty; ch. 9 balanced presentation. [Official HTML](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026) and [official PDF](https://assets.publishing.service.gov.uk/media/698dbcd17da91680ad7f4308/The_Green_Book_2026.pdf), accessed 2026-08-13. Locally fetched PDF SHA-256: `275602acb918e4d32e46c59e5d0596bebcfc5e2820ec86f489a8651c523ccc37`.
+
+Corroborating bounded-branch authority: Government Finance Function, *Use of Multi-Criteria Decision Analysis in options appraisal of economic cases*, updated 2024. [Official HTML](https://www.gov.uk/government/publications/green-book-supplementary-guidance-use-of-multi-criteria-decision-analysis/use-of-multi-criteria-decision-analysis-in-options-appraisal-of-economic-cases), accessed 2026-08-13. It limits MCDA to supported longlist trade-offs and sends shortlisted options to detailed CBA; expert facilitation and swing weighting are required.
+
+Variant guard: the 2026 edition supersedes withdrawn editions. OFF is recommended rather than mandatory; this variant follows it unless a documented complex technical trade-off activates MCDA. The Green Book rejects simple MCA weighting/scoring.
