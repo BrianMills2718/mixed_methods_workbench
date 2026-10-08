@@ -81,3 +81,36 @@ def test_section_10_rules():
                                          "justification": long}])
     assert any("what the shell does" in e for e in shell)
     assert any("no verdict" in e for e in cx.check_adjudication([g], []))
+
+
+def committed():
+    rows = {f"{r['method']}:{r['record_id']}": r for r in cx.load_yaml(cx.CROSSWALK)}
+    verdicts = {v["group_id"]: v for v in cx.load_yaml(cx.ADJUDICATION)}
+    found = cx.groups(STEPS, rows)
+    return rows, verdicts, found
+
+
+def test_the_committed_crosswalk_and_verdicts_pass_every_check():
+    rows, verdicts, found = committed()
+    assert cx.check_crosswalk(STEPS, list(rows.values()), TERMS) == []
+    assert cx.check_adjudication(found, list(verdicts.values())) == []
+    assert len(verdicts) == len(found) and all(v["verdict"] in cx.VERDICTS for v in verdicts.values())
+
+
+def test_canonical_example_rct_and_did_share_a_signature_group_but_not_a_term():
+    rows, verdicts, found = committed()
+    itt, did = "p02:p02.action.compute_itt", "p03:p03.action.compute_did"
+    assert rows[itt]["stato"] == ["STATO:0000457"] and rows[did]["stato"] == ["STATO:0000665"]   # mean difference vs DiD
+    shared = [g for g in found if itt in g["members"] and did in g["members"]]
+    kinds = {g["kind"]: g for g in shared}
+    assert "signature" in kinds and "stato_term" not in kinds          # grouped by section 9, not by a STATO term
+    assert verdicts[kinds["signature"]["group_id"]]["justification"]
+
+
+def test_canonical_example_the_two_coding_steps_get_written_verdicts():
+    rows, verdicts, found = committed()
+    for step in ("p05:p05.move.initial_code", "p07:p07.move.annotate"):
+        verb_group = next(g for g in found if g["kind"] == "verb_only" and step in g["members"])
+        v = verdicts[verb_group["group_id"]]
+        assert v["verdict"] == "different_capability" and v["what_breaks_if_merged"].strip()
+    assert not any("p05:p05.move.initial_code" in g["members"] and "p07:p07.move.annotate" in g["members"] for g in found)
