@@ -8,8 +8,8 @@ defaults:
     source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
     applicability_boundary: frozen_three_round_anonymous_policy_delphi
     refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-    performer: delphi_conveners_and_panelists
-    judgment_owner: individual_anonymous_panelists
+    performer: delphi_conveners_and_analysis_team
+    judgment_owner: delphi_method_lead
     acceptance_authority: delphi_method_lead_and_independent_reviewer
     recommender: policy_analysis_sponsor_if_advice_is_in_scope
     value_goal_authority: study_sponsor_with_stakeholder_governance
@@ -68,8 +68,8 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
-  judgment_owner: individual_anonymous_panelists
+  performer: delphi_conveners_and_analysis_team
+  judgment_owner: delphi_method_lead
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
   value_goal_authority: study_sponsor_with_stakeholder_governance
@@ -84,12 +84,13 @@ moves:
   - reported
   - interpreted
   - elicited
-  method_owned_rule: delphi_addresses_uncertain_expert_judgment_and_prespecifies_three_rounds_without_truth_claim
+  method_owned_rule: monitor_team_formulates_the_policy_issue_and_initial_options_and_prespecifies_three_rounds_scales_and_analysis_without_truth_claim
   permitted_conclusion: panel_work_has_auditable_design
   source_basis: rand_tla3082_chs1_3
   exact_anchors:
   - rand_tla3082_ch1_purpose
   - rand_tla3082_ch3_design
+  - turoff_1970_policy_delphi_issue_formulation
   verb: construct
   inputs:
   - slot: policy_question
@@ -118,8 +119,8 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
-  judgment_owner: individual_anonymous_panelists
+  performer: delphi_conveners_and_analysis_team
+  judgment_owner: delphi_method_lead
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
   value_goal_authority: study_sponsor_with_stakeholder_governance
@@ -133,11 +134,12 @@ moves:
   information_origin:
   - reported
   - derived
-  method_owned_rule: panel_eligibility_matches_question_and_diversity_without_population_representativeness_claim
+  method_owned_rule: panel_of_informed_advocates_and_referees_spans_opposing_positions_without_population_representativeness_claim
   permitted_conclusion: declared_expertise_bases_panel_judgments
   source_basis: rand_tla3082_ch3
   exact_anchors:
   - rand_tla3082_panel_eligibility_recruitment
+  - turoff_1970_policy_delphi_informed_advocates
   verb: identify
   inputs:
   - slot: frozen_delphi_protocol
@@ -166,7 +168,7 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
+  performer: individual_anonymous_panelists
   judgment_owner: individual_anonymous_panelists
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
@@ -180,12 +182,13 @@ moves:
   label: elicit independent anonymous round-one judgments and rationales
   information_origin:
   - elicited
-  method_owned_rule: panelists_answer_independently_before_group_feedback
+  method_owned_rule: panelists_independently_add_options_and_pro_con_arguments_and_rate_desirability_feasibility_importance_and_confidence_before_group_feedback
   permitted_conclusion: initial_judgment_distribution_and_rationales_are_available
   source_basis: rand_tla3082_chs2_4
   exact_anchors:
   - rand_tla3082_classical_process
   - rand_tla3082_ch4
+  - turoff_1970_policy_delphi_options_and_scales
   verb: acquire
   inputs:
   - slot: frozen_delphi_protocol
@@ -214,8 +217,8 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
-  judgment_owner: individual_anonymous_panelists
+  performer: delphi_conveners_and_analysis_team
+  judgment_owner: delphi_method_lead
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
   value_goal_authority: study_sponsor_with_stakeholder_governance
@@ -229,11 +232,12 @@ moves:
   information_origin:
   - derived
   - interpreted
-  method_owned_rule: summaries_preserve_distribution_dissent_and_anonymized_reasoning_without_persuasion
+  method_owned_rule: summaries_preserve_rating_distributions_opposing_arguments_and_anonymized_reasoning_without_persuasion
   permitted_conclusion: panelists_can_reconsider_against_visible_group_response
   source_basis: rand_tla3082_ch2
   exact_anchors:
   - rand_tla3082_feedback_characteristic
+  - turoff_1970_policy_delphi_feedback
   verb: synthesize
   inputs:
   - slot: round1_pseudonymous_responses
@@ -257,7 +261,7 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
+  performer: individual_anonymous_panelists
   judgment_owner: individual_anonymous_panelists
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
@@ -271,11 +275,12 @@ moves:
   label: elicit anonymous round-two revisions with reasons
   information_origin:
   - elicited
-  method_owned_rule: each_panelist_retains_authority_to_revise_or_hold
+  method_owned_rule: each_panelist_retains_authority_to_revise_or_hold_and_states_reasons_for_disagreement
   permitted_conclusion: judgment_change_and_persistence_are_visible
   source_basis: rand_tla3082_ch2
   exact_anchors:
   - rand_tla3082_classical_process
+  - turoff_1970_policy_delphi_reasons_for_disagreement
   verb: revise
   inputs:
   - slot: round1_feedback_packet
@@ -299,8 +304,8 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
-  judgment_owner: individual_anonymous_panelists
+  performer: delphi_conveners_and_analysis_team
+  judgment_owner: delphi_method_lead
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
   value_goal_authority: study_sponsor_with_stakeholder_governance
@@ -352,7 +357,7 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
+  performer: individual_anonymous_panelists
   judgment_owner: individual_anonymous_panelists
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
@@ -366,11 +371,12 @@ moves:
   label: elicit final anonymous round-three judgments and rationales
   information_origin:
   - elicited
-  method_owned_rule: final_round_does_not_force_convergence_or_erase_prior_positions
+  method_owned_rule: final_round_reevaluates_options_and_arguments_without_forcing_convergence_or_erasing_prior_positions
   permitted_conclusion: final_panel_judgments_are_frozen
   source_basis: rand_tla3082_ch2
   exact_anchors:
   - rand_tla3082_iterations_two_or_three_rounds
+  - turoff_1970_policy_delphi_reevaluate_options
   verb: revise
   inputs:
   - slot: round2_feedback_packet_with_stability_and_dissensus
@@ -394,8 +400,8 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
-  judgment_owner: individual_anonymous_panelists
+  performer: delphi_conveners_and_analysis_team
+  judgment_owner: delphi_method_lead
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
   value_goal_authority: study_sponsor_with_stakeholder_governance
@@ -409,12 +415,13 @@ moves:
   information_origin:
   - derived
   - interpreted
-  method_owned_rule: consensus_is_a_panel_state_not_truth_and_stable_dissensus_is_retained
+  method_owned_rule: consensus_is_a_panel_state_not_truth_and_stable_dissensus_and_opposing_positions_are_retained
   permitted_conclusion: panel_judgment_patterns_under_declared_composition_and_rules
   source_basis: rand_tla3082_chs5_6
   exact_anchors:
   - rand_tla3082_ch5
   - rand_tla3082_ch6
+  - turoff_1970_policy_delphi_opposing_views
   verb: review
   inputs:
   - slot: round1_pseudonymous_responses
@@ -453,8 +460,8 @@ moves:
   source_authority_or_inferential_role: rand_delphi_guidance_and_declared_panel_judgments
   applicability_boundary: frozen_three_round_anonymous_policy_delphi
   refusal_or_qualification: report_insufficient_panel_evidence_or_stable_dissensus
-  performer: delphi_conveners_and_panelists
-  judgment_owner: individual_anonymous_panelists
+  performer: delphi_conveners_and_analysis_team
+  judgment_owner: delphi_method_lead
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_advice_is_in_scope
   value_goal_authority: study_sponsor_with_stakeholder_governance

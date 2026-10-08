@@ -317,11 +317,38 @@ topology:
   required_cycles: []
   optional_cycles:
   - cycle: p13.move.fit -> p13.move.align -> p13.move.joint_display -> p13.move.fit
+    edges:
+    - p13.c15
+    - p13.c10
+    - p13.c14
     condition: apparent discordance may be alignment error
-  - cycle: p13.move.fit -> p13.move.qual_warrant
+    termination: divergence explained by realignment, retained as unresolved, or the
+      evidence budget is spent
+    termination_authority: human (mixed_methods_lead)
+  - cycle: p13.move.fit -> p13.move.qual_warrant -> p13.move.check_readiness -> p13.move.align
+      -> p13.move.joint_display -> p13.move.fit
+    edges:
+    - p13.c16
+    - p13.c03
+    - p13.c05
+    - p13.c10
+    - p13.c14
     condition: qualitative reanalysis or evidence is justified
-  - cycle: p13.move.fit -> p13.move.quant_warrant
+    termination: divergence explained, retained as unresolved, or the evidence budget
+      is spent
+    termination_authority: human (mixed_methods_lead)
+  - cycle: p13.move.fit -> p13.move.quant_warrant -> p13.move.check_readiness -> p13.move.align
+      -> p13.move.joint_display -> p13.move.fit
+    edges:
+    - p13.c17
+    - p13.c04
+    - p13.c05
+    - p13.c10
+    - p13.c14
     condition: quantitative reanalysis or evidence is justified
+    termination: divergence explained, retained as unresolved, or the evidence budget
+      is spent
+    termination_authority: human (mixed_methods_lead)
   prohibited_cycles:
   - cycle: p13.move.fit -> p13.move.design
     reason: observed fit cannot rewrite frozen convergent design in place

@@ -19,5 +19,9 @@ authorities:
   decision_authority: accountable_policy_or_program_decision_maker
 primary_source: creswell_et_al_2011_nih
 corroborating_source: fetters_curry_creswell_2013
+design_parameters:
+  qualitative_strand_method_id: "named qualitative method profile the qualitative strand hands off to (for example P05)"
+  quantitative_strand_method_id: "named quantitative method profile the quantitative strand hands off to"
+strand_handoff_note: "p13.move.qual_warrant and p13.move.quant_warrant are cross-method subprofile handoffs (collision_participation: none); sampling, collection and analysis belong to the declared strand profiles."
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no evaluation finding, meta-inference, or policy recommendation

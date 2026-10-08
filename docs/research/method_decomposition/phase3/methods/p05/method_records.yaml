@@ -184,7 +184,7 @@ moves:
   - observed
   - reported
   - interpreted
-  method_owned_rule: close_action_oriented_codes_remain_provisional_and_anchored
+  method_owned_rule: close_action_oriented_codes_remain_provisional_and_anchored_and_successor_material_or_comparison_memos_may_trigger_recoding
   permitted_conclusion: incidents_have_interpretive_labels_for_comparison
   source_basis: charmaz_2024_3e_ch5
   exact_anchors:
@@ -198,6 +198,11 @@ moves:
     optional: false
   - slot: anchor_manifest
     type: passage_anchor
+    role: context
+    cardinality: optional_one
+    optional: true
+  - slot: comparison_and_memo_bundle
+    type: memo
     role: context
     cardinality: optional_one
     optional: true
@@ -333,19 +338,32 @@ moves:
   - slot: provisional_categories_with_properties_and_gaps
     type: concept
     role: subject
-    cardinality: many
-    optional: false
+    cardinality: optional_many
+    optional: true
+  - slot: revised_categories_with_properties_and_gaps
+    type: concept
+    role: subject
+    cardinality: optional_many
+    optional: true
   - slot: comparison_and_memo_bundle
     type: memo
     role: context
     cardinality: one
     optional: false
+  - slot: adequacy_appraisal
+    type: appraisal
+    role: criteria
+    cardinality: optional_one
+    optional: true
   outputs:
   - slot: targeted_successor_source_increment
     type: source_document
     role: result
     cardinality: one
     optional: false
+  slot_note: 'exactly one subject slot is filled per pass: first-pass tentative categories
+    from focus_categories, or categories revised by refine when adequacy returns for
+    more data; not a multi-subject use'
 - level: analytical_move
   operation_kind: analytic
   source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
@@ -362,29 +380,21 @@ moves:
   guards: *id001
   record_id: p05.move.refine
   parent_phase: p05.phase.develop
-  label: recode compare and revise categories with new material
+  label: revise categories against comparative variation
   information_origin:
-  - observed
-  - reported
   - interpreted
-  method_owned_rule: new_material_may_split_relate_qualify_or_reject_categories
+  method_owned_rule: categories_may_be_split_related_qualified_or_rejected_against_supporting_and_disconfirming_variation
   permitted_conclusion: category_development_accounts_for_supporting_and_disconfirming_variation
-  source_basis: charmaz_2024_3e_chs_5_8
+  source_basis: charmaz_2024_3e_chs_6_8
   exact_anchors:
-  - charmaz_3e_ch5
   - charmaz_3e_ch6
   - charmaz_3e_ch7
   - charmaz_3e_ch8
   verb: revise
   inputs:
-  - slot: targeted_successor_source_increment
-    type: source_document
-    role: subject
-    cardinality: one
-    optional: false
   - slot: provisional_categories_with_properties_and_gaps
     type: concept
-    role: context
+    role: subject
     cardinality: many
     optional: false
   - slot: comparison_and_memo_bundle
@@ -392,10 +402,20 @@ moves:
     role: context
     cardinality: one
     optional: false
+  - slot: memo_version_receipt
+    type: review_event
+    role: context
+    cardinality: optional_one
+    optional: true
   outputs:
-  - slot: revised_category_and_memo_bundle
-    type: memo
+  - slot: revised_categories_with_properties_and_gaps
+    type: concept
     role: result
+    cardinality: many
+    optional: false
+  - slot: category_revision_memo
+    type: memo
+    role: byproduct
     cardinality: one
     optional: false
 - level: analytical_move
@@ -425,9 +445,14 @@ moves:
   - tie_2019_theoretical_saturation
   verb: review
   inputs:
-  - slot: revised_category_and_memo_bundle
-    type: memo
+  - slot: revised_categories_with_properties_and_gaps
+    type: concept
     role: subject
+    cardinality: many
+    optional: false
+  - slot: category_revision_memo
+    type: memo
+    role: context
     cardinality: one
     optional: false
   outputs:
@@ -463,9 +488,14 @@ moves:
   - charmaz_3e_ch12
   verb: construct
   inputs:
-  - slot: revised_category_and_memo_bundle
-    type: memo
+  - slot: revised_categories_with_properties_and_gaps
+    type: concept
     role: subject
+    cardinality: many
+    optional: false
+  - slot: category_revision_memo
+    type: memo
+    role: context
     cardinality: one
     optional: false
   - slot: adequacy_appraisal
