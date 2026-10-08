@@ -1,0 +1,198 @@
+{
+  "record_type": "Phase3PortfolioManifest",
+  "unit_id": "P3-INTEGRATE",
+  "plan": "Plan #4",
+  "denominator": "phase2b-proposal-0.3 (P01-P13) plus P14, approved by Brian 2026-08-13",
+  "methods": [
+    {
+      "method_id": "p01",
+      "owner_unit": "P3-RESEARCH-A",
+      "evidence_commit": "2f66438517e651ed05ebec39663734d115184dd3",
+      "artifacts": {
+        "frame.yaml": "1858e088596fb9c147025a4437d85991439ffa3c478f682dbdb751e27becb20a",
+        "sources.md": "36f0ccca91fdac3f98b2a5ef0d8287dfbf0e4f36e392585c21edcd3398016eef",
+        "method_records.yaml": "0a538f9319fa45c06912232b0ace59389acacfc1c314eeb41982eb4e147cd5c0",
+        "connections.yaml": "70c400dad7b8ed0d497ee739c854c4c3a55e90d6ccbf2aa4f776b93fbb094ebc",
+        "uncertainty.yaml": "a47525386d557d81c48c94140b53ef24613e6e61c80cab47ba396100e0f0c5ca"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p02",
+      "owner_unit": "P3-RESEARCH-A",
+      "evidence_commit": "2f66438517e651ed05ebec39663734d115184dd3",
+      "artifacts": {
+        "frame.yaml": "d9380fd5b7256f3cfd5471423274c55dd4ac2bc86a66637debbc10be3949939d",
+        "sources.md": "83ab88ae1505345e8f9ba4aeab950e63d72dcf72a5ce4c12d0c448fcb14c3b94",
+        "method_records.yaml": "1c0ff06d998df88e6edc97576804b17ed163331625c1d1085fbd344461ca24d1",
+        "connections.yaml": "275b383b1bb69457c059cfd1d84f610780e30ae904319ae2e52a1c7e71a5de06",
+        "uncertainty.yaml": "7b892201dc918b6ef429f588b610eb741a4f8f3a08b936f019eb817ec4ac76a5"
+      },
+      "structural_warnings": [
+        "p02: types outside the spec's list: analysis_plan"
+      ]
+    },
+    {
+      "method_id": "p03",
+      "owner_unit": "P3-RESEARCH-A",
+      "evidence_commit": "2f66438517e651ed05ebec39663734d115184dd3",
+      "artifacts": {
+        "frame.yaml": "2382f42d3d81d650edb900db03ec95d676a9d074018a28f3f7321e7002aae179",
+        "sources.md": "1961816a77882db9542b410d017f9e7e06108dd39f32c5fdd5ffa8dba979afd5",
+        "method_records.yaml": "6dd01e55b61ccaa1c429fb28924e118a96fb81b543e1378b83b19380a4b214f7",
+        "connections.yaml": "6df4d702df1e675174d548b119d63d69966b94d05f935cfb42e9c79591c0591a",
+        "uncertainty.yaml": "5f4c8606d043ea152543007eb3536ff23a5ec7a1d9aa79d5612cc9cb3f636332"
+      },
+      "structural_warnings": [
+        "p03: types outside the spec's list: analysis_plan"
+      ]
+    },
+    {
+      "method_id": "p04",
+      "owner_unit": "P3-RESEARCH-A",
+      "evidence_commit": "2f66438517e651ed05ebec39663734d115184dd3",
+      "artifacts": {
+        "frame.yaml": "7dc2103a5c5a857b4204273d774a0ed9ac5b658da990e5cddeffd22aa979d81e",
+        "sources.md": "ee6258f6c01252122fef91f5c38f6e89d78e7a0b121de5fec61a383b82858edf",
+        "method_records.yaml": "9b0ea22787da2d8ca9467197d06579d08e81fc068dd607a039b8138dca42a4a4",
+        "connections.yaml": "35040d60f6d0fe65aed9441817f294b35c25670aabb74801820abe8fc8ec544d",
+        "uncertainty.yaml": "f7c7f50d639b4d09fea077ce967f4fc4c75e2bfb7f6040f47b1d131dda17c9ed"
+      },
+      "structural_warnings": [
+        "p04: types outside the spec's list: analysis_plan"
+      ]
+    },
+    {
+      "method_id": "p05",
+      "owner_unit": "P3-RESEARCH-C",
+      "evidence_commit": "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
+      "artifacts": {
+        "frame.yaml": "7a74e136dcb97367882c17ef34c2939a4d7f0f3b52bb4e3c3a3775cd6f46afce",
+        "sources.md": "54e598f3a504e89bbf4db072bf25142e402f8b9e78fa5ed3ff2ea4d141acabaa",
+        "method_records.yaml": "cdea8913ab9bbcd1102efd9593f0cb5e799c586d36b442fb10cfb460f7592b47",
+        "connections.yaml": "3b32f18caddb519ea5053035865e235a410e2b4987ce3f32bb9457c59ba32324",
+        "uncertainty.yaml": "1bcfd6edd69ed72f0cbd3eb3fcb89305ce235cb64b0bc278053ac217ff59d17b"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p06",
+      "owner_unit": "P3-RESEARCH-B",
+      "evidence_commit": "915c903c67876fb5776744517f63ed9cd8682517",
+      "artifacts": {
+        "frame.yaml": "2ad00e6c3669335d44b92a962ea02960a569a70056bdb8996961c575af13be88",
+        "sources.md": "048bc14d7fe62bea7b5013636ba70dda8717c7907e7407186c2a5c32eb633a67",
+        "method_records.yaml": "b47e41acb8c6177b99de791372d7531be8aac9a939cdf143062d90843e2f50cf",
+        "connections.yaml": "5ef8a9f1783346ec874d16da48afd0f033dacdeb9183cdc3696a20ad9e345797",
+        "uncertainty.yaml": "547f55dbe958dce52247369caebee17d21fdd1de639fcc71930518fba095091d"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p07",
+      "owner_unit": "P3-RESEARCH-B",
+      "evidence_commit": "915c903c67876fb5776744517f63ed9cd8682517",
+      "artifacts": {
+        "frame.yaml": "011858870a7363aa1e6fa1216231c7187c39dd27b4be259f8e867dac1abf886d",
+        "sources.md": "5aeff7f7ddfcf6f6c4237932da0ab2181dee169af91bca930dd4a06d8dd92dcc",
+        "method_records.yaml": "0158188c4db8637f9292a2911846e636f80bc4502fe1f37d680045c7f5cd50dd",
+        "connections.yaml": "47a5544126574886467ac21e6f58d1bb2b219b07479551f0c857a2a806239928",
+        "uncertainty.yaml": "5398790f8d883e4eb3dddb4c4d9f4cf91abd6bbc393f21bca904aaa5cea39c20"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p08",
+      "owner_unit": "P3-RESEARCH-B",
+      "evidence_commit": "915c903c67876fb5776744517f63ed9cd8682517",
+      "artifacts": {
+        "frame.yaml": "6ebd7c1d87b469a58b34339ef7e0435144fe1259c7279fa9238ad14b4422b686",
+        "sources.md": "63c843812a288b0b2ba949e60a265ce252d6a07b72a7a2d056f51593659634ae",
+        "method_records.yaml": "f98bb8720b6b095dc5cc162eb5e4503410f4c4cf20d2f239ee1e93cf7e2e4528",
+        "connections.yaml": "b89c6fa2a808090fed21d1cf99fba191a5b455b2a5913f6f77ae6680e63c060a",
+        "uncertainty.yaml": "0e34fe08f2500d6a9fcf5cfc3038a4547e6e0df1997fe3e791cd110feb1f5cff"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p09",
+      "owner_unit": "P3-RESEARCH-B",
+      "evidence_commit": "915c903c67876fb5776744517f63ed9cd8682517",
+      "artifacts": {
+        "frame.yaml": "46e6454e2bd27320114f5151e6748321c76fe66974c357582bee118687b756de",
+        "sources.md": "fd915dc9fcfd1b98a6dbf1bd2a3d7c199500dda6e40be0ea0da185661082dfb0",
+        "method_records.yaml": "c3195cbbcd99af2aa9e09eaaf90820f132f33c09e98ccbf845ea0ed45a86de1e",
+        "connections.yaml": "466fc7faf6a4402185a44af9031e2a31628e66f33096a771685068e1162bb1fe",
+        "uncertainty.yaml": "ce8f9ffb1aa14950a9ebb0dd0e804941995c3be6f959659c28907a6cc6c54357"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p10",
+      "owner_unit": "P3-RESEARCH-C",
+      "evidence_commit": "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
+      "artifacts": {
+        "frame.yaml": "c6a51d1a0a8fdff15cb8d5062739da113a3a39cc893ef54855b1bf90ae4208dd",
+        "sources.md": "67565e408e5e9b28f465a10e9324a5f998be27c8f942f9af7d8d6124595be172",
+        "method_records.yaml": "1526b9c430bb96030f9537d813040b4cd91416178e46017eb23a002e9102de4d",
+        "connections.yaml": "21f2cd2bde38ff67adcb34df62501a6f619bc9ea4651a6c3eb931d6e60bfbcc0",
+        "uncertainty.yaml": "1e6d8c07950323850949ddd16d2dd5ebc8b46b7c96d88e8523b6ad48739e299a"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p11",
+      "owner_unit": "P3-RESEARCH-C",
+      "evidence_commit": "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
+      "artifacts": {
+        "frame.yaml": "6dac25dc3d00d88694b1ddfe8651541f6c2f02ef061baf32e322a0770b828ee7",
+        "sources.md": "78b6481b6a8ea0555bae34fb9f5b6b5fc0dfb32aaf2d3c6aa6559e86dc3f25ec",
+        "method_records.yaml": "10cae7d1e8a4cf30db0e4cc8af951118ac07df9a744d06e158698dfc50b21d95",
+        "connections.yaml": "32f259e2485afb91da7efa0158cf906f92a7ac7cf112da8242b4a79672ba17d6",
+        "uncertainty.yaml": "3dbbe282eb03702a9bc04e259f0a6302c6f6a59e1de1bde1affd48cd7aad80fd"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p12",
+      "owner_unit": "P3-RESEARCH-C",
+      "evidence_commit": "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
+      "artifacts": {
+        "frame.yaml": "e8f16a9810a328345f382517fe364e47631c988b601d22af5139e461b37bb18d",
+        "sources.md": "478809cc067b4d52ebeef952083d9781dd9cd75ba0ff45b80e0510f692ec25bc",
+        "method_records.yaml": "b38ca8fb1b11752e8c1d7f51c0b9e97759fae41b2f57c8c362ac941d67e2bb96",
+        "connections.yaml": "017584e4cc16c07b4848d43ca1557a5d184664ee3c10eed83cc583ec905c5423",
+        "uncertainty.yaml": "403082710153665f7c53dff677f3efb301de77737bda6f7f037a840c986df23e"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p13",
+      "owner_unit": "P3-RESEARCH-C",
+      "evidence_commit": "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
+      "artifacts": {
+        "frame.yaml": "567e5efe7281f4a8a2cda2f8c9a1c5337fcf5eee14271de2072ae48651bdcdab",
+        "sources.md": "93bdcfa3e4a8bc390d9d747f18db594598b2c659a779a9340115e1742d709e9a",
+        "method_records.yaml": "7888076978e323438f48d7ec2607717520a10792ac00f4fde656f18061c298a3",
+        "connections.yaml": "9fdab71c6a14ed47528ddae81ce173cdefc34868d55309eecc53bce7059bcf87",
+        "uncertainty.yaml": "2fb73b47f7371b8b566a05e47ef8bf3bcf35855db2d0f5350095b14460549a77"
+      },
+      "structural_warnings": []
+    },
+    {
+      "method_id": "p14",
+      "owner_unit": "P3-RESEARCH-A",
+      "evidence_commit": "2f66438517e651ed05ebec39663734d115184dd3",
+      "artifacts": {
+        "frame.yaml": "50738863e91b63e941b551bcf035c4b593ff3e2939d8f8eaf9162c80b75746f0",
+        "sources.md": "e67678fa67cc399133830c59140048e8999c635ec9749af059cce4922905b9d6",
+        "method_records.yaml": "dc98a4b05aa8df1a553e9518ff060a01487aed094c0eb4467f1a0b0747a23558",
+        "connections.yaml": "f212f3ed71174e5b1aac0c77e260502722e1df404233be9e5267d38fd5b8cf84",
+        "uncertainty.yaml": "6439f8ad4569f9b05ef3aad576a453972732ee86d8ce3fdece7d7429092be0af"
+      },
+      "structural_warnings": [
+        "p14: types outside the spec's list: analysis_plan"
+      ]
+    }
+  ]
+}

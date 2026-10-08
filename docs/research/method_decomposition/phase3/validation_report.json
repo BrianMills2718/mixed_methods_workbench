@@ -1,0 +1,143 @@
+{
+  "record_type": "Phase3ValidationReport",
+  "unit_id": "P3-INTEGRATE",
+  "graph": "docs/research/method_decomposition/phase3/4_phase3_portfolio_decomposition_work_graph.json",
+  "spec_sha256": "fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f",
+  "denominator": [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p10",
+    "p11",
+    "p12",
+    "p13",
+    "p14"
+  ],
+  "result": "pass",
+  "portfolio_errors": [],
+  "methods": [
+    {
+      "method_id": "p01",
+      "owner_unit": "P3-RESEARCH-A",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p02",
+      "owner_unit": "P3-RESEARCH-A",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p03",
+      "owner_unit": "P3-RESEARCH-A",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p04",
+      "owner_unit": "P3-RESEARCH-A",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p05",
+      "owner_unit": "P3-RESEARCH-C",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p06",
+      "owner_unit": "P3-RESEARCH-B",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p07",
+      "owner_unit": "P3-RESEARCH-B",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p08",
+      "owner_unit": "P3-RESEARCH-B",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p09",
+      "owner_unit": "P3-RESEARCH-B",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p10",
+      "owner_unit": "P3-RESEARCH-C",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p11",
+      "owner_unit": "P3-RESEARCH-C",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p12",
+      "owner_unit": "P3-RESEARCH-C",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p13",
+      "owner_unit": "P3-RESEARCH-C",
+      "passed": true,
+      "defects_returned_to_owner": []
+    },
+    {
+      "method_id": "p14",
+      "owner_unit": "P3-RESEARCH-A",
+      "passed": true,
+      "defects_returned_to_owner": []
+    }
+  ],
+  "negative_controls": [
+    {
+      "control": "an injected collision verdict is refused",
+      "caught": true
+    },
+    {
+      "control": "an injected coverage result is refused",
+      "caught": true
+    },
+    {
+      "control": "a missing method fails the denominator",
+      "caught": true
+    },
+    {
+      "control": "a duplicated method fails the denominator",
+      "caught": true
+    },
+    {
+      "control": "an extra method fails the denominator",
+      "caught": true
+    },
+    {
+      "control": "the real denominator passes",
+      "caught": true
+    }
+  ],
+  "non_claims": [
+    "no collision candidates, verdicts or adjudication",
+    "no coverage or automation result",
+    "no shared schema adopted",
+    "no implementation authorized",
+    "no reusable capability established"
+  ]
+}

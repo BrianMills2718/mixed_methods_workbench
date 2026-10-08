@@ -18,7 +18,7 @@ EXPECTED_METHODS = {
 SUBMITTED_EVIDENCE_REVISIONS = {
     "P3-RESEARCH-A": "git:origin/p3-research-a-corrections@2f66438517e651ed05ebec39663734d115184dd3;control-review-2026-10-08;merged-to-main",
     "P3-RESEARCH-B": "git:origin/p3-research-b-corrections@915c903c67876fb5776744517f63ed9cd8682517;control-review-2026-10-08;merged-to-main",
-    "P3-RESEARCH-C": "git:origin/phase3-research-c@0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa;archived-handoff;not-accepted",
+    "P3-RESEARCH-C": "git:origin/p3-research-c-corrections@ef34684b1fc56433da5c9d08c4d0f474f6c596e5;control-review-2026-10-08;merged-to-main",
 }
 CONTROL_ID = "P3-CONTROL"
 INTEGRATION_ID = "P3-INTEGRATE"

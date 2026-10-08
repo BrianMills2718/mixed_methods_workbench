@@ -206,7 +206,9 @@ Current work must not:
 - infer authorization for any implementation beyond the separately approved
   Investigation Spine.
 
-## Supporting Phase: Phase 3 Portfolio Decomposition (pause lifted 2026-10-08)
+## Supporting Phase: Phase 3 Portfolio Decomposition (completed 2026-10-08)
+
+Phase 3 completed 2026-10-08: all three lanes were reviewed, corrected and accepted with receipts (`lane_receipts/`), and `P3-INTEGRATE` validated all 14 decompositions (`integration_report.md`, `validation_report.json`, `portfolio_manifest.yaml`; 14 of 14 pass). This establishes 14 source-frozen, structurally valid decompositions only: no collision, adjudication, coverage or reusable-capability claim.
 
 Brian lifted the Phase 3 pause on 2026-10-08 (observation-to-action-metamodel `ROADMAP_AGENT_MODEL.md` row 5a): the pause waited behind the NYC product-integration lane, which he paused on 2026-10-04 (PR #41), and on 2026-10-07 he approved the cross-method crosswalk that reads the integrated 14. The paragraphs below record the paused state as it stood on 2026-08-13.
 

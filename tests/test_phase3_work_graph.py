@@ -23,6 +23,11 @@ def pre_acceptance_graph() -> dict:
         if item["id"].startswith("P3-RESEARCH") and item["status"] == "accepted":
             item["status"], item["claimability"] = "ready", "ready_for_execution"
             item["inputs"] = [i for i in item["inputs"] if i["kind"] != "CompletionReceipt"]
+        if item["id"] == "P3-INTEGRATE":                  # integration waits on the lanes again
+            item["status"], item["claimability"] = "blocked", "blocked_dependencies"
+            item["readiness"] = {"status": "blocked", "required_approval_types": [], "approvals": [],
+                                 "failed_guards": ["research lanes not accepted in this fixture"]}
+            item["inputs"] = [i for i in item["inputs"] if i["kind"] != "IntegrationReport"]
     return document
 
 
@@ -113,10 +118,10 @@ def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
         "P3-RESEARCH-C": (
             "ready",
             "ready_for_execution",
-            "0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa",
+            "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
         ),
     }
-    accepted = {"P3-RESEARCH-A", "P3-RESEARCH-B"}          # 2026-10-08 receipts; C remains in rework
+    accepted = {"P3-RESEARCH-A", "P3-RESEARCH-B", "P3-RESEARCH-C"}   # all accepted with receipts on 2026-10-08
     for unit_id, (status, claimability, revision) in expected.items():
         if unit_id in accepted:
             status, claimability = "accepted", "not_applicable"

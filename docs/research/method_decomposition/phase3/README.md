@@ -1,6 +1,6 @@
 # Phase 3 portfolio decomposition
 
-Status: active documentation/research phase; 14-method denominator adopted; pause lifted 2026-10-08 (`P3-CONTROL` ready)
+Status: active documentation/research phase; 14-method denominator adopted; completed 2026-10-08 (14 of 14 integrated)
 
 Brian approved the 14-method alternative on 2026-08-13. The denominator is
 `phase2b-proposal-0.3` (`P01`–`P13`) plus `P14`, theory-testing Process Tracing
