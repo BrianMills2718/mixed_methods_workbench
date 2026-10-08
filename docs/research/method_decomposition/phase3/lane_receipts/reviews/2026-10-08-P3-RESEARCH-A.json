@@ -1,0 +1,221 @@
+{
+ "record_type": "P3ControlReview",
+ "unit_id": "P3-RESEARCH-A",
+ "reviewed_at": "2026-10-08",
+ "reviewed_revision": "main@2aba18d",
+ "disposition": "changes_requested",
+ "reviewer": "P3-CONTROL (claude-code reviewer agent, read-only), structural check scripts/validate_phase3_methods.py",
+ "structural_check": "RESULT: FAIL (exit 1) methods=5 errors=7 warnings=4 | p01: ok, 0 warning(s) | p02: 2 error(s), 1 warning(s) | p03: 2 error(s), 1 warning(s) | p04: 2 error(s), 1 warning(s) | p14: 1 error(s), 1 warning(s)",
+ "criteria": [
+  {
+   "id": "P3-A-AC1",
+   "holds": false,
+   "evidence": "All five frames name a variant, exclusions, an applicability boundary and a source-scope caution, and none treats product topology or a catalog label as authority (p14 frame and u05 explicitly reject 1fd01bc; p14 runtime actions cite it only as implementation evidence). The criterion still fails on pins. p03's anchors are heading descriptions that do not match the article's numbered sections. p14.move.conclude cites chapter 10, which lies outside its frozen range. p02.move.interpret_report cites ICH E9 §5.6 (multiplicity adjustment) for reporting, and E9 §7 (reporting) is not pinned. p01's PRISMA pin skips items 14-15. Confirmed by web check: Baker et al., JEL 64(2) 2026, 498-557, DOI 10.1257/jel.20251650, exists on aeaweb.org; arXiv 2503.13323v3 numbers its sections 3 (2x2), 4 (covariates), 5.1 (2xT event studies), 5.2 (staggered) and 6 (conclusion). The Schneider and Wagemann chapter-to-topic mapping could not be checked against the publisher's contents (HTTP 403)."
+  },
+  {
+   "id": "P3-A-AC2",
+   "holds": false,
+   "evidence": "All five methods have phases, moves and actions, typed slots, topology with prohibited cycles and edges, honest refusal terminals, and four-status uncertainty. The structural check fails with 7 errors (an action receipt typed as an input with role 'trace' in p02, p03, p04 and p14). Analytic operations are hidden inside broad moves: p01 certainty and missing-evidence assessment, p03 covariates and conditional parallel trends, p14 search execution. In p01 and p14, prohibited edges share endpoints with permitted edges. Loops that p04's own records name are missing from its topology. No execution action is presented as a method-owned warrant: each action's method_owned_rule disclaims the judgment."
+  }
+ ],
+ "findings": [
+  {
+   "method": "all lane A (p02,p03,p04,p14)",
+   "file": "p02/method_records.yaml; p03/method_records.yaml; p04/method_records.yaml; p14/method_records.yaml",
+   "record": "p02.move.allocate, p02.move.estimate, p03.move.panel, p03.move.estimate, p04.move.calibrate, p04.move.sufficiency, p14.move.anchor_evidence",
+   "quote": "{slot: estimate_receipt, type: model_run, role: trace, cardinality: optional_one, optional: true}",
+   "criterion": "P3-A-AC2 (typed slots; spec 5.1 input roles are subject|criteria|context|prior|config_data); validator ERROR",
+   "severity": "must_fix",
+   "correction": "In each of the seven input slots, change role 'trace' to 'context' (the receipt is retained execution context, not the subject). Make the producing action's output role consistent: p02.action.compute_itt, p03.action.compute_did and p04.action.minimize currently emit the receipt as role 'result', while the persist/build/transform actions use 'trace'. Then rerun validate_phase3_methods.py until it reports 0 errors."
+  },
+  {
+   "method": "p01",
+   "file": "p01/method_records.yaml",
+   "record": "p01.move.certainty_report",
+   "quote": "method_owned_rule: conclusions_reflect_bias_missing_evidence_imprecision_inconsistency_and_applicability ... source_basis: Cochrane_6_5_ch13_and_III",
+   "criterion": "P3-A-AC2 negative control (operations hidden in a broad move) and P3-A-AC1 (record exceeds pinned source scope)",
+   "severity": "must_fix",
+   "correction": "Split this move into three. (a) An appraise move for risk of bias due to missing evidence (Handbook ch13; PRISMA items 14/21). (b) A review move for certainty of the body of evidence (Handbook 6.5 ch14), with inputs synthesis_findings and risk_of_bias_judgments and an appraisal output. (c) The report move (ch15 and ch III). Add ch14-15 to the frame source_freeze and sources.md registry, since they belong to the already-pinned 6.5 edition. Then revise p01.u03: certainty is no longer source_limited because the Handbook pins it; narrow the uncertainty to whichever GRADE refinements outside ch14 remain unpinned."
+  },
+  {
+   "method": "p01",
+   "file": "p01/connections.yaml",
+   "record": "p01.c18",
+   "quote": "from: p01.move.compatibility\n  to: p01.move.synthesize\n  connection_type: prohibited_transition\n  carries: pooled_result_before_compatibility",
+   "criterion": "P3-A-AC2 (typed topology; prohibited edges are validation rules per spec 5.8)",
+   "severity": "must_fix",
+   "correction": "This prohibited edge has the same endpoints as the permitted edges p01.c11, c11a and c11b, so as a validation rule it would block the required gate. Re-anchor it on the transition that actually bypasses the gate: from p01.move.risk_bias (or p01.move.extract) to p01.action.compute_pool, with reason 'pooled computation before compatibility judgment' and if_taken 'pooled claim unlicensed'. Keep c11 as the gate."
+  },
+  {
+   "method": "p01",
+   "file": "p01/sources.md",
+   "record": "Corroborating reporting authority / p01.move.certainty_report exact_anchors",
+   "quote": "Pinned items: 5–13 (methods), 16–22 (results), and 24–27 (registration, support, interests, and data/material availability).",
+   "criterion": "P3-A-AC1 (section pins correctly scoped)",
+   "severity": "should_fix",
+   "correction": "PRISMA 2020 methods items run 5-15. Item 14 is reporting bias assessment and item 15 is certainty assessment, and their results counterparts, 21-22, are pinned. Pin 5-15. Also bind certainty_report to items 20-23 (results of syntheses, reporting biases, certainty, discussion), not to items24_27 (registration, funding, interests, availability), which do not concern qualifying conclusions."
+  },
+  {
+   "method": "p02",
+   "file": "p02/method_records.yaml",
+   "record": "p02.move.interpret_report",
+   "quote": "source_basis: ICH_E9_5_6_and_E9R1_A4_A5, exact_anchors: [source:p02.e9.5.6, source:p02.e9r1.A5]",
+   "criterion": "P3-A-AC1 (anchor correctly scoped to a pinned section)",
+   "severity": "must_fix",
+   "correction": "ICH E9 §5.6 is 'Adjustment of Significance and Confidence Levels' (multiplicity), not interpretation or reporting, and E9 §7 (Reporting) lies outside the frozen 'sections 2-5'. Either add E9 §7.1 to frame.source_freeze and the registry and cite §5.5 (estimation, confidence intervals) plus §7.1, or remove the reporting byproduct from this move. Also move the §5.6 citation to p02.move.protocol_sap, whose rule names multiplicity."
+  },
+  {
+   "method": "p02",
+   "file": "p02/method_records.yaml",
+   "record": "p02.move.protocol_sap",
+   "quote": "method_owned_rule: design_estimator_missing_data_multiplicity_and_sensitivity_align_to_estimand",
+   "criterion": "P3-A-AC2 (operations hidden in a broad move; nonlinearity)",
+   "severity": "should_fix",
+   "correction": "Two gaps. First, split sample-size determination (ICH E9 §3.5), an independently reviewable artifact that bounds the warrant, into its own design move. Second, interim analysis and early stopping (E9 §§4.5-4.6) are neither excluded in frame.yaml nor modeled. Either add 'interim analyses and early stopping' to frame exclusions, or add a monitor move with a branch edge to a terminal 'stopped_early' and a prohibited unplanned-interim-look edge."
+  },
+  {
+   "method": "p02",
+   "file": "p02/connections.yaml",
+   "record": "topology.prohibited_cycles",
+   "quote": "prohibited_cycles: [['p02.move.conduct', 'p02.move.objective_estimand'], ...]",
+   "criterion": "P3-A-AC2 (typed topology consistency)",
+   "severity": "should_fix",
+   "correction": "The prohibited edge p02.c17 runs from p02.move.ascertain to p02.move.objective_estimand. Change the first prohibited cycle to [p02.move.ascertain, p02.move.objective_estimand], or add a matching prohibited edge from conduct."
+  },
+  {
+   "method": "p02",
+   "file": "p02/uncertainty.yaml",
+   "record": "p02.u02",
+   "quote": "status: contested, subject: policy_transfer, ... basis: frozen_sources_do_not_supply_transportability_authority",
+   "criterion": "P3-A-AC2 (exact uncertainty accounting)",
+   "severity": "should_fix",
+   "correction": "The stated basis is a source limit, not a disagreement among authorities. Change status to source_limited, or cite the specific contesting sources that make it contested."
+  },
+  {
+   "method": "p03",
+   "file": "p03/sources.md",
+   "record": "Exact-anchor registry",
+   "quote": "`p03.baker.simple_design` = canonical/simple-design section; `data_design` = data organization and design framework; ... `sensitivity` = robustness/sensitivity guidance",
+   "criterion": "P3-A-AC1 (edition/section pins)",
+   "severity": "must_fix",
+   "correction": "Bind each token to a numbered section of JEL 64(2) 2026. Per arXiv 2503.13323v3, which the JEL numbering should be checked against: simple_design = §3 (§3.1 ATT); identification = §3.2 and §4.2; covariates = §4; estimation = §3.3 and §5.1.1-5.1.3; pretrends = §5.1.2; conclusions = §6. Re-locate 'data_design' and 'sensitivity', which have no matching heading, to the exact subsection, or mark them source_limited. Change frame source_freeze from 'sections 2-5' to the actual in-scope set, explicitly excluding §5.2 (staggered adoption) and Appendix A.1-A.4."
+  },
+  {
+   "method": "p03",
+   "file": "p03/method_records.yaml",
+   "record": "p03.move.design (and missing covariate move); p03.u03",
+   "quote": "downstream_effect: covariates_are_prespecified_and_sensitivity_reported",
+   "criterion": "P3-A-AC2 negative control (missing operation hidden in a broad move)",
+   "severity": "must_fix",
+   "correction": "Uncertainty item u03 asserts that covariates are prespecified, but no record performs it, and Baker et al. §4 makes covariate choice and the shift from unconditional to conditional parallel trends a distinct identifying decision. Add a define move, 'specify conditioning covariates and parallel-trends form', after p03.move.comparison and before p03.move.assumptions. Give it a covariate-balance input (§4.1) and an output that p03.move.assumptions and p03.move.estimate consume. Add a prohibited edge from estimate back to this move: a result-driven covariate change makes the analysis exploratory."
+  },
+  {
+   "method": "p03",
+   "file": "p03/connections.yaml",
+   "record": "p03.c17 (with p03.c07, p03.c08)",
+   "quote": "from: p03.move.pretrend\n  to: p03.move.assumptions\n  connection_type: prohibited_transition\n  carries: nonrejection_as_proof_of_parallel_trends",
+   "criterion": "P3-A-AC2 (typed topology; required gating path)",
+   "severity": "must_fix",
+   "correction": "Prohibiting the whole pretrend-to-assumptions transition stops diagnostics from informing the identification appraisal. The only route from pretrend to estimate is retained_context c08, so a detected pretrend violation cannot block estimation. Replace c17 with a permitted artifact_flow from pretrend to assumptions, carrying pretrend_diagnostics, and add that input slot (role context) to p03.move.assumptions. Its existing refusal 'pretrend_similarity_alone_never_proves_identification' already expresses the nonrejection-as-proof rule. Keep any prohibited edge only for a pretrend-to-estimate route that bypasses the assumptions gate."
+  },
+  {
+   "method": "p03",
+   "file": "p03/uncertainty.yaml",
+   "record": "p03.u04",
+   "quote": "status: source_limited, subject: one_treated_aggregate, statement: standard_inference_may_be_weak_with_few_group_clusters",
+   "criterion": "P3-A-AC2 (exact uncertainty)",
+   "severity": "should_fix",
+   "correction": "The frame fixes exactly one treated group and one comparison group, so group-level clustered inference has two clusters and is not available. This is known, not 'may be weak'. Restate it as known, with downstream effect: the inference method (within-group unit clustering, design-based or permutation alternatives) must be declared in p03.move.design, and the estimate move refuses group-clustered standard errors."
+  },
+  {
+   "method": "p04",
+   "file": "p04/connections.yaml",
+   "record": "p04.move.return_cases, p04.move.resolve_contradictions, p04.move.truth_table (feedback edges)",
+   "quote": "refusal_or_qualification: case_mismatch_returns_to_concepts_calibration_or_truth_table ... contradictory_rows_return_to_cases_calibration_or_model_with_rationale ... invalid_or_empty_rows_return_to_calibration",
+   "criterion": "P3-A-AC2 (loops the method requires are present)",
+   "severity": "must_fix",
+   "correction": "The records name returns that the topology lacks. Add these feedback edges, with condition, loop_termination and termination_authority human: p04.move.return_cases to p04.move.conditions (creates_successor_version true), distinguishing it from prohibited c21; p04.move.resolve_contradictions to p04.move.calibrate and to p04.move.conditions/population; and p04.move.truth_table to p04.move.calibrate. List them in optional_cycles. Or justify in the topology note why the iterative dialogue of ideas and evidence (Ragin; Schneider and Wagemann good-practice chapter) is not a required_cycle for this variant."
+  },
+  {
+   "method": "p04",
+   "file": "p04/connections.yaml",
+   "record": "p04.move.remainders inputs / missing necessity→remainders connection",
+   "quote": "inputs: [{slot: resolved_truth_table, ...}, {slot: substantive_theory, type: theory, role: prior, ...}]",
+   "criterion": "P3-A-AC2 (operations/inputs hidden; method-owned remainder rule)",
+   "severity": "should_fix",
+   "correction": "Schneider and Wagemann's treatment of untenable assumptions (Enhanced Standard Analysis) bars remainder assumptions that contradict established necessary conditions. Add input slot necessity_results (type finding, role context) to p04.move.remainders and a retained_context connection from p04.move.necessity. State the ordering that necessity analysis precedes remainder governance."
+  },
+  {
+   "method": "p04",
+   "file": "p04/sources.md",
+   "record": "Primary conduct authority chapter mapping",
+   "quote": "Pinned chapters: 2–3 (sets and set relations), 4 (truth tables), 5 (parameters of fit), 6 (limited diversity and logical remainders), 7 (truth-table algorithm), 8–9 (necessity and sufficiency analysis), and 11 (good practice).",
+   "criterion": "P3-A-AC1 (section pins correctly scoped)",
+   "severity": "should_fix",
+   "correction": "Bookseller contents listings put sets/calibration, set operations, set relations and truth tables in Part I, and start Part III with a chapter on pitfalls in the standard analysis procedure. That conflicts with labelling chapters 8-9 'necessity and sufficiency analysis' and chapter 11 'good practice'; the good-practice chapter appears to be the last chapter, 12, with 11 on set-theoretic multi-method research. Re-verify each chapter number and title against the Cambridge contents page, fix the labels and the tokens p04.sw.ch8/ch9/ch11, and add any calibration chapter actually used by p04.move.anchors. If the contents cannot be verified, record a source_limited uncertainty."
+  },
+  {
+   "method": "p14",
+   "file": "p14/method_records.yaml",
+   "record": "p14.move.acquire_appraise_source (missing search-execution move)",
+   "quote": "label: acquire and appraise sources, inputs: [{slot: evidence_search_plan, ...}, {slot: candidate_sources, type: source_document, role: subject, ...}]",
+   "criterion": "P3-A-AC2 negative control (missing operation hidden in a broad move)",
+   "severity": "must_fix",
+   "correction": "No move executes the registered search, but p14.move.anchor_evidence requires 'every_absence_has_searched_opportunity_receipt' and gate c18 requires a 'completed_search'. Add a search move (verb search) under p14.phase.search. It consumes evidence_search_plan and outputs candidate_sources plus per-opportunity search receipts (type review_event, role result), recording which opportunities were searched, inaccessible or not searched. Feed those receipts into anchor_evidence and gate c18. Keep source appraisal as its own move. u04 may remain source_limited for the search technique, not for the existence of the move."
+  },
+  {
+   "method": "p14",
+   "file": "p14/connections.yaml",
+   "record": "p14.c19, p14.c20",
+   "quote": "p14.c19 from: p14.move.acquire_appraise_source to: p14.move.anchor_evidence connection_type: prohibited_transition ... p14.c20 from: p14.move.dependencies to: p14.move.update connection_type: prohibited_transition",
+   "criterion": "P3-A-AC2 (typed topology; prohibited edges are validation rules)",
+   "severity": "must_fix",
+   "correction": "Both prohibited edges share endpoints with permitted edges (c06 acquire to anchor artifact_flow; c13b dependencies to update retained_context), so enforcement would block required flows. Move the prohibition to the bypass: for c19, an absence item entering anchor_evidence without passing the new search-receipt gate (for example from the new search move's 'not_searched' output to anchor_evidence); for c20, p14.move.anchor_evidence to p14.move.update or diagnostic, bypassing p14.move.dependencies. Or express these as content rules in the moves' refusal fields, not as edges."
+  },
+  {
+   "method": "p14",
+   "file": "p14/method_records.yaml",
+   "record": "p14.move.conclude",
+   "quote": "exact_anchors: [source:p14.bc.conclusion, source:p14.fc.section6]",
+   "criterion": "P3-A-AC1 (record crosses frozen source scope)",
+   "severity": "must_fix",
+   "correction": "The frame freezes only 'introduction chapter 1 and appendix on disciplining conjectures', while sources.md resolves .conclusion to Bennett and Checkel chapter 10. Add chapter 10 to frame.yaml source_freeze and to the pinned sections in sources.md, or replace the anchor with source:p14.bc.ch1 or source:p14.bc.appendix."
+  },
+  {
+   "method": "p14",
+   "file": "p14/frame.yaml",
+   "record": "exclusions",
+   "quote": "- theory-building Process Tracing\n  - explaining-outcome Process Tracing without frozen rivals",
+   "criterion": "P3-A-AC1 (variant typology resolved by a pinned source)",
+   "severity": "should_fix",
+   "correction": "The theory-testing / theory-building / explaining-outcome typology comes from Beach and Pedersen, which is not pinned. Either pin the defining source and section for the typology, or restate the variant and exclusions in terms Bennett and Checkel ch1 uses (deductive theory testing versus inductive theory development), and record any residual as a source_limited uncertainty."
+  },
+  {
+   "method": "p14",
+   "file": "p14/method_records.yaml",
+   "record": "p14.move.priors",
+   "quote": "verb: appraise_source, label: elicit priors from background evidence",
+   "criterion": "P3-A-AC2 (controlled verbs carry correct bucket semantics; spec section 6)",
+   "severity": "should_fix",
+   "correction": "Eliciting prior odds over rivals is not appraisal of a source. With this verb it would falsely collide with source-appraisal moves such as p14.move.acquire_appraise_source. Use 'estimate' (or 'value' if priors are treated as judgments), and keep appraise_source for source fitness."
+  },
+  {
+   "method": "all lane A (p02,p03,p04,p14)",
+   "file": "p02/p03/p04/p14 method_records.yaml",
+   "record": "types: analysis_plan (e.g. p02.move.protocol_sap, p03.move.design, p04.move.anchors, p14.move.search_plan)",
+   "quote": "outputs: [{slot: frozen_protocol_sap, type: analysis_plan, role: result, ...}]",
+   "criterion": "P3-A-AC2 (typed slots; spec 5.1 requires a note for every type addition); validator WARN",
+   "severity": "should_fix",
+   "correction": "Add a type-addition note (in each method's sources.md, or a shared verb_additions/type note within the lane's paths) explaining why review_protocol and design_parameters do not fit analysis_plan. Or reuse an existing type. Do not normalize across methods: each method states its own reason."
+  },
+  {
+   "method": "all lane A",
+   "file": "p01-p04,p14 connections.yaml",
+   "record": "p01.c04, p02.c03, p02.c12, p03.c03, p03.c10, p04.c04, p04.c11, p14.c08",
+   "quote": "from: p02.action.compute_itt\n  to: p02.move.estimate\n  connection_type: retained_context\n  carries: estimate_receipt",
+   "criterion": "P3-A-AC2 (typed connections per the instrument's five connection types)",
+   "severity": "should_fix",
+   "correction": "Retained context means two moves use the same earlier artifact without recreating it. An action's newly produced receipt entering its parent move is artifact flow. Retype these as artifact_flow with from_output, to_input and transfer_semantics, or as parent-child execution links outside the connection graph, consistently within each method."
+  }
+ ]
+}
