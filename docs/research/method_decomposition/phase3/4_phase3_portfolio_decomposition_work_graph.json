@@ -289,7 +289,8 @@
         {"kind": "CoordinationPlan", "id": "Plan #4", "revision": "4_phase3_portfolio_decomposition.md@approved-2026-08-13"},
         {"kind": "MethodDecompositionSpec", "id": "METHOD_DECOMPOSITION_HANDOFF", "revision": "rev5.1:sha256:fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f"},
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
-        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"}
+        {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
+        {"kind": "IntegrationReport", "id": "P3-INTEGRATE", "revision": "docs/research/method_decomposition/phase3/validation_report.json;portfolio_manifest.yaml;integration_report.md;result=pass;14-of-14"}
       ],
       "outputs": [
         "portfolio_manifest.yaml listing the exact 14 submitted method revisions",
@@ -325,7 +326,7 @@
       "claim_policy": {"eligibility_rule": "One canonical registry claim after all three hard dependency gates report accepted exact revisions.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
+      "status": "accepted",
       "record_version": 3,
       "created_at": "2026-08-13T17:45:00Z",
       "updated_at": "2026-10-08T12:00:00Z"

@@ -68,7 +68,7 @@ scoring, Phase 5 adjudication, coverage or capability promotion, shared
 infrastructure, or product implementation. `METHOD-DASH-C1/C2`, `MT-D1`,
 `T0-PROV`, and local `DEMO-C1` are completed bounded slices; none closes
 producer readiness or method validity.
-Brian lifted the Phase 3 pause on 2026-10-08 (observation-to-action-metamodel `ROADMAP_AGENT_MODEL.md` row 5a): the pause waited behind the NYC product-integration lane, which he paused on 2026-10-04 (PR #41), and on 2026-10-07 he approved the cross-method crosswalk that reads the integrated 14. `P3-CONTROL` is ready: it reviews lane evidence, issues receipts and advances lane states; integration follows acceptance of all three lanes.
+Brian lifted the Phase 3 pause on 2026-10-08 (observation-to-action-metamodel `ROADMAP_AGENT_MODEL.md` row 5a): the pause waited behind the NYC product-integration lane, which he paused on 2026-10-04 (PR #41), and on 2026-10-07 he approved the cross-method crosswalk that reads the integrated 14. `P3-CONTROL` is ready: it reviews lane evidence, issues receipts and advances lane states; integration follows acceptance of all three lanes. Phase 3 completed 2026-10-08: all three lanes were reviewed, corrected and accepted with receipts (`lane_receipts/`), and `P3-INTEGRATE` validated all 14 decompositions (`integration_report.md`, `validation_report.json`, `portfolio_manifest.yaml`; 14 of 14 pass). This establishes 14 source-frozen, structurally valid decompositions only: no collision, adjudication, coverage or reusable-capability claim.
 Do not begin another implementation merely because a roadmap or future slice
 exists, and do not move code from an engine into this repo unless Brian
 explicitly authorizes a named implementation slice.
