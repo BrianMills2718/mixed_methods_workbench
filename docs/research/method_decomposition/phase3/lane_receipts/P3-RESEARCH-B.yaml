@@ -1,0 +1,23 @@
+{
+  "unit_id": "P3-RESEARCH-B",
+  "evidence_commit": "915c903c67876fb5776744517f63ed9cd8682517",
+  "method_paths": [
+    "docs/research/method_decomposition/phase3/methods/p06",
+    "docs/research/method_decomposition/phase3/methods/p07",
+    "docs/research/method_decomposition/phase3/methods/p08",
+    "docs/research/method_decomposition/phase3/methods/p09"
+  ],
+  "disposition": "accepted",
+  "reviewer": "P3-CONTROL: independent re-review agent (read-only) at the exact evidence commit, 2026-10-08",
+  "checks": [
+    "scripts/validate_phase3_methods.py --spec <rev 5.1 pinned sha256 fbeb0e18...> p06 p07 p08 p09: RESULT PASS, 0 errors",
+    "every prior finding of lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json resolved (re-review prior_findings: all resolved)",
+    "both acceptance criteria hold with their negative controls (re-review criteria)",
+    "evidence commit changes only this lane's exclusive method paths",
+    "remaining should_fix notes, not blocking: 4 (lane_receipts/reviews/2026-10-08-rereview-P3-RESEARCH-B.json)"
+  ],
+  "review_records": [
+    "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json",
+    "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-rereview-P3-RESEARCH-B.json"
+  ]
+}
