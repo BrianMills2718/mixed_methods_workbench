@@ -12,6 +12,27 @@ excluded: [nonprobability opt-in polling, longitudinal change estimation, causal
 applicability_boundary: inference is limited to the covered frame population, reference period, measured construct, and documented response/error conditions
 source_freeze:
   frozen_on: 2026-08-13
-  primary: OMB_2006_Standards_and_Guidelines_for_Statistical_Surveys_sections_1.1_through_5.3
-  corroborating: Groves_et_al_2009_Survey_Methodology_2e_chapters_2_3_5_6_7_10
+  primary: OMB_2006_Standards_and_Guidelines_for_Statistical_Surveys_sections_1.1_through_7.3
+  corroborating: Groves_et_al_2009_Survey_Methodology_2e_chapters_2_3_4_5_6_7_8_10
+post_freeze_corrections:
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p06 OMB anchors, must_fix)
+    field: source_freeze.primary
+    original: OMB_2006_Standards_and_Guidelines_for_Statistical_Surveys_sections_1.1_through_5.3
+    corrected: OMB_2006_Standards_and_Guidelines_for_Statistical_Surveys_sections_1.1_through_7.3
+    reason: >-
+      The official PDF's contents list Standards 1.1-1.4, 2.1-2.3, 3.1-3.5, 4.1, 5.1-5.2, 6.1 and 7.1-7.4
+      (checked 2026-10-08 against the archived PDF linked in sources.md). OMB 4.2, 4.3, 4.4 and 5.3 do not exist.
+      Review is Standard 6.1; release and documentation are Standards 7.1-7.3.
+  - date: 2026-10-08
+    review_finding: found while re-anchoring for the same review; not itself a review finding
+    field: source_freeze.corroborating
+    original: Groves_et_al_2009_Survey_Methodology_2e_chapters_2_3_5_6_7_10
+    corrected: Groves_et_al_2009_Survey_Methodology_2e_chapters_2_3_4_5_6_7_8_10
+    reason: >-
+      The publisher's table of contents (Wiley excerpt PDF, checked 2026-10-08) places sample design in ch. 4
+      (Sample Design and Sampling Error), data-collection methods in ch. 5, nonresponse in ch. 6, questions and
+      answers in ch. 7, question evaluation and field pretests in ch. 8 (section 8.5), and weighting, variance
+      estimation and documentation in ch. 10 (sections 10.5, 10.7, 10.8). The frozen list cited ch. 5 for
+      sampling, which is wrong; ch. 4 and ch. 8 are added.
 source_scope_caution: OMB governs US federal statistical surveys; its error-accounting and conduct rules are used here as a rigorous survey standard, not as a claim that every policy survey is federally governed.

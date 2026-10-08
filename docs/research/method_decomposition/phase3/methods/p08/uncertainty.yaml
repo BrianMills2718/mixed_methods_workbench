@@ -1,9 +1,49 @@
 schema_version: phase3-uncertainty-0.1
 method_id: p08
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      p08.u02 is now unknown: whether future structural change occurs is unobservable at the origin, not a
+      limit of the sources. p08.u03 is now known: the loss is a value choice frozen by the authorized forecast
+      user in p08.move.target, and the frozen sources do not disagree on a scoring rule for it. Added p08.u06
+      (source_limited) for the article-level anchor of the data-vintage rule. Every item names the records it
+      gates.
 items:
-  - {id: p08.u01, status: known, topic: out_of_sample_performance, account: estimated by horizon-specific rolling origins, downstream_effect: supports_comparative_predictive_claim_only}
-  - {id: p08.u02, status: source_limited, topic: future_regime_stability, account: historical folds may omit future structural change, downstream_effect: monitoring_and_refusal_boundary_required}
-  - {id: p08.u03, status: contested, topic: decision_loss, account: metric weights and asymmetric consequences depend on user purpose, downstream_effect: selection_may_change_with_authorized_loss}
-  - {id: p08.u04, status: known, topic: predictive_uncertainty, account: forecast distribution is evaluated with proper or interval scores, downstream_effect: point_forecast_alone_is_incomplete}
-  - {id: p08.u05, status: known, topic: causal_scope, account: predictive performance does not identify intervention effects, downstream_effect: causal_claim_is_refused}
-stopping_rule: refuse issuance when information leakage, unsupported horizon, failed baseline comparison, material miscalibration, or unrepresented regime shift defeats the intended use
+  - id: p08.u01
+    status: known
+    topic: out_of_sample_performance
+    account: estimated by horizon-specific rolling origins
+    affects: [p08.move.fit, p08.move.score, p08.move.diagnose]
+    downstream_effect: p08.move.score supports a comparative predictive claim only for the evaluated origins and horizons; p08.move.select may not cite in-sample fit
+  - id: p08.u02
+    status: unknown
+    topic: future_regime_stability
+    account: whether a structural change will occur after the origin cannot be observed when the forecast is issued
+    affects: [p08.move.issue, p08.move.monitor]
+    downstream_effect: p08.move.issue states that its distribution assumes the represented regimes; p08.move.monitor must watch for change, and an unrepresented shift routes through p08.c40 to p08.move.refuse or through p08.c10 to a successor version
+  - id: p08.u03
+    status: known
+    topic: decision_loss
+    account: metric weights and asymmetric consequences are a value choice frozen by the authorized forecast user in p08.move.target
+    affects: [p08.move.target, p08.move.score, p08.move.select]
+    downstream_effect: p08.move.score and p08.move.select must use the frozen loss; changing it is the prohibited p08.c12
+  - id: p08.u04
+    status: known
+    topic: predictive_uncertainty
+    account: forecast distribution is evaluated with proper or interval scores
+    affects: [p08.move.score, p08.move.issue]
+    downstream_effect: p08.move.issue may not release a point forecast without its distribution
+  - id: p08.u05
+    status: known
+    topic: causal_scope
+    account: predictive performance does not identify intervention effects
+    affects: [p08.move.issue, p08.move.target]
+    downstream_effect: p08.move.target excludes intervention questions and p08.move.issue refuses causal wording
+  - id: p08.u06
+    status: source_limited
+    topic: data_vintage_rule_anchor
+    account: FPP3 sections 5.8 and 5.10 govern splits and rolling origins on one realized series but not release revisions; Croushore 2011 (JEL 49(1):72-100) covers real-time data and revisions, but the section that governs forecasting with vintages could not be confirmed, so it is pinned at article level
+    affects: [p08.move.information]
+    downstream_effect: p08.move.information keeps the vintage rule, but its authority is article-level until a section anchor is confirmed; a reviewer may treat the rule as method-owned practice rather than a sourced requirement
+stopping_rule: refuse issuance when information leakage, unsupported horizon, failed baseline comparison, material miscalibration, or unrepresented regime shift defeats the intended use; the stop is p08.move.refuse

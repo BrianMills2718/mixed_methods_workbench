@@ -13,7 +13,34 @@ applicability_boundary: exact model purpose, abstraction, represented mechanisms
 source_freeze:
   frozen_on: 2026-08-13
   primary_description: Grimm_et_al_2020_ODD_sections_3_4_and_appendix_checklists
-  primary_experiment_and_verification: Railsback_and_Grimm_2019_2e_chapters_3_6_8_20_22_23
+  primary_experiment_and_verification: Railsback_and_Grimm_2019_2e_chapters_3_4_6_20_22_23_and_section_8.3
+  primary_experiment_design_added_2026_10_08: Kleijnen_2015_Design_and_Analysis_of_Simulation_Experiments_2e_chapters_2_3
   corroborating_verification: Sargent_2013_sections_2_through_6
   corroborating_sensitivity: Azzini_et_al_JRC_2020_chapters_2_through_4
-source_scope_caution: ODD is a description protocol, not sufficient authority for experiment design, code verification, empirical validity, sensitivity analysis, or real-world extrapolation.
+post_freeze_corrections:
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p09 experiment-design authority, must_fix)
+    field: source_freeze.primary_experiment_design_added_2026_10_08
+    change: >-
+      added Kleijnen, Design and Analysis of Simulation Experiments, 2nd ed. (Springer, International Series in
+      Operations Research and Management Science, 2015), ch. 2 Classic Regression Metamodels and Their Designs
+      (pp. 23-81) and ch. 3 Classic Assumptions Versus Simulation Practice (pp. 83-133)
+    reason: >-
+      R&G 2019 ch. 8 is "Emergence"; its experiment section, 8.3 "Simulation Experiments and BehaviorSpace"
+      (pp. 105-111), teaches a NetLogo tool, and JRC 2020 ch. 2 covers sensitivity, not experiment design. The
+      design move's authority for factor design, replications, Monte Carlo precision and estimands was therefore
+      effectively a tool tutorial. Kleijnen chapter titles and pages checked 2026-10-08 against Crossref chapter
+      records (DOIs 10.1007/978-3-319-18087-8_2 and _3). Section-level anchors were not confirmed (p09.u08).
+      Lorscheid, Heine and Meyer 2012 (CMOT 18(1):22-62) was considered; its section numbering could not be
+      confirmed, so it is not cited.
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p09 whole-chapter R&G anchors, must_fix)
+    field: source_freeze.primary_experiment_and_verification
+    original: Railsback_and_Grimm_2019_2e_chapters_3_6_8_20_22_23
+    corrected: Railsback_and_Grimm_2019_2e_chapters_3_4_6_20_22_23_and_section_8.3
+    reason: >-
+      Only section 8.3 of ch. 8 is used; whole-chapter RG2019:ch8 anchors are replaced by RG2019:8.3. Chapter 4
+      (Implementing a First Agent-Based Model) was already cited by p09.move.implement but missing from the
+      frozen list. Section-level anchors 4.2, 4.3, 6.3, 6.4, 20.3, 20.4, 22.4 and 23.2-23.4 were checked against
+      the publisher's table of contents PDF on 2026-10-08.
+source_scope_caution: ODD is a description protocol, not sufficient authority for experiment design, code verification, empirical validity, sensitivity analysis, or real-world extrapolation. R&G section 8.3 is a tool-oriented experiment section; experiment-design authority comes from Kleijnen 2015.

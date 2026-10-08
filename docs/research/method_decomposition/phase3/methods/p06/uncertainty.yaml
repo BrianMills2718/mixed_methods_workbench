@@ -1,9 +1,49 @@
 schema_version: phase3-uncertainty-0.1
 method_id: p06
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Split coverage error into an assessable source_limited part (p06.u02) and an undetectable unknown part
+      (p06.u06). Nonresponse bias magnitude (p06.u03) is now unknown, not contested: the data cannot identify
+      it and the frozen sources do not disagree. No contested item is recorded because the frozen OMB and
+      Groves sources do not dispute the adjustment-model choice; they require disclosure of whichever model is
+      used. Every item names the records it gates (affects) and the gate or refusal it triggers.
 items:
-  - {id: p06.u01, status: known, topic: sampling_variance, account: estimated under the actual probability design, downstream_effect: accompanies_every_prevalence_estimate}
-  - {id: p06.u02, status: source_limited, topic: coverage_error, account: known frame gaps can be assessed but excluded or duplicate units may remain unknown, downstream_effect: limits_target_population_inference}
-  - {id: p06.u03, status: contested, topic: nonresponse_adjustment, account: weighting depends on auxiliary information and response assumptions that data cannot prove, downstream_effect: may_require_qualification_or_refusal}
-  - {id: p06.u04, status: source_limited, topic: measurement_error, account: pretesting and quality checks reduce but do not identify every response bias, downstream_effect: confidence_interval_is_not_total_error}
-  - {id: p06.u05, status: known, topic: causal_scope, account: cross-sectional prevalence does not identify a policy effect, downstream_effect: causal_transition_is_prohibited}
-stopping_rule: stop or explicitly qualify when design metadata cannot reconstruct selection/variance or material coverage, nonresponse, or measurement error is unbounded
+  - id: p06.u01
+    status: known
+    topic: sampling_variance
+    account: estimated under the actual probability design
+    affects: [p06.move.estimate, p06.action.compute_variance, p06.move.report]
+    downstream_effect: p06.move.estimate must emit error_account with every prevalence_estimate; p06.move.report cannot release a point estimate without it
+  - id: p06.u02
+    status: source_limited
+    topic: assessable_coverage_error
+    account: known frame gaps and multiplicities can be assessed against external sources, but only as far as those sources reach
+    affects: [p06.move.frame, p06.move.report]
+    downstream_effect: p06.move.frame records the assessed gaps; p06.move.report must qualify target-population inference by them, and material unbounded gaps route through p06.c34 to p06.move.refuse
+  - id: p06.u06
+    status: unknown
+    topic: undetectable_frame_exclusions_and_duplicates
+    account: units excluded from or duplicated in the frame that no available source reveals cannot be detected or sized
+    affects: [p06.move.frame, p06.move.estimate, p06.move.report]
+    downstream_effect: p06.move.report must state that inference covers the frame population only and that the confidence interval excludes undetected coverage error
+  - id: p06.u03
+    status: unknown
+    topic: nonresponse_bias_magnitude
+    account: the bias among nonrespondents cannot be identified from respondent data; weighting relies on auxiliary information and response assumptions the data cannot prove
+    affects: [p06.move.adjust, p06.move.estimate, p06.move.report]
+    downstream_effect: p06.move.adjust must disclose its adjustment assumptions in nonresponse_bias_assessment; when bias could be material and cannot be bounded, p06.c35 routes to p06.move.refuse; otherwise p06.move.report qualifies the estimate
+  - id: p06.u04
+    status: source_limited
+    topic: measurement_error
+    account: pretesting and quality checks reduce but do not identify every response bias
+    affects: [p06.move.pretest, p06.move.process, p06.move.report]
+    downstream_effect: p06.move.report must state that the confidence interval is not total error
+  - id: p06.u05
+    status: known
+    topic: causal_scope
+    account: cross-sectional prevalence does not identify a policy effect
+    affects: [p06.move.report, p06.move.define]
+    downstream_effect: p06.move.report refuses causal wording; p06.c14 is a prohibited transition
+stopping_rule: stop or explicitly qualify when design metadata cannot reconstruct selection/variance or material coverage, nonresponse, or measurement error is unbounded; the stop is p06.move.refuse

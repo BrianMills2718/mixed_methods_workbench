@@ -1,22 +1,128 @@
 schema_version: phase3-connections-0.1
 method_id: p09
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Every connection now names from_output and to_input slots (a control gate or invocation uses to_input
+      none_gate_only). p09.c04, p09.c05 and p09.c12 fire only on defect or structural failure, so they are
+      optional cycles. Added the required replication-adequacy cycle (compare -> execute) and the required
+      sensitivity-run cycle (sensitivity -> execute -> sensitivity) so variant runs keep provenance. verified_build
+      is now a real output of verify and is bound to ground, design, execute and run_model; verify -> conclude
+      carries the verification appraisal. declared_uncertainty_space and structural_variants come from design.
+      p09.c11 is an artifact flow. p09.c18 binds to an input slot on compare. p09.c17 had the same from/to as
+      the required p09.c15; its invalid operation (reusing calibration targets as independent validation)
+      happens inside ground, so it is now a prohibited self-loop on ground. Added p09.c49 (post-result scenario
+      selection) as a prohibited edge, parent-to-action invocations, and refusal branches.
 connections:
   - {id: p09.c01, from: p09.move.purpose, to: p09.move.specify, connection_type: artifact_flow, carries: frozen_model_purpose_and_boundary, preservation: preserving, from_output: frozen_model_purpose_and_boundary, to_input: frozen_model_purpose_and_boundary}
   - {id: p09.c02, from: p09.move.specify, to: p09.move.implement, connection_type: artifact_flow, carries: complete_odd_model_specification, preservation: transforming, transformation_owner: p09, change: conceptual_specification_realized_as_code, from_output: complete_odd_model_specification, to_input: complete_odd_model_specification}
-  - {id: p09.c03, from: p09.move.implement, to: p09.move.verify, connection_type: artifact_flow, carries: versioned_executable_model_and_correspondence_map, preservation: preserving, from_output: versioned_executable_model_and_correspondence_map, to_input: versioned_executable_model_and_correspondence_map}
-  - {id: p09.c04, from: p09.move.verify, to: p09.move.implement, connection_type: feedback, carries: implementation_defect, condition: code_mismatch, creates_successor_version: true}
-  - {id: p09.c05, from: p09.move.verify, to: p09.move.specify, connection_type: feedback, carries: specification_defect, condition: conceptual_or_oracle_mismatch, creates_successor_version: true}
-  - {id: p09.c06, from: p09.move.verify, to: p09.move.ground, connection_type: control_gate, carries: verified_build_permission, condition: verification_accepted}
-  - {id: p09.c07, from: p09.move.ground, to: p09.move.design, connection_type: artifact_flow, carries: parameterized_model_and_fitness_record, preservation: preserving, from_output: parameterized_model_and_fitness_record, to_input: parameterized_model_and_fitness_record}
-  - {id: p09.c08, from: p09.move.verify, to: p09.move.design, connection_type: retained_context, carries: verified_build, adapter_note: verification_status_accompanies_model_identity}
-  - {id: p09.c09, from: p09.move.design, to: p09.move.execute, connection_type: control_gate, carries: experiment_execution_permission, condition: experiment_plan_frozen}
+  - {id: p09.c03, from: p09.move.implement, to: p09.move.verify, connection_type: artifact_flow, carries: versioned_executable_model, preservation: preserving, from_output: versioned_executable_model, to_input: versioned_executable_model}
+  - {id: p09.c04, from: p09.move.verify, to: p09.move.implement, connection_type: feedback, carries: implementation_defect, condition: code_mismatch, creates_successor_version: true, from_output: verification_appraisal, to_input: implementation_defect}
+  - {id: p09.c05, from: p09.move.verify, to: p09.move.specify, connection_type: feedback, carries: specification_defect, condition: conceptual_or_oracle_mismatch, creates_successor_version: true, from_output: verification_appraisal, to_input: specification_defect}
+  - {id: p09.c06, from: p09.move.verify, to: p09.move.ground, connection_type: control_gate, carries: verified_build_permission, condition: verification_accepted, from_output: verification_appraisal, to_input: none_gate_only}
+  - {id: p09.c07, from: p09.move.ground, to: p09.move.design, connection_type: artifact_flow, carries: parameterized_model, preservation: preserving, from_output: parameterized_model, to_input: parameterized_model}
+  - {id: p09.c08, from: p09.move.verify, to: p09.move.design, connection_type: retained_context, carries: verified_build, adapter_note: verification_status_accompanies_model_identity, from_output: verified_build, to_input: verified_build}
+  - {id: p09.c09, from: p09.move.design, to: p09.move.execute, connection_type: control_gate, carries: experiment_execution_permission, condition: experiment_plan_frozen, from_output: frozen_simulation_experiment_plan, to_input: none_gate_only}
   - {id: p09.c10, from: p09.move.execute, to: p09.move.compare, connection_type: artifact_flow, carries: provenance_bound_simulation_runs, preservation: transforming, transformation_owner: p09, change: run_ensemble_summarized_under_frozen_estimands, from_output: provenance_bound_simulation_runs, to_input: provenance_bound_simulation_runs}
-  - {id: p09.c11, from: p09.move.compare, to: p09.move.sensitivity, connection_type: retained_context, carries: simulated_contrasts_and_trace_explanations, from_output: simulated_contrasts_and_trace_explanations, to_input: simulated_contrasts_and_trace_explanations}
-  - {id: p09.c12, from: p09.move.sensitivity, to: p09.move.specify, connection_type: feedback, carries: structural_failure_or_revision_request, condition: successor_model_version, creates_successor_version: true}
+  - {id: p09.c11, from: p09.move.compare, to: p09.move.sensitivity, connection_type: artifact_flow, carries: simulated_contrasts_and_trace_explanations, preservation: preserving, from_output: simulated_contrasts_and_trace_explanations, to_input: simulated_contrasts_and_trace_explanations}
+  - {id: p09.c12, from: p09.move.sensitivity, to: p09.move.specify, connection_type: feedback, carries: structural_failure_or_revision_request, condition: decisive_structural_failure_requires_successor_model, creates_successor_version: true, from_output: structural_revision_request, to_input: structural_revision_request}
   - {id: p09.c13, from: p09.move.compare, to: p09.move.conclude, connection_type: artifact_flow, carries: simulated_contrasts_and_trace_explanations, preservation: preserving, from_output: simulated_contrasts_and_trace_explanations, to_input: simulated_contrasts_and_trace_explanations}
   - {id: p09.c14, from: p09.move.sensitivity, to: p09.move.conclude, connection_type: artifact_flow, carries: sensitivity_robustness_and_failure_boundaries, preservation: preserving, from_output: sensitivity_robustness_and_failure_boundaries, to_input: sensitivity_robustness_and_failure_boundaries}
-  - {id: p09.c15, from: p09.move.ground, to: p09.move.conclude, connection_type: retained_context, carries: parameterized_model_and_fitness_record, from_output: parameterized_model_and_fitness_record, to_input: parameterized_model_and_fitness_record}
-  - {id: p09.c16, from: p09.move.execute, to: p09.move.conclude, connection_type: prohibited_transition, carries: simulated_trajectories, condition: relabel_as_observed_policy_outcomes, invalidates: information_origin_and_inferential_warrant}
-  - {id: p09.c17, from: p09.move.ground, to: p09.move.conclude, connection_type: prohibited_transition, carries: calibration_fit, condition: claim_independent_validation_without_disclosure, invalidates: empirical_fitness_warrant}
-  - {id: p09.c18, from: p09.action.run_model, to: p09.move.compare, connection_type: retained_context, carries: run_receipts, adapter_note: run_custody_preserves_generated_origin}
-topology: {shape: cyclic_model_and_experiment_versions, entry_points: [p09.move.purpose], terminal_points: [p09.move.conclude], required_feedback: [p09.c04, p09.c05, p09.c12], prohibited_transitions: [p09.c16, p09.c17]}
+  - {id: p09.c15, from: p09.move.ground, to: p09.move.conclude, connection_type: retained_context, carries: empirical_fitness_record, from_output: empirical_fitness_record, to_input: empirical_fitness_record}
+  - {id: p09.c16, from: p09.move.execute, to: p09.move.conclude, connection_type: prohibited_transition, carries: simulated_trajectories, condition: relabel_as_observed_policy_outcomes, invalidates: information_origin_and_inferential_warrant, from_output: provenance_bound_simulation_runs, to_input: none_blocked}
+  - {id: p09.c17, from: p09.move.ground, to: p09.move.ground, connection_type: prohibited_transition, carries: calibration_targets, condition: reuse_calibration_targets_as_independent_validation_without_disclosure, invalidates: empirical_fitness_warrant, from_output: empirical_fitness_record, to_input: none_blocked}
+  - {id: p09.c18, from: p09.action.run_model, to: p09.move.compare, connection_type: retained_context, carries: run_receipts, adapter_note: run_custody_preserves_generated_origin, from_output: run_receipts, to_input: run_receipts}
+  - {id: p09.c19, from: p09.move.implement, to: p09.move.verify, connection_type: artifact_flow, carries: code_correspondence_map, preservation: preserving, from_output: code_correspondence_map, to_input: code_correspondence_map}
+  - {id: p09.c20, from: p09.move.specify, to: p09.move.verify, connection_type: retained_context, carries: complete_odd_model_specification, from_output: complete_odd_model_specification, to_input: complete_odd_model_specification}
+  - {id: p09.c21, from: p09.move.verify, to: p09.move.ground, connection_type: artifact_flow, carries: verified_build, preservation: preserving, from_output: verified_build, to_input: verified_build}
+  - {id: p09.c22, from: p09.move.verify, to: p09.move.execute, connection_type: retained_context, carries: verified_build, from_output: verified_build, to_input: verified_build}
+  - {id: p09.c23, from: p09.move.verify, to: p09.move.conclude, connection_type: retained_context, carries: verification_appraisal, from_output: verification_appraisal, to_input: verification_appraisal}
+  - {id: p09.c24, from: p09.move.ground, to: p09.move.design, connection_type: artifact_flow, carries: empirical_fitness_record, preservation: preserving, from_output: empirical_fitness_record, to_input: empirical_fitness_record}
+  - {id: p09.c25, from: p09.move.purpose, to: p09.move.design, connection_type: retained_context, carries: frozen_model_purpose_and_boundary, from_output: frozen_model_purpose_and_boundary, to_input: frozen_model_purpose_and_boundary}
+  - {id: p09.c26, from: p09.move.design, to: p09.move.execute, connection_type: artifact_flow, carries: frozen_simulation_experiment_plan, preservation: preserving, from_output: frozen_simulation_experiment_plan, to_input: frozen_simulation_experiment_plan}
+  - {id: p09.c27, from: p09.move.ground, to: p09.move.execute, connection_type: retained_context, carries: parameterized_model, from_output: parameterized_model, to_input: parameterized_model}
+  - {id: p09.c28, from: p09.move.design, to: p09.move.compare, connection_type: retained_context, carries: frozen_simulation_experiment_plan, from_output: frozen_simulation_experiment_plan, to_input: frozen_simulation_experiment_plan}
+  - {id: p09.c29, from: p09.move.design, to: p09.move.sensitivity, connection_type: artifact_flow, carries: declared_uncertainty_space, preservation: preserving, from_output: declared_uncertainty_space, to_input: declared_uncertainty_space}
+  - {id: p09.c30, from: p09.move.design, to: p09.move.sensitivity, connection_type: artifact_flow, carries: structural_variants, preservation: preserving, from_output: structural_variants, to_input: structural_variants}
+  - {id: p09.c31, from: p09.move.compare, to: p09.move.execute, connection_type: feedback, carries: replication_request, condition: monte_carlo_precision_below_the_frozen_target, from_output: replication_request, to_input: replication_request}
+  - {id: p09.c33, from: p09.move.sensitivity, to: p09.move.execute, connection_type: artifact_flow, carries: variant_run_requests, preservation: preserving, condition: declared_parameter_input_or_structural_variant_not_yet_run, from_output: variant_run_requests, to_input: variant_run_requests}
+  - {id: p09.c34, from: p09.move.execute, to: p09.move.sensitivity, connection_type: artifact_flow, carries: provenance_bound_simulation_runs, preservation: preserving, condition: runs_generated_for_variant_requests, from_output: provenance_bound_simulation_runs, to_input: variant_run_sets}
+  - {id: p09.c35, from: p09.move.compare, to: p09.move.conclude, connection_type: artifact_flow, carries: monte_carlo_precision, preservation: preserving, from_output: monte_carlo_precision, to_input: monte_carlo_precision}
+  - {id: p09.c36, from: p09.move.purpose, to: p09.move.conclude, connection_type: retained_context, carries: frozen_model_purpose_and_boundary, from_output: frozen_model_purpose_and_boundary, to_input: frozen_model_purpose_and_boundary}
+  - {id: p09.c37, from: p09.move.execute, to: p09.action.run_model, connection_type: control_gate, carries: execution_request, condition: parent_move_invokes_action, from_output: none_invocation_only, to_input: none_gate_only}
+  - {id: p09.c38, from: p09.move.verify, to: p09.action.run_model, connection_type: retained_context, carries: verified_build, from_output: verified_build, to_input: verified_build}
+  - {id: p09.c39, from: p09.move.design, to: p09.action.run_model, connection_type: retained_context, carries: frozen_simulation_experiment_plan, from_output: frozen_simulation_experiment_plan, to_input: frozen_simulation_experiment_plan}
+  - {id: p09.c40, from: p09.action.run_model, to: p09.move.execute, connection_type: artifact_flow, carries: run_receipts, preservation: preserving, from_output: run_receipts, to_input: run_receipts}
+  - {id: p09.c41, from: p09.move.verify, to: p09.action.verify_invariants, connection_type: control_gate, carries: execution_request, condition: parent_move_invokes_action, from_output: none_invocation_only, to_input: none_gate_only}
+  - {id: p09.c42, from: p09.move.implement, to: p09.action.verify_invariants, connection_type: artifact_flow, carries: versioned_executable_model, preservation: preserving, from_output: versioned_executable_model, to_input: versioned_executable_model}
+  - {id: p09.c43, from: p09.action.verify_invariants, to: p09.move.verify, connection_type: artifact_flow, carries: verification_receipts, preservation: preserving, from_output: verification_receipts, to_input: verification_receipts}
+  - {id: p09.c44, from: p09.move.ground, to: p09.move.refuse, connection_type: artifact_flow, carries: empirical_fitness_record, preservation: preserving, condition: empirical_fitness_gap_defeats_the_intended_use, from_output: empirical_fitness_record, to_input: failed_appraisal}
+  - {id: p09.c45, from: p09.move.compare, to: p09.move.refuse, connection_type: artifact_flow, carries: monte_carlo_precision, preservation: preserving, condition: frozen_precision_unreachable_within_the_declared_replication_budget, from_output: monte_carlo_precision, to_input: precision_failure}
+  - {id: p09.c46, from: p09.move.sensitivity, to: p09.move.refuse, connection_type: artifact_flow, carries: sensitivity_robustness_and_failure_boundaries, preservation: preserving, condition: decisive_assumption_nonrobust_or_unexplored, from_output: sensitivity_robustness_and_failure_boundaries, to_input: failed_appraisal}
+  - {id: p09.c47, from: p09.move.conclude, to: p09.move.refuse, connection_type: control_gate, carries: real_world_claim_request, condition: a_real_world_prediction_or_policy_effect_claim_is_requested_without_warrant, from_output: model_conditional_finding, to_input: none_gate_only}
+  - {id: p09.c48, from: p09.move.verify, to: p09.move.refuse, connection_type: artifact_flow, carries: verification_appraisal, preservation: preserving, condition: verification_cannot_pass_within_declared_revisions, from_output: verification_appraisal, to_input: failed_appraisal}
+  - {id: p09.c49, from: p09.move.compare, to: p09.move.design, connection_type: prohibited_transition, carries: observed_contrasts, condition: select_or_reshape_scenarios_after_seeing_results, invalidates: confirmatory_experiment_status, from_output: simulated_contrasts_and_trace_explanations, to_input: none_blocked}
+topology:
+  shape: cyclic
+  entry_points: [p09.move.purpose]
+  terminal_points: [p09.move.conclude, p09.move.refuse]
+  required_cycles:
+    - id: p09.cycle.replication_adequacy
+      edges: [p09.c31, p09.c10]
+      description: compare returns to execute, adding replications until the Monte Carlo precision frozen in the experiment plan is met for every declared estimand
+      loop_termination: the frozen precision target is met, or the declared replication budget is exhausted and p09.c45 routes to refusal
+      termination_authority: engine
+      termination_rule_owner: the frozen experiment plan (p09.move.design); the engine applies it and may not change it
+      source: [Kleijnen2015:ch3, RG2019:8.3]
+    - id: p09.cycle.sensitivity_runs
+      edges: [p09.c33, p09.c34]
+      description: sensitivity requests ensembles for each declared parameter, input and structural variant; execute generates them with full run provenance and returns them
+      loop_termination: every variant in declared_uncertainty_space and structural_variants has been run and analysed
+      termination_authority: either
+      termination_note: the engine judges coverage of the declared space; the simulation method lead judges robustness and whether a decisive assumption is unexplored
+      source: [RG2019:23.2, RG2019:23.3, RG2019:23.4, JRC2020:ch3, JRC2020:ch4]
+  optional_cycles:
+    - id: p09.cycle.implementation_defect
+      edges: [p09.c04, p09.c03]
+      loop_termination: verification passes, or the defect cannot be removed and p09.c48 routes to refusal
+      termination_authority: human
+      source: [RG2019:ch6]
+    - id: p09.cycle.specification_defect
+      edges: [p09.c05, p09.c02, p09.c03]
+      loop_termination: a successor specification passes verification, or p09.c48 routes to refusal
+      termination_authority: human
+      source: [RG2019:ch6, Sargent2013:computerized_model_verification]
+    - id: p09.cycle.structural_successor
+      edges: [p09.c12, p09.c02, p09.c03, p09.c21, p09.c07, p09.c26, p09.c10, p09.c11]
+      loop_termination: a successor model version is verified, grounded and re-run, or the method lead routes to refusal (p09.c46)
+      termination_authority: human
+      source: [RG2019:23.4, JRC2020:ch4]
+  prohibited_cycles:
+    - id: p09.cycle.calibration_reused_as_validation
+      edges: [p09.c17]
+      reason: calibration targets reused as validation targets are not independent corroboration
+      if_taken: disclosed_deviation; empirical_fitness_appraisal must say the targets were reused and may not claim independent validation
+    - id: p09.cycle.post_result_scenario_selection
+      edges: [p09.c49, p09.c26, p09.c10]
+      reason: choosing or reshaping scenarios after seeing their contrasts lets results define the experiment
+      if_taken: disclosed_deviation; the experiment is downgraded to exploratory and a new frozen plan is required for confirmatory contrasts
+  prohibited_edges:
+    - connection: p09.c16
+      from: p09.move.execute
+      to: p09.move.conclude
+      reason: simulated trajectories cannot be relabelled as observed policy outcomes
+      if_taken: refuse; the finding is withdrawn and restated as model-conditional
+    - connection: p09.c17
+      from: p09.move.ground
+      to: p09.move.ground
+      reason: reused calibration targets cannot count as independent validation
+      if_taken: disclosed_deviation; validation claim removed from empirical_fitness_appraisal
+    - connection: p09.c49
+      from: p09.move.compare
+      to: p09.move.design
+      reason: the experiment plan is frozen before execution
+      if_taken: disclosed_deviation; contrasts downgraded to exploratory
+  parent_action_delegations:
+    note: within-move invocation and receipt return; not method cycles
+    edges: [p09.c37, p09.c40, p09.c41, p09.c43]
