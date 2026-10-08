@@ -10,7 +10,7 @@ topology:
   shape: adaptive
   required_cycles: []
   optional_cycles:
-  - - p01.move.certainty_report
+  - - p01.move.report
     - p01.move.protocol
   prohibited_cycles:
   - - p01.move.extract
@@ -23,7 +23,7 @@ topology:
   entry_points:
   - p01.move.question
   terminal_points:
-  - p01.move.certainty_report
+  - p01.move.report
   - refusal:no_eligible_studies
   - refusal:incompatible_evidence_not_pooled
 connections:
@@ -54,10 +54,12 @@ connections:
 - id: p01.c04
   from: p01.action.deduplicate_link
   to: p01.move.link_reports
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: linked_report_clusters
   from_output: linked_report_clusters
   to_input: linked_report_clusters
+  transfer_semantics: preserving
+  note: newly_produced_action_output_entering_its_parent_move_is_artifact_flow_not_retained_context
 - id: p01.c05
   from: p01.move.search
   to: p01.move.link_reports
@@ -148,13 +150,38 @@ connections:
 - id: p01.c13
   from: p01.action.compute_pool
   to: p01.move.synthesize
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: pooled_estimate
   from_output: pooled_estimate
   to_input: pooled_estimate
+  transfer_semantics: preserving
+  note: newly_produced_action_output_entering_its_parent_move_is_artifact_flow_not_retained_context
 - id: p01.c14
   from: p01.move.synthesize
-  to: p01.move.certainty_report
+  to: p01.move.missing_evidence
+  connection_type: artifact_flow
+  carries: synthesis_findings
+  from_output: synthesis_findings
+  to_input: synthesis_findings
+  transfer_semantics: preserving
+- id: p01.c14a
+  from: p01.move.protocol
+  to: p01.move.missing_evidence
+  connection_type: retained_context
+  carries: registered_protocol
+  from_output: registered_protocol
+  to_input: registered_protocol
+  note: prespecified_outcomes_show_which_results_should_exist
+- id: p01.c14b
+  from: p01.move.extract
+  to: p01.move.missing_evidence
+  connection_type: retained_context
+  carries: study_result_dataset
+  from_output: study_result_dataset
+  to_input: study_result_dataset
+- id: p01.c14c
+  from: p01.move.synthesize
+  to: p01.move.certainty
   connection_type: artifact_flow
   carries: synthesis_findings
   from_output: synthesis_findings
@@ -162,13 +189,36 @@ connections:
   transfer_semantics: preserving
 - id: p01.c15
   from: p01.move.risk_bias
-  to: p01.move.certainty_report
+  to: p01.move.certainty
   connection_type: retained_context
   carries: risk_of_bias_judgments
   from_output: risk_of_bias_judgments
   to_input: risk_of_bias_judgments
+- id: p01.c15a
+  from: p01.move.missing_evidence
+  to: p01.move.certainty
+  connection_type: artifact_flow
+  carries: missing_evidence_judgments
+  from_output: missing_evidence_judgments
+  to_input: missing_evidence_judgments
+  transfer_semantics: preserving
+- id: p01.c15b
+  from: p01.move.certainty
+  to: p01.move.report
+  connection_type: artifact_flow
+  carries: certainty_appraisals
+  from_output: certainty_appraisals
+  to_input: certainty_appraisals
+  transfer_semantics: preserving
+- id: p01.c15c
+  from: p01.move.synthesize
+  to: p01.move.report
+  connection_type: retained_context
+  carries: synthesis_findings
+  from_output: synthesis_findings
+  to_input: synthesis_findings
 - id: p01.c16
-  from: p01.move.certainty_report
+  from: p01.move.report
   to: p01.move.protocol
   connection_type: feedback
   carries: update_trigger
@@ -181,11 +231,14 @@ connections:
   carries: result_informed_eligibility_rewrite
   consequence: amendment_must_be_declared_and_confirmatory_status_downgraded
 - id: p01.c18
-  from: p01.move.compatibility
-  to: p01.move.synthesize
+  from: p01.move.risk_bias
+  to: p01.action.compute_pool
   connection_type: prohibited_transition
-  carries: pooled_result_before_compatibility
+  carries: pooled_computation_before_compatibility
+  reason: pooled computation before compatibility judgment
+  if_taken: pooled claim unlicensed
   consequence: pooled_claim_is_unlicensed
+  note: re_anchored_on_the_bypass_route_so_the_required_compatibility_gate_c11_and_its_flows_c11a_c11b_stay_permitted
 - id: p01.c11a
   from: p01.move.compatibility
   to: p01.move.synthesize

@@ -3,7 +3,7 @@ method_id: p01
 judgments:
   - {id: p01.u01, status: known, subject: unit_of_analysis, statement: studies_not_reports_are_the_selection_and_synthesis_unit, basis: Cochrane_6_5_ch4_6, downstream_effect: report_linkage_is_required_before_eligibility}
   - {id: p01.u02, status: contested, subject: synthesis_compatibility, statement: reasonable_reviewers_may_differ_on_when_clinical_and_methodological_heterogeneity_precludes_pooling, basis: Cochrane_6_5_ch9_to_10, downstream_effect: pooling_decision_requires_rationale_and_nonpooled_path}
-  - {id: p01.u03, status: source_limited, subject: certainty_framework, statement: this_decomposition_records_certainty_qualification_without_freezing_one_full_GRADE_variant, basis: source_freeze_does_not_pin_GRADE_handbook, downstream_effect: no_collision_or_implementation_claim_for_certainty_rating_interior}
+  - {id: p01.u03, status: source_limited, subject: certainty_framework_refinements, statement: certainty_grading_itself_is_pinned_by_Cochrane_Handbook_6_5_ch14_but_GRADE_guidance_published_outside_ch14_such_as_the_GRADE_Working_Group_article_series_and_the_GRADE_handbook_on_threshold_contextualization_is_not_pinned, basis: source_freeze_pins_Handbook_ch14_not_the_GRADE_handbook_or_series, downstream_effect: p01.move.certainty_follows_ch14_only_and_no_collision_or_implementation_claim_is_made_for_GRADE_refinements_beyond_ch14}
   - {id: p01.u04, status: unknown, subject: unavailable_results, statement: the_extent_of_missing_results_cannot_be_known_from_observed_reports_alone, basis: Cochrane_6_5_ch13, downstream_effect: missing_evidence_risk_bounds_the_review_conclusion}
 negative_controls:
   - {test: report_count_is_not_study_count, expected: reject_duplicate_reports_as_independent_studies}

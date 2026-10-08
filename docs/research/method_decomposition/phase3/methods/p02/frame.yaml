@@ -16,8 +16,9 @@ exclusions:
   - noninferiority or equivalence objectives
   - per-protocol effect as the primary estimand
   - observational treatment assignment
+  - interim analyses for efficacy or futility, early stopping, group-sequential designs and sample-size re-estimation (ICH E9 sections 3.4, 4.4-4.6); the variant is a fixed-sample design
 source_freeze:
-  primary: ICH E9 (1998) sections 2-5 and ICH E9(R1) (2020) sections A.2-A.5
+  primary: ICH E9 (1998) sections 2-5 and 7.1 and ICH E9(R1) (2020) sections A.2-A.5
   corroborating: HM Treasury Magenta Book Annex A 2026, section A2.1
 source_scope_caution: ICH is a clinical-trial authority; policy-specific ethics and delivery requirements remain outside this decomposition.
 claim_boundary: Estimates the effect of randomized assignment for the frozen treatment-policy estimand; it does not establish mechanisms or transportability beyond the trial population.

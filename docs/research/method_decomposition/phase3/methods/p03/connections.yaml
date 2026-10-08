@@ -16,9 +16,12 @@ topology:
   - - p03.move.estimate
     - p03.move.design
     - p03.move.panel
+  - - p03.move.estimate
+    - p03.move.covariates
   prohibited_edges:
   - p03.c17
   - p03.c18
+  - p03.c23
   entry_points:
   - p03.move.design
   terminal_points:
@@ -43,11 +46,12 @@ connections:
 - id: p03.c03
   from: p03.action.build_panel
   to: p03.move.panel
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: panel_build_receipt
   note: receipt_attests_alignment_but_does_not_replace_outcome_records
   from_output: panel_build_receipt
   to_input: panel_build_receipt
+  transfer_semantics: preserving
 - id: p03.c04
   from: p03.move.panel
   to: p03.move.assumptions
@@ -77,13 +81,6 @@ connections:
   connection_type: control_gate
   carries: identification_appraisal
   condition: assumptions_are_defensible_enough_for_bounded_causal_estimation
-- id: p03.c08
-  from: p03.move.pretrend
-  to: p03.move.estimate
-  connection_type: retained_context
-  carries: pretrend_diagnostics
-  from_output: pretrend_diagnostics
-  to_input: pretrend_diagnostics
 - id: p03.c09
   from: p03.move.panel
   to: p03.action.compute_did
@@ -95,11 +92,12 @@ connections:
 - id: p03.c10
   from: p03.action.compute_did
   to: p03.move.estimate
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: estimate_receipt
   note: computation_does_not_accept_identifying_assumptions
   from_output: estimate_receipt
   to_input: estimate_receipt
+  transfer_semantics: preserving
 - id: p03.c11
   from: p03.move.estimate
   to: p03.move.sensitivity
@@ -147,10 +145,21 @@ connections:
   creates_successor_version: true
 - id: p03.c17
   from: p03.move.pretrend
-  to: p03.move.assumptions
+  to: p03.move.estimate
   connection_type: prohibited_transition
-  carries: nonrejection_as_proof_of_parallel_trends
+  carries: pretrend_nonrejection_used_as_estimation_licence
+  reason: pretrend diagnostics may reach estimation only through the identification appraisal and its gate c07; a direct route treats nonrejection as proof of parallel trends
+  if_taken: causal warrant invalid; result reported as descriptive comparative change
   consequence: causal_warrant_is_invalid
+- id: p03.c17a
+  from: p03.move.pretrend
+  to: p03.move.assumptions
+  connection_type: artifact_flow
+  carries: pretrend_diagnostics
+  from_output: pretrend_diagnostics
+  to_input: pretrend_diagnostics
+  transfer_semantics: preserving
+  note: diagnostics_inform_the_appraisal_whose_refusal_pretrend_similarity_alone_never_proves_identification_blocks_nonrejection_as_proof
 - id: p03.c18
   from: p03.move.estimate
   to: p03.move.design
@@ -179,3 +188,47 @@ connections:
   carries: analysis_panel
   from_output: analysis_panel
   to_input: analysis_panel
+- id: p03.c19
+  from: p03.move.design
+  to: p03.move.covariates
+  connection_type: retained_context
+  carries: frozen_did_design
+  from_output: frozen_did_design
+  to_input: frozen_did_design
+- id: p03.c20
+  from: p03.action.balance_table
+  to: p03.move.covariates
+  connection_type: artifact_flow
+  carries: covariate_balance
+  from_output: covariate_balance
+  to_input: covariate_balance
+  transfer_semantics: preserving
+- id: p03.c21
+  from: p03.move.covariates
+  to: p03.move.assumptions
+  connection_type: artifact_flow
+  carries: conditioning_specification
+  from_output: conditioning_specification
+  to_input: conditioning_specification
+  transfer_semantics: preserving
+- id: p03.c22
+  from: p03.move.covariates
+  to: p03.move.estimate
+  connection_type: retained_context
+  carries: conditioning_specification
+  from_output: conditioning_specification
+  to_input: conditioning_specification
+- id: p03.c22a
+  from: p03.move.comparison
+  to: p03.move.covariates
+  connection_type: control_gate
+  carries: comparison_group_justification
+  condition: a_defensible_comparison_group_is_selected_before_conditioning_covariates_are_specified
+- id: p03.c23
+  from: p03.move.estimate
+  to: p03.move.covariates
+  connection_type: prohibited_transition
+  carries: result_driven_covariate_change
+  reason: changing conditioning covariates or the parallel-trends form after seeing the effect estimate makes the specification result-driven
+  if_taken: disclosed deviation; successor analysis labelled exploratory
+  consequence: successor_analysis_must_be_labeled_exploratory

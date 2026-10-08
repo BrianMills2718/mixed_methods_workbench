@@ -15,7 +15,7 @@ exclusions:
   - marginal net-effect interpretation
   - treating software defaults as substantive calibration or remainder authority
 source_freeze:
-  primary: Schneider and Wagemann 2012, chapters 2-9 and 11
+  primary: Schneider and Wagemann 2012, chapters 1-9 (titles verified 2026-10-08; chapters 10-12 not pinned, see p04.u05)
   corroborating: Ragin 2008, chapters 1-9
 source_scope_caution: Software executes set operations but cannot own calibration anchors, contradiction resolution, or counterfactual remainder judgments.
 claim_boundary: Identifies bounded necessary or sufficient configurations and equifinality; it does not estimate marginal effects or establish within-case temporal mechanisms.

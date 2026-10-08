@@ -14,6 +14,17 @@ topology:
     - p04.move.calibrate
   - - p04.move.return_cases
     - p04.move.truth_table
+  - - p04.move.return_cases
+    - p04.move.conditions
+  - - p04.move.resolve_contradictions
+    - p04.move.calibrate
+  - - p04.move.resolve_contradictions
+    - p04.move.conditions
+  - - p04.move.resolve_contradictions
+    - p04.move.population
+  - - p04.move.truth_table
+    - p04.move.calibrate
+  cycle_note: The back-and-forth between ideas and evidence (Ragin 2008; Schneider and Wagemann 2012) is modelled as optional feedback cycles rather than a required_cycle. Each loop is triggered by a specific observed condition (a contradictory row, an empty or invalid row, a deviant or borderline case); a first pass that produces none of these conditions is a valid fsQCA run in this variant. Every feedback edge creates a successor version and a human ends the loop, so revision stays auditable and is never a silent rewrite (compare prohibited p04.c21).
   prohibited_cycles:
   - - p04.move.conclude
     - p04.move.conditions
@@ -50,18 +61,20 @@ connections:
 - id: p04.c03
   from: p04.move.anchors
   to: p04.action.transform_membership
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: calibration_plan
   from_output: calibration_plan
   to_input: calibration_plan
+  transfer_semantics: preserving
 - id: p04.c04
   from: p04.action.transform_membership
   to: p04.move.calibrate
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: calibration_receipt
   note: computation_receipt_does_not_own_membership_judgment
   from_output: calibration_receipt
   to_input: calibration_receipt
+  transfer_semantics: preserving
 - id: p04.c05
   from: p04.move.anchors
   to: p04.move.calibrate
@@ -113,18 +126,20 @@ connections:
 - id: p04.c10
   from: p04.move.remainders
   to: p04.action.minimize
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: remainder_policy
   from_output: remainder_policy
   to_input: remainder_policy
+  transfer_semantics: preserving
 - id: p04.c11
   from: p04.action.minimize
   to: p04.move.sufficiency
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: minimization_receipt
   note: software_output_does_not_authorize_counterfactuals_or_interpretation
   from_output: minimization_receipt
   to_input: minimization_receipt
+  transfer_semantics: preserving
 - id: p04.c12
   from: p04.move.remainders
   to: p04.move.sufficiency
@@ -155,6 +170,8 @@ connections:
   carries: calibration_revision_request
   condition: borderline_or_deviant_case_exposes_misfit
   creates_successor_version: true
+  loop_termination: the_revised_calibration_resolves_the_case_misfit_or_the_misfit_is_recorded_as_unresolved
+  termination_authority: human
 - id: p04.c16
   from: p04.move.return_cases
   to: p04.move.truth_table
@@ -162,6 +179,62 @@ connections:
   carries: contradiction_or_model_revision_request
   condition: case_interpretation_exposes_model_misfit
   creates_successor_version: true
+  loop_termination: the_revised_truth_table_resolves_the_model_misfit_or_the_misfit_is_recorded_as_unresolved
+  termination_authority: human
+- id: p04.c15a
+  from: p04.move.return_cases
+  to: p04.move.conditions
+  connection_type: feedback
+  carries: concept_revision_request
+  condition: case_knowledge_shows_a_condition_or_outcome_concept_is_misspecified
+  creates_successor_version: true
+  loop_termination: the_successor_concept_set_is_recalibrated_and_reanalysed_or_the_misspecification_is_recorded_as_unresolved
+  termination_authority: human
+  note: permitted_successor_revision_from_case_evidence_distinct_from_prohibited_p04.c21_which_rewrites_conditions_from_the_conclusion_without_a_successor_version
+- id: p04.c16a
+  from: p04.move.resolve_contradictions
+  to: p04.move.calibrate
+  connection_type: feedback
+  carries: contradiction_driven_recalibration_request
+  condition: a_contradictory_row_traces_to_a_membership_score_near_the_crossover
+  creates_successor_version: true
+  loop_termination: the_row_is_no_longer_contradictory_under_the_documented_recalibration_or_the_contradiction_is_recorded_as_unresolved
+  termination_authority: human
+- id: p04.c16b
+  from: p04.move.resolve_contradictions
+  to: p04.move.conditions
+  connection_type: feedback
+  carries: contradiction_driven_condition_revision_request
+  condition: a_contradiction_indicates_an_omitted_or_misspecified_condition
+  creates_successor_version: true
+  loop_termination: the_successor_model_resolves_the_contradiction_or_it_is_recorded_as_unresolved
+  termination_authority: human
+- id: p04.c16c
+  from: p04.move.resolve_contradictions
+  to: p04.move.population
+  connection_type: feedback
+  carries: contradiction_driven_population_revision_request
+  condition: a_contradictory_case_falls_outside_the_substantive_scope_of_the_population
+  creates_successor_version: true
+  loop_termination: the_successor_population_is_reanalysed_or_the_scope_question_is_recorded_as_unresolved
+  termination_authority: human
+- id: p04.c16d
+  from: p04.move.truth_table
+  to: p04.move.calibrate
+  connection_type: feedback
+  carries: invalid_row_recalibration_request
+  condition: rows_are_invalid_or_empty_because_of_calibration_errors
+  creates_successor_version: true
+  loop_termination: the_successor_truth_table_has_no_invalid_rows_from_calibration_error
+  termination_authority: human
+- id: p04.c17a
+  from: p04.move.necessity
+  to: p04.move.remainders
+  connection_type: retained_context
+  carries: necessity_results
+  from_output: necessity_results
+  to_input: necessity_results
+  note: necessity_analysis_precedes_remainder_governance_so_untenable_assumptions_contradicting_necessary_conditions_can_be_barred
 - id: p04.c17
   from: p04.move.necessity
   to: p04.move.conclude

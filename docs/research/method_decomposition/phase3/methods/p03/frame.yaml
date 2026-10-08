@@ -15,7 +15,7 @@ exclusions:
   - interrupted time series without a comparison group
   - causal claims when anticipation or parallel-trends assumptions are not defensible
 source_freeze:
-  primary: Baker et al. 2026, Difference-in-Differences Designs, sections 2-5 and simple-design guidance
+  primary: Baker et al. 2026, Difference-in-Differences Designs, JEL 64(2) 498-557, in-scope sections 3.1-3.3, 4.1-4.5, 5.1 (5.1.1-5.1.4), 6 and Appendix A.5, using the section numbering of arXiv 2503.13323v3 (see sources.md and p03.u06); excluded sections 5.2 (staggered adoption), 5.3 (limitations of TWFE regressions) and Appendix A.1-A.4
   corroborating: HM Treasury Magenta Book Annex A 2026, section A2.7
 source_scope_caution: The guide organizes broader DiD designs; only the declared non-staggered variant is in scope.
 claim_boundary: Estimates a comparative-trend policy effect conditional on no anticipation, stable composition, and a defensible untreated potential-outcome trend.
