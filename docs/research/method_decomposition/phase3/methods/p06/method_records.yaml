@@ -1,18 +1,40 @@
 schema_version: phase3-method-records-0.1
 method_id: p06
 variant: cross-sectional probability-sample prevalence survey
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Added controlled verbs (spec section 6) and named, typed input/output slots (spec section 5.1); split joined
+      outputs (raw responses vs paradata, processed responses vs quality report, weighted dataset vs nonresponse
+      bias appraisal, prevalence estimate vs error account); split the OMB 1.4 pretest out of the design move;
+      added a refuse record; re-anchored OMB and Groves citations to sections that exist (see frame.yaml
+      post_freeze_corrections); execution actions now carry no method-owned rule.
+  - verb_note: >-
+      p06.move.select and p06.action.draw_sample use `construct` (the sample is constructed from the frame by the
+      frozen probability mechanism). A `sample` verb was considered; it was not added because spec section 6
+      requires a verb_additions.md entry, which lies outside this lane's exclusive paths, and `construct` keeps
+      the method-owned meaning in method_owned_rule rather than in the verb.
+  - slot_note: >-
+      Inputs that receive an execution receipt from a child action use role `context`; spec section 5.1 offers
+      `trace` only as an output role. Inputs with `external_origin` come from outside the method and state their
+      origin; every other input is bound by a connection in connections.yaml.
 phases:
   - {phase_id: p06.phase.design, level: method_phase, label: define and design, operation_kinds: [analytic, methodological_support], collision_participation: none}
-  - {phase_id: p06.phase.collect, level: method_phase, label: select and collect, operation_kinds: [analytic, methodological_support, runtime_delivery], collision_participation: none}
-  - {phase_id: p06.phase.estimate, level: method_phase, label: adjust estimate and report, operation_kinds: [analytic, methodological_support], collision_participation: none}
+  - {phase_id: p06.phase.collect, level: method_phase, label: select and collect, operation_kinds: [analytic, methodological_support], collision_participation: none}
+  - {phase_id: p06.phase.estimate, level: method_phase, label: adjust estimate report or refuse, operation_kinds: [analytic, methodological_support], collision_participation: none}
 moves:
   - record_id: p06.move.define
     level: analytical_move
     parent_phase: p06.phase.design
     label: define construct population reference period and estimand
+    verb: define
     operation_kind: analytic
-    inputs: [policy_measurement_question, population_definition]
-    output: frozen_survey_estimand
+    inputs:
+      - {slot: policy_measurement_question, type: concept, role: subject, cardinality: one, optional: false, external_origin: interpreted (sponsor question)}
+      - {slot: population_definition, type: concept, role: context, cardinality: one, optional: false, external_origin: interpreted (sponsor and method lead)}
+    outputs:
+      - {slot: frozen_survey_estimand, type: estimand, role: result, cardinality: one, optional: false}
     information_origin: [interpreted]
     source_authority_or_inferential_role: OMB_2006_sections_1.1_1.2
     applicability_boundary: declared_construct_population_and_period
@@ -27,15 +49,20 @@ moves:
     decision_authority: none
     implementation_evidence: methodology_reference_only
     source_basis: OMB_2006_1.1_1.2;Groves_2009_ch2
-    exact_anchors: [frame:p06:source_freeze, OMB:1.1, OMB:1.2]
+    exact_anchors: [frame:p06:source_freeze, OMB:1.1, OMB:1.2, Groves:2.2]
     guards: {temporal: freeze_before_questionnaire_and_sample_selection, access: aggregate_design_information_only, run_version: estimand_version_immutable_for_release}
   - record_id: p06.move.frame
     level: analytical_move
     parent_phase: p06.phase.design
     label: construct and assess sampling frame
+    verb: construct
     operation_kind: analytic
-    inputs: [frozen_survey_estimand, frame_sources]
-    output: frame_coverage_assessment
+    inputs:
+      - {slot: frame_sources, type: dataset, role: subject, cardinality: many, optional: false, external_origin: observed (administrative or list sources held by the survey organization)}
+      - {slot: frozen_survey_estimand, type: estimand, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: frame_snapshot, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: frame_coverage_assessment, type: appraisal, role: result, cardinality: one, optional: false}
     information_origin: [observed, derived]
     source_authority_or_inferential_role: OMB_2006_section_2.1
     applicability_boundary: enumerated_frame_population
@@ -55,15 +82,21 @@ moves:
   - record_id: p06.move.design
     level: analytical_move
     parent_phase: p06.phase.design
-    label: freeze probability design instrument and error plan
+    label: design probability sample instrument and response protocol
+    verb: construct
     operation_kind: methodological_support
-    inputs: [frozen_survey_estimand, frame_coverage_assessment]
-    output: frozen_survey_design
+    inputs:
+      - {slot: frame_coverage_assessment, type: appraisal, role: subject, cardinality: one, optional: false}
+      - {slot: frozen_survey_estimand, type: estimand, role: criteria, cardinality: one, optional: false}
+      - {slot: pretest_appraisal, type: appraisal, role: prior, cardinality: optional_one, optional: true}
+      - {slot: prior_wave_revision_need, type: appraisal, role: prior, cardinality: optional_one, optional: true}
+    outputs:
+      - {slot: survey_design, type: design_parameters, role: result, cardinality: one, optional: false}
     information_origin: [interpreted, derived]
-    source_authority_or_inferential_role: OMB_2006_sections_1.2_1.4
+    source_authority_or_inferential_role: OMB_2006_sections_1.2_1.3
     applicability_boundary: selected_design_and_collection_mode
-    method_owned_rule: every sampled unit has a known nonzero selection probability and the instrument is pretested
-    permitted_conclusion: selection collection and analysis may proceed under a prespecified design
+    method_owned_rule: every sampled unit has a known nonzero selection probability and the response protocol is designed to achieve the highest practical response rate
+    permitted_conclusion: a candidate design exists that pretesting can examine; it is frozen only when the pretest gate passes
     refusal_or_qualification: redesign_if_selection_probabilities_or_measurement_are_not_defensible
     performer: survey_design_team
     judgment_owner: survey_method_lead
@@ -72,16 +105,48 @@ moves:
     value_goal_authority: policy_sponsor
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_1.2_1.4
-    exact_anchors: [OMB:1.2, OMB:1.4]
-    guards: {temporal: pretest_and_freeze_before_main_collection, access: no_response_data_before_design_freeze, run_version: amendments_create_dated_successors}
+    source_basis: OMB_2006_1.2_1.3;Groves_2009_ch4_ch5_ch7
+    exact_anchors: [OMB:1.2, OMB:1.3, Groves:ch4, Groves:ch5, Groves:ch7]
+    guards: {temporal: each_design_version_precedes_its_pretest_and_no_main_collection_before_freeze, access: no_response_data_before_design_freeze, run_version: every_pretest_revision_creates_a_dated_design_version}
+  - record_id: p06.move.pretest
+    level: analytical_move
+    parent_phase: p06.phase.design
+    label: pretest instrument and collection procedures
+    verb: test
+    operation_kind: methodological_support
+    inputs:
+      - {slot: survey_design, type: design_parameters, role: subject, cardinality: one, optional: false}
+      - {slot: pretest_cases, type: dataset, role: context, cardinality: many, optional: false, external_origin: reported and observed (pretest respondents outside the main sample)}
+    outputs:
+      - {slot: pretest_appraisal, type: appraisal, role: result, cardinality: one, optional: false}
+    information_origin: [reported, observed, interpreted]
+    source_authority_or_inferential_role: OMB_2006_section_1.4
+    applicability_boundary: tested_instrument_version_mode_and_procedures
+    method_owned_rule: components of the survey system are pretested and revised until they function as intended before main collection
+    permitted_conclusion: this design version functions as intended or the named defects require a revised version
+    refusal_or_qualification: return_to_design_until_pretest_passes_or_refuse_collection
+    performer: survey_design_team
+    judgment_owner: survey_method_lead
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_1.4;Groves_2009_ch8
+    exact_anchors: [OMB:1.4, Groves:8.5, Groves:ch8]
+    guards: {temporal: pretest_precedes_design_freeze_and_main_collection, access: pretest_cases_kept_out_of_main_sample, run_version: pretest_appraisal_binds_design_version}
   - record_id: p06.move.select
     level: analytical_move
     parent_phase: p06.phase.collect
     label: select probability sample and retain inclusion probabilities
+    verb: construct
     operation_kind: analytic
-    inputs: [frozen_survey_design, frame_snapshot]
-    output: selected_sample_with_base_weights
+    inputs:
+      - {slot: frame_snapshot, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: survey_design, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: selection_receipt, type: case_set, role: context, cardinality: one, optional: false}
+    outputs:
+      - {slot: selected_sample_with_base_weights, type: case_set, role: result, cardinality: one, optional: false}
     information_origin: [derived]
     source_authority_or_inferential_role: probability_sampling_design
     applicability_boundary: frozen_frame_and_randomization_receipt
@@ -95,16 +160,22 @@ moves:
     value_goal_authority: none
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_1.2_2.1;Groves_2009_ch5
-    exact_anchors: [OMB:1.2, OMB:2.1, Groves:ch5]
-    guards: {temporal: after_frame_freeze_before_contact, access: sample_identifiers_restricted, run_version: seed_frame_and_selection_receipt_bound}
+    source_basis: OMB_2006_1.2_2.1;Groves_2009_ch4
+    exact_anchors: [OMB:1.2, OMB:2.1, Groves:ch4]
+    guards: {temporal: after_frame_and_design_freeze_before_contact, access: sample_identifiers_restricted, run_version: seed_frame_and_selection_receipt_bound}
   - record_id: p06.move.collect
     level: analytical_move
     parent_phase: p06.phase.collect
     label: collect responses and paradata under the frozen protocol
+    verb: acquire
     operation_kind: analytic
-    inputs: [selected_sample_with_base_weights, frozen_survey_design]
-    output: raw_response_and_paradata_set
+    inputs:
+      - {slot: selected_sample_with_base_weights, type: case_set, role: subject, cardinality: one, optional: false}
+      - {slot: survey_design, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: followup_dispositions, type: dataset, role: prior, cardinality: optional_one, optional: true}
+    outputs:
+      - {slot: raw_response_set, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: paradata_and_dispositions, type: dataset, role: byproduct, cardinality: one, optional: false}
     information_origin: [reported, observed]
     source_authority_or_inferential_role: respondent_reports_under_standardized_collection
     applicability_boundary: declared_mode_questions_and_reference_period
@@ -118,16 +189,22 @@ moves:
     value_goal_authority: none
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_2.2_2.3
-    exact_anchors: [OMB:2.2, OMB:2.3]
+    source_basis: OMB_2006_1.3_2.2_2.3;Groves_2009_ch5_ch6
+    exact_anchors: [OMB:1.3, OMB:2.2, OMB:2.3, Groves:ch5, Groves:6.6]
     guards: {temporal: collection_window_and_reference_period_enforced, access: respondent_data_need_to_know, run_version: collection_protocol_and_dispositions_bound}
   - record_id: p06.move.process
     level: analytical_move
     parent_phase: p06.phase.collect
     label: edit code and evaluate response quality
+    verb: code
     operation_kind: methodological_support
-    inputs: [raw_response_and_paradata_set, frozen_survey_design]
-    output: processed_response_set_and_quality_report
+    inputs:
+      - {slot: raw_response_set, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: paradata_and_dispositions, type: dataset, role: context, cardinality: one, optional: false}
+      - {slot: survey_design, type: design_parameters, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: processed_response_set, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: processing_quality_report, type: appraisal, role: byproduct, cardinality: one, optional: false}
     information_origin: [reported, observed, derived]
     source_authority_or_inferential_role: OMB_2006_sections_3.1_3.5
     applicability_boundary: declared_edit_coding_and_response_rules
@@ -141,16 +218,22 @@ moves:
     value_goal_authority: none
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_3.1_3.5
-    exact_anchors: [OMB:3.1, OMB:3.2, OMB:3.3, OMB:3.5]
-    guards: {temporal: processing_rules_precede_final_estimation, access: protected_microdata_only, run_version: every_edit_and_imputation_version_retained}
+    source_basis: OMB_2006_3.1_3.5;Groves_2009_ch10
+    exact_anchors: [OMB:3.1, OMB:3.2, OMB:3.3, OMB:3.4, OMB:3.5, Groves:10.2, Groves:10.4]
+    guards: {temporal: processing_rules_precede_final_estimation, access: protected_microdata_only_under_OMB_3.4, run_version: every_edit_and_imputation_version_retained}
   - record_id: p06.move.adjust
     level: analytical_move
     parent_phase: p06.phase.estimate
     label: assess nonresponse and derive final weights
+    verb: calibrate
     operation_kind: analytic
-    inputs: [processed_response_set_and_quality_report, selected_sample_with_base_weights]
-    output: weighted_analysis_dataset_and_bias_assessment
+    inputs:
+      - {slot: processed_response_set, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: selected_sample_with_base_weights, type: case_set, role: context, cardinality: one, optional: false}
+      - {slot: auxiliary_population_totals, type: dataset, role: context, cardinality: optional_many, optional: true, external_origin: observed or reported (external population controls with their own source and date)}
+    outputs:
+      - {slot: weighted_analysis_dataset, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: nonresponse_bias_assessment, type: appraisal, role: byproduct, cardinality: one, optional: false}
     information_origin: [derived]
     source_authority_or_inferential_role: design_based_adjustment_with_declared_auxiliary_information
     applicability_boundary: adjustment_cells_models_and_available_auxiliaries
@@ -164,16 +247,23 @@ moves:
     value_goal_authority: none
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_3.2_4.1;Groves_2009_ch6
-    exact_anchors: [OMB:3.2, OMB:4.1, Groves:ch6]
+    source_basis: OMB_2006_3.2_4.1;Groves_2009_ch6_10.5
+    exact_anchors: [OMB:3.2, OMB:4.1, Groves:ch6, Groves:10.5]
     guards: {temporal: response_dispositions_frozen_before_final_adjustment, access: auxiliary_linkage_restricted, run_version: weights_bind_sample_response_and_model_versions}
   - record_id: p06.move.estimate
     level: analytical_move
     parent_phase: p06.phase.estimate
     label: estimate prevalence and design-based uncertainty
+    verb: estimate
     operation_kind: analytic
-    inputs: [weighted_analysis_dataset_and_bias_assessment, frozen_survey_estimand]
-    output: prevalence_estimate_and_error_account
+    inputs:
+      - {slot: weighted_analysis_dataset, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: frozen_survey_estimand, type: estimand, role: criteria, cardinality: one, optional: false}
+      - {slot: survey_design, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: estimate_receipt, type: estimate, role: context, cardinality: one, optional: false}
+    outputs:
+      - {slot: prevalence_estimate, type: estimate, role: result, cardinality: one, optional: false}
+      - {slot: error_account, type: uncertainty_note, role: result, cardinality: one, optional: false}
     information_origin: [derived]
     source_authority_or_inferential_role: probability_design_and_variance_estimator
     applicability_boundary: covered_population_construct_period_and_design
@@ -187,18 +277,26 @@ moves:
     value_goal_authority: none
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_4.1_4.3
-    exact_anchors: [OMB:4.1, OMB:4.2, OMB:4.3]
+    source_basis: OMB_2006_4.1_5.2;Groves_2009_10.7
+    exact_anchors: [OMB:4.1, OMB:5.2, Groves:10.7]
     guards: {temporal: after_weight_freeze, access: approved_analysis_view, run_version: estimate_binds_data_weights_code_and_variance_method}
   - record_id: p06.move.report
     level: analytical_move
     parent_phase: p06.phase.estimate
     label: review release and document prevalence
+    verb: review
     operation_kind: methodological_support
-    inputs: [prevalence_estimate_and_error_account, processed_response_set_and_quality_report]
-    output: auditable_survey_release
+    inputs:
+      - {slot: prevalence_estimate, type: estimate, role: subject, cardinality: one, optional: false}
+      - {slot: error_account, type: uncertainty_note, role: context, cardinality: one, optional: false}
+      - {slot: processing_quality_report, type: appraisal, role: context, cardinality: one, optional: false}
+      - {slot: nonresponse_bias_assessment, type: appraisal, role: context, cardinality: one, optional: false}
+      - {slot: frame_coverage_assessment, type: appraisal, role: context, cardinality: one, optional: false}
+    outputs:
+      - {slot: auditable_survey_release, type: finding, role: result, cardinality: one, optional: false}
+      - {slot: documented_revision_need, type: appraisal, role: byproduct, cardinality: optional_one, optional: true}
     information_origin: [derived, interpreted]
-    source_authority_or_inferential_role: OMB_2006_sections_4.3_5.3
+    source_authority_or_inferential_role: OMB_2006_sections_5.1_6.1_7.1_7.3
     applicability_boundary: release_population_period_and_revision
     method_owned_rule: uncertainty coverage nonresponse measurement and processing limits accompany the estimate
     permitted_conclusion: users can interpret the prevalence within its declared scope
@@ -210,9 +308,90 @@ moves:
     value_goal_authority: none
     decision_authority: none
     implementation_evidence: methodology_reference_only
-    source_basis: OMB_2006_4.3_5.3
-    exact_anchors: [OMB:4.3, OMB:4.4, OMB:5.1, OMB:5.3]
-    guards: {temporal: independent_review_before_release, access: disclosure_review_required, run_version: releases_are_immutable_and_corrections_are_successors}
+    source_basis: OMB_2006_5.1_6.1_7.1_7.2_7.3;Groves_2009_10.8
+    exact_anchors: [OMB:5.1, OMB:6.1, OMB:7.1, OMB:7.2, OMB:7.3, Groves:10.8]
+    guards: {temporal: independent_review_before_release, access: disclosure_review_required_under_OMB_7.2, run_version: releases_are_immutable_and_corrections_are_successors}
+  - record_id: p06.move.refuse
+    level: analytical_move
+    parent_phase: p06.phase.estimate
+    label: refuse or withhold population prevalence
+    verb: refuse
+    operation_kind: analytic
+    inputs:
+      - {slot: failed_appraisal, type: appraisal, role: subject, cardinality: many, optional: false}
+      - {slot: error_account, type: uncertainty_note, role: context, cardinality: optional_one, optional: true}
+    outputs:
+      - {slot: refusal_record, type: finding, role: result, cardinality: one, optional: false}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: uncertainty_stopping_rule_applied_to_OMB_error_requirements
+    applicability_boundary: the_exact_design_frame_and_response_conditions_that_failed
+    method_owned_rule: a prevalence is not released as a population estimate when coverage, nonresponse, or variance cannot be bounded or reconstructed
+    permitted_conclusion: no population prevalence is licensed for this survey version, for the named reasons
+    refusal_or_qualification: this_record_is_the_refusal_terminal
+    performer: survey_method_lead
+    judgment_owner: survey_method_lead
+    acceptance_authority: statistical_release_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: OMB_2006_3.2_4.1_7.1;uncertainty.yaml_stopping_rule
+    exact_anchors: [OMB:3.2, OMB:4.1, OMB:7.1, uncertainty:p06:stopping_rule]
+    guards: {temporal: replaces_release_for_this_version, access: refusal_reasons_released_without_disclosive_detail, run_version: refusal_binds_failed_appraisal_versions}
 actions:
-  - {record_id: p06.action.draw_sample, level: execution_action, parent_move: p06.move.select, label: execute seeded probability selection, operation_kind: analytic, inputs: [frame_snapshot, frozen_survey_design], output: selection_receipt, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution, applicability_boundary: frozen_frame_and_design, method_owned_rule: selection_algorithm_matches_design, permitted_conclusion: numerical_selection_only, refusal_or_qualification: execution_failure_blocks_selection, performer: deterministic_sampling_engine, judgment_owner: none, acceptance_authority: survey_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: OMB_2006_1.2, exact_anchors: [OMB:1.2], guards: {temporal: after_design_freeze, access: frame_access_restricted, run_version: seed_and_inputs_bound}}
-  - {record_id: p06.action.compute_variance, level: execution_action, parent_move: p06.move.estimate, label: execute complex-design estimator, operation_kind: analytic, inputs: [weighted_analysis_dataset_and_bias_assessment], output: estimate_receipt, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution, applicability_boundary: frozen_analysis_design, method_owned_rule: variance_method_matches_sample_design, permitted_conclusion: numerical_estimate_only, refusal_or_qualification: invalid_design_metadata_blocks_output, performer: deterministic_statistics_engine, judgment_owner: none, acceptance_authority: survey_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: OMB_2006_4.1_4.2, exact_anchors: [OMB:4.1, OMB:4.2], guards: {temporal: after_weight_freeze, access: approved_analysis_view, run_version: receipt_binds_inputs_code_and_environment}}
+  - record_id: p06.action.draw_sample
+    level: execution_action
+    parent_move: p06.move.select
+    label: execute seeded probability selection
+    verb: construct
+    operation_kind: methodological_support
+    operation_kind_note: OMB 1.2 requires selection by a probability mechanism; executing it produces no claim of its own, so it is methodological_support rather than runtime_delivery (spec 5.0a rule 4)
+    inputs:
+      - {slot: frame_snapshot, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: survey_design, type: design_parameters, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: selection_receipt, type: case_set, role: trace, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: parent_move_execution
+    applicability_boundary: frozen_frame_and_design
+    method_owned_rule: none
+    permitted_conclusion: numerical_selection_only
+    refusal_or_qualification: execution_failure_blocks_selection
+    performer: deterministic_sampling_engine
+    judgment_owner: none
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: OMB_2006_1.2
+    exact_anchors: [OMB:1.2]
+    guards: {temporal: after_design_freeze, access: frame_access_restricted, run_version: seed_and_inputs_bound}
+  - record_id: p06.action.compute_variance
+    level: execution_action
+    parent_move: p06.move.estimate
+    label: execute complex-design estimator
+    verb: estimate
+    operation_kind: methodological_support
+    operation_kind_note: OMB 4.1 requires error estimates to be calculated; the computation itself licenses no claim, so it is methodological_support rather than runtime_delivery (spec 5.0a rule 4)
+    inputs:
+      - {slot: weighted_analysis_dataset, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: survey_design, type: design_parameters, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: estimate_receipt, type: estimate, role: trace, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: parent_move_execution
+    applicability_boundary: frozen_analysis_design
+    method_owned_rule: none
+    permitted_conclusion: numerical_estimate_only
+    refusal_or_qualification: invalid_design_metadata_blocks_output
+    performer: deterministic_statistics_engine
+    judgment_owner: none
+    acceptance_authority: survey_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: OMB_2006_4.1;Groves_2009_10.7
+    exact_anchors: [OMB:4.1, Groves:10.7]
+    guards: {temporal: after_weight_freeze, access: approved_analysis_view, run_version: receipt_binds_inputs_code_and_environment}

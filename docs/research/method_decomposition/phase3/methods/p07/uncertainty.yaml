@@ -1,9 +1,48 @@
 schema_version: phase3-uncertainty-0.1
 method_id: p07
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Added an unknown item (p07.u06) for the unobservable shift between the labelled sample's class
+      distribution and the target corpus. Restated p07.u04 as known: the quantification literature agrees that
+      classify-and-count can be biased under prior-probability shift (Moreo and Sebastiani 2019; Esuli et al. 2023 ch. 4); the
+      corpus-specific magnitude sits under p07.u06. Every item names the records it gates.
 items:
-  - {id: p07.u01, status: contested, topic: construct_validity, account: human coding operationalizes but does not prove the intended construct, downstream_effect: limits_interpretation_even_when_accuracy_is_high}
-  - {id: p07.u02, status: known, topic: heldout_label_reproduction, account: measured on frozen document-grouped holdout, downstream_effect: licenses_only_protocol_reproduction_claim}
-  - {id: p07.u03, status: source_limited, topic: domain_transport, account: language and label relationships may shift outside the bounded corpus, downstream_effect: new_domain_requires_new_validation}
-  - {id: p07.u04, status: contested, topic: prevalence_bias, account: individual classification metrics may not bound aggregate prevalence error, downstream_effect: requires_quantification_specific_evaluation_or_qualification}
-  - {id: p07.u05, status: known, topic: causal_scope, account: measured textual prevalence is not a treatment effect or mechanism, downstream_effect: causal_transition_is_prohibited}
-stopping_rule: stop when target labels lack defensible meaning, grouped holdout is contaminated, or prevalence error cannot be bounded for the intended corpus claim
+  - id: p07.u01
+    status: contested
+    topic: construct_validity
+    account: human coding operationalizes but does not prove the intended construct; what the construct includes is partly normative and substantive authorities can define it differently
+    affects: [p07.move.operationalize, p07.move.interpret]
+    downstream_effect: p07.move.operationalize must name the construct authority it follows; p07.move.interpret limits the finding to that definition even when accuracy is high
+  - id: p07.u02
+    status: known
+    topic: heldout_label_reproduction
+    account: measured on the frozen document-grouped holdout
+    affects: [p07.move.validate, p07.move.interpret]
+    downstream_effect: p07.move.validate licenses only a protocol-reproduction claim; p07.move.interpret may not restate it as construct validity
+  - id: p07.u03
+    status: source_limited
+    topic: domain_transport
+    account: language and label relationships may shift outside the bounded corpus, and the frozen sources give no rule for when transport holds
+    affects: [p07.move.interpret]
+    downstream_effect: p07.move.interpret confines the finding to the bounded corpus; a new domain requires a new validation version
+  - id: p07.u04
+    status: known
+    topic: classify_and_count_bias_mechanism
+    account: individual classification accuracy does not bound aggregate prevalence error; classify-and-count is biased when class prevalence differs between labelled and target data
+    affects: [p07.move.validate, p07.move.quantify]
+    downstream_effect: p07.move.validate must evaluate prevalence error directly; p07.move.quantify may not use classify-and-count without that justification
+  - id: p07.u06
+    status: unknown
+    topic: corpus_label_shift_magnitude
+    account: in the unlabelled target corpus, the gap between the labelled sample's class distribution and the corpus's (prior-probability or dataset shift) cannot be observed before estimation
+    affects: [p07.move.quantify, p07.move.interpret]
+    downstream_effect: gates p07.move.quantify, which must use a shift-aware estimator and report prevalence_uncertainty that includes it; if the error cannot be bounded for the corpus claim, p07.c38 routes to p07.move.refuse
+  - id: p07.u05
+    status: known
+    topic: causal_scope
+    account: measured textual prevalence is not a treatment effect or mechanism
+    affects: [p07.move.interpret, p07.move.refuse]
+    downstream_effect: the exit p07.c12 is prohibited; p07.c40 routes any causal request to p07.move.refuse
+stopping_rule: stop when target labels lack defensible meaning or reliability, grouped holdout is contaminated, or prevalence error cannot be bounded for the intended corpus claim; the stop is p07.move.refuse

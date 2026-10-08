@@ -1,19 +1,394 @@
 schema_version: phase3-method-records-0.1
 method_id: p08
 variant: operational probabilistic time-series forecasting
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Records converted from flow style to block style so that named, typed slots (spec section 5.1) stay
+      readable; field names are unchanged. Added controlled verbs (spec section 6). Split the former
+      p08.move.fit_score into p08.move.fit (verb fit) and p08.move.score (verb test), because fold scores are
+      independently reviewable and a respecification loop targets the fit. Split model selection or
+      combination out of the issue move into p08.move.select (verb rank), because choosing among evaluated
+      procedures is a separate judgment. Added a refuse record. Re-anchored FPP3 citations to the sections
+      that exist and added a real-time-data authority (see frame.yaml post_freeze_corrections).
+  - verb_note: >-
+      p08.move.select uses `rank`: it orders evaluated procedures (or weights them for a combination) under the
+      frozen loss. `compare` was considered and not used because spec section 6 flags it as the trap verb.
+  - slot_note: >-
+      Inputs that receive an execution receipt from a child action use role `context`; spec section 5.1 offers
+      `trace` only as an output role. Inputs with `external_origin` come from outside the method and state their
+      origin; every other input is bound by a connection in connections.yaml.
 phases:
   - {phase_id: p08.phase.frame, level: method_phase, label: define and govern information, operation_kinds: [analytic, methodological_support], collision_participation: none}
-  - {phase_id: p08.phase.evaluate, level: method_phase, label: benchmark fit score diagnose, operation_kinds: [analytic], collision_participation: none}
-  - {phase_id: p08.phase.operate, level: method_phase, label: issue monitor revise, operation_kinds: [analytic, runtime_delivery, methodological_support], collision_participation: none}
+  - {phase_id: p08.phase.evaluate, level: method_phase, label: benchmark fit score diagnose select, operation_kinds: [analytic], collision_participation: none}
+  - {phase_id: p08.phase.operate, level: method_phase, label: issue monitor revise or refuse, operation_kinds: [analytic, runtime_delivery, methodological_support], collision_participation: none}
 moves:
-  - {record_id: p08.move.target, level: analytical_move, parent_phase: p08.phase.frame, label: freeze target horizon origin use and loss, operation_kind: analytic, inputs: [prediction_question, user_decision_context], output: frozen_forecast_specification, information_origin: [interpreted], source_authority_or_inferential_role: forecast_user_and_method_lead_define_useful_prediction, applicability_boundary: named_target_horizon_origin_and_loss, method_owned_rule: target_and_loss_match_operational_use_and_prediction_is_not_causal_explanation, permitted_conclusion: a_specific_forecast_task_exists, refusal_or_qualification: refuse_if_target_horizon_or_use_is_ambiguous, performer: forecasting_analyst, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: forecast_user, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_1.4_1.6, exact_anchors: [FPP3:1.4, FPP3:1.6], guards: {temporal: freeze_before_candidate_evaluation, access: no_future_outcomes, run_version: forecast_specification_is_immutable_for_evaluation}}
-  - {record_id: p08.move.information, level: analytical_move, parent_phase: p08.phase.frame, label: build as-of data and feature availability contract, operation_kind: methodological_support, inputs: [frozen_forecast_specification, source_series_and_release_history], output: versioned_as_of_modeling_data, information_origin: [observed, derived], source_authority_or_inferential_role: only_information_available_at_each_origin, applicability_boundary: declared_release_calendar_revisions_and_frequency, method_owned_rule: revised_or_future_values_cannot_leak_into_historical_origins, permitted_conclusion: backtests_reconstruct_what_was_knowable, refusal_or_qualification: leakage_invalidates_evaluation, performer: forecasting_data_team, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_5.8_5.10, exact_anchors: [FPP3:5.8, FPP3:5.10], guards: {temporal: as_of_joins_enforced, access: future_releases_inaccessible, run_version: dataset_binds_source_vintages_and_transformations}}
-  - {record_id: p08.move.baseline, level: analytical_move, parent_phase: p08.phase.evaluate, label: define naive and seasonal baselines, operation_kind: analytic, inputs: [versioned_as_of_modeling_data, frozen_forecast_specification], output: baseline_forecast_procedures, information_origin: [derived], source_authority_or_inferential_role: meaningful_simple_predictive_comparators, applicability_boundary: series_frequency_and_horizon, method_owned_rule: complexity_requires_out_of_sample_gain_over_relevant_baselines, permitted_conclusion: candidate_performance_has_a_floor, refusal_or_qualification: no_complex_model_preference_without_baseline_comparison, performer: forecasting_analyst, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_5.2_5.4, exact_anchors: [FPP3:5.2, FPP3:5.4], guards: {temporal: baselines_frozen_before_scoring, access: training_information_only, run_version: baseline_code_and_parameters_bound}}
-  - {record_id: p08.move.folds, level: analytical_move, parent_phase: p08.phase.evaluate, label: construct rolling-origin evaluation, operation_kind: analytic, inputs: [versioned_as_of_modeling_data, frozen_forecast_specification], output: frozen_origin_horizon_folds, information_origin: [derived], source_authority_or_inferential_role: time_series_cross_validation, applicability_boundary: represented_origins_horizons_and_regimes, method_owned_rule: every test outcome occurs after its training information and matches operational horizon, permitted_conclusion: heldout_forecasts_are_genuine_for_these_origins, refusal_or_qualification: reject_random_or_leaky_folds, performer: forecasting_analyst, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_5.10, exact_anchors: [FPP3:5.10], guards: {temporal: fold_origins_preserve_time, access: future_fold_values_hidden, run_version: fold_manifest_immutable_for_model_comparison}}
-  - {record_id: p08.move.fit_score, level: analytical_move, parent_phase: p08.phase.evaluate, label: fit candidates and score point and predictive distributions, operation_kind: analytic, inputs: [baseline_forecast_procedures, frozen_origin_horizon_folds], output: horizon_specific_comparative_scores, information_origin: [derived], source_authority_or_inferential_role: rolling_origin_losses_and_proper_scores, applicability_boundary: evaluated_origins_horizons_metrics_and_candidates, method_owned_rule: tuning_occurs_within_training_folds_and_score_matches_declared_loss, permitted_conclusion: candidates_compare_out_of_sample_under_this_design, refusal_or_qualification: no_selection_from_in_sample_fit_or_one_convenient_metric, performer: deterministic_forecast_pipeline, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: forecast_user, decision_authority: none, implementation_evidence: design_only, source_basis: FPP3_5.8_5.10;Gneiting_Raftery_2007_2_4, exact_anchors: [FPP3:5.8, FPP3:5.9, FPP3:5.10, GR2007:2-4], guards: {temporal: candidates_never_train_on_their_test_origin, access: fold_scoped_data, run_version: score_receipt_binds_model_fold_loss_and_seed}}
-  - {record_id: p08.move.diagnose, level: analytical_move, parent_phase: p08.phase.evaluate, label: diagnose residual calibration and regime failures, operation_kind: analytic, inputs: [horizon_specific_comparative_scores, fold_forecasts_and_residuals], output: forecast_adequacy_and_shift_risk_record, information_origin: [derived, interpreted], source_authority_or_inferential_role: residual_and_slice_diagnostics, applicability_boundary: represented_historical_regimes_and_subgroups, method_owned_rule: average score cannot hide serial structure miscalibration or consequential regime failure, permitted_conclusion: known_predictive_strengths_and_failures_are_bounded, refusal_or_qualification: unstable_or_miscalibrated_candidates_are_rejected_or_qualified, performer: forecasting_analyst, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_5.4_5.9, exact_anchors: [FPP3:5.4, FPP3:5.9], guards: {temporal: after_fold_scores_freeze, access: evaluation_artifacts_only, run_version: diagnostics_bind_exact_forecasts_and_outcomes}}
-  - {record_id: p08.move.issue, level: analytical_move, parent_phase: p08.phase.operate, label: select or combine refit and issue forecast, operation_kind: analytic, inputs: [forecast_adequacy_and_shift_risk_record, current_as_of_data, frozen_forecast_specification], output: immutable_probabilistic_forecast, information_origin: [derived], source_authority_or_inferential_role: evaluated_procedure_at_current_origin, applicability_boundary: issue_origin_target_horizon_and_current_regime, method_owned_rule: issued_procedure_follows_evaluated_design_and_uncertainty_is_not_optional, permitted_conclusion: predictive_distribution_for_named_future_target, refusal_or_qualification: refuse_unsupported_horizon_or_regime_extrapolation, performer: forecast_pipeline_and_analyst, judgment_owner: forecast_method_lead, acceptance_authority: forecast_release_authority, recommender: none, value_goal_authority: forecast_user, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_1.6_3.5, exact_anchors: [FPP3:1.6, FPP3:3.5], guards: {temporal: issue_before_target_outcome_is_available, access: current_information_cutoff_enforced, run_version: forecast_binds_data_model_code_origin_and_distribution}}
-  - {record_id: p08.move.monitor, level: analytical_move, parent_phase: p08.phase.operate, label: join realized outcomes and monitor performance, operation_kind: methodological_support, inputs: [immutable_probabilistic_forecast, later_realized_outcome], output: monitoring_and_drift_record, information_origin: [observed, derived], source_authority_or_inferential_role: realized_outcome_evaluates_prior_forecast, applicability_boundary: exact_prior_forecast_and_outcome_definition, method_owned_rule: later outcomes score but never rewrite historical forecasts, permitted_conclusion: prior_forecast_performance_and_possible_shift_are_observed, refusal_or_qualification: investigate_or_retire_when_performance_or_regime_changes_materially, performer: forecast_monitoring_team, judgment_owner: forecast_method_lead, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: FPP3_1.6_5.8_5.9, exact_anchors: [FPP3:1.6, FPP3:5.8, FPP3:5.9], guards: {temporal: outcome_arrives_after_issue, access: historical_forecast_read_only, run_version: monitoring_creates_successor_record_not_forecast_mutation}}
+  - record_id: p08.move.target
+    level: analytical_move
+    parent_phase: p08.phase.frame
+    label: freeze target horizon origin use and loss
+    verb: define
+    operation_kind: analytic
+    inputs:
+      - {slot: prediction_question, type: concept, role: subject, cardinality: one, optional: false, external_origin: interpreted (forecast user's question)}
+      - {slot: user_decision_context, type: value_judgment, role: context, cardinality: one, optional: false, external_origin: interpreted (authorized forecast user's use and loss preferences)}
+    outputs:
+      - {slot: frozen_forecast_specification, type: estimand, role: result, cardinality: one, optional: false}
+    information_origin: [interpreted]
+    source_authority_or_inferential_role: forecast_user_and_method_lead_define_useful_prediction
+    applicability_boundary: named_target_horizon_origin_and_loss
+    method_owned_rule: target_and_loss_match_operational_use_and_prediction_is_not_causal_explanation
+    permitted_conclusion: a_specific_forecast_task_exists
+    refusal_or_qualification: refuse_if_target_horizon_or_use_is_ambiguous
+    performer: forecasting_analyst
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: forecast_user
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_1.3_1.6
+    exact_anchors: [FPP3:1.3, FPP3:1.6]
+    guards: {temporal: freeze_before_candidate_evaluation, access: no_future_outcomes, run_version: forecast_specification_is_immutable_for_evaluation}
+  - record_id: p08.move.information
+    level: analytical_move
+    parent_phase: p08.phase.frame
+    label: build as-of data and feature availability contract
+    verb: construct
+    operation_kind: methodological_support
+    inputs:
+      - {slot: source_series_and_release_history, type: dataset, role: subject, cardinality: many, optional: false, external_origin: observed (published series and their release vintages)}
+      - {slot: frozen_forecast_specification, type: estimand, role: criteria, cardinality: one, optional: false}
+      - {slot: drift_or_retraining_request, type: appraisal, role: prior, cardinality: optional_one, optional: true}
+    outputs:
+      - {slot: versioned_as_of_modeling_data, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: current_as_of_data, type: dataset, role: result, cardinality: one, optional: false}
+    information_origin: [observed, derived]
+    source_authority_or_inferential_role: only_information_available_at_each_origin
+    applicability_boundary: declared_release_calendar_revisions_and_frequency
+    method_owned_rule: revised_or_future_values_cannot_leak_into_historical_origins
+    permitted_conclusion: backtests_reconstruct_what_was_knowable
+    refusal_or_qualification: leakage_invalidates_evaluation
+    performer: forecasting_data_team
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_5.8_5.10;Croushore_2011
+    exact_anchors: [FPP3:5.8, FPP3:5.10, Croushore2011:pp72-100]
+    source_anchor_note: Croushore 2011 is pinned at article level; the section-level anchor for the vintage rule is recorded as source_limited in p08.u06
+    guards: {temporal: as_of_joins_enforced, access: future_releases_inaccessible, run_version: dataset_binds_source_vintages_and_transformations}
+  - record_id: p08.move.baseline
+    level: analytical_move
+    parent_phase: p08.phase.evaluate
+    label: define naive and seasonal baselines
+    verb: define
+    operation_kind: analytic
+    inputs:
+      - {slot: versioned_as_of_modeling_data, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: frozen_forecast_specification, type: estimand, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: baseline_forecast_procedures, type: model, role: result, cardinality: many, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: meaningful_simple_predictive_comparators
+    applicability_boundary: series_frequency_and_horizon
+    method_owned_rule: complexity_requires_out_of_sample_gain_over_relevant_baselines
+    permitted_conclusion: candidate_performance_has_a_floor
+    refusal_or_qualification: no_complex_model_preference_without_baseline_comparison
+    performer: forecasting_analyst
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_5.2_5.4
+    exact_anchors: [FPP3:5.2, FPP3:5.4]
+    guards: {temporal: baselines_frozen_before_scoring, access: training_information_only, run_version: baseline_code_and_parameters_bound}
+  - record_id: p08.move.folds
+    level: analytical_move
+    parent_phase: p08.phase.evaluate
+    label: construct rolling-origin evaluation
+    verb: construct
+    operation_kind: analytic
+    inputs:
+      - {slot: versioned_as_of_modeling_data, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: frozen_forecast_specification, type: estimand, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: frozen_origin_horizon_folds, type: design_parameters, role: result, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: time_series_cross_validation
+    applicability_boundary: represented_origins_horizons_and_regimes
+    method_owned_rule: every test outcome occurs after its training information and matches operational horizon
+    permitted_conclusion: heldout_forecasts_are_genuine_for_these_origins
+    refusal_or_qualification: reject_random_or_leaky_folds
+    performer: forecasting_analyst
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_5.10
+    exact_anchors: [FPP3:5.10]
+    guards: {temporal: fold_origins_preserve_time, access: future_fold_values_hidden, run_version: fold_manifest_immutable_for_model_comparison}
+  - record_id: p08.move.fit
+    level: analytical_move
+    parent_phase: p08.phase.evaluate
+    label: fit candidates on rolling training folds
+    verb: fit
+    operation_kind: analytic
+    inputs:
+      - {slot: versioned_as_of_modeling_data, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: frozen_origin_horizon_folds, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: baseline_forecast_procedures, type: model, role: context, cardinality: many, optional: false}
+      - {slot: candidate_model_classes, type: model, role: context, cardinality: many, optional: false, external_origin: interpreted (model classes the method lead declares before evaluation)}
+      - {slot: respecification_request, type: appraisal, role: prior, cardinality: optional_one, optional: true}
+      - {slot: fold_forecast_receipts, type: model_run, role: context, cardinality: many, optional: false}
+    outputs:
+      - {slot: candidate_procedures, type: model, role: result, cardinality: many, optional: false}
+      - {slot: fold_forecasts_and_residuals, type: forecast, role: result, cardinality: many, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: rolling_origin_training_fits
+    applicability_boundary: evaluated_origins_horizons_and_candidates
+    method_owned_rule: tuning_occurs_within_training_folds_and_no_candidate_trains_on_its_test_origin
+    permitted_conclusion: each_candidate_has_genuine_fold_forecasts_for_these_origins
+    refusal_or_qualification: no_selection_from_in_sample_fit
+    performer: deterministic_forecast_pipeline
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: FPP3_1.6_5.3_5.10
+    exact_anchors: [FPP3:1.6, FPP3:5.3, FPP3:5.10]
+    guards: {temporal: candidates_never_train_on_their_test_origin, access: fold_scoped_data, run_version: fit_binds_model_fold_data_and_seed}
+  - record_id: p08.move.score
+    level: analytical_move
+    parent_phase: p08.phase.evaluate
+    label: score point and predictive distributions by horizon
+    verb: test
+    operation_kind: analytic
+    inputs:
+      - {slot: fold_forecasts_and_residuals, type: forecast, role: subject, cardinality: many, optional: false}
+      - {slot: frozen_forecast_specification, type: estimand, role: criteria, cardinality: one, optional: false}
+      - {slot: frozen_origin_horizon_folds, type: design_parameters, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: horizon_specific_comparative_scores, type: appraisal, role: result, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: rolling_origin_losses_and_proper_scores
+    applicability_boundary: evaluated_origins_horizons_metrics_and_candidates
+    method_owned_rule: score_matches_declared_loss_and_distributional_forecasts_use_proper_scores
+    permitted_conclusion: candidates_compare_out_of_sample_under_this_design
+    refusal_or_qualification: no_selection_from_one_convenient_metric
+    performer: deterministic_forecast_pipeline
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: forecast_user
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: FPP3_5.8_5.10;Gneiting_Raftery_2007_2_4
+    exact_anchors: [FPP3:5.8, FPP3:5.9, FPP3:5.10, GR2007:2-4]
+    guards: {temporal: scores_computed_only_on_test_origins, access: fold_scoped_data, run_version: score_receipt_binds_model_fold_loss_and_seed}
+  - record_id: p08.move.diagnose
+    level: analytical_move
+    parent_phase: p08.phase.evaluate
+    label: diagnose residual calibration and regime failures
+    verb: test
+    operation_kind: analytic
+    inputs:
+      - {slot: horizon_specific_comparative_scores, type: appraisal, role: subject, cardinality: one, optional: false}
+      - {slot: fold_forecasts_and_residuals, type: forecast, role: context, cardinality: many, optional: false}
+    outputs:
+      - {slot: forecast_adequacy_and_shift_risk_record, type: appraisal, role: result, cardinality: one, optional: false}
+      - {slot: respecification_request, type: appraisal, role: byproduct, cardinality: optional_one, optional: true}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: residual_and_slice_diagnostics
+    applicability_boundary: represented_historical_regimes_and_subgroups
+    method_owned_rule: average score cannot hide serial structure miscalibration or consequential regime failure
+    permitted_conclusion: known_predictive_strengths_and_failures_are_bounded
+    refusal_or_qualification: unstable_or_miscalibrated_candidates_are_respecified_rejected_or_qualified
+    performer: forecasting_analyst
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_5.4_5.9
+    exact_anchors: [FPP3:5.4, FPP3:5.9]
+    guards: {temporal: after_fold_scores_freeze, access: evaluation_artifacts_only, run_version: diagnostics_bind_exact_forecasts_and_outcomes}
+  - record_id: p08.move.select
+    level: analytical_move
+    parent_phase: p08.phase.evaluate
+    label: select or combine evaluated procedures
+    verb: rank
+    operation_kind: analytic
+    inputs:
+      - {slot: horizon_specific_comparative_scores, type: appraisal, role: subject, cardinality: one, optional: false}
+      - {slot: forecast_adequacy_and_shift_risk_record, type: appraisal, role: criteria, cardinality: one, optional: false}
+      - {slot: candidate_procedures, type: model, role: context, cardinality: many, optional: false}
+      - {slot: frozen_forecast_specification, type: estimand, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: selected_procedure, type: model, role: result, cardinality: one, optional: false}
+      - {slot: selection_rationale, type: appraisal, role: byproduct, cardinality: one, optional: false}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: out_of_sample_scores_under_the_frozen_loss
+    applicability_boundary: evaluated_candidates_horizons_and_loss
+    method_owned_rule: the issued procedure (single model or declared combination) is chosen from out-of-sample scores under the frozen loss, never from in-sample fit, and only among adequate candidates
+    permitted_conclusion: this_procedure_or_combination_is_the_best_evaluated_option_for_this_task
+    refusal_or_qualification: no_selection_when_no_candidate_beats_relevant_baselines_or_is_adequate
+    performer: forecasting_analyst
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: forecast_user
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_1.6_5.8_5.9_13.4
+    exact_anchors: [FPP3:1.6, FPP3:5.8, FPP3:5.9, FPP3:13.4]
+    guards: {temporal: selection_frozen_before_issue, access: evaluation_artifacts_only, run_version: selection_binds_scores_candidates_and_loss}
+  - record_id: p08.move.issue
+    level: analytical_move
+    parent_phase: p08.phase.operate
+    label: refit selected procedure and issue forecast
+    verb: project
+    operation_kind: analytic
+    inputs:
+      - {slot: current_as_of_data, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: selected_procedure, type: model, role: config_data, cardinality: one, optional: false}
+      - {slot: frozen_forecast_specification, type: estimand, role: criteria, cardinality: one, optional: false}
+      - {slot: forecast_adequacy_and_shift_risk_record, type: appraisal, role: context, cardinality: one, optional: false}
+    outputs:
+      - {slot: immutable_probabilistic_forecast, type: forecast, role: result, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: evaluated_procedure_at_current_origin
+    applicability_boundary: issue_origin_target_horizon_and_current_regime
+    method_owned_rule: issued_procedure_follows_evaluated_design_and_uncertainty_is_not_optional
+    permitted_conclusion: predictive_distribution_for_named_future_target
+    refusal_or_qualification: refuse_unsupported_horizon_or_regime_extrapolation
+    performer: forecast_pipeline_and_analyst
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_release_authority
+    recommender: none
+    value_goal_authority: forecast_user
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_1.6_5.5
+    exact_anchors: [FPP3:1.6, FPP3:5.5]
+    guards: {temporal: issue_before_target_outcome_is_available, access: current_information_cutoff_enforced, run_version: forecast_binds_data_model_code_origin_and_distribution}
+  - record_id: p08.move.monitor
+    level: analytical_move
+    parent_phase: p08.phase.operate
+    label: join realized outcomes and monitor performance
+    verb: monitor
+    operation_kind: methodological_support
+    inputs:
+      - {slot: immutable_probabilistic_forecast, type: forecast, role: subject, cardinality: one, optional: false}
+      - {slot: later_realized_outcome, type: dataset, role: criteria, cardinality: one, optional: false, external_origin: observed (the target's later published value)}
+      - {slot: immutable_forecast_artifact, type: forecast, role: context, cardinality: one, optional: false}
+    outputs:
+      - {slot: monitoring_and_drift_record, type: appraisal, role: result, cardinality: one, optional: false}
+      - {slot: drift_or_retraining_request, type: appraisal, role: byproduct, cardinality: optional_one, optional: true}
+    information_origin: [observed, derived]
+    source_authority_or_inferential_role: realized_outcome_evaluates_prior_forecast
+    applicability_boundary: exact_prior_forecast_and_outcome_definition
+    method_owned_rule: later outcomes score but never rewrite historical forecasts
+    permitted_conclusion: prior_forecast_performance_and_possible_shift_are_observed
+    refusal_or_qualification: investigate_or_retire_when_performance_or_regime_changes_materially
+    performer: forecast_monitoring_team
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: FPP3_1.6_5.8_5.9
+    exact_anchors: [FPP3:1.6, FPP3:5.8, FPP3:5.9]
+    guards: {temporal: outcome_arrives_after_issue, access: historical_forecast_read_only, run_version: monitoring_creates_successor_record_not_forecast_mutation}
+  - record_id: p08.move.refuse
+    level: analytical_move
+    parent_phase: p08.phase.operate
+    label: refuse forecast issuance
+    verb: refuse
+    operation_kind: analytic
+    inputs:
+      - {slot: failed_appraisal, type: appraisal, role: subject, cardinality: many, optional: false}
+    outputs:
+      - {slot: refusal_record, type: finding, role: result, cardinality: one, optional: false}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: uncertainty_stopping_rule
+    applicability_boundary: the_exact_task_data_and_procedure_versions_that_failed
+    method_owned_rule: no forecast is issued when leakage, unsupported horizon, failed baseline comparison, material miscalibration, or unrepresented regime shift defeats the intended use
+    permitted_conclusion: no forecast is licensed for this task and origin, for the named reasons
+    refusal_or_qualification: this_record_is_the_refusal_terminal
+    performer: forecast_method_lead
+    judgment_owner: forecast_method_lead
+    acceptance_authority: forecast_release_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: uncertainty.yaml_stopping_rule;FPP3_5.2_5.4_5.9
+    exact_anchors: [uncertainty:p08:stopping_rule, FPP3:5.2, FPP3:5.4, FPP3:5.9]
+    guards: {temporal: replaces_issue_for_this_origin, access: refusal_reasons_visible_to_forecast_user, run_version: refusal_binds_failed_appraisal_versions}
 actions:
-  - {record_id: p08.action.run_backtest, level: execution_action, parent_move: p08.move.fit_score, label: execute rolling-origin candidates, operation_kind: analytic, inputs: [frozen_origin_horizon_folds, candidate_procedures], output: fold_forecast_receipts, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution, applicability_boundary: frozen_folds, method_owned_rule: none, permitted_conclusion: numerical_predictions_only, refusal_or_qualification: execution_failure_blocks_comparison, performer: deterministic_forecast_pipeline, judgment_owner: none, acceptance_authority: forecast_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: FPP3_5.10, exact_anchors: [FPP3:5.10], guards: {temporal: time_order_enforced, access: fold_training_data_only, run_version: receipts_bind_all_inputs}}
-  - {record_id: p08.action.persist_issue, level: execution_action, parent_move: p08.move.issue, label: persist forecast distribution and cutoff receipt, operation_kind: runtime_delivery, inputs: [forecast_distribution, issue_metadata], output: immutable_forecast_artifact, information_origin: [derived], source_authority_or_inferential_role: parent_move_custody, applicability_boundary: one_issue_origin, method_owned_rule: none, permitted_conclusion: no_additional_prediction_claim, refusal_or_qualification: persistence_failure_blocks_release, performer: forecast_runtime, judgment_owner: none, acceptance_authority: forecast_release_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: no_methodology_counterpart, exact_anchors: [instrument:run_version_guard], guards: {temporal: before_outcome_availability, access: append_only_forecast_store, run_version: content_hash_and_origin_bound}}
+  - record_id: p08.action.run_backtest
+    level: execution_action
+    parent_move: p08.move.fit
+    label: execute rolling-origin candidates
+    verb: project
+    operation_kind: analytic
+    inputs:
+      - {slot: candidate_procedures, type: model, role: subject, cardinality: many, optional: false}
+      - {slot: frozen_origin_horizon_folds, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: versioned_as_of_modeling_data, type: dataset, role: context, cardinality: one, optional: false}
+    outputs:
+      - {slot: fold_forecast_receipts, type: model_run, role: trace, cardinality: many, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: parent_move_execution
+    applicability_boundary: frozen_folds
+    method_owned_rule: none
+    permitted_conclusion: numerical_predictions_only
+    refusal_or_qualification: execution_failure_blocks_comparison
+    performer: deterministic_forecast_pipeline
+    judgment_owner: none
+    acceptance_authority: forecast_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: FPP3_5.10
+    exact_anchors: [FPP3:5.10]
+    guards: {temporal: time_order_enforced, access: fold_training_data_only, run_version: receipts_bind_all_inputs}
+  - record_id: p08.action.persist_issue
+    level: execution_action
+    parent_move: p08.move.issue
+    label: persist forecast distribution and cutoff receipt
+    verb: anchor
+    operation_kind: runtime_delivery
+    inputs:
+      - {slot: immutable_probabilistic_forecast, type: forecast, role: subject, cardinality: one, optional: false}
+    outputs:
+      - {slot: immutable_forecast_artifact, type: forecast, role: trace, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: parent_move_custody
+    applicability_boundary: one_issue_origin
+    method_owned_rule: none
+    permitted_conclusion: no_additional_prediction_claim
+    refusal_or_qualification: persistence_failure_blocks_release
+    performer: forecast_runtime
+    judgment_owner: none
+    acceptance_authority: forecast_release_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: no_methodology_counterpart
+    exact_anchors: [instrument:run_version_guard]
+    guards: {temporal: before_outcome_availability, access: append_only_forecast_store, run_version: content_hash_and_origin_bound}

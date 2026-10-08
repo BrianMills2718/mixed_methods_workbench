@@ -1,19 +1,90 @@
 schema_version: phase3-connections-0.1
 method_id: p06
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Every connection now names from_output and to_input slots (a control gate or invocation binds the judgment
+      or request it carries and uses to_input none_gate_only). p06.c03 now gates selection on pretest
+      acceptance instead of on the design move. p06.c13 (successor wave) is an optional cycle, not a required
+      one. Added the required OMB 1.4 pretest cycle, an optional OMB 1.3 nonresponse follow-up cycle, bindings
+      for survey_design, frame_snapshot and the child-action receipts, parent-to-action invocations, and refusal
+      branches into p06.move.refuse. Topology uses the spec 5.8 fields.
 connections:
   - {id: p06.c01, from: p06.move.define, to: p06.move.frame, connection_type: artifact_flow, carries: frozen_survey_estimand, preservation: preserving, from_output: frozen_survey_estimand, to_input: frozen_survey_estimand}
   - {id: p06.c02, from: p06.move.frame, to: p06.move.design, connection_type: artifact_flow, carries: frame_coverage_assessment, preservation: preserving, from_output: frame_coverage_assessment, to_input: frame_coverage_assessment}
-  - {id: p06.c03, from: p06.move.design, to: p06.move.select, connection_type: control_gate, carries: design_freeze_permission, condition: design_accepted}
+  - {id: p06.c03, from: p06.move.pretest, to: p06.move.select, connection_type: control_gate, carries: design_freeze_permission, condition: pretest_accepted_and_design_version_frozen, from_output: pretest_appraisal, to_input: none_gate_only}
   - {id: p06.c04, from: p06.move.select, to: p06.move.collect, connection_type: artifact_flow, carries: selected_sample_with_base_weights, preservation: preserving, from_output: selected_sample_with_base_weights, to_input: selected_sample_with_base_weights}
-  - {id: p06.c05, from: p06.move.design, to: p06.move.collect, connection_type: retained_context, carries: frozen_survey_design, from_output: frozen_survey_design, to_input: frozen_survey_design}
-  - {id: p06.c06, from: p06.move.collect, to: p06.move.process, connection_type: artifact_flow, carries: raw_response_and_paradata_set, preservation: transforming, transformation_owner: p06, change: standardized_edits_coding_and_dispositions, from_output: raw_response_and_paradata_set, to_input: raw_response_and_paradata_set}
-  - {id: p06.c07, from: p06.move.process, to: p06.move.adjust, connection_type: artifact_flow, carries: processed_response_set_and_quality_report, preservation: preserving, from_output: processed_response_set_and_quality_report, to_input: processed_response_set_and_quality_report}
+  - {id: p06.c05, from: p06.move.design, to: p06.move.collect, connection_type: retained_context, carries: survey_design, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c06, from: p06.move.collect, to: p06.move.process, connection_type: artifact_flow, carries: raw_response_set, preservation: transforming, transformation_owner: p06, change: standardized_edits_coding_and_dispositions, from_output: raw_response_set, to_input: raw_response_set}
+  - {id: p06.c07, from: p06.move.process, to: p06.move.adjust, connection_type: artifact_flow, carries: processed_response_set, preservation: preserving, from_output: processed_response_set, to_input: processed_response_set}
   - {id: p06.c08, from: p06.move.select, to: p06.move.adjust, connection_type: retained_context, carries: selected_sample_with_base_weights, from_output: selected_sample_with_base_weights, to_input: selected_sample_with_base_weights}
-  - {id: p06.c09, from: p06.move.adjust, to: p06.move.estimate, connection_type: artifact_flow, carries: weighted_analysis_dataset_and_bias_assessment, preservation: preserving, from_output: weighted_analysis_dataset_and_bias_assessment, to_input: weighted_analysis_dataset_and_bias_assessment}
+  - {id: p06.c09, from: p06.move.adjust, to: p06.move.estimate, connection_type: artifact_flow, carries: weighted_analysis_dataset, preservation: preserving, from_output: weighted_analysis_dataset, to_input: weighted_analysis_dataset}
   - {id: p06.c10, from: p06.move.define, to: p06.move.estimate, connection_type: retained_context, carries: frozen_survey_estimand, from_output: frozen_survey_estimand, to_input: frozen_survey_estimand}
-  - {id: p06.c11, from: p06.move.estimate, to: p06.move.report, connection_type: artifact_flow, carries: prevalence_estimate_and_error_account, preservation: preserving, from_output: prevalence_estimate_and_error_account, to_input: prevalence_estimate_and_error_account}
-  - {id: p06.c12, from: p06.move.process, to: p06.move.report, connection_type: retained_context, carries: processed_response_set_and_quality_report, from_output: processed_response_set_and_quality_report, to_input: processed_response_set_and_quality_report}
-  - {id: p06.c13, from: p06.move.report, to: p06.move.design, connection_type: feedback, carries: documented_error_or_revision_need, condition: successor_survey_wave, creates_successor_version: true}
-  - {id: p06.c14, from: p06.move.collect, to: p06.move.define, connection_type: prohibited_transition, carries: observed_responses, condition: redefine_construct_to_improve_observed_prevalence, invalidates: prespecification_and_measurement_warrant}
-  - {id: p06.c15, from: p06.action.compute_variance, to: p06.move.estimate, connection_type: retained_context, carries: estimate_receipt, adapter_note: computation_does_not_own_population_inference}
-topology: {shape: cyclic_successor_versions, entry_points: [p06.move.define], terminal_points: [p06.move.report], required_feedback: [p06.c13], prohibited_transitions: [p06.c14]}
+  - {id: p06.c11, from: p06.move.estimate, to: p06.move.report, connection_type: artifact_flow, carries: prevalence_estimate, preservation: preserving, from_output: prevalence_estimate, to_input: prevalence_estimate}
+  - {id: p06.c12, from: p06.move.process, to: p06.move.report, connection_type: retained_context, carries: processing_quality_report, from_output: processing_quality_report, to_input: processing_quality_report}
+  - {id: p06.c13, from: p06.move.report, to: p06.move.design, connection_type: feedback, carries: documented_revision_need, condition: sponsor_commissions_a_successor_survey_wave, creates_successor_version: true, from_output: documented_revision_need, to_input: prior_wave_revision_need}
+  - {id: p06.c14, from: p06.move.collect, to: p06.move.define, connection_type: prohibited_transition, carries: observed_responses, condition: redefine_construct_to_improve_observed_prevalence, invalidates: prespecification_and_measurement_warrant, from_output: raw_response_set, to_input: none_blocked}
+  - {id: p06.c15, from: p06.action.compute_variance, to: p06.move.estimate, connection_type: artifact_flow, carries: estimate_receipt, preservation: preserving, adapter_note: computation_does_not_own_population_inference, from_output: estimate_receipt, to_input: estimate_receipt}
+  - {id: p06.c16, from: p06.move.design, to: p06.move.pretest, connection_type: artifact_flow, carries: survey_design, preservation: preserving, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c17, from: p06.move.pretest, to: p06.move.design, connection_type: feedback, carries: pretest_appraisal, condition: pretest_finds_instrument_or_procedure_defects, creates_successor_version: true, from_output: pretest_appraisal, to_input: pretest_appraisal}
+  - {id: p06.c18, from: p06.move.design, to: p06.move.select, connection_type: retained_context, carries: survey_design, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c19, from: p06.move.design, to: p06.move.process, connection_type: retained_context, carries: survey_design, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c20, from: p06.move.frame, to: p06.move.select, connection_type: artifact_flow, carries: frame_snapshot, preservation: preserving, from_output: frame_snapshot, to_input: frame_snapshot}
+  - {id: p06.c21, from: p06.move.frame, to: p06.action.draw_sample, connection_type: artifact_flow, carries: frame_snapshot, preservation: preserving, from_output: frame_snapshot, to_input: frame_snapshot}
+  - {id: p06.c22, from: p06.move.select, to: p06.action.draw_sample, connection_type: control_gate, carries: execution_request, condition: parent_move_invokes_action, from_output: none_invocation_only, to_input: none_gate_only}
+  - {id: p06.c23, from: p06.action.draw_sample, to: p06.move.select, connection_type: artifact_flow, carries: selection_receipt, preservation: preserving, from_output: selection_receipt, to_input: selection_receipt}
+  - {id: p06.c24, from: p06.move.design, to: p06.action.draw_sample, connection_type: retained_context, carries: survey_design, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c25, from: p06.move.estimate, to: p06.action.compute_variance, connection_type: control_gate, carries: execution_request, condition: parent_move_invokes_action, from_output: none_invocation_only, to_input: none_gate_only}
+  - {id: p06.c26, from: p06.move.adjust, to: p06.action.compute_variance, connection_type: artifact_flow, carries: weighted_analysis_dataset, preservation: preserving, from_output: weighted_analysis_dataset, to_input: weighted_analysis_dataset}
+  - {id: p06.c27, from: p06.move.design, to: p06.action.compute_variance, connection_type: retained_context, carries: survey_design, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c28, from: p06.move.design, to: p06.move.estimate, connection_type: retained_context, carries: survey_design, from_output: survey_design, to_input: survey_design}
+  - {id: p06.c29, from: p06.move.collect, to: p06.move.collect, connection_type: feedback, carries: paradata_and_dispositions, condition: nonrespondents_remain_within_collection_window, from_output: paradata_and_dispositions, to_input: followup_dispositions}
+  - {id: p06.c30, from: p06.move.collect, to: p06.move.process, connection_type: artifact_flow, carries: paradata_and_dispositions, preservation: preserving, from_output: paradata_and_dispositions, to_input: paradata_and_dispositions}
+  - {id: p06.c31, from: p06.move.adjust, to: p06.move.report, connection_type: retained_context, carries: nonresponse_bias_assessment, from_output: nonresponse_bias_assessment, to_input: nonresponse_bias_assessment}
+  - {id: p06.c32, from: p06.move.frame, to: p06.move.report, connection_type: retained_context, carries: frame_coverage_assessment, from_output: frame_coverage_assessment, to_input: frame_coverage_assessment}
+  - {id: p06.c33, from: p06.move.estimate, to: p06.move.report, connection_type: artifact_flow, carries: error_account, preservation: preserving, from_output: error_account, to_input: error_account}
+  - {id: p06.c34, from: p06.move.frame, to: p06.move.refuse, connection_type: artifact_flow, carries: frame_coverage_assessment, preservation: preserving, condition: material_undercoverage_cannot_be_bounded, from_output: frame_coverage_assessment, to_input: failed_appraisal}
+  - {id: p06.c35, from: p06.move.adjust, to: p06.move.refuse, connection_type: artifact_flow, carries: nonresponse_bias_assessment, preservation: preserving, condition: material_nonresponse_bias_is_unbounded, from_output: nonresponse_bias_assessment, to_input: failed_appraisal}
+  - {id: p06.c36, from: p06.move.estimate, to: p06.move.refuse, connection_type: artifact_flow, carries: error_account, preservation: preserving, condition: design_or_variance_cannot_be_reconstructed, from_output: error_account, to_input: error_account}
+  - {id: p06.c38, from: p06.move.define, to: p06.move.design, connection_type: retained_context, carries: frozen_survey_estimand, from_output: frozen_survey_estimand, to_input: frozen_survey_estimand}
+  - {id: p06.c37, from: p06.move.pretest, to: p06.move.refuse, connection_type: artifact_flow, carries: pretest_appraisal, preservation: preserving, condition: instrument_cannot_be_made_to_function_within_the_design_budget, from_output: pretest_appraisal, to_input: failed_appraisal}
+topology:
+  shape: cyclic
+  entry_points: [p06.move.define]
+  terminal_points: [p06.move.report, p06.move.refuse]
+  required_cycles:
+    - id: p06.cycle.pretest_revision
+      edges: [p06.c16, p06.c17]
+      description: design is pretested and revised until the instrument and procedures function as intended
+      loop_termination: pretest_appraisal accepts the design version (it is then frozen and p06.c03 opens), or the defects cannot be removed and p06.c37 routes to refusal
+      termination_authority: human
+      source: [OMB:1.4, Groves:8.5]
+  optional_cycles:
+    - id: p06.cycle.nonresponse_followup
+      edges: [p06.c29]
+      description: follow-up of nonrespondents within the frozen response protocol
+      loop_termination: collection window closes or the frozen follow-up protocol is exhausted
+      termination_authority: human
+      source: [OMB:1.3, Groves:6.6]
+    - id: p06.cycle.successor_wave
+      edges: [p06.c13, p06.c16, p06.c17, p06.c03, p06.c04, p06.c06, p06.c07, p06.c09, p06.c11]
+      description: a later wave reuses documented error to revise the design; each wave is a dated successor version
+      why_optional: the frozen variant is cross-sectional and its frame excludes longitudinal change, so one release completes the method
+      loop_termination: the sponsor does not commission a further wave
+      termination_authority: human
+      source: [OMB:7.3]
+  prohibited_cycles:
+    - id: p06.cycle.redefine_after_responses
+      edges: [p06.c14, p06.c01, p06.c02, p06.c16, p06.c03, p06.c04]
+      reason: redefining the construct or population after seeing responses breaks prespecification and the measurement warrant
+      if_taken: disclosed_deviation; the release is downgraded to an exploratory measure and loses its population-prevalence claim
+  prohibited_edges:
+    - connection: p06.c14
+      from: p06.move.collect
+      to: p06.move.define
+      reason: observed responses cannot be used to redefine the construct, population, or reference period of the same survey version
+      if_taken: disclosed_deviation; a new survey version with a new estimand is required before any population prevalence is released
+  parent_action_delegations:
+    note: within-move invocation and receipt return; not method cycles
+    edges: [p06.c22, p06.c23, p06.c25, p06.c15]

@@ -1,10 +1,61 @@
 schema_version: phase3-uncertainty-0.1
 method_id: p09
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Added an unknown item (p09.u07) for processes the model omits that cannot be enumerated. p09.u02 is now
+      source_limited: no named source or expert proposes a specific rival mechanism for this variant, so the
+      limit is that only declared structural variants are explored. p09.u04 stays contested because it records
+      a judgment on which domain experts and reviewers can disagree; its omitted-process content moved to
+      p09.u07. Added p09.u08 for the chapter-level Kleijnen anchors. Every item names the records it gates.
 items:
-  - {id: p09.u01, status: known, topic: Monte_Carlo_error, account: replication quantifies stochastic precision for frozen configurations, downstream_effect: insufficient_precision_blocks_contrast}
-  - {id: p09.u02, status: contested, topic: structural_uncertainty, account: alternative mechanisms schedules networks and submodels may change conclusions, downstream_effect: requires_structural_sensitivity_or_explicit_gap}
-  - {id: p09.u03, status: source_limited, topic: empirical_fitness, account: available patterns may constrain only selected outputs and calibration may reuse them, downstream_effect: limits_real_world_extrapolation}
-  - {id: p09.u04, status: contested, topic: abstraction_adequacy, account: fitness for purpose depends on domain judgment and omitted processes, downstream_effect: acceptance_authority_may_refuse_model_use}
-  - {id: p09.u05, status: known, topic: information_origin, account: run outputs are simulated even when parameterized with observed data, downstream_effect: cannot_become_observed_effect_evidence}
-  - {id: p09.u06, status: source_limited, topic: experiment_power_and_factor_space, account: finite ensembles cover only declared contrasts ranges and structures, downstream_effect: findings_do_not_generalize_beyond_experiment_space}
-stopping_rule: refuse a policy-world effect or prediction when verification, empirical fitness, experiment provenance, replication precision, or decisive sensitivity evidence is absent; report only model-conditional findings when the bounded gate passes
+  - id: p09.u01
+    status: known
+    topic: Monte_Carlo_error
+    account: replication quantifies stochastic precision for frozen configurations
+    affects: [p09.move.compare, p09.move.execute]
+    downstream_effect: p09.move.compare blocks a contrast until the frozen precision is met (p09.cycle.replication_adequacy); if it cannot be met, p09.c45 routes to p09.move.refuse
+  - id: p09.u02
+    status: source_limited
+    topic: structural_uncertainty
+    account: alternative mechanisms, schedules, networks and submodels may change conclusions; only the structural variants declared in the experiment plan are explored, and no frozen source names rival structures for this variant
+    affects: [p09.move.design, p09.move.sensitivity, p09.move.conclude]
+    downstream_effect: p09.move.sensitivity must run every declared structural variant; p09.move.conclude states that unexplored structures are a gap, and a decisive one routes through p09.c46 to p09.move.refuse
+  - id: p09.u03
+    status: source_limited
+    topic: empirical_fitness
+    account: available patterns may constrain only selected outputs and calibration may reuse them
+    affects: [p09.move.ground, p09.move.conclude]
+    downstream_effect: p09.move.ground records which targets calibrated and which validated; p09.move.conclude limits real-world extrapolation, and a gap that defeats the use routes through p09.c44 to p09.move.refuse
+  - id: p09.u04
+    status: contested
+    topic: abstraction_adequacy
+    account: whether the declared abstraction is fit for the policy purpose is a domain judgment on which experts and reviewers can disagree
+    affects: [p09.move.purpose, p09.move.conclude]
+    downstream_effect: the acceptance authority on p09.move.conclude may refuse model use; disagreement is reported with the finding
+  - id: p09.u05
+    status: known
+    topic: information_origin
+    account: run outputs are simulated even when parameterized with observed data
+    affects: [p09.move.execute, p09.move.compare, p09.move.conclude]
+    downstream_effect: model_conditional_finding keeps origin simulated; p09.c16 is prohibited
+  - id: p09.u06
+    status: source_limited
+    topic: experiment_power_and_factor_space
+    account: finite ensembles cover only declared contrasts, ranges and structures
+    affects: [p09.move.design, p09.move.sensitivity, p09.move.conclude]
+    downstream_effect: p09.move.conclude may not generalize beyond the declared experiment space
+  - id: p09.u07
+    status: unknown
+    topic: omitted_processes
+    account: processes outside the model's abstraction cannot be enumerated, so their effect on the generated patterns cannot be assessed; this differs from p09.u02, which covers declared alternative structures
+    affects: [p09.move.conclude, p09.move.purpose]
+    downstream_effect: gates p09.move.conclude, whose finding must be stated as conditional on the declared abstraction; any real-world prediction or effect claim routes through p09.c47 to p09.move.refuse
+  - id: p09.u08
+    status: source_limited
+    topic: experiment_design_anchor_granularity
+    account: Kleijnen 2015 is anchored at chapter level (chs. 2-3, titles and pages confirmed); the section that sets the number of replications from a precision target was not confirmed
+    affects: [p09.move.design, p09.move.execute, p09.move.compare]
+    downstream_effect: the replication rule keeps chapter-level authority; a reviewer should check Kleijnen ch. 3 before treating a specific replication formula as source-required
+stopping_rule: refuse a policy-world effect or prediction when verification, empirical fitness, experiment provenance, replication precision, or decisive sensitivity evidence is absent; report only model-conditional findings when the bounded gate passes; the stop is p09.move.refuse

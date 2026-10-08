@@ -12,6 +12,33 @@ excluded: [causal effect estimation, scenario planning, judgment-only forecastin
 applicability_boundary: exact target definition, frequency, horizon, information regime, loss, model/data version, and issue origin
 source_freeze:
   frozen_on: 2026-08-13
-  primary: Hyndman_and_Athanasopoulos_2021_FPP3_sections_1.4_1.6_3.5_5.2_5.10
+  primary: Hyndman_and_Athanasopoulos_2021_FPP3_sections_1.3_1.6_5.2_5.5_5.8_5.10
   corroborating: Gneiting_and_Raftery_2007_sections_2_3_4
-source_scope_caution: FPP3 supplies operational time-series conduct; Gneiting and Raftery govern probabilistic scoring, not target selection or causal interpretation.
+  added_2026_10_08:
+    - Hyndman_and_Athanasopoulos_2021_FPP3_section_13.4
+    - Croushore_2011_Frontiers_of_Real_Time_Data_Analysis_JEL_49_1_pp72_100
+post_freeze_corrections:
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p08 FPP3 anchors, must_fix)
+    field: source_freeze.primary
+    original: Hyndman_and_Athanasopoulos_2021_FPP3_sections_1.4_1.6_3.5_5.2_5.10
+    corrected: Hyndman_and_Athanasopoulos_2021_FPP3_sections_1.3_1.6_5.2_5.5_5.8_5.10
+    reason: >-
+      Checked on otexts.com/fpp3 2026-10-08: section 1.3 is Determining what to forecast, 1.4 is Forecasting
+      data and methods, 3.5 is Methods used by official statistics agencies, and 5.5 is Distributional forecasts
+      and prediction intervals. The frozen list cited 1.4 for task scope and 3.5 for distributional forecasts;
+      both were wrong. Sections cited: 1.3, 1.6, 5.2-5.5, 5.8-5.10.
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p08 split of selection out of issue, must_fix)
+    field: source_freeze.added_2026_10_08
+    change: added FPP3 section 13.4 Forecast combinations (checked on otexts.com/fpp3 2026-10-08)
+    reason: the new p08.move.select may issue a declared combination; the frozen sections did not cover combination
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p08.move.information vintage authority, should_fix)
+    field: source_freeze.added_2026_10_08
+    change: added Croushore, Frontiers of Real-Time Data Analysis, Journal of Economic Literature 49(1):72-100 (2011), DOI 10.1257/jel.49.1.72 (bibliographic record checked on Crossref 2026-10-08)
+    reason: >-
+      FPP3 sections 5.8 and 5.10 do not govern data vintages, release revisions or feature-availability timing.
+      The article's section numbering could not be confirmed, so it is anchored at article level and p08.u06
+      records that as source_limited.
+source_scope_caution: FPP3 supplies operational time-series conduct; Gneiting and Raftery govern probabilistic scoring, not target selection or causal interpretation; Croushore supplies the real-time-data (vintage) discipline at article level only.

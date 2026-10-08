@@ -7,11 +7,41 @@ population_or_case_scope: one versioned corpus with grouped document provenance 
 evidence_object: texts plus independently human-coded labels for the target construct
 target_conclusion: prevalence of the coded construct in the bounded corpus with sampling and classification uncertainty
 decisive_design_choices: [construct definition, unitization, corpus boundary, annotation protocol, grouped split, baselines, prevalence estimator, uncertainty method]
-included: [human target definition, annotation, grouped holdout, simple baselines, supervised fitting, item-error analysis, prevalence estimation]
+included: [human target definition, pilot coding and reliability, annotation, grouped holdout, simple baselines, supervised fitting, item-error analysis, prevalence estimation]
 excluded: [unsupervised topic discovery, individual high-stakes classification, causal inference from text, construct discovery by classifier accuracy]
 applicability_boundary: the exact construct, coding protocol, corpus, language/domain, unitization, and time period
 source_freeze:
   frozen_on: 2026-08-13
   primary: Grimmer_and_Stewart_2013_sections_2_through_5
   corroborating: Moreo_and_Sebastiani_2019_supervised_prevalence_estimation
+  corroborating_added_2026_10_08:
+    - Esuli_Fabris_Moreo_Sebastiani_2023_Learning_to_Quantify_chapters_3_4
+    - Krippendorff_2018_Content_Analysis_4e_chapter_12
+post_freeze_corrections:
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p07 quantification authority, must_fix)
+    field: source_freeze.corroborating_added_2026_10_08
+    change: added Esuli, Fabris, Moreo and Sebastiani, Learning to Quantify (Springer, 2023), ch. 3 Evaluation of Quantification Algorithms (pp. 33-54) and ch. 4 Methods for Learning to Quantify (pp. 55-85)
+    reason: >-
+      Moreo and Sebastiani 2019 is a two-page SIGIR tutorial abstract (pp. 1415-1416); it cannot govern estimator
+      choice, adjustment for prior-probability shift, or evaluation of prevalence error. Chapter titles and
+      pages checked 2026-10-08 against the Crossref chapter records (DOIs 10.1007/978-3-031-20467-8_3 and _4).
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p07 topology pilot cycle, must_fix)
+    field: source_freeze.corroborating_added_2026_10_08
+    change: added Krippendorff, Content Analysis, 4th ed. (SAGE, 2018), ch. 12 Reliability (pp. 277-360)
+    reason: >-
+      The required codebook pilot cycle needs a source that requires reliability checks. Grimmer and Stewart
+      section 5.2.1 already requires iterative codebook development and refers readers to Krippendorff for
+      assessing coder agreement. Chapter number and opening page checked 2026-10-08 against the edition's
+      contents listing (ch. 12 Reliability p. 277; ch. 13 Validity p. 361).
+  - date: 2026-10-08
+    review_finding: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json (p07 archived PDF and paraphrased anchors, should_fix)
+    field: sources.md section labels and record exact_anchors
+    change: >-
+      The frozen range (sections 2 through 5) stands, but its section labels were wrong. Per the article:
+      section 2 four principles (2.1-2.4), section 3 acquiring text, section 4 representing text (word-to-number
+      reduction), section 5 classifying documents into known categories, with 5.2 supervised learning (5.2.1
+      constructing a training set, 5.2.2 applying a supervised model, 5.2.3 validation). Anchors now use these
+      numbers. The archived PDF link now points at the hosted PDF, checked 2026-10-08.
 source_scope_caution: Grimmer and Stewart govern social-science text measurement broadly; prevalence estimation additionally requires quantification-specific checks because classify-and-count accuracy is not itself prevalence validity.

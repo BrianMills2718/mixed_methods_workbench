@@ -1,17 +1,91 @@
 schema_version: phase3-connections-0.1
 method_id: p07
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Every connection now names from_output and to_input slots (a control gate or invocation uses to_input
+      none_gate_only). p07.c07 (validation failure) is an optional cycle. Added the required pilot-coding cycle,
+      split->fit and validate->quantify artifact flows beside their gates, bindings for bounded_corpus,
+      heldout_human_labels and the selected model, parent-to-action invocations, and refusal branches.
+      p07.c12 had the same from/to as the required flow p07.c08; the causal-use prohibition is an exit from
+      the method, so it now lives in topology.prohibited_edges as p07.c12 with an explicit out-of-method
+      target, and p07.c40 routes any such request to p07.move.refuse.
 connections:
   - {id: p07.c01, from: p07.move.bound, to: p07.move.operationalize, connection_type: artifact_flow, carries: frozen_text_measurement_frame, preservation: preserving, from_output: frozen_text_measurement_frame, to_input: frozen_text_measurement_frame}
-  - {id: p07.c02, from: p07.move.operationalize, to: p07.move.annotate, connection_type: artifact_flow, carries: codebook_and_adjudication_protocol, preservation: preserving, from_output: codebook_and_adjudication_protocol, to_input: codebook_and_adjudication_protocol}
+  - {id: p07.c02, from: p07.move.operationalize, to: p07.move.annotate, connection_type: artifact_flow, carries: construct_definition, preservation: preserving, from_output: construct_definition, to_input: construct_definition}
   - {id: p07.c03, from: p07.move.annotate, to: p07.move.split, connection_type: artifact_flow, carries: provenance_bound_human_label_set, preservation: preserving, from_output: provenance_bound_human_label_set, to_input: provenance_bound_human_label_set}
-  - {id: p07.c04, from: p07.move.split, to: p07.move.fit, connection_type: control_gate, carries: development_access_only, condition: split_frozen}
+  - {id: p07.c04, from: p07.move.split, to: p07.move.fit, connection_type: control_gate, carries: development_access_only, condition: split_frozen, from_output: leakage_resistant_split_plan, to_input: none_gate_only}
   - {id: p07.c05, from: p07.move.fit, to: p07.move.validate, connection_type: artifact_flow, carries: candidate_model_bundle, preservation: preserving, from_output: candidate_model_bundle, to_input: candidate_model_bundle}
-  - {id: p07.c06, from: p07.move.validate, to: p07.move.quantify, connection_type: control_gate, carries: validation_acceptance, condition: errors_within_declared_bound}
-  - {id: p07.c07, from: p07.move.validate, to: p07.move.operationalize, connection_type: feedback, carries: construct_or_coding_failure, condition: successor_version_required, creates_successor_version: true}
+  - {id: p07.c06, from: p07.move.validate, to: p07.move.quantify, connection_type: control_gate, carries: validation_acceptance, condition: errors_within_declared_bound, from_output: validation_appraisal, to_input: none_gate_only}
+  - {id: p07.c07, from: p07.move.validate, to: p07.move.operationalize, connection_type: feedback, carries: construct_or_coding_failure, condition: validation_shows_construct_or_codebook_failure, creates_successor_version: true, from_output: validation_appraisal, to_input: validation_failure}
   - {id: p07.c08, from: p07.move.quantify, to: p07.move.interpret, connection_type: artifact_flow, carries: corpus_prevalence_estimate, preservation: preserving, from_output: corpus_prevalence_estimate, to_input: corpus_prevalence_estimate}
-  - {id: p07.c09, from: p07.move.validate, to: p07.move.interpret, connection_type: retained_context, carries: validation_and_item_error_record, from_output: validation_and_item_error_record, to_input: validation_and_item_error_record}
-  - {id: p07.c10, from: p07.move.operationalize, to: p07.move.interpret, connection_type: retained_context, carries: codebook_and_adjudication_protocol, from_output: codebook_and_adjudication_protocol, to_input: codebook_and_adjudication_protocol}
-  - {id: p07.c11, from: p07.move.fit, to: p07.move.operationalize, connection_type: prohibited_transition, carries: favorable_model_output, condition: redefine_construct_to_match_predictions, invalidates: construct_independence}
-  - {id: p07.c12, from: p07.move.quantify, to: p07.move.interpret, connection_type: prohibited_transition, carries: corpus_prevalence_estimate, condition: infer_policy_effect_from_prevalence, invalidates: measurement_only_warrant}
-  - {id: p07.c13, from: p07.action.persist_errors, to: p07.move.validate, connection_type: retained_context, carries: anchored_error_projection, adapter_note: projection_supports_but_does_not_own_validation_judgment}
-topology: {shape: cyclic_successor_versions, entry_points: [p07.move.bound], terminal_points: [p07.move.interpret], required_feedback: [p07.c07], prohibited_transitions: [p07.c11, p07.c12]}
+  - {id: p07.c09, from: p07.move.validate, to: p07.move.interpret, connection_type: retained_context, carries: validation_appraisal, from_output: validation_appraisal, to_input: validation_appraisal}
+  - {id: p07.c10, from: p07.move.operationalize, to: p07.move.interpret, connection_type: retained_context, carries: construct_definition, from_output: construct_definition, to_input: construct_definition}
+  - {id: p07.c11, from: p07.move.fit, to: p07.move.operationalize, connection_type: prohibited_transition, carries: favorable_model_output, condition: redefine_construct_to_match_predictions, invalidates: construct_independence, from_output: candidate_model_bundle, to_input: none_blocked}
+  - {id: p07.c13, from: p07.action.persist_errors, to: p07.move.validate, connection_type: artifact_flow, carries: anchored_error_projection, preservation: preserving, adapter_note: projection_supports_but_does_not_own_validation_judgment, from_output: anchored_error_projection, to_input: anchored_error_projection}
+  - {id: p07.c14, from: p07.move.operationalize, to: p07.move.annotate, connection_type: artifact_flow, carries: adjudication_protocol, preservation: preserving, from_output: adjudication_protocol, to_input: adjudication_protocol}
+  - {id: p07.c15, from: p07.move.split, to: p07.move.fit, connection_type: artifact_flow, carries: development_label_partition, preservation: preserving, from_output: development_label_partition, to_input: development_label_partition}
+  - {id: p07.c16, from: p07.move.split, to: p07.move.fit, connection_type: artifact_flow, carries: leakage_resistant_split_plan, preservation: preserving, from_output: leakage_resistant_split_plan, to_input: leakage_resistant_split_plan}
+  - {id: p07.c17, from: p07.move.split, to: p07.move.validate, connection_type: artifact_flow, carries: heldout_human_labels, preservation: preserving, condition: opened_once_after_candidate_freeze, from_output: heldout_human_labels, to_input: heldout_human_labels}
+  - {id: p07.c18, from: p07.move.validate, to: p07.move.quantify, connection_type: artifact_flow, carries: validated_model, preservation: preserving, from_output: validated_model, to_input: validated_model}
+  - {id: p07.c19, from: p07.move.validate, to: p07.move.quantify, connection_type: artifact_flow, carries: validation_appraisal, preservation: preserving, from_output: validation_appraisal, to_input: validation_appraisal}
+  - {id: p07.c20, from: p07.move.bound, to: p07.move.quantify, connection_type: retained_context, carries: bounded_corpus, from_output: bounded_corpus, to_input: bounded_corpus}
+  - {id: p07.c21, from: p07.move.quantify, to: p07.move.interpret, connection_type: artifact_flow, carries: prevalence_uncertainty, preservation: preserving, from_output: prevalence_uncertainty, to_input: prevalence_uncertainty}
+  - {id: p07.c22, from: p07.move.bound, to: p07.move.pilot, connection_type: retained_context, carries: bounded_corpus, condition: pilot_documents_drawn_outside_later_heldout_groups, from_output: bounded_corpus, to_input: bounded_corpus}
+  - {id: p07.c23, from: p07.move.operationalize, to: p07.move.pilot, connection_type: artifact_flow, carries: construct_definition, preservation: preserving, from_output: construct_definition, to_input: construct_definition}
+  - {id: p07.c24, from: p07.move.operationalize, to: p07.move.pilot, connection_type: artifact_flow, carries: adjudication_protocol, preservation: preserving, from_output: adjudication_protocol, to_input: adjudication_protocol}
+  - {id: p07.c25, from: p07.move.pilot, to: p07.move.operationalize, connection_type: feedback, carries: pilot_reliability_appraisal, condition: ambiguities_found_or_agreement_below_frozen_threshold, creates_successor_version: true, from_output: pilot_reliability_appraisal, to_input: pilot_reliability_appraisal}
+  - {id: p07.c26, from: p07.move.pilot, to: p07.move.annotate, connection_type: control_gate, carries: codebook_final_permission, condition: no_new_ambiguities_and_agreement_meets_frozen_threshold, from_output: pilot_reliability_appraisal, to_input: none_gate_only}
+  - {id: p07.c27, from: p07.move.bound, to: p07.move.annotate, connection_type: retained_context, carries: bounded_corpus, from_output: bounded_corpus, to_input: bounded_corpus}
+  - {id: p07.c28, from: p07.move.bound, to: p07.move.split, connection_type: artifact_flow, carries: corpus_grouping_keys, preservation: preserving, from_output: corpus_grouping_keys, to_input: corpus_grouping_keys}
+  - {id: p07.c29, from: p07.move.fit, to: p07.action.fit_models, connection_type: control_gate, carries: execution_request, condition: parent_move_invokes_action, from_output: none_invocation_only, to_input: none_gate_only}
+  - {id: p07.c30, from: p07.move.split, to: p07.action.fit_models, connection_type: artifact_flow, carries: development_label_partition, preservation: preserving, from_output: development_label_partition, to_input: development_label_partition}
+  - {id: p07.c31, from: p07.move.split, to: p07.action.fit_models, connection_type: artifact_flow, carries: leakage_resistant_split_plan, preservation: preserving, from_output: leakage_resistant_split_plan, to_input: leakage_resistant_split_plan}
+  - {id: p07.c32, from: p07.action.fit_models, to: p07.move.fit, connection_type: artifact_flow, carries: fit_receipts, preservation: preserving, from_output: fit_receipts, to_input: fit_receipts}
+  - {id: p07.c33, from: p07.move.validate, to: p07.action.persist_errors, connection_type: control_gate, carries: execution_request, condition: parent_move_invokes_action, from_output: none_invocation_only, to_input: none_gate_only}
+  - {id: p07.c34, from: p07.move.validate, to: p07.action.persist_errors, connection_type: artifact_flow, carries: heldout_predictions, preservation: preserving, from_output: heldout_predictions, to_input: heldout_predictions}
+  - {id: p07.c35, from: p07.move.split, to: p07.action.persist_errors, connection_type: artifact_flow, carries: heldout_human_labels, preservation: preserving, from_output: heldout_human_labels, to_input: heldout_human_labels}
+  - {id: p07.c36, from: p07.move.pilot, to: p07.move.refuse, connection_type: artifact_flow, carries: pilot_reliability_appraisal, preservation: preserving, condition: construct_cannot_be_coded_reliably_within_declared_revisions, from_output: pilot_reliability_appraisal, to_input: failed_appraisal}
+  - {id: p07.c37, from: p07.move.validate, to: p07.move.refuse, connection_type: artifact_flow, carries: validation_appraisal, preservation: preserving, condition: heldout_contaminated_or_errors_outside_declared_bound_without_successor_version, from_output: validation_appraisal, to_input: failed_appraisal}
+  - {id: p07.c38, from: p07.move.quantify, to: p07.move.refuse, connection_type: artifact_flow, carries: prevalence_uncertainty, preservation: preserving, condition: prevalence_error_cannot_be_bounded_for_the_corpus_claim, from_output: prevalence_uncertainty, to_input: prevalence_uncertainty}
+  - {id: p07.c40, from: p07.move.interpret, to: p07.move.refuse, connection_type: control_gate, carries: out_of_scope_claim_request, condition: a_causal_or_out_of_domain_claim_is_requested_from_the_finding, from_output: bounded_text_measurement_finding, to_input: none_gate_only}
+topology:
+  shape: cyclic
+  entry_points: [p07.move.bound]
+  terminal_points: [p07.move.interpret, p07.move.refuse]
+  required_cycles:
+    - id: p07.cycle.codebook_pilot
+      edges: [p07.c23, p07.c24, p07.c25]
+      description: pilot coding and intercoder disagreement return to operationalize until the codebook is applied without new ambiguities and agreement meets the threshold frozen in the protocol
+      loop_termination: pilot_reliability_appraisal meets the frozen threshold on fresh pilot documents (p07.c26 opens), or the declared revision budget is exhausted and p07.c36 routes to refusal
+      termination_authority: human
+      source: [GS2013:5.2.1, Krippendorff2018:ch12]
+  optional_cycles:
+    - id: p07.cycle.validation_failure_successor
+      edges: [p07.c07, p07.c23, p07.c24, p07.c25, p07.c02, p07.c03, p07.c15, p07.c05]
+      description: held-out validation reveals a construct or codebook failure; a successor label version is built and validated on a fresh holdout
+      loop_termination: the successor version passes validation, or the construct lead routes to refusal (p07.c37)
+      termination_authority: human
+      source: [GS2013:5.2.3]
+  prohibited_cycles:
+    - id: p07.cycle.construct_tuned_to_model
+      edges: [p07.c11, p07.c02, p07.c03, p07.c15]
+      reason: redefining the construct to match model predictions makes the target depend on the model it is meant to evaluate
+      if_taken: disclosed_deviation; validation results lose their construct-independence and the finding is downgraded to exploratory label reproduction
+  prohibited_edges:
+    - connection: p07.c11
+      from: p07.move.fit
+      to: p07.move.operationalize
+      reason: model output cannot redefine the construct it is trained to reproduce
+      if_taken: disclosed_deviation; successor label version required and prior validation discarded
+    - connection: p07.c12
+      from: p07.move.interpret
+      to: out_of_method:causal_effect_estimation
+      reason: a measured corpus prevalence is not a treatment effect or mechanism; passing it to a causal claim crosses the method boundary without an identification design
+      if_taken: refuse; p07.c40 routes the request to p07.move.refuse, and any downstream causal use must come from a separate causal method that treats the prevalence only as a measured variable
+  out_of_method_nodes:
+    - {id: out_of_method:causal_effect_estimation, note: not a p07 record; named only so the prohibited exit has an explicit target}
+  parent_action_delegations:
+    note: within-move invocation and receipt return; not method cycles
+    edges: [p07.c29, p07.c32, p07.c33, p07.c34, p07.c13]

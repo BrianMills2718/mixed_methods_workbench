@@ -1,19 +1,368 @@
 schema_version: phase3-method-records-0.1
 method_id: p07
 variant: supervised quantitative-text prevalence measurement
+revision_notes:
+  - date: 2026-10-08
+    review: lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json
+    changes: >-
+      Records converted from flow style to block style so that named, typed slots (spec section 5.1) stay
+      readable; field names are unchanged. Added controlled verbs (spec section 6). Split the joined outputs:
+      codebook_and_adjudication_protocol into construct_definition plus design_parameters, and
+      validation_and_item_error_record into an appraisal (result) plus evidence_item many (trace). Added a
+      pilot-coding move (the iterative codebook development Grimmer and Stewart section 5.2.1 requires) and a
+      refuse record. Paraphrased Grimmer and Stewart anchors replaced by the article's own section numbers;
+      quantification anchors now cite Esuli et al. 2023 (see frame.yaml post_freeze_corrections).
+  - slot_note: >-
+      Inputs that receive an execution receipt from a child action use role `context`; spec section 5.1 offers
+      `trace` only as an output role. Inputs with `external_origin` come from outside the method and state their
+      origin; every other input is bound by a connection in connections.yaml.
 phases:
-  - {phase_id: p07.phase.construct, level: method_phase, label: define corpus and construct, operation_kinds: [analytic, methodological_support], collision_participation: none}
-  - {phase_id: p07.phase.learn, level: method_phase, label: annotate split fit and validate, operation_kinds: [analytic, methodological_support, runtime_delivery], collision_participation: none}
-  - {phase_id: p07.phase.measure, level: method_phase, label: estimate prevalence and bound use, operation_kinds: [analytic, methodological_support], collision_participation: none}
+  - {phase_id: p07.phase.construct, level: method_phase, label: define corpus and construct, operation_kinds: [analytic], collision_participation: none}
+  - {phase_id: p07.phase.learn, level: method_phase, label: pilot annotate split fit and validate, operation_kinds: [analytic, methodological_support, runtime_delivery], collision_participation: none}
+  - {phase_id: p07.phase.measure, level: method_phase, label: estimate prevalence bound use or refuse, operation_kinds: [analytic, methodological_support], collision_participation: none}
 moves:
-  - {record_id: p07.move.bound, level: analytical_move, parent_phase: p07.phase.construct, label: freeze corpus unit and prevalence target, operation_kind: analytic, inputs: [measurement_question, corpus_manifest], output: frozen_text_measurement_frame, information_origin: [interpreted, observed], source_authority_or_inferential_role: substantive_question_and_corpus_provenance, applicability_boundary: exact_corpus_unit_period_and_target, method_owned_rule: unit_and_denominator_precede_model_results, permitted_conclusion: target_prevalence_has_a_declared_denominator, refusal_or_qualification: refuse_if_unit_or_corpus_boundary_is_undefined, performer: quantitative_text_analyst, judgment_owner: substantive_construct_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: policy_sponsor, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: Grimmer_Stewart_2013_section_2, exact_anchors: [GS2013:principle_1, GS2013:principle_4], guards: {temporal: freeze_before_label_and_model_inspection, access: declared_corpus_scope_only, run_version: corpus_manifest_and_target_version_bound}}
-  - {record_id: p07.move.operationalize, level: analytical_move, parent_phase: p07.phase.construct, label: operationalize construct and annotation protocol, operation_kind: analytic, inputs: [frozen_text_measurement_frame, construct_authority], output: codebook_and_adjudication_protocol, information_origin: [interpreted], source_authority_or_inferential_role: human_construct_definition_not_algorithm_output, applicability_boundary: declared_construct_and_language_context, method_owned_rule: categories have substantive meaning and observable coding rules, permitted_conclusion: humans_can_apply_a_declared_target_to_text, refusal_or_qualification: revise_or_refuse_if_construct_cannot_be_reliably_and_validly_observed, performer: annotation_design_team, judgment_owner: substantive_construct_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: policy_sponsor, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: Grimmer_Stewart_2013_sections_2_4_5, exact_anchors: [GS2013:principle_2, GS2013:supervised_methods, GS2013:validation], guards: {temporal: codebook_frozen_before_holdout_labels_are_revealed, access: annotators_receive_only_authorized_context, run_version: codebook_changes_create_successor_label_version}}
-  - {record_id: p07.move.annotate, level: analytical_move, parent_phase: p07.phase.learn, label: sample annotate and adjudicate target labels, operation_kind: analytic, inputs: [codebook_and_adjudication_protocol, frozen_text_measurement_frame], output: provenance_bound_human_label_set, information_origin: [reported, interpreted], source_authority_or_inferential_role: independent_human_coding_is_the_supervised_target, applicability_boundary: sampled_units_and_coding_protocol, method_owned_rule: disagreement_and_adjudication_are_retained_not_hidden, permitted_conclusion: labels_can_train_and_test_protocol_reproduction, refusal_or_qualification: insufficient_or_unstable_labels_block_model_claims, performer: human_annotators, judgment_owner: substantive_construct_lead, acceptance_authority: annotation_review_authority, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: Grimmer_Stewart_2013_section_4, exact_anchors: [GS2013:supervised_methods], guards: {temporal: independent_coding_precedes_adjudication, access: heldout_labels_hidden_from_model_development, run_version: every_label_binds_text_codebook_coder_and_adjudication}}
-  - {record_id: p07.move.split, level: analytical_move, parent_phase: p07.phase.learn, label: freeze grouped development and held-out evaluation, operation_kind: methodological_support, inputs: [provenance_bound_human_label_set, corpus_grouping_keys], output: leakage_resistant_split_plan, information_origin: [derived], source_authority_or_inferential_role: out_of_sample_validation_design, applicability_boundary: declared_document_groups_and_transport_target, method_owned_rule: related documents and duplicated sources cannot cross the evaluation boundary, permitted_conclusion: heldout_results_test_unseen_groups_under_this_split, refusal_or_qualification: leakage_invalidates_heldout_claim, performer: quantitative_text_analyst, judgment_owner: quantitative_text_method_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: Grimmer_Stewart_2013_section_5, exact_anchors: [GS2013:validation], guards: {temporal: split_frozen_before_tuning, access: heldout_labels_inaccessible_to_development, run_version: split_digest_binds_corpus_and_groups}}
-  - {record_id: p07.move.fit, level: analytical_move, parent_phase: p07.phase.learn, label: fit baselines and candidate supervised models, operation_kind: analytic, inputs: [provenance_bound_human_label_set, leakage_resistant_split_plan], output: candidate_model_bundle, information_origin: [derived], source_authority_or_inferential_role: supervised_label_reproduction, applicability_boundary: development_partition_and_frozen_representation, method_owned_rule: simple baselines and tuning stay inside development data, permitted_conclusion: candidates_encode_reproducible_label_predictions, refusal_or_qualification: no_model_claim_from_training_fit, performer: deterministic_ml_pipeline, judgment_owner: quantitative_text_method_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: Grimmer_Stewart_2013_sections_3_4, exact_anchors: [GS2013:representations, GS2013:supervised_methods], guards: {temporal: no_heldout_access_during_fit, access: development_partition_only, run_version: model_binds_features_labels_code_and_seed}}
-  - {record_id: p07.move.validate, level: analytical_move, parent_phase: p07.phase.learn, label: validate against held-out humans and analyze errors, operation_kind: analytic, inputs: [candidate_model_bundle, heldout_human_labels], output: validation_and_item_error_record, information_origin: [derived, interpreted], source_authority_or_inferential_role: problem_specific_heldout_validation, applicability_boundary: heldout_groups_and_declared_error_slices, method_owned_rule: aggregate accuracy cannot substitute for item_errors_construct_review_or_transport, permitted_conclusion: model_reproduces_human_labels_to_this_degree_on_these_groups, refusal_or_qualification: reject_or_qualify_for_material_slice_error_or_construct_failure, performer: quantitative_text_analyst, judgment_owner: substantive_construct_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: Grimmer_Stewart_2013_section_5, exact_anchors: [GS2013:validation, GS2013:principle_2], guards: {temporal: one_way_heldout_evaluation_then_new_version_for_redesign, access: authorized_error_review, run_version: validation_binds_model_split_labels_and_metrics}}
-  - {record_id: p07.move.quantify, level: analytical_move, parent_phase: p07.phase.measure, label: estimate construct prevalence with classification uncertainty, operation_kind: analytic, inputs: [validated_model_or_quantifier, bounded_corpus, validation_and_item_error_record], output: corpus_prevalence_estimate, information_origin: [derived], source_authority_or_inferential_role: supervised_prevalence_estimation_not_individual_classification, applicability_boundary: bounded_corpus_and_observed_error_regime, method_owned_rule: prevalence loss and misclassification uncertainty are evaluated directly, permitted_conclusion: estimated_construct_prevalence_in_this_corpus_with_uncertainty, refusal_or_qualification: classify_and_count_is_not_accepted_without_prevalence_error_justification, performer: deterministic_quantification_pipeline, judgment_owner: quantitative_text_method_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: Moreo_Sebastiani_2019;Grimmer_Stewart_2013_section_5, exact_anchors: [MS2019:definition, GS2013:validation], guards: {temporal: only_after_validation_gate, access: bounded_corpus_only, run_version: estimate_binds_corpus_model_quantifier_and_validation}}
-  - {record_id: p07.move.interpret, level: analytical_move, parent_phase: p07.phase.measure, label: interpret measurement and construct limits, operation_kind: methodological_support, inputs: [corpus_prevalence_estimate, validation_and_item_error_record, codebook_and_adjudication_protocol], output: bounded_text_measurement_finding, information_origin: [derived, interpreted], source_authority_or_inferential_role: substantive_construct_review, applicability_boundary: exact_construct_corpus_domain_and_period, method_owned_rule: label_reproduction_does_not_establish_construct_validity_or_causality, permitted_conclusion: bounded_prevalence_measurement_with_explicit_construct_and_transport_limits, refusal_or_qualification: refuse_causal_or_out_of_domain_claims, performer: quantitative_text_analyst, judgment_owner: substantive_construct_lead, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: methodology_reference_only, source_basis: Grimmer_Stewart_2013_sections_2_5, exact_anchors: [GS2013:principle_2, GS2013:validation], guards: {temporal: after_quantification_and_error_review, access: aggregate_release_unless_microtext_authorized, run_version: finding_binds_all_upstream_versions}}
+  - record_id: p07.move.bound
+    level: analytical_move
+    parent_phase: p07.phase.construct
+    label: freeze corpus unit and prevalence target
+    verb: define
+    operation_kind: analytic
+    inputs:
+      - {slot: measurement_question, type: concept, role: subject, cardinality: one, optional: false, external_origin: interpreted (sponsor question)}
+      - {slot: corpus_manifest, type: dataset, role: context, cardinality: one, optional: false, external_origin: observed (corpus provenance records)}
+    outputs:
+      - {slot: frozen_text_measurement_frame, type: estimand, role: result, cardinality: one, optional: false}
+      - {slot: bounded_corpus, type: source_document, role: result, cardinality: many, optional: false}
+      - {slot: corpus_grouping_keys, type: dataset, role: byproduct, cardinality: one, optional: false}
+    information_origin: [interpreted, observed]
+    source_authority_or_inferential_role: substantive_question_and_corpus_provenance
+    applicability_boundary: exact_corpus_unit_period_and_target
+    method_owned_rule: unit_and_denominator_precede_model_results
+    permitted_conclusion: target_prevalence_has_a_declared_denominator
+    refusal_or_qualification: refuse_if_unit_or_corpus_boundary_is_undefined
+    performer: quantitative_text_analyst
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: policy_sponsor
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_sections_2.1_2.4
+    exact_anchors: [GS2013:2.1, GS2013:2.4]
+    guards: {temporal: freeze_before_label_and_model_inspection, access: declared_corpus_scope_only, run_version: corpus_manifest_and_target_version_bound}
+  - record_id: p07.move.operationalize
+    level: analytical_move
+    parent_phase: p07.phase.construct
+    label: operationalize construct and annotation protocol
+    verb: conceptualize
+    operation_kind: analytic
+    inputs:
+      - {slot: construct_authority, type: concept, role: subject, cardinality: one, optional: false, external_origin: interpreted (substantive literature or domain experts named by the construct lead)}
+      - {slot: frozen_text_measurement_frame, type: estimand, role: criteria, cardinality: one, optional: false}
+      - {slot: pilot_reliability_appraisal, type: appraisal, role: prior, cardinality: optional_one, optional: true}
+      - {slot: validation_failure, type: appraisal, role: prior, cardinality: optional_one, optional: true}
+    outputs:
+      - {slot: construct_definition, type: construct_definition, role: result, cardinality: one, optional: false}
+      - {slot: adjudication_protocol, type: design_parameters, role: result, cardinality: one, optional: false}
+    information_origin: [interpreted]
+    source_authority_or_inferential_role: human_construct_definition_not_algorithm_output
+    applicability_boundary: declared_construct_and_language_context
+    method_owned_rule: categories have substantive meaning and observable coding rules, and the reliability threshold is declared in the protocol before pilot coding
+    permitted_conclusion: humans_can_apply_a_declared_target_to_text
+    refusal_or_qualification: revise_or_refuse_if_construct_cannot_be_reliably_and_validly_observed
+    performer: annotation_design_team
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: policy_sponsor
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_sections_2.2_5.2.1
+    exact_anchors: [GS2013:2.2, GS2013:5.2.1]
+    guards: {temporal: codebook_frozen_before_holdout_labels_are_revealed, access: annotators_receive_only_authorized_context, run_version: codebook_changes_create_successor_label_version}
+  - record_id: p07.move.pilot
+    level: analytical_move
+    parent_phase: p07.phase.learn
+    label: pilot code and assess intercoder reliability
+    verb: test
+    operation_kind: analytic
+    inputs:
+      - {slot: construct_definition, type: construct_definition, role: subject, cardinality: one, optional: false}
+      - {slot: adjudication_protocol, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: bounded_corpus, type: source_document, role: context, cardinality: many, optional: false}
+    outputs:
+      - {slot: pilot_reliability_appraisal, type: appraisal, role: result, cardinality: one, optional: false}
+    information_origin: [reported, interpreted, derived]
+    source_authority_or_inferential_role: iterative_codebook_development_and_reliability_assessment
+    applicability_boundary: pilot_documents_coders_and_codebook_version
+    method_owned_rule: the codebook is final only when independent coders apply it to fresh pilot documents without new ambiguities and agreement meets the frozen threshold
+    permitted_conclusion: this codebook version can be applied reliably by independent coders, or its named ambiguities require revision
+    refusal_or_qualification: return_to_operationalize_or_refuse_if_reliability_cannot_be_reached
+    performer: human_annotators
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: annotation_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_section_5.2.1;Krippendorff_2018_ch12
+    exact_anchors: [GS2013:5.2.1, Krippendorff2018:ch12]
+    guards: {temporal: pilot_documents_are_excluded_from_the_heldout_partition, access: pilot_coders_code_independently_before_discussion, run_version: appraisal_binds_codebook_version_coders_and_documents}
+  - record_id: p07.move.annotate
+    level: analytical_move
+    parent_phase: p07.phase.learn
+    label: sample annotate and adjudicate target labels
+    verb: annotate
+    operation_kind: analytic
+    inputs:
+      - {slot: bounded_corpus, type: source_document, role: subject, cardinality: many, optional: false}
+      - {slot: construct_definition, type: construct_definition, role: criteria, cardinality: one, optional: false}
+      - {slot: adjudication_protocol, type: design_parameters, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: provenance_bound_human_label_set, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: adjudication_record, type: evidence_item, role: trace, cardinality: many, optional: false}
+    information_origin: [reported, interpreted]
+    source_authority_or_inferential_role: independent_human_coding_is_the_supervised_target
+    applicability_boundary: sampled_units_and_coding_protocol
+    method_owned_rule: disagreement_and_adjudication_are_retained_not_hidden
+    permitted_conclusion: labels_can_train_and_test_protocol_reproduction
+    refusal_or_qualification: insufficient_or_unstable_labels_block_model_claims
+    performer: human_annotators
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: annotation_review_authority
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_section_5.2.1;Krippendorff_2018_ch12
+    exact_anchors: [GS2013:5.2.1, Krippendorff2018:ch12]
+    guards: {temporal: after_pilot_gate_and_independent_coding_precedes_adjudication, access: heldout_labels_hidden_from_model_development, run_version: every_label_binds_text_codebook_coder_and_adjudication}
+  - record_id: p07.move.split
+    level: analytical_move
+    parent_phase: p07.phase.learn
+    label: freeze grouped development and held-out evaluation
+    verb: construct
+    operation_kind: methodological_support
+    inputs:
+      - {slot: provenance_bound_human_label_set, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: corpus_grouping_keys, type: dataset, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: leakage_resistant_split_plan, type: design_parameters, role: result, cardinality: one, optional: false}
+      - {slot: development_label_partition, type: dataset, role: result, cardinality: one, optional: false}
+      - {slot: heldout_human_labels, type: dataset, role: result, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: out_of_sample_validation_design
+    applicability_boundary: declared_document_groups_and_transport_target
+    method_owned_rule: related documents and duplicated sources cannot cross the evaluation boundary
+    permitted_conclusion: heldout_results_test_unseen_groups_under_this_split
+    refusal_or_qualification: leakage_invalidates_heldout_claim
+    performer: quantitative_text_analyst
+    judgment_owner: quantitative_text_method_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_section_5.2.3
+    exact_anchors: [GS2013:5.2.3]
+    guards: {temporal: split_frozen_before_tuning, access: heldout_labels_inaccessible_to_development, run_version: split_digest_binds_corpus_and_groups}
+  - record_id: p07.move.fit
+    level: analytical_move
+    parent_phase: p07.phase.learn
+    label: fit baselines and candidate supervised models
+    verb: fit
+    operation_kind: analytic
+    inputs:
+      - {slot: development_label_partition, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: leakage_resistant_split_plan, type: design_parameters, role: config_data, cardinality: one, optional: false}
+      - {slot: fit_receipts, type: model_run, role: context, cardinality: many, optional: false}
+    outputs:
+      - {slot: candidate_model_bundle, type: model, role: result, cardinality: many, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: supervised_label_reproduction
+    applicability_boundary: development_partition_and_frozen_representation
+    method_owned_rule: simple baselines and tuning stay inside development data
+    permitted_conclusion: candidates_encode_reproducible_label_predictions
+    refusal_or_qualification: no_model_claim_from_training_fit
+    performer: deterministic_ml_pipeline
+    judgment_owner: quantitative_text_method_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: Grimmer_Stewart_2013_sections_4_5.2.2
+    exact_anchors: [GS2013:4, GS2013:5.2.2]
+    guards: {temporal: no_heldout_access_during_fit, access: development_partition_only, run_version: model_binds_features_labels_code_and_seed}
+  - record_id: p07.move.validate
+    level: analytical_move
+    parent_phase: p07.phase.learn
+    label: validate against held-out humans and analyze errors
+    verb: test
+    operation_kind: analytic
+    inputs:
+      - {slot: candidate_model_bundle, type: model, role: subject, cardinality: many, optional: false}
+      - {slot: heldout_human_labels, type: dataset, role: criteria, cardinality: one, optional: false}
+      - {slot: anchored_error_projection, type: evidence_item, role: context, cardinality: many, optional: false}
+    outputs:
+      - {slot: validation_appraisal, type: appraisal, role: result, cardinality: one, optional: false}
+      - {slot: validated_model, type: model, role: result, cardinality: optional_one, optional: true}
+      - {slot: item_error_record, type: evidence_item, role: trace, cardinality: many, optional: false}
+      - {slot: heldout_predictions, type: dataset, role: byproduct, cardinality: one, optional: false}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: problem_specific_heldout_validation_including_prevalence_error
+    applicability_boundary: heldout_groups_and_declared_error_slices
+    method_owned_rule: aggregate accuracy cannot substitute for item errors, construct review, transport, or direct evaluation of prevalence error
+    permitted_conclusion: model_reproduces_human_labels_and_heldout_prevalence_to_this_degree_on_these_groups
+    refusal_or_qualification: reject_or_qualify_for_material_slice_error_prevalence_error_or_construct_failure
+    performer: quantitative_text_analyst
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_sections_2.2_5.2.3;Esuli_et_al_2023_ch3
+    exact_anchors: [GS2013:5.2.3, GS2013:2.2, Esuli2023:ch3]
+    guards: {temporal: one_way_heldout_evaluation_then_new_version_for_redesign, access: authorized_error_review, run_version: validation_binds_model_split_labels_and_metrics}
+  - record_id: p07.move.quantify
+    level: analytical_move
+    parent_phase: p07.phase.measure
+    label: estimate construct prevalence with classification uncertainty
+    verb: estimate
+    operation_kind: analytic
+    inputs:
+      - {slot: bounded_corpus, type: source_document, role: subject, cardinality: many, optional: false}
+      - {slot: validated_model, type: model, role: context, cardinality: one, optional: false}
+      - {slot: validation_appraisal, type: appraisal, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: corpus_prevalence_estimate, type: estimate, role: result, cardinality: one, optional: false}
+      - {slot: prevalence_uncertainty, type: uncertainty_note, role: result, cardinality: one, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: supervised_prevalence_estimation_not_individual_classification
+    applicability_boundary: bounded_corpus_and_observed_error_regime
+    method_owned_rule: prevalence loss and misclassification uncertainty are evaluated directly, and the estimator is chosen for the shift between labelled sample and corpus
+    permitted_conclusion: estimated_construct_prevalence_in_this_corpus_with_uncertainty
+    refusal_or_qualification: classify_and_count_is_not_accepted_without_prevalence_error_justification
+    performer: deterministic_quantification_pipeline
+    judgment_owner: quantitative_text_method_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: Esuli_et_al_2023_ch3_ch4;Moreo_Sebastiani_2019;Grimmer_Stewart_2013_section_5.2.3
+    exact_anchors: [Esuli2023:ch4, Esuli2023:ch3, MS2019:pp1415-1416, GS2013:5.2.3]
+    guards: {temporal: only_after_validation_gate, access: bounded_corpus_only, run_version: estimate_binds_corpus_model_quantifier_and_validation}
+  - record_id: p07.move.interpret
+    level: analytical_move
+    parent_phase: p07.phase.measure
+    label: interpret measurement and construct limits
+    verb: review
+    operation_kind: methodological_support
+    inputs:
+      - {slot: corpus_prevalence_estimate, type: estimate, role: subject, cardinality: one, optional: false}
+      - {slot: prevalence_uncertainty, type: uncertainty_note, role: context, cardinality: one, optional: false}
+      - {slot: validation_appraisal, type: appraisal, role: context, cardinality: one, optional: false}
+      - {slot: construct_definition, type: construct_definition, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: bounded_text_measurement_finding, type: finding, role: result, cardinality: one, optional: false}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: substantive_construct_review
+    applicability_boundary: exact_construct_corpus_domain_and_period
+    method_owned_rule: label_reproduction_does_not_establish_construct_validity_or_causality
+    permitted_conclusion: bounded_prevalence_measurement_with_explicit_construct_and_transport_limits
+    refusal_or_qualification: route_causal_or_out_of_domain_requests_to_p07.move.refuse
+    performer: quantitative_text_analyst
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: Grimmer_Stewart_2013_sections_2.2_5.2.3
+    exact_anchors: [GS2013:2.2, GS2013:5.2.3]
+    guards: {temporal: after_quantification_and_error_review, access: aggregate_release_unless_microtext_authorized, run_version: finding_binds_all_upstream_versions}
+  - record_id: p07.move.refuse
+    level: analytical_move
+    parent_phase: p07.phase.measure
+    label: refuse prevalence or out-of-scope claim
+    verb: refuse
+    operation_kind: analytic
+    inputs:
+      - {slot: failed_appraisal, type: appraisal, role: subject, cardinality: optional_many, optional: true}
+      - {slot: prevalence_uncertainty, type: uncertainty_note, role: context, cardinality: optional_one, optional: true}
+      - {slot: requested_claim, type: claim, role: context, cardinality: optional_one, optional: true, external_origin: interpreted (a causal or out-of-domain claim requested by a consumer)}
+    outputs:
+      - {slot: refusal_record, type: finding, role: result, cardinality: one, optional: false}
+    information_origin: [derived, interpreted]
+    source_authority_or_inferential_role: uncertainty_stopping_rule_and_construct_validity_boundary
+    applicability_boundary: the_exact_construct_codebook_split_and_corpus_versions_that_failed
+    method_owned_rule: no prevalence is released when the construct cannot be reliably coded, the holdout is contaminated, or prevalence error cannot be bounded; no causal or out-of-domain claim is made from a prevalence measurement
+    permitted_conclusion: the named claim is not licensed for this measurement version, for the named reasons
+    refusal_or_qualification: this_record_is_the_refusal_terminal
+    performer: quantitative_text_method_lead
+    judgment_owner: substantive_construct_lead
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: methodology_reference_only
+    source_basis: uncertainty.yaml_stopping_rule;Grimmer_Stewart_2013_section_2.4;Esuli_et_al_2023_ch3
+    exact_anchors: [uncertainty:p07:stopping_rule, GS2013:2.4, Esuli2023:ch3]
+    guards: {temporal: replaces_finding_for_this_version, access: refusal_reasons_released_at_aggregate_level, run_version: refusal_binds_failed_appraisal_versions}
 actions:
-  - {record_id: p07.action.fit_models, level: execution_action, parent_move: p07.move.fit, label: execute frozen feature and fitting pipeline, operation_kind: analytic, inputs: [development_labels, split_plan], output: fit_receipts, information_origin: [derived], source_authority_or_inferential_role: parent_move_execution, applicability_boundary: development_partition, method_owned_rule: none, permitted_conclusion: no_construct_conclusion, refusal_or_qualification: pipeline_failure_blocks_validation, performer: deterministic_ml_pipeline, judgment_owner: none, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: Grimmer_Stewart_2013_sections_3_4, exact_anchors: [GS2013:representations], guards: {temporal: after_split_freeze, access: no_heldout_labels, run_version: code_dependencies_seed_and_inputs_bound}}
-  - {record_id: p07.action.persist_errors, level: execution_action, parent_move: p07.move.validate, label: render anchored item-level errors for review, operation_kind: runtime_delivery, inputs: [heldout_predictions, heldout_human_labels], output: anchored_error_projection, information_origin: [derived], source_authority_or_inferential_role: parent_move_review_projection, applicability_boundary: authorized_heldout_review, method_owned_rule: none, permitted_conclusion: no_construct_conclusion, refusal_or_qualification: missing_anchors_blocks_error_review, performer: deterministic_renderer, judgment_owner: none, acceptance_authority: method_reviewer, recommender: none, value_goal_authority: none, decision_authority: none, implementation_evidence: design_only, source_basis: no_methodology_counterpart, exact_anchors: [instrument:exact_anchors], guards: {temporal: after_predictions_freeze, access: protected_text_controls, run_version: projection_binds_text_label_and_prediction_versions}}
+  - record_id: p07.action.fit_models
+    level: execution_action
+    parent_move: p07.move.fit
+    label: execute frozen feature and fitting pipeline
+    verb: fit
+    operation_kind: analytic
+    inputs:
+      - {slot: development_label_partition, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: leakage_resistant_split_plan, type: design_parameters, role: config_data, cardinality: one, optional: false}
+    outputs:
+      - {slot: fit_receipts, type: model_run, role: trace, cardinality: many, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: parent_move_execution
+    applicability_boundary: development_partition
+    method_owned_rule: none
+    permitted_conclusion: no_construct_conclusion
+    refusal_or_qualification: pipeline_failure_blocks_validation
+    performer: deterministic_ml_pipeline
+    judgment_owner: none
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: Grimmer_Stewart_2013_sections_4_5.2.2
+    exact_anchors: [GS2013:4, GS2013:5.2.2]
+    guards: {temporal: after_split_freeze, access: no_heldout_labels, run_version: code_dependencies_seed_and_inputs_bound}
+  - record_id: p07.action.persist_errors
+    level: execution_action
+    parent_move: p07.move.validate
+    label: render anchored item-level errors for review
+    verb: anchor
+    operation_kind: runtime_delivery
+    inputs:
+      - {slot: heldout_predictions, type: dataset, role: subject, cardinality: one, optional: false}
+      - {slot: heldout_human_labels, type: dataset, role: criteria, cardinality: one, optional: false}
+    outputs:
+      - {slot: anchored_error_projection, type: evidence_item, role: trace, cardinality: many, optional: false}
+    information_origin: [derived]
+    source_authority_or_inferential_role: parent_move_review_projection
+    applicability_boundary: authorized_heldout_review
+    method_owned_rule: none
+    permitted_conclusion: no_construct_conclusion
+    refusal_or_qualification: missing_anchors_blocks_error_review
+    performer: deterministic_renderer
+    judgment_owner: none
+    acceptance_authority: method_reviewer
+    recommender: none
+    value_goal_authority: none
+    decision_authority: none
+    implementation_evidence: design_only
+    source_basis: no_methodology_counterpart
+    exact_anchors: [instrument:exact_anchors]
+    guards: {temporal: after_predictions_freeze, access: protected_text_controls, run_version: projection_binds_text_label_and_prediction_versions}
