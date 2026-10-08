@@ -13,6 +13,7 @@ topology:
   - - p14.move.conclude
     - p14.move.mechanisms
     - p14.move.search_plan
+    - p14.move.search
     - p14.move.anchor_evidence
     - p14.move.diagnostic
     - p14.move.update
@@ -76,6 +77,37 @@ connections:
   carries: evidence_search_plan
   from_output: evidence_search_plan
   to_input: evidence_search_plan
+- id: p14.c05a
+  from: p14.move.search_plan
+  to: p14.move.search
+  connection_type: artifact_flow
+  carries: evidence_search_plan
+  from_output: evidence_search_plan
+  to_input: evidence_search_plan
+  transfer_semantics: preserving
+- id: p14.c05b
+  from: p14.move.case_scope
+  to: p14.move.search
+  connection_type: retained_context
+  carries: frozen_case_frame
+  from_output: frozen_case_frame
+  to_input: frozen_case_frame
+- id: p14.c05c
+  from: p14.move.search
+  to: p14.move.acquire_appraise_source
+  connection_type: artifact_flow
+  carries: candidate_sources
+  from_output: candidate_sources
+  to_input: candidate_sources
+  transfer_semantics: preserving
+- id: p14.c05d
+  from: p14.move.search
+  to: p14.move.anchor_evidence
+  connection_type: artifact_flow
+  carries: opportunity_search_receipts
+  from_output: opportunity_search_receipts
+  to_input: opportunity_search_receipts
+  transfer_semantics: preserving
 - id: p14.c06
   from: p14.move.acquire_appraise_source
   to: p14.move.anchor_evidence
@@ -94,11 +126,12 @@ connections:
 - id: p14.c08
   from: p14.action.persist_anchor
   to: p14.move.anchor_evidence
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: anchor_receipt
   note: persistence_attests_location_and_hash_not_evidentiary_meaning
   from_output: anchor_receipt
   to_input: anchor_receipt
+  transfer_semantics: preserving
 - id: p14.c09
   from: p14.move.anchor_evidence
   to: p14.move.dependencies
@@ -196,22 +229,26 @@ connections:
   condition: residual_rivals_or_gaps_are_discriminable_with_more_evidence
   creates_successor_version: true
 - id: p14.c18
-  from: p14.move.search_plan
+  from: p14.move.search
   to: p14.move.anchor_evidence
   connection_type: control_gate
   carries: absence_admission_gate
-  condition: absence_requires_documented_opportunity_access_and_completed_search
+  condition: an_absence_item_is_admitted_only_for_an_opportunity_whose_search_receipt_says_searched; inaccessible_or_not_searched_receipts_admit_only_unknown
 - id: p14.c19
-  from: p14.move.acquire_appraise_source
+  from: p14.move.mechanisms
   to: p14.move.anchor_evidence
   connection_type: prohibited_transition
-  carries: unsearched_silence_as_absence
+  carries: expected_absence_recorded_as_observed_absence_without_search_receipt
+  reason: an observable implication that predicts no trace may enter the evidence ledger as absence only after p14.move.search records the opportunity as searched and gate p14.c18 admits it; a direct route bypasses the search
+  if_taken: absence item invalid; recorded as unknown
   consequence: absence_item_is_invalid
 - id: p14.c20
-  from: p14.move.dependencies
+  from: p14.move.anchor_evidence
   to: p14.move.update
   connection_type: prohibited_transition
-  carries: dependent_items_multiplied_as_independent
+  carries: evidence_items_combined_without_dependency_appraisal
+  reason: updating directly from the evidence ledger bypasses p14.move.dependencies, so dependent items would be multiplied as if independent
+  if_taken: diagnostic update overstated; update invalid until dependence is appraised
   consequence: diagnostic_update_is_overstated_and_invalid
 - id: p14.c21
   from: p14.move.anchor_evidence

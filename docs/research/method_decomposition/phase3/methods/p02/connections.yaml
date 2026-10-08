@@ -11,13 +11,14 @@ topology:
   required_cycles: []
   optional_cycles: []
   prohibited_cycles:
-  - - p02.move.conduct
+  - - p02.move.ascertain
     - p02.move.objective_estimand
   - - p02.move.lock_audit
     - p02.move.conduct
   prohibited_edges:
   - p02.c17
   - p02.c18
+  - p02.c19
   entry_points:
   - p02.move.objective_estimand
   terminal_points:
@@ -25,6 +26,22 @@ topology:
   - refusal:compromised_randomization
   - refusal:unresolved_data_integrity
 connections:
+- id: p02.c00
+  from: p02.move.objective_estimand
+  to: p02.move.sample_size
+  connection_type: artifact_flow
+  carries: frozen_estimand
+  from_output: frozen_estimand
+  to_input: frozen_estimand
+  transfer_semantics: preserving
+- id: p02.c00a
+  from: p02.move.sample_size
+  to: p02.move.protocol_sap
+  connection_type: artifact_flow
+  carries: sample_size_specification
+  from_output: sample_size_specification
+  to_input: sample_size_specification
+  transfer_semantics: preserving
 - id: p02.c01
   from: p02.move.objective_estimand
   to: p02.move.protocol_sap
@@ -42,11 +59,12 @@ connections:
 - id: p02.c03
   from: p02.action.randomize
   to: p02.move.allocate
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: allocation_receipt
   note: receipt_attests_execution_and_does_not_replace_design_parameters_or_randomized_cohort
   from_output: allocation_receipt
   to_input: allocation_receipt
+  transfer_semantics: preserving
 - id: p02.c04
   from: p02.move.allocate
   to: p02.move.conduct
@@ -125,11 +143,12 @@ connections:
 - id: p02.c12
   from: p02.action.compute_itt
   to: p02.move.estimate
-  connection_type: retained_context
+  connection_type: artifact_flow
   carries: estimate_receipt
   note: receipt_realizes_the_estimator_but_does_not_replace_estimand_dataset_or_method_judgment
   from_output: estimate_receipt
   to_input: estimate_receipt
+  transfer_semantics: preserving
 - id: p02.c13
   from: p02.move.estimate
   to: p02.move.sensitivity
@@ -186,3 +205,11 @@ connections:
   carries: locked_analysis_dataset
   from_output: locked_analysis_dataset
   to_input: locked_analysis_dataset
+- id: p02.c19
+  from: p02.move.ascertain
+  to: p02.move.sample_size
+  connection_type: prohibited_transition
+  carries: outcome_informed_sample_size_reestimation
+  reason: the frozen variant is a fixed-sample design; sample-size adjustment and interim looks are excluded in frame.yaml
+  if_taken: disclosed deviation; the variant no longer applies and the analysis must be re-framed as an adaptive or group-sequential design
+  consequence: confirmatory_status_is_lost_under_this_frame
