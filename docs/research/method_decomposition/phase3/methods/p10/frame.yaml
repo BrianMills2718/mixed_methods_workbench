@@ -21,3 +21,8 @@ primary_source: lempert_et_al_2003
 corroborating_source: groves_et_al_2019
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no simulation run, robust strategy, or recommendation
+external_entry_inputs:  # study material supplied from outside the method (record.slot); every other required input has a typed connection
+  - p10.move.frame.decision_problem
+  - p10.move.frame.candidate_actions
+  - p10.move.frame.stakeholder_values
+  - p10.move.frame.models_and_evidence

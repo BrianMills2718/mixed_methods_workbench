@@ -193,22 +193,22 @@ connections:
     target_cardinality: many
     optional_target: false
 - id: p11.c15
-  from: p11.move.compare_advise
+  from: p11.move.assure
   to: p11.move.decide_feedback
-  condition: appraisal_assurance_accepts_bounded_advice_or_no_preference
+  condition: appraisal_assurance_reviewer_accepts_bounded_advice_or_no_preference
   effect: present_advice_to_accountable_decision_maker
   connection_type: control_gate
-  from_output: assured_bounded_appraisal_advice
-  to_input: assured_bounded_appraisal_advice
+  from_output: assurance_review_outcome
+  to_input: bounded_appraisal_advice
   slot_compatibility: not_artifact_transfer
 - id: p11.c16
   from: p11.move.compare_advise
   to: p11.move.decide_feedback
-  artifact: assured_bounded_appraisal_advice
+  artifact: bounded_appraisal_advice
   transfer: preserving
   connection_type: artifact_flow
-  from_output: assured_bounded_appraisal_advice
-  to_input: assured_bounded_appraisal_advice
+  from_output: bounded_appraisal_advice
+  to_input: bounded_appraisal_advice
   slot_compatibility:
     type: recommendation
     role_transition: result_to_subject
@@ -238,7 +238,7 @@ connections:
   reason: longlist_rating_is_not_shortlist_appraisal_advice_or_decision
   connection_type: prohibited_transition
   from_output: off_choices_ratings_rationales_and_longlist
-  to_input: assured_bounded_appraisal_advice
+  to_input: bounded_appraisal_advice
   slot_compatibility: not_artifact_transfer
 - id: p11.c20
   from: p11.action.publish_ast
@@ -254,23 +254,296 @@ connections:
     source_cardinality: one
     target_cardinality: optional_one
     optional_target: true
+- id: p11.c21
+  from: p11.move.compare_advise
+  to: p11.move.assure
+  artifact: bounded_appraisal_advice
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: bounded_appraisal_advice
+  to_input: bounded_appraisal_advice
+  slot_compatibility:
+    type: recommendation
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p11.c22
+  from: p11.move.compare_advise
+  to: p11.move.shortlist
+  condition: shortlist_appraisal_shows_one_or_more_options_unlikely_to_meet_objectives_or_csfs_and_viable_longlist_options_remain
+  effect: create_successor_shortlist_version_and_reappraise
+  connection_type: feedback
+  artifact: appraisal_return_finding
+  from_output: appraisal_return_finding
+  to_input: appraisal_return_finding
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_context
+    source_cardinality: optional_one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p11.c23
+  from: p11.move.compare_advise
+  to: p11.move.generate_off
+  condition: no_remaining_longlist_option_meets_objectives_or_csfs_or_evidence_shows_the_longlist_is_inadequate
+  effect: create_successor_longlist_version_with_its_own_route_decision
+  connection_type: feedback
+  artifact: appraisal_return_finding
+  from_output: appraisal_return_finding
+  to_input: appraisal_return_finding
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_context
+    source_cardinality: optional_one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p11.c24
+  from: p11.move.assure
+  to: p11.move.compare_advise
+  condition: assurance_rejects_balance_presentation_or_preferred_option_reasoning
+  effect: create_successor_advice_version
+  connection_type: feedback
+  from_output: assurance_review_outcome
+  to_input: assurance_review_outcome
+  slot_compatibility: not_artifact_transfer
+- id: p11.c25
+  from: p11.move.assure
+  to: p11.move.appraise_cba_cea
+  condition: assurance_rejects_valuation_risk_or_sensitivity_evidence
+  effect: create_successor_shortlist_appraisal_version
+  connection_type: feedback
+  from_output: assurance_review_outcome
+  to_input: assurance_review_outcome
+  slot_compatibility: not_artifact_transfer
+- id: p11.c26
+  from: p11.action.publish_ast
+  to: p11.move.assure
+  artifact: appraisal_summary_artifact
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: appraisal_summary_artifact
+  to_input: appraisal_summary_artifact
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p11.c27
+  from: p11.move.compare_advise
+  to: p11.move.choose_longlist_route
+  reason: the longlist route cannot be switched to MCDA for the same longlist after
+    shortlist results are seen; a successor longlist from p11.c23 gets its own route
+    decision
+  connection_type: prohibited_transition
+  from_output: bounded_appraisal_advice
+  to_input: off_choices_ratings_rationales_and_longlist
+  slot_compatibility: not_artifact_transfer
+- id: p11.c28
+  from: p11.move.objectives
+  to: p11.move.choose_longlist_route
+  artifact: objective_csf_and_authority_record
+  connection_type: retained_context
+  from_output: objective_csf_and_authority_record
+  to_input: objective_csf_and_authority_record
+  slot_compatibility:
+    type: criterion
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p11.c29
+  from: p11.move.generate_off
+  to: p11.move.mcda
+  artifact: off_choices_ratings_rationales_and_longlist
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: off_choices_ratings_rationales_and_longlist
+  to_input: off_choices_ratings_rationales_and_longlist
+  slot_compatibility:
+    type: option
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: standard_off_does_not_resolve_complex_technical_tradeoffs_and_expert_facilitator_is_available
+- id: p11.c30
+  from: p11.move.objectives
+  to: p11.move.mcda
+  artifact: objective_csf_and_authority_record
+  connection_type: retained_context
+  from_output: objective_csf_and_authority_record
+  to_input: objective_csf_and_authority_record
+  slot_compatibility:
+    type: criterion
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: standard_off_does_not_resolve_complex_technical_tradeoffs_and_expert_facilitator_is_available
+- id: p11.c31
+  from: p11.move.choose_longlist_route
+  to: p11.move.mcda
+  artifact: longlist_route_decision
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: longlist_route_decision
+  to_input: longlist_route_decision
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: standard_off_does_not_resolve_complex_technical_tradeoffs_and_expert_facilitator_is_available
+- id: p11.c32
+  from: p11.move.choose_longlist_route
+  to: p11.move.shortlist
+  artifact: longlist_route_decision
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: longlist_route_decision
+  to_input: longlist_route_decision
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p11.c33
+  from: p11.move.shortlist
+  to: p11.move.qualify_impacts
+  artifact: shortlist_rejection_log_and_preferred_way_forward
+  connection_type: retained_context
+  from_output: shortlist_rejection_log_and_preferred_way_forward
+  to_input: shortlist_rejection_log_and_preferred_way_forward
+  slot_compatibility:
+    type: option
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p11.c34
+  from: p11.move.shortlist
+  to: p11.move.compare_advise
+  artifact: shortlist_rejection_log_and_preferred_way_forward
+  connection_type: retained_context
+  from_output: shortlist_rejection_log_and_preferred_way_forward
+  to_input: shortlist_rejection_log_and_preferred_way_forward
+  slot_compatibility:
+    type: option
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p11.c35
+  from: p11.move.shortlist
+  to: p11.action.calculate
+  artifact: shortlist_rejection_log_and_preferred_way_forward
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: shortlist_rejection_log_and_preferred_way_forward
+  to_input: shortlist_rejection_log_and_preferred_way_forward
+  slot_compatibility:
+    type: option
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p11.c36
+  from: p11.move.compare_advise
+  to: p11.action.publish_ast
+  artifact: bounded_appraisal_advice
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: bounded_appraisal_advice
+  to_input: bounded_appraisal_advice
+  slot_compatibility:
+    type: recommendation
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
 topology_assertions:
 - off_is_standard_route_and_mcda_is_conditional_longlist_branch
 - shortlist_cba_or_cea_is_mandatory_after_either_longlist_route
 - monetized_unmonetized_distributional_and_uncertainty_evidence_join_before_advice
 - advice_assurance_decision_and_successor_feedback_remain_separate
+- shortlist_appraisal_may_return_to_shortlist_or_longlist_before_advice
+- assurance_rejection_returns_to_a_named_rework_stage_before_decision
 topology:
   shape: adaptive
-  required_cycles: []
+  required_cycles:
+  - cycle: p11.move.shortlist -> p11.move.appraise_cba_cea -> p11.move.qualify_impacts
+      -> p11.move.compare_advise -> p11.move.shortlist
+    edges:
+    - p11.c09
+    - p11.c12
+    - p11.c14
+    - p11.c22
+    condition: shortlist appraisal shows an option unlikely to meet objectives or
+      CSFs
+    termination: a revised shortlist yields comparable evidence, or no viable option
+      beyond BAU remains
+    termination_authority: human
+  - cycle: p11.move.generate_off -> p11.move.choose_longlist_route -> p11.move.shortlist
+      -> p11.move.appraise_cba_cea -> p11.move.qualify_impacts -> p11.move.compare_advise
+      -> p11.move.generate_off
+    edges:
+    - p11.c04
+    - p11.c06
+    - p11.c09
+    - p11.c12
+    - p11.c14
+    - p11.c23
+    condition: no remaining longlist option meets objectives or the longlist is inadequate
+    termination: a successor longlist yields a viable shortlist, or the SRO records
+      no viable option beyond BAU
+    termination_authority: human
+  - cycle: p11.move.compare_advise -> p11.move.assure -> p11.move.compare_advise
+    edges:
+    - p11.c21
+    - p11.c24
+    condition: assurance rejects the advice's balance, presentation or preferred-option
+      reasoning
+    termination: assurance accepts the advice or a no-preference finding
+    termination_authority: human
+  - cycle: p11.move.appraise_cba_cea -> p11.move.compare_advise -> p11.move.assure
+      -> p11.move.appraise_cba_cea
+    edges:
+    - p11.c13
+    - p11.c21
+    - p11.c25
+    condition: assurance rejects valuation, risk or sensitivity evidence
+    termination: assurance accepts the reworked appraisal evidence
+    termination_authority: human
   optional_cycles:
-  - cycle: p11.move.decide_feedback -> p11.move.rationale
+  - cycle: p11.move.rationale -> p11.move.objectives -> p11.move.generate_off -> p11.move.choose_longlist_route
+      -> p11.move.shortlist -> p11.move.appraise_cba_cea -> p11.move.compare_advise
+      -> p11.move.assure -> p11.move.decide_feedback -> p11.move.rationale
+    edges:
+    - p11.c01
+    - p11.c02
+    - p11.c04
+    - p11.c06
+    - p11.c09
+    - p11.c13
+    - p11.c21
+    - p11.c15
+    - p11.c17
     condition: monitoring evaluation or material change opens successor appraisal
+    termination: no material change or evaluation finding requires reappraisal
+    termination_authority: human
   prohibited_cycles:
-  - cycle: p11.move.mcda -> p11.move.compare_advise
-    reason: MCDA cannot bypass shortlist CBA or CEA
+  - cycle: p11.move.choose_longlist_route -> p11.move.shortlist -> p11.move.appraise_cba_cea
+      -> p11.move.compare_advise -> p11.move.choose_longlist_route
+    reason: switching the same longlist to MCDA after seeing shortlist results lets
+      results choose the appraisal route
   prohibited_edges:
   - p11.c18
   - p11.c19
+  - p11.c27
   entry_points:
   - p11.move.rationale
   terminal_points:

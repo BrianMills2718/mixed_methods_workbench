@@ -266,6 +266,100 @@ connections:
     source_cardinality: one
     target_cardinality: optional_one
     optional_target: true
+- id: p12.c21
+  from: p12.move.design
+  to: p12.move.feedback1
+  artifact: frozen_delphi_protocol
+  connection_type: retained_context
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_criteria
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c22
+  from: p12.move.design
+  to: p12.move.feedback2
+  artifact: frozen_delphi_protocol
+  connection_type: retained_context
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_criteria
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c23
+  from: p12.move.design
+  to: p12.move.interpret
+  artifact: frozen_delphi_protocol
+  connection_type: retained_context
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_criteria
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c24
+  from: p12.move.design
+  to: p12.move.report
+  artifact: frozen_delphi_protocol
+  connection_type: retained_context
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_criteria
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c25
+  from: p12.move.design
+  to: p12.action.deliver_round
+  artifact: frozen_delphi_protocol
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: frozen_delphi_protocol
+  to_input: frozen_delphi_protocol
+  slot_compatibility:
+    type: review_protocol
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p12.c26
+  from: p12.move.round1
+  to: p12.action.compute_summary
+  artifact: round1_pseudonymous_responses
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: round1_pseudonymous_responses
+  to_input: round1_pseudonymous_responses
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+- id: p12.c27
+  from: p12.move.round2
+  to: p12.action.compute_summary
+  artifact: round2_pseudonymous_responses_and_change_reasons
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: round2_pseudonymous_responses_and_change_reasons
+  to_input: round2_pseudonymous_responses_and_change_reasons
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
 topology_assertions:
 - exactly_three_rounds_are_preserved
 - each_later_round_receives_controlled_anonymous_feedback_and_preserves_prior_history

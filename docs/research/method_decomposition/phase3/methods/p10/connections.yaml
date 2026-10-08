@@ -170,9 +170,15 @@ connections:
   condition: successor_strategy_or_future_request_is_approved_for_test
   effect: create_successor_strategy_ensemble_and_experiment_batch
   connection_type: feedback
-  from_output: successor_strategies_signposts_and_future_requests
-  to_input: frozen_xlrpm_frame
-  slot_compatibility: not_artifact_transfer
+  from_output: successor_strategies
+  to_input: candidate_strategies
+  slot_compatibility:
+    type: option
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+  artifact: successor_strategies
 - id: p10.c13
   from: p10.move.compare_robustness
   to: p10.move.advise
@@ -190,13 +196,12 @@ connections:
 - id: p10.c14
   from: p10.move.revise_strategy
   to: p10.move.advise
-  artifact: successor_strategies_signposts_and_future_requests
-  transfer: preserving
-  connection_type: artifact_flow
-  from_output: successor_strategies_signposts_and_future_requests
-  to_input: successor_strategies_signposts_and_future_requests
+  artifact: successor_strategies
+  connection_type: retained_context
+  from_output: successor_strategies
+  to_input: successor_strategies
   slot_compatibility:
-    type: recommendation
+    type: option
     role_transition: result_to_context
     source_cardinality: many
     target_cardinality: many
@@ -217,19 +222,150 @@ connections:
   from_output: bounded_rdm_advice
   to_input: decision_problem
   slot_compatibility: not_artifact_transfer
+- id: p10.c17
+  from: p10.move.revise_strategy
+  to: p10.move.generate_futures
+  condition: approved_successor_future_request
+  effect: create_successor_ensemble_version_without_rewriting_prior_runs
+  connection_type: feedback
+  artifact: successor_future_request
+  from_output: successor_future_request
+  to_input: successor_future_request
+  slot_compatibility:
+    type: configuration
+    role_transition: result_to_context
+    source_cardinality: optional_one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p10.c18
+  from: p10.move.revise_strategy
+  to: p10.move.advise
+  artifact: signposts_and_triggers
+  connection_type: retained_context
+  from_output: signposts_and_triggers
+  to_input: signposts_and_triggers
+  slot_compatibility:
+    type: criterion
+    role_transition: result_to_context
+    source_cardinality: optional_many
+    target_cardinality: optional_many
+    optional_target: true
+- id: p10.c19
+  from: p10.move.frame
+  to: p10.move.evaluate
+  artifact: initial_candidate_strategies
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: initial_candidate_strategies
+  to_input: candidate_strategies
+  slot_compatibility:
+    type: option
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+  condition: first_experiment_batch
+- id: p10.c20
+  from: p10.move.frame
+  to: p10.action.run_ensemble
+  artifact: initial_candidate_strategies
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: initial_candidate_strategies
+  to_input: candidate_strategies
+  slot_compatibility:
+    type: option
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+  condition: first_experiment_batch
+- id: p10.c21
+  from: p10.move.revise_strategy
+  to: p10.action.run_ensemble
+  artifact: successor_strategies
+  transfer: preserving
+  connection_type: feedback
+  from_output: successor_strategies
+  to_input: candidate_strategies
+  slot_compatibility:
+    type: option
+    role_transition: result_to_context
+    source_cardinality: many
+    target_cardinality: many
+    optional_target: false
+  condition: successor_strategy_or_future_request_is_approved_for_test
+  effect: run_the_successor_strategy_batch_over_the_declared_future_ensemble
+- id: p10.c22
+  from: p10.move.generate_futures
+  to: p10.action.run_ensemble
+  artifact: plausible_future_ensemble
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: plausible_future_ensemble
+  to_input: plausible_future_ensemble
+  slot_compatibility:
+    type: scenario
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c23
+  from: p10.move.frame
+  to: p10.move.discover_vulnerability
+  artifact: frozen_xlrpm_frame
+  connection_type: retained_context
+  from_output: frozen_xlrpm_frame
+  to_input: frozen_xlrpm_frame
+  slot_compatibility:
+    type: configuration
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p10.c24
+  from: p10.move.evaluate
+  to: p10.action.cluster_cases
+  artifact: strategy_future_performance_database
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: strategy_future_performance_database
+  to_input: strategy_future_performance_database
+  slot_compatibility:
+    type: dataset
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
 topology_assertions:
+- first_experiment_batch_takes_strategies_composed_in_frame_and_later_batches_take_only_approved_successor_strategies
 - adaptive_strategy_feedback_to_evaluation_is_required
 - every_compared_strategy_uses_the_same_declared_future_ensemble_per_batch
 - advice_is_conditional_and_does_not_execute_the_decision
 topology:
   shape: adaptive
   required_cycles:
-  - cycle: p10.move.evaluate -> p10.move.discover_vulnerability -> p10.move.compare_robustness -> p10.move.revise_strategy -> p10.move.evaluate
+  - cycle: p10.move.evaluate -> p10.move.discover_vulnerability -> p10.move.compare_robustness
+      -> p10.move.revise_strategy -> p10.move.evaluate
     termination: no approved successor strategy or analysis budget reached
     termination_authority: human
+    edges:
+    - p10.c05
+    - p10.c08
+    - p10.c10
+    - p10.c12
   optional_cycles:
-  - cycle: p10.move.generate_futures -> p10.move.evaluate -> p10.move.revise_strategy -> p10.move.generate_futures
+  - cycle: p10.move.generate_futures -> p10.move.evaluate -> p10.move.discover_vulnerability
+      -> p10.move.compare_robustness -> p10.move.revise_strategy -> p10.move.generate_futures
+    edges:
+    - p10.c02
+    - p10.c05
+    - p10.c08
+    - p10.c10
+    - p10.c17
     condition: approved successor future request
+    termination: no approved successor future request or analysis budget reached
+    termination_authority: human
   prohibited_cycles:
   - cycle: p10.move.advise -> p10.move.frame
     reason: advice cannot rewrite the frozen frame in place

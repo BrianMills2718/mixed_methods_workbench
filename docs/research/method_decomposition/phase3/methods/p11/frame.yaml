@@ -21,3 +21,9 @@ primary_source: green_book_2026
 corroborating_source: green_book_mcda_2024
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no option appraisal or policy recommendation
+external_entry_inputs:  # study material supplied from outside the method (record.slot); every other required input has a typed connection
+  - p11.move.rationale.policy_problem_evidence
+  - p11.move.rationale.existing_arrangements
+  - p11.move.rationale.stakeholder_evidence
+  - p11.move.objectives.stakeholder_goals
+  - p11.move.objectives.constraints

@@ -46,7 +46,7 @@ phases:
   level: method_phase
   label: frame the decision and uncertainty
   operation_kinds:
-  - methodological_support
+  - analytic
   collision_participation: none
 - record_id: p10.phase.explore
   level: method_phase
@@ -63,7 +63,7 @@ phases:
   collision_participation: none
 moves:
 - level: analytical_move
-  operation_kind: methodological_support
+  operation_kind: analytic
   source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
   applicability_boundary: selected_rdm_variant_and_declared_decision_scope
   refusal_or_qualification: conditional_result_with_unexplored_uncertainty
@@ -83,7 +83,7 @@ moves:
   - reported
   - elicited
   - interpreted
-  method_owned_rule: frame_separates_actions_exogenous_uncertainties_relations_outcomes_and_value_thresholds
+  method_owned_rule: frame_separates_actions_exogenous_uncertainties_relations_outcomes_and_value_thresholds_and_composes_the_first_batch_of_candidate_strategies_from_the_declared_levers
   permitted_conclusion: exploratory_experiment_has_declared_scope
   source_basis: lempert_2003_chs_1_3
   exact_anchors:
@@ -118,6 +118,14 @@ moves:
     role: result
     cardinality: one
     optional: false
+  - slot: initial_candidate_strategies
+    type: option
+    role: result
+    cardinality: many
+    optional: false
+  slot_note: initial_candidate_strategies are the first-batch strategies composed from the
+    declared candidate_actions (the levers of the frame); later batches come only from
+    revise_strategy through p10.c12, so the first evaluate pass has a typed source (p10.c19)
 - level: analytical_move
   operation_kind: analytic
   source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
@@ -152,6 +160,11 @@ moves:
     role: subject
     cardinality: one
     optional: false
+  - slot: successor_future_request
+    type: configuration
+    role: context
+    cardinality: optional_one
+    optional: true
   outputs:
   - slot: plausible_future_ensemble
     type: scenario
@@ -350,11 +363,21 @@ moves:
     cardinality: many
     optional: false
   outputs:
-  - slot: successor_strategies_signposts_and_future_requests
-    type: recommendation
+  - slot: successor_strategies
+    type: option
     role: result
     cardinality: many
     optional: false
+  - slot: signposts_and_triggers
+    type: criterion
+    role: result
+    cardinality: optional_many
+    optional: true
+  - slot: successor_future_request
+    type: configuration
+    role: result
+    cardinality: optional_one
+    optional: true
 - level: analytical_move
   operation_kind: analytic
   source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs
@@ -387,11 +410,16 @@ moves:
     role: subject
     cardinality: one
     optional: false
-  - slot: successor_strategies_signposts_and_future_requests
-    type: recommendation
+  - slot: successor_strategies
+    type: option
     role: context
     cardinality: many
     optional: false
+  - slot: signposts_and_triggers
+    type: criterion
+    role: context
+    cardinality: optional_many
+    optional: true
   outputs:
   - slot: bounded_rdm_advice
     type: recommendation

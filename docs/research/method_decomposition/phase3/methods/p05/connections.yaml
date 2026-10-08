@@ -103,8 +103,9 @@ connections:
     type: concept
     role_transition: result_to_subject
     source_cardinality: many
-    target_cardinality: many
-    optional_target: false
+    target_cardinality: optional_many
+    optional_target: true
+  condition: tentative_focused_category_has_a_named_gap
 - id: p05.c08
   from: p05.move.compare_memo
   to: p05.move.theoretical_sample
@@ -120,55 +121,58 @@ connections:
     optional_target: false
 - id: p05.c09
   from: p05.move.theoretical_sample
-  to: p05.move.refine
+  to: p05.move.initial_code
   artifact: targeted_successor_source_increment
   transfer: transforming
   transformation_owner: P05
-  change: code_and_compare_successor_material
-  connection_type: artifact_flow
+  change: successor_material_enters_initial_coding_as_a_new_corpus_version
+  connection_type: feedback
   from_output: targeted_successor_source_increment
-  to_input: targeted_successor_source_increment
+  to_input: governed_source_increment
   slot_compatibility:
     type: source_document
     role_transition: result_to_subject
     source_cardinality: one
     target_cardinality: one
     optional_target: false
+  condition: theoretical_sampling_returned_new_material
+  effect: create_successor_coding_comparison_and_category_versions
 - id: p05.c10
   from: p05.move.focus_categories
   to: p05.move.refine
-  artifact: provisional_categories_with_properties_and_gaps
-  connection_type: retained_context
+  connection_type: artifact_flow
   from_output: provisional_categories_with_properties_and_gaps
   to_input: provisional_categories_with_properties_and_gaps
   slot_compatibility:
     type: concept
-    role_transition: result_to_context
+    role_transition: result_to_subject
     source_cardinality: many
     target_cardinality: many
     optional_target: false
+  transfer: preserving
+  artifact: provisional_categories_with_properties_and_gaps
 - id: p05.c11
   from: p05.move.refine
   to: p05.move.adequacy
-  artifact: revised_category_and_memo_bundle
+  artifact: revised_categories_with_properties_and_gaps
   transfer: preserving
   connection_type: artifact_flow
-  from_output: revised_category_and_memo_bundle
-  to_input: revised_category_and_memo_bundle
+  from_output: revised_categories_with_properties_and_gaps
+  to_input: revised_categories_with_properties_and_gaps
   slot_compatibility:
-    type: memo
+    type: concept
     role_transition: result_to_subject
-    source_cardinality: one
-    target_cardinality: one
+    source_cardinality: many
+    target_cardinality: many
     optional_target: false
 - id: p05.c12
   from: p05.move.adequacy
   to: p05.move.theoretical_sample
   condition: named_category_gap_requires_more_data
-  effect: create_successor_sampling_and_corpus_versions
+  effect: create_successor_sampling_and_corpus_versions_aimed_at_the_revised_categories
   connection_type: feedback
   from_output: adequacy_appraisal
-  to_input: provisional_categories_with_properties_and_gaps
+  to_input: revised_categories_with_properties_and_gaps
   slot_compatibility: not_artifact_transfer
 - id: p05.c13
   from: p05.move.adequacy
@@ -177,21 +181,21 @@ connections:
   effect: permit_bounded_integration
   connection_type: control_gate
   from_output: adequacy_appraisal
-  to_input: revised_category_and_memo_bundle
+  to_input: revised_categories_with_properties_and_gaps
   slot_compatibility: not_artifact_transfer
 - id: p05.c14
   from: p05.move.refine
   to: p05.move.integrate
-  artifact: revised_category_and_memo_bundle
+  artifact: revised_categories_with_properties_and_gaps
   transfer: preserving
   connection_type: artifact_flow
-  from_output: revised_category_and_memo_bundle
-  to_input: revised_category_and_memo_bundle
+  from_output: revised_categories_with_properties_and_gaps
+  to_input: revised_categories_with_properties_and_gaps
   slot_compatibility:
-    type: memo
+    type: concept
     role_transition: result_to_subject
-    source_cardinality: one
-    target_cardinality: one
+    source_cardinality: many
+    target_cardinality: many
     optional_target: false
 - id: p05.c15
   from: p05.move.orient
@@ -212,7 +216,7 @@ connections:
   reason: raw_material_cannot_bypass_coding_comparison_memo_category_development_and_adequacy
   connection_type: prohibited_transition
   from_output: governed_source_increment
-  to_input: revised_category_and_memo_bundle
+  to_input: revised_categories_with_properties_and_gaps
   slot_compatibility: not_artifact_transfer
 - id: p05.c17
   from: p05.move.focus_categories
@@ -250,19 +254,268 @@ connections:
     source_cardinality: one
     target_cardinality: optional_one
     optional_target: true
+- id: p05.c20
+  from: p05.move.compare_memo
+  to: p05.move.initial_code
+  condition: comparison_shows_codes_need_recoding_or_splitting
+  effect: create_successor_code_version_preserving_prior_codes
+  connection_type: feedback
+  artifact: comparison_and_memo_bundle
+  from_output: comparison_and_memo_bundle
+  to_input: comparison_and_memo_bundle
+  slot_compatibility:
+    type: memo
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p05.c21
+  from: p05.move.refine
+  to: p05.move.theoretical_sample
+  condition: taken_only_when_p05.c12_returns_for_more_data
+  artifact: revised_categories_with_properties_and_gaps
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: revised_categories_with_properties_and_gaps
+  to_input: revised_categories_with_properties_and_gaps
+  slot_compatibility:
+    type: concept
+    role_transition: result_to_subject
+    source_cardinality: many
+    target_cardinality: optional_many
+    optional_target: true
+- id: p05.c22
+  from: p05.move.refine
+  to: p05.move.adequacy
+  artifact: category_revision_memo
+  connection_type: retained_context
+  from_output: category_revision_memo
+  to_input: category_revision_memo
+  slot_compatibility:
+    type: memo
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p05.c23
+  from: p05.move.refine
+  to: p05.move.integrate
+  artifact: category_revision_memo
+  connection_type: retained_context
+  from_output: category_revision_memo
+  to_input: category_revision_memo
+  slot_compatibility:
+    type: memo
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p05.c24
+  from: p05.move.compare_memo
+  to: p05.move.refine
+  artifact: comparison_and_memo_bundle
+  connection_type: retained_context
+  from_output: comparison_and_memo_bundle
+  to_input: comparison_and_memo_bundle
+  slot_compatibility:
+    type: memo
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p05.c25
+  from: p05.move.adequacy
+  to: p05.move.theoretical_sample
+  artifact: adequacy_appraisal
+  connection_type: retained_context
+  condition: taken_only_when_p05.c12_returns_for_more_data
+  from_output: adequacy_appraisal
+  to_input: adequacy_appraisal
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p05.c26
+  from: p05.action.version_memos
+  to: p05.move.refine
+  artifact: memo_version_receipt
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: memo_version_receipt
+  to_input: memo_version_receipt
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_trace
+    source_cardinality: one
+    target_cardinality: optional_one
+    optional_target: true
+- id: p05.c27
+  from: p05.move.theoretical_sample
+  to: p05.move.compare_memo
+  artifact: directing_category_version
+  transfer: preserving
+  connection_type: feedback
+  from_output: directing_category_version
+  to_input: prior_category_version
+  slot_compatibility:
+    type: concept
+    role_transition: byproduct_to_prior
+    source_cardinality: many
+    target_cardinality: optional_many
+    optional_target: true
+  condition: theoretical_sampling_returned_new_material
+  effect: successor_pass_compares_against_and_carries_forward_the_category_version_that_directed_sampling
+- id: p05.c28
+  from: p05.move.theoretical_sample
+  to: p05.move.focus_categories
+  artifact: directing_category_version
+  transfer: preserving
+  connection_type: feedback
+  from_output: directing_category_version
+  to_input: prior_category_version
+  slot_compatibility:
+    type: concept
+    role_transition: byproduct_to_prior
+    source_cardinality: many
+    target_cardinality: optional_many
+    optional_target: true
+  condition: theoretical_sampling_returned_new_material
+  effect: successor_pass_compares_against_and_carries_forward_the_category_version_that_directed_sampling
+- id: p05.c29
+  from: p05.move.theoretical_sample
+  to: p05.move.refine
+  artifact: directing_category_version
+  transfer: preserving
+  connection_type: feedback
+  from_output: directing_category_version
+  to_input: prior_category_version
+  slot_compatibility:
+    type: concept
+    role_transition: byproduct_to_prior
+    source_cardinality: many
+    target_cardinality: optional_many
+    optional_target: true
+  condition: theoretical_sampling_returned_new_material
+  effect: successor_pass_compares_against_and_carries_forward_the_category_version_that_directed_sampling
+- id: p05.c30
+  from: p05.move.adequacy
+  to: p05.move.integrate
+  artifact: adequacy_appraisal
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: adequacy_appraisal
+  to_input: adequacy_appraisal
+  slot_compatibility:
+    type: appraisal
+    role_transition: result_to_criteria
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: adequacy_supported_or_partial_stop_accepted
+- id: p05.c31
+  from: p05.move.gather
+  to: p05.action.persist_anchors
+  artifact: governed_source_increment
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: governed_source_increment
+  to_input: governed_source_increment
+  slot_compatibility:
+    type: source_document
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p05.c32
+  from: p05.move.theoretical_sample
+  to: p05.action.persist_anchors
+  artifact: targeted_successor_source_increment
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: targeted_successor_source_increment
+  to_input: governed_source_increment
+  slot_compatibility:
+    type: source_document
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: theoretical_sampling_returned_new_material
+- id: p05.c33
+  from: p05.move.compare_memo
+  to: p05.action.version_memos
+  artifact: comparison_and_memo_bundle
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: comparison_and_memo_bundle
+  to_input: comparison_and_memo_bundle
+  slot_compatibility:
+    type: memo
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
 topology_assertions:
-- theoretical_sampling_feedback_loop_is_required
+- successor_codes_are_constantly_compared_against_the_prior_category_version_through_p05.c27_to_p05.c29_so_each_category_version_supersedes_and_carries_forward_its_predecessor
+- constant_comparison_and_theoretical_sampling_cycle_is_required_and_closed_by_p05.c09
+- successor_material_is_recoded_compared_and_categorized_before_category_revision
 - reflexive_position_is_retained_through_integration
-- adequacy_gates_integration_and_may_return_to_sampling
+- adequacy_gates_integration_and_may_return_to_sampling_aimed_at_revised_categories
 topology:
   shape: adaptive
   required_cycles:
-  - cycle: p05.move.theoretical_sample -> p05.move.refine -> p05.move.adequacy -> p05.move.theoretical_sample
-    termination: adequacy supported or access exhausted
+  - cycle: p05.move.initial_code -> p05.move.compare_memo -> p05.move.focus_categories
+      -> p05.move.theoretical_sample -> p05.move.initial_code
+    edges:
+    - p05.c03
+    - p05.c05
+    - p05.c07
+    - p05.c09
+    termination: the grounded theory lead judges the focused categories developed
+      enough to revise and appraise, or access to further theoretically relevant material
+      is exhausted
+    termination_authority: human
+  - cycle: p05.move.compare_memo -> p05.move.focus_categories -> p05.move.theoretical_sample
+      -> p05.move.compare_memo
+    edges:
+    - p05.c05
+    - p05.c07
+    - p05.c27
+    purpose: constant comparison of successor codes against the existing category
+      version; taken on every successor pass together with p05.c09 and p05.c28
+    termination: same as the sampling cycle above
     termination_authority: human
   optional_cycles:
-  - cycle: p05.move.initial_code -> p05.move.compare_memo -> p05.move.focus_categories -> p05.move.theoretical_sample
-    condition: successor material enters another coding cycle
+  - cycle: p05.move.initial_code -> p05.move.compare_memo -> p05.move.focus_categories
+      -> p05.move.refine -> p05.move.adequacy -> p05.move.theoretical_sample -> p05.move.initial_code
+    edges:
+    - p05.c03
+    - p05.c05
+    - p05.c10
+    - p05.c11
+    - p05.c12
+    - p05.c09
+    condition: adequacy names a category gap that requires more data
+    termination: adequacy supported, partial stop accepted, or access exhausted
+    termination_authority: human
+  - cycle: p05.move.refine -> p05.move.theoretical_sample -> p05.move.refine
+    edges:
+    - p05.c21
+    - p05.c29
+    condition: adequacy returns for more data (p05.c12), so the revised category version
+      directs sampling and is superseded and carried forward by the next refine pass
+    termination: adequacy supported, partial stop accepted, or access exhausted
+    termination_authority: human
+  - cycle: p05.move.initial_code -> p05.move.compare_memo -> p05.move.initial_code
+    edges:
+    - p05.c03
+    - p05.c20
+    condition: comparison shows codes need recoding or splitting
+    termination: the grounded theory lead judges the codes stable enough for focused
+      coding
+    termination_authority: human
   prohibited_cycles:
   - cycle: p05.move.integrate -> p05.move.gather
     reason: final theory cannot silently reopen and rewrite prior corpus history

@@ -1,7 +1,7 @@
 schema_version: phase3-method-frame-1.0
 method_id: P12
 name: three_round_anonymous_policy_delphi
-variant: "three-round anonymous policy Delphi with purposive expert-panel construction, prespecified items and analysis, controlled quantitative/qualitative feedback, stability and disagreement analysis, and no rule that consensus equals truth"
+variant: "three-round anonymous policy Delphi with purposive panel of informed advocates spanning opposing positions, a convener-formulated issue with initial options and prespecified desirability/feasibility/importance/confidence scales and analysis, round-one option and pro/con argument elicitation, controlled quantitative/qualitative feedback, stability and disagreement analysis, and no rule that consensus equals truth"
 status: source_frozen_decomposition_candidate
 purpose: elicit, revise, and transparently summarize expert judgments under uncertainty while retaining stable disagreement
 applicability_boundary: policy questions with incomplete or inconclusive evidence where a purposively constituted expert panel can provide relevant technical or experiential judgment
@@ -12,12 +12,22 @@ exclusions:
   - treating consensus as empirical truth or a policy decision
 authorities:
   performer: delphi_conveners_panelists_and_analysis_team
-  judgment_owner: individual_anonymous_panelists
+  judgment_owner: delphi_method_lead
+  judgment_owner_of_round_ratings: individual_anonymous_panelists
   acceptance_authority: delphi_method_lead_and_independent_reviewer
   recommender: policy_analysis_sponsor_if_results_support_advice
   value_goal_authority: study_sponsor_with_declared_stakeholder_governance
   decision_authority: accountable_policy_decision_maker
 primary_source: khodyakov_et_al_2023
 corroborating_source: linstone_turoff_2002
+variant_locator: turoff_1975_the_policy_delphi_ch3b1_in_linstone_turoff
+variant_origin_citation: turoff_1970_design_of_a_policy_delphi
+authority_note: "Panelists own only their own round ratings and rationales (round1-3). The Delphi method lead owns design, panel construction, controlled-feedback neutrality, consensus/dissensus interpretation and the report."
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no expert elicitation, consensus, or recommendation
+external_entry_inputs:  # study material supplied from outside the method (record.slot); every other required input has a typed connection
+  - p12.move.design.policy_question
+  - p12.move.design.available_evidence
+  - p12.move.design.stakeholder_goals
+  - p12.move.panel.expertise_domains
+  - p12.move.panel.conflict_and_access_records

@@ -121,18 +121,18 @@ moves:
   source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
   applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
   refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
-  performer: strand_or_integration_team
+  performer: qualitative_team
   judgment_owner: qualitative_strand_lead
   acceptance_authority: qualitative_method_reviewer
   recommender: evaluation_lead_if_advice_is_in_scope
   value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
   decision_authority: accountable_policy_or_program_decision_maker
   implementation_evidence: methodology_reference_only
-  collision_participation: level_2_only
+  collision_participation: none
   guards: *id001
   record_id: p13.move.qual_warrant
   parent_phase: p13.phase.strands
-  label: conduct and independently warrant qualitative strand
+  label: hand off to declared qualitative strand method and receive warranted findings
   information_origin:
   - observed
   - reported
@@ -160,6 +160,15 @@ moves:
     role: result
     cardinality: many
     optional: false
+  record_role: cross_method_subprofile_handoff
+  handoff:
+    to: declared_qualitative_strand_method_profile
+    design_parameter: qualitative_strand_method_id
+    parameter_source: frozen_convergent_design
+    returns: qualified_qualitative_findings
+    note: sampling, collection and analysis are owned by the named strand method profile
+      and are not decomposed here; P13 records only the handoff and the returned,
+      independently warranted findings
 - level: analytical_move
   operation_kind: analytic
   source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
@@ -172,11 +181,11 @@ moves:
   value_goal_authority: evaluation_sponsor_and_affected_stakeholder_governance
   decision_authority: accountable_policy_or_program_decision_maker
   implementation_evidence: methodology_reference_only
-  collision_participation: level_2_only
+  collision_participation: none
   guards: *id001
   record_id: p13.move.quant_warrant
   parent_phase: p13.phase.strands
-  label: conduct and independently warrant quantitative strand
+  label: hand off to declared quantitative strand method and receive warranted findings
   information_origin:
   - observed
   - derived
@@ -203,8 +212,17 @@ moves:
     role: result
     cardinality: many
     optional: false
+  record_role: cross_method_subprofile_handoff
+  handoff:
+    to: declared_quantitative_strand_method_profile
+    design_parameter: quantitative_strand_method_id
+    parameter_source: frozen_convergent_design
+    returns: qualified_quantitative_findings
+    note: sampling, collection and analysis are owned by the named strand method profile
+      and are not decomposed here; P13 records only the handoff and the returned,
+      independently warranted findings
 - level: analytical_move
-  operation_kind: methodological_support
+  operation_kind: analytic
   source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
   applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
   refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
@@ -225,9 +243,10 @@ moves:
   - interpreted
   method_owned_rule: one_strand_cannot_repair_an_invalid_other_strand_and_noncommensurability_is_allowed
   permitted_conclusion: merge_or_return_or_withhold_integration
-  source_basis: nih_2011_review_guidance
+  source_basis: fetters_2013_convergent_design_and_nih_2011_both_data_forms
   exact_anchors:
-  - nih_2011_reviewing_applications
+  - fetters_2013_study_design_level_convergent_separate_analysis_then_merge
+  - nih_2011_both_data_forms
   verb: review
   inputs:
   - slot: qualified_qualitative_findings
@@ -402,7 +421,10 @@ moves:
   decision_authority: accountable_policy_or_program_decision_maker
   implementation_evidence: methodology_reference_only
   collision_participation: level_2_only
-  guards: *id001
+  guards:
+    temporal: entered_only_after_p13.move.fit_delivers_fit_and_divergence_disposition_through_p13.c18_with_both_strand_finding_slots_filled
+    access: strand_specific_permissions_and_minimized_linkage
+    run_version: immutable_strand_outputs_joint_display_and_successor_integration_versions
   record_id: p13.move.meta_infer
   parent_phase: p13.phase.integrate
   label: draw bounded meta-inference from integration
@@ -505,9 +527,9 @@ actions:
   label: validate every meta-inference link to both strand records and qualifications
   method_owned_rule: mixed_methods_reviewer_accepts_semantic_trace
   permitted_conclusion: trace_completeness_only
-  source_basis: nih_2011_review_guidance
+  source_basis: fetters_2013_interpretation_and_reporting
   exact_anchors:
-  - nih_2011_reviewing_applications
+  - fetters_2013_interpretation_reporting
   verb: review
   inputs:
   - slot: bounded_meta_inference
