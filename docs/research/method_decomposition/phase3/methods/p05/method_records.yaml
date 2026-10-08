@@ -231,7 +231,7 @@ moves:
   label: constantly compare and write analytic reflexive memos
   information_origin:
   - interpreted
-  method_owned_rule: comparisons_and_memos_develop_properties_variation_questions_and_researcher_influence
+  method_owned_rule: comparisons_and_memos_develop_properties_variation_questions_and_researcher_influence_and_on_successor_passes_compare_successor_codes_with_the_prior_category_version
   permitted_conclusion: promising_concepts_and_gaps_are_visible
   source_basis: charmaz_2024_3e_chs_5_7
   exact_anchors:
@@ -250,6 +250,11 @@ moves:
     role: context
     cardinality: one
     optional: false
+  - slot: prior_category_version
+    type: concept
+    role: prior
+    cardinality: optional_many
+    optional: true
   outputs:
   - slot: comparison_and_memo_bundle
     type: memo
@@ -275,7 +280,7 @@ moves:
   label: select focused codes and construct provisional categories
   information_origin:
   - interpreted
-  method_owned_rule: conceptual_significance_and_explanatory_reach_not_frequency_own_selection
+  method_owned_rule: conceptual_significance_and_explanatory_reach_not_frequency_own_selection_and_on_successor_passes_the_prior_category_version_is_carried_forward_and_extended_or_challenged_by_successor_codes
   permitted_conclusion: categories_are_provisional_and_direct_further_inquiry
   source_basis: charmaz_2024_3e_chs_6_7
   exact_anchors:
@@ -297,6 +302,11 @@ moves:
     type: review_event
     role: context
     cardinality: optional_one
+    optional: true
+  - slot: prior_category_version
+    type: concept
+    role: prior
+    cardinality: optional_many
     optional: true
   outputs:
   - slot: provisional_categories_with_properties_and_gaps
@@ -361,9 +371,16 @@ moves:
     role: result
     cardinality: one
     optional: false
+  - slot: directing_category_version
+    type: concept
+    role: byproduct
+    cardinality: many
+    optional: false
   slot_note: 'exactly one subject slot is filled per pass: first-pass tentative categories
     from focus_categories, or categories revised by refine when adequacy returns for
-    more data; not a multi-subject use'
+    more data; not a multi-subject use. directing_category_version is that same category
+    set carried forward unchanged, so the next pass compares successor material against
+    the categories that directed the sampling (p05.c27-p05.c29)'
 - level: analytical_move
   operation_kind: analytic
   source_authority_or_inferential_role: selected_method_sources_and_declared_study_material
@@ -383,7 +400,7 @@ moves:
   label: revise categories against comparative variation
   information_origin:
   - interpreted
-  method_owned_rule: categories_may_be_split_related_qualified_or_rejected_against_supporting_and_disconfirming_variation
+  method_owned_rule: categories_may_be_split_related_qualified_or_rejected_against_supporting_and_disconfirming_variation_and_each_successor_category_version_supersedes_and_carries_forward_the_prior_version_which_is_retained_not_overwritten
   permitted_conclusion: category_development_accounts_for_supporting_and_disconfirming_variation
   source_basis: charmaz_2024_3e_chs_6_8
   exact_anchors:
@@ -406,6 +423,11 @@ moves:
     type: review_event
     role: context
     cardinality: optional_one
+    optional: true
+  - slot: prior_category_version
+    type: concept
+    role: prior
+    cardinality: optional_many
     optional: true
   outputs:
   - slot: revised_categories_with_properties_and_gaps

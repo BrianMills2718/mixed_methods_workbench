@@ -222,7 +222,7 @@ moves:
       and are not decomposed here; P13 records only the handoff and the returned,
       independently warranted findings
 - level: analytical_move
-  operation_kind: methodological_support
+  operation_kind: analytic
   source_authority_or_inferential_role: nih_and_fetters_mixed_methods_guidance_plus_strand_specific_sources
   applicability_boundary: frozen_convergent_evaluation_design_and_declared_population_context
   refusal_or_qualification: preserve_strand_result_and_withhold_or_bound_meta_inference
@@ -421,7 +421,10 @@ moves:
   decision_authority: accountable_policy_or_program_decision_maker
   implementation_evidence: methodology_reference_only
   collision_participation: level_2_only
-  guards: *id001
+  guards:
+    temporal: entered_only_after_p13.move.fit_delivers_fit_and_divergence_disposition_through_p13.c18_with_both_strand_finding_slots_filled
+    access: strand_specific_permissions_and_minimized_linkage
+    run_version: immutable_strand_outputs_joint_display_and_successor_integration_versions
   record_id: p13.move.meta_infer
   parent_phase: p13.phase.integrate
   label: draw bounded meta-inference from integration

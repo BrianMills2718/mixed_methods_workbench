@@ -20,7 +20,14 @@ authorities:
   decision_authority: accountable_policy_decision_maker
 primary_source: khodyakov_et_al_2023
 corroborating_source: linstone_turoff_2002
-variant_locator: turoff_1970_design_of_a_policy_delphi
+variant_locator: turoff_1975_the_policy_delphi_ch3b1_in_linstone_turoff
+variant_origin_citation: turoff_1970_design_of_a_policy_delphi
 authority_note: "Panelists own only their own round ratings and rationales (round1-3). The Delphi method lead owns design, panel construction, controlled-feedback neutrality, consensus/dissensus interpretation and the report."
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no expert elicitation, consensus, or recommendation
+external_entry_inputs:  # study material supplied from outside the method (record.slot); every other required input has a typed connection
+  - p12.move.design.policy_question
+  - p12.move.design.available_evidence
+  - p12.move.design.stakeholder_goals
+  - p12.move.panel.expertise_domains
+  - p12.move.panel.conflict_and_access_records

@@ -83,7 +83,7 @@ moves:
   - reported
   - elicited
   - interpreted
-  method_owned_rule: frame_separates_actions_exogenous_uncertainties_relations_outcomes_and_value_thresholds
+  method_owned_rule: frame_separates_actions_exogenous_uncertainties_relations_outcomes_and_value_thresholds_and_composes_the_first_batch_of_candidate_strategies_from_the_declared_levers
   permitted_conclusion: exploratory_experiment_has_declared_scope
   source_basis: lempert_2003_chs_1_3
   exact_anchors:
@@ -118,6 +118,14 @@ moves:
     role: result
     cardinality: one
     optional: false
+  - slot: initial_candidate_strategies
+    type: option
+    role: result
+    cardinality: many
+    optional: false
+  slot_note: initial_candidate_strategies are the first-batch strategies composed from the
+    declared candidate_actions (the levers of the frame); later batches come only from
+    revise_strategy through p10.c12, so the first evaluate pass has a typed source (p10.c19)
 - level: analytical_move
   operation_kind: analytic
   source_authority_or_inferential_role: frozen_rdm_sources_and_declared_decision_inputs

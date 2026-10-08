@@ -21,3 +21,9 @@ primary_source: charmaz_2024_3e
 corroborating_source: tie_et_al_2019
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no grounded-theory analysis or reusable-capability claim
+external_entry_inputs:  # study material supplied from outside the method (record.slot); every other required input has a typed connection
+  - p05.move.orient.research_problem
+  - p05.move.orient.prior_experience
+  - p05.move.orient.sensitizing_concepts
+  - p05.move.orient.participant_governance
+  - p05.move.gather.purposive_starting_sample

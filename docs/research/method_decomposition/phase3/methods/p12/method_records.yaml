@@ -90,7 +90,7 @@ moves:
   exact_anchors:
   - rand_tla3082_ch1_purpose
   - rand_tla3082_ch3_design
-  - turoff_1970_policy_delphi_issue_formulation
+  - turoff_1975_policy_delphi_ch3b1_p84_monitor_preformulates_issues_and_seeds_options
   verb: construct
   inputs:
   - slot: policy_question
@@ -139,7 +139,7 @@ moves:
   source_basis: rand_tla3082_ch3
   exact_anchors:
   - rand_tla3082_panel_eligibility_recruitment
-  - turoff_1970_policy_delphi_informed_advocates
+  - turoff_1975_policy_delphi_ch3b1_pp80_84_informed_advocates_and_referees_of_many_sides
   verb: identify
   inputs:
   - slot: frozen_delphi_protocol
@@ -188,7 +188,7 @@ moves:
   exact_anchors:
   - rand_tla3082_classical_process
   - rand_tla3082_ch4
-  - turoff_1970_policy_delphi_options_and_scales
+  - turoff_1975_policy_delphi_ch3b1_pp84_87_first_round_options_positions_assumptions_and_four_scales
   verb: acquire
   inputs:
   - slot: frozen_delphi_protocol
@@ -237,7 +237,7 @@ moves:
   source_basis: rand_tla3082_ch2
   exact_anchors:
   - rand_tla3082_feedback_characteristic
-  - turoff_1970_policy_delphi_feedback
+  - turoff_1975_policy_delphi_ch3b1_p88_abstract_comments_and_remove_duplicates
   verb: synthesize
   inputs:
   - slot: round1_pseudonymous_responses
@@ -280,7 +280,7 @@ moves:
   source_basis: rand_tla3082_ch2
   exact_anchors:
   - rand_tla3082_classical_process
-  - turoff_1970_policy_delphi_reasons_for_disagreement
+  - turoff_1975_policy_delphi_ch3b1_p84_phase4_reasons_for_disagreement
   verb: revise
   inputs:
   - slot: round1_feedback_packet
@@ -376,7 +376,7 @@ moves:
   source_basis: rand_tla3082_ch2
   exact_anchors:
   - rand_tla3082_iterations_two_or_three_rounds
-  - turoff_1970_policy_delphi_reevaluate_options
+  - turoff_1975_policy_delphi_ch3b1_pp84_88_phase6_reevaluation_third_round_revote
   verb: revise
   inputs:
   - slot: round2_feedback_packet_with_stability_and_dissensus
@@ -421,7 +421,7 @@ moves:
   exact_anchors:
   - rand_tla3082_ch5
   - rand_tla3082_ch6
-  - turoff_1970_policy_delphi_opposing_views
+  - turoff_1975_policy_delphi_ch3b1_p80_opposing_views_analysis_not_decision
   verb: review
   inputs:
   - slot: round1_pseudonymous_responses

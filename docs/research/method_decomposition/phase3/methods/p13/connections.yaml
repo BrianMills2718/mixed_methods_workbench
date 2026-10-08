@@ -242,6 +242,7 @@ connections:
     source_cardinality: many
     target_cardinality: many
     optional_target: false
+  condition: taken_only_after_p13.c18_delivers_the_fit_and_divergence_disposition
 - id: p13.c20
   from: p13.move.quant_warrant
   to: p13.move.meta_infer
@@ -255,6 +256,7 @@ connections:
     source_cardinality: many
     target_cardinality: many
     optional_target: false
+  condition: taken_only_after_p13.c18_delivers_the_fit_and_divergence_disposition
 - id: p13.c21
   from: p13.move.joint_display
   to: p13.move.meta_infer
@@ -268,6 +270,7 @@ connections:
     source_cardinality: one
     target_cardinality: one
     optional_target: false
+  condition: taken_only_after_p13.c18_delivers_the_fit_and_divergence_disposition
 - id: p13.c22
   from: p13.action.trace_meta
   to: p13.move.meta_infer
@@ -284,20 +287,22 @@ connections:
     optional_target: true
 - id: p13.c23
   from: p13.move.qual_warrant
-  to: p13.move.meta_infer
-  reason: one_strand_alone_cannot_license_a_mixed_methods_meta_inference
+  to: p13.move.fit
+  reason: one_strand_alone_cannot_reach_the_fit_and_divergence_judgment_that_licenses_meta_inference_without_readiness_alignment_and_a_two_strand_joint_display
   connection_type: prohibited_transition
   from_output: qualified_qualitative_findings
-  to_input: qualified_qualitative_findings
+  to_input: joint_display_with_strand_lineage
   slot_compatibility: not_artifact_transfer
+  testable_condition: no_connection_may_carry_a_strand_findings_slot_into_p13.move.fit_and_p13.move.fit_takes_only_joint_display_with_strand_lineage_from_p13.c14
 - id: p13.c24
   from: p13.move.quant_warrant
-  to: p13.move.meta_infer
-  reason: one_strand_alone_cannot_license_a_mixed_methods_meta_inference
+  to: p13.move.fit
+  reason: one_strand_alone_cannot_reach_the_fit_and_divergence_judgment_that_licenses_meta_inference_without_readiness_alignment_and_a_two_strand_joint_display
   connection_type: prohibited_transition
   from_output: qualified_quantitative_findings
-  to_input: qualified_qualitative_findings
+  to_input: joint_display_with_strand_lineage
   slot_compatibility: not_artifact_transfer
+  testable_condition: no_connection_may_carry_a_strand_findings_slot_into_p13.move.fit_and_p13.move.fit_takes_only_joint_display_with_strand_lineage_from_p13.c14
 - id: p13.c25
   from: p13.move.fit
   to: p13.move.design
@@ -306,12 +311,70 @@ connections:
   from_output: fit_and_divergence_disposition
   to_input: evaluation_questions
   slot_compatibility: not_artifact_transfer
+- id: p13.c26
+  from: p13.move.design
+  to: p13.move.check_readiness
+  artifact: frozen_convergent_design
+  connection_type: retained_context
+  from_output: frozen_convergent_design
+  to_input: frozen_convergent_design
+  slot_compatibility:
+    type: design_parameters
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c27
+  from: p13.move.check_readiness
+  to: p13.move.align
+  artifact: integration_readiness_record
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: integration_readiness_record
+  to_input: integration_readiness_record
+  slot_compatibility:
+    type: review_event
+    role_transition: result_to_context
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: both_strands_have_accepted_method_specific_warrants_and_compatible_scope
+- id: p13.c28
+  from: p13.move.align
+  to: p13.action.link_findings
+  artifact: explicit_alignment_and_nonalignment_map
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: explicit_alignment_and_nonalignment_map
+  to_input: explicit_alignment_and_nonalignment_map
+  slot_compatibility:
+    type: relation
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+- id: p13.c29
+  from: p13.move.meta_infer
+  to: p13.action.trace_meta
+  artifact: bounded_meta_inference
+  transfer: preserving
+  connection_type: artifact_flow
+  from_output: bounded_meta_inference
+  to_input: bounded_meta_inference
+  slot_compatibility:
+    type: finding
+    role_transition: result_to_subject
+    source_cardinality: one
+    target_cardinality: one
+    optional_target: false
+  condition: draft_meta_inference_is_traced_before_it_is_finalized
 topology_assertions:
 - qualitative_and_quantitative_strands_are_independently_warranted
 - integration_readiness_can_return_only_the_affected_strand
 - joint_display_preserves_both_strand_lineages_and_explicit_nonalignment
 - divergence_may_return_to_alignment_or_either_strand_and_may_remain_unresolved
 - meta_inference_requires_both_strands_joint_display_and_divergence_disposition
+- meta_infer_is_entered_only_through_p13.c18_from_fit_with_both_strand_slots_required_so_strand_context_p13.c19_and_p13.c20_is_never_a_bypass
 topology:
   shape: adaptive
   required_cycles: []
@@ -349,6 +412,14 @@ topology:
     termination: divergence explained, retained as unresolved, or the evidence budget
       is spent
     termination_authority: human (mixed_methods_lead)
+  - cycle: p13.move.meta_infer -> p13.action.trace_meta -> p13.move.meta_infer
+    edges:
+    - p13.c29
+    - p13.c22
+    condition: a draft meta-inference is traced to both strand records before it is finalized
+    termination: trace receipt shows every link complete, or the meta-inference is narrowed
+      to what the trace supports
+    termination_authority: human (mixed_methods_reviewer)
   prohibited_cycles:
   - cycle: p13.move.fit -> p13.move.design
     reason: observed fit cannot rewrite frozen convergent design in place

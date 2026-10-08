@@ -25,3 +25,10 @@ design_parameters:
 strand_handoff_note: "p13.move.qual_warrant and p13.move.quant_warrant are cross-method subprofile handoffs (collision_participation: none); sampling, collection and analysis belong to the declared strand profiles."
 source_freeze_date: 2026-08-13
 claim_limit: decomposition evidence only; no evaluation finding, meta-inference, or policy recommendation
+external_entry_inputs:  # study material supplied from outside the method (record.slot); every other required input has a typed connection
+  - p13.move.design.evaluation_questions
+  - p13.move.design.intervention_theory
+  - p13.move.design.stakeholder_goals
+  - p13.move.design.feasible_data_sources
+  - p13.move.qual_warrant.qualitative_material
+  - p13.move.quant_warrant.quantitative_dataset
