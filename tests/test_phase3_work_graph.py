@@ -113,11 +113,13 @@ def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
         assert not any(item["kind"] == "CompletionReceipt" for item in lane["inputs"])
 
     control = unit(document, "P3-CONTROL")
+    # The Phase 3 pause was lifted on 2026-10-08 (roadmap row 5a); only the control unit may now advance lanes.
     assert (control["claimability"], control["status"], control["readiness"]["status"]) == (
-        "not_applicable",
-        "blocked",
-        "blocked",
+        "ready_for_execution",
+        "ready",
+        "ready",
     )
+    assert not any("pause" in guard.lower() for item in document["units"] for guard in item["readiness"]["failed_guards"])
 
 
 def test_rejects_missing_control_unit() -> None:
@@ -134,7 +136,9 @@ def test_rejects_unready_control() -> None:
 
 def test_rejects_paused_control_without_product_guard() -> None:
     document = load_graph()
-    unit(document, "P3-CONTROL")["readiness"]["failed_guards"] = ["generic pause"]
+    control = unit(document, "P3-CONTROL")                       # a future pause must still name its reason
+    control["claimability"], control["status"] = "not_applicable", "blocked"
+    control["readiness"] = {"status": "blocked", "required_approval_types": [], "approvals": [], "failed_guards": ["generic pause"]}
     assert any("product-integration guard" in error for error in validate_graph(document))
 
 

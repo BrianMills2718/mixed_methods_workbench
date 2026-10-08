@@ -206,7 +206,10 @@ Current work must not:
 - infer authorization for any implementation beyond the separately approved
   Investigation Spine.
 
-## Paused Supporting Phase: Phase 3 Portfolio Decomposition
+## Supporting Phase: Phase 3 Portfolio Decomposition (pause lifted 2026-10-08)
+
+Brian lifted the Phase 3 pause on 2026-10-08 (observation-to-action-metamodel `ROADMAP_AGENT_MODEL.md` row 5a): the pause waited behind the NYC product-integration lane, which he paused on 2026-10-04 (PR #41), and on 2026-10-07 he approved the cross-method crosswalk that reads the integrated 14. The paragraphs below record the paused state as it stood on 2026-08-13.
+
 
 Brian approved the 14-method Phase 3 denominator on 2026-08-13. The exact
 denominator is `phase2b-proposal-0.3` (`P01`–`P13`) plus the separately named,
