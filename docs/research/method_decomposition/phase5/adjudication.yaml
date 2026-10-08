@@ -1,0 +1,815 @@
+- group_id: sig:9f10f6d0dc
+  members:
+  - p07:p07.move.refuse
+  - p09:p09.move.refuse
+  verdict: shared_shell
+  justification: 'Both are refusal terminals (''this_record_is_the_refusal_terminal'') with the same signature appraisal +
+    uncertainty_note + claim -> finding and the same conclusion form (''the named claim is not licensed for this measurement
+    version / by this model version, for the named reasons''), so control flow and output shape match. The licensing conditions
+    are method-owned and substantive, not parameters: p07 refuses when the construct cannot be reliably coded, the holdout
+    is contaminated or prevalence error cannot be bounded, and bars causal or out-of-domain claims; p09 refuses when verification,
+    empirical fitness, experiment provenance, replication precision or decisive sensitivity evidence is absent, and bars policy-world
+    effects or predictions.'
+  shell_does: Accept a requested claim with the governing appraisal and uncertainty notes, record a terminal refusal finding
+    naming the claim, the artifact version (measurement or model) and the reasons, and prevent the claim from being emitted
+    downstream.
+  delegated: The set of conditions that make a claim unlicensed and the evaluation of those conditions against the method's
+    appraisals (p07 coding reliability, holdout contamination, prevalence-error bounds, causal/out-of-domain scope; p09 verification,
+    empirical fitness, provenance, replication precision, sensitivity).
+  hostile_method: p02 RCT
+  hostile_argument: p02 blocks estimand claims on estimator mismatch and qualifies on sensitivity instability; it could emit
+    a refusal through this shell with the same signature, but only by supplying its own estimand-specific licensing conditions,
+    which confirms the conditions are a method-owned interior.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: sig:a8c2d06be0
+  members:
+  - p03:p03.move.pretrend
+  - p04:p04.move.necessity
+  verdict: different_capability
+  justification: 'The canonical signatures match exactly (test: dataset -> finding), but the operations and licensed conclusions
+    do not. ''diagnose pre-intervention trends'' estimates event-time leads and placebos as diagnostics that are ''not identification
+    proofs'', with the conclusion ''observed_preperiod_incompatibilities_or_precision_limits_are_visible''. ''analyze necessary
+    conditions'' computes asymmetric subset consistency, coverage and relevance of necessity, with the conclusion ''named_condition_is_or_is_not_consistent_with_necessity_in_population''.
+    Under §10, a large divergence in what conclusions are licensed rules out a merge even when the signature matches. These
+    rest on incompatible logics: correlational symmetric contrasts versus set-theoretic asymmetry.'
+  what_breaks_if_merged: 'A shared ''test dataset -> finding'' would have no common statistic to compute: a regression lead
+    coefficient with a confidence interval in p03, and a fuzzy-set inclusion score with relevance-of-necessity in p04. Each
+    method''s refusal guard would be lost: ''low_power_nonrejection_is_not_evidence_of_parallelism'' and ''high_consistency_low_relevance_is_not_substantive_necessity''
+    have no counterpart in each other''s frame.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: sig:b12726ae63
+  members:
+  - p02:p02.move.sensitivity
+  - p03:p03.move.sensitivity
+  verdict: shared_shell
+  justification: 'The two steps share an exact signature (estimate + dataset -> finding), the same single-pass topological
+    role (neither is in a required cycle), and closely matching conclusions: p02 ''test estimand sensitivity'' licenses ''robustness_to_key_assumptions_is_characterized''
+    and p03 ''challenge result with sensitivity'' licenses ''result_fragility_is_characterized'', each with a qualification
+    that instability downgrades the primary conclusion. Both hold the target fixed while perturbing assumptions (p02: ''probe
+    assumptions under same estimand not switch target''; p03: ''without data mining''). However the perturbation families
+    are method-owned and not parameters of one routine: p02 varies missing-data and intercurrent-event assumptions under an
+    estimand framework, p03 varies trend specifications, windows, covariates, placebos and inference choices. Hostile test
+    with p04 fsQCA: its robustness checks vary calibration anchors and consistency thresholds and yield alternative solution
+    sets, not estimates, so it cannot use this signature without changing the input type, which confirms the shell must stay
+    estimate-specific and not be promoted to same_capability.'
+  shell_does: Takes a primary estimate, its frozen estimand and a prespecified list of alternative specifications; reruns
+    the method's estimator for each specification on the same dataset; refuses any specification that changes the estimand
+    or was added after seeing results; tabulates alternative estimates and intervals against the primary; and emits a finding
+    with an instability flag that forces the qualified-primary-conclusion wording.
+  delegated: 'Each method keeps the content of the perturbation set and its validity rules: p02 supplies missing-data mechanisms,
+    intercurrent-event strategies and multiplicity choices tied to the ICH E9(R1) estimand; p03 supplies alternative parallel-trends
+    forms, event windows, covariate sets, placebo outcomes or groups and inference methods. Each also owns the estimator itself
+    and the threshold for what counts as ''materially unstable''.'
+  hostile_method: p04
+  hostile_argument: fsQCA robustness varies calibration anchors, frequency cutoffs and consistency thresholds and compares
+    resulting Boolean solution sets, not numeric estimates; it would need a solution_set input/output instead of estimate/finding
+    and a set-theoretic comparison instead of an interval comparison, so it cannot use this signature unchanged.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: sig:cc4bdfb3b0
+  members:
+  - p02:p02.action.compute_itt
+  - p03:p03.action.compute_did
+  verdict: shared_shell
+  justification: 'Both are execution actions with the identical signature dataset + parameter_set -> model_run/trace and the
+    same posture: they run a prespecified estimator and own no inference (''execution_does_not_choose_estimand_or_accept_assumptions'';
+    ''execution_does_not_accept_identifying_assumptions''), licensing only ''prespecified_estimator_was_computed'' / ''prespecified_comparative_change_was_computed''.
+    They differ in the estimator (STATO mean difference vs difference in differences) and, more than a parameter, in failure
+    semantics: p03 blocks on ''failed_inference_or_support_check'', which includes estimator-specific inference checks (assignment-structure-aware
+    errors, the two-group clustered-SE refusal owned by p03.move.estimate). That validation is method-owned, so this is a
+    shell, not one capability.'
+  shell_does: Load the frozen dataset and parameter_set, dispatch to the declared estimator, capture the full model_run trace
+    (inputs hash, software version, output), and block the parent estimate on any execution failure.
+  delegated: The estimator itself and its estimator-specific inference and support checks (p02 ITT mean difference under the
+    frozen estimand; p03 DiD with assignment-structure-respecting inference and support checks), plus any acceptance of assumptions,
+    which stays in each method's parent move.
+  hostile_method: p06 probability survey
+  hostile_argument: p06 action.compute_variance also executes a frozen estimator, but it takes design_parameters (strata,
+    clusters, weights) and outputs an estimate rather than a model_run, so it could only use this shell with a changed signature;
+    its design-metadata validation is again method-owned, supporting shell rather than same_capability.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: stato:OBI:0200184
+  members:
+  - p03:p03.action.balance_table
+  - p12:p12.move.feedback1
+  - p12:p12.action.compute_summary
+  verdict: different_capability
+  justification: The shared OBI term 'descriptive statistical calculation' is the only link; the verbs (compare, synthesize,
+    aggregate) and purposes differ. p03 'tabulate pre-treatment covariate balance' compares treated and comparison groups
+    so that 'pre_treatment_differences_between_groups_are_visible' for identification, and refuses post-treatment covariates;
+    p12 'create controlled anonymous quantitative and qualitative feedback' is a round-feedback product that must preserve
+    opposing arguments and anonymized reasoning 'without persuasion' so panelists can reconsider; p12 'compute prespecified
+    distributions stability and attrition' yields 'numeric_panel_summary_only'. Descriptive arithmetic is a library-level
+    dependency, not a method capability.
+  what_breaks_if_merged: Merging would turn p12's feedback step into a numeric table and drop its qualitative-argument and
+    anonymization requirements, or would force p03's balance table to carry Delphi round semantics; p03's guard rejecting
+    post-treatment covariate values has no analogue in Delphi summaries and would be either lost or misapplied.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: stato:STATO:0000039
+  members:
+  - p08:p08.move.score
+  - p08:p08.move.monitor
+  - p09:p09.move.sensitivity
+  verdict: different_capability
+  justification: 'The shared STATO term is the top-level ''statistic'', an ancestor-like generic tag that by Plan #6 rule
+    2 does not establish a match. The verbs differ (test, monitor, perturb) and so do the operations: ''score point and predictive
+    distributions by horizon'' applies proper scoring rules to compare candidates out of sample; ''join realized outcomes
+    and monitor performance'' scores issued forecasts against later outcomes under the rule that outcomes ''never rewrite
+    historical forecasts''; and ''separate parameter input and structural sensitivity'' perturbs ABM assumptions so that ''structural_uncertainty_cannot_be_collapsed_into_random_seed_or_parameter_noise''.
+    The conclusions are of different kinds: candidate comparison, observed drift, and influential assumptions or robust regions.
+    p08.move.monitor is also methodological_support while the others are analytic.'
+  what_breaks_if_merged: A single 'compute statistic' capability would let a sensitivity analysis report a convenient score
+    as robustness. It would let monitoring re-score and overwrite historical forecasts, and it would lose p08's ban on 'selection
+    from one convenient metric'. p09's three-way split of sensitivity (parameter, input, structural) has no counterpart in
+    forecast scoring and would collapse into a single number.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: stato:STATO:0000218
+  members:
+  - p07:p07.move.fit
+  - p07:p07.action.fit_models
+  - p08:p08.move.fit
+  - p08:p08.move.issue
+  - p08:p08.action.run_backtest
+  verdict: different_capability
+  justification: The shared STATO term 'model fitting' hides different data-splitting regimes and different claims. p07 'fit
+    baselines and candidate supervised models' fits classifiers to human labels inside development data ('candidates_encode_reproducible_label_predictions',
+    'no_model_claim_from_training_fit'), whereas p08 'fit candidates on rolling training folds' requires that 'no candidate
+    trains on its test origin' and outputs fold forecasts, and p08 'refit selected procedure and issue forecast' licenses
+    an actual 'predictive_distribution_for_named_future_target' with mandatory uncertainty. The group also mixes verbs (fit
+    vs project), levels (moves vs actions) and conclusion strength (numerical_predictions_only vs an issued forecast). The
+    two execution actions (p07.action.fit_models, p08.action.run_backtest) are closer and might form a narrower execution-shell
+    candidate, but the group as a whole does not.
+  what_breaks_if_merged: 'A single fitting capability would need one split policy: p07''s random or stratified holdout applied
+    to p08 would let models train on observations after the forecast origin (temporal leakage), while p08''s rolling-origin
+    folds applied to p07 would be meaningless for exchangeable documents. Merging p08.move.issue with fold fitting would also
+    erase the distinction between evaluation fits that license nothing and the issued forecast that must carry a predictive
+    distribution and refuse unsupported horizons.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: stato:STATO:0000412
+  members:
+  - p06:p06.move.estimate
+  - p06:p06.action.compute_variance
+  - p07:p07.move.quantify
+  verdict: different_capability
+  justification: Both methods report 'prevalence' with uncertainty, but the uncertainty comes from different sources and needs
+    different estimators. p06 'estimate prevalence and design-based uncertainty' derives variance from the complex sample
+    design (strata, clusters, weights) and keeps nonsampling limits separate ('bounded_population_prevalence_with_design_based_uncertainty');
+    p07 'estimate construct prevalence with classification uncertainty' corrects for classifier misclassification and labelled-sample-to-corpus
+    shift and refuses plain 'classify_and_count'. The conclusions name different populations (survey target population vs
+    a document corpus) and the p06 action is a numerical-only support step. The shared shape (estimate plus uncertainty_note)
+    is too thin to define a shell with real shared control flow.
+  what_breaks_if_merged: A single prevalence estimator would either apply survey design variance to a near-census corpus,
+    where sampling variance is close to zero and misclassification dominates, producing falsely tight intervals; or treat
+    survey responses as error-free and ignore weights, or treat classifier outputs as error-free measurements, which is exactly
+    the classify-and-count shortcut p07 refuses.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: stato:STATO:0000471
+  members:
+  - p02:p02.move.sensitivity
+  - p06:p06.move.adjust
+  verdict: different_capability
+  justification: The shared STATO term 'estimate' is a generic ancestor-level tag, not a shared operation. p02 sensitivity
+    probes assumptions under the same estimand and outputs a finding ('robustness_to_key_assumptions_is_characterized'), while
+    p06 adjust assesses nonresponse and derives final survey weights, outputting a dataset ('respondents represent the covered
+    population under stated adjustment assumptions'). Inputs, outputs and permitted conclusions differ in kind (robustness
+    characterization vs representativeness licence).
+  what_breaks_if_merged: 'A merged step would make weight derivation look like a sensitivity analysis (or vice versa): p06''s
+    final weights, which every downstream p06 estimate consumes, would be treated as an exploratory side analysis, and p02''s
+    rule ''probe_assumptions_under_same_estimand_not_switch_target'' would have no counterpart in weighting, which legitimately
+    changes the data the estimate is computed on.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: types:3d0005be2f
+  members:
+  - p03:p03.move.pretrend
+  - p04:p04.move.necessity
+  - p10:p10.action.cluster_cases
+  verdict: different_capability
+  justification: 'The three members share only a dataset -> finding type pair. ''diagnose pre-intervention trends'' is an
+    event-time and placebo diagnostic (STATO difference in differences, statistical hypothesis test) whose conclusion is limited
+    to ''observed_preperiod_incompatibilities_or_precision_limits_are_visible'', and it warns that ''low_power_nonrejection_is_not_evidence_of_parallelism''.
+    ''analyze necessary conditions'' is a set-theoretic subset-consistency analysis with coverage and trivialness review;
+    it concludes about necessity in a population and is not a hypothesis test. ''derive candidate vulnerability clusters''
+    is a classify action (scenario discovery, STATO binary classification) whose output is ''candidate_conditions_only'',
+    pending analyst validation. These are three different inferential logics: frequentist diagnostics, Boolean or fuzzy-set
+    relations, and supervised or unsupervised partitioning.'
+  what_breaks_if_merged: A merged dataset->finding step would apply the asymmetric necessity logic of p04 where p03 needs
+    symmetric trend contrasts, or would let a non-rejection of pre-trends read as proof of parallel trends. That is the exact
+    error p03 refuses. p10's clusters require analyst validation before they mean anything, and a merged step would publish
+    them as findings with the same standing as a test result.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:acquire
+  members:
+  - p05:p05.move.gather
+  - p05:p05.move.theoretical_sample
+  - p06:p06.move.collect
+  - p12:p12.move.round1
+  verdict: different_capability
+  justification: 'The sampling logics are opposed: p05 theoretical_sample is directed by category gaps (''emerging_category_need_not_demographic_representativeness_directs_sampling'')
+    inside the grounded-theory cycle, p05 gather generates rich open material, p06 collect executes a frozen probability protocol
+    and records response dispositions (''protocol departures ... recorded rather than silently imputed''), and p12 round1
+    elicits independent anonymous expert ratings on desirability, feasibility, importance and confidence. Outputs differ (source_document
+    vs dataset) and conclusions differ (''new_material_targets_named_theoretical_gaps'' vs ''responses ... available for governed
+    processing'' vs ''initial_judgment_distribution'').'
+  what_breaks_if_merged: A shared acquisition step would either impose p06's frozen-protocol, representativeness-oriented
+    controls on p05 (blocking adaptive theoretical sampling, which must change targets each pass) or let p06 collection adapt
+    to emerging content, destroying the design-based inference p06 depends on; p12's anonymity and pre-feedback independence
+    guarantees would be absent from the shared contract.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:aggregate
+  members:
+  - p11:p11.action.calculate
+  - p12:p12.action.compute_summary
+  - p13:p13.move.joint_display
+  verdict: different_capability
+  justification: p11 calculate computes discounted cost-benefit or cost-effectiveness metrics from frozen economic assumptions
+    ('numerical_metrics_only'), p12 compute_summary computes prespecified rating distributions, stability and attrition ('numeric_panel_summary_only'),
+    and p13 joint_display is an analytic move that juxtaposes qualitative and quantitative findings without numerical combination
+    ('display_places_related_findings_together_and_retains_each_strand_warrant'). The two actions share a 'numeric-only, block
+    on failure' posture but compute unrelated quantities over unrelated inputs (option vs panel dataset), and p13 outputs
+    a finding, not an estimate.
+  what_breaks_if_merged: Merging p13 with the numeric actions would imply joint display is a numerical aggregation, inviting
+    averaging of strand results that p13 forbids; merging p11 and p12 into one calculator would mix discounting assumptions
+    with panel descriptive statistics, so neither the Green Book discount rules nor the Delphi frozen-protocol analysis rules
+    would have a clear owner.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:anchor
+  members:
+  - p05:p05.action.persist_anchors
+  - p07:p07.action.persist_errors
+  - p08:p08.action.persist_issue
+  - p14:p14.action.persist_anchor
+  verdict: shared_shell
+  justification: 'All four are no-rule persistence actions (method_owned_rule ''none'') that fail closed (''action_failure_blocks_parent_move'',
+    ''missing_anchors_blocks_error_review'', ''persistence_failure_blocks_release'', ''anchor_mismatch_blocks_item'') and
+    license no analytic conclusion, so they share control flow: write an immutable, hashed record and block the parent on
+    failure. But what is persisted and its output type differ: p05 persists passage anchors to source text (passage_anchor/result),
+    p07 renders item-level classification errors against a gold dataset (evidence_item/trace), p08 persists a forecast distribution
+    with a cutoff receipt proving issue time (forecast/trace), and p14 persists evidence locations and hashes (review_event/trace).
+    The p08 cutoff receipt is a time-of-issue guarantee, not a location anchor, so semantics are not identical.'
+  shell_does: Content-addressed, append-only persistence of a record with hash, source reference and timestamp; verification
+    that the stored record matches the input; fail-closed signalling that blocks the parent move or release.
+  delegated: 'What constitutes the anchored object and its validity check: p05 exact source/incident spans, p07 item-level
+    error rendering against labels, p08 forecast distribution plus pre-outcome cutoff receipt, p14 evidence location and hash
+    match against a supplied passage_anchor; and each method''s output type.'
+  hostile_method: p01 systematic review
+  hostile_argument: p01 extraction needs to persist the exact location of each extracted result in a study report; it could
+    use the shell's hash-and-block persistence, but its anchor semantics (duplicate extraction, study/result/outcome identity)
+    would be a method-owned interior, confirming shell rather than one capability.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:annotate
+  members:
+  - p05:p05.action.version_memos
+  - p07:p07.move.annotate
+  verdict: different_capability
+  justification: p05 'version memos and comparison lineage' is a methodological-support action that versions a researcher's
+    reflexive memos so that 'lineage_is_auditable', with the researcher confirming content; p07 'sample annotate and adjudicate
+    target labels' is an analytic move that produces a labelled dataset from coders, retaining disagreement and adjudication,
+    so that 'labels_can_train_and_test_protocol_reproduction'. Inputs, outputs (review_event vs dataset+evidence_item), actors
+    (one researcher vs independent coders plus adjudicator) and conclusions differ in kind.
+  what_breaks_if_merged: Merging would either impose p07's multi-coder agreement and adjudication workflow on p05's single-researcher
+    reflexive memos, which constructivist grounded theory does not treat as labels to be agreed, or reduce p07's labelling
+    to version control, losing the retained disagreement and the block on model claims when labels are insufficient or unstable.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:calibrate
+  members:
+  - p04:p04.move.calibrate
+  - p06:p06.move.adjust
+  - p09:p09.move.ground
+  verdict: different_capability
+  justification: '''Calibrate'' names three distinct operations in three traditions. p04 ''assign fuzzy-set memberships''
+    maps raw evidence to degrees of set membership against substantive anchors with borderline review (''cases_have_auditable_memberships'');
+    p06 ''assess nonresponse and derive final weights'' produces survey weights so that ''respondents represent the covered
+    population under stated adjustment assumptions''; p09 ''parameterize calibrate and assess empirical fitness'' tunes simulation
+    parameters to match target patterns and warns that ''calibration_fit_does_not_validate_every_mechanism''. Outputs differ
+    (dataset+memo, dataset+appraisal, parameter_set+appraisal) and the conclusions concern set membership, population representativeness
+    and pattern fit respectively.'
+  what_breaks_if_merged: 'A merged capability would conflate calibrating measurements (p04), calibrating sample weights to
+    population totals (p06) and calibrating model parameters (p09): p04''s refusal to impute unresolved memberships via software
+    defaults, p06''s disclosure that weighting cannot prove absent nonresponse bias, and p09''s rule that reused targets are
+    not independent validation would have no common representation, and an optimizer built for p09 would happily produce sample-relative
+    fuzzy scores that p04 rejects.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:code
+  members:
+  - p05:p05.move.initial_code
+  - p06:p06.move.process
+  verdict: different_capability
+  justification: '''segment and initially code incidents'' is interpretive grounded-theory coding inside a required cycle:
+    codes are ''close action oriented'', provisional and anchored, and may be recoded on later passes. The conclusion is ''incidents_have_interpretive_labels_for_comparison''.
+    ''edit code and evaluate response quality'' is survey data processing: editing, coding of response categories and missingness
+    handling that must ''not invent undocumented respondent information''. Its conclusion is ''response data and material
+    quality limitations are explicit''. The inputs (source_document plus passage anchors vs datasets plus design parameters),
+    the topology (cyclic vs single pass) and the kind of claim (interpretive label vs data-quality statement) all differ.'
+  what_breaks_if_merged: A merged coder would either lock grounded-theory codes into a fixed codebook-style edit, which ends
+    recoding and the carry-forward across cycle passes, or let survey processing invent interpretive labels for respondents,
+    which breaks p06's no-invention rule and the visibility of missingness.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:compare
+  members:
+  - p01:p01.move.compatibility
+  - p03:p03.action.balance_table
+  - p05:p05.move.compare_memo
+  - p10:p10.move.compare_robustness
+  - p13:p13.move.align
+  - p13:p13.move.fit
+  - p14:p14.move.update
+  verdict: different_capability
+  justification: '''compare'' is the known trap: p01 compatibility decides whether results may be pooled (outputs a case_set
+    and state marker), p03 balance_table tabulates pre-treatment covariate differences (''pre_treatment_differences_between_groups_are_visible''),
+    p05 compare_memo is constant comparison producing memos inside a required cycle, p10 compare_robustness ranks strategies
+    under declared metrics inside its RDM cycle, p13 align maps constructs across strands into relations, p13 fit classifies
+    confirmation/expansion/discordance, and p14 update performs Bayesian updating of rivals (''relative_support_for_frozen_rivals_is_transparently_updated'').
+    Inputs, outputs (case_set, finding, memo, appraisal, relation) and conclusion kinds all differ, and two members (p05,
+    p10) are in required cycles while the rest are single passes.'
+  what_breaks_if_merged: 'A shared ''compare'' would erase the difference between a pooling-eligibility gate, a descriptive
+    table, an interpretive coding operation and a probabilistic update: p13 fit''s rule that discordance is ''never_averaged_away''
+    would conflict with p14''s quantitative update, p05''s successor-version carry-forward across cycle passes would have
+    no home in single-pass members, and p10''s value-laden satisficing thresholds would be hidden as generic comparison parameters.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:conceptualize
+  members:
+  - p05:p05.move.focus_categories
+  - p07:p07.move.operationalize
+  - p09:p09.move.specify
+  verdict: different_capability
+  justification: '''select focused codes and construct provisional categories'' is interpretive category building inside a
+    required cycle: categories are chosen by ''conceptual_significance and explanatory reach not frequency'', and prior category
+    versions are carried forward and challenged on later passes. ''operationalize construct and annotation protocol'' turns
+    a concept into observable coding rules, with a reliability threshold declared before pilot coding, and concludes ''humans_can_apply_a_declared_target_to_text''.
+    ''specify entities states scales processes schedule ...'' writes an ABM conceptual model (ODD-style) complete enough to
+    reimplement. Their outputs (concept, construct_definition plus design_parameters, model), their topology (p05 cyclic,
+    the others single-pass) and their conclusions (provisional categories that direct inquiry, an applicable annotation target,
+    an inspectable model) all differ.'
+  what_breaks_if_merged: Merging would make grounded-theory categories carry a pre-declared reliability threshold, which contradicts
+    their provisional, iterative status and the version carry-forward across cycle passes. It would also let a p07 construct
+    definition skip its declared observability and reliability gate, and it would give p09's process and schedule specification
+    a text-coding interface it cannot use.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:construct
+  members:
+  - p02:p02.move.allocate
+  - p02:p02.action.randomize
+  - p03:p03.move.panel
+  - p03:p03.action.build_panel
+  - p04:p04.move.truth_table
+  - p04:p04.action.transform_membership
+  - p05:p05.move.integrate
+  - p06:p06.move.frame
+  - p06:p06.move.design
+  - p06:p06.move.select
+  - p06:p06.action.draw_sample
+  - p07:p07.move.split
+  - p08:p08.move.information
+  - p08:p08.move.folds
+  - p09:p09.move.implement
+  - p09:p09.move.design
+  - p11:p11.move.generate_off
+  - p12:p12.move.design
+  - p13:p13.move.design
+  verdict: different_capability
+  justification: '''construct'' is a coarse bucket covering at least six unrelated operations: random allocation (''generate
+    and conceal allocation'', conclusion ''arm_assignment_is_random_by_design''), data reshaping (''construct aligned group-time
+    panel'', ''construct truth table''), interpretive theory building (''integrate categories into a reflexively bounded theory''
+    -> theory, in a qualitative tradition), sampling (''select probability sample and retain inclusion probabilities''), leakage-safe
+    evaluation splits (''freeze grouped development and held-out evaluation'', ''construct rolling-origin evaluation''), and
+    study-design freezing (p09/p12/p13 design moves, p11 ''generate materially distinct options''). Output types range over
+    dataset, review_event, model_run, theory, case_set, design_parameters, model, option and review_protocol, and the permitted
+    conclusions are of incompatible kinds (randomization by design vs ''situated_explanatory_account'' vs ''backtests_reconstruct_what_was_knowable''
+    vs ''panel_work_has_auditable_design''). Two members (p09.move.design, p11.move.generate_off) sit in required cycles while
+    the rest are single passes. Smaller real families exist inside the bucket (p02.action.randomize and p06.action.draw_sample
+    are both seeded random draws; p07.move.split and p08.move.folds are both leakage-guarded evaluation splits), but they
+    need their own signature groups, not a merge of the verb bucket.'
+  what_breaks_if_merged: 'One ''construct'' implementation would have to treat a concealed random allocation, a grounded-theory
+    integration that returns a theory with named gaps, a fuzzy-set truth table with frequency thresholds, and a Delphi protocol
+    freeze as the same operation. That loses the method-owned guarantees: concealment and exchangeability in p02, inclusion
+    probabilities in p06, the no-future-leakage rule in p08 (a random split would pass a generic constructor, which is exactly
+    what ''reject_random_or_leaky_folds'' forbids), and reflexive bounding in p05. Cycle-carried state for p09 and p11 design
+    passes would also be lost.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:define
+  members:
+  - p01:p01.move.question
+  - p01:p01.move.protocol
+  - p02:p02.move.objective_estimand
+  - p02:p02.move.protocol_sap
+  - p03:p03.move.design
+  - p03:p03.move.covariates
+  - p04:p04.move.population
+  - p04:p04.move.conditions
+  - p04:p04.move.anchors
+  - p05:p05.move.orient
+  - p06:p06.move.define
+  - p07:p07.move.bound
+  - p08:p08.move.target
+  - p08:p08.move.baseline
+  - p09:p09.move.purpose
+  - p10:p10.move.frame
+  - p11:p11.move.rationale
+  - p11:p11.move.objectives
+  - p14:p14.move.case_scope
+  - p14:p14.move.rivals
+  - p14:p14.move.search_plan
+  verdict: different_capability
+  justification: 'This is a coarse verb bucket of 21 steps across 12 methods whose outputs range over review_protocol, estimand,
+    analysis_plan, case_set, construct_definition, memo, model, design_parameters, configuration, criterion and rival_explanation.
+    The operations are unrelated: p02 ''freeze objective and estimand'' fixes a treatment-effect target (''target_treatment_effect_is_unambiguous''),
+    p04 ''set substantive calibration anchors'' fixes set-membership thresholds (''raw_evidence_can_be_mapped_to_declared_sets''),
+    p05 ''locate inquiry and researcher position'' deliberately refuses to precode findings, p08 ''define naive and seasonal
+    baselines'' produces a model as a performance floor, and p14 ''freeze rival explanations'' produces a discriminable rival
+    set. Permitted conclusions diverge in kind (prespecification auditability, causal estimand, configurational scope, forecast
+    task existence, exploratory model purpose), which disqualifies a merge. A narrower recurring pattern (freeze a versioned
+    plan before results; amendments become successor versions, seen in p01.move.protocol, p02.move.protocol_sap, p14.move.search_plan)
+    may deserve its own candidate group, but it is not this group.'
+  what_breaks_if_merged: 'A single ''define'' capability would have no typed output and no shared rule: it could not enforce
+    p02''s rule that the estimand is not post-outcome, p04''s rule that anchors are external and not sample-relative, p05''s
+    rule that sensitizing concepts do not precode findings, or p08''s rule that complexity must beat the baseline. Validation
+    would collapse to ''some artifact was written'', so a p04 anchor set chosen from sample quantiles or a p02 estimand defined
+    after unblinding would pass the same check as a valid one.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:derive
+  members:
+  - p02:p02.move.sample_size
+  - p04:p04.move.sufficiency
+  - p04:p04.action.minimize
+  - p14:p14.move.mechanisms
+  verdict: different_capability
+  justification: '''Derive'' covers three unrelated operations: a frequentist power calculation (p02 ''determine sample size'',
+    STATO statistical test power analysis, concluding the trial ''is sized to detect the declared minimum relevant effect''),
+    Boolean minimization of truth tables (p04 ''minimize sufficient configurations'' and its execution action, concluding
+    ''named_configurations_are_sufficient within declared thresholds''), and theoretical deduction of observable implications
+    (p14 ''derive mechanisms and observables'', producing diagnostic_items). Inputs, outputs and rules share nothing beyond
+    the verb; the conclusions are respectively design adequacy, configurational sufficiency, and testability of rivals.'
+  what_breaks_if_merged: 'No common signature exists: a merged derive would either be an untyped transform or would force
+    one engine''s semantics on the others, e.g. treating p14''s qualitative mechanism derivation as a computation with a receipt,
+    or losing p04''s rule that execution ''does not authorize remainders or interpret solution'' and p02''s requirement that
+    power assumptions are stated and justified.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:estimate
+  members:
+  - p01:p01.action.compute_pool
+  - p02:p02.move.estimate
+  - p02:p02.action.compute_itt
+  - p03:p03.move.estimate
+  - p03:p03.action.compute_did
+  - p06:p06.move.estimate
+  - p06:p06.action.compute_variance
+  - p07:p07.move.quantify
+  - p09:p09.move.compare
+  - p13:p13.move.quant_warrant
+  - p14:p14.move.priors
+  verdict: different_capability
+  justification: 'The group mixes estimand-owning moves (p02 estimate: ''effect_of_randomized_assignment_for_frozen_estimand'';
+    p03 estimate: single-adoption ATT; p06 estimate: ''bounded_population_prevalence_with_design_based_uncertainty''; p07
+    quantify: construct prevalence with misclassification uncertainty; p09 compare: ''within_this_model_configurations_differ''),
+    pure execution actions that explicitly own no inference (p02 compute_itt, p03 compute_did, p06 compute_variance ''numerical_estimate_only'',
+    p01 compute_pool ''does_not_own_pooling_eligibility''), a delegation handoff (p13 quant_warrant, which hands estimation
+    to another method) and prior elicitation (p14 priors outputs an appraisal of rival prior odds, not a statistical estimate).
+    STATO terms diverge (meta analysis, mean difference, difference in differences, prevalence, contrast estimate, none),
+    and permitted conclusions range from causal effect, to population prevalence, to model-conditional contrast, to justified
+    priors. Only the p02/p03 action pair is a plausible shell candidate and is adjudicated separately as sig:cc4bdfb3b0.'
+  what_breaks_if_merged: Merging would place estimand ownership in a shared estimator, letting an execution action silently
+    choose the estimand (contrary to p02 'execution_does_not_choose_estimand_or_accept_assumptions'); p06's design-based variance
+    and p07's classify-and-count refusal would be replaced by a generic standard error; p09 Monte Carlo precision would be
+    conflated with real-world sampling uncertainty, licensing unconditional claims p09 refuses; p14 priors would be typed
+    as estimates and fed to statistical machinery; p13's handoff would appear to estimate itself rather than receive another
+    method's warranted findings.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:extract
+  members:
+  - p01:p01.move.extract
+  - p14:p14.move.anchor_evidence
+  verdict: different_capability
+  justification: p01 extract performs duplicate structured collection of study characteristics and results from included studies
+    into a dataset ('prespecified study characteristics_and_results_are_available'), while p14 anchor_evidence admits both
+    present and absent evidence as evidence_items for diagnostic appraisal, requiring 'a_searched_opportunity_receipt' for
+    every absence. Inputs differ (screening decisions vs source documents with prior review events) and p14's absence-as-evidence
+    logic has no counterpart in p01.
+  what_breaks_if_merged: A shared extractor would either drop p14's absence items and searched-opportunity receipts (so 'not
+    found' becomes indistinguishable from 'not searched', which p14 marks unknown) or impose them on p01, while p01's duplicate-extraction
+    reconciliation and study/result/outcome identity preservation would be lost for p14's case evidence.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:fit
+  members:
+  - p07:p07.move.fit
+  - p07:p07.action.fit_models
+  - p08:p08.move.fit
+  verdict: shared_shell
+  justification: 'p07 move.fit (''simple baselines and tuning stay inside development data'') and p08 move.fit (''tuning_occurs_within_training_folds_and_no_candidate_trains_on_its_test_origin'')
+    share the same control flow: fit baseline and candidate models under frozen design_parameters with leakage-guarded tuning,
+    and p07 action.fit_models is the execution of that flow (model_run/trace, ''no_construct_conclusion''). They differ in
+    the split regime and output: p07 uses a held-out development split and emits label-prediction models (''candidates_encode_reproducible_label_predictions''),
+    while p08 uses rolling-origin folds and emits genuine out-of-sample fold forecasts (''each_candidate_has_genuine_fold_forecasts_for_these_origins''),
+    so semantics are not identical. The action/move level difference is consistent with a shell plus executor, not a disqualifying
+    topological difference, since none is in a required cycle.'
+  shell_does: Run a declared set of baseline and candidate model specifications under frozen design parameters, perform tuning
+    only within the supplied training partitions, enforce that no evaluation partition leaks into fitting, record a model_run
+    trace, and block downstream validation or selection on failure.
+  delegated: The partitioning scheme and leakage definition (p07 random/stratified development split vs p08 rolling-origin
+    temporal folds), the output type (p07 classifier models; p08 models plus fold forecasts and residuals), and the conclusion
+    each method may draw from the fit.
+  hostile_method: p09 agent-based simulation
+  hostile_argument: p09 calibrates model parameters to empirical patterns, but it has no train/test partition and its 'fit'
+    is calibration to stylized facts, not supervised fitting; it could not use the shell without changing the signature (no
+    folds, different validity notion), which supports keeping the method-owned interior rather than claiming one capability.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:identify
+  members:
+  - p01:p01.move.link_reports
+  - p01:p01.action.deduplicate_link
+  - p03:p03.move.comparison
+  - p10:p10.move.discover_vulnerability
+  - p12:p12.move.panel
+  verdict: different_capability
+  justification: These steps share only the word 'identify'. p01 'reconcile reports to studies' and 'deduplicate and link
+    reports' is record linkage ('study_identity_is_explicit'); p03 'justify comparison group' is a counterfactual-validity
+    judgment ('selected_group_is_a_defensible_counterfactual_candidate'); p10 'discover conditions associated with unacceptable
+    outcomes' is scenario discovery over a simulation ensemble and is the only member inside a required cycle; p12 'construct
+    and recruit purposive expert panel' is recruitment that explicitly disclaims representativeness. Outputs differ (case_set,
+    appraisal, scenario) and conclusions differ in kind, and the topological role of p10 (iterated with strategy revision)
+    differs from the single-pass others.
+  what_breaks_if_merged: A merged capability could not carry p10's cross-iteration state (ensemble runs, prior vulnerability
+    regions, analyst-terminated loop) while also serving one-shot record linkage; p01's 'uncertain links require human review'
+    rule would be applied to scenario boxes or panels where it has no meaning; and p03's counterfactual-contamination check
+    would be reduced to a matching or deduplication operation, letting a contaminated comparison group pass as 'identified'.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:monitor
+  members:
+  - p02:p02.move.conduct
+  - p08:p08.move.monitor
+  - p11:p11.move.decide_feedback
+  verdict: different_capability
+  justification: p02 'deliver arms and track conduct' records adherence, intercurrent events and deviations during an ongoing
+    trial ('trial_conduct_is_traceable_by_randomized_arm'); p08 'join realized outcomes and monitor performance' scores past
+    forecasts against later outcomes and watches for regime shift; p11 'record accountable decision and successor monitoring
+    evaluation feedback' records a governance decision and a review trigger, holding that 'recommendation_is_not_decision'.
+    Inputs (dataset+analysis_plan, forecast+dataset, recommendation+finding) and conclusions (conduct traceability, forecast
+    performance, accountable choice) differ in kind; only the word and a loose 'watch over time' intuition are shared.
+  what_breaks_if_merged: A merged monitor would lose p02's constraint that monitoring never reassigns arms, p08's constraint
+    that later outcomes 'score but never rewrite historical forecasts', and p11's separation of recommendation from accountable
+    decision; a single event log would also mix trial-conduct deviations, forecast score streams and governance decisions,
+    so no consumer could tell which conclusion a record licenses.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:project
+  members:
+  - p08:p08.move.issue
+  - p08:p08.action.run_backtest
+  - p11:p11.action.publish_ast
+  - p12:p12.action.deliver_round
+  - p13:p13.action.link_findings
+  - p14:p14.action.render_topology
+  verdict: different_capability
+  justification: 'Two members are statistical forecasting operations: ''refit selected procedure and issue forecast'', which
+    concludes ''predictive_distribution_for_named_future_target'' and refuses horizon or regime extrapolation, and ''execute
+    rolling-origin candidates'', which carries STATO model fitting. The other four are runtime_delivery renders or deliveries
+    with ''no_analytic_conclusion'': ''render balanced appraisal summary table'', ''deliver questionnaire and persist pseudonymous
+    response receipt'', ''render lineage-preserving joint display cells'', and ''render rival evidence topology''. Forecasting
+    versus presentation is a difference of operation and licensed conclusion, so the verb label is homonymous here. The four
+    render/deliver actions could form a separate presentation-shell candidate, but their input types (recommendation, review_protocol,
+    relation, finding) and failure semantics differ: p14''s ''projection_failure_does_not_change_native_appraisal'' is not
+    the same as p12''s ''execution_failure_blocks_or_qualifies_round''. That candidate belongs in its own group.'
+  what_breaks_if_merged: Merging forecast issuance with display rendering would turn a step that must refit, carry uncertainty
+    that is 'not optional', and refuse unsupported horizons into a pass-through renderer, or would load renderers with fitting
+    and uncertainty duties they have no inputs for. p12's delivery also persists pseudonymous response receipts that gate
+    a Delphi round; a generic renderer would drop that receipt and its round-blocking failure path.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:rank
+  members:
+  - p08:p08.move.select
+  - p11:p11.move.mcda
+  verdict: different_capability
+  justification: p08 'select or combine evaluated procedures' chooses a forecasting procedure from out-of-sample scores under
+    a frozen loss, only among candidates that beat baselines (STATO statistical model selection; 'this_procedure_or_combination_is_the_best_evaluated_option_for_this_task');
+    p11 'conduct bounded swing-weighted MCDA when activated' structures expert-facilitated value tradeoffs over options and
+    criteria for shortlisting ('technical_longlist_tradeoffs_are_structured_for_shortlisting'). One ranks by an empirical
+    predictive score, the other by elicited stakeholder value weights; the conclusions are a statistical best-performer claim
+    versus a structured, non-binding tradeoff for a later decision.
+  what_breaks_if_merged: A merged ranker would either let p11's elicited weights enter p08's selection, breaking the rule
+    that selection uses only the frozen loss and never in-sample or preference-driven criteria, or treat p11's swing weights
+    as an objective score, turning a shortlisting aid into a claimed optimal option and dropping the facilitation, rationale
+    and sensitivity requirements that distinguish it from 'simple MCA'.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:recommend
+  members:
+  - p10:p10.move.advise
+  - p11:p11.move.compare_advise
+  verdict: different_capability
+  justification: 'Both produce a recommendation record, but the operations differ. ''present conditional robust strategy advice
+    and residual uncertainty'' exposes trade-offs, blind spots and signposts across futures, and ''does not choose policy'';
+    its conclusion is only ''decision_maker_can_consider_conditional_strategy_advice''. ''form balanced comparative judgment
+    and recommendation or no preference'' takes monetized estimates and ranks options by value for money, licensing ''conditional_recommendation_or_no_robust_preference''.
+    The topological roles also differ: p11.move.compare_advise is in a required cycle that can return for rework, while p10.move.advise
+    is a single-pass terminal. The signatures are not identical either (p11 requires an estimate input and may emit an appraisal).
+    With only two methods, the uncertainty default applies.'
+  what_breaks_if_merged: A single recommender would either force RDM to produce a preferred option from an expected-value-style
+    ranking, which RDM avoids under deep uncertainty, or strip the Green Book of its value-for-money ranking and switching-value
+    logic. It would also lose p11's rework cycle state, and it would blur p10's explicit separation of advice from a policy
+    choice.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:refuse
+  members:
+  - p06:p06.move.refuse
+  - p07:p07.move.refuse
+  - p08:p08.move.refuse
+  - p09:p09.move.refuse
+  verdict: shared_shell
+  justification: 'All four are refusal terminals (''this_record_is_the_refusal_terminal'') with nearly the same signature:
+    appraisal plus optional uncertainty_note and optional claim, returning a finding. All are single-pass and none is in a
+    required cycle, and all four conclusions are the same kind of statement: ''no population prevalence is licensed for this
+    survey version, for the named reasons'', ''the named claim is not licensed for this measurement version'', ''no forecast
+    is licensed for this task and origin'', ''the named claim is not licensed by this model version''. The methods are materially
+    different (probability survey, supervised text measurement, probabilistic forecasting, agent-based simulation), so this
+    clears the three-method threshold. However, the decision rules are method-owned and are not interchangeable parameters:
+    p06 refuses on unbounded coverage, nonresponse or variance; p07 on unreliable coding or a contaminated holdout; p08 on
+    leakage, miscalibration or regime shift; p09 on missing verification or decisive sensitivity. That makes this a shared
+    shell with a method-owned interior, not one capability.'
+  shell_does: Emit a terminal refusal finding naming the specific claim refused, the version or scope it applies to (survey
+    version, measurement version, task and origin, model version), and the reasons, each linked to the appraisal or uncertainty_note
+    records that triggered it. Mark the parent claim path as not licensed so downstream report steps cannot publish it, and
+    keep the refusal visible in the trace rather than dropping it silently.
+  delegated: 'Each method keeps its own refusal criteria and gate logic: p06 coverage, nonresponse and variance reconstruction;
+    p07 coding reliability, holdout contamination and the bar on causal or out-of-domain claims; p08 leakage, horizon, baseline,
+    calibration and regime checks; p09 verification, empirical fitness, provenance, replication precision and sensitivity.
+    Each also keeps its own wording of what the refused claim was.'
+  hostile_method: p05 constructivist grounded theory
+  hostile_argument: Grounded theory does not refuse claims at a terminal. Its refusal_or_qualification is 'bounded_partial_account_with_named_gaps',
+    which issues a qualified theory rather than withholding one. It could only use this shell by recasting qualification as
+    refusal, which would misstate the method. So the shell is limited to methods with a release-or-withhold gate on a named
+    claim, and its signature must stay refusal-only rather than growing a qualification mode. That limit is why this is a
+    shell and not a promoted universal capability.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:review
+  members:
+  - p01:p01.move.risk_bias
+  - p01:p01.move.missing_evidence
+  - p01:p01.move.certainty
+  - p02:p02.move.lock_audit
+  - p03:p03.move.assumptions
+  - p04:p04.move.resolve_contradictions
+  - p04:p04.move.remainders
+  - p05:p05.move.adequacy
+  - p06:p06.move.report
+  - p07:p07.move.interpret
+  - p09:p09.move.conclude
+  - p11:p11.move.choose_longlist_route
+  - p11:p11.move.qualify_impacts
+  - p11:p11.move.assure
+  - p12:p12.move.interpret
+  - p13:p13.move.check_readiness
+  - p13:p13.action.trace_meta
+  - p14:p14.move.dependencies
+  - p14:p14.move.diagnostic
+  verdict: different_capability
+  justification: '''review'' here is a coarse bucket covering at least five distinct operations: criterion-based bias appraisal
+    (p01 risk_bias, ''bias_concerns_are_explicit_per_result''; p01 certainty, GRADE rating per outcome), data integrity locking
+    (p02 lock_audit outputs a frozen dataset, ''frozen_analysis_can_execute_without_silent_data_revision''), configuration
+    governance (p04 remainders outputs an analysis_plan licensing ''parsimonious_or_intermediate_minimization''), saturation/stopping
+    judgements inside a required cycle (p05 adequacy: ''return_for_more_sampling_or_integrate_or_stop''), routing and assurance
+    gates inside the Green Book cycle (p11 choose_longlist_route, assure), and rival-conditioned Bayesian appraisal (p14 diagnostic:
+    ''evidence_favors_disfavors_or_fails_to_discriminate_rivals''). Signatures differ (subjects range over dataset, concept,
+    estimate, option, recommendation, finding, evidence_item; outputs over appraisal, dataset, analysis_plan, review_event,
+    finding), permitted conclusions differ in kind (bias flags, identification licences, model-conditional findings, panel-state
+    patterns, trace completeness only), and three p11 members sit in a required cycle with human termination while most others
+    are single passes. No subset spanning three methods shares both signature and conclusion kind.'
+  what_breaks_if_merged: A single 'review' implementation would have to treat p02's data lock (which mutates nothing analytic
+    but freezes lineage) and p05's category adequacy (a reasoned, non-count judgement that can send the cycle back to sampling)
+    as the same operation; the p11 cycle's state across iterations and rework-stage routing would be lost or forced onto single-pass
+    members; p14's per-rival conditioning and p01's per-result domain structure would collapse into an untyped appraisal,
+    letting p14 dependent items be combined as independent and p03's 'pretrend_similarity_alone_never_proves_identification'
+    refusal be bypassed by a generic pass/fail reviewer.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:revise
+  members:
+  - p05:p05.move.refine
+  - p10:p10.move.revise_strategy
+  - p12:p12.move.round2
+  - p12:p12.move.round3
+  verdict: different_capability
+  justification: p05 refine is analyst revision of categories against variation with versioned supersession ('each_successor_category_version_supersedes_and_carries_forward_the_prior_version'),
+    p10 revise_strategy designs new hedges and adaptations from vulnerabilities inside the RDM cycle ('successor_designs_merit_retest_not_adoption'),
+    and p12 round2/round3 are elicitations in which panelists, not the analyst, hold revision authority ('each_panelist_retains_authority_to_revise_or_hold').
+    Outputs differ (concept, option/criterion/configuration, dataset), and who revises differs (analyst, designer, panel).
+    The two p12 rounds plausibly share an elicitation-round shell with p12 round1, but that is within one method and does
+    not extend to p05 or p10.
+  what_breaks_if_merged: A single revise capability would move revision authority off p12's panelists or onto p05's analyst,
+    breaking Delphi's rule that convergence is never forced; p05's retained prior category versions and p10's trigger-logic
+    preservation would become generic diffs; p10's cycle state would be imposed on p12 rounds, which are a fixed sequence,
+    not an analyst-terminated loop.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:screen
+  members:
+  - p01:p01.move.screen_initial
+  - p01:p01.move.screen_full
+  - p11:p11.move.shortlist
+  verdict: shared_shell
+  justification: 'All three apply declared criteria to a set of candidates and keep a visible record of each decision with
+    its reason: ''screen titles and abstracts'' and ''decide full-text eligibility'' against the prespecified review protocol,
+    and ''form viable shortlist and rejection log'' against Green Book viability. The licensed conclusions are of one kind,
+    ''advance to the next stage'' (''candidate_studies_require_full_text_review'', ''included_studies_meet_prespecified_criteria'',
+    ''shortlisted_options_merit_detailed_appraisal''). Two things stop a full merge. First, the method-owned rules are asymmetric
+    in different ways: in p01 ''uncertainty advances to full text'', while in p11 ''bau always continues''. Second, the topological
+    roles differ: p11.move.shortlist is in a required cycle with rework, while p01''s screens are single passes. Only two
+    methods appear, so this is below the three-method promotion threshold and should be recorded as a shell candidate, not
+    promoted.'
+  shell_does: For each candidate item, record an include, exclude or uncertain decision with a reason code and the criteria
+    version applied. Keep a durable rejection or exclusion log, never delete excluded items, and emit counts per stage for
+    a flow diagram (PRISMA-style for p01, a long-list to shortlist trail for p11). Support re-entry on a later pass by keeping
+    prior decisions versioned.
+  delegated: Each method keeps its criteria and their source (the frozen PICO review protocol vs the Options Framework and
+    viability appraisals). It also keeps its asymmetry rules (uncertain studies advance; business-as-usual is always retained),
+    any dual-reviewer or conflict-resolution procedure (p01), and the cycle-return trigger and rework semantics ('return_for_rework_or_no_robust_preference',
+    p11).
+  hostile_method: p05 constructivist grounded theory
+  hostile_argument: Theoretical sampling in grounded theory selects material by emerging category needs, not against prespecified
+    criteria. It has no fixed include/exclude rule, and decisions change as the theory develops. It could use the logging
+    and versioning parts of the shell, but not the criteria-application control flow without changing the signature, which
+    confirms that the shell stays limited to criterion-based screening.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:simulate
+  members:
+  - p09:p09.move.execute
+  - p09:p09.action.run_model
+  - p10:p10.move.generate_futures
+  - p10:p10.move.evaluate
+  - p10:p10.action.run_ensemble
+  verdict: different_capability
+  justification: 'p09''s members run a replicated stochastic ABM ensemble (''execute and retain replicated stochastic ensemble'',
+    STATO sampling from a probability distribution), and its conclusion is ''model_generated_these_trajectories_under_these_conditions''.
+    p10''s ''generate a diverse ensemble of plausible futures'' does not run a model at all: it designs exploratory scenarios
+    (configuration -> scenario) under a rule that forbids ''assigning one predictive probability''. p10''s ''evaluate candidate
+    strategies across the same futures'' sits in a required cycle and concludes ''conditional_performance_is_available_not_predicted''.
+    So the members differ in operation (scenario design vs model execution vs strategy-by-future evaluation), in topology
+    (p10.move.evaluate is in a cycle, the rest are single passes), and in uncertainty semantics (p09 samples seeds and replications
+    to hit a Monte Carlo precision target, p10 deliberately avoids a probability measure over futures). The two runtime actions,
+    p09.action.run_model and p10.action.run_ensemble, are a plausible narrower candidate for a shared execution harness (schedule
+    runs, retain seeds, traces and failures, block the parent on an incomplete receipt), but that is a different, smaller
+    group.'
+  what_breaks_if_merged: A merged 'simulate' would either attach probabilities to RDM futures, which defeats p10's deep-uncertainty
+    premise, or drop p09's replication-count and seed discipline, which defeats 'missing_seed_configuration_or_failure_state_blocks_use'.
+    Treating generate_futures as model execution would also make scenario design depend on a model it does not have. Folding
+    p10.move.evaluate's cycle state (re-evaluation as strategies are revised) into a single-pass executor would lose the iteration
+    across passes.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:synthesize
+  members:
+  - p01:p01.move.synthesize
+  - p01:p01.move.report
+  - p02:p02.move.interpret_report
+  - p03:p03.move.interpret
+  - p04:p04.move.return_cases
+  - p04:p04.move.conclude
+  - p12:p12.move.feedback1
+  - p12:p12.move.feedback2
+  - p12:p12.move.report
+  - p13:p13.move.qual_warrant
+  - p13:p13.move.meta_infer
+  - p14:p14.move.conclude
+  verdict: different_capability
+  justification: 'The bucket mixes statistical pooling (''synthesize effects conditionally'', STATO meta analysis, with a
+    compatibility gate that refuses a pooled estimate), conclusion writing (''bound and report trial conclusion'', ''issue
+    bounded causal conclusion'', ''issue configurational conclusion'', ''issue bounded mechanism conclusion''), case-level
+    interpretation (''return solution to cases'' -> memo), Delphi panel feedback (''create controlled anonymous quantitative
+    and qualitative feedback''), and mixed-methods integration (''draw bounded meta-inference from integration''), plus a
+    handoff to another method (''hand off to declared qualitative strand method''). The permitted conclusions differ in kind,
+    not degree: ''randomized_assignment_effect_is_reported_for_trial_population'', ''bounded_necessary_or_sufficient_configurations_are_reported''
+    with an explicit ''no_mechanism_or_marginal_effect_claim'', ''one_rival_may_be_better_supported_in_the_bounded_case'',
+    and ''panelists_can_reconsider_against_visible_group_response'', which is not a conclusion about the world at all. Under
+    §10 this divergence in conclusions rules out a merge. The conclude/interpret steps (p01.report, p02, p03, p04.conclude,
+    p14) share a shape of finding -> claim with scope bounds, but each one''s refusal is the opposite of another''s licence
+    (p03 licenses an effect, p04 forbids net-effect language, p14 forbids population effects), so even that subset is at most
+    a thin claim-record shell that would need its own signature group.'
+  what_breaks_if_merged: A single synthesizer would let net-effect language through into fsQCA conclusions, let a process-tracing
+    mechanism claim become a population effect, and treat Delphi round feedback (which must not persuade, and is not a claim)
+    as an evidential synthesis. It would also merge p01's random-effects or non-pooling decision under a frozen compatibility
+    gate with p13's meta-inference, which must not go beyond the quality of each strand. That means the 'no pooled estimate
+    when compatibility gate fails' and 'withhold or bound meta-inference' refusals would no longer be enforced by the method
+    that owns them.
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'
+- group_id: verb:test
+  members:
+  - p02:p02.move.sensitivity
+  - p03:p03.move.pretrend
+  - p03:p03.move.sensitivity
+  - p04:p04.move.necessity
+  - p06:p06.move.pretest
+  - p07:p07.move.pilot
+  - p07:p07.move.validate
+  - p08:p08.move.score
+  - p08:p08.move.diagnose
+  - p09:p09.move.verify
+  - p09:p09.action.verify_invariants
+  verdict: different_capability
+  justification: '''Test'' here covers at least five unrelated operations: re-estimation under alternative assumptions (p02/p03
+    sensitivity), pre-period diagnostics that are explicitly ''not identification proofs'' (p03 pretrend), asymmetric subset-relation
+    necessity analysis with consistency and coverage (p04 necessity), instrument pretesting and intercoder reliability that
+    loop back to design (p06 pretest, p07 pilot), out-of-sample scoring with proper scores (p08 score), and code-versus-specification
+    verification that ''asks whether code matches specification not whether model is true'' (p09 verify). Permitted conclusions
+    differ in kind: ''named_condition_is_or_is_not_consistent_with_necessity'' is a substantive configurational claim, ''this
+    codebook version can be applied reliably'' is a measurement-instrument claim, ''tested_build_behaves_as_specified'' is
+    a software claim, and ''candidates_compare_out_of_sample'' is a predictive comparison. Inputs and outputs also differ
+    (finding vs appraisal vs evidence_item). Only the two sensitivity steps share a signature, and they are adjudicated separately
+    in sig:b12726ae63.'
+  what_breaks_if_merged: 'A merged test capability would have to pick one notion of pass/fail: a hypothesis-test p-value would
+    misread p03''s low-power non-rejection as evidence of parallel trends (which its qualification forbids), would treat p04
+    necessity as symmetric correlation instead of a subset relation, would score p07 reliability against an accuracy metric
+    instead of a frozen agreement threshold on fresh pilot documents, and would let p09 verification be read as model validation.
+    The return-to-design loops in p06 and p07 would also be lost, because a single-pass test has no successor-version output.'
+  adjudicator: 'claude-code adjudication agent (read-only), 2026-10-08, against rev 5.1 section 10 and Plan #6 rules'

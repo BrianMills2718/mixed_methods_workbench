@@ -1,0 +1,7464 @@
+{
+ "source": "http://purl.obolibrary.org/obo/stato/releases/2026-04-20/stato.owl",
+ "release": "2026-04-20",
+ "sha256": "7e8f945ee30c6b24139f0064d57c2edbcfc988f3f74811cad6b5c84819ce1494",
+ "terms": {
+  "BFO:0000001": {
+   "label": "entity",
+   "parents": [],
+   "deprecated": false
+  },
+  "BFO:0000002": {
+   "label": "continuant",
+   "parents": [
+    "BFO:0000001"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000003": {
+   "label": "occurrent",
+   "parents": [
+    "BFO:0000001"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000004": {
+   "label": "independent continuant",
+   "parents": [
+    "BFO:0000002"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000006": {
+   "label": "spatial region",
+   "parents": [
+    "BFO:0000141"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000009": {
+   "label": "two-dimensional spatial region",
+   "parents": [
+    "BFO:0000006"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000015": {
+   "label": "process",
+   "parents": [
+    "BFO:0000003"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000016": {
+   "label": "disposition",
+   "parents": [
+    "BFO:0000017"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000017": {
+   "label": "realizable entity",
+   "parents": [
+    "BFO:0000020"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000018": {
+   "label": "zero-dimensional spatial region",
+   "parents": [
+    "BFO:0000006"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000019": {
+   "label": "quality",
+   "parents": [
+    "BFO:0000020"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000020": {
+   "label": "specifically dependent continuant",
+   "parents": [
+    "BFO:0000002"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000023": {
+   "label": "role",
+   "parents": [
+    "BFO:0000017"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000026": {
+   "label": "one-dimensional spatial region",
+   "parents": [
+    "BFO:0000006"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000028": {
+   "label": "three-dimensional spatial region",
+   "parents": [
+    "BFO:0000006"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000031": {
+   "label": "generically dependent continuant",
+   "parents": [
+    "BFO:0000002"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000034": {
+   "label": "function",
+   "parents": [
+    "BFO:0000016"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000040": {
+   "label": "material entity",
+   "parents": [
+    "BFO:0000004"
+   ],
+   "deprecated": false
+  },
+  "BFO:0000141": {
+   "label": "immaterial entity",
+   "parents": [
+    "BFO:0000004"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:16670": {
+   "label": "peptide",
+   "parents": [
+    "CHEBI:33839"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:16991": {
+   "label": "deoxyribonucleic acid",
+   "parents": [
+    "CHEBI:33696"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:23367": {
+   "label": "molecular entity",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:33250": {
+   "label": "atom",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:33696": {
+   "label": "nucleic acid",
+   "parents": [
+    "CHEBI:33839"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:33697": {
+   "label": "ribonucleic acid",
+   "parents": [
+    "CHEBI:33696"
+   ],
+   "deprecated": false
+  },
+  "CHEBI:33839": {
+   "label": "macromolecule",
+   "parents": [
+    "CHEBI:23367"
+   ],
+   "deprecated": false
+  },
+  "CL:0000000": {
+   "label": "cell",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "CL:0000010": {
+   "label": "cultured cell",
+   "parents": [
+    "CL:0000578"
+   ],
+   "deprecated": false
+  },
+  "CL:0000578": {
+   "label": "experimentally modified cell in vitro",
+   "parents": [
+    "CL:0000000",
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "GO:0003674": {
+   "label": "molecular_function",
+   "parents": [
+    "BFO:0000015"
+   ],
+   "deprecated": false
+  },
+  "GO:0003824": {
+   "label": "catalytic activity",
+   "parents": [
+    "GO:0003674"
+   ],
+   "deprecated": false
+  },
+  "GO:0003964": {
+   "label": "RNA-directed DNA polymerase activity",
+   "parents": [
+    "GO:0003824"
+   ],
+   "deprecated": false
+  },
+  "GO:0008150": {
+   "label": "biological_process",
+   "parents": [
+    "BFO:0000015"
+   ],
+   "deprecated": false
+  },
+  "GO:0010467": {
+   "label": "gene expression",
+   "parents": [
+    "GO:0008150"
+   ],
+   "deprecated": false
+  },
+  "GO:0032991": {
+   "label": "protein-containing complex",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "GO:0043234": {
+   "label": "protein complex",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000001": {
+   "label": "conditional specification",
+   "parents": [
+    "IAO:0000033"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000003": {
+   "label": "measurement unit label",
+   "parents": [
+    "IAO:0000009"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000005": {
+   "label": "objective specification",
+   "parents": [
+    "IAO:0000033"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000007": {
+   "label": "action specification",
+   "parents": [
+    "IAO:0000033"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000009": {
+   "label": "datum label",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000015": {
+   "label": "information carrier",
+   "parents": [
+    "BFO:0000019"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000027": {
+   "label": "data item",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000028": {
+   "label": "symbol",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000030": {
+   "label": "information content entity",
+   "parents": [
+    "BFO:0000031"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000032": {
+   "label": "scalar measurement datum",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000033": {
+   "label": "directive information entity",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000037": {
+   "label": "dot plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000038": {
+   "label": "graph",
+   "parents": [
+    "IAO:0000309"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000055": {
+   "label": "rule",
+   "parents": [
+    "IAO:0000001"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000064": {
+   "label": "algorithm",
+   "parents": [
+    "IAO:0000104"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000078": {
+   "label": "curation status specification",
+   "parents": [
+    "IAO:0000102"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000100": {
+   "label": "data set",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000101": {
+   "label": "image",
+   "parents": [
+    "IAO:0000308"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000102": {
+   "label": "data about an ontology part",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000104": {
+   "label": "plan specification",
+   "parents": [
+    "IAO:0000033"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000109": {
+   "label": "measurement datum",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000129": {
+   "label": "version number",
+   "parents": [
+    "IAO:0000028"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000144": {
+   "label": "conclusion textual entity",
+   "parents": [
+    "IAO:0000300",
+    "OBI:0001909"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000184": {
+   "label": "scatter plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000300": {
+   "label": "textual entity",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000306": {
+   "label": "table",
+   "parents": [
+    "IAO:0000300"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000308": {
+   "label": "figure",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000309": {
+   "label": "diagram",
+   "parents": [
+    "IAO:0000308"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000310": {
+   "label": "document",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000400": {
+   "label": "cartesian spatial coordinate datum",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000401": {
+   "label": "one dimensional cartesian spatial coordinate datum",
+   "parents": [
+    "IAO:0000400"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000402": {
+   "label": "two dimensional cartesian spatial coordinate datum",
+   "parents": [
+    "IAO:0000400"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000414": {
+   "label": "mass measurement datum",
+   "parents": [
+    "IAO:0000032"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000416": {
+   "label": "time measurement datum",
+   "parents": [
+    "IAO:0000032"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000572": {
+   "label": "documenting",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000573": {
+   "label": "line graph",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000577": {
+   "label": "centrally registered identifier symbol",
+   "parents": [
+    "IAO:0000028"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000578": {
+   "label": "centrally registered identifier",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000579": {
+   "label": "centrally registered identifier registry",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000582": {
+   "label": "time stamped measurement datum",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "IAO:0000584": {
+   "label": "time sampled measurement data set",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000010": {
+   "label": "fluorescent reporter intensity",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000011": {
+   "label": "planned process",
+   "parents": [
+    "BFO:0000015"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000015": {
+   "label": "biological feature identification objective",
+   "parents": [
+    "IAO:0000005"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000047": {
+   "label": "processed material",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000066": {
+   "label": "investigation",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000067": {
+   "label": "evaluant role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000070": {
+   "label": "assay",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000071": {
+   "label": "quantitative confidence value",
+   "parents": [
+    "STATO:0000609"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000079": {
+   "label": "culture medium",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000086": {
+   "label": "reagent role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000094": {
+   "label": "material processing",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000097": {
+   "label": "participant under investigation role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000112": {
+   "label": "specimen role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000113": {
+   "label": "sequence feature identification objective",
+   "parents": [
+    "OBI:0000015"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000115": {
+   "label": "intervention design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000118": {
+   "label": "gene list",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000131": {
+   "label": "molecular feature identification objective",
+   "parents": [
+    "OBI:0000015"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000164": {
+   "label": "clonal cDNA library",
+   "parents": [
+    "OBI:0000731"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000181": {
+   "label": "population",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000185": {
+   "label": "imaging assay",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000245": {
+   "label": "organization",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000250": {
+   "label": "dye role",
+   "parents": [
+    "OBI:0002743"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000257": {
+   "label": "DNA extraction",
+   "parents": [
+    "OBI:0666667"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000272": {
+   "label": "protocol",
+   "parents": [
+    "IAO:0000104"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000274": {
+   "label": "adding a material entity into a target",
+   "parents": [
+    "OBI:0000652"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000275": {
+   "label": "analyte role",
+   "parents": [
+    "OBI:0002444"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000319": {
+   "label": "material to be added role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000338": {
+   "label": "drawing a conclusion based on data",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000339": {
+   "label": "planning",
+   "parents": [
+    "BFO:0000015"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000367": {
+   "label": "light emission function",
+   "parents": [
+    "OBI:0000374"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000370": {
+   "label": "contain function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000371": {
+   "label": "heat function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000372": {
+   "label": "material separation function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000374": {
+   "label": "excitation function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000378": {
+   "label": "filter function",
+   "parents": [
+    "OBI:0000372"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000387": {
+   "label": "cool function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000399": {
+   "label": "solid support function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000401": {
+   "label": "environment control function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000403": {
+   "label": "sort function",
+   "parents": [
+    "OBI:0000372"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000411": {
+   "label": "cloning vector role",
+   "parents": [
+    "OBI:0000319"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000416": {
+   "label": "cloning insert role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000419": {
+   "label": "reverse transcriptase",
+   "parents": [
+    "OBI:0000427"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000423": {
+   "label": "extract",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000424": {
+   "label": "transcription profiling assay",
+   "parents": [
+    "OBI:0000443"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000425": {
+   "label": "averaging objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000427": {
+   "label": "enzyme",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000434": {
+   "label": "adding material objective",
+   "parents": [
+    "OBI:0000686"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000435": {
+   "label": "genotyping assay",
+   "parents": [
+    "OBI:0000443"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000437": {
+   "label": "analyte measurement objective",
+   "parents": [
+    "OBI:0000441"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000441": {
+   "label": "assay objective",
+   "parents": [
+    "IAO:0000005"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000443": {
+   "label": "analyte assay",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000444": {
+   "label": "target of material addition role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000451": {
+   "label": "normalized data set",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000453": {
+   "label": "measure function",
+   "parents": [
+    "BFO:0000034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000456": {
+   "label": "material transformation objective",
+   "parents": [
+    "IAO:0000005"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000471": {
+   "label": "study design execution",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000626": {
+   "label": "DNA sequencing assay",
+   "parents": [
+    "OBI:0600047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000639": {
+   "label": "material separation objective",
+   "parents": [
+    "OBI:0000456"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000648": {
+   "label": "clustered data set",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000649": {
+   "label": "data set of features",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000650": {
+   "label": "differential expression analysis data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000652": {
+   "label": "material combination",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000659": {
+   "label": "specimen collection process",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000662": {
+   "label": "error corrected data set",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000668": {
+   "label": "error correction data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000671": {
+   "label": "sample from organism",
+   "parents": [
+    "OBI:0000747",
+    "OBI:0001479"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000673": {
+   "label": "statistical hypothesis test",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000675": {
+   "label": "statistical hypothesis test objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000678": {
+   "label": "portioning objective",
+   "parents": [
+    "OBI:0000639"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000681": {
+   "label": "separation into different composition objective",
+   "parents": [
+    "OBI:0000639"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000684": {
+   "label": "specimen collection objective",
+   "parents": [
+    "IAO:0000005"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000686": {
+   "label": "material combination objective",
+   "parents": [
+    "OBI:0000456"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000722": {
+   "label": "paired-end library",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000727": {
+   "label": "k-nearest neighbors",
+   "parents": [
+    "OBI:0200171",
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000731": {
+   "label": "recombinant vector",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000736": {
+   "label": "single fragment library",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000737": {
+   "label": "cloning vector",
+   "parents": [
+    "OBI:0000047",
+    "OBI:1110108"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000739": {
+   "label": "Student's t-test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000740": {
+   "label": "material sample role",
+   "parents": [
+    "OBI:0000112"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000744": {
+   "label": "material sampling process",
+   "parents": [
+    "OBI:0000659"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000747": {
+   "label": "material sample",
+   "parents": [
+    "OBI:0100051"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000750": {
+   "label": "study design independent variable",
+   "parents": [
+    "IAO:0000033",
+    "STATO:0000258"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000751": {
+   "label": "study design dependent variable",
+   "parents": [
+    "IAO:0000033",
+    "STATO:0000258"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000789": {
+   "label": "survival rate",
+   "parents": [
+    "IAO:0000109",
+    "STATO:0000645"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000791": {
+   "label": "multiple testing correction objective",
+   "parents": [
+    "OBI:0200186"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000806": {
+   "label": "material maintenance objective",
+   "parents": [
+    "IAO:0000005"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000811": {
+   "label": "primary structure of DNA macromolecule",
+   "parents": [
+    "SO:0000001"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000832": {
+   "label": "measurement device",
+   "parents": [
+    "OBI:0000968"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000838": {
+   "label": "material maintenance",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000845": {
+   "label": "primary structure of RNA molecule",
+   "parents": [
+    "SO:0000001"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000848": {
+   "label": "polyA RNA extraction",
+   "parents": [
+    "OBI:0666666"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000861": {
+   "label": "Likelihood-ratio test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000880": {
+   "label": "RNA extract",
+   "parents": [
+    "OBI:0001010"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000889": {
+   "label": "survival curve",
+   "parents": [
+    "IAO:0000027",
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000916": {
+   "label": "flow cytometry assay",
+   "parents": [
+    "OBI:0001977"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000924": {
+   "label": "labeled specimen",
+   "parents": [
+    "OBI:0000953",
+    "OBI:0001936"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000931": {
+   "label": "study intervention",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000932": {
+   "label": "material separation device",
+   "parents": [
+    "OBI:0000968"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000938": {
+   "label": "categorical measurement datum",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000953": {
+   "label": "processed specimen",
+   "parents": [
+    "OBI:0000047",
+    "OBI:0100051"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000963": {
+   "label": "categorical label",
+   "parents": [
+    "IAO:0000009"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000964": {
+   "label": "in live cell assay",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000967": {
+   "label": "container",
+   "parents": [
+    "OBI:0000968"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000968": {
+   "label": "device",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000973": {
+   "label": "sequence data",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "OBI:0000984": {
+   "label": "dose",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001010": {
+   "label": "nucleic acid extract",
+   "parents": [
+    "OBI:0000423",
+    "OBI:0000953"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001032": {
+   "label": "light emission device",
+   "parents": [
+    "OBI:0000968"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001034": {
+   "label": "environmental control device",
+   "parents": [
+    "OBI:0000968"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001051": {
+   "label": "DNA extract",
+   "parents": [
+    "OBI:0001010"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001108": {
+   "label": "nucleic acid sequencer",
+   "parents": [
+    "OBI:0000832"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001137": {
+   "label": "protein sequencer",
+   "parents": [
+    "OBI:0000832"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001143": {
+   "label": "labeled nucleic acid extract",
+   "parents": [
+    "OBI:0000924"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001172": {
+   "label": "dose response curve",
+   "parents": [
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001177": {
+   "label": "RNA sequencing assay",
+   "parents": [
+    "OBI:0600047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001225": {
+   "label": "genetic population background information",
+   "parents": [
+    "OBI:0001404"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001265": {
+   "label": "FWER adjusted p-value",
+   "parents": [
+    "OBI:0000071",
+    "OBI:0000662"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001271": {
+   "label": "RNA-seq assay",
+   "parents": [
+    "OBI:0000424",
+    "OBI:0001177",
+    "OBI:0600047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001305": {
+   "label": "genotype information",
+   "parents": [
+    "OBI:0001404"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001331": {
+   "label": "transcription profiling identification objective",
+   "parents": [
+    "OBI:0000131"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001352": {
+   "label": "allele information",
+   "parents": [
+    "OBI:0001364"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001364": {
+   "label": "genetic alteration information",
+   "parents": [
+    "OBI:0001404"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001404": {
+   "label": "genetic characteristics information",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001442": {
+   "label": "q-value",
+   "parents": [
+    "OBI:0000071",
+    "OBI:0000662"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001444": {
+   "label": "genotyping design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001479": {
+   "label": "specimen from organism",
+   "parents": [
+    "OBI:0100051"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001501": {
+   "label": "fluorescence detection assay",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001554": {
+   "label": "rate measurement datum",
+   "parents": [
+    "IAO:0000032"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001573": {
+   "label": "DNA sequence data",
+   "parents": [
+    "OBI:0000973"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001755": {
+   "label": "selection criterion",
+   "parents": [
+    "IAO:0000033"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001834": {
+   "label": "drawing a conclusion",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001865": {
+   "label": "assay array",
+   "parents": [
+    "OBI:0000968"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001879": {
+   "label": "reagent",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001909": {
+   "label": "conclusion based on data",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001912": {
+   "label": "cell freezing medium",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001930": {
+   "label": "categorical value specification",
+   "parents": [
+    "OBI:0001933"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001931": {
+   "label": "scalar value specification",
+   "parents": [
+    "OBI:0001933"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001933": {
+   "label": "value specification",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001936": {
+   "label": "molecular-labeled material",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0001977": {
+   "label": "cytometry assay",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "OBI:0002089": {
+   "label": "physical store",
+   "parents": [
+    "OBI:0000967",
+    "OBI:0001034"
+   ],
+   "deprecated": false
+  },
+  "OBI:0002444": {
+   "label": "measurand role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "OBI:0002743": {
+   "label": "molecular label role",
+   "parents": [
+    "OBI:0000086"
+   ],
+   "deprecated": false
+  },
+  "OBI:0002744": {
+   "label": "molecular label",
+   "parents": [
+    "CHEBI:23367",
+    "OBI:0001879"
+   ],
+   "deprecated": false
+  },
+  "OBI:0100026": {
+   "label": "organism",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:0100051": {
+   "label": "specimen",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:0100060": {
+   "label": "cultured cell population",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0100064": {
+   "label": "screening library",
+   "parents": [
+    "OBI:0000047"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200000": {
+   "label": "data transformation",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200031": {
+   "label": "differential expression analysis objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200036": {
+   "label": "Benjamini and Hochberg false discovery rate correction method",
+   "parents": [
+    "OBI:0200163"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200041": {
+   "label": "k-means clustering",
+   "parents": [
+    "OBI:0200171",
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200042": {
+   "label": "hierarchical clustering",
+   "parents": [
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200043": {
+   "label": "average linkage hierarchical clustering",
+   "parents": [
+    "OBI:0200154"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200044": {
+   "label": "complete linkage hierarchical clustering",
+   "parents": [
+    "OBI:0200154"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200045": {
+   "label": "single linkage hierarchical clustering",
+   "parents": [
+    "OBI:0200154"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200049": {
+   "label": "Benjamini and Yekutieli false discovery rate correction method",
+   "parents": [
+    "OBI:0200163"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200050": {
+   "label": "dimensionality reduction",
+   "parents": [
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200051": {
+   "label": "principal components analysis dimensionality reduction",
+   "parents": [
+    "OBI:0200050"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200066": {
+   "label": "Holm-Bonferroni family-wise error rate correction method",
+   "parents": [
+    "OBI:0200073"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200073": {
+   "label": "family wise error rate correction method",
+   "parents": [
+    "OBI:0200089"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200078": {
+   "label": "descriptive statistical calculation objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200083": {
+   "label": "survival analysis objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200089": {
+   "label": "multiple testing correction method",
+   "parents": [
+    "OBI:0000668"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200094": {
+   "label": "logarithmic transformation",
+   "parents": [
+    "OBI:0200169"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200102": {
+   "label": "regression analysis method",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200104": {
+   "label": "principal component regression",
+   "parents": [
+    "OBI:0200102",
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200111": {
+   "label": "data visualization",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200117": {
+   "label": "mode calculation",
+   "parents": [
+    "OBI:0200181",
+    "OBI:0200184"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200119": {
+   "label": "median calculation",
+   "parents": [
+    "OBI:0200181",
+    "OBI:0200184"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200154": {
+   "label": "agglomerative hierarchical clustering",
+   "parents": [
+    "OBI:0200042"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200155": {
+   "label": "divisive hierarchical clustering",
+   "parents": [
+    "OBI:0200042"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200163": {
+   "label": "false discovery rate correction method",
+   "parents": [
+    "OBI:0200089"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200166": {
+   "label": "data transformation objective",
+   "parents": [
+    "IAO:0000005"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200167": {
+   "label": "data normalization objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200168": {
+   "label": "correction objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200169": {
+   "label": "normalization data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200170": {
+   "label": "averaging data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200171": {
+   "label": "partitioning data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200172": {
+   "label": "partitioning objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200175": {
+   "label": "class discovery data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200177": {
+   "label": "center calculation objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200178": {
+   "label": "class discovery objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200181": {
+   "label": "center calculation data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200184": {
+   "label": "descriptive statistical calculation data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200186": {
+   "label": "error correction objective",
+   "parents": [
+    "OBI:0200168"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200191": {
+   "label": "gene list visualization",
+   "parents": [
+    "OBI:0200111"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200194": {
+   "label": "survival analysis data transformation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200200": {
+   "label": "chi square test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "OBI:0200201": {
+   "label": "ANOVA",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "OBI:0300311": {
+   "label": "observation design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0302884": {
+   "label": "extraction",
+   "parents": [
+    "OBI:0600014"
+   ],
+   "deprecated": false
+  },
+  "OBI:0302900": {
+   "label": "group randomization",
+   "parents": [
+    "OBI:0600015"
+   ],
+   "deprecated": false
+  },
+  "OBI:0302903": {
+   "label": "nucleic acid hybridization",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400043": {
+   "label": "flow cell",
+   "parents": [
+    "OBI:0000967"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400044": {
+   "label": "flow cytometer",
+   "parents": [
+    "OBI:0400137"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400065": {
+   "label": "light source",
+   "parents": [
+    "OBI:0001032"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400078": {
+   "label": "obscuration bar",
+   "parents": [
+    "OBI:0000932"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400079": {
+   "label": "optical filter",
+   "parents": [
+    "OBI:0000932"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400082": {
+   "label": "photodetector",
+   "parents": [
+    "OBI:0000832"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400103": {
+   "label": "DNA sequencer",
+   "parents": [
+    "OBI:0000832"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400110": {
+   "label": "hybridization chamber",
+   "parents": [
+    "OBI:0002089"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400137": {
+   "label": "cytometer",
+   "parents": [
+    "OBI:0000832"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400147": {
+   "label": "microarray",
+   "parents": [
+    "OBI:0001865"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400148": {
+   "label": "DNA microarray",
+   "parents": [
+    "OBI:0400147"
+   ],
+   "deprecated": false
+  },
+  "OBI:0400153": {
+   "label": "droplet sorter",
+   "parents": [
+    "OBI:0000932"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500000": {
+   "label": "study design",
+   "parents": [
+    "IAO:0000104"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500002": {
+   "label": "repeated measure design",
+   "parents": [
+    "OBI:0000115",
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500003": {
+   "label": "cross over design",
+   "parents": [
+    "OBI:0000115",
+    "OBI:0500002",
+    "OBI:0500020",
+    "STATO:0000046"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500005": {
+   "label": "matched pairs design",
+   "parents": [
+    "OBI:0500000",
+    "STATO:0000046"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500006": {
+   "label": "parallel group design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500007": {
+   "label": "randomized complete block design",
+   "parents": [
+    "BFO:0000017",
+    "OBI:0000115",
+    "OBI:0500000",
+    "STATO:0000046"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500011": {
+   "label": "latin square design",
+   "parents": [
+    "OBI:0500000",
+    "OBI:0500007"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500012": {
+   "label": "graeco latin square design",
+   "parents": [
+    "OBI:0500007"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500013": {
+   "label": "hyper graeco latin square design",
+   "parents": [
+    "OBI:0500000",
+    "OBI:0500007"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500014": {
+   "label": "factorial design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500015": {
+   "label": "2x2 factorial design",
+   "parents": [
+    "OBI:0500014",
+    "STATO:0000270"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500016": {
+   "label": "fractional factorial design",
+   "parents": [
+    "OBI:0500014"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500017": {
+   "label": "dye swap design",
+   "parents": [
+    "OBI:0500000",
+    "STATO:0000046"
+   ],
+   "deprecated": false
+  },
+  "OBI:0500020": {
+   "label": "time series design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600005": {
+   "label": "collecting specimen from organism",
+   "parents": [
+    "OBI:0000659"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600014": {
+   "label": "material component separation",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600015": {
+   "label": "group assignment",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600024": {
+   "label": "maintaining cell culture",
+   "parents": [
+    "OBI:0000838"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600028": {
+   "label": "artificially induced reverse transcription",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600036": {
+   "label": "establishing cell culture",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600038": {
+   "label": "addition of molecular label",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600047": {
+   "label": "sequencing assay",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "OBI:0600064": {
+   "label": "recombinant vector cloning",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "OBI:0666666": {
+   "label": "RNA extraction",
+   "parents": [
+    "OBI:0666667"
+   ],
+   "deprecated": false
+  },
+  "OBI:0666667": {
+   "label": "nucleic acid extraction",
+   "parents": [
+    "OBI:0302884"
+   ],
+   "deprecated": false
+  },
+  "OBI:1000029": {
+   "label": "phage display library",
+   "parents": [
+    "OBI:0000731"
+   ],
+   "deprecated": false
+  },
+  "OBI:1110108": {
+   "label": "material to be added",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OBI:1110109": {
+   "label": "target of material addition",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "OGMS:0000023": {
+   "label": "phenotype",
+   "parents": [
+    "BFO:0000019"
+   ],
+   "deprecated": false
+  },
+  "PATO:0000018": {
+   "label": "fluorescence",
+   "parents": [
+    "BFO:0000016",
+    "PATO:0001296"
+   ],
+   "deprecated": false
+  },
+  "PATO:0000125": {
+   "label": "mass",
+   "parents": [
+    "BFO:0000019",
+    "PATO:0001018"
+   ],
+   "deprecated": false
+  },
+  "PATO:0001018": {
+   "label": "physical quality",
+   "parents": [
+    "PATO:0001241"
+   ],
+   "deprecated": false
+  },
+  "PATO:0001241": {
+   "label": "physical object quality",
+   "parents": [
+    "BFO:0000019"
+   ],
+   "deprecated": false
+  },
+  "PATO:0001291": {
+   "label": "electromagnetic (EM) radiation quality",
+   "parents": [
+    "PATO:0001739"
+   ],
+   "deprecated": false
+  },
+  "PATO:0001296": {
+   "label": "luminous flux",
+   "parents": [
+    "PATO:0001300"
+   ],
+   "deprecated": false
+  },
+  "PATO:0001300": {
+   "label": "optical quality",
+   "parents": [
+    "PATO:0001291"
+   ],
+   "deprecated": false
+  },
+  "PATO:0001739": {
+   "label": "radiation quality",
+   "parents": [
+    "PATO:0001018"
+   ],
+   "deprecated": false
+  },
+  "PR:000000001": {
+   "label": "protein",
+   "parents": [
+    "CHEBI:16670"
+   ],
+   "deprecated": false
+  },
+  "SO:0000001": {
+   "label": "region",
+   "parents": [
+    "BFO:0000031"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000002": {
+   "label": "digital file",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000003": {
+   "label": "balanced design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000005": {
+   "label": "single factor design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000006": {
+   "label": "x-axis",
+   "parents": [
+    "STATO:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000007": {
+   "label": "axis",
+   "parents": [
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000008": {
+   "label": "y-axis",
+   "parents": [
+    "STATO:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000009": {
+   "label": "cartesian coordinate system",
+   "parents": [
+    "STATO:0000010"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000010": {
+   "label": "coordinate system",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000011": {
+   "label": "cartesian coordinate axis",
+   "parents": [
+    "STATO:0000007"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000012": {
+   "label": "z-axis",
+   "parents": [
+    "STATO:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000013": {
+   "label": "two dimensional cartesian coordinate system",
+   "parents": [
+    "STATO:0000009"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000014": {
+   "label": "spherical coordinate system",
+   "parents": [
+    "STATO:0000010"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000015": {
+   "label": "cylindrical coordinate system",
+   "parents": [
+    "STATO:0000010"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000016": {
+   "label": "polar coordinate system",
+   "parents": [
+    "STATO:0000010"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000017": {
+   "label": "Wilk's lambda distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000018": {
+   "label": "three dimensional cartesian spatial coordinate origin",
+   "parents": [
+    "STATO:0000026"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000019": {
+   "label": "normal distribution hypothesis",
+   "parents": [
+    "STATO:0000058"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000020": {
+   "label": "two dimensional cartesian spatial coordinate origin",
+   "parents": [
+    "STATO:0000026"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000021": {
+   "label": "90% confidence interval",
+   "parents": [
+    "STATO:0000196"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000022": {
+   "label": "one dimensional cartesian coordinate system",
+   "parents": [
+    "STATO:0000009"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000023": {
+   "label": "studentized range distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000024": {
+   "label": "three dimensional cartesian coordinate system",
+   "parents": [
+    "STATO:0000009"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000025": {
+   "label": "one dimensional cartesian spatial coordinate origin",
+   "parents": [
+    "STATO:0000026"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000026": {
+   "label": "cartesian spatial coordinate origin",
+   "parents": [
+    "IAO:0000400"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000027": {
+   "label": "test of association between categorical variables",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000028": {
+   "label": "measure of dispersion",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000029": {
+   "label": "measure of central tendency",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000030": {
+   "label": "Chi-Squared statistic",
+   "parents": [
+    "STATO:0000609"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000031": {
+   "label": "binary classification",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000033": {
+   "label": "mode",
+   "parents": [
+    "OBI:0000649",
+    "STATO:0000029",
+    "STATO:0000574"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000034": {
+   "label": "model parameter",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000035": {
+   "label": "range",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000036": {
+   "label": "outlier",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000037": {
+   "label": "standard error of the mean",
+   "parents": [
+    "STATO:0000562"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000038": {
+   "label": "matched pair of subjects",
+   "parents": [
+    "OBI:0000181"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000039": {
+   "label": "statistic",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000040": {
+   "label": "MA plot",
+   "parents": [
+    "IAO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000042": {
+   "label": "Anderson-Darling test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000044": {
+   "label": "one-way ANOVA",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200201"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000045": {
+   "label": "two-way ANOVA",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200201"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000046": {
+   "label": "block design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000047": {
+   "label": "count",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000048": {
+   "label": "multiway ANOVA",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200201"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000049": {
+   "label": "Hardy-Weinberg equilibrium hypothesis",
+   "parents": [
+    "STATO:0000058"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000050": {
+   "label": "signal to noise ratio",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000051": {
+   "label": "Poisson distribution",
+   "parents": [
+    "STATO:0000117"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000052": {
+   "label": "Z-test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000053": {
+   "label": "false positive rate",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000054": {
+   "label": "homoskedasticity hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000055": {
+   "label": "chromosome coordinate system",
+   "parents": [
+    "STATO:0000197"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000056": {
+   "label": "absence of association hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000057": {
+   "label": "null hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000058": {
+   "label": "goodness of fit hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000059": {
+   "label": "Student's t distribution",
+   "parents": [
+    "STATO:0000067",
+    "STATO:0000329"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000060": {
+   "label": "hypergeometric distribution",
+   "parents": [
+    "STATO:0000117"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000061": {
+   "label": "absence of between group difference hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000062": {
+   "label": "absence of within subject difference hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000063": {
+   "label": "genomic coordinate datum",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000064": {
+   "label": "sequence read count",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000065": {
+   "label": "hypothesis",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000066": {
+   "label": "Cleveland dot plot",
+   "parents": [
+    "IAO:0000037"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000067": {
+   "label": "continuous probability distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000068": {
+   "label": "skewness",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000069": {
+   "label": "number of degrees of freedom",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000070": {
+   "label": "Yate's corrected Chi-Squared test",
+   "parents": [
+    "STATO:0000081"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000071": {
+   "label": "reaction rate",
+   "parents": [
+    "STATO:0000645"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000072": {
+   "label": "substrate concentration",
+   "parents": [
+    "STATO:0000704"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000073": {
+   "label": "Fisher's exact test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000074": {
+   "label": "Cochran-Mantel-Haenzel test for repeated tests of independence",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000075": {
+   "label": "rarefaction curve",
+   "parents": [
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000076": {
+   "label": "Mann-Whitney U-test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000198"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000077": {
+   "label": "Shapiro-Wilk test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000078": {
+   "label": "Levene's test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000137",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000079": {
+   "label": "Barlett's test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000137",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000080": {
+   "label": "Brown Forsythe test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000137"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000081": {
+   "label": "Pearson's Chi square test of independence between categorical variables",
+   "parents": [
+    "OBI:0200200",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000082": {
+   "label": "fixed effect model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000083": {
+   "label": "Kolmogorov-Smirnov test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000084": {
+   "label": "multinomial probit regression for analysis of polychotomous dependent variable",
+   "parents": [
+    "OBI:0200102"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000085": {
+   "label": "effect size estimate",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000086": {
+   "label": "F-test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000087": {
+   "label": "polychotomous variable",
+   "parents": [
+    "STATO:0000252"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000088": {
+   "label": "study group population size",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000089": {
+   "label": "case-control study design",
+   "parents": [
+    "OBI:0500006"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000090": {
+   "label": "dichotomous variable",
+   "parents": [
+    "STATO:0000087"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000091": {
+   "label": "genome-wide association study",
+   "parents": [
+    "STATO:0000235"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000092": {
+   "label": "Wilcoxon signed rank test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000202"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000093": {
+   "label": "date",
+   "parents": [
+    "IAO:0000582"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000094": {
+   "label": "Kruskal Wallis test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000198"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000095": {
+   "label": "paired t-test",
+   "parents": [
+    "OBI:0000739",
+    "OBI:0200000",
+    "STATO:0000202"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000096": {
+   "label": "population stratification prior to sampling",
+   "parents": [
+    "OBI:0000094"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000097": {
+   "label": "statistical test power analysis",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000098": {
+   "label": "two sample Hotelling T2 test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000099": {
+   "label": "random effect model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000100": {
+   "label": "standardized mean difference",
+   "parents": [
+    "STATO:0000085",
+    "STATO:0000613"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000103": {
+   "label": "multinomial distribution",
+   "parents": [
+    "STATO:0000117"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000104": {
+   "label": "z-score",
+   "parents": [
+    "STATO:0000609"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000105": {
+   "label": "log signal intensity ratio",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000106": {
+   "label": "probit regression for analysis of polychotomous dependent variable",
+   "parents": [
+    "OBI:0200102"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000107": {
+   "label": "statistical model",
+   "parents": [
+    "IAO:0000027",
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000108": {
+   "label": "linear regression for analysis of continuous dependent variable",
+   "parents": [
+    "OBI:0200102"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000109": {
+   "label": "multinomial logistic regression for analysis of dichotomous dependent variable",
+   "parents": [
+    "OBI:0200102"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000111": {
+   "label": "sequence read",
+   "parents": [
+    "OBI:0001573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000112": {
+   "label": "Funnel plot",
+   "parents": [
+    "IAO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000113": {
+   "label": "variance",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000116": {
+   "label": "assess statistical evidence",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000117": {
+   "label": "discrete probability distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000118": {
+   "label": "ranking",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000119": {
+   "label": "model parameter estimation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000120": {
+   "label": "bean plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000121": {
+   "label": "association between categorical variables testing objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000122": {
+   "label": "pedigree chart",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000123": {
+   "label": "r2 measure of linkage desequilibrium",
+   "parents": [
+    "STATO:0000142"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000124": {
+   "label": "stratification rule",
+   "parents": [
+    "IAO:0000055"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000125": {
+   "label": "Wilkinson dot plot",
+   "parents": [
+    "IAO:0000037"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000126": {
+   "label": "volcano plot",
+   "parents": [
+    "IAO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000127": {
+   "label": "99% confidence interval",
+   "parents": [
+    "STATO:0000196"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000128": {
+   "label": "Altman box and whisker plot",
+   "parents": [
+    "STATO:0000243"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000130": {
+   "label": "Breslow-Day test for homogeneity of odds ratio",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000247",
+    "STATO:0000697"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000131": {
+   "label": "sphericity test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000132": {
+   "label": "Hotelling T2 distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000133": {
+   "label": "post-hoc analysis",
+   "parents": [
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000134": {
+   "label": "true negative rate",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000135": {
+   "label": "strictly standardized mean difference",
+   "parents": [
+    "STATO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000136": {
+   "label": "Tarone's test for homogeneity of odds ratio",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000247",
+    "STATO:0000697"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000137": {
+   "label": "homoskedasticity test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000138": {
+   "label": "2 by 2 contingency table",
+   "parents": [
+    "STATO:0000140"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000139": {
+   "label": "subject pairing",
+   "parents": [
+    "OBI:0600015"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000140": {
+   "label": "contingency table",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000141": {
+   "label": "acute toxicity study",
+   "parents": [
+    "OBI:0000066"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000142": {
+   "label": "correlation coefficient",
+   "parents": [
+    "STATO:0000085",
+    "STATO:0000611"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000143": {
+   "label": "Bayesian model selection",
+   "parents": [
+    "STATO:0000328"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000144": {
+   "label": "model parameter estimate",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000145": {
+   "label": "geometric distribution",
+   "parents": [
+    "STATO:0000283"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000146": {
+   "label": "presence of between group difference hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000147": {
+   "label": "LD plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000148": {
+   "label": "Cochran-Armitage test for trend",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000149": {
+   "label": "binomial logistic regression for analysis of dichotomous dependent variable",
+   "parents": [
+    "OBI:0200102"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000150": {
+   "label": "minimum observed value",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000151": {
+   "label": "maximum observed value",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000152": {
+   "label": "quartile",
+   "parents": [
+    "STATO:0000291"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000153": {
+   "label": "one sample Hotelling T2 test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000154": {
+   "label": "violin plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000155": {
+   "label": "meta analysis",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000156": {
+   "label": "Scheffe test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000133"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000157": {
+   "label": "Least significance different test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000133"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000158": {
+   "label": "presence of association hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000159": {
+   "label": "stacked bar chart",
+   "parents": [
+    "STATO:0000166"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000160": {
+   "label": "exponential distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000161": {
+   "label": "data distribution",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000162": {
+   "label": "experimental unit role",
+   "parents": [
+    "BFO:0000023"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000163": {
+   "label": "trimmed mean",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000164": {
+   "label": "inter quartile range",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000165": {
+   "label": "pie chart",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000166": {
+   "label": "bar chart",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000167": {
+   "label": "first quartile",
+   "parents": [
+    "STATO:0000152"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000168": {
+   "label": "real time quantitative pcr plot",
+   "parents": [
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000169": {
+   "label": "fold change",
+   "parents": [
+    "STATO:0000300"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000170": {
+   "label": "third quartile",
+   "parents": [
+    "STATO:0000152"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000171": {
+   "label": "Spear box and whisker plot",
+   "parents": [
+    "STATO:0000243"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000172": {
+   "label": "FPKM-fragments per kilobase of transcript per million fragments mapped",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000173": {
+   "label": "homogeneity test objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000174": {
+   "label": "Forest plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000175": {
+   "label": "confidence interval calculation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000176": {
+   "label": "t-statistic",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000177": {
+   "label": "beta distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000178": {
+   "label": "kurtosis",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000179": {
+   "label": "ANCOVA",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000180": {
+   "label": "standard normal distribution",
+   "parents": [
+    "STATO:0000227"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000181": {
+   "label": "Hardy-Weinberg equilibrium testing",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000182": {
+   "label": "odds ratio",
+   "parents": [
+    "STATO:0000085",
+    "STATO:0000300",
+    "STATO:0000622"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000183": {
+   "label": "sphericity testing objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000184": {
+   "label": "ratio",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000185": {
+   "label": "2 by n contingency table",
+   "parents": [
+    "STATO:0000140"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000186": {
+   "label": "Lineweaver-Burk plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000187": {
+   "label": "Tukey HSD for Post-Hoc Analysis",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000133"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000188": {
+   "label": "average log signal intensity",
+   "parents": [
+    "IAO:0000109",
+    "OBI:0000451"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000189": {
+   "label": "mixed effect model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000190": {
+   "label": "threshold cycle",
+   "parents": [
+    "STATO:0000232"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000191": {
+   "label": "goodness of fit statistical test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000192": {
+   "label": "cartesian product",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000193": {
+   "label": "study group population",
+   "parents": [
+    "OBI:0000181"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000194": {
+   "label": "cartesian product 2 sets",
+   "parents": [
+    "STATO:0000192"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000195": {
+   "label": "number of factor level combinations",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000196": {
+   "label": "confidence interval",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000197": {
+   "label": "genomic coordinate system",
+   "parents": [
+    "STATO:0000010"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000198": {
+   "label": "non-parametric test",
+   "parents": [
+    "OBI:0000673",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000199": {
+   "label": "Mauchly's test for sphericity",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000131"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000200": {
+   "label": "statistical test power",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000201": {
+   "label": "Spearman's rank correlation coefficient",
+   "parents": [
+    "STATO:0000142"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000202": {
+   "label": "within subject comparison statistical test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000203": {
+   "label": "cohort",
+   "parents": [
+    "STATO:0000193"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000204": {
+   "label": "F-distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000206": {
+   "label": "RPKM-reads per kilobase of transcript per million fragments mapped",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000207": {
+   "label": "specifying null and alternate hypothesis",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000208": {
+   "label": "alternative hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000209": {
+   "label": "area under curve",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000210": {
+   "label": "channel1/channel2 fluorescence intensity ratio",
+   "parents": [
+    "STATO:0000169"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000211": {
+   "label": "odds ratio homogeneity hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000212": {
+   "label": "tetrachoric correlation coefficient",
+   "parents": [
+    "STATO:0000269"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000213": {
+   "label": "continuous variable discretization",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000214": {
+   "label": "50% confidence interval",
+   "parents": [
+    "STATO:0000196"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000215": {
+   "label": "ordered probit regression for analysis of ordinal dependent variable",
+   "parents": [
+    "OBI:0200102"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000216": {
+   "label": "stratum population",
+   "parents": [
+    "OBI:0000047",
+    "OBI:0000181"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000217": {
+   "label": "sphericity hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000218": {
+   "label": "model fitting",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000219": {
+   "label": "RT-PCR standard curve",
+   "parents": [
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000220": {
+   "label": "false negative rate",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000221": {
+   "label": "random variable",
+   "parents": [
+    "STATO:0000258"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000222": {
+   "label": "graeco-latin square design",
+   "parents": [
+    "OBI:0500007"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000223": {
+   "label": "group assignment based on blocking variable specification",
+   "parents": [
+    "OBI:0600015"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000224": {
+   "label": "goodness of fit testing objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000225": {
+   "label": "probability distribution",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000226": {
+   "label": "equal variance testing objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000227": {
+   "label": "normal distribution",
+   "parents": [
+    "STATO:0000067",
+    "STATO:0000329"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000228": {
+   "label": "ordinal variable",
+   "parents": [
+    "STATO:0000252"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000229": {
+   "label": "Chi-square probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000230": {
+   "label": "expected value",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000231": {
+   "label": "95% confidence interval",
+   "parents": [
+    "STATO:0000196"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000232": {
+   "label": "number of PCR cycle",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000233": {
+   "label": "true positive rate",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000234": {
+   "label": "residual",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000235": {
+   "label": "genetic association study",
+   "parents": [
+    "OBI:0000066"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000236": {
+   "label": "coefficient of variation",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000237": {
+   "label": "standard deviation",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000238": {
+   "label": "high-content screening",
+   "parents": [
+    "OBI:0000066",
+    "STATO:0000239"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000239": {
+   "label": "high throughput screening",
+   "parents": [
+    "OBI:0000066"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000240": {
+   "label": "Kendall's correlation coefficient",
+   "parents": [
+    "STATO:0000142"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000241": {
+   "label": "Q-Q plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000242": {
+   "label": "statistical error",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000243": {
+   "label": "box and whisker plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000244": {
+   "label": "\u0394Rn",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000245": {
+   "label": "relative risk",
+   "parents": [
+    "STATO:0000085",
+    "STATO:0000620"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000246": {
+   "label": "Woolf's test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000247",
+    "STATO:0000697"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000247": {
+   "label": "odds ratio homogeneity test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000248": {
+   "label": "blocking variable",
+   "parents": [
+    "BFO:0000017",
+    "STATO:0000258"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000249": {
+   "label": "DNA microarray hybridization",
+   "parents": [
+    "OBI:0000070"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000250": {
+   "label": "group comparison objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000251": {
+   "label": "continuous variable",
+   "parents": [
+    "STATO:0000722"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000252": {
+   "label": "categorical variable",
+   "parents": [
+    "STATO:0000258"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000253": {
+   "label": "within subject comparison objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000254": {
+   "label": "allele frequency",
+   "parents": [
+    "IAO:0000027",
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000255": {
+   "label": "between group comparison objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000256": {
+   "label": "manhattan plot for gwas",
+   "parents": [
+    "IAO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000257": {
+   "label": "family",
+   "parents": [
+    "OBI:0000181"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000258": {
+   "label": "variable",
+   "parents": [
+    "STATO:0000741"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000260": {
+   "label": "repeated measure ANOVA",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200201",
+    "STATO:0000202"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000261": {
+   "label": "Newman-Keuls test post-hoc analysis",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000133"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000262": {
+   "label": "Bernoulli distribution",
+   "parents": [
+    "STATO:0000276"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000263": {
+   "label": "Galbraith plot",
+   "parents": [
+    "IAO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000264": {
+   "label": "factor level combination",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000265": {
+   "label": "factor level",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000266": {
+   "label": "Bayes factor",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000267": {
+   "label": "grouped bar chart",
+   "parents": [
+    "STATO:0000166"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000268": {
+   "label": "Gamma distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000269": {
+   "label": "polychoric correlation coefficient",
+   "parents": [
+    "STATO:0000142"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000270": {
+   "label": "full factorial design",
+   "parents": [
+    "OBI:0500014"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000271": {
+   "label": "permutation numbering",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000272": {
+   "label": "Michaelis-Menten constant",
+   "parents": [
+    "IAO:0000032"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000273": {
+   "label": "child-parents trio",
+   "parents": [
+    "STATO:0000257"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000274": {
+   "label": "receiver operational characteristics curve",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000275": {
+   "label": "transmission disequilibrium test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000276": {
+   "label": "binomial distribution",
+   "parents": [
+    "STATO:0000117"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000277": {
+   "label": "hit selection",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000278": {
+   "label": "pairing rule",
+   "parents": [
+    "IAO:0000055"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000279": {
+   "label": "between group comparison statistical test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000280": {
+   "label": "Pearson's correlation coefficient",
+   "parents": [
+    "STATO:0000142"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000282": {
+   "label": "F-statistic",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000283": {
+   "label": "negative binomial distribution",
+   "parents": [
+    "STATO:0000117"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000284": {
+   "label": "Breusch-Pagan test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000137"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000285": {
+   "label": "hypergeometric test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191",
+    "STATO:0000287"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000286": {
+   "label": "one tailed test",
+   "parents": [
+    "OBI:0000673",
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000287": {
+   "label": "two tailed test",
+   "parents": [
+    "OBI:0000673",
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000288": {
+   "label": "absence of difference hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000289": {
+   "label": "design matrix",
+   "parents": [
+    "IAO:0000027",
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000290": {
+   "label": "contrast",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000291": {
+   "label": "quantile",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000292": {
+   "label": "decile",
+   "parents": [
+    "STATO:0000291"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000293": {
+   "label": "percentile",
+   "parents": [
+    "STATO:0000291"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000294": {
+   "label": "absence of negative difference hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000295": {
+   "label": "absence of positive difference hypothesis",
+   "parents": [
+    "STATO:0000065"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000296": {
+   "label": "absence of enrichment hypothesis",
+   "parents": [
+    "STATO:0000295"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000297": {
+   "label": "absence of depletion hypothesis",
+   "parents": [
+    "STATO:0000294"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000298": {
+   "label": "exact binomial test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000299": {
+   "label": "statistical inference",
+   "parents": [
+    "OBI:0000011",
+    "OBI:0001834"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000300": {
+   "label": "dimensionless ratio",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000301": {
+   "label": "covariance",
+   "parents": [
+    "STATO:0000611"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000302": {
+   "label": "one sample t-test",
+   "parents": [
+    "OBI:0000739",
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000303": {
+   "label": "two sample t-test with equal variance",
+   "parents": [
+    "OBI:0000739",
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000304": {
+   "label": "two sample t-test with unequal variance",
+   "parents": [
+    "OBI:0000739",
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000305": {
+   "label": "Helmert contrast",
+   "parents": [
+    "STATO:0000290"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000306": {
+   "label": "polynomial contrast",
+   "parents": [
+    "STATO:0000290"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000307": {
+   "label": "treatment contrast",
+   "parents": [
+    "STATO:0000290"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000308": {
+   "label": "sum contrast",
+   "parents": [
+    "STATO:0000290"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000309": {
+   "label": "Pearson's Chi square test of goodness of fit",
+   "parents": [
+    "OBI:0200200",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000310": {
+   "label": "Barnard's test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000311": {
+   "label": "central composite design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000312": {
+   "label": "Box\u2013Behnkens design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000313": {
+   "label": "Plackett-Burman design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000314": {
+   "label": "upper confidence limit",
+   "parents": [
+    "STATO:0000633"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000315": {
+   "label": "lower confidence limit",
+   "parents": [
+    "STATO:0000633"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000316": {
+   "label": "root-mean-square standardized effect",
+   "parents": [
+    "STATO:0000039",
+    "STATO:0000085"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000317": {
+   "label": "eta-squared",
+   "parents": [
+    "STATO:0000085",
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000318": {
+   "label": "omega-squared",
+   "parents": [
+    "STATO:0000085",
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000319": {
+   "label": "Hedges's g",
+   "parents": [
+    "STATO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000320": {
+   "label": "Glass's delta",
+   "parents": [
+    "STATO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000321": {
+   "label": "non-parametric distribution",
+   "parents": [
+    "STATO:0000225",
+    "STATO:0000329"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000322": {
+   "label": "contrast weight",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000323": {
+   "label": "contrast weight matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000324": {
+   "label": "contrast weight estimate",
+   "parents": [
+    "STATO:0000144"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000325": {
+   "label": "Akaike information criterion",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000326": {
+   "label": "corrected Akaike information criterion",
+   "parents": [
+    "STATO:0000325"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000327": {
+   "label": "Bayesian information criterion",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000328": {
+   "label": "statistical model selection",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000329": {
+   "label": "symmetric distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000330": {
+   "label": "empirical distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000331": {
+   "label": "histogram distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000332": {
+   "label": "smooth kernel distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000333": {
+   "label": "kernel mixture distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000334": {
+   "label": "mixture distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000335": {
+   "label": "survival distribution",
+   "parents": [
+    "STATO:0000330"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000336": {
+   "label": "best linear unbiased predictor",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000337": {
+   "label": "breeding value estimation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000338": {
+   "label": "breeding value estimation using genotype data",
+   "parents": [
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000339": {
+   "label": "breeding value estimation using pedigree data",
+   "parents": [
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000340": {
+   "label": "breeding value estimation using phenotypic data",
+   "parents": [
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000342": {
+   "label": "genomic selection objective",
+   "parents": [
+    "OBI:0200166"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000343": {
+   "label": "genotype data set",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000346": {
+   "label": "covariance structure",
+   "parents": [
+    "IAO:0000027",
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000347": {
+   "label": "Matern function anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000348": {
+   "label": "rational quadratic anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000349": {
+   "label": "spatial linear geometric anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000350": {
+   "label": "spatial spherical geometric anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000351": {
+   "label": "spatial gaussian geometric anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000352": {
+   "label": "spatial exponential geometric anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000353": {
+   "label": "spatial exponential anisotropic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000354": {
+   "label": "banded heterogeneous Toeplitz covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000355": {
+   "label": "heterogeneous Toeplitz covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000356": {
+   "label": "banded Toeplitz covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000357": {
+   "label": "Toeplitz covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000358": {
+   "label": "Huynh-Feldt covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000359": {
+   "label": "equal diagonal Factor Analytic covariance structure",
+   "parents": [
+    "STATO:0000361"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000360": {
+   "label": "no diagonal Factor Analytic covariance structure",
+   "parents": [
+    "STATO:0000361"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000361": {
+   "label": "Factor Analytic covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000362": {
+   "label": "compound symmetry covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000363": {
+   "label": "heterogeneous compound symmetry covariance structure",
+   "parents": [
+    "STATO:0000362"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000364": {
+   "label": "first order autoregressive moving average covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000365": {
+   "label": "first order autoregressive covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000366": {
+   "label": "heterogeneous first-order autoregressive covariance structure",
+   "parents": [
+    "STATO:0000365"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000367": {
+   "label": "Ante-dependence covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000368": {
+   "label": "Mallows' Cp",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000369": {
+   "label": "repeated measure analysis",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000370": {
+   "label": "ordinary least squares estimation",
+   "parents": [
+    "STATO:0000119"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000371": {
+   "label": "weighted least squares estimation",
+   "parents": [
+    "STATO:0000119"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000372": {
+   "label": "generalized least squares estimation",
+   "parents": [
+    "STATO:0000119"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000373": {
+   "label": "iteratively reweighted least squares estimation",
+   "parents": [
+    "STATO:0000119"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000374": {
+   "label": "feasible generalized least squares estimation",
+   "parents": [
+    "STATO:0000372"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000375": {
+   "label": "residual mean square",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000376": {
+   "label": "Z-statistic",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000377": {
+   "label": "deviance",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000378": {
+   "label": "deviance information criterion",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000379": {
+   "label": "focused information criterion",
+   "parents": [
+    "IAO:0000109"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000383": {
+   "label": "contrast estimation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000384": {
+   "label": "contrast estimate",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000385": {
+   "label": "standard error of a contrast estimate",
+   "parents": [
+    "STATO:0000562"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000386": {
+   "label": "scree plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000387": {
+   "label": "scatterplot matrix",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000388": {
+   "label": "alpha distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000389": {
+   "label": "power law distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000390": {
+   "label": "regression model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000392": {
+   "label": "Pareto type-I probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000393": {
+   "label": "Pareto type-II probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000394": {
+   "label": "Pareto type-III probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000395": {
+   "label": "Pareto type-IV probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000396": {
+   "label": "geometric mean",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000397": {
+   "label": "harmonic mean",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000398": {
+   "label": "weighted arithmetic mean",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000399": {
+   "label": "interquartile mean",
+   "parents": [
+    "STATO:0000163"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000400": {
+   "label": "quadratic mean",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000401": {
+   "label": "sample mean",
+   "parents": [
+    "STATO:0000471",
+    "STATO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000402": {
+   "label": "population mean",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000405": {
+   "label": "unstructured covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000406": {
+   "label": "Yuen t-Test with trimmed means",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000407": {
+   "label": "Fagan nomogram",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000408": {
+   "label": "2 step Fagan nomogram",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000409": {
+   "label": "likelihood ratio",
+   "parents": [
+    "STATO:0000184",
+    "STATO:0000622"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000410": {
+   "label": "negative likelihood ratio",
+   "parents": [
+    "STATO:0000409"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000411": {
+   "label": "positive likelihood ratio",
+   "parents": [
+    "STATO:0000409"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000412": {
+   "label": "prevalence",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000413": {
+   "label": "incidence",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000414": {
+   "label": "mortality",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000415": {
+   "label": "accuracy",
+   "parents": [
+    "STATO:0000639"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000416": {
+   "label": "precision",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000417": {
+   "label": "pretest probability",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000418": {
+   "label": "measure of heterogeneity",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000419": {
+   "label": "Cochran's Q statistic",
+   "parents": [
+    "STATO:0000418"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000420": {
+   "label": "I-squared",
+   "parents": [
+    "STATO:0000418"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000421": {
+   "label": "Tau squared",
+   "parents": [
+    "STATO:0000418"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000422": {
+   "label": "L'Abbe plot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000423": {
+   "label": "observed risk",
+   "parents": [
+    "STATO:0000620"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000424": {
+   "label": "risk difference",
+   "parents": [
+    "STATO:0000614"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000425": {
+   "label": "Sidik-Jonkman estimator",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000426": {
+   "label": "Hunter-Schmidt estimator",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000427": {
+   "label": "restricted maximum likelihood estimation",
+   "parents": [
+    "STATO:0000428"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000428": {
+   "label": "maximum likelihood estimation",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000429": {
+   "label": "DerSimonian-Laird estimator",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000430": {
+   "label": "meta analysis by Hartung-Knapp-Sidik-Jonkman method",
+   "parents": [
+    "STATO:0000155"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000431": {
+   "label": "meta analysis by DerSimonian and Leard method",
+   "parents": [
+    "STATO:0000155"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000432": {
+   "label": "meta analysis by Hunter-Schmidt method",
+   "parents": [
+    "STATO:0000155"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000433": {
+   "label": "McNemar test",
+   "parents": [
+    "OBI:0000673",
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000434": {
+   "label": "Cochran's q test for heterogeneity",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000435": {
+   "label": "probability distribution scale parameter",
+   "parents": [
+    "STATO:0000028",
+    "STATO:0000742"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000436": {
+   "label": "probability distribution shape parameter",
+   "parents": [
+    "IAO:0000027",
+    "STATO:0000742"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000437": {
+   "label": "scale estimator",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000438": {
+   "label": "log normal distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000439": {
+   "label": "outlier detection testing objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000440": {
+   "label": "Dixon Q test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000443"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000441": {
+   "label": "Grubbs' test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000443"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000442": {
+   "label": "Tietjen-Moore test for outliers",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000443"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000443": {
+   "label": "generalized extreme studentized deviate test",
+   "parents": [
+    "OBI:0000673",
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000444": {
+   "label": "split-plot design",
+   "parents": [
+    "OBI:0500000",
+    "STATO:0000586"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000445": {
+   "label": "split split plot design",
+   "parents": [
+    "OBI:0500000",
+    "STATO:0000444"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000446": {
+   "label": "restricted randomization",
+   "parents": [
+    "OBI:0302900"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000447": {
+   "label": "whole plot number",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000448": {
+   "label": "sub-plot number",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000449": {
+   "label": "sub sub-plot number",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000450": {
+   "label": "Wilk's Lambda",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000451": {
+   "label": "Pillai's trace",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000452": {
+   "label": "Hotelling-Lawley trace",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000453": {
+   "label": "Roy\u2019s Maximum Root",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000454": {
+   "label": "multivariate analysis of variance",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200201"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000455": {
+   "label": "credible interval",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000456": {
+   "label": "95% credible interval",
+   "parents": [
+    "STATO:0000455"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000457": {
+   "label": "mean difference",
+   "parents": [
+    "STATO:0000614"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000458": {
+   "label": "99% credible interval",
+   "parents": [
+    "STATO:0000455"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000459": {
+   "label": "group sequential design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000460": {
+   "label": "interim analysis",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000461": {
+   "label": "O'brien-Flemming boundary analysis",
+   "parents": [
+    "STATO:0000460"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000462": {
+   "label": "Pocock boundary analysis",
+   "parents": [
+    "STATO:0000460"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000463": {
+   "label": "Haybittle-Peto boundary analysis",
+   "parents": [
+    "STATO:0000460"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000464": {
+   "label": "linear mixed model",
+   "parents": [
+    "STATO:0000189"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000465": {
+   "label": "empirical measure",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000466": {
+   "label": "model term",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000467": {
+   "label": "model random effect term",
+   "parents": [
+    "OBI:0000751",
+    "STATO:0000466"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000468": {
+   "label": "model fixed effect term",
+   "parents": [
+    "STATO:0000466"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000469": {
+   "label": "model interaction effect term",
+   "parents": [
+    "STATO:0000466"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000470": {
+   "label": "model error term",
+   "parents": [
+    "OBI:0000751",
+    "STATO:0000466"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000471": {
+   "label": "estimate",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000472": {
+   "label": "degree of freedom approximation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000473": {
+   "label": "Kenward-Roger degree of freedom approximation",
+   "parents": [
+    "STATO:0000472"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000474": {
+   "label": "Satterthwaite degree of freedom approximation",
+   "parents": [
+    "STATO:0000472"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000475": {
+   "label": "between-within denominator degrees of freedom approximation",
+   "parents": [
+    "STATO:0000472"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000477": {
+   "label": "partial least square weight",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000478": {
+   "label": "pedigree data set",
+   "parents": [
+    "IAO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000480": {
+   "label": "ridge regression best linear unbiaised predictor",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000481": {
+   "label": "genomic best linear unbiased prediction",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000482": {
+   "label": "trait-specific relationship matrix best linear unbiaised prediction",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000483": {
+   "label": "Bayes A",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000484": {
+   "label": "Bayes B",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000485": {
+   "label": "estimated breeding value",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000487": {
+   "label": "additive genetic inheritance model",
+   "parents": [
+    "STATO:0000534"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000488": {
+   "label": "additive dominant genetic inheritance model",
+   "parents": [
+    "STATO:0000534"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000489": {
+   "label": "additive dominant genetic and epistatic inheritance model",
+   "parents": [
+    "STATO:0000534"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000490": {
+   "label": "Dunn\u2019s multiple comparison test",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200089",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000491": {
+   "label": "Conover-Iman test of multiple comparisons using rank sums",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200089",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000492": {
+   "label": "Bayesian least absolute shrinkage and selection operator",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000493": {
+   "label": "genotype matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000494": {
+   "label": "MAF matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000495": {
+   "label": "M matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000496": {
+   "label": "P matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000497": {
+   "label": "Z matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000498": {
+   "label": "numerator degrees of freedom",
+   "parents": [
+    "STATO:0000069"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000499": {
+   "label": "augmented experimental design",
+   "parents": [
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000500": {
+   "label": "probability distribution location parameter",
+   "parents": [
+    "IAO:0000027",
+    "STATO:0000742"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000501": {
+   "label": "Weibull probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000502": {
+   "label": "statistical sampling",
+   "parents": [
+    "OBI:0000011"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000503": {
+   "label": "simple random sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000504": {
+   "label": "line intercept sampling",
+   "parents": [
+    "STATO:0000509"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000505": {
+   "label": "quadrat sampling",
+   "parents": [
+    "STATO:0000509"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000506": {
+   "label": "cluster sampling",
+   "parents": [
+    "STATO:0000509"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000507": {
+   "label": "probability-proportional-to-size sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000508": {
+   "label": "stratified sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000509": {
+   "label": "systematic sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000510": {
+   "label": "quota sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000511": {
+   "label": "panel sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000512": {
+   "label": "chain-referral sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000513": {
+   "label": "voluntary sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000514": {
+   "label": "convenience sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000515": {
+   "label": "Brewer sampling",
+   "parents": [
+    "STATO:0000509"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000516": {
+   "label": "minimax sampling",
+   "parents": [
+    "STATO:0000502"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000517": {
+   "label": "complete randomization",
+   "parents": [
+    "OBI:0302900"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000518": {
+   "label": "data imputation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000519": {
+   "label": "last observation carried forward data imputation",
+   "parents": [
+    "STATO:0000518"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000520": {
+   "label": "regression data imputation",
+   "parents": [
+    "STATO:0000518"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000521": {
+   "label": "substitution by the mean data imputation",
+   "parents": [
+    "STATO:0000518"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000522": {
+   "label": "multivariate imputation with chained equations",
+   "parents": [
+    "STATO:0000518"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000523": {
+   "label": "k-nearest neighbour data imputation",
+   "parents": [
+    "STATO:0000518"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000524": {
+   "label": "Matthews correlation coefficient",
+   "parents": [
+    "STATO:0000142",
+    "STATO:0000622"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000525": {
+   "label": "covariance matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000526": {
+   "label": "numerator relationship matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000527": {
+   "label": "denominator degrees of freedom",
+   "parents": [
+    "STATO:0000069"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000528": {
+   "label": "G matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000529": {
+   "label": "scaled t distribution",
+   "parents": [
+    "STATO:0000059"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000530": {
+   "label": "Bayesian model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000531": {
+   "label": "prior probability distribution",
+   "parents": [
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000532": {
+   "label": "posterior probability distribution",
+   "parents": [
+    "IAO:0000027",
+    "STATO:0000225"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000533": {
+   "label": "Bayes C pi",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000534": {
+   "label": "genetic inheritance model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000535": {
+   "label": "sampling from a probability distribution",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000536": {
+   "label": "Gibbs sampling",
+   "parents": [
+    "STATO:0000535"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000537": {
+   "label": "Metropolis\u2013Hastings sampling",
+   "parents": [
+    "STATO:0000535"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000538": {
+   "label": "continuous multivariate probability distribution",
+   "parents": [
+    "STATO:0000067"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000539": {
+   "label": "discrete multivariate probability distribution",
+   "parents": [
+    "STATO:0000117"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000540": {
+   "label": "reproducing kernel Hilbert space procedure",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000541": {
+   "label": "state space model",
+   "parents": [
+    "STATO:0000107"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000542": {
+   "label": "genomic estimated breeding value",
+   "parents": [
+    "STATO:0000485"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000544": {
+   "label": "heritability",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000545": {
+   "label": "narrow sense heritability",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000546": {
+   "label": "Bayes R",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000547": {
+   "label": "Laplace probability distribution",
+   "parents": [
+    "STATO:0000067",
+    "STATO:0000329"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000548": {
+   "label": "sampling distribution estimation by bootstrapping",
+   "parents": [
+    "STATO:0000535"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000549": {
+   "label": "random forest procedure",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000550": {
+   "label": "log likelihood",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000551": {
+   "label": "Holm false discovery rate correction",
+   "parents": [
+    "OBI:0200163"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000552": {
+   "label": "Hommel false discovery rate correction",
+   "parents": [
+    "OBI:0200163"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000554": {
+   "label": "number of cross-validation segments",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000555": {
+   "label": "number of predictive components",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000556": {
+   "label": "number of orthogonal components",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000558": {
+   "label": "statistical model term testing",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000559": {
+   "label": "Wald test",
+   "parents": [
+    "OBI:0200200"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000560": {
+   "label": "Rao's score",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000561": {
+   "label": "confidence level",
+   "parents": [
+    "STATO:0000300"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000562": {
+   "label": "standard error of estimate",
+   "parents": [
+    "STATO:0000028",
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000563": {
+   "label": "biplot",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000564": {
+   "label": "coefficient of determination",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000565": {
+   "label": "regression coefficient",
+   "parents": [
+    "STATO:0000610"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000566": {
+   "label": "eigen value",
+   "parents": [
+    "IAO:0000027",
+    "OBI:0000648"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000567": {
+   "label": "factor analysis",
+   "parents": [
+    "OBI:0200050"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000568": {
+   "label": "loadings",
+   "parents": [
+    "OBI:0000648",
+    "STATO:0000034"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000569": {
+   "label": "score",
+   "parents": [
+    "OBI:0000648",
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000570": {
+   "label": "selectivity ratio",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000571": {
+   "label": "Partial Least Square regression",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000572": {
+   "label": "Partial Least Square Discriminant Analysis",
+   "parents": [
+    "OBI:0200000",
+    "OBI:0200175"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000573": {
+   "label": "average value",
+   "parents": [
+    "STATO:0000029"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000574": {
+   "label": "center value",
+   "parents": [
+    "STATO:0000029",
+    "STATO:0000152"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000575": {
+   "label": "non-iterative Partial Least Squares",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000576": {
+   "label": "SIMPLS",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000577": {
+   "label": "PLS1",
+   "parents": [
+    "STATO:0000571"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000578": {
+   "label": "PLS2",
+   "parents": [
+    "STATO:0000571"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000579": {
+   "label": "improved Kernel PLS",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000580": {
+   "label": "variable importance in projection",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000581": {
+   "label": "singular value decomposition",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000582": {
+   "label": "best linear unbiased estimator",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000119",
+    "STATO:0000337"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000583": {
+   "label": "completely randomized design",
+   "parents": [
+    "BFO:0000017",
+    "OBI:0500000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000584": {
+   "label": "Wald statistic",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000585": {
+   "label": "degree of freedom calculation",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000586": {
+   "label": "restricted randomized design",
+   "parents": [
+    "BFO:0000017",
+    "OBI:0500000",
+    "STATO:0000046"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000587": {
+   "label": "percentage of variance",
+   "parents": [
+    "OBI:0000648",
+    "STATO:0000639"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000588": {
+   "label": "scaled identity covariance structure",
+   "parents": [
+    "STATO:0000346"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000589": {
+   "label": "TPM-transcript per million",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000590": {
+   "label": "median of the ratios corrected count",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000591": {
+   "label": "TMM-trimmed mean of M-values corrected count",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000592": {
+   "label": "Rand index",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000593": {
+   "label": "adjusted Rand index",
+   "parents": [
+    "STATO:0000592"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000594": {
+   "label": "confusion matrix",
+   "parents": [
+    "STATO:0000642"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000595": {
+   "label": "number of true positive",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000596": {
+   "label": "number of false positive",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000597": {
+   "label": "number of true negative",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000598": {
+   "label": "number of false negative",
+   "parents": [
+    "STATO:0000047"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000599": {
+   "label": "point estimate",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000600": {
+   "label": "interval estimate",
+   "parents": [
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000601": {
+   "label": "simultaneous multiple testing correction",
+   "parents": [
+    "OBI:0200089"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000602": {
+   "label": "sequential multiple testing correction method",
+   "parents": [
+    "OBI:0200089"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000603": {
+   "label": "alpha debt",
+   "parents": [
+    "STATO:0000602"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000604": {
+   "label": "alpha investing procedure",
+   "parents": [
+    "STATO:0000602"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000605": {
+   "label": "alpha spending procedure",
+   "parents": [
+    "STATO:0000602"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000606": {
+   "label": "q-statistic",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000607": {
+   "label": "proportion",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000608": {
+   "label": "area under the receiver operator characteristic curve",
+   "parents": [
+    "STATO:0000209"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000609": {
+   "label": "measure of hypothesis testing",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000610": {
+   "label": "measure of association",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000611": {
+   "label": "measure of correlation",
+   "parents": [
+    "STATO:0000610"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000612": {
+   "label": "Goodman and Kruskal's gamma",
+   "parents": [
+    "STATO:0000142"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000613": {
+   "label": "difference",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000614": {
+   "label": "absolute difference",
+   "parents": [
+    "STATO:0000613"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000615": {
+   "label": "relative difference",
+   "parents": [
+    "STATO:0000613"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000616": {
+   "label": "count difference",
+   "parents": [
+    "STATO:0000614"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000617": {
+   "label": "median difference",
+   "parents": [
+    "STATO:0000614"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000618": {
+   "label": "Cohen's d",
+   "parents": [
+    "STATO:0000100"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000619": {
+   "label": "negative predictive value",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000620": {
+   "label": "risk",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000621": {
+   "label": "diagnostic yield",
+   "parents": [
+    "STATO:0000607"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000622": {
+   "label": "ratio-based measure of association",
+   "parents": [
+    "STATO:0000184",
+    "STATO:0000610"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000623": {
+   "label": "measure of agreement",
+   "parents": [
+    "STATO:0000610"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000624": {
+   "label": "Gini index",
+   "parents": [
+    "STATO:0000028"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000625": {
+   "label": "relative mean difference",
+   "parents": [
+    "STATO:0000615"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000626": {
+   "label": "relative risk difference",
+   "parents": [
+    "STATO:0000615"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000627": {
+   "label": "odds",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000628": {
+   "label": "F1 score",
+   "parents": [
+    "STATO:0000663"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000629": {
+   "label": "Scott's pi",
+   "parents": [
+    "STATO:0000682"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000630": {
+   "label": "Cohen's kappa",
+   "parents": [
+    "STATO:0000682"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000631": {
+   "label": "modified Cohen\u2019s kappa for more than 2 raters",
+   "parents": [
+    "STATO:0000682"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000632": {
+   "label": "misclassification rate",
+   "parents": [
+    "STATO:0000623"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000633": {
+   "label": "cutoff",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000634": {
+   "label": "reciprocal of difference",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000635": {
+   "label": "number needed to treat",
+   "parents": [
+    "STATO:0000634"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000636": {
+   "label": "number needed to screen to prevent",
+   "parents": [
+    "STATO:0000634"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000637": {
+   "label": "number needed to screen to detect",
+   "parents": [
+    "STATO:0000634"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000638": {
+   "label": "number needed to harm",
+   "parents": [
+    "STATO:0000634"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000639": {
+   "label": "percentage",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000640": {
+   "label": "log-rank test",
+   "parents": [
+    "OBI:0000673",
+    "OBI:0200000",
+    "OBI:0200194"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000641": {
+   "label": "Friedman test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000642": {
+   "label": "matrix",
+   "parents": [
+    "IAO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000643": {
+   "label": "variance for sample",
+   "parents": [
+    "STATO:0000113"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000644": {
+   "label": "sign test",
+   "parents": [
+    "OBI:0000673",
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000645": {
+   "label": "rate",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000646": {
+   "label": "population variance",
+   "parents": [
+    "STATO:0000113"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000647": {
+   "label": "standard error of the proportion",
+   "parents": [
+    "STATO:0000562"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000648": {
+   "label": "standard error of the difference between independent means",
+   "parents": [
+    "STATO:0000562"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000649": {
+   "label": "standard error of the difference between independent proportions",
+   "parents": [
+    "STATO:0000562"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000650": {
+   "label": "sampling distribution variance",
+   "parents": [
+    "STATO:0000113",
+    "STATO:0000471"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000651": {
+   "label": "statistical sample",
+   "parents": [
+    "BFO:0000004"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000652": {
+   "label": "calibration",
+   "parents": [
+    "OBI:0200000"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000653": {
+   "label": "Hosmer-Lemeshow goodness-of-fit test",
+   "parents": [
+    "OBI:0200000",
+    "STATO:0000191"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000654": {
+   "label": "paired observation comparison objective",
+   "parents": [
+    "OBI:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000655": {
+   "label": "calibration plot",
+   "parents": [
+    "IAO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000656": {
+   "label": "slope",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000657": {
+   "label": "intercept",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000658": {
+   "label": "mean time-to-event",
+   "parents": [
+    "STATO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000659": {
+   "label": "median time-to-event",
+   "parents": [
+    "STATO:0000574"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000660": {
+   "label": "posterior predictive value",
+   "parents": [
+    "OBI:0000071"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000661": {
+   "label": "p-value for one-sided test",
+   "parents": [
+    "OBI:0000071"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000662": {
+   "label": "p-value for two-sided test",
+   "parents": [
+    "OBI:0000071"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000663": {
+   "label": "F-beta score",
+   "parents": [
+    "STATO:0000623"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000664": {
+   "label": "mean of differences",
+   "parents": [
+    "STATO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000665": {
+   "label": "difference in differences",
+   "parents": [
+    "STATO:0000614"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000666": {
+   "label": "maximum possible value",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000667": {
+   "label": "minimum possible value",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000668": {
+   "label": "absolute value",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000669": {
+   "label": "sum",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000670": {
+   "label": "incidence rate",
+   "parents": [
+    "STATO:0000645"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000671": {
+   "label": "hazard rate",
+   "parents": [
+    "STATO:0000645"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000672": {
+   "label": "event rate",
+   "parents": [
+    "STATO:0000645"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000673": {
+   "label": "event frequency rate",
+   "parents": [
+    "STATO:0000645"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000674": {
+   "label": "frequency",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000675": {
+   "label": "density",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000676": {
+   "label": "number density",
+   "parents": [
+    "STATO:0000675"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000677": {
+   "label": "hazard ratio",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000678": {
+   "label": "prevalence ratio",
+   "parents": [
+    "STATO:0000622"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000679": {
+   "label": "diagnostic odd ratio",
+   "parents": [
+    "STATO:0000184"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000680": {
+   "label": "incidence rate ratio",
+   "parents": [
+    "STATO:0000622"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000681": {
+   "label": "standardized incidence ratio",
+   "parents": [
+    "STATO:0000680"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000682": {
+   "label": "kappa",
+   "parents": [
+    "STATO:0000623"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000683": {
+   "label": "simple chance-corrected agreement coefficient",
+   "parents": [
+    "STATO:0000682"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000684": {
+   "label": "standard deviation for sample",
+   "parents": [
+    "STATO:0000237"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000685": {
+   "label": "mesure of calibration",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000686": {
+   "label": "mean calibration",
+   "parents": [
+    "STATO:0000685"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000687": {
+   "label": "calibration slope",
+   "parents": [
+    "STATO:0000685"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000688": {
+   "label": "calibration intercept",
+   "parents": [
+    "STATO:0000685"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000689": {
+   "label": "partial area under the receiver operator characteristic curve",
+   "parents": [
+    "STATO:0000209"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000690": {
+   "label": "area under the value-time curve",
+   "parents": [
+    "STATO:0000209"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000691": {
+   "label": "area under the precision-recall curve",
+   "parents": [
+    "STATO:0000209"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000692": {
+   "label": "probability distribution mean",
+   "parents": [
+    "STATO:0000573"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000693": {
+   "label": "probability distribution variance",
+   "parents": [
+    "STATO:0000113"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000694": {
+   "label": "probability distribution standard deviation",
+   "parents": [
+    "STATO:0000237"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000695": {
+   "label": "precision-recall curve",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000696": {
+   "label": "value-time curve",
+   "parents": [
+    "IAO:0000038"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000697": {
+   "label": "homogeneity test",
+   "parents": [
+    "OBI:0000673"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000698": {
+   "label": "Chi-squared statistic for homogeneity",
+   "parents": [
+    "STATO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000699": {
+   "label": "t-score",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000700": {
+   "label": "p-value",
+   "parents": [
+    "OBI:0000071"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000701": {
+   "label": "Chi-square test for homogeneity",
+   "parents": [
+    "STATO:0000247",
+    "STATO:0000697"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000702": {
+   "label": "prior probability",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000703": {
+   "label": "posterior probability",
+   "parents": [
+    "STATO:0000039"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000704": {
+   "label": "concentration",
+   "parents": [
+    "IAO:0000032"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000705": {
+   "label": "measurement accuracy as a percentage",
+   "parents": [
+    "STATO:0000639"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000706": {
+   "label": "Bayesian inference",
+   "parents": [
+    "STATO:0000299"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000707": {
+   "label": "frequentist inference",
+   "parents": [
+    "STATO:0000299"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000708": {
+   "label": "Cochran-Armitage Chi-Square Statistic for Trend",
+   "parents": [
+    "STATO:0000030"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000709": {
+   "label": "testing margin",
+   "parents": [
+    "STATO:0000633"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000710": {
+   "label": "non-inferiority margin",
+   "parents": [
+    "STATO:0000709"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000711": {
+   "label": "equivalence margin",
+   "parents": [
+    "STATO:0000709"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000712": {
+   "label": "superiority margin",
+   "parents": [
+    "STATO:0000709"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000713": {
+   "label": "type I error",
+   "parents": [
+    "STATO:0000242"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000714": {
+   "label": "type II error",
+   "parents": [
+    "STATO:0000242"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000715": {
+   "label": "A/B testing",
+   "parents": [
+    "STATO:0000279"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000716": {
+   "label": "non-inferiority testing",
+   "parents": [
+    "STATO:0000715"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000717": {
+   "label": "equivalence testing",
+   "parents": [
+    "STATO:0000715"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000718": {
+   "label": "superiority testing",
+   "parents": [
+    "STATO:0000715"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000719": {
+   "label": "experimental unit",
+   "parents": [
+    "BFO:0000004"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000720": {
+   "label": "observation unit",
+   "parents": [
+    "BFO:0000004"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000721": {
+   "label": "nominal variable",
+   "parents": [
+    "STATO:0000252"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000722": {
+   "label": "quantitative variable",
+   "parents": [
+    "STATO:0000258"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000723": {
+   "label": "discrete variable",
+   "parents": [
+    "STATO:0000722"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000724": {
+   "label": "boolean variable",
+   "parents": [
+    "STATO:0000090"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000725": {
+   "label": "dichotomous ordinal variable",
+   "parents": [
+    "STATO:0000090",
+    "STATO:0000252",
+    "STATO:0000726"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000726": {
+   "label": "polychotomous ordinal variable",
+   "parents": [
+    "STATO:0000087",
+    "STATO:0000228",
+    "STATO:0000252"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000727": {
+   "label": "interval variable",
+   "parents": [
+    "STATO:0000251"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000728": {
+   "label": "date variable",
+   "parents": [
+    "STATO:0000727"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000729": {
+   "label": "date Time variable",
+   "parents": [
+    "STATO:0000727"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000730": {
+   "label": "ratio variable",
+   "parents": [
+    "STATO:0000251"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000731": {
+   "label": "time-to-event variable",
+   "parents": [
+    "STATO:0000730"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000732": {
+   "label": "multiclass categorical variable",
+   "parents": [
+    "STATO:0000721"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000734": {
+   "label": "statistically significant",
+   "parents": [
+    "OBI:0001909"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000735": {
+   "label": "not statistically significant",
+   "parents": [
+    "OBI:0001909"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000736": {
+   "label": "effect size for power calculation",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000737": {
+   "label": "correction factor for multiple testing",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000738": {
+   "label": "alpha level as statistical test input parameter",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000739": {
+   "label": "nominal alpha level",
+   "parents": [
+    "STATO:0000738"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000740": {
+   "label": "adjusted alpha level",
+   "parents": [
+    "STATO:0000738"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000741": {
+   "label": "statistical model component",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "STATO:0000742": {
+   "label": "probability distribution parameter",
+   "parents": [
+    "IAO:0000027"
+   ],
+   "deprecated": false
+  },
+  "UBERON:0000465": {
+   "label": "material anatomical entity",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "UBERON:0000477": {
+   "label": "anatomical cluster",
+   "parents": [
+    "BFO:0000040"
+   ],
+   "deprecated": false
+  },
+  "UO:0000001": {
+   "label": "length unit",
+   "parents": [
+    "IAO:0000003"
+   ],
+   "deprecated": false
+  },
+  "UO:0000002": {
+   "label": "mass unit",
+   "parents": [
+    "IAO:0000003"
+   ],
+   "deprecated": false
+  },
+  "UO:0000003": {
+   "label": "time unit",
+   "parents": [
+    "IAO:0000003"
+   ],
+   "deprecated": false
+  }
+ }
+}

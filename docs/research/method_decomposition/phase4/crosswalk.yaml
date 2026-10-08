@@ -1,0 +1,1975 @@
+- method: p01
+  record_id: p01.move.question
+  verb: define
+  label: freeze question and scope
+  anchors:
+  - frame:p01.applicability_boundary
+  source_basis: Cochrane_6_5_ch2
+  statistical: false
+  stato: []
+  reason: Scope definition (PICO framing).
+- method: p01
+  record_id: p01.move.protocol
+  verb: define
+  label: prespecify eligibility and synthesis
+  anchors:
+  - source:p01.cochrane.ch3
+  source_basis: Cochrane_6_5_ch3
+  statistical: false
+  stato: []
+  reason: Protocol prespecification.
+- method: p01
+  record_id: p01.move.search
+  verb: retrieve
+  label: search all eligible sources
+  anchors:
+  - source:p01.cochrane.ch4
+  source_basis: Cochrane_6_5_ch4_2_to_4_5
+  statistical: false
+  stato: []
+  reason: Literature retrieval.
+- method: p01
+  record_id: p01.move.link_reports
+  verb: identify
+  label: reconcile reports to studies
+  anchors:
+  - source:p01.cochrane.ch4.6.1
+  source_basis: Cochrane_6_5_ch4_6_1
+  statistical: false
+  stato: []
+  reason: Report-to-study reconciliation.
+- method: p01
+  record_id: p01.move.screen_initial
+  verb: screen
+  label: screen titles and abstracts
+  anchors:
+  - source:p01.cochrane.ch4.6.4
+  source_basis: Cochrane_6_5_ch4_6_4
+  statistical: false
+  stato: []
+  reason: Eligibility screening judgement.
+- method: p01
+  record_id: p01.move.screen_full
+  verb: screen
+  label: decide full-text eligibility
+  anchors:
+  - source:p01.cochrane.ch4.6.4
+  source_basis: Cochrane_6_5_ch4_6_4
+  statistical: false
+  stato: []
+  reason: Full-text eligibility judgement.
+- method: p01
+  record_id: p01.move.extract
+  verb: extract
+  label: extract study data and results
+  anchors:
+  - source:p01.cochrane.ch5
+  source_basis: Cochrane_6_5_ch5
+  statistical: false
+  stato: []
+  reason: Data extraction.
+- method: p01
+  record_id: p01.move.risk_bias
+  verb: review
+  label: appraise result-level risk of bias
+  anchors:
+  - source:p01.cochrane.ch8
+  source_basis: Cochrane_6_5_ch8
+  statistical: false
+  stato: []
+  reason: Risk-of-bias appraisal (domain judgements).
+- method: p01
+  record_id: p01.move.compatibility
+  verb: compare
+  label: judge synthesis compatibility
+  anchors:
+  - source:p01.cochrane.ch9
+  source_basis: Cochrane_6_5_ch9
+  statistical: false
+  stato: []
+  reason: Judgement of whether results may be pooled; a gating decision, not a computation.
+- method: p01
+  record_id: p01.move.synthesize
+  verb: synthesize
+  label: synthesize effects conditionally
+  anchors:
+  - source:p01.cochrane.ch10
+  source_basis: Cochrane_6_5_ch9_to_10
+  statistical: true
+  stato:
+  - STATO:0000155
+  - STATO:0000418
+  reason: 'The move owns choosing the effect measure, the pooling model and the heterogeneity assessment for a pairwise synthesis:
+    ''meta analysis''. Heterogeneity is assessed explicitly: ''measure of heterogeneity'' (general parent; the specific statistic,
+    e.g. tau squared or I2, is not fixed).'
+- method: p01
+  record_id: p01.move.missing_evidence
+  verb: review
+  label: appraise risk of bias due to missing evidence
+  anchors:
+  - source:p01.cochrane.ch13
+  - source:p01.prisma.item14
+  - source:p01.prisma.item21
+  source_basis: Cochrane_6_5_ch13_and_PRISMA_2020_items_14_21
+  statistical: false
+  stato: []
+  reason: Appraisal of bias from missing results is a judgement.
+- method: p01
+  record_id: p01.move.certainty
+  verb: review
+  label: grade certainty of the body of evidence
+  anchors:
+  - source:p01.cochrane.ch14
+  - source:p01.prisma.item15
+  - source:p01.prisma.item22
+  source_basis: Cochrane_6_5_ch14_and_PRISMA_2020_items_15_22
+  statistical: false
+  stato: []
+  reason: GRADE certainty rating is a reasoned judgement.
+- method: p01
+  record_id: p01.move.report
+  verb: synthesize
+  label: interpret and report conclusions
+  anchors:
+  - source:p01.cochrane.ch15
+  - source:p01.cochrane.chIII
+  - source:p01.prisma.items20_23
+  source_basis: Cochrane_6_5_ch15_and_III_and_PRISMA_2020_items_20_23
+  statistical: false
+  stato: []
+  reason: Interpretation and reporting.
+- method: p01
+  record_id: p01.action.deduplicate_link
+  verb: identify
+  label: deduplicate and link reports
+  anchors:
+  - source:p01.cochrane.ch4.6
+  source_basis: Cochrane_6_5_ch4_6
+  statistical: false
+  stato: []
+  reason: Record deduplication.
+- method: p01
+  record_id: p01.action.compute_pool
+  verb: estimate
+  label: compute pairwise meta-analysis
+  anchors:
+  - source:p01.cochrane.ch10
+  source_basis: Cochrane_6_5_ch10
+  statistical: true
+  stato:
+  - STATO:0000155
+  - STATO:0000085
+  reason: 'Runs the pairwise pooling computation: ''meta analysis''. Its output, the pooled estimate, is an ''effect size
+    estimate'' (general, because the effect measure (OR, RR, MD) and the fixed or random model are left to the configuration).'
+- method: p02
+  record_id: p02.move.objective_estimand
+  verb: define
+  label: freeze objective and estimand
+  anchors:
+  - source:p02.e9r1.A3
+  source_basis: ICH_E9_R1_A3
+  statistical: false
+  stato: []
+  reason: Estimand definition.
+- method: p02
+  record_id: p02.move.sample_size
+  verb: derive
+  label: determine sample size
+  anchors:
+  - source:p02.e9.3.5
+  source_basis: ICH_E9_3_5
+  statistical: true
+  stato:
+  - STATO:0000097
+  reason: 'Sets the sample size from the test statistic, the hypotheses and the type I and II error rates (ICH E9 3.5): ''statistical
+    test power analysis''.'
+- method: p02
+  record_id: p02.move.protocol_sap
+  verb: define
+  label: prespecify design and analysis
+  anchors:
+  - source:p02.e9.sections2_5
+  - source:p02.e9.5.6
+  - source:p02.e9r1.A4
+  source_basis: ICH_E9_2_to_5_and_5_6_and_E9R1_A4
+  statistical: false
+  stato: []
+  reason: Prespecification of the design and analysis plan.
+- method: p02
+  record_id: p02.move.allocate
+  verb: construct
+  label: generate and conceal allocation
+  anchors:
+  - source:p02.e9.2.3.2
+  source_basis: ICH_E9_2_3_2
+  statistical: false
+  stato: []
+  reason: Design of random allocation and its concealment; it produces no statistic.
+- method: p02
+  record_id: p02.move.conduct
+  verb: monitor
+  label: deliver arms and track conduct
+  anchors:
+  - source:p02.e9.sections3_4
+  source_basis: ICH_E9_3_to_4
+  statistical: false
+  stato: []
+  reason: Trial conduct monitoring.
+- method: p02
+  record_id: p02.move.ascertain
+  verb: measure
+  label: ascertain outcomes comparably
+  anchors:
+  - source:p02.e9.2.2.2
+  - source:p02.e9.sections3_4
+  source_basis: ICH_E9_2_2_2_and_3_to_4
+  statistical: false
+  stato: []
+  reason: Collects outcome data comparably across arms. This 'measure' step is data collection, not a statistical procedure.
+- method: p02
+  record_id: p02.move.lock_audit
+  verb: review
+  label: lock data and audit adherence
+  anchors:
+  - source:p02.e9.5.8
+  source_basis: ICH_E9_5_8
+  statistical: false
+  stato: []
+  reason: Data lock and audit.
+- method: p02
+  record_id: p02.move.estimate
+  verb: estimate
+  label: estimate treatment-policy ITT effect
+  anchors:
+  - source:p02.e9r1.A3_A4
+  source_basis: ICH_E9_R1_A3_to_A4
+  statistical: true
+  stato:
+  - STATO:0000457
+  reason: 'The treatment-policy ITT effect of randomized assignment is a between-arm contrast: ''mean difference''.'
+- method: p02
+  record_id: p02.move.sensitivity
+  verb: test
+  label: test estimand sensitivity
+  anchors:
+  - source:p02.e9r1.A5
+  source_basis: ICH_E9_R1_A5
+  statistical: true
+  stato:
+  - STATO:0000471
+  reason: Re-estimates the same estimand under alternative assumptions. STATO has no sensitivity-analysis term, so only the
+    general 'estimate' fits.
+- method: p02
+  record_id: p02.move.interpret_report
+  verb: synthesize
+  label: bound and report trial conclusion
+  anchors:
+  - source:p02.e9.5.5
+  - source:p02.e9.7.1
+  - source:p02.e9r1.A5
+  source_basis: ICH_E9_5_5_and_7_1_and_E9R1_A5
+  statistical: false
+  stato: []
+  reason: Interpretation and reporting.
+- method: p02
+  record_id: p02.action.randomize
+  verb: construct
+  label: generate concealed assignments
+  anchors:
+  - source:p02.e9.2.3.2
+  source_basis: ICH_E9_2_3_2
+  statistical: false
+  stato: []
+  reason: Executes the frozen allocation algorithm; it produces no statistic.
+- method: p02
+  record_id: p02.action.compute_itt
+  verb: estimate
+  label: compute prespecified ITT estimate
+  anchors:
+  - source:p02.e9.5.8
+  source_basis: ICH_E9_5_8
+  statistical: true
+  stato:
+  - STATO:0000457
+  reason: 'Computes the prespecified ITT between-arm effect: ''mean difference''.'
+- method: p03
+  record_id: p03.move.design
+  verb: define
+  label: freeze intervention and estimand
+  anchors:
+  - source:p03.baker.simple_design
+  source_basis: Baker_2026_section3_1
+  statistical: false
+  stato: []
+  reason: Design and estimand definition.
+- method: p03
+  record_id: p03.move.comparison
+  verb: identify
+  label: justify comparison group
+  anchors:
+  - source:p03.magenta.A2.7
+  source_basis: Magenta_2026_A2_7_and_Baker_2026
+  statistical: false
+  stato: []
+  reason: Substantive justification of the comparison group.
+- method: p03
+  record_id: p03.move.covariates
+  verb: define
+  label: specify conditioning covariates and parallel-trends form
+  anchors:
+  - source:p03.baker.covariates
+  - source:p03.baker.identification
+  source_basis: Baker_2026_section4
+  statistical: false
+  stato: []
+  reason: Specification choice of covariates and parallel-trends form.
+- method: p03
+  record_id: p03.move.panel
+  verb: construct
+  label: construct aligned group-time panel
+  anchors:
+  - source:p03.baker.data_design
+  source_basis: Baker_2026_section5_1_and_appendix_A5
+  statistical: false
+  stato: []
+  reason: Panel construction.
+- method: p03
+  record_id: p03.move.assumptions
+  verb: review
+  label: appraise identifying assumptions
+  anchors:
+  - source:p03.baker.identification
+  - source:p03.baker.pretrends
+  source_basis: Baker_2026_sections3_2_and_4_2_and_5_1_2
+  statistical: false
+  stato: []
+  reason: Substantive appraisal of the identifying assumptions.
+- method: p03
+  record_id: p03.move.pretrend
+  verb: test
+  label: diagnose pre-intervention trends
+  anchors:
+  - source:p03.baker.pretrends
+  source_basis: Baker_2026_section5_1_2
+  statistical: true
+  stato:
+  - STATO:0000665
+  - OBI:0000673
+  reason: Event-time pre-period and placebo contrasts are 'difference in differences' estimates. Their non-rejection is assessed
+    with a 'statistical hypothesis test' (general; no specific test is fixed).
+- method: p03
+  record_id: p03.move.estimate
+  verb: estimate
+  label: estimate comparative change
+  anchors:
+  - source:p03.baker.estimation
+  source_basis: Baker_2026_sections3_3_and_5_1_1_to_5_1_3
+  statistical: true
+  stato:
+  - STATO:0000665
+  reason: 'Estimates the single-adoption ATT as a comparative change: ''difference in differences''.'
+- method: p03
+  record_id: p03.move.sensitivity
+  verb: test
+  label: challenge result with sensitivity
+  anchors:
+  - source:p03.baker.sensitivity
+  source_basis: Baker_2026_section5_1_2_partial_see_p03_u05
+  statistical: true
+  stato:
+  - STATO:0000665
+  reason: Re-estimates the DiD effect under alternative windows, trends, covariates, placebos and inference choices; each
+    output is a 'difference in differences' estimate.
+- method: p03
+  record_id: p03.move.interpret
+  verb: synthesize
+  label: issue bounded causal conclusion
+  anchors:
+  - source:p03.baker.conclusions
+  - source:p03.magenta.A2.7
+  source_basis: Baker_2026_and_Magenta_A2_7
+  statistical: false
+  stato: []
+  reason: Bounded causal interpretation.
+- method: p03
+  record_id: p03.action.build_panel
+  verb: construct
+  label: align observations to event time
+  anchors:
+  - source:p03.baker.data_design
+  source_basis: Baker_2026_section5_1_and_appendix_A5
+  statistical: false
+  stato: []
+  reason: Deterministic alignment of observations to event time.
+- method: p03
+  record_id: p03.action.compute_did
+  verb: estimate
+  label: compute frozen DiD estimator
+  anchors:
+  - source:p03.baker.estimation
+  source_basis: Baker_2026_estimation
+  statistical: true
+  stato:
+  - STATO:0000665
+  reason: 'Computes the frozen DiD estimator: ''difference in differences''.'
+- method: p03
+  record_id: p03.action.balance_table
+  verb: compare
+  label: tabulate pre-treatment covariate balance
+  anchors:
+  - source:p03.baker.covariate_balance
+  source_basis: Baker_2026_section4_1
+  statistical: true
+  stato:
+  - OBI:0200184
+  reason: Tabulates group summaries of pre-treatment covariates. Only the general 'descriptive statistical calculation data
+    transformation' fits, because the balance metric (for example a standardized mean difference) is not specified.
+- method: p04
+  record_id: p04.move.population
+  verb: define
+  label: constitute case population
+  anchors:
+  - source:p04.ragin.ch1
+  source_basis: Ragin_2008_ch1_see_p04_u05
+  statistical: false
+  stato: []
+  reason: Case population definition.
+- method: p04
+  record_id: p04.move.conditions
+  verb: define
+  label: define outcome and conditions
+  anchors:
+  - source:p04.ragin.ch1_2
+  source_basis: Ragin_2008_ch1_to_2
+  statistical: false
+  stato: []
+  reason: Set-concept definition.
+- method: p04
+  record_id: p04.move.anchors
+  verb: define
+  label: set substantive calibration anchors
+  anchors:
+  - source:p04.ragin.ch4_5
+  - source:p04.sw.ch1
+  source_basis: Ragin_2008_ch4_to_5_and_Schneider_Wagemann_ch1
+  statistical: false
+  stato: []
+  reason: Substantive anchor setting.
+- method: p04
+  record_id: p04.move.calibrate
+  verb: calibrate
+  label: assign fuzzy-set memberships
+  anchors:
+  - source:p04.ragin.ch5
+  source_basis: Ragin_2008_ch4_to_5
+  statistical: false
+  stato: []
+  reason: Fuzzy-set calibration assigns degrees of set membership from substantive anchors, with case review. It is a set-theoretic
+    transformation, not statistical model calibration (STATO 'calibration' is a different concept).
+- method: p04
+  record_id: p04.move.necessity
+  verb: test
+  label: analyze necessary conditions
+  anchors:
+  - source:p04.sw.ch3
+  - source:p04.sw.ch5
+  - source:p04.sw.ch9
+  source_basis: Schneider_Wagemann_ch3_5_9
+  statistical: false
+  stato: []
+  reason: Necessity 'testing' checks a set-theoretic subset relation using consistency, coverage and trivialness measures.
+    These are not statistical estimates or hypothesis tests, and STATO has no term for them.
+- method: p04
+  record_id: p04.move.truth_table
+  verb: construct
+  label: construct truth table
+  anchors:
+  - source:p04.sw.ch4
+  - source:p04.sw.ch7
+  source_basis: Schneider_Wagemann_ch4_and_7
+  statistical: false
+  stato: []
+  reason: Truth-table construction.
+- method: p04
+  record_id: p04.move.resolve_contradictions
+  verb: review
+  label: resolve truth-table contradictions
+  anchors:
+  - source:p04.sw.ch4
+  - source:p04.sw.ch7
+  source_basis: Schneider_Wagemann_ch4_and_7
+  statistical: false
+  stato: []
+  reason: Case-based resolution of contradictory rows.
+- method: p04
+  record_id: p04.move.remainders
+  verb: review
+  label: govern logical remainders
+  anchors:
+  - source:p04.sw.ch6
+  - source:p04.sw.ch8
+  - source:p04.ragin.ch8_9
+  source_basis: Schneider_Wagemann_ch6_and_ch8_Enhanced_Standard_Analysis_and_Ragin_ch8_to_9
+  statistical: false
+  stato: []
+  reason: Counterfactual governance of logical remainders.
+- method: p04
+  record_id: p04.move.sufficiency
+  verb: derive
+  label: minimize sufficient configurations
+  anchors:
+  - source:p04.sw.ch5_7
+  - source:p04.sw.ch9
+  source_basis: Schneider_Wagemann_ch5_to_7_and_9
+  statistical: false
+  stato: []
+  reason: Boolean minimization is logical reduction, not a statistical procedure, even though it reports consistency and coverage.
+- method: p04
+  record_id: p04.move.return_cases
+  verb: synthesize
+  label: return solution to cases
+  anchors:
+  - source:p04.ragin.ch7_9
+  source_basis: Ragin_2008_ch7_to_9_see_p04_u05
+  statistical: false
+  stato: []
+  reason: Case-based interpretation.
+- method: p04
+  record_id: p04.move.conclude
+  verb: synthesize
+  label: issue configurational conclusion
+  anchors:
+  - source:p04.sw.ch3
+  - source:p04.sw.ch5
+  - source:p04.ragin.ch1_2
+  source_basis: Schneider_Wagemann_ch3_and_5_and_Ragin_2008_ch1_to_2
+  statistical: false
+  stato: []
+  reason: Reporting the configurational conclusion.
+- method: p04
+  record_id: p04.action.transform_membership
+  verb: construct
+  label: compute membership scores
+  anchors:
+  - source:p04.ragin.ch5
+  source_basis: Ragin_2008_ch5
+  statistical: false
+  stato: []
+  reason: Applies the frozen anchor-based membership function deterministically. It is a set-theoretic transformation, not
+    an estimate.
+- method: p04
+  record_id: p04.action.minimize
+  verb: derive
+  label: execute Boolean minimization
+  anchors:
+  - source:p04.sw.ch6_7
+  source_basis: Schneider_Wagemann_ch6_to_7
+  statistical: false
+  stato: []
+  reason: Running Boolean minimization is logical reduction, not a statistical procedure.
+- method: p05
+  record_id: p05.move.orient
+  verb: define
+  label: locate inquiry and researcher position
+  anchors:
+  - charmaz_3e_ch1
+  - charmaz_3e_ch2
+  - charmaz_3e_ch12
+  source_basis: charmaz_2024_3e_chs_1_2_12
+  statistical: false
+  stato: []
+  reason: Defines the inquiry and the researcher's position; reflexive design work.
+- method: p05
+  record_id: p05.move.gather
+  verb: acquire
+  label: generate rich initial material
+  anchors:
+  - charmaz_3e_ch2
+  - charmaz_3e_ch3
+  - charmaz_3e_ch4
+  source_basis: charmaz_2024_3e_chs_2_4
+  statistical: false
+  stato: []
+  reason: Collects qualitative material from a purposive sample.
+- method: p05
+  record_id: p05.move.initial_code
+  verb: code
+  label: segment and initially code incidents
+  anchors:
+  - charmaz_3e_ch5
+  source_basis: charmaz_2024_3e_ch5
+  statistical: false
+  stato: []
+  reason: Qualitative initial coding.
+- method: p05
+  record_id: p05.move.compare_memo
+  verb: compare
+  label: constantly compare and write analytic reflexive memos
+  anchors:
+  - charmaz_3e_ch5
+  - charmaz_3e_ch6
+  - charmaz_3e_ch7
+  source_basis: charmaz_2024_3e_chs_5_7
+  statistical: false
+  stato: []
+  reason: Constant comparison and memo writing; interpretive analysis.
+- method: p05
+  record_id: p05.move.focus_categories
+  verb: conceptualize
+  label: select focused codes and construct provisional categories
+  anchors:
+  - charmaz_3e_ch6
+  - charmaz_3e_ch7
+  source_basis: charmaz_2024_3e_chs_6_7
+  statistical: false
+  stato: []
+  reason: Builds conceptual categories. The record says conceptual significance, not frequency, drives selection.
+- method: p05
+  record_id: p05.move.theoretical_sample
+  verb: acquire
+  label: direct theoretical sampling from category gaps
+  anchors:
+  - charmaz_3e_ch8
+  source_basis: charmaz_2024_3e_ch8
+  statistical: false
+  stato: []
+  reason: Theoretical sampling is directed by category gaps rather than by representativeness, so it is not statistical sampling.
+- method: p05
+  record_id: p05.move.refine
+  verb: revise
+  label: revise categories against comparative variation
+  anchors:
+  - charmaz_3e_ch6
+  - charmaz_3e_ch7
+  - charmaz_3e_ch8
+  source_basis: charmaz_2024_3e_chs_6_8
+  statistical: false
+  stato: []
+  reason: Revises categories in an interpretive way.
+- method: p05
+  record_id: p05.move.adequacy
+  verb: review
+  label: appraise category adequacy and decide return or integration
+  anchors:
+  - charmaz_3e_ch8
+  - tie_2019_theoretical_saturation
+  source_basis: charmaz_2024_3e_ch8_and_tie_2019
+  statistical: false
+  stato: []
+  reason: Reasoned adequacy judgement; the record says explicitly that it is not a count.
+- method: p05
+  record_id: p05.move.integrate
+  verb: construct
+  label: integrate categories into a reflexively bounded theory
+  anchors:
+  - charmaz_3e_ch9
+  - charmaz_3e_ch12
+  source_basis: charmaz_2024_3e_chs_9_12
+  statistical: false
+  stato: []
+  reason: Integrates categories into an interpretive theory.
+- method: p05
+  record_id: p05.action.persist_anchors
+  verb: anchor
+  label: persist exact source and incident anchors
+  anchors:
+  - instrument_exact_anchor_field
+  source_basis: execution_support_no_independent_method_warrant
+  statistical: false
+  stato: []
+  reason: Stores source anchors; runtime bookkeeping.
+- method: p05
+  record_id: p05.action.version_memos
+  verb: annotate
+  label: version memos and comparison lineage
+  anchors:
+  - charmaz_3e_ch7
+  source_basis: charmaz_2024_3e_ch7
+  statistical: false
+  stato: []
+  reason: Versions memos and their lineage; bookkeeping.
+- method: p06
+  record_id: p06.move.define
+  verb: define
+  label: define construct population reference period and estimand
+  anchors:
+  - frame:p06:source_freeze
+  - OMB:1.1
+  - OMB:1.2
+  - Groves:2.2
+  source_basis: OMB_2006_1.1_1.2;Groves_2009_ch2
+  statistical: false
+  stato: []
+  reason: Defines the construct, population and estimand; design, nothing computed.
+- method: p06
+  record_id: p06.move.frame
+  verb: construct
+  label: construct and assess sampling frame
+  anchors:
+  - OMB:2.1
+  - Groves:ch3
+  source_basis: OMB_2006_2.1;Groves_2009_ch3
+  statistical: false
+  stato: []
+  reason: Builds the sampling frame and appraises its coverage; design and appraisal, nothing computed.
+- method: p06
+  record_id: p06.move.design
+  verb: construct
+  label: design probability sample instrument and response protocol
+  anchors:
+  - OMB:1.2
+  - OMB:1.3
+  - Groves:ch4
+  - Groves:ch5
+  - Groves:ch7
+  source_basis: OMB_2006_1.2_1.3;Groves_2009_ch4_ch5_ch7
+  statistical: false
+  stato: []
+  reason: Designs the sample, instrument and protocol; design, not computation.
+- method: p06
+  record_id: p06.move.pretest
+  verb: test
+  label: pretest instrument and collection procedures
+  anchors:
+  - OMB:1.4
+  - Groves:8.5
+  - Groves:ch8
+  source_basis: OMB_2006_1.4;Groves_2009_ch8
+  statistical: false
+  stato: []
+  reason: Verb 'test', but this is a pretest of the instrument and procedures that produces a qualitative appraisal of whether
+    they work. No statistical test is run.
+- method: p06
+  record_id: p06.move.select
+  verb: construct
+  label: select probability sample and retain inclusion probabilities
+  anchors:
+  - OMB:1.2
+  - OMB:2.1
+  - Groves:ch4
+  source_basis: OMB_2006_1.2_2.1;Groves_2009_ch4
+  statistical: true
+  stato:
+  - STATO:0000502
+  reason: Draws a probability sample and keeps inclusion probabilities and base weights. STATO:0000502 'statistical sampling'
+    is a general term; the record does not say which design (stratified, cluster, PPS), so no more specific child fits.
+- method: p06
+  record_id: p06.move.collect
+  verb: acquire
+  label: collect responses and paradata under the frozen protocol
+  anchors:
+  - OMB:1.3
+  - OMB:2.2
+  - OMB:2.3
+  - Groves:ch5
+  - Groves:6.6
+  source_basis: OMB_2006_1.3_2.2_2.3;Groves_2009_ch5_ch6
+  statistical: false
+  stato: []
+  reason: Collects responses and paradata; acquisition only.
+- method: p06
+  record_id: p06.move.process
+  verb: code
+  label: edit code and evaluate response quality
+  anchors:
+  - OMB:3.1
+  - OMB:3.2
+  - OMB:3.3
+  - OMB:3.4
+  - OMB:3.5
+  - Groves:10.2
+  - Groves:10.4
+  source_basis: OMB_2006_3.1_3.5;Groves_2009_ch10
+  statistical: false
+  stato: []
+  reason: Edits and codes responses and reports on processing quality; not a statistical computation.
+- method: p06
+  record_id: p06.move.adjust
+  verb: calibrate
+  label: assess nonresponse and derive final weights
+  anchors:
+  - OMB:3.2
+  - OMB:4.1
+  - Groves:ch6
+  - Groves:10.5
+  source_basis: OMB_2006_3.2_4.1;Groves_2009_ch6_10.5
+  statistical: true
+  stato:
+  - STATO:0000471
+  reason: Derives nonresponse-adjusted final weights, i.e. adjustment factors estimated from response and auxiliary data.
+    STATO has no survey-weighting term, and its 'calibration' (STATO:0000652) is a different sense, so the general STATO:0000471
+    'estimate' is used.
+- method: p06
+  record_id: p06.move.estimate
+  verb: estimate
+  label: estimate prevalence and design-based uncertainty
+  anchors:
+  - OMB:4.1
+  - OMB:5.2
+  - Groves:10.7
+  source_basis: OMB_2006_4.1_5.2;Groves_2009_10.7
+  statistical: true
+  stato:
+  - STATO:0000412
+  - STATO:0000650
+  reason: Produces a population prevalence estimate, STATO:0000412 'prevalence', plus its design-based variance under the
+    complex design, STATO:0000650 'sampling distribution variance'. 'standard error of the proportion' was not used because
+    it assumes simple random sampling.
+- method: p06
+  record_id: p06.move.report
+  verb: review
+  label: review release and document prevalence
+  anchors:
+  - OMB:5.1
+  - OMB:6.1
+  - OMB:7.1
+  - OMB:7.2
+  - OMB:7.3
+  - Groves:10.8
+  source_basis: OMB_2006_5.1_6.1_7.1_7.2_7.3;Groves_2009_10.8
+  statistical: false
+  stato: []
+  reason: Reviews, documents and releases the results; reporting.
+- method: p06
+  record_id: p06.move.refuse
+  verb: refuse
+  label: refuse or withhold population prevalence
+  anchors:
+  - OMB:3.2
+  - OMB:4.1
+  - OMB:7.1
+  - uncertainty:p06:stopping_rule
+  source_basis: OMB_2006_3.2_4.1_7.1;uncertainty.yaml_stopping_rule
+  statistical: false
+  stato: []
+  reason: Decides to refuse or withhold a prevalence; governance.
+- method: p06
+  record_id: p06.action.draw_sample
+  verb: construct
+  label: execute seeded probability selection
+  anchors:
+  - OMB:1.2
+  source_basis: OMB_2006_1.2
+  statistical: true
+  stato:
+  - STATO:0000502
+  reason: Runs the seeded probability selection, so it carries out STATO:0000502 'statistical sampling'. This is the general
+    term because the design type is not stated.
+- method: p06
+  record_id: p06.action.compute_variance
+  verb: estimate
+  label: execute complex-design estimator
+  anchors:
+  - OMB:4.1
+  - Groves:10.7
+  source_basis: OMB_2006_4.1;Groves_2009_10.7
+  statistical: true
+  stato:
+  - STATO:0000412
+  - STATO:0000650
+  reason: Runs the complex-design estimator, producing STATO:0000412 'prevalence' and its design-based STATO:0000650 'sampling
+    distribution variance'.
+- method: p07
+  record_id: p07.move.bound
+  verb: define
+  label: freeze corpus unit and prevalence target
+  anchors:
+  - GS2013:2.1
+  - GS2013:2.4
+  source_basis: Grimmer_Stewart_2013_sections_2.1_2.4
+  statistical: false
+  stato: []
+  reason: Freezes the corpus, the unit of analysis and the prevalence target; design.
+- method: p07
+  record_id: p07.move.operationalize
+  verb: conceptualize
+  label: operationalize construct and annotation protocol
+  anchors:
+  - GS2013:2.2
+  - GS2013:5.2.1
+  source_basis: Grimmer_Stewart_2013_sections_2.2_5.2.1
+  statistical: false
+  stato: []
+  reason: Defines the construct and writes the annotation protocol; conceptual design.
+- method: p07
+  record_id: p07.move.pilot
+  verb: test
+  label: pilot code and assess intercoder reliability
+  anchors:
+  - GS2013:5.2.1
+  - Krippendorff2018:ch12
+  source_basis: Grimmer_Stewart_2013_section_5.2.1;Krippendorff_2018_ch12
+  statistical: true
+  stato:
+  - STATO:0000623
+  reason: Computes intercoder reliability (an agreement coefficient such as Krippendorff's alpha) and checks it against a
+    frozen threshold. STATO has no Krippendorff term, so the general STATO:0000623 'measure of agreement' is used.
+- method: p07
+  record_id: p07.move.annotate
+  verb: annotate
+  label: sample annotate and adjudicate target labels
+  anchors:
+  - GS2013:5.2.1
+  - Krippendorff2018:ch12
+  source_basis: Grimmer_Stewart_2013_section_5.2.1;Krippendorff_2018_ch12
+  statistical: false
+  stato: []
+  reason: Human annotation and adjudication of labels; qualitative coding.
+- method: p07
+  record_id: p07.move.split
+  verb: construct
+  label: freeze grouped development and held-out evaluation
+  anchors:
+  - GS2013:5.2.3
+  source_basis: Grimmer_Stewart_2013_section_5.2.3
+  statistical: false
+  stato: []
+  reason: Freezes grouped development and held-out partitions; validation design, no statistic produced.
+- method: p07
+  record_id: p07.move.fit
+  verb: fit
+  label: fit baselines and candidate supervised models
+  anchors:
+  - GS2013:4
+  - GS2013:5.2.2
+  source_basis: Grimmer_Stewart_2013_sections_4_5.2.2
+  statistical: true
+  stato:
+  - STATO:0000218
+  reason: 'Fits baseline and candidate supervised classifiers on the development data: STATO:0000218 ''model fitting''. The
+    model family is not stated, so no more specific term fits.'
+- method: p07
+  record_id: p07.move.validate
+  verb: test
+  label: validate against held-out humans and analyze errors
+  anchors:
+  - GS2013:5.2.3
+  - GS2013:2.2
+  - Esuli2023:ch3
+  source_basis: Grimmer_Stewart_2013_sections_2.2_5.2.3;Esuli_et_al_2023_ch3
+  statistical: true
+  stato:
+  - STATO:0000415
+  - STATO:0000632
+  reason: 'Scores predictions against held-out human labels and analyses item errors: STATO:0000415 ''accuracy'' and STATO:0000632
+    ''misclassification rate''. The construct review in this move stays a judgement.'
+- method: p07
+  record_id: p07.move.quantify
+  verb: estimate
+  label: estimate construct prevalence with classification uncertainty
+  anchors:
+  - Esuli2023:ch4
+  - Esuli2023:ch3
+  - MS2019:pp1415-1416
+  - GS2013:5.2.3
+  source_basis: Esuli_et_al_2023_ch3_ch4;Moreo_Sebastiani_2019;Grimmer_Stewart_2013_section_5.2.3
+  statistical: true
+  stato:
+  - STATO:0000412
+  reason: 'Estimates construct prevalence in the corpus with a quantification estimator: STATO:0000412 ''prevalence''. The
+    record does not say what form the uncertainty takes, so no interval or error term is added.'
+- method: p07
+  record_id: p07.move.interpret
+  verb: review
+  label: interpret measurement and construct limits
+  anchors:
+  - GS2013:2.2
+  - GS2013:5.2.3
+  source_basis: Grimmer_Stewart_2013_sections_2.2_5.2.3
+  statistical: false
+  stato: []
+  reason: Interprets the limits of the measurement and the construct; judgement.
+- method: p07
+  record_id: p07.move.refuse
+  verb: refuse
+  label: refuse prevalence or out-of-scope claim
+  anchors:
+  - uncertainty:p07:stopping_rule
+  - GS2013:2.4
+  - Esuli2023:ch3
+  source_basis: uncertainty.yaml_stopping_rule;Grimmer_Stewart_2013_section_2.4;Esuli_et_al_2023_ch3
+  statistical: false
+  stato: []
+  reason: Refuses an unsupported claim; governance.
+- method: p07
+  record_id: p07.action.fit_models
+  verb: fit
+  label: execute frozen feature and fitting pipeline
+  anchors:
+  - GS2013:4
+  - GS2013:5.2.2
+  source_basis: Grimmer_Stewart_2013_sections_4_5.2.2
+  statistical: true
+  stato:
+  - STATO:0000218
+  reason: 'Runs the frozen fitting pipeline that trains the classifiers: STATO:0000218 ''model fitting''.'
+- method: p07
+  record_id: p07.action.persist_errors
+  verb: anchor
+  label: render anchored item-level errors for review
+  anchors:
+  - instrument:exact_anchors
+  source_basis: no_methodology_counterpart
+  statistical: false
+  stato: []
+  reason: Renders and stores item errors for review; runtime delivery.
+- method: p08
+  record_id: p08.move.target
+  verb: define
+  label: freeze target horizon origin use and loss
+  anchors:
+  - FPP3:1.3
+  - FPP3:1.6
+  source_basis: FPP3_1.3_1.6
+  statistical: false
+  stato: []
+  reason: Freezes the target, horizon, use and loss; specification.
+- method: p08
+  record_id: p08.move.information
+  verb: construct
+  label: build as-of data and feature availability contract
+  anchors:
+  - FPP3:5.8
+  - FPP3:5.10
+  - Croushore2011:pp72-100
+  source_basis: FPP3_5.8_5.10;Croushore_2011
+  statistical: false
+  stato: []
+  reason: Builds the as-of data and feature-availability contract; data engineering.
+- method: p08
+  record_id: p08.move.baseline
+  verb: define
+  label: define naive and seasonal baselines
+  anchors:
+  - FPP3:5.2
+  - FPP3:5.4
+  source_basis: FPP3_5.2_5.4
+  statistical: false
+  stato: []
+  reason: Specifies naive and seasonal baseline procedures. They are fitted and scored in later moves.
+- method: p08
+  record_id: p08.move.folds
+  verb: construct
+  label: construct rolling-origin evaluation
+  anchors:
+  - FPP3:5.10
+  source_basis: FPP3_5.10
+  statistical: false
+  stato: []
+  reason: Constructs the rolling-origin folds; evaluation design.
+- method: p08
+  record_id: p08.move.fit
+  verb: fit
+  label: fit candidates on rolling training folds
+  anchors:
+  - FPP3:1.6
+  - FPP3:5.3
+  - FPP3:5.10
+  source_basis: FPP3_1.6_5.3_5.10
+  statistical: true
+  stato:
+  - STATO:0000218
+  - STATO:0000234
+  reason: 'Fits each candidate on its training folds and produces fold forecasts and residuals: STATO:0000218 ''model fitting''
+    and STATO:0000234 ''residual''.'
+- method: p08
+  record_id: p08.move.score
+  verb: test
+  label: score point and predictive distributions by horizon
+  anchors:
+  - FPP3:5.8
+  - FPP3:5.9
+  - FPP3:5.10
+  - GR2007:2-4
+  source_basis: FPP3_5.8_5.10;Gneiting_Raftery_2007_2_4
+  statistical: true
+  stato:
+  - STATO:0000039
+  reason: Computes point losses and proper scores of predictive distributions by horizon. STATO has no proper-scoring-rule
+    or MAE/RMSE term, and 'score' (STATO:0000569) is a rating datum, so the general STATO:0000039 'statistic' is used.
+- method: p08
+  record_id: p08.move.diagnose
+  verb: test
+  label: diagnose residual calibration and regime failures
+  anchors:
+  - FPP3:5.4
+  - FPP3:5.9
+  source_basis: FPP3_5.4_5.9
+  statistical: true
+  stato:
+  - STATO:0000234
+  - STATO:0000685
+  reason: 'Runs residual and calibration diagnostics on the forecasts: STATO:0000234 ''residual'' and STATO:0000685 ''mesure
+    of calibration'' (the label is spelled that way in STATO).'
+- method: p08
+  record_id: p08.move.select
+  verb: rank
+  label: select or combine evaluated procedures
+  anchors:
+  - FPP3:1.6
+  - FPP3:5.8
+  - FPP3:5.9
+  - FPP3:13.4
+  source_basis: FPP3_1.6_5.8_5.9_13.4
+  statistical: true
+  stato:
+  - STATO:0000328
+  reason: 'Chooses or combines procedures from their out-of-sample scores under the frozen loss: STATO:0000328 ''statistical
+    model selection''.'
+- method: p08
+  record_id: p08.move.issue
+  verb: project
+  label: refit selected procedure and issue forecast
+  anchors:
+  - FPP3:1.6
+  - FPP3:5.5
+  source_basis: FPP3_1.6_5.5
+  statistical: true
+  stato:
+  - STATO:0000218
+  - STATO:0000225
+  reason: 'Refits the selected procedure and issues a predictive distribution: STATO:0000218 ''model fitting'' and STATO:0000225
+    ''probability distribution''. STATO has no forecast term, so the latter is general.'
+- method: p08
+  record_id: p08.move.monitor
+  verb: monitor
+  label: join realized outcomes and monitor performance
+  anchors:
+  - FPP3:1.6
+  - FPP3:5.8
+  - FPP3:5.9
+  source_basis: FPP3_1.6_5.8_5.9
+  statistical: true
+  stato:
+  - STATO:0000039
+  reason: Scores issued forecasts against realised outcomes and tracks drift. No specific STATO term exists for forecast performance,
+    so the general STATO:0000039 'statistic' is used.
+- method: p08
+  record_id: p08.move.refuse
+  verb: refuse
+  label: refuse forecast issuance
+  anchors:
+  - uncertainty:p08:stopping_rule
+  - FPP3:5.2
+  - FPP3:5.4
+  - FPP3:5.9
+  source_basis: uncertainty.yaml_stopping_rule;FPP3_5.2_5.4_5.9
+  statistical: false
+  stato: []
+  reason: Refuses to issue a forecast; governance.
+- method: p08
+  record_id: p08.action.run_backtest
+  verb: project
+  label: execute rolling-origin candidates
+  anchors:
+  - FPP3:5.10
+  source_basis: FPP3_5.10
+  statistical: true
+  stato:
+  - STATO:0000218
+  reason: 'Verb ''project'': it runs the rolling-origin training and prediction for each candidate, which is STATO:0000218
+    ''model fitting''. STATO has no forecasting term.'
+- method: p08
+  record_id: p08.action.persist_issue
+  verb: anchor
+  label: persist forecast distribution and cutoff receipt
+  anchors:
+  - instrument:run_version_guard
+  source_basis: no_methodology_counterpart
+  statistical: false
+  stato: []
+  reason: Stores the forecast and its cutoff receipt; custody only.
+- method: p09
+  record_id: p09.move.purpose
+  verb: define
+  label: freeze policy question purpose abstraction and target patterns
+  anchors:
+  - ODD2020:purpose_and_patterns
+  - RG2019:ch3
+  source_basis: Grimm_2020_ODD_purpose_and_patterns;Railsback_Grimm_2019_ch3
+  statistical: false
+  stato: []
+  reason: Freezes the purpose, the abstraction and the target patterns; design.
+- method: p09
+  record_id: p09.move.specify
+  verb: conceptualize
+  label: specify entities states scales processes schedule initialization inputs and submodels
+  anchors:
+  - ODD2020:overview
+  - ODD2020:design_concepts
+  - ODD2020:details
+  source_basis: Grimm_2020_ODD_sections_3_4
+  statistical: false
+  stato: []
+  reason: Writes the ODD model specification; conceptual design.
+- method: p09
+  record_id: p09.move.implement
+  verb: construct
+  label: implement executable model and map code to specification
+  anchors:
+  - RG2019:4.2
+  - RG2019:4.3
+  - RG2019:6.4
+  source_basis: Railsback_Grimm_2019_chapters_4_6
+  statistical: false
+  stato: []
+  reason: Implements the model in code; software construction.
+- method: p09
+  record_id: p09.move.verify
+  verb: test
+  label: verify computerized model against specification
+  anchors:
+  - RG2019:ch6
+  - Sargent2013:computerized_model_verification
+  source_basis: Railsback_Grimm_2019_ch6;Sargent_2013_verification
+  statistical: false
+  stato: []
+  reason: Verb 'test', but this is software verification that the code matches the specification. No statistical test or statistic
+    is produced.
+- method: p09
+  record_id: p09.move.ground
+  verb: calibrate
+  label: parameterize calibrate and assess empirical fitness
+  anchors:
+  - Sargent2013:validity_types
+  - RG2019:20.3
+  - RG2019:20.4
+  source_basis: Sargent_2013_conceptual_operational_data_validity;Railsback_Grimm_2019_ch20
+  statistical: true
+  stato:
+  - STATO:0000119
+  reason: 'Calibrates model parameters against empirical target patterns: STATO:0000119 ''model parameter estimation'', a
+    general term. STATO ''calibration'' (STATO:0000652) means predictive-model calibration, so it was not used, and the fitness
+    appraisal in this move stays a judgement.'
+- method: p09
+  record_id: p09.move.design
+  verb: construct
+  label: freeze configurations contrasts estimands replications seeds and uncertainty space
+  anchors:
+  - Kleijnen2015:ch2
+  - Kleijnen2015:ch3
+  - RG2019:8.3
+  source_basis: Kleijnen_2015_ch2_ch3;Railsback_Grimm_2019_8.3
+  statistical: false
+  stato: []
+  reason: Freezes configurations, contrasts, replications and seeds; experimental design.
+- method: p09
+  record_id: p09.move.execute
+  verb: simulate
+  label: execute and retain replicated stochastic ensemble
+  anchors:
+  - RG2019:8.3
+  - Kleijnen2015:ch3
+  source_basis: Railsback_Grimm_2019_8.3;Kleijnen_2015_ch3
+  statistical: true
+  stato:
+  - STATO:0000535
+  reason: 'Runs the replicated stochastic ensemble, a Monte Carlo draw from the model''s output distribution: STATO:0000535
+    ''sampling from a probability distribution''. STATO has no simulation term, so this is general.'
+- method: p09
+  record_id: p09.move.compare
+  verb: estimate
+  label: estimate model-conditional contrasts and inspect traces
+  anchors:
+  - Kleijnen2015:ch3
+  - RG2019:8.3
+  - RG2019:22.4
+  source_basis: Kleijnen_2015_ch3;Railsback_Grimm_2019_8.3_ch22
+  statistical: true
+  stato:
+  - STATO:0000384
+  - STATO:0000385
+  reason: Estimates model-conditional contrasts between configurations, STATO:0000384 'contrast estimate', and their Monte
+    Carlo precision, STATO:0000385 'standard error of a contrast estimate'. The trace inspection in this move is interpretive.
+- method: p09
+  record_id: p09.move.sensitivity
+  verb: perturb
+  label: separate parameter input and structural sensitivity
+  anchors:
+  - JRC2020:ch2
+  - JRC2020:ch3
+  - JRC2020:ch4
+  - RG2019:23.2
+  - RG2019:23.3
+  - RG2019:23.4
+  source_basis: Azzini_2020_chapters_2_4;Railsback_Grimm_2019_23.2_23.4
+  statistical: true
+  stato:
+  - STATO:0000039
+  reason: Perturbs parameters, inputs and structure and computes sensitivity measures over simulated output. STATO has no
+    sensitivity-index term, so the general STATO:0000039 'statistic' is used; the structural judgement is not statistical.
+- method: p09
+  record_id: p09.move.conclude
+  verb: review
+  label: apply adequacy gate and state model-conditional finding
+  anchors:
+  - ODD2020:scope
+  - Sargent2013:recommended_procedure
+  - JRC2020:communication
+  source_basis: Grimm_2020;Sargent_2013;Azzini_2020
+  statistical: false
+  stato: []
+  reason: Applies the adequacy gate and states the finding; review and judgement.
+- method: p09
+  record_id: p09.move.refuse
+  verb: refuse
+  label: refuse real-world or unsupported simulation claim
+  anchors:
+  - uncertainty:p09:stopping_rule
+  - Sargent2013:recommended_procedure
+  - JRC2020:communication
+  source_basis: uncertainty.yaml_stopping_rule;Sargent_2013;Azzini_2020
+  statistical: false
+  stato: []
+  reason: Refuses an unsupported claim; governance.
+- method: p09
+  record_id: p09.action.run_model
+  verb: simulate
+  label: schedule model runs and retain seeds traces and failures
+  anchors:
+  - RG2019:8.3
+  source_basis: Railsback_Grimm_2019_8.3
+  statistical: true
+  stato:
+  - STATO:0000535
+  reason: 'Executes the seeded stochastic model runs, a Monte Carlo draw: STATO:0000535 ''sampling from a probability distribution'',
+    a general term.'
+- method: p09
+  record_id: p09.action.verify_invariants
+  verb: test
+  label: execute invariant extreme-case and trace checks
+  anchors:
+  - RG2019:6.3
+  - RG2019:6.4
+  - Sargent2013:verification
+  source_basis: Railsback_Grimm_2019_ch6;Sargent_2013
+  statistical: false
+  stato: []
+  reason: Verb 'test', but it runs deterministic invariant and extreme-case code checks. No statistical test is involved.
+- method: p10
+  record_id: p10.move.frame
+  verb: define
+  label: frame decisions uncertainties outcomes relationships and values
+  anchors:
+  - lempert_2003_ch1
+  - lempert_2003_ch2
+  - groves_2019_step1
+  source_basis: lempert_2003_chs_1_3
+  statistical: false
+  stato: []
+  reason: Frames the decision problem (XLRM); design and elicitation.
+- method: p10
+  record_id: p10.move.generate_futures
+  verb: simulate
+  label: generate a diverse ensemble of plausible futures
+  anchors:
+  - lempert_2003_ch2
+  - groves_2019_step2
+  source_basis: lempert_2003_chs_2_3
+  statistical: false
+  stato: []
+  reason: The verb is 'simulate', but the step designs an exploratory ensemble of plausible futures. The record rules out
+    assigning a predictive probability, so no probability distribution is sampled and no statistic is produced.
+- method: p10
+  record_id: p10.move.evaluate
+  verb: simulate
+  label: evaluate candidate strategies across the same futures
+  anchors:
+  - groves_2019_step2
+  source_basis: groves_2019_step2
+  statistical: false
+  stato: []
+  reason: The verb is 'simulate', but the step runs the declared policy models across the futures to fill a performance database.
+    These are exploratory model outputs (conditional performance, not predictions), not a statistical estimate or fit.
+- method: p10
+  record_id: p10.move.discover_vulnerability
+  verb: identify
+  label: discover conditions associated with unacceptable outcomes
+  anchors:
+  - groves_2019_step3
+  source_basis: groves_2019_step3
+  statistical: false
+  stato: []
+  reason: The analyst interprets and validates candidate cluster statistics into decision-relevant vulnerability scenarios.
+    The statistical classification happens in p10.action.cluster_cases.
+- method: p10
+  record_id: p10.move.compare_robustness
+  verb: compare
+  label: compare robustness and trade-offs under stated values
+  anchors:
+  - lempert_2003_ch3
+  - groves_2019_step5
+  source_basis: lempert_2003_chs_3_6_and_groves_2019_step5
+  statistical: false
+  stato: []
+  reason: Compares robustness and trade-offs under robustness measures and satisficing thresholds that the record treats as
+    value choices. This is decision-analytic appraisal, not statistical inference.
+- method: p10
+  record_id: p10.move.revise_strategy
+  verb: revise
+  label: design hedges adaptations and new tests from vulnerabilities
+  anchors:
+  - groves_2019_step4
+  source_basis: groves_2019_step4
+  statistical: false
+  stato: []
+  reason: Designs hedges, adaptations and signposts.
+- method: p10
+  record_id: p10.move.advise
+  verb: recommend
+  label: present conditional robust strategy advice and residual uncertainty
+  anchors:
+  - lempert_2003_ch6
+  source_basis: lempert_2003_ch6
+  statistical: false
+  stato: []
+  reason: Reports conditional advice.
+- method: p10
+  record_id: p10.action.run_ensemble
+  verb: simulate
+  label: execute frozen strategy-future model matrix
+  anchors:
+  - groves_2019_step2
+  source_basis: groves_2019_step2
+  statistical: false
+  stato: []
+  reason: The verb is 'simulate', but the step executes the frozen strategy-by-future model matrix. These are numerical runs
+    of the declared models, not draws from a probability distribution or a statistical procedure.
+- method: p10
+  record_id: p10.action.cluster_cases
+  verb: classify
+  label: derive candidate vulnerability clusters
+  anchors:
+  - groves_2019_step3
+  source_basis: groves_2019_step3
+  statistical: true
+  stato:
+  - STATO:0000031
+  reason: Scenario discovery (PRIM/CART style, Groves 2019 step 3) classifies simulated cases as unacceptable or acceptable
+    and derives candidate clusters with summary statistics. STATO 'binary classification' fits this supervised two-class case
+    split. It is a fairly general term, since STATO has no PRIM term.
+- method: p11
+  record_id: p11.move.rationale
+  verb: define
+  label: establish case for change theory of change and business as usual
+  anchors:
+  - green_book_2026_sections_4_1_4_28
+  source_basis: green_book_2026_ch4
+  statistical: false
+  stato: []
+  reason: Sets out the case for change and the theory of change.
+- method: p11
+  record_id: p11.move.objectives
+  verb: define
+  label: set SMART objectives critical success factors and authority
+  anchors:
+  - green_book_2026_ch4_objectives
+  - green_book_2026_ch5_csfs
+  source_basis: green_book_2026_chs4_5
+  statistical: false
+  stato: []
+  reason: Sets objectives and critical success factors.
+- method: p11
+  record_id: p11.move.generate_off
+  verb: construct
+  label: generate materially distinct options using the Options Framework Filter
+  anchors:
+  - green_book_2026_sections_5_13_5_35
+  source_basis: green_book_2026_ch5
+  statistical: false
+  stato: []
+  reason: Generates options with the Options Framework Filter; design work.
+- method: p11
+  record_id: p11.move.choose_longlist_route
+  verb: review
+  label: decide whether OFF resolves trade-offs or expert-facilitated MCDA is needed
+  anchors:
+  - green_book_2026_5_13_5_16
+  - mcda_2024_scope
+  source_basis: green_book_2026_sections_5_13_5_16_and_mcda_2024
+  statistical: false
+  stato: []
+  reason: Procedural route decision.
+- method: p11
+  record_id: p11.move.mcda
+  verb: rank
+  label: conduct bounded swing-weighted MCDA when activated
+  anchors:
+  - mcda_2024_steps_1_6
+  source_basis: green_book_mcda_2024
+  statistical: false
+  stato: []
+  reason: Swing weights in a facilitated MCDA are elicited preference weights, and the ranking comes from expert-facilitated
+    judgement. Neither is a statistical estimate or weighting procedure.
+- method: p11
+  record_id: p11.move.shortlist
+  verb: screen
+  label: form viable shortlist and rejection log
+  anchors:
+  - green_book_2026_ch5_selecting_a_shortlist
+  - green_book_2026_ch6_intro_return_to_longlist
+  source_basis: green_book_2026_ch5
+  statistical: false
+  stato: []
+  reason: Screens for viability by appraisal judgement.
+- method: p11
+  record_id: p11.move.appraise_cba_cea
+  verb: value
+  label: appraise shortlist using social CBA or CEA
+  anchors:
+  - green_book_2026_ch6_cba_cea
+  source_basis: green_book_2026_ch6
+  statistical: false
+  stato: []
+  reason: Social cost-benefit or cost-effectiveness appraisal is economic valuation of options, not a statistical procedure,
+    even though the output is typed 'estimate'.
+- method: p11
+  record_id: p11.move.qualify_impacts
+  verb: review
+  label: preserve unmonetized distributional risk and uncertainty evidence
+  anchors:
+  - green_book_2026_ch6_classifying_social_costs_and_benefits
+  - green_book_2026_ch6_risk_and_uncertainty
+  - green_book_2026_ch6_optimism_bias
+  - green_book_2026_ch6_sensitivity_analysis_and_switching_values
+  - green_book_2026_ch2_shortlist_appraisal
+  - green_book_2026_ch7
+  - green_book_2026_ch8
+  source_basis: green_book_2026_chs2_6_7_8
+  statistical: false
+  stato: []
+  reason: Reviews unmonetized, distributional and uncertainty evidence; appraisal judgement.
+- method: p11
+  record_id: p11.move.compare_advise
+  verb: recommend
+  label: form balanced comparative judgment and recommendation or no preference
+  anchors:
+  - green_book_2026_ch2_identifying_the_preferred_option
+  - green_book_2026_ch6_identifying_the_preferred_option
+  - green_book_2026_ch6_intro_return_to_longlist
+  - green_book_2026_ch9_presentation
+  source_basis: green_book_2026_chs2_6_9
+  statistical: false
+  stato: []
+  reason: Balanced value-for-money judgement and recommendation.
+- method: p11
+  record_id: p11.move.assure
+  verb: review
+  label: assure appraisal advice before decision
+  anchors:
+  - green_book_2026_ch1_who_is_the_green_book_for
+  source_basis: green_book_2026_ch1_who_is_the_green_book_for_plus_local_assurance_binding
+  statistical: false
+  stato: []
+  reason: Assurance review; governance.
+- method: p11
+  record_id: p11.move.decide_feedback
+  verb: monitor
+  label: record accountable decision and successor monitoring evaluation feedback
+  anchors:
+  - green_book_2026_ch2_roamef
+  - green_book_2026_ch10
+  source_basis: green_book_2026_ch2_roamef_and_ch10
+  statistical: false
+  stato: []
+  reason: Records the decision and monitoring feedback; governance.
+- method: p11
+  record_id: p11.action.calculate
+  verb: aggregate
+  label: calculate discounted CBA or CEA metrics from frozen assumptions
+  anchors:
+  - green_book_2026_ch6
+  source_basis: green_book_2026_ch6
+  statistical: false
+  stato: []
+  reason: The verb is 'aggregate', but the step discounts and sums costs and benefits deterministically from frozen assumptions
+    (NPV and CEA ratios). This is economic arithmetic, not a statistical estimate, test or fit.
+- method: p11
+  record_id: p11.action.publish_ast
+  verb: project
+  label: render balanced appraisal summary table
+  anchors:
+  - green_book_2026_ch9_ast
+  source_basis: green_book_2026_ch9
+  statistical: false
+  stato: []
+  reason: The verb is 'project', but the step only renders the appraisal summary table; reporting.
+- method: p12
+  record_id: p12.move.design
+  verb: construct
+  label: justify Delphi and freeze questions rounds feedback and analysis rules
+  anchors:
+  - rand_tla3082_ch1_purpose
+  - rand_tla3082_ch3_design
+  - turoff_1975_policy_delphi_ch3b1_p84_monitor_preformulates_issues_and_seeds_options
+  source_basis: rand_tla3082_chs1_3
+  statistical: false
+  stato: []
+  reason: Designs the Delphi protocol and freezes its analysis rules.
+- method: p12
+  record_id: p12.move.panel
+  verb: identify
+  label: construct and recruit purposive expert panel
+  anchors:
+  - rand_tla3082_panel_eligibility_recruitment
+  - turoff_1975_policy_delphi_ch3b1_pp80_84_informed_advocates_and_referees_of_many_sides
+  source_basis: rand_tla3082_ch3
+  statistical: false
+  stato: []
+  reason: Recruits a purposive expert panel; the record disclaims any claim to represent a population.
+- method: p12
+  record_id: p12.move.round1
+  verb: acquire
+  label: elicit independent anonymous round-one judgments and rationales
+  anchors:
+  - rand_tla3082_classical_process
+  - rand_tla3082_ch4
+  - turoff_1975_policy_delphi_ch3b1_pp84_87_first_round_options_positions_assumptions_and_four_scales
+  source_basis: rand_tla3082_chs2_4
+  statistical: false
+  stato: []
+  reason: Elicits panel judgements.
+- method: p12
+  record_id: p12.move.feedback1
+  verb: synthesize
+  label: create controlled anonymous quantitative and qualitative feedback
+  anchors:
+  - rand_tla3082_feedback_characteristic
+  - turoff_1975_policy_delphi_ch3b1_p88_abstract_comments_and_remove_duplicates
+  source_basis: rand_tla3082_ch2
+  statistical: true
+  stato:
+  - OBI:0200184
+  reason: Round-one feedback summarizes the panel's rating distributions as a statistical group response. No separate statistics
+    action feeds this round, so the step computes the descriptive summaries itself. The general 'descriptive statistical calculation
+    data transformation' is used because the protocol fixes no specific measure (p12.u02).
+- method: p12
+  record_id: p12.move.round2
+  verb: revise
+  label: elicit anonymous round-two revisions with reasons
+  anchors:
+  - rand_tla3082_classical_process
+  - turoff_1975_policy_delphi_ch3b1_p84_phase4_reasons_for_disagreement
+  source_basis: rand_tla3082_ch2
+  statistical: false
+  stato: []
+  reason: Elicits panelists' revisions.
+- method: p12
+  record_id: p12.move.feedback2
+  verb: synthesize
+  label: analyze interim stability disagreement and prepare second feedback
+  anchors:
+  - rand_tla3082_ch5_stability_consensus_comments
+  source_basis: rand_tla3082_ch5
+  statistical: false
+  stato: []
+  reason: Interprets stability and dissensus statistics that p12.action.compute_summary already produced, and turns them into
+    feedback. The step computes no statistic itself.
+- method: p12
+  record_id: p12.move.round3
+  verb: revise
+  label: elicit final anonymous round-three judgments and rationales
+  anchors:
+  - rand_tla3082_iterations_two_or_three_rounds
+  - turoff_1975_policy_delphi_ch3b1_pp84_88_phase6_reevaluation_third_round_revote
+  source_basis: rand_tla3082_ch2
+  statistical: false
+  stato: []
+  reason: Elicits final panel judgements.
+- method: p12
+  record_id: p12.move.interpret
+  verb: review
+  label: interpret stability consensus dissensus attrition and limits
+  anchors:
+  - rand_tla3082_ch5
+  - rand_tla3082_ch6
+  - turoff_1975_policy_delphi_ch3b1_p80_opposing_views_analysis_not_decision
+  source_basis: rand_tla3082_chs5_6
+  statistical: false
+  stato: []
+  reason: Interprets consensus, dissensus and limits; the record calls consensus a panel state, so this is judgement.
+- method: p12
+  record_id: p12.move.report
+  verb: synthesize
+  label: report panel flow round histories findings and limitations
+  anchors:
+  - rand_tla3082_ch6
+  - rand_tla3082_dcat
+  source_basis: rand_tla3082_ch6_and_dcat
+  statistical: false
+  stato: []
+  reason: Reporting.
+- method: p12
+  record_id: p12.action.deliver_round
+  verb: project
+  label: deliver questionnaire and persist pseudonymous response receipt
+  anchors:
+  - rand_tla3082_software
+  source_basis: rand_tla3082_ch4
+  statistical: false
+  stato: []
+  reason: The verb is 'project', but the step delivers the questionnaire and stores a receipt; runtime delivery.
+- method: p12
+  record_id: p12.action.compute_summary
+  verb: aggregate
+  label: compute prespecified distributions stability and attrition
+  anchors:
+  - rand_tla3082_descriptive_statistics_stability
+  source_basis: rand_tla3082_ch5
+  statistical: true
+  stato:
+  - OBI:0200184
+  - STATO:0000607
+  reason: Computes the prespecified descriptive rating distributions and stability measures, matching the general 'descriptive
+    statistical calculation data transformation' (the specific measures are left to the protocol). It also computes attrition,
+    which is a 'proportion' of the enrolled panel.
+- method: p13
+  record_id: p13.move.design
+  verb: construct
+  label: freeze convergent purpose timing priority integration points and governance
+  anchors:
+  - nih_2011_design_timing_priority_integration
+  source_basis: nih_2011_nature_and_design
+  statistical: false
+  stato: []
+  reason: Convergent mixed-methods design.
+- method: p13
+  record_id: p13.move.qual_warrant
+  verb: synthesize
+  label: hand off to declared qualitative strand method and receive warranted findings
+  anchors:
+  - nih_2011_both_data_forms
+  source_basis: strand_specific_method_plus_nih_2011
+  statistical: false
+  stato: []
+  reason: Hands off to the qualitative strand.
+- method: p13
+  record_id: p13.move.quant_warrant
+  verb: estimate
+  label: hand off to declared quantitative strand method and receive warranted findings
+  anchors:
+  - nih_2011_both_data_forms
+  source_basis: strand_specific_method_plus_nih_2011
+  statistical: false
+  stato: []
+  reason: The verb is 'estimate', but the step hands off to the declared quantitative strand method and receives its findings.
+    The record says that method owns the estimand, analysis and uncertainty, so this move computes nothing.
+- method: p13
+  record_id: p13.move.check_readiness
+  verb: review
+  label: verify strand validity scope and integration readiness
+  anchors:
+  - fetters_2013_study_design_level_convergent_separate_analysis_then_merge
+  - nih_2011_both_data_forms
+  source_basis: fetters_2013_convergent_design_and_nih_2011_both_data_forms
+  statistical: false
+  stato: []
+  reason: Checks that the strands are valid and ready to integrate; appraisal.
+- method: p13
+  record_id: p13.move.align
+  verb: compare
+  label: align constructs cases units time and scope without erasing warrant
+  anchors:
+  - fetters_2013_merging_and_transformation
+  source_basis: fetters_2013_integration_methods
+  statistical: false
+  stato: []
+  reason: Aligns constructs and scope across the strands, conceptually.
+- method: p13
+  record_id: p13.move.joint_display
+  verb: aggregate
+  label: merge qualified findings in a joint display
+  anchors:
+  - fetters_2013_joint_display
+  source_basis: fetters_2013_joint_displays
+  statistical: false
+  stato: []
+  reason: The verb is 'aggregate', but the step places qualified findings side by side in a joint display. It pools no data
+    and computes no statistic.
+- method: p13
+  record_id: p13.move.fit
+  verb: compare
+  label: judge confirmation expansion complementarity and discordance
+  anchors:
+  - fetters_2013_confirmation_expansion_discordance
+  source_basis: fetters_2013_fit_of_integration
+  statistical: false
+  stato: []
+  reason: Judges fit and divergence between the strands; interpretive.
+- method: p13
+  record_id: p13.move.meta_infer
+  verb: synthesize
+  label: draw bounded meta-inference from integration
+  anchors:
+  - nih_2011_mixing_integration
+  - fetters_2013_interpretation_reporting
+  source_basis: nih_2011_and_fetters_2013
+  statistical: false
+  stato: []
+  reason: Draws an interpretive meta-inference.
+- method: p13
+  record_id: p13.action.link_findings
+  verb: project
+  label: render lineage-preserving joint display cells
+  anchors:
+  - fetters_2013_joint_display
+  source_basis: fetters_2013_joint_displays
+  statistical: false
+  stato: []
+  reason: The verb is 'project', but the step renders joint display cells; reporting.
+- method: p13
+  record_id: p13.action.trace_meta
+  verb: review
+  label: validate every meta-inference link to both strand records and qualifications
+  anchors:
+  - fetters_2013_interpretation_reporting
+  source_basis: fetters_2013_interpretation_and_reporting
+  statistical: false
+  stato: []
+  reason: Validates the traceability of meta-inference links; review.
+- method: p14
+  record_id: p14.move.case_scope
+  verb: define
+  label: freeze case outcome and scope
+  anchors:
+  - source:p14.bc.ch1
+  source_basis: Bennett_Checkel_2015_ch1
+  statistical: false
+  stato: []
+  reason: Case framing.
+- method: p14
+  record_id: p14.move.rivals
+  verb: define
+  label: freeze rival explanations
+  anchors:
+  - source:p14.bc.ch1
+  - source:p14.bc.appendix
+  source_basis: Bennett_Checkel_2015_ch1_and_appendix
+  statistical: false
+  stato: []
+  reason: Rival hypothesis specification.
+- method: p14
+  record_id: p14.move.priors
+  verb: estimate
+  label: elicit priors from background evidence
+  anchors:
+  - source:p14.fc.sections2_3
+  source_basis: Fairfield_Charman_2017_sections2_to_3
+  statistical: false
+  stato: []
+  reason: In qualitative Bayesian process tracing, priors are elicited by reasoned expert judgement from background evidence.
+    This 'estimate' step is elicitation, not a statistical estimate or a fitted prior distribution.
+- method: p14
+  record_id: p14.move.mechanisms
+  verb: derive
+  label: derive mechanisms and observables
+  anchors:
+  - source:p14.bc.ch1
+  source_basis: Bennett_Checkel_2015_ch1
+  statistical: false
+  stato: []
+  reason: Theoretical derivation of observable implications, not a computed quantity.
+- method: p14
+  record_id: p14.move.search_plan
+  verb: define
+  label: register evidence opportunities
+  anchors:
+  - source:p14.bc.appendix
+  source_basis: Bennett_Checkel_2015_best_practices
+  statistical: false
+  stato: []
+  reason: Evidence search planning.
+- method: p14
+  record_id: p14.move.search
+  verb: search
+  label: execute registered evidence searches
+  anchors:
+  - source:p14.bc.ch1
+  - source:p14.bc.appendix
+  source_basis: Bennett_Checkel_2015_ch1_and_appendix_technique_source_limited_see_p14_u04
+  statistical: false
+  stato: []
+  reason: Evidence search.
+- method: p14
+  record_id: p14.move.acquire_appraise_source
+  verb: appraise_source
+  label: appraise fitness of found sources
+  anchors:
+  - source:p14.bc.ch1
+  source_basis: Bennett_Checkel_2015_ch1_best_practice
+  statistical: false
+  stato: []
+  reason: Source fitness appraisal.
+- method: p14
+  record_id: p14.move.anchor_evidence
+  verb: extract
+  label: anchor present and absent evidence
+  anchors:
+  - source:p14.bc.ch1
+  - source:p14.fc.sections2_4
+  source_basis: Bennett_Checkel_2015_ch1_and_Fairfield_Charman_2017
+  statistical: false
+  stato: []
+  reason: Evidence anchoring.
+- method: p14
+  record_id: p14.move.dependencies
+  verb: review
+  label: appraise rival-conditioned dependence
+  anchors:
+  - source:p14.fc.sections4_6
+  source_basis: Fairfield_Charman_2017_dependence_caveats
+  statistical: false
+  stato: []
+  reason: Dependence appraisal (judgement).
+- method: p14
+  record_id: p14.move.diagnostic
+  verb: review
+  label: judge comparative diagnosticity
+  anchors:
+  - source:p14.fc.sections2_5
+  source_basis: Fairfield_Charman_2017_sections2_to_5
+  statistical: false
+  stato: []
+  reason: Qualitative likelihood comparison by reasoned judgement.
+- method: p14
+  record_id: p14.move.update
+  verb: compare
+  label: update and compare rivals
+  anchors:
+  - source:p14.fc.sections3_6
+  source_basis: Fairfield_Charman_2017_sections3_to_6
+  statistical: false
+  stato: []
+  reason: Qualitative Bayesian updating of relative support, explicitly without false precision. It is a judgement, not a
+    computed posterior.
+- method: p14
+  record_id: p14.move.conclude
+  verb: synthesize
+  label: issue bounded mechanism conclusion
+  anchors:
+  - source:p14.bc.conclusion
+  - source:p14.fc.section6
+  source_basis: Bennett_Checkel_2015_ch10_and_Fairfield_Charman_2017_section6
+  statistical: false
+  stato: []
+  reason: Bounded conclusion reporting.
+- method: p14
+  record_id: p14.action.persist_anchor
+  verb: anchor
+  label: persist exact evidence anchors
+  anchors:
+  - implementation:1fd01bc.read_only
+  source_basis: no_methodology_counterpart
+  statistical: false
+  stato: []
+  reason: Persisting anchors and hashes.
+- method: p14
+  record_id: p14.action.render_topology
+  verb: project
+  label: render rival evidence topology
+  anchors:
+  - implementation:1fd01bc.read_only
+  source_basis: no_methodology_counterpart
+  statistical: false
+  stato: []
+  reason: This 'project' step renders a read-only review view; it is not a forecast or a statistical projection.

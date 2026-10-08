@@ -1,0 +1,753 @@
+{
+ "record_type": "Phase4CollisionGroups",
+ "plan": "Plan #6",
+ "steps": 171,
+ "groups": [
+  {
+   "group_id": "sig:cc4bdfb3b0",
+   "kind": "signature",
+   "verb": "estimate",
+   "canonical_inputs": [
+    [
+     "dataset",
+     "subject",
+     "one",
+     false
+    ],
+    [
+     "parameter_set",
+     "config_data",
+     "one",
+     false
+    ]
+   ],
+   "canonical_outputs": [
+    [
+     "model_run",
+     "trace",
+     "one",
+     false
+    ]
+   ],
+   "members": [
+    "p02:p02.action.compute_itt",
+    "p03:p03.action.compute_did"
+   ],
+   "methods": [
+    "p02",
+    "p03"
+   ]
+  },
+  {
+   "group_id": "sig:9f10f6d0dc",
+   "kind": "signature",
+   "verb": "refuse",
+   "canonical_inputs": [
+    [
+     "appraisal",
+     "subject",
+     "optional_many",
+     true
+    ],
+    [
+     "claim",
+     "context",
+     "optional_one",
+     true
+    ],
+    [
+     "uncertainty_note",
+     "context",
+     "optional_one",
+     true
+    ]
+   ],
+   "canonical_outputs": [
+    [
+     "finding",
+     "result",
+     "one",
+     false
+    ]
+   ],
+   "members": [
+    "p07:p07.move.refuse",
+    "p09:p09.move.refuse"
+   ],
+   "methods": [
+    "p07",
+    "p09"
+   ]
+  },
+  {
+   "group_id": "sig:b12726ae63",
+   "kind": "signature",
+   "verb": "test",
+   "canonical_inputs": [
+    [
+     "dataset",
+     "context",
+     "one",
+     false
+    ],
+    [
+     "estimate",
+     "subject",
+     "one",
+     false
+    ]
+   ],
+   "canonical_outputs": [
+    [
+     "finding",
+     "result",
+     "many",
+     false
+    ]
+   ],
+   "members": [
+    "p02:p02.move.sensitivity",
+    "p03:p03.move.sensitivity"
+   ],
+   "methods": [
+    "p02",
+    "p03"
+   ]
+  },
+  {
+   "group_id": "sig:a8c2d06be0",
+   "kind": "signature",
+   "verb": "test",
+   "canonical_inputs": [
+    [
+     "dataset",
+     "subject",
+     "one",
+     false
+    ]
+   ],
+   "canonical_outputs": [
+    [
+     "finding",
+     "result",
+     "many",
+     false
+    ]
+   ],
+   "members": [
+    "p03:p03.move.pretrend",
+    "p04:p04.move.necessity"
+   ],
+   "methods": [
+    "p03",
+    "p04"
+   ]
+  },
+  {
+   "group_id": "stato:OBI:0200184",
+   "kind": "stato_term",
+   "stato": "OBI:0200184",
+   "members": [
+    "p03:p03.action.balance_table",
+    "p12:p12.move.feedback1",
+    "p12:p12.action.compute_summary"
+   ],
+   "methods": [
+    "p03",
+    "p12"
+   ]
+  },
+  {
+   "group_id": "stato:STATO:0000039",
+   "kind": "stato_term",
+   "stato": "STATO:0000039",
+   "members": [
+    "p08:p08.move.score",
+    "p08:p08.move.monitor",
+    "p09:p09.move.sensitivity"
+   ],
+   "methods": [
+    "p08",
+    "p09"
+   ]
+  },
+  {
+   "group_id": "stato:STATO:0000218",
+   "kind": "stato_term",
+   "stato": "STATO:0000218",
+   "members": [
+    "p07:p07.move.fit",
+    "p07:p07.action.fit_models",
+    "p08:p08.move.fit",
+    "p08:p08.move.issue",
+    "p08:p08.action.run_backtest"
+   ],
+   "methods": [
+    "p07",
+    "p08"
+   ]
+  },
+  {
+   "group_id": "stato:STATO:0000412",
+   "kind": "stato_term",
+   "stato": "STATO:0000412",
+   "members": [
+    "p06:p06.move.estimate",
+    "p06:p06.action.compute_variance",
+    "p07:p07.move.quantify"
+   ],
+   "methods": [
+    "p06",
+    "p07"
+   ]
+  },
+  {
+   "group_id": "stato:STATO:0000471",
+   "kind": "stato_term",
+   "stato": "STATO:0000471",
+   "members": [
+    "p02:p02.move.sensitivity",
+    "p06:p06.move.adjust"
+   ],
+   "methods": [
+    "p02",
+    "p06"
+   ]
+  },
+  {
+   "group_id": "types:3d0005be2f",
+   "kind": "type_pair",
+   "input_types": [
+    "dataset"
+   ],
+   "output_types": [
+    "finding"
+   ],
+   "members": [
+    "p03:p03.move.pretrend",
+    "p04:p04.move.necessity",
+    "p10:p10.action.cluster_cases"
+   ],
+   "methods": [
+    "p03",
+    "p04",
+    "p10"
+   ]
+  },
+  {
+   "group_id": "verb:acquire",
+   "kind": "verb_only",
+   "verb": "acquire",
+   "members": [
+    "p05:p05.move.gather",
+    "p05:p05.move.theoretical_sample",
+    "p06:p06.move.collect",
+    "p12:p12.move.round1"
+   ],
+   "methods": [
+    "p05",
+    "p06",
+    "p12"
+   ]
+  },
+  {
+   "group_id": "verb:aggregate",
+   "kind": "verb_only",
+   "verb": "aggregate",
+   "members": [
+    "p11:p11.action.calculate",
+    "p12:p12.action.compute_summary",
+    "p13:p13.move.joint_display"
+   ],
+   "methods": [
+    "p11",
+    "p12",
+    "p13"
+   ]
+  },
+  {
+   "group_id": "verb:anchor",
+   "kind": "verb_only",
+   "verb": "anchor",
+   "members": [
+    "p05:p05.action.persist_anchors",
+    "p07:p07.action.persist_errors",
+    "p08:p08.action.persist_issue",
+    "p14:p14.action.persist_anchor"
+   ],
+   "methods": [
+    "p05",
+    "p07",
+    "p08",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:annotate",
+   "kind": "verb_only",
+   "verb": "annotate",
+   "members": [
+    "p05:p05.action.version_memos",
+    "p07:p07.move.annotate"
+   ],
+   "methods": [
+    "p05",
+    "p07"
+   ]
+  },
+  {
+   "group_id": "verb:calibrate",
+   "kind": "verb_only",
+   "verb": "calibrate",
+   "members": [
+    "p04:p04.move.calibrate",
+    "p06:p06.move.adjust",
+    "p09:p09.move.ground"
+   ],
+   "methods": [
+    "p04",
+    "p06",
+    "p09"
+   ]
+  },
+  {
+   "group_id": "verb:code",
+   "kind": "verb_only",
+   "verb": "code",
+   "members": [
+    "p05:p05.move.initial_code",
+    "p06:p06.move.process"
+   ],
+   "methods": [
+    "p05",
+    "p06"
+   ]
+  },
+  {
+   "group_id": "verb:compare",
+   "kind": "verb_only",
+   "verb": "compare",
+   "members": [
+    "p01:p01.move.compatibility",
+    "p03:p03.action.balance_table",
+    "p05:p05.move.compare_memo",
+    "p10:p10.move.compare_robustness",
+    "p13:p13.move.align",
+    "p13:p13.move.fit",
+    "p14:p14.move.update"
+   ],
+   "methods": [
+    "p01",
+    "p03",
+    "p05",
+    "p10",
+    "p13",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:conceptualize",
+   "kind": "verb_only",
+   "verb": "conceptualize",
+   "members": [
+    "p05:p05.move.focus_categories",
+    "p07:p07.move.operationalize",
+    "p09:p09.move.specify"
+   ],
+   "methods": [
+    "p05",
+    "p07",
+    "p09"
+   ]
+  },
+  {
+   "group_id": "verb:construct",
+   "kind": "verb_only",
+   "verb": "construct",
+   "members": [
+    "p02:p02.move.allocate",
+    "p02:p02.action.randomize",
+    "p03:p03.move.panel",
+    "p03:p03.action.build_panel",
+    "p04:p04.move.truth_table",
+    "p04:p04.action.transform_membership",
+    "p05:p05.move.integrate",
+    "p06:p06.move.frame",
+    "p06:p06.move.design",
+    "p06:p06.move.select",
+    "p06:p06.action.draw_sample",
+    "p07:p07.move.split",
+    "p08:p08.move.information",
+    "p08:p08.move.folds",
+    "p09:p09.move.implement",
+    "p09:p09.move.design",
+    "p11:p11.move.generate_off",
+    "p12:p12.move.design",
+    "p13:p13.move.design"
+   ],
+   "methods": [
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p11",
+    "p12",
+    "p13"
+   ]
+  },
+  {
+   "group_id": "verb:define",
+   "kind": "verb_only",
+   "verb": "define",
+   "members": [
+    "p01:p01.move.question",
+    "p01:p01.move.protocol",
+    "p02:p02.move.objective_estimand",
+    "p02:p02.move.protocol_sap",
+    "p03:p03.move.design",
+    "p03:p03.move.covariates",
+    "p04:p04.move.population",
+    "p04:p04.move.conditions",
+    "p04:p04.move.anchors",
+    "p05:p05.move.orient",
+    "p06:p06.move.define",
+    "p07:p07.move.bound",
+    "p08:p08.move.target",
+    "p08:p08.move.baseline",
+    "p09:p09.move.purpose",
+    "p10:p10.move.frame",
+    "p11:p11.move.rationale",
+    "p11:p11.move.objectives",
+    "p14:p14.move.case_scope",
+    "p14:p14.move.rivals",
+    "p14:p14.move.search_plan"
+   ],
+   "methods": [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p10",
+    "p11",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:derive",
+   "kind": "verb_only",
+   "verb": "derive",
+   "members": [
+    "p02:p02.move.sample_size",
+    "p04:p04.move.sufficiency",
+    "p04:p04.action.minimize",
+    "p14:p14.move.mechanisms"
+   ],
+   "methods": [
+    "p02",
+    "p04",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:estimate",
+   "kind": "verb_only",
+   "verb": "estimate",
+   "members": [
+    "p01:p01.action.compute_pool",
+    "p02:p02.move.estimate",
+    "p02:p02.action.compute_itt",
+    "p03:p03.move.estimate",
+    "p03:p03.action.compute_did",
+    "p06:p06.move.estimate",
+    "p06:p06.action.compute_variance",
+    "p07:p07.move.quantify",
+    "p09:p09.move.compare",
+    "p13:p13.move.quant_warrant",
+    "p14:p14.move.priors"
+   ],
+   "methods": [
+    "p01",
+    "p02",
+    "p03",
+    "p06",
+    "p07",
+    "p09",
+    "p13",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:extract",
+   "kind": "verb_only",
+   "verb": "extract",
+   "members": [
+    "p01:p01.move.extract",
+    "p14:p14.move.anchor_evidence"
+   ],
+   "methods": [
+    "p01",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:fit",
+   "kind": "verb_only",
+   "verb": "fit",
+   "members": [
+    "p07:p07.move.fit",
+    "p07:p07.action.fit_models",
+    "p08:p08.move.fit"
+   ],
+   "methods": [
+    "p07",
+    "p08"
+   ]
+  },
+  {
+   "group_id": "verb:identify",
+   "kind": "verb_only",
+   "verb": "identify",
+   "members": [
+    "p01:p01.move.link_reports",
+    "p01:p01.action.deduplicate_link",
+    "p03:p03.move.comparison",
+    "p10:p10.move.discover_vulnerability",
+    "p12:p12.move.panel"
+   ],
+   "methods": [
+    "p01",
+    "p03",
+    "p10",
+    "p12"
+   ]
+  },
+  {
+   "group_id": "verb:monitor",
+   "kind": "verb_only",
+   "verb": "monitor",
+   "members": [
+    "p02:p02.move.conduct",
+    "p08:p08.move.monitor",
+    "p11:p11.move.decide_feedback"
+   ],
+   "methods": [
+    "p02",
+    "p08",
+    "p11"
+   ]
+  },
+  {
+   "group_id": "verb:project",
+   "kind": "verb_only",
+   "verb": "project",
+   "members": [
+    "p08:p08.move.issue",
+    "p08:p08.action.run_backtest",
+    "p11:p11.action.publish_ast",
+    "p12:p12.action.deliver_round",
+    "p13:p13.action.link_findings",
+    "p14:p14.action.render_topology"
+   ],
+   "methods": [
+    "p08",
+    "p11",
+    "p12",
+    "p13",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:rank",
+   "kind": "verb_only",
+   "verb": "rank",
+   "members": [
+    "p08:p08.move.select",
+    "p11:p11.move.mcda"
+   ],
+   "methods": [
+    "p08",
+    "p11"
+   ]
+  },
+  {
+   "group_id": "verb:recommend",
+   "kind": "verb_only",
+   "verb": "recommend",
+   "members": [
+    "p10:p10.move.advise",
+    "p11:p11.move.compare_advise"
+   ],
+   "methods": [
+    "p10",
+    "p11"
+   ]
+  },
+  {
+   "group_id": "verb:refuse",
+   "kind": "verb_only",
+   "verb": "refuse",
+   "members": [
+    "p06:p06.move.refuse",
+    "p07:p07.move.refuse",
+    "p08:p08.move.refuse",
+    "p09:p09.move.refuse"
+   ],
+   "methods": [
+    "p06",
+    "p07",
+    "p08",
+    "p09"
+   ]
+  },
+  {
+   "group_id": "verb:review",
+   "kind": "verb_only",
+   "verb": "review",
+   "members": [
+    "p01:p01.move.risk_bias",
+    "p01:p01.move.missing_evidence",
+    "p01:p01.move.certainty",
+    "p02:p02.move.lock_audit",
+    "p03:p03.move.assumptions",
+    "p04:p04.move.resolve_contradictions",
+    "p04:p04.move.remainders",
+    "p05:p05.move.adequacy",
+    "p06:p06.move.report",
+    "p07:p07.move.interpret",
+    "p09:p09.move.conclude",
+    "p11:p11.move.choose_longlist_route",
+    "p11:p11.move.qualify_impacts",
+    "p11:p11.move.assure",
+    "p12:p12.move.interpret",
+    "p13:p13.move.check_readiness",
+    "p13:p13.action.trace_meta",
+    "p14:p14.move.dependencies",
+    "p14:p14.move.diagnostic"
+   ],
+   "methods": [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p09",
+    "p11",
+    "p12",
+    "p13",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:revise",
+   "kind": "verb_only",
+   "verb": "revise",
+   "members": [
+    "p05:p05.move.refine",
+    "p10:p10.move.revise_strategy",
+    "p12:p12.move.round2",
+    "p12:p12.move.round3"
+   ],
+   "methods": [
+    "p05",
+    "p10",
+    "p12"
+   ]
+  },
+  {
+   "group_id": "verb:screen",
+   "kind": "verb_only",
+   "verb": "screen",
+   "members": [
+    "p01:p01.move.screen_initial",
+    "p01:p01.move.screen_full",
+    "p11:p11.move.shortlist"
+   ],
+   "methods": [
+    "p01",
+    "p11"
+   ]
+  },
+  {
+   "group_id": "verb:simulate",
+   "kind": "verb_only",
+   "verb": "simulate",
+   "members": [
+    "p09:p09.move.execute",
+    "p09:p09.action.run_model",
+    "p10:p10.move.generate_futures",
+    "p10:p10.move.evaluate",
+    "p10:p10.action.run_ensemble"
+   ],
+   "methods": [
+    "p09",
+    "p10"
+   ]
+  },
+  {
+   "group_id": "verb:synthesize",
+   "kind": "verb_only",
+   "verb": "synthesize",
+   "members": [
+    "p01:p01.move.synthesize",
+    "p01:p01.move.report",
+    "p02:p02.move.interpret_report",
+    "p03:p03.move.interpret",
+    "p04:p04.move.return_cases",
+    "p04:p04.move.conclude",
+    "p12:p12.move.feedback1",
+    "p12:p12.move.feedback2",
+    "p12:p12.move.report",
+    "p13:p13.move.qual_warrant",
+    "p13:p13.move.meta_infer",
+    "p14:p14.move.conclude"
+   ],
+   "methods": [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p12",
+    "p13",
+    "p14"
+   ]
+  },
+  {
+   "group_id": "verb:test",
+   "kind": "verb_only",
+   "verb": "test",
+   "members": [
+    "p02:p02.move.sensitivity",
+    "p03:p03.move.pretrend",
+    "p03:p03.move.sensitivity",
+    "p04:p04.move.necessity",
+    "p06:p06.move.pretest",
+    "p07:p07.move.pilot",
+    "p07:p07.move.validate",
+    "p08:p08.move.score",
+    "p08:p08.move.diagnose",
+    "p09:p09.move.verify",
+    "p09:p09.action.verify_invariants"
+   ],
+   "methods": [
+    "p02",
+    "p03",
+    "p04",
+    "p06",
+    "p07",
+    "p08",
+    "p09"
+   ]
+  }
+ ]
+}
