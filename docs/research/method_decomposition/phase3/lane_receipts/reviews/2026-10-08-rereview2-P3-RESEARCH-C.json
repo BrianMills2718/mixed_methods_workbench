@@ -1,0 +1,146 @@
+{
+ "record_type": "P3ControlReview",
+ "unit_id": "P3-RESEARCH-C",
+ "reviewed_at": "2026-10-08",
+ "evidence_commit": "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
+ "disposition": "accept",
+ "structural_check": "At /home/brian/code/mixed_methods_workbench-wt-p3-C, git rev-parse HEAD returned ef34684b1fc56433da5c9d08c4d0f474f6c596e5 and the working tree was clean. I ran 'python3 scripts/validate_phase3_methods.py --spec /home/brian/code/_docs/METHOD_DECOMPOSITION_HANDOFF.md p05 p10 p11 p12 p13', which printed 'p05: ok, 0 warning(s) | p10: ok, 0 warning(s) | p11: ok, 0 warning(s) | p12: ok, 0 warning(s) | p13: ok, 0 warning(s) | RESULT: PASS (exit 0) methods=5 errors=0 warnings=0' (EXIT=0). The spec SHA-256 is fbeb0e18...2c16c2f, which matches the work-graph pin. I also ran a supplementary script of my own, saved in the scratchpad as chk.py. It checks that every required input has a source (a typed connection or an external_entry_input), that each connection's from_output and to_input exist with matching types, that declared cardinalities match the slots, that role transitions match the target slot roles, that every declared cycle closes along its listed edges, that no prohibited edge clashes with a permitted connection, and that every record has the instrument fields and all three guards. Its only hits were p11.c07 (a many output into an optional_one slot) and the role labels on p05.c25 and p05.c30. External checks: the Green Book 2026 PDF re-downloaded with SHA-256 275602ac...cc37, matching sources.md, and has paragraphs 4.28, 5.13, 5.16 and 5.35. The Turoff ch3b1 Internet Archive capture re-downloaded with SHA-256 d4cc8da0...afa43, matching sources.md, has 17 pages running pp. 80–96, and every cited page passage is present.",
+ "criteria": [
+  {
+   "id": "P3-C-AC1",
+   "holds": true,
+   "evidence": "All five frames are frozen with an exact variant, exclusions, applicability boundary, primary and corroborating sources, and six separate authority roles. P05: recommender none, decision_authority none. P10: frame 'recommender: strategy_sponsor_or_design_team', 'decision_authority: accountable_decision_maker'; frame is analytic (p10.u08). P11: compare_advise (recommend), assure (performer/judgment_owner appraisal_assurance_reviewer, recommender none) and decide_feedback are separate records, and prohibited edge p11.c19 is in place. I downloaded the official Green Book 2026 PDF: its SHA-256 275602ac...cc37 matches sources.md, and paragraphs 4.28, 5.13, 5.16 and 5.35 exist, so the paragraph anchors resolve. P12: judgment_owner is individual_anonymous_panelists only on round1-3 and delphi_method_lead elsewhere; interpret has 'consensus_is_a_panel_state_not_truth'; c19 is prohibited. I fetched the Turoff 'The Policy Delphi' Internet Archive capture: its SHA-256 d4cc8da0...afa43 matches sources.md, it has 17 pages starting at p. 80, and these cited passages are on the cited pages: 'no experts, only informed advocates and referees' (p. 80), 'not a mechanism for making a decision' (p. 80), 'would require five rounds' and 'will not get the same complete treatment' (p. 84), the four scales (p. 85), 'five to ten times' and 'In a three-round exercise a revote is taken on the third round' (p. 88). P13: each strand has its own performer, judgment owner and acceptance authority (qualitative_team/qualitative_strand_lead/qualitative_method_reviewer and the quantitative equivalents), and meta_infer requires both strand slots plus fit through p13.c18. Negative controls pass: no frame lets consensus equal truth, no frame merges a recommendation with the accountable decision, and no frame flattens the strand warrants."
+  },
+  {
+   "id": "P3-C-AC2",
+   "holds": true,
+   "evidence": "Validator: 'RESULT: PASS (exit 0) methods=5 errors=0 warnings=0'. I also ran my own check. Every required input either has an incoming typed connection or is listed in frame external_entry_inputs. Every from_output/to_input exists with a matching type. Every declared required or optional cycle is closed along its listed edges and returns to its start node. No prohibited edge shares its from/to with a permitted connection. Every move has the instrument fields and all three guards. Negative-control loops are present. P05 theoretical sampling: required cycles c03/c05/c07/c09 and c05/c07/c27, with the prior category version carried back by c27-c29. P10 adaptive strategy: required c05/c08/c10/c12, plus futures via c17. P12 Delphi feedback is unrolled into three fed rounds (c05, c10; p12.u06). P11 appraisal return: c22/c23, and assurance rework c24/c25. P13 divergence disposition: c15-c17, each with termination and termination_authority. Uncertainty items distinguish known, unknown, contested and source_limited, and each states its downstream effect. The remaining issues are should_fix typing slips."
+  }
+ ],
+ "prior_findings": [
+  {
+   "record": "[review1] P05 topology.required_cycles / optional_cycles; p05.c12; p05.move.refine (must_fix)",
+   "resolved": true,
+   "evidence": "The required cycle 'p05.move.initial_code -> p05.move.compare_memo -> p05.move.focus_categories -> p05.move.theoretical_sample -> p05.move.initial_code' is closed along edges [p05.c03, p05.c05, p05.c07, p05.c09], with termination_authority: human. Recoding feedback p05.c20 runs compare_memo -> initial_code. All optional cycles close along listed edges (checked by script)."
+  },
+  {
+   "record": "[review1] P05 p05.c12 and theoretical_sample inputs (must_fix)",
+   "resolved": true,
+   "evidence": "theoretical_sample has the slot 'revised_categories_with_properties_and_gaps type: concept ... cardinality: optional_many'. c12 has to_input revised_categories_with_properties_and_gaps, and c21 carries the artifact from refine."
+  },
+  {
+   "record": "[review1] P05 p05.move.refine type collapse (should_fix)",
+   "resolved": true,
+   "evidence": "refine is now labelled 'revise categories against comparative variation'. Its result output is 'revised_categories_with_properties_and_gaps type: concept', and its byproduct is 'category_revision_memo type: memo'."
+  },
+  {
+   "record": "[review1] P10 optional_cycles futures revision (must_fix)",
+   "resolved": true,
+   "evidence": "Feedback p10.c17 runs revise_strategy -> generate_futures with 'successor_future_request => successor_future_request'. The optional cycle is closed along [c02, c05, c08, c10, c17]."
+  },
+  {
+   "record": "[review1] P10 revise_strategy outputs; p10.c12 (must_fix)",
+   "resolved": true,
+   "evidence": "The outputs are now separate slots: successor_strategies (option), signposts_and_triggers (criterion) and successor_future_request (configuration). c12 runs 'successor_strategies => candidate_strategies' with type option. c14 delivers successor_strategies to advise as context."
+  },
+  {
+   "record": "[review1] P10 p10.move.frame operation_kind (should_fix)",
+   "resolved": true,
+   "evidence": "p10.move.frame has operation_kind: analytic, and p10.phase.frame has operation_kinds: ['analytic']. The change is recorded as p10.u08."
+  },
+  {
+   "record": "[review1] P11 required_cycles; p11.c15 appraisal return (must_fix)",
+   "resolved": true,
+   "evidence": "Feedback edges c22 (compare_advise -> shortlist) and c23 (-> generate_off) are in place. The assure move has reject returns c24 and c25. The four required_cycles close along their listed edges with termination_authority: human. The source gap is recorded as p11.u07, which states its downstream effect: 'bound to the local assurance office under p11.u06, not presented as a Green Book conduct rule'."
+  },
+  {
+   "record": "[review1] P11 sources.md locators and anchors (should_fix)",
+   "resolved": true,
+   "evidence": "sources.md lists ch. 2 (ROAMEF, 'Identifying the preferred option'), the ch. 6 sub-headings, ch. 7 'Distributional analysis and place-based analysis', ch. 8 'Valuation of social costs and social benefits' and ch. 10. decide_feedback's exact_anchors are ['green_book_2026_ch2_roamef', 'green_book_2026_ch10']."
+  },
+  {
+   "record": "[review1] P11 prohibited_cycles mcda -> compare_advise (should_fix)",
+   "resolved": true,
+   "evidence": "prohibited_cycles now holds the loop 'choose_longlist_route -> shortlist -> appraise_cba_cea -> compare_advise -> choose_longlist_route', backed by prohibited edge p11.c27."
+  },
+  {
+   "record": "[review1] P12 judgment_owner defaults (must_fix)",
+   "resolved": true,
+   "evidence": "defaults.move has 'judgment_owner: delphi_method_lead'. round1, round2 and round3 override it with 'performer: individual_anonymous_panelists' and 'judgment_owner: individual_anonymous_panelists'. p12.u08 records the split."
+  },
+  {
+   "record": "[review1] P12 policy-Delphi variant locator (should_fix)",
+   "resolved": true,
+   "evidence": "frame.yaml has 'variant_locator: turoff_1975_the_policy_delphi_ch3b1_in_linstone_turoff'. The move anchors are page-level, for example 'turoff_1975_policy_delphi_ch3b1_p84_monitor_preformulates_issues_and_seeds_options'. I verified the hash and these pages against the capture."
+  },
+  {
+   "record": "[review1] P13 qual_warrant / quant_warrant hidden strand methods (should_fix)",
+   "resolved": true,
+   "evidence": "Both moves have 'record_role: cross_method_subprofile_handoff' and 'collision_participation: none', with a handoff block whose design_parameter is qualitative_strand_method_id or quantitative_strand_method_id. qual_warrant's performer is qualitative_team."
+  },
+  {
+   "record": "[review1] P13 check_readiness / trace_meta anchors (should_fix)",
+   "resolved": true,
+   "evidence": "check_readiness has exact_anchors ['fetters_2013_study_design_level_convergent_separate_analysis_then_merge', 'nih_2011_both_data_forms'], and trace_meta has ['fetters_2013_interpretation_reporting']. p13.u07 records the gap and states its downstream effect."
+  },
+  {
+   "record": "[review1] P13 optional_cycles loop accounting (should_fix)",
+   "resolved": true,
+   "evidence": "All divergence cycles are written out along existing edges (for example c16, c03, c05, c10, c14), each with termination 'divergence explained, retained as unresolved, or the evidence budget is spent' and 'termination_authority: human (mixed_methods_lead)'. A fourth cycle, meta_infer <-> trace_meta (c29, c22), is also declared with termination."
+  },
+  {
+   "record": "[rereview new] P05 prior categories never re-enter compare_memo/focus_categories/refine (must_fix)",
+   "resolved": true,
+   "evidence": "compare_memo, focus_categories and refine each have the slot 'prior_category_version type: concept role: prior cardinality: optional_many'. Feedback edges p05.c27, p05.c28 and p05.c29 carry theoretical_sample's 'directing_category_version' (concept, many) into those slots. refine's method_owned_rule now ends 'each_successor_category_version_supersedes_and_carries_forward_the_prior_version_which_is_retained_not_overwritten', and focus_categories' rule says 'the_prior_category_version_is_carried_forward_and_extended_or_challenged_by_successor_codes'. A new required cycle 'compare_memo -> focus_categories -> theoretical_sample -> compare_memo' runs along [c05, c07, c27]. p05.u07 explains the routing and states its downstream effect: 'integrate (p05.c14) receives the cumulative category set'."
+  },
+  {
+   "record": "[rereview new] P10 evaluate.candidate_strategies has no first-pass source (should_fix)",
+   "resolved": true,
+   "evidence": "p10.move.frame now outputs 'initial_candidate_strategies type: option cardinality: many'. p10.c19 (frame -> evaluate) and p10.c20 (frame -> run_ensemble) have condition first_experiment_batch, and p10.c21 sends successor strategies to run_ensemble. This is recorded as p10.u09."
+  },
+  {
+   "record": "[rereview new] P13 c19/c20 vs c23/c24 prohibited-edge clash; c24 to_input slip (should_fix)",
+   "resolved": true,
+   "evidence": "c23 and c24 are now qual_warrant -> fit and quant_warrant -> fit, each with a testable_condition 'no_connection_may_carry_a_strand_findings_slot_into_p13.move.fit...'. My script found no permitted connection with the same from/to pair. meta_infer's guard is 'entered_only_after_p13.move.fit_delivers_fit_and_divergence_disposition_through_p13.c18_with_both_strand_finding_slots_filled', and c19-c21 carry 'taken_only_after_p13.c18_delivers...'. c24 now targets joint_display_with_strand_lineage with not_artifact_transfer, so the earlier to_input slip is gone."
+  },
+  {
+   "record": "[rereview new] P13 check_readiness operation_kind (should_fix)",
+   "resolved": true,
+   "evidence": "check_readiness is now 'operation_kind: analytic'. p13.u07 states the effect on the denominator: 'This adds one abort-gate-eligible analytic operation whose rule rests on a decomposition inference ... p13.phase.integrate keeps methodological_support only for the trace_meta action'. trace_meta remains methodological_support."
+  },
+  {
+   "record": "[rereview new] P12 unnamed secondary accounts (should_fix)",
+   "resolved": true,
+   "evidence": "sources.md now cites Turoff, 'The Policy Delphi', ch. III.B.1, pp. 80–96, read from web.archive.org/web/20191128162600/.../ch3b1.pdf with SHA-256 d4cc8da0...afa43 and accessed 2026-10-08. I re-downloaded the capture and the hash matched. Each move rule has a page anchor, and every quoted passage I checked is on the stated page (pp. 80, 84, 85, 88). The 1970 article is kept as the origin citation only. p12.u07 is rewritten and states its downstream effect: respondent-added items get one fewer rating pass and must be flagged in the report."
+  }
+ ],
+ "new_findings": [
+  {
+   "method": "P11",
+   "file": "docs/research/method_decomposition/phase3/methods/p11/connections.yaml",
+   "record": "p11.c07 (mcda -> shortlist); p11.move.shortlist input facilitated_mcda_results_and_dissent",
+   "quote": "from_output: facilitated_mcda_results_and_dissent\n  to_input: facilitated_mcda_results_and_dissent\n  slot_compatibility:\n    type: appraisal\n    role_transition: result_to_context\n    source_cardinality: many\n    target_cardinality: optional_one",
+   "criterion": "P3-C-AC2 (typed topology: slot cardinality compatibility, spec 5.1)",
+   "severity": "should_fix",
+   "correction": "p11.move.mcda outputs 'facilitated_mcda_results_and_dissent' with cardinality many, but shortlist's slot accepts optional_one, so the many-valued MCDA result does not fit the slot. Change shortlist's input to cardinality optional_many (optional: true) and update c07's target_cardinality to match. Alternatively, make mcda's output a single appraisal bundle (cardinality one). This defect has existed since 2aba18d and neither prior review caught it."
+  },
+  {
+   "method": "P05",
+   "file": "docs/research/method_decomposition/phase3/methods/p05/connections.yaml",
+   "record": "p05.c30 (new in this commit); p05.c25",
+   "quote": "id: p05.c30 ... to_input: adequacy_appraisal ... role_transition: result_to_criteria (integrate's adequacy_appraisal slot is role: context); p05.c25 ... role_transition: result_to_context (theoretical_sample's adequacy_appraisal slot is role: criteria)",
+   "criterion": "P3-C-AC2 (exact typed topology)",
+   "severity": "should_fix",
+   "correction": "Each role_transition must match the role of the slot it targets. Set p05.c30's role_transition to result_to_context, or change integrate's adequacy_appraisal role to criteria. Set p05.c25's role_transition to result_to_criteria. The validator does not check role_transition against the target slot role."
+  },
+  {
+   "method": "P11",
+   "file": "docs/research/method_decomposition/phase3/methods/p11/sources.md",
+   "record": "frozen locators sentence; anchors green_book_2026_sections_4_1_4_28, green_book_2026_sections_5_13_5_35, green_book_2026_5_13_5_16",
+   "quote": "The official HTML shows no paragraph numbers, so anchors are heading-level.",
+   "criterion": "P3-C-AC1 (exact conduct sources / durable references)",
+   "severity": "should_fix",
+   "correction": "Several anchors are paragraph-level and resolve only in the pinned PDF; I confirmed that paragraphs 4.1, 4.28, 5.13, 5.16 and 5.35 exist in the PDF whose SHA-256 matches. Reword the sentence to: 'Paragraph anchors (for example 4.1–4.28, 5.13–5.16, 5.13–5.35) refer to the hashed official PDF; other anchors are heading-level because the HTML shows no paragraph numbers.' That way a reader looking only at the HTML is not misled."
+  }
+ ]
+}

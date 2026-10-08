@@ -113,7 +113,7 @@ def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
         "P3-RESEARCH-C": (
             "ready",
             "ready_for_execution",
-            "0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa",
+            "ef34684b1fc56433da5c9d08c4d0f474f6c596e5",
         ),
     }
     accepted = {"P3-RESEARCH-A", "P3-RESEARCH-B"}          # 2026-10-08 receipts; C remains in rework
