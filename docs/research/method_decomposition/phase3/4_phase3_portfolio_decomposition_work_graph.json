@@ -13,7 +13,7 @@
       "objective": "Freeze sources and independently decompose P01, P02, P03, P04, and P14 without normalizing their method-owned semantics.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "not_applicable",
       "scope": {
         "included": [
           "P01 systematic review, P02 policy RCT, P03 difference-in-differences, P04 fsQCA, and P14 theory-testing Process Tracing",
@@ -30,7 +30,8 @@
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
         {"kind": "ReadOnlyImplementationEvidence", "id": "process-tracing-topology-prototype", "revision": "merged@1fd01bc;not-method-authority"},
         {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-A", "revision": "git:origin/p3-research-a-corrections@2f66438517e651ed05ebec39663734d115184dd3;control-review-2026-10-08;merged-to-main"},
-        {"kind": "ControlReview", "id": "P3-RESEARCH-A", "revision": "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-A.json;changes_requested;rework open to this lane"}
+        {"kind": "ControlReview", "id": "P3-RESEARCH-A", "revision": "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-A.json;changes_requested;rework open to this lane"},
+        {"kind": "CompletionReceipt", "id": "P3-RESEARCH-A", "revision": "docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-A.yaml@evidence=2f66438517e651ed05ebec39663734d115184dd3;receipt=cf0fdb6e6169da87ebb3eec22baae6c5b68bd73b"}
       ],
       "outputs": [
         "Five exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
@@ -63,7 +64,7 @@
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
+      "status": "accepted",
       "record_version": 3,
       "created_at": "2026-08-13T17:45:00Z",
       "updated_at": "2026-10-08T12:00:00Z"
@@ -81,7 +82,7 @@
       "objective": "Freeze sources and independently decompose P06, P07, P08, and P09 while preserving measurement, prediction, and generated-model evidence boundaries.",
       "profile": "standard",
       "execution_class": "independently_executable",
-      "claimability": "ready_for_execution",
+      "claimability": "not_applicable",
       "scope": {
         "included": [
           "P06 probability survey, P07 supervised quantitative text measurement, P08 probabilistic forecasting, and P09 agent-based policy simulation",
@@ -97,7 +98,8 @@
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
         {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-B", "revision": "git:origin/p3-research-b-corrections@915c903c67876fb5776744517f63ed9cd8682517;control-review-2026-10-08;merged-to-main"},
-        {"kind": "ControlReview", "id": "P3-RESEARCH-B", "revision": "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json;changes_requested;rework open to this lane"}
+        {"kind": "ControlReview", "id": "P3-RESEARCH-B", "revision": "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json;changes_requested;rework open to this lane"},
+        {"kind": "CompletionReceipt", "id": "P3-RESEARCH-B", "revision": "docs/research/method_decomposition/phase3/lane_receipts/P3-RESEARCH-B.yaml@evidence=915c903c67876fb5776744517f63ed9cd8682517;receipt=cf0fdb6e6169da87ebb3eec22baae6c5b68bd73b"}
       ],
       "outputs": [
         "Four exclusive method directories, each containing frame.yaml, sources.md, method_records.yaml, connections.yaml, and uncertainty.yaml"
@@ -127,7 +129,7 @@
       "claim_policy": {"eligibility_rule": "One canonical registry claim bound to this exact unit and only its exclusive method paths.", "lease_policy": "renewable", "lease_duration_minutes": 720, "max_active_per_claimant": 1},
       "authorization_mode": "registry_claim",
       "integration_owner_id": "P3-CONTROL",
-      "status": "ready",
+      "status": "accepted",
       "record_version": 3,
       "created_at": "2026-08-13T17:45:00Z",
       "updated_at": "2026-10-08T12:00:00Z"
