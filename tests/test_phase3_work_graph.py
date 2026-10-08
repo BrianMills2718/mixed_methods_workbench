@@ -87,17 +87,17 @@ def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
     document = load_graph()
     expected = {
         "P3-RESEARCH-A": (
-            "changes_requested",
+            "ready",
             "ready_for_execution",
             "6262b4da513d2a3e5dd094c47a9284c12572603c",
         ),
         "P3-RESEARCH-B": (
-            "changes_requested",
+            "ready",
             "ready_for_execution",
             "f8044648075468411d20bee1bfe71fec5c2023bf",
         ),
         "P3-RESEARCH-C": (
-            "changes_requested",
+            "ready",
             "ready_for_execution",
             "0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa",
         ),
@@ -107,7 +107,7 @@ def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
         submitted = [item for item in lane["inputs"] if item["kind"] == "SubmittedEvidence"]
         assert lane["status"] == status
         assert lane["claimability"] == claimability
-        assert lane["readiness"]["status"] == "ready"         # 2026-10-08 control review: corrections requested
+        assert lane["readiness"]["status"] == "ready"         # 2026-10-08 control review requested corrections; rework is open to the lane
         reviews = [item for item in lane["inputs"] if item["kind"] == "ControlReview"]
         assert len(reviews) == 1 and Path(reviews[0]["revision"].split(";")[0]).is_file()
         assert len(submitted) == 1
