@@ -1,0 +1,248 @@
+{
+ "record_type": "P3ControlReview",
+ "unit_id": "P3-RESEARCH-B",
+ "reviewed_at": "2026-10-08",
+ "reviewed_revision": "main@2aba18d",
+ "disposition": "changes_requested",
+ "reviewer": "P3-CONTROL (claude-code reviewer agent, read-only), structural check scripts/validate_phase3_methods.py",
+ "structural_check": "RESULT: FAIL (exit 1) methods=4 errors=134 warnings=4 | p06: 32 error(s), 1 warning(s) | p07: 32 error(s), 1 warning(s) | p08: 31 error(s), 1 warning(s) | p09: 39 error(s), 1 warning(s). All errors are of two kinds: every move and action \"lacks verb, outputs\" (records use singular `output:` and no `verb:`), and every inputs entry \"is not a named slot (slot, type, role, cardinality)\". Warnings: each method records no 'unknown' uncertainty. Run at worktree HEAD fb61ee1 with spec sha256 fbeb0e18... (pin matched).",
+ "criteria": [
+  {
+   "id": "P3-B-AC1",
+   "holds": false,
+   "evidence": "Frames and sources.md are frozen (2026-08-13), and the authorities are real works: OMB 2006, Groves 2009, Grimmer & Stewart 2013, Moreo & Sebastiani 2019, FPP3, Gneiting & Raftery 2007, Grimm 2020 ODD, Railsback & Grimm 2019, Sargent 2013, JRC 2020. P07 does state its construct-validity boundary explicitly (sources.md 'Construct-validity boundary' paragraph; frame source_scope_caution). The criterion still fails, for four reasons. P09's only experiment-design authority beyond ODD is R&G 2019 ch. 8 'Emergence', whose experiment section, §8.3 'Simulation Experiments and BehaviorSpace' (pp. 105-111, checked against the publisher's table of contents), is a tutorial for a NetLogo tool. That trips the implementation-only negative control. P06 anchors OMB standards that do not exist (4.2, 4.3, 4.4, 5.3; the official PDF lists 4.1, 5.1, 5.2, 6.1 and 7.1-7.4). P08 anchors FPP3 §3.5 for distributional forecasts, but §3.5 is 'Methods used by official statistics agencies' and the right section is §5.5 (checked on otexts.com). P07's prevalence authority is a two-page SIGIR item (pp. 1415-1416)."
+  },
+  {
+   "id": "P3-B-AC2",
+   "holds": false,
+   "evidence": "All four methods have three levels, and each refuses causal use in its uncertainty file (u05 in each) and, for P06, P07 and P09, through a prohibited_transition (p06.c14, p07.c12, p09.c16/c17). The criterion fails anyway. The records are incomplete: there is no verb, no typed output slots, and the inputs are bare strings. The topology is not typed per §5.8: shapes are uncontrolled, there are no required/optional/prohibited cycles, conditional failure loops are mislabelled as required, and there are no refusal terminals. Many inputs have no producing record or binding. Uncertainty items use the categories inexactly and never say which records they gate. P09's conclude output lists 'observed' among its information origins without separating it from simulated content."
+  }
+ ],
+ "findings": [
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/method_records.yaml",
+   "record": "p06.move.define … p06.action.compute_variance (all 11 records)",
+   "quote": "inputs: [policy_measurement_question, population_definition]\n    output: frozen_survey_estimand",
+   "criterion": "P3-B-AC2 (complete records; controlled-verb and typed-slot corrections, spec §5, §5.1, §6)",
+   "severity": "must_fix",
+   "correction": "Add `verb:` from the §6 list to every record. Suggested: define=define, frame=construct, design=construct, collect=acquire, process=code, adjust=calibrate, estimate=estimate, report=review, compute_variance=estimate. For select and draw_sample, either choose an existing verb or log `sample` in verb_additions.md, naming the verb considered and why it did not fit. Replace `output:` with `outputs:` named slots and rewrite every input as {slot, type, role, cardinality, optional}, using §5.1 types: estimand, appraisal, design_parameters, dataset, estimate, uncertainty_note, finding. Where a name joins two artifacts, split it into two output slots, for example 'weighted_analysis_dataset_and_bias_assessment' into a dataset slot (result) plus an appraisal slot (byproduct), and 'prevalence_estimate_and_error_account' into estimate plus uncertainty_note. Mark one input per record role: subject. Rerun the validator until p06 reports 0 errors."
+  },
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/method_records.yaml; sources.md; frame.yaml",
+   "record": "p06.move.estimate, p06.move.report, p06.action.compute_variance; sources.md Primary; frame source_freeze.primary",
+   "quote": "exact_anchors: [OMB:4.1, OMB:4.2, OMB:4.3] … exact_anchors: [OMB:4.3, OMB:4.4, OMB:5.1, OMB:5.3] … §§4.1–5.3 (estimation, inference, review, release, documentation) … OMB_2006_Standards_and_Guidelines_for_Statistical_Surveys_sections_1.1_through_5.3",
+   "criterion": "P3-B-AC1 (adequate, correctly scoped conduct authority; binding correction: exact source anchors)",
+   "severity": "must_fix",
+   "correction": "The OMB 2006 standards are 1.1-1.4, 2.1-2.3, 3.1-3.5, 4.1, 5.1-5.2, 6.1 and 7.1-7.4, checked against the official PDF's table of contents. OMB 4.2, 4.3, 4.4 and 5.3 do not exist. Re-anchor as follows. estimate: [OMB:4.1, OMB:5.2]. compute_variance: [OMB:4.1]. report: [OMB:5.1, OMB:6.1, OMB:7.1, OMB:7.2, OMB:7.3]. Add OMB:1.3 (response rates) to design/collect and OMB:3.4 to process if data protection is claimed. In sources.md and frame source_freeze, change the frozen scope to '§§1.1-7.3' with review = 6.1 and release/documentation = 7.1-7.3. Log the change as a dated post-freeze correction, not a silent edit."
+  },
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/connections.yaml",
+   "record": "topology; p06.c13",
+   "quote": "{id: p06.c13, from: p06.move.report, to: p06.move.design, connection_type: feedback, carries: documented_error_or_revision_need, condition: successor_survey_wave, …}\ntopology: {shape: cyclic_successor_versions, … terminal_points: [p06.move.report], required_feedback: [p06.c13], …}",
+   "criterion": "P3-B-AC2 (typed topology per spec §5.8, required cycles present)",
+   "severity": "must_fix",
+   "correction": "Five changes. (1) Set `shape` to one of linear|dag|cyclic|adaptive. (2) Replace `required_feedback` with `required_cycles`, `optional_cycles`, `prohibited_cycles` and `prohibited_edges`, giving each prohibited edge its reason and if_taken. (3) Move p06.c13 to optional_cycles: a successor wave is outside a frozen cross-sectional variant whose frame excludes longitudinal change, so the method can complete without it. (4) Add the cycle the method does require: OMB 1.4 pretesting. Either split p06.move.design (whose label 'freeze probability design instrument and error plan' hides the pretest) into a design move and a pretest move with an instrument-revision loop, or add that loop to design. Give it loop_termination and termination_authority, and add OMB 1.3 nonresponse follow-up within collect if claimed. (5) Add refusal terminals to terminal_points, for example a refuse record reached from frame/adjust/estimate when coverage or nonresponse bias is unbounded, matching the stopping_rule in uncertainty.yaml."
+  },
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/connections.yaml; method_records.yaml",
+   "record": "p06.c03, p06.c15; inputs of p06.move.select, p06.move.process, p06.action.draw_sample",
+   "quote": "{id: p06.c03, from: p06.move.design, to: p06.move.select, connection_type: control_gate, carries: design_freeze_permission, …} … inputs: [frozen_survey_design, frame_snapshot] … {id: p06.c15, from: p06.action.compute_variance, to: p06.move.estimate, connection_type: retained_context, carries: estimate_receipt, adapter_note: …}",
+   "criterion": "P3-B-AC2 (origin-preserving handoffs; binding correction: from_output/to_input on every connection)",
+   "severity": "must_fix",
+   "correction": "Four changes. (1) select and process both consume frozen_survey_design, but no connection binds it to them: add retained_context (or artifact_flow) edges design->select and design->process with from_output/to_input. (2) No record outputs frame_snapshot, yet select and draw_sample consume it: either add it as an output slot of p06.move.frame and bind frame->select and frame->draw_sample, or declare it an external observed input with its origin. Do the same for frame_sources. (3) Add parent-to-action edges (select->draw_sample, estimate->compute_variance). (4) Give p06.c15 from_output: estimate_receipt and to_input bound to a declared trace-role input slot on estimate, or delete it."
+  },
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/method_records.yaml",
+   "record": "p06.action.draw_sample, p06.action.compute_variance",
+   "quote": "operation_kind: analytic, … method_owned_rule: selection_algorithm_matches_design, … judgment_owner: none … method_owned_rule: variance_method_matches_sample_design",
+   "criterion": "P3-B-AC2 (execution actions not presented as method-owned warrants)",
+   "severity": "should_fix",
+   "correction": "Both are Level-3 executions with judgment_owner: none and conclusions like 'numerical_selection_only'. Set method_owned_rule: none, as p09's actions do. The requirement that the algorithm match the design belongs to the parent move's method_owned_rule. Set operation_kind to runtime_delivery, or justify `analytic` by citing the source requirement (spec §5.0a)."
+  },
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/uncertainty.yaml",
+   "record": "p06.u02, p06.u03 (all items)",
+   "quote": "{id: p06.u02, status: source_limited, topic: coverage_error, account: known frame gaps can be assessed but excluded or duplicate units may remain unknown, …} {id: p06.u03, status: contested, topic: nonresponse_adjustment, account: weighting depends on auxiliary information and response assumptions that data cannot prove, …}",
+   "criterion": "P3-B-AC2 (exact uncertainty accounting; uncertainty correction)",
+   "severity": "must_fix",
+   "correction": "Three changes. (1) Split u02 into a source_limited item (assessable frame gaps) and an `unknown` item (units excluded from or duplicated in the frame that cannot be detected). (2) Record the magnitude of nonresponse bias among nonrespondents as `unknown`, not `contested`: the data cannot identify it, and the dispute is not between authorities. Keep `contested` only for the choice of adjustment model, if sources actually disagree. (3) Give every item an `affects:` list of record ids it gates (for example u03 -> [p06.move.adjust, p06.move.estimate]) and a downstream_effect that names the gate or refusal it triggers on those records."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/method_records.yaml",
+   "record": "p07.move.bound … p07.action.persist_errors (all 10 records)",
+   "quote": "inputs : ['measurement_question', 'corpus_manifest']\n   output : frozen_text_measurement_frame",
+   "criterion": "P3-B-AC2 (complete records; controlled-verb and typed-slot corrections, spec §5, §5.1, §6)",
+   "severity": "must_fix",
+   "correction": "Add a §6 verb to each record. Suggested: bound=define, operationalize=conceptualize (construct_definition per §5.7), annotate=annotate, split=construct, fit=fit, validate=test, quantify=estimate, interpret=review, fit_models=fit, persist_errors=anchor. Convert `output` to `outputs` named slots and inputs to {slot, type, role, cardinality, optional}, using types such as construct_definition, dataset, model, appraisal, estimate, uncertainty_note, finding. Split 'codebook_and_adjudication_protocol' into construct_definition plus design_parameters, and 'validation_and_item_error_record' into appraisal (result) plus evidence_item many (trace). Rerun the validator to 0 errors for p07."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/sources.md; frame.yaml",
+   "record": "sources.md 'Corroborating target-specific authority'; frame source_freeze.corroborating; p07.move.quantify exact_anchors",
+   "quote": "Alejandro Moreo and Fabrizio Sebastiani, “Learning to Quantify: Estimating Class Prevalence via Supervised Learning,” SIGIR 2019, pp. 1415–1416. … exact_anchors : ['MS2019:definition', 'GS2013:validation']",
+   "criterion": "P3-B-AC1 (adequate conduct authority for the frozen variant's target conclusion)",
+   "severity": "must_fix",
+   "correction": "The variant's target conclusion is corpus prevalence. Its only quantification-specific authority is a two-page SIGIR proceedings item (a tutorial abstract), which cannot govern estimator choice, adjustment for prior-probability shift, or evaluation of prevalence error. Add a conduct-level authority and anchor its sections in quantify and validate. Options: Hopkins & King 2010, 'A Method of Automated Nonparametric Content Analysis for Social Science', AJPS 54(1):229-247, which is social-science prevalence estimation; González, Castaño, Chawla & del Coz 2017, 'A Review on Quantification Learning', ACM Computing Surveys 50(5); or Esuli, Fabris, Moreo & Sebastiani 2023, Learning to Quantify (Springer), chapters on methods and evaluation. Record it as a dated post-freeze source correction, keeping the original freeze date visible."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/sources.md",
+   "record": "sources.md Primary archived PDF link",
+   "quote": "[archived PDF](https://unstats.un.org/unsd/trade/events/2014/Beijing/documents/socialmedia/Grimmer%20and%20Stuart%20-%202013.pdf)",
+   "criterion": "P3-B-AC1 (frozen, re-resolvable source; binding correction: exact source anchors)",
+   "severity": "should_fix",
+   "correction": "This URL returns a 1,245-byte HTML page, not the PDF (curl, 2026-10-08). The hosted file is named 'Grimmer and Stuart - Text as Data - 2013.pdf'. Point the link there, or rely on the DOI alone. Replace the paraphrased anchors 'GS2013:principle_1', 'GS2013:supervised_methods' and 'GS2013:validation' with the article's own section numbers and page ranges, checked against the PDF."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/connections.yaml",
+   "record": "topology; p07.c07; p07.move.operationalize/annotate",
+   "quote": "{id: p07.c07, from: p07.move.validate, to: p07.move.operationalize, connection_type: feedback, carries: construct_or_coding_failure, condition: successor_version_required, …}\ntopology: {shape: cyclic_successor_versions, … terminal_points: [p07.move.interpret], required_feedback: [p07.c07], …}",
+   "criterion": "P3-B-AC2 (typed topology per spec §5.8, required cycles present)",
+   "severity": "must_fix",
+   "correction": "Five changes. (1) Use a controlled shape. (2) Replace required_feedback with required_cycles, optional_cycles and prohibited_cycles. (3) Move p07.c07 to optional_cycles: it fires only on failure. (4) Add the required codebook pilot cycle, a loop in which annotate's pilot coding and intercoder disagreement return to operationalize until reliability meets the frozen threshold, with loop_termination and termination_authority: human. That is the iterative codebook development a supervised human target needs before the holdout is labelled. Cite a source that requires reliability checks, for example Krippendorff, Content Analysis 4e (2018) ch. 12, as a dated source addition. (5) Add refusal terminals (construct not reliably observable; leakage; prevalence error unbounded) to terminal_points. p07.c12 has the same from/to as the required artifact flow p07.c08, which makes the prohibited edge ambiguous: retarget it to a refuse record, or to an explicit out-of-method causal-claim node, and give it reason and if_taken."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/connections.yaml; method_records.yaml",
+   "record": "p07.c04, p07.c13; inputs of p07.move.fit, p07.move.validate, p07.move.quantify",
+   "quote": "{id: p07.c04, from: p07.move.split, to: p07.move.fit, connection_type: control_gate, carries: development_access_only, …} … inputs : ['validated_model_or_quantifier', 'bounded_corpus', 'validation_and_item_error_record'] … inputs : ['candidate_model_bundle', 'heldout_human_labels']",
+   "criterion": "P3-B-AC2 (origin-preserving handoffs; binding correction)",
+   "severity": "must_fix",
+   "correction": "Five changes. (1) fit consumes leakage_resistant_split_plan as an input, but c04 is only a control gate: add a split->fit artifact_flow with from_output/to_input, and keep the gate separately if wanted. (2) No record outputs heldout_human_labels, validated_model_or_quantifier or bounded_corpus. Add output slots for them (heldout partition from split; selected model from validate or fit) and bind them with edges, or declare them external inputs with their origin. Note that bounded_corpus is presumably the observed corpus behind corpus_manifest, so bind it to p07.move.bound. (3) Add an edge fit->quantify (or validate->quantify) carrying the model artifact. The validate->quantify gate c06 does not carry it. (4) Add parent-to-action edges (fit->fit_models, validate->persist_errors). (5) Give c13 from_output/to_input bound to a trace input slot on validate."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/uncertainty.yaml",
+   "record": "p07.u04 (all items)",
+   "quote": "{id: p07.u04, status: contested, topic: prevalence_bias, account: individual classification metrics may not bound aggregate prevalence error, downstream_effect: requires_quantification_specific_evaluation_or_qualification}",
+   "criterion": "P3-B-AC2 (exact uncertainty accounting; uncertainty correction)",
+   "severity": "must_fix",
+   "correction": "(1) Add an `unknown` item: in the unlabelled target corpus, the gap between the labelled sample's class distribution and the corpus's (prior-probability or dataset shift) cannot be observed before estimation. It drives prevalence bias and should gate p07.move.quantify. (2) u04 as worded is not a dispute between authorities: the quantification literature agrees that classify-and-count can be biased. Restate it as `known` (the bias mechanism) and keep the corpus-specific magnitude under the new unknown item. (3) Add `affects:` record ids to every item, for example u01 -> [p07.move.operationalize, p07.move.interpret] and u03 -> [p07.move.interpret], so each downstream_effect names the record it gates."
+  },
+  {
+   "method": "p08",
+   "file": "docs/research/method_decomposition/phase3/methods/p08/method_records.yaml",
+   "record": "p08.move.target … p08.action.persist_issue (all 10 records)",
+   "quote": "inputs : ['prediction_question', 'user_decision_context']\n   output : frozen_forecast_specification",
+   "criterion": "P3-B-AC2 (complete records; controlled-verb and typed-slot corrections, spec §5, §5.1, §6)",
+   "severity": "must_fix",
+   "correction": "Add a §6 verb to each record. Suggested: target=define, information=construct, baseline=define, folds=construct, diagnose=test, issue=project, monitor=monitor, run_backtest=project, persist_issue=anchor. The move labelled 'fit candidates and score point and predictive distributions' carries two verbs, fit and test, and its scores are independently reviewable. Split it into a fit move and a scoring (test) move, or record why splitting would destroy its meaning. Likewise, 'select or combine refit and issue forecast' hides model selection or combination, which is a separate judgment, inside the issue move: split selection out. Convert `output` to `outputs` named slots and inputs to typed slots (types: estimand, dataset, design_parameters, model, forecast, appraisal, uncertainty_note). Rerun the validator to 0 errors for p08."
+  },
+  {
+   "method": "p08",
+   "file": "docs/research/method_decomposition/phase3/methods/p08/frame.yaml; sources.md; method_records.yaml",
+   "record": "frame source_freeze.primary; sources.md Primary; p08.move.issue and p08.move.target exact_anchors",
+   "quote": "primary: Hyndman_and_Athanasopoulos_2021_FPP3_sections_1.4_1.6_3.5_5.2_5.10 … §§1.4 and 1.6 (scope and task), §3.5 (distributional forecasts and intervals) … exact_anchors : ['FPP3:1.6', 'FPP3:3.5'] … exact_anchors : ['FPP3:1.4', 'FPP3:1.6']",
+   "criterion": "P3-B-AC1 (correctly scoped conduct authority; binding correction: exact source anchors)",
+   "severity": "must_fix",
+   "correction": "In FPP3, §3.5 is 'Methods used by official statistics agencies' and §1.4 is 'Forecasting data and methods' (checked on otexts.com). Distributional forecasts and prediction intervals are §5.5, and 'Determining what to forecast' is §1.3. Make three changes: re-anchor issue to [FPP3:1.6, FPP3:5.5]; re-anchor target to [FPP3:1.3, FPP3:1.6]; correct the frozen section list in frame.yaml and sources.md to 1.3, 1.6, 5.2-5.5, 5.8-5.10, as a dated post-freeze correction."
+  },
+  {
+   "method": "p08",
+   "file": "docs/research/method_decomposition/phase3/methods/p08/method_records.yaml",
+   "record": "p08.move.information",
+   "quote": "label: build as-of data and feature availability contract … method_owned_rule : revised_or_future_values_cannot_leak_into_historical_origins … source_basis : FPP3_5.8_5.10",
+   "criterion": "P3-B-AC1 (adequate conduct authority for each move)",
+   "severity": "should_fix",
+   "correction": "FPP3 §§5.8/5.10 cover train/test splits and rolling origins on one realized series. They do not govern data vintages, release revisions or feature-availability timing, which this move's rule is about. Either add a real-time-data authority (for example Croushore 2011, 'Frontiers of Real-Time Data Analysis', Journal of Economic Literature 49(1):72-100) and anchor it, or label the vintage rule's source_authority as source_limited and add a matching uncertainty item."
+  },
+  {
+   "method": "p08",
+   "file": "docs/research/method_decomposition/phase3/methods/p08/connections.yaml",
+   "record": "topology; p08.c10",
+   "quote": "{id: p08.c10, from: p08.move.monitor, to: p08.move.information, connection_type: feedback, carries: drift_or_retraining_request, condition: successor_model_version, …}\ntopology: {shape: operational_cycle_with_immutable_history, … terminal_points: [p08.move.issue, p08.move.monitor], required_feedback: [p08.c10], …}",
+   "criterion": "P3-B-AC2 (typed topology per spec §5.8, required cycles present)",
+   "severity": "must_fix",
+   "correction": "Five changes. (1) Use a controlled shape (cyclic). (2) Replace required_feedback with required_cycles, optional_cycles and prohibited_cycles. (3) p08.c10 is conditional on drift, so make it optional. (4) Add the required operational cycle the frame declares ('issue cadence'): each new origin returns from monitor/information to issue with refreshed as-of data. Give it loop_termination (end of the declared operational period, or retirement) and termination_authority. Also add the model-respecification loop diagnose->fit_score (FPP3 §1.6, §5.4) as required or optional, with its termination, and keep it distinct from the prohibited p08.c11. (5) Add a refusal terminal (refuse issuance per the stopping_rule) to terminal_points."
+  },
+  {
+   "method": "p08",
+   "file": "docs/research/method_decomposition/phase3/methods/p08/connections.yaml; method_records.yaml",
+   "record": "p08.c04, p08.c05, p08.c07, p08.c13; inputs of p08.move.fit_score, p08.move.diagnose, p08.move.issue, p08.action.run_backtest",
+   "quote": "{id: p08.c05, from: p08.move.folds, to: p08.move.fit_score, connection_type: control_gate, carries: evaluation_permission, …} … inputs : ['horizon_specific_comparative_scores', 'fold_forecasts_and_residuals'] … inputs : ['forecast_adequacy_and_shift_risk_record', 'current_as_of_data', 'frozen_forecast_specification']",
+   "criterion": "P3-B-AC2 (origin-preserving handoffs; binding correction)",
+   "severity": "must_fix",
+   "correction": "(1) fit_score consumes frozen_origin_horizon_folds and issue consumes forecast_adequacy_and_shift_risk_record, but c05 and c07 are only control gates. Add artifact_flow edges with from_output/to_input, keeping the gates separately. (2) c04 baseline->fit_score is typed retained_context, but fit_score consumes it directly from its producer: make it artifact_flow. (3) No record outputs fold_forecasts_and_residuals (run_backtest emits fold_forecast_receipts), current_as_of_data or candidate_procedures. Add these output slots and bindings, or declare external inputs with their origin. Bind later_realized_outcome as an external observed input. (4) Add parent-to-action edges, and give c13 from_output/to_input bound to an input slot on monitor."
+  },
+  {
+   "method": "p08",
+   "file": "docs/research/method_decomposition/phase3/methods/p08/uncertainty.yaml",
+   "record": "p08.u02, p08.u03 (all items)",
+   "quote": "{id: p08.u02, status: source_limited, topic: future_regime_stability, account: historical folds may omit future structural change, …} {id: p08.u03, status: contested, topic: decision_loss, account: metric weights and asymmetric consequences depend on user purpose, …}",
+   "criterion": "P3-B-AC2 (exact uncertainty accounting; uncertainty correction)",
+   "severity": "must_fix",
+   "correction": "(1) Change u02 to `unknown`: whether future structural change occurs is unobservable at the origin, not a limit of the sources. (2) u03 is a value choice owned by value_goal_authority, not a contest between authorities. Either restate it as `known` (loss is frozen by the authorized user in p08.move.target), or keep `contested` only if sources disagree on the scoring rule, and name them. (3) Add `affects:` record ids to every item, for example u02 -> [p08.move.issue, p08.move.monitor] and u01 -> [p08.move.fit_score, p08.move.diagnose], so each downstream_effect names the record it gates."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/method_records.yaml; sources.md",
+   "record": "p09.move.design, p09.move.execute, p09.move.compare, p09.action.run_model; sources.md 'Experiment and ABM conduct authority beyond ODD'",
+   "quote": "source_basis: Railsback_Grimm_2019_ch8;Azzini_2020_ch2, exact_anchors: [RG2019:ch8, JRC2020:ch2] … §8.3 (simulation experiments)",
+   "criterion": "P3-B-AC1 (experiment-design authority beyond ODD; NEGATIVE CONTROL: implementation-only authority)",
+   "severity": "must_fix",
+   "correction": "R&G 2019 ch. 8 is 'Emergence'. Its experiment section, §8.3 'Simulation Experiments and BehaviorSpace' (pp. 105-111, checked against the publisher's table of contents), teaches the NetLogo BehaviorSpace tool, and JRC 2020 ch. 2 covers sensitivity, not experiment design. So the design move's authority for factor design, choice of the number of replications, Monte Carlo precision and estimands is in effect a tool tutorial. Add a simulation design-of-experiments authority and anchor its sections in design/execute/compare. Options: Lorscheid, Heine & Meyer 2012, 'Opening the black box of simulations: increased transparency and effective communication through the systematic design of experiments', Computational and Mathematical Organization Theory 18(1):22-62 (DOE steps, replications via the coefficient of variation); or Kleijnen 2015, Design and Analysis of Simulation Experiments, 2nd ed. (Springer). Replace the whole-chapter anchors 'RG2019:ch8' with 'RG2019:8.3' wherever kept, and record the addition as a dated post-freeze source correction."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/method_records.yaml",
+   "record": "p09.move.purpose … p09.action.verify_invariants (all 12 records)",
+   "quote": "inputs: [policy_problem, domain_evidence, intended_use], output: frozen_model_purpose_and_boundary",
+   "criterion": "P3-B-AC2 (complete records; controlled-verb and typed-slot corrections, spec §5, §5.1, §6)",
+   "severity": "must_fix",
+   "correction": "Add a §6 verb to each record. Suggested: purpose=define, specify=conceptualize, implement=construct, verify=test, ground=calibrate, design=construct, execute=simulate, compare=estimate, sensitivity=perturb, conclude=review, run_model=simulate, verify_invariants=test. If conclude is the refusal point, add a separate `refuse` record. Convert `output` to `outputs` named slots and inputs to typed slots (types: model, configuration, parameter_set, scenario, model_run, estimate, appraisal, design_parameters, finding, uncertainty_note). Split 'verification_findings_and_verified_build' into an appraisal (result) slot and a model slot, so downstream inputs named 'verified_build' bind to a real output. Rerun the validator to 0 errors for p09."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/method_records.yaml",
+   "record": "p09.move.implement",
+   "quote": "label: implement executable model and map code to specification, operation_kind: runtime_delivery, … source_basis: Railsback_Grimm_2019_chapters_4_6",
+   "criterion": "P3-B-AC2 (complete, correctly classified records; spec §5.0a rule 4)",
+   "severity": "should_fix",
+   "correction": "Spec §5.0a rule 4 says an operation an authoritative source specifies is analytic or methodological_support. The record itself cites R&G chs. 4 and 6 and states a method-owned rule ('implementation_choices_cannot_silently_change_the_declared_conceptual_model'). Reclassify it as methodological_support, or remove the source claim and the method-owned rule."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/connections.yaml",
+   "record": "topology; p09.c04, p09.c05, p09.c12; p09.move.compare/execute/sensitivity",
+   "quote": "topology: {shape: cyclic_model_and_experiment_versions, entry_points: [p09.move.purpose], terminal_points: [p09.move.conclude], required_feedback: [p09.c04, p09.c05, p09.c12], prohibited_transitions: [p09.c16, p09.c17]}",
+   "criterion": "P3-B-AC2 (typed topology per spec §5.8, required cycles present)",
+   "severity": "must_fix",
+   "correction": "(1) Use a controlled shape (cyclic). (2) Replace required_feedback with required_cycles, optional_cycles and prohibited_cycles. (3) c04, c05 and c12 fire only on defect or structural failure, so make them optional_cycles, each with loop_termination and termination_authority. (4) Add the cycles the method does require: a replication-adequacy loop (compare -> execute, adding replications until the Monte Carlo precision frozen in design is met; termination_authority: engine, under the frozen rule), and a sensitivity-run loop. sensitivity must generate new ensembles for parameter, input and structural variants (R&G §§23.2-23.4; JRC chs. 3-4), yet it has no edge to execute or run_model, so those generated runs have no provenance. Add sensitivity -> execute (or a sensitivity execution action) and the return artifact_flow carrying the variant run sets. (5) Add a refusal terminal per the stopping_rule to terminal_points."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/connections.yaml; method_records.yaml",
+   "record": "p09.c06, p09.c08, p09.c11, p09.c18; inputs of p09.move.ground, p09.move.design, p09.move.execute, p09.move.sensitivity, p09.move.conclude",
+   "quote": "{id: p09.c06, from: p09.move.verify, to: p09.move.ground, connection_type: control_gate, carries: verified_build_permission, …} … {id: p09.c08, from: p09.move.verify, to: p09.move.design, connection_type: retained_context, carries: verified_build, adapter_note: verification_status_accompanies_model_identity}",
+   "criterion": "P3-B-AC2 (origin-preserving handoffs; binding correction)",
+   "severity": "must_fix",
+   "correction": "(1) No record outputs 'verified_build', yet ground, design, execute and run_model consume it: add it as an output slot of verify (see the slot split above). Bind verify->ground with an artifact_flow, keeping c06 as the gate, and verify->execute with retained_context. Give c08 from_output/to_input. (2) conclude's input verification_findings_and_verified_build has no incoming edge: add verify->conclude retained_context. (3) declared_uncertainty_space and structural_variants are produced by no record: output them from design (or a new structural-variant specification move) and bind them. (4) c11 compare->sensitivity is consumed directly, so make it artifact_flow. (5) Give c18 from_output: run_receipts and to_input bound to a trace input slot on compare, and add parent-to-action edges execute->run_model and verify->verify_invariants."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/method_records.yaml",
+   "record": "p09.move.conclude",
+   "quote": "output: bounded_simulation_finding_and_replication_package, information_origin: [observed, derived, simulated, interpreted]",
+   "criterion": "P3-B-AC2 (NEGATIVE CONTROL: simulated or derived information must not silently become observed real-world evidence)",
+   "severity": "should_fix",
+   "correction": "The finding's single output lists 'observed' alongside 'simulated', so a consumer cannot tell which part of the finding is observed evidence. Split the output into typed slots with their own origins: the model-conditional finding (simulated, derived, interpreted), and the empirical-fitness appraisal referencing observed calibration and validation targets (observed, derived). State in the finding slot that its origin stays simulated whatever data parameterized the model, as p09.u05 says."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/uncertainty.yaml",
+   "record": "p09.u02, p09.u04 (all items)",
+   "quote": "{id: p09.u02, status: contested, topic: structural_uncertainty, account: alternative mechanisms schedules networks and submodels may change conclusions, …} {id: p09.u04, status: contested, topic: abstraction_adequacy, …}",
+   "criterion": "P3-B-AC2 (exact uncertainty accounting; uncertainty correction)",
+   "severity": "must_fix",
+   "correction": "(1) Add an `unknown` item for processes the model omits that cannot be enumerated (mechanisms outside the abstraction), gating p09.move.conclude. This is distinct from u02, which covers declared alternative structures. (2) u02 is `contested` only where named sources or experts propose rival mechanisms. If so, name the rival structures; otherwise restate it as source_limited (the structural variants explored are limited to those declared). (3) Add `affects:` record ids to every item, for example u01 -> [p09.move.compare], u03 -> [p09.move.ground, p09.move.conclude], u06 -> [p09.move.design, p09.move.sensitivity]. That makes each downstream_effect name the gate it triggers."
+  }
+ ]
+}
