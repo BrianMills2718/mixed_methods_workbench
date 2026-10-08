@@ -89,12 +89,12 @@ def test_canonical_phase3_graph_preserves_handoffs_without_acceptance() -> None:
         "P3-RESEARCH-A": (
             "ready",
             "ready_for_execution",
-            "6262b4da513d2a3e5dd094c47a9284c12572603c",
+            "2f66438517e651ed05ebec39663734d115184dd3",
         ),
         "P3-RESEARCH-B": (
             "ready",
             "ready_for_execution",
-            "f8044648075468411d20bee1bfe71fec5c2023bf",
+            "915c903c67876fb5776744517f63ed9cd8682517",
         ),
         "P3-RESEARCH-C": (
             "ready",

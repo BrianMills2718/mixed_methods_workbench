@@ -1,0 +1,139 @@
+{
+ "record_type": "P3ControlReview",
+ "unit_id": "P3-RESEARCH-C",
+ "reviewed_at": "2026-10-08",
+ "evidence_commit": "3885f70f8a0b6ffc48d52993bbecf4a5895aa344",
+ "disposition": "changes_requested",
+ "structural_check": "cd /home/brian/code/mixed_methods_workbench-wt-p3-C && python3 scripts/validate_phase3_methods.py --spec /home/brian/code/_docs/METHOD_DECOMPOSITION_HANDOFF.md p05 p10 p11 p12 p13 -> 'p05: ok, 0 warning(s) | p10: ok, 0 warning(s) | p11: ok, 0 warning(s) | p12: ok, 0 warning(s) | p13: ok, 0 warning(s) | RESULT: PASS (exit 0) methods=5 errors=0 warnings=0' (exit 0). HEAD verified as 3885f70f8a0b6ffc48d52993bbecf4a5895aa344, working tree clean. The checker does not test whether loop state (such as P05's developed categories) is carried back into the moves that revise it, whether a required input has any upstream source (P10 candidate_strategies), or whether a prohibited edge duplicates a permitted connection's from/to (P13 c19/c23). External checks: the Green Book 2026 PDF hash matched sources.md, and its headings and return-to-longlist passage were confirmed; the Turoff 1970 DOI was confirmed on Crossref; the Fetters 2013 quote and headings were confirmed at PMC4097839.",
+ "criteria": [
+  {
+   "id": "P3-C-AC1",
+   "holds": true,
+   "evidence": "All five frames are frozen with exact sources, and the authority roles are kept separate. P05: recommender and decision_authority are none; the Charmaz 3e chapter map is unchanged. P10: frame recommender strategy_sponsor_or_design_team, decision_authority accountable_decision_maker; p10.move.frame is now operation_kind analytic (p10.u08). P11: compare_advise (recommend), assure (the reviewer's own move) and decide_feedback (decision_authority accountable_decision_maker) are separate records, and the locators were corrected. I checked them against the official PDF (SHA-256 275602ac... matches sources.md): ch. 7 'Distributional analysis and place-based analysis', ch. 8 'Valuation of social costs and social benefits', ch. 10 'Monitoring and evaluation', ch. 6 'Risk and uncertainty' / 'Optimism bias' / 'Sensitivity analysis and switching values' / 'Identifying the preferred option', and the ch. 6 'practitioners may need to return to longlist appraisal' passage are all present, and the PDF also has 'local assurance frameworks' (ch. 1), which supports p11.u07. P12: judgment_owner is individual_anonymous_panelists only on round1-3 and delphi_method_lead elsewhere; consensus is not treated as truth (method_owned_rule on interpret; c19 prohibited). The Turoff 1970 variant locator DOI resolves on Crossref ('The design of a policy Delphi', 2(2):149-171). P13: each strand has its own performer, judgment owner and acceptance authority (qualitative_team/qualitative_strand_lead/qualitative_method_reviewer and the quantitative equivalents), and meta_infer requires both strands plus fit. The Fetters 2013 passage 'Frequently, the two forms of data are analyzed separately and then merged' and both quoted headings appear in PMC4097839. Negative controls pass: no consensus-as-truth, no merged recommendation and decision, no flattened strand warrants. The remaining should_fix items below do not fail the criterion."
+  },
+  {
+   "id": "P3-C-AC2",
+   "holds": false,
+   "evidence": "Validator: 'RESULT: PASS (exit 0) methods=5 errors=0 warnings=0'. Negative-control loops are now present along real edges. P05 theoretical sampling: c03, c05, c07, c09, with recoding via c20. P10 adaptive strategy: c05, c08, c10, c12, plus futures via c17. P12 Delphi feedback is unrolled into three rounds (c05, c10). P11 appraisal return: c22, c23, plus assurance rework c24, c25. P13 divergence disposition: c15-c17, with termination and termination_authority. The criterion still fails on P05: the theoretical-sampling loop does not carry the developed categories back into coding and category development. On a second or later pass, focus_categories and refine work only on categories built from the successor increment, so the prior categories never reach integrate. See the new must_fix."
+  }
+ ],
+ "prior_findings": [
+  {
+   "record": "P05 topology.required_cycles / optional_cycles; p05.c12; p05.move.refine (must_fix)",
+   "resolved": true,
+   "evidence": "A required cycle now exists: 'p05.move.initial_code -> p05.move.compare_memo -> p05.move.focus_categories -> p05.move.theoretical_sample -> p05.move.initial_code', with edges [p05.c03, p05.c05, p05.c07, p05.c09] and termination_authority: human. New feedback p05.c09 (theoretical_sample -> initial_code, to_input governed_source_increment) and p05.c20 (compare_memo -> initial_code, 'comparison_shows_codes_need_recoding_or_splitting') close it. Both optional cycles return to their start node along listed edges. A related new gap is raised separately."
+  },
+  {
+   "record": "P05 p05.c12 and theoretical_sample inputs (must_fix)",
+   "resolved": true,
+   "evidence": "p05.move.theoretical_sample now has the slot 'revised_categories_with_properties_and_gaps type: concept role: subject cardinality: optional_many', and p05.c12 has 'to_input: revised_categories_with_properties_and_gaps'. p05.c21 carries the artifact from refine, and slot_note explains why this is not a multi-subject use."
+  },
+  {
+   "record": "P05 p05.move.refine type collapse (should_fix)",
+   "resolved": true,
+   "evidence": "refine is relabelled 'revise categories against comparative variation'. Its output is 'revised_categories_with_properties_and_gaps type: concept' plus the byproduct 'category_revision_memo type: memo'. adequacy and integrate take the concept as subject."
+  },
+  {
+   "record": "P10 topology.optional_cycles futures revision (must_fix)",
+   "resolved": true,
+   "evidence": "Feedback p10.c17 was added: 'from: p10.move.revise_strategy to: p10.move.generate_futures condition: approved_successor_future_request', with to_input successor_future_request (a new optional slot on generate_futures). The optional cycle is written out along edges [p10.c02, p10.c05, p10.c08, p10.c10, p10.c17]."
+  },
+  {
+   "record": "P10 revise_strategy outputs; p10.c12 (must_fix)",
+   "resolved": true,
+   "evidence": "Outputs are now separate: 'successor_strategies option', 'signposts_and_triggers criterion' and 'successor_future_request configuration'. p10.c12 has 'from_output: successor_strategies to_input: candidate_strategies' with type option. p10.c14 delivers successor_strategies to advise as context, and p10.u07 records the typing. A residual first-pass gap is raised separately as should_fix."
+  },
+  {
+   "record": "P10 p10.move.frame operation_kind (should_fix)",
+   "resolved": true,
+   "evidence": "p10.move.frame is now 'operation_kind: analytic', p10.phase.frame is 'operation_kinds: [analytic]', and the reason is recorded as p10.u08."
+  },
+  {
+   "record": "P11 required_cycles; p11.c15 appraisal return (must_fix)",
+   "resolved": true,
+   "evidence": "Feedback edges were added. p11.c22 (compare_advise -> shortlist, 'shortlist_appraisal_shows_one_or_more_options_unlikely_to_meet_objectives_or_csfs...') and p11.c23 (compare_advise -> generate_off) carry appraisal_return_finding. New move p11.move.assure has reject returns p11.c24 (-> compare_advise) and p11.c25 (-> appraise_cba_cea). Four required_cycles list edges, termination and termination_authority: human. The assurance-return source gap is recorded as p11.u07: 'does not define an assurance-review step or its rejection route', with the downstream effect 'bound to the local assurance office under p11.u06, not presented as a Green Book conduct rule'. That entry is specific and states its effect."
+  },
+  {
+   "record": "P11 sources.md locators and anchors (should_fix)",
+   "resolved": true,
+   "evidence": "sources.md now lists ch. 2 (ROAMEF, 'Identifying the preferred option'), ch. 6 sub-headings, ch. 7 'Distributional analysis and place-based analysis', ch. 8 'Valuation...' and ch. 10 'Monitoring and evaluation'. decide_feedback exact_anchors are ['green_book_2026_ch2_roamef', 'green_book_2026_ch10']. qualify_impacts adds the ch6 risk, optimism-bias and sensitivity anchors, and compare_advise adds the ch2 and ch6 'identifying_the_preferred_option' anchors. All of these headings appear in the pinned PDF."
+  },
+  {
+   "record": "P11 prohibited_cycles mcda -> compare_advise (should_fix)",
+   "resolved": true,
+   "evidence": "Replaced with a real loop: 'p11.move.choose_longlist_route -> p11.move.shortlist -> p11.move.appraise_cba_cea -> p11.move.compare_advise -> p11.move.choose_longlist_route', reason 'switching the same longlist to MCDA after seeing shortlist results lets results choose the appraisal route'. It is backed by prohibited edge p11.c27."
+  },
+  {
+   "record": "P12 judgment_owner defaults (must_fix)",
+   "resolved": true,
+   "evidence": "defaults.move now has 'judgment_owner: delphi_method_lead' and 'performer: delphi_conveners_and_analysis_team'. round1, round2 and round3 have 'performer: individual_anonymous_panelists judgment_owner: individual_anonymous_panelists'. design, panel, feedback1, feedback2, interpret and report have judgment_owner delphi_method_lead. The frame authority_note and p12.u08 restate the split."
+  },
+  {
+   "record": "P12 policy-Delphi variant locator (should_fix)",
+   "resolved": true,
+   "evidence": "The frame now carries 'variant_locator: turoff_1970_design_of_a_policy_delphi' (DOI confirmed on Crossref), and the policy-Delphi rules are anchored per move (for example 'turoff_1970_policy_delphi_options_and_scales' on round1). The inability to read the text is recorded as p12.u07, with the downstream effect 'Policy-Delphi move rules carry article-level anchors only; an independent review must not infer page wording'. One residual issue is raised as should_fix: the secondary accounts the rules rest on are not named."
+  },
+  {
+   "record": "P13 qual_warrant / quant_warrant hidden strand methods (should_fix)",
+   "resolved": true,
+   "evidence": "Both moves are now 'record_role: cross_method_subprofile_handoff' with 'collision_participation: none' and a handoff block naming design_parameter qualitative_strand_method_id / quantitative_strand_method_id. The frame declares design_parameters. qual_warrant performer is now qualitative_team, and p13.u08 records the change."
+  },
+  {
+   "record": "P13 check_readiness / trace_meta anchors (should_fix)",
+   "resolved": true,
+   "evidence": "check_readiness exact_anchors are ['fetters_2013_study_design_level_convergent_separate_analysis_then_merge', 'nih_2011_both_data_forms'] and trace_meta's is ['fetters_2013_interpretation_reporting']; I confirmed the quoted passage in PMC4097839. The gap is recorded as p13.u07, with the downstream effect 'check_readiness is a decomposition inference from those passages, not a quoted conduct rule; its gate may be bound differently by each strand profile'. That entry is specific and states its effect."
+  },
+  {
+   "record": "P13 optional_cycles loop accounting (should_fix)",
+   "resolved": true,
+   "evidence": "All three optional cycles are written out along existing edges (for example 'p13.move.fit -> p13.move.qual_warrant -> p13.move.check_readiness -> p13.move.align -> p13.move.joint_display -> p13.move.fit', edges [c16, c03, c05, c10, c14]). Each has termination 'divergence explained, retained as unresolved, or the evidence budget is spent' and 'termination_authority: human (mixed_methods_lead)'."
+  }
+ ],
+ "new_findings": [
+  {
+   "method": "P05",
+   "file": "docs/research/method_decomposition/phase3/methods/p05/method_records.yaml",
+   "record": "p05.move.compare_memo, p05.move.focus_categories and p05.move.refine inputs; p05.c09, p05.c10, p05.c14",
+   "quote": "p05.move.refine inputs:\n  - slot: provisional_categories_with_properties_and_gaps\n    type: concept\n    role: subject\n    cardinality: many\n(and p05.c09: 'to_input: governed_source_increment ... effect: create_successor_coding_comparison_and_category_versions')",
+   "criterion": "P3-C-AC2 (feedback-capable typed topology; negative control on the theoretical-sampling loop; spec 5.8 'Grounded theory's constant comparison is a required cycle')",
+   "severity": "must_fix",
+   "correction": "The loop sends only the successor source increment back to initial_code. The previously developed categories never re-enter compare_memo, focus_categories or refine: no connection targets those moves with revised_categories_with_properties_and_gaps. As a result, a second or later pass builds and refines categories from the new increment alone, successor codes are never compared against the existing categories, and integrate (via p05.c14) receives only the last pass's categories. To fix this, add an optional slot 'prior_revised_categories' (type concept, role prior, cardinality optional_many) to compare_memo and to focus_categories and/or refine. Then add a feedback or retained_context connection from p05.move.refine (revised_categories_with_properties_and_gaps) to those slots, taken on successor passes. Finally, state in refine's method_owned_rule (or in an uncertainty item) that each successor category version supersedes and carries forward the prior set."
+  },
+  {
+   "method": "P10",
+   "file": "docs/research/method_decomposition/phase3/methods/p10/method_records.yaml",
+   "record": "p10.move.evaluate input candidate_strategies; p10.action.run_ensemble",
+   "quote": "- slot: candidate_strategies\n    type: option\n    role: context\n    cardinality: many\n    optional: false",
+   "criterion": "P3-C-AC2 (typed topology: every required input has a compatible source)",
+   "severity": "should_fix",
+   "correction": "The only connection that supplies candidate_strategies is feedback p10.c12, so the first evaluate pass (and run_ensemble) has a required input with no source. To fix this, give p10.move.frame an output 'initial_candidate_strategies' (type option, many), derived from its candidate_actions/levers, and add an artifact_flow from frame to evaluate.candidate_strategies and to run_ensemble. Alternatively, declare candidate_strategies an external design input of the frame and carry it to evaluate as retained context."
+  },
+  {
+   "method": "P13",
+   "file": "docs/research/method_decomposition/phase3/methods/p13/connections.yaml",
+   "record": "p13.c19/p13.c20 vs p13.c23/p13.c24; topology.prohibited_edges",
+   "quote": "p13.c19 retained_context p13.move.qual_warrant -> p13.move.meta_infer ... p13.c23 prohibited_transition from: p13.move.qual_warrant to: p13.move.meta_infer reason: one_strand_alone_cannot_license_a_mixed_methods_meta_inference",
+   "criterion": "P3-C-AC2 (exact typed topology; spec 5.8: prohibited_edges are validation rules, not documentation)",
+   "severity": "should_fix",
+   "correction": "The same from/to pairs are both required retained-context connections and listed prohibited edges. An engine that enforces prohibited_edges would therefore block meta_infer's required strand inputs, or else the rule cannot be enforced. To fix this, express the rule as a guard on meta_infer: it is reachable only through control/artifact flow from p13.move.fit (c18), with both strand slots non-optional. Alternatively, retarget c23 and c24 to the actual bypass, for example qual_warrant/quant_warrant -> meta_infer without fit, using a distinct condition the validator can test. Also fix c24's 'to_input: qualified_qualitative_findings', which should be qualified_quantitative_findings."
+  },
+  {
+   "method": "P13",
+   "file": "docs/research/method_decomposition/phase3/methods/p13/method_records.yaml",
+   "record": "p13.move.check_readiness operation_kind",
+   "quote": "operation_kind: methodological_support ... permitted_conclusion: merge_or_return_or_withhold_integration",
+   "criterion": "P3-C-AC1/AC2 (spec 5.0a: methodological_support only where a frozen source requires it and produces no claim; rule 4)",
+   "severity": "should_fix",
+   "correction": "p13.u07 states that 'No frozen source gives explicit guidance on checking each strand's validity before merging', yet the move licenses merge, return or withhold, which changes what the method may conclude. methodological_support therefore fails both conditions in 5.0a. Reclassify it as analytic and update p13.phase.integrate.operation_kinds, or record the classification choice and its effect on the abort-gate denominator in p13.u07."
+  },
+  {
+   "method": "P12",
+   "file": "docs/research/method_decomposition/phase3/methods/p12/sources.md",
+   "record": "Policy-Delphi variant locator paragraph; p12.u07",
+   "quote": "these features rest on the article’s bibliographic record and on secondary accounts of Turoff’s design (for example the six policy-Delphi phases and the four rating scales)",
+   "criterion": "P3-C-AC1 (exact conduct sources / durable references)",
+   "severity": "should_fix",
+   "correction": "The variant-specific move rules on design, panel, round1-3 and interpret rest partly on 'secondary accounts' that are not named, so they cannot be re-checked. Cite the specific secondary source(s), with DOI or URL and access date, in sources.md and p12.u07. Alternatively, re-read Turoff 1970 or the Linstone and Turoff 'The Policy Delphi' chapter from another durable copy and anchor it."
+  }
+ ]
+}

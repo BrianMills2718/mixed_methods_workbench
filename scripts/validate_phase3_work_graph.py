@@ -16,8 +16,8 @@ EXPECTED_METHODS = {
     "P3-RESEARCH-C": {"p05", "p10", "p11", "p12", "p13"},
 }
 SUBMITTED_EVIDENCE_REVISIONS = {
-    "P3-RESEARCH-A": "git:origin/phase3-research-a@6262b4da513d2a3e5dd094c47a9284c12572603c;archived-handoff;not-accepted",
-    "P3-RESEARCH-B": "git:origin/phase3-research-b@f8044648075468411d20bee1bfe71fec5c2023bf;archived-handoff;changes-requested",
+    "P3-RESEARCH-A": "git:origin/p3-research-a-corrections@2f66438517e651ed05ebec39663734d115184dd3;control-review-2026-10-08;merged-to-main",
+    "P3-RESEARCH-B": "git:origin/p3-research-b-corrections@915c903c67876fb5776744517f63ed9cd8682517;control-review-2026-10-08;merged-to-main",
     "P3-RESEARCH-C": "git:origin/phase3-research-c@0fd05c25f54f8acdbf54689aef4aaf3c0661a7aa;archived-handoff;not-accepted",
 }
 CONTROL_ID = "P3-CONTROL"

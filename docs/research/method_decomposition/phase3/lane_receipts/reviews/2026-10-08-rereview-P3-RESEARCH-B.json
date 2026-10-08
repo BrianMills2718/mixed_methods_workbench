@@ -1,0 +1,185 @@
+{
+ "record_type": "P3ControlReview",
+ "unit_id": "P3-RESEARCH-B",
+ "reviewed_at": "2026-10-08",
+ "evidence_commit": "915c903c67876fb5776744517f63ed9cd8682517",
+ "disposition": "accept",
+ "structural_check": "Run in /home/brian/code/mixed_methods_workbench-wt-p3-B, where git rev-parse HEAD returns 915c903c67876fb5776744517f63ed9cd8682517, the worktree is clean, and the spec sha256 is fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f (matches the pin). Command: python3 scripts/validate_phase3_methods.py --spec /home/brian/code/_docs/METHOD_DECOMPOSITION_HANDOFF.md p06 p07 p08 p09. Output: 'p06: ok, 0 warning(s) | p07: ok, 0 warning(s) | p08: ok, 0 warning(s) | p09: ok, 0 warning(s) | RESULT: PASS (exit 0) methods=4 errors=0 warnings=0'. A separate read-only cross-check checked every record's slot types, verbs and single subject, every non-external input binding, every connection's from_output/to_input slot, cycle closure, and id references, and found no defects. External checks: the OMB and Grimmer and Stewart PDF links both return HTTP 200 application/pdf. The Esuli 2023 and Kleijnen 2015 chapter titles and pages match Crossref. The R&G section numbers match the Princeton contents PDF.",
+ "criteria": [
+  {
+   "id": "P3-B-AC1",
+   "holds": true,
+   "evidence": "All four frames are frozen 2026-08-13, and each post-freeze change is logged with its date. Every authority checks out: (1) P06's OMB anchors now name only standards that exist (1.1-1.4, 2.1-2.3, 3.1-3.5, 4.1, 5.1-5.2, 6.1, 7.1-7.3), and the official PDF resolves (HTTP 200, application/pdf). (2) P07 states its construct-validity boundary explicitly in sources.md ('Accuracy, F1, or agreement therefore supports label-reproduction claims only'). It adds a conduct-level quantification authority: Esuli et al. 2023, ch. 3 'Evaluation of Quantification Algorithms' pp. 33-54 and ch. 4 'Methods for Learning to Quantify' pp. 55-85, confirmed on Crossref. It also adds Krippendorff 2018 ch. 12, and its Grimmer and Stewart PDF link now returns a 972 KB PDF. (3) P08's FPP3 list is 1.3, 1.6, 5.2-5.5, 5.8-5.10 and 13.4, all matching the OTexts section titles, and Croushore 2011 is added, with the gap that it is anchored only at article level recorded in p08.u06. (4) P09 adds an experiment-design authority beyond ODD: Kleijnen 2015, ch. 2 pp. 23-81 and ch. 3 pp. 83-133, confirmed on Crossref. Its R&G anchors 4.2, 4.3, 6.3, 6.4, 8.3, 20.3, 20.4, 22.4 and 23.2-23.4 match the Princeton contents PDF. Negative control: no method relies on an implementation, benchmark or reporting format as its sole conduct authority. P09's ODD and R&G 8.3 sit alongside Kleijnen, Sargent and JRC, and its frame says so in source_scope_caution."
+  },
+  {
+   "id": "P3-B-AC2",
+   "holds": true,
+   "evidence": "The validator passes at this commit, and an independent cross-check also found no defects (details below). Validator command: 'python3 scripts/validate_phase3_methods.py --spec /home/brian/code/_docs/METHOD_DECOMPOSITION_HANDOFF.md p06 p07 p08 p09'. Result: 'RESULT: PASS (exit 0) methods=4 errors=0 warnings=0'. The spec sha256 is fbeb0e18..., which matches the pin. My own check of the four methods found that every record has exactly one subject slot and a verb from the §6 list, and every type comes from the §5.1 list. Every non-external input is bound by a non-prohibited connection whose from_output/to_input name real slots. Every topology cycle closes, and every referenced record or connection id resolves, except two intentional cases: p07.c12, an out-of-method prohibited edge, and p08.move.fit_score, which appears only in a revision note. Each method has the required pieces. P06 has a required pretest cycle, a refuse terminal and the prohibited edge p06.c14. P07 has a required codebook-pilot cycle, a refuse terminal and a prohibited causal exit. P08 has a required issue-cadence cycle and a refuse terminal. P09 has required replication-adequacy and sensitivity-run cycles and a refuse terminal. P06, P07 and P09 each keep a prohibited causal exit; P08 instead refuses causal use through u05 ('p08.move.issue refuses causal wording'). Every uncertainty item carries 'affects' and a downstream_effect that names the gate or refusal edge it triggers, and each method now records at least one unknown item (p06.u06, p07.u06, p08.u02, p09.u07). Negative control: p09.c16 (execute->conclude, relabelling runs as observed) remains prohibited. model_conditional_finding has information_origin [simulated, derived, interpreted], with the origin_note 'the finding's origin stays simulated whatever observed data parameterized or calibrated the model'. No connection relabels simulated or derived content as observed. One should_fix origin-labelling gap remains on a conclude appraisal slot; it is listed under new findings."
+  }
+ ],
+ "prior_findings": [
+  {
+   "record": "p06 all 11 records (verbs and typed slots, must_fix)",
+   "resolved": true,
+   "evidence": "Every p06 record now has a §6 verb, for example p06.move.adjust 'verb: calibrate'. Select and draw_sample use 'construct', and verb_note explains why no 'sample' verb was added. Inputs and outputs are typed named slots. The joined outputs are split, for example adjust's outputs are now 'weighted_analysis_dataset' (dataset/result) and 'nonresponse_bias_assessment' (appraisal/byproduct), and estimate's are 'prevalence_estimate' plus 'error_account' (uncertainty_note). The validator reports 'p06: ok'."
+  },
+  {
+   "record": "p06 OMB anchors (must_fix)",
+   "resolved": true,
+   "evidence": "The anchors are now estimate 'exact_anchors: [OMB:4.1, OMB:5.2, Groves:10.7]', compute_variance [OMB:4.1, Groves:10.7], and report [OMB:5.1, OMB:6.1, OMB:7.1, OMB:7.2, OMB:7.3, Groves:10.8]. OMB:1.3 is added to design and collect, and OMB:3.4 to process. The frame's source_freeze.primary reads 'sections_1.1_through_7.3', and post_freeze_corrections has a 2026-10-08 entry giving the original and corrected values."
+  },
+  {
+   "record": "p06 topology / p06.c13 (must_fix)",
+   "resolved": true,
+   "evidence": "The topology now reads 'shape: cyclic', with required_cycles, optional_cycles, prohibited_cycles and prohibited_edges. p06.c13 sits in optional_cycles under p06.cycle.successor_wave, with 'why_optional: the frozen variant is cross-sectional...'. A new p06.move.pretest record adds the required cycle p06.cycle.pretest_revision [p06.c16, p06.c17], with loop_termination and 'termination_authority: human'. The optional OMB 1.3 follow-up loop is p06.c29. terminal_points is [p06.move.report, p06.move.refuse], and refusals reach p06.move.refuse through c34, c35, c36 and c37."
+  },
+  {
+   "record": "p06 bindings c03/c15 (must_fix)",
+   "resolved": true,
+   "evidence": "survey_design is now bound to select, process, collect, estimate and both actions (c18, c19, c05, c28, c24, c27). frame_snapshot is now an output of p06.move.frame, bound by c20 and c21. frame_sources is declared external: 'external_origin: observed (administrative or list sources...)'. The parent-to-action invocations are c22 and c25. c15 now reads 'from_output: estimate_receipt, to_input: estimate_receipt', and estimate_receipt is a declared context input on p06.move.estimate."
+  },
+  {
+   "record": "p06 actions method_owned_rule (should_fix)",
+   "resolved": true,
+   "evidence": "Both p06.action.draw_sample and p06.action.compute_variance now read 'method_owned_rule: none' and 'operation_kind: methodological_support', each with an operation_kind_note citing OMB 1.2 or 4.1 and spec 5.0a rule 4."
+  },
+  {
+   "record": "p06 uncertainty u02/u03 (must_fix)",
+   "resolved": true,
+   "evidence": "u02 is now 'status: source_limited, topic: assessable_coverage_error', and a new p06.u06 reads 'status: unknown, topic: undetectable_frame_exclusions_and_duplicates'. u03 is now 'status: unknown, topic: nonresponse_bias_magnitude'. Every item has affects; for example u03 reads 'affects: [p06.move.adjust, p06.move.estimate, p06.move.report]', with a downstream_effect that names p06.c35 to p06.move.refuse."
+  },
+  {
+   "record": "p07 all 10 records (verbs and typed slots, must_fix)",
+   "resolved": true,
+   "evidence": "Every p07 record now has a verb, for example operationalize 'verb: conceptualize' and persist_errors 'verb: anchor'. The codebook output is split into 'construct_definition' (construct_definition) plus 'adjudication_protocol' (design_parameters). The validation output is split into 'validation_appraisal' (appraisal/result) plus 'item_error_record' (evidence_item, trace, many). The validator reports 'p07: ok'."
+  },
+  {
+   "record": "p07 quantification authority (must_fix)",
+   "resolved": true,
+   "evidence": "frame.yaml now has 'corroborating_added_2026_10_08: Esuli_Fabris_Moreo_Sebastiani_2023_Learning_to_Quantify_chapters_3_4', with a dated correction. quantify's anchors are '[Esuli2023:ch4, Esuli2023:ch3, MS2019:pp1415-1416, GS2013:5.2.3]', and validate's include Esuli2023:ch3. The chapter titles and pages match Crossref."
+  },
+  {
+   "record": "p07 archived PDF and paraphrased anchors (should_fix)",
+   "resolved": true,
+   "evidence": "The link now points at '.../Grimmer%20and%20Stuart%20-%20Text%20as%20Data%20-%202013.pdf', which returns HTTP 200, application/pdf, 972383 bytes. The anchors now use article section numbers (GS2013:2.1, 2.4, 5.2.1, 5.2.2, 5.2.3, 4), and sources.md gives a page map."
+  },
+  {
+   "record": "p07 topology (must_fix)",
+   "resolved": true,
+   "evidence": "The topology reads 'shape: cyclic'. c07 sits in optional_cycles as p07.cycle.validation_failure_successor. The required p07.cycle.codebook_pilot [c23, c24, c25] runs through the new p07.move.pilot, with 'termination_authority: human' and source [GS2013:5.2.1, Krippendorff2018:ch12]. terminal_points now includes p07.move.refuse. c12 now lives only in prohibited_edges, with 'to: out_of_method:causal_effect_estimation', a reason and if_taken, and c40 routes such requests to refuse."
+  },
+  {
+   "record": "p07 bindings (must_fix)",
+   "resolved": true,
+   "evidence": "The split->fit gate c04 now has artifact flows beside it: c15 (development_label_partition) and c16 (leakage_resistant_split_plan). heldout_human_labels is a split output, bound by c17 and c35. bounded_corpus is a bound output, bound by c20, c22 and c27. validated_model flows validate->quantify by c18. The parent-to-action edges are c29 and c33/c34, and c13 is bound to anchored_error_projection, a validate input."
+  },
+  {
+   "record": "p07 uncertainty (must_fix)",
+   "resolved": true,
+   "evidence": "A new item reads 'p07.u06 status: unknown topic: corpus_label_shift_magnitude', with affects [p07.move.quantify, p07.move.interpret] and a downstream_effect that names p07.c38 to refuse. u04 is now 'status: known topic: classify_and_count_bias_mechanism'. Every item carries affects."
+  },
+  {
+   "record": "p08 all 10 records (verbs, typed slots, splits, must_fix)",
+   "resolved": true,
+   "evidence": "fit_score is split into p08.move.fit ('verb: fit') and p08.move.score ('verb: test'). Selection is split out as p08.move.select ('verb: rank'), and verb_note explains why 'compare' was not used. All slots are typed, and the validator reports 'p08: ok'."
+  },
+  {
+   "record": "p08 FPP3 anchors (must_fix)",
+   "resolved": true,
+   "evidence": "The anchors are now target '[FPP3:1.3, FPP3:1.6]' and issue '[FPP3:1.6, FPP3:5.5]'. The frame's primary reads 'FPP3_sections_1.3_1.6_5.2_5.5_5.8_5.10', with a dated correction that gives the original value."
+  },
+  {
+   "record": "p08.move.information vintage authority (should_fix)",
+   "resolved": true,
+   "evidence": "exact_anchors is '[FPP3:5.8, FPP3:5.10, Croushore2011:pp72-100]', with the source_anchor_note 'Croushore 2011 is pinned at article level'. The uncertainty item p08.u06 is source_limited and specific: 'the section that governs forecasting with vintages could not be confirmed'. It states its downstream effect: 'a reviewer may treat the rule as method-owned practice rather than a sourced requirement'."
+  },
+  {
+   "record": "p08 topology / p08.c10 (must_fix)",
+   "resolved": true,
+   "evidence": "The topology reads 'shape: cyclic', and c10 sits in optional_cycles as p08.cycle.drift_successor. The required p08.cycle.issue_cadence [p08.c27, p08.c26] ends when 'the declared operational period ends, or monitoring retires the procedure', with 'termination_authority: human'. The optional p08.cycle.respecification [c28, c16, c06] carries 'distinct_from: p08.c11'. terminal_points includes p08.move.refuse."
+  },
+  {
+   "record": "p08 bindings (must_fix)",
+   "resolved": true,
+   "evidence": "c15 (folds->fit) and c25 (diagnose->issue) are artifact flows beside the gates c05 and c07. c04 is now 'connection_type: artifact_flow'. fit outputs fold_forecasts_and_residuals and candidate_procedures, and information outputs current_as_of_data, bound by c26. later_realized_outcome is declared external with 'external_origin: observed'. The parent-to-action edges are c29/c30 and c34/c35, and c13 binds to immutable_forecast_artifact, a monitor input."
+  },
+  {
+   "record": "p08 uncertainty (must_fix)",
+   "resolved": true,
+   "evidence": "u02 is now 'status: unknown'. u03 is now 'status: known', with the account 'a value choice frozen by the authorized forecast user in p08.move.target'. Every item carries affects; for example u02 reads 'affects: [p08.move.issue, p08.move.monitor]', with a downstream_effect that names p08.c40 and p08.c10."
+  },
+  {
+   "record": "p09 experiment-design authority (must_fix)",
+   "resolved": true,
+   "evidence": "The frame now has 'primary_experiment_design_added_2026_10_08: Kleijnen_2015_Design_and_Analysis_of_Simulation_Experiments_2e_chapters_2_3', confirmed on Crossref. design's anchors are '[Kleijnen2015:ch2, Kleijnen2015:ch3, RG2019:8.3]'. No RG2019:ch8 anchor remains, and JRC ch. 2 no longer anchors design. The chapter-level granularity is recorded as source_limited in p09.u08, with the downstream effect 'a reviewer should check Kleijnen ch. 3 before treating a specific replication formula as source-required'."
+  },
+  {
+   "record": "p09 all 12 records (verbs and typed slots, must_fix)",
+   "resolved": true,
+   "evidence": "Every p09 record has a verb, for example execute 'simulate' and sensitivity 'perturb'. verify's output is split into 'verification_appraisal' (appraisal) and 'verified_build' (model, optional_one). A p09.move.refuse record with 'verb: refuse' is added. The validator reports 'p09: ok'."
+  },
+  {
+   "record": "p09.move.implement classification (should_fix)",
+   "resolved": true,
+   "evidence": "The record now reads 'operation_kind: methodological_support', with the operation_kind_note 'reclassified from runtime_delivery on 2026-10-08; R&G chs. 4 and 6 specify implementing...'."
+  },
+  {
+   "record": "p09 topology (must_fix)",
+   "resolved": true,
+   "evidence": "The topology reads 'shape: cyclic'. c04, c05 and c12 sit in optional_cycles, each with loop_termination and termination_authority. The required cycles are p09.cycle.replication_adequacy [c31, c10] ('termination_authority: engine', 'termination_rule_owner: the frozen experiment plan') and p09.cycle.sensitivity_runs [c33, c34]. terminal_points includes p09.move.refuse."
+  },
+  {
+   "record": "p09 bindings (must_fix)",
+   "resolved": true,
+   "evidence": "verified_build is now a verify output, bound by c21, c08, c22 and c38. verify->conclude is c23 (verification_appraisal). declared_uncertainty_space and structural_variants are design outputs, bound by c29 and c30. c11 now reads 'connection_type: artifact_flow'. c18 binds 'from_output: run_receipts, to_input: run_receipts' to a compare input. The parent-to-action edges are c37 and c41."
+  },
+  {
+   "record": "p09.move.conclude information origins (should_fix)",
+   "resolved": true,
+   "evidence": "The output is split into three slots: model_conditional_finding 'information_origin: [simulated, derived, interpreted]' with 'origin_note: the finding's origin stays simulated whatever observed data parameterized or calibrated the model (p09.u05)'; empirical_fitness_appraisal [observed, derived]; and replication_package [derived, simulated]. A residual labelling gap on empirical_fitness_appraisal is raised as a new should_fix."
+  },
+  {
+   "record": "p09 uncertainty (must_fix)",
+   "resolved": true,
+   "evidence": "A new item reads 'p09.u07 status: unknown topic: omitted_processes', with affects [p09.move.conclude, p09.move.purpose] and a route to refuse through p09.c47. u02 is now 'status: source_limited', and its account is specific: 'no frozen source names rival structures for this variant'. Its downstream effect is stated: sensitivity must run every declared variant, and conclude reports a gap or refuses through c46. Every item carries affects."
+  }
+ ],
+ "new_findings": [
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/method_records.yaml",
+   "record": "p09.move.conclude output empirical_fitness_appraisal (line 315); p09.move.ground output empirical_fitness_record",
+   "quote": "- slot: empirical_fitness_appraisal ... information_origin: [observed, derived] (conclude) vs {slot: empirical_fitness_record, type: appraisal, ... information_origin: [observed, derived, simulated]} (ground)",
+   "criterion": "P3-B-AC2 negative control (simulated or derived information must not silently become observed evidence)",
+   "severity": "should_fix",
+   "correction": "The fitness appraisal comes from empirical_fitness_record through c15, and that record compares simulated model output against observed patterns. Carrying 'simulated' into the appraisal keeps that visible. Set empirical_fitness_appraisal's information_origin to [observed, derived, simulated], and make its origin_note say that the observed part is the calibration and validation targets and the simulated part is the model output they were compared with."
+  },
+  {
+   "method": "p09",
+   "file": "docs/research/method_decomposition/phase3/methods/p09/method_records.yaml",
+   "record": "p09.action.run_model (line 374); connections p09.c33, p09.c27",
+   "quote": "inputs:\n      - {slot: verified_build, type: model, role: subject, ...}\n      - {slot: frozen_simulation_experiment_plan, type: design_parameters, role: config_data, ...}",
+   "criterion": "P3-B-AC2 (origin-preserving handoffs; the prior finding that sensitivity variant runs need provenance)",
+   "severity": "should_fix",
+   "correction": "The action that actually generates the runs receives neither parameterized_model nor variant_run_requests, so its run_receipts cannot record which parameter set or structural variant produced each run. The parent move execute does consume both, so provenance holds at Level 2; this gap is only at the execution level. Add parameterized_model (config_data) and variant_run_requests (optional_many) as inputs to p09.action.run_model, bound by retained_context edges from ground and sensitivity."
+  },
+  {
+   "method": "p06",
+   "file": "docs/research/method_decomposition/phase3/methods/p06/connections.yaml",
+   "record": "p06.c36; p06.move.refuse inputs",
+   "quote": "{id: p06.c36, from: p06.move.estimate, to: p06.move.refuse, ... condition: design_or_variance_cannot_be_reconstructed, from_output: error_account, to_input: error_account} ... {slot: failed_appraisal, type: appraisal, role: subject, cardinality: many, optional: false}",
+   "criterion": "P3-B-AC2 (complete records and typed topology: refusal terminals reachable with their required inputs)",
+   "severity": "should_fix",
+   "correction": "The refusal route from estimate supplies only the optional error_account. The refuse record's required subject slot failed_appraisal gets nothing on this path, so the record cannot run there as written. Two fixes are possible. One: make failed_appraisal optional_many, as p07 and p09 do, and record that a variance-reconstruction failure is carried by error_account. Two: have p06.move.estimate emit an appraisal slot for design-reconstruction failure and bind it to failed_appraisal."
+  },
+  {
+   "method": "p07",
+   "file": "docs/research/method_decomposition/phase3/methods/p07/method_records.yaml",
+   "record": "p07.move.pilot guards (line 110); p07.move.split inputs (line 140)",
+   "quote": "guards: {temporal: pilot_documents_are_excluded_from_the_heldout_partition, ...} ... split inputs: provenance_bound_human_label_set, corpus_grouping_keys",
+   "criterion": "P3-B-AC2 (origin-preserving handoffs; the guard must be enforceable)",
+   "severity": "should_fix",
+   "correction": "p07.move.split builds the held-out partition, but no input tells it which documents or groups were used in the pilot, so the pilot guard cannot be enforced or audited there. Add a pilot_document_ids output to p07.move.pilot (or put it inside pilot_reliability_appraisal), and bind it to a new criteria or config_data input on p07.move.split with an artifact_flow connection."
+  }
+ ]
+}

@@ -29,7 +29,7 @@
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
         {"kind": "ReadOnlyImplementationEvidence", "id": "process-tracing-topology-prototype", "revision": "merged@1fd01bc;not-method-authority"},
-        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-A", "revision": "git:origin/phase3-research-a@6262b4da513d2a3e5dd094c47a9284c12572603c;archived-handoff;not-accepted"},
+        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-A", "revision": "git:origin/p3-research-a-corrections@2f66438517e651ed05ebec39663734d115184dd3;control-review-2026-10-08;merged-to-main"},
         {"kind": "ControlReview", "id": "P3-RESEARCH-A", "revision": "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-A.json;changes_requested;rework open to this lane"}
       ],
       "outputs": [
@@ -96,7 +96,7 @@
         {"kind": "MethodDecompositionSpec", "id": "METHOD_DECOMPOSITION_HANDOFF", "revision": "rev5.1:sha256:fbeb0e187f219a11051ba54fee6537b70448611080351044dc49f421e3c16c2f"},
         {"kind": "DiscoveryInstrument", "id": "phase2-three-level-format", "revision": "89e9515:sha256:1af191caf0634e99d7195831500ed5cacf79ad8988558ce60fc8083e102e07ff"},
         {"kind": "PortfolioDecision", "id": "phase3-denominator", "revision": "phase2b-proposal-0.3@9e8378c+P14@approve-14-2026-08-13"},
-        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-B", "revision": "git:origin/phase3-research-b@f8044648075468411d20bee1bfe71fec5c2023bf;archived-handoff;changes-requested"},
+        {"kind": "SubmittedEvidence", "id": "P3-RESEARCH-B", "revision": "git:origin/p3-research-b-corrections@915c903c67876fb5776744517f63ed9cd8682517;control-review-2026-10-08;merged-to-main"},
         {"kind": "ControlReview", "id": "P3-RESEARCH-B", "revision": "docs/research/method_decomposition/phase3/lane_receipts/reviews/2026-10-08-P3-RESEARCH-B.json;changes_requested;rework open to this lane"}
       ],
       "outputs": [

@@ -1,0 +1,143 @@
+{
+ "record_type": "P3ControlReview",
+ "unit_id": "P3-RESEARCH-A",
+ "reviewed_at": "2026-10-08",
+ "evidence_commit": "2f66438517e651ed05ebec39663734d115184dd3",
+ "disposition": "accept",
+ "structural_check": "git -C /home/brian/code/mixed_methods_workbench-wt-p3-A rev-parse HEAD = 2f66438517e651ed05ebec39663734d115184dd3, working tree clean. `python3 scripts/validate_phase3_methods.py --spec /home/brian/code/_docs/METHOD_DECOMPOSITION_HANDOFF.md p01 p02 p03 p04 p14` printed \"RESULT: PASS (exit 0) methods=5 errors=0 warnings=4\" (p01 ok with 0 warnings; p02, p03, p04 and p14 each ok with 1 warning, \"types outside the spec's list: analysis_plan\"). The four warnings are covered by per-method type-extension notes in sources.md. A supplementary read-only script also checked every connection's endpoints and from_output/to_input slots against the records: no mismatches. It found no prohibited edge that shares endpoints with a permitted edge, found prohibited_edges lists that equal the actual prohibited connections in all five methods, and found that every listed optional_cycle can be walked through permitted edges. The only unfed inputs are external entry inputs such as review_need, power_assumptions, candidate_covariates and case_evidence.",
+ "criteria": [
+  {
+   "id": "P3-A-AC1",
+   "holds": true,
+   "evidence": "All five frames give a variant, exclusions, an applicability boundary, a source_freeze and a source_scope_caution. Pins are now scoped to what the records cite. p01: Handbook 6.5 ch2-5, 8-10, 13-15 and III, with PRISMA items 5-15, 16-23 and 24-27; the report move cites items20_23. p02: E9 §§2-5 plus §7.1, with section titles checked against the E9 contents (§3.4 Group Sequential, §3.5 Sample Size, §4.4-4.6, §5.5, §5.6, §7.1 Evaluation and Reporting). p03: tokens bound to numbered sections, and frame excludes §5.2, §5.3 and A.1-A.4. Checked on the web against arXiv 2503.13323v3: the contents match exactly (3.1-3.3, 4.1-4.5, 5.1.1-5.1.4, 5.2, 5.3 'Limitations of TWFE regressions', 6, A.1-A.5 'Repeated cross-sections and unbalanced panel data'), and footnote 32 in §6 lists 'issues related to few clusters' as out of scope; JEL numbering stays recorded as source_limited in p03.u06. p04: S&W ch1-9 with corrected titles, and ch10-12 recorded as source_limited p04.u05 with a downstream effect. The Ragin 2008 ch1-9 mapping was checked against the UChicago contents page: ch4 'Why Calibrate?', ch5 'Calibrating Fuzzy Sets', ch8 'Limited Diversity and Counterfactual Cases', ch9 'Easy versus Difficult Counterfactuals'. p14: ch1 and ch10 pinned; ch10 'Beyond metaphors...' pp. 260-275 confirmed on prio.org/publications/7600; the Beach and Pedersen typology is recorded as source_limited p14.u06. Negative control: no frame treats product topology or a catalog label as authority. p14 frame says 'Product topology at 1fd01bc is read-only implementation evidence and is not authority', and p14.u05 repeats this. The 1fd01bc anchors appear only on actions whose source_basis is no_methodology_counterpart."
+  },
+  {
+   "id": "P3-A-AC2",
+   "holds": true,
+   "evidence": "All five methods have phases, moves and actions with typed slots, using spec 5.1 roles. Each topology has a shape, cycles, prohibited edges, entry points and honest refusal terminals, and uncertainty uses the four statuses. The validator passes with 0 errors. Negative control 1 (operations hidden in broad moves): the operations the prior review named are now separate moves: p01.move.missing_evidence, p01.move.certainty and p01.move.report; p02.move.sample_size; p03.move.covariates with p03.action.balance_table; p14.move.search with per-opportunity receipts that feed anchor_evidence and gate p14.c18. Nonlinearity: p04 now has its named feedback loops (c15, c15a, c16, c16a-d), each with loop_termination and human termination_authority, listed in optional_cycles with a cycle_note. Prohibited edges sit on bypass routes and none collides with a permitted edge (p01.c18, p03.c17, p03.c23, p14.c19, p14.c20). Negative control 2 (execution actions as method-owned warrants): each action's method_owned_rule is none or a disclaimer, for example p03.action.balance_table 'execution_tabulates_balance_but_does_not_choose_covariates_or_the_parallel_trends_form' and p04.action.minimize 'execution_does_not_authorize_remainders_or_interpret_solution'. No method was normalized toward another: type-extension notes give method-specific reasons."
+  }
+ ],
+ "prior_findings": [
+  {
+   "record": "p02/p03/p04/p14 receipt input slots (p02.move.allocate, p02.move.estimate, p03.move.panel, p03.move.estimate, p04.move.calibrate, p04.move.sufficiency, p14.move.anchor_evidence)",
+   "resolved": true,
+   "evidence": "All receipt inputs now use role context, e.g. p02.move.estimate '{slot: estimate_receipt, type: model_run, role: context, cardinality: optional_one, optional: true}'. Producer outputs are now trace, e.g. p02.action.compute_itt '{slot: estimate_receipt, type: model_run, role: trace ...}', and likewise p03.action.compute_did and p04.action.minimize. The validator reports 0 errors."
+  },
+  {
+   "record": "p01.move.certainty_report",
+   "resolved": true,
+   "evidence": "Split into three moves. p01.move.missing_evidence (source_basis 'Cochrane_6_5_ch13_and_PRISMA_2020_items_14_21'). p01.move.certainty (inputs synthesis_findings, risk_of_bias_judgments and missing_evidence_judgments, output certainty_appraisals, anchors ch14 and items 15 and 22). p01.move.report (ch15, chIII, items20_23). ch14-15 are added to frame source_freeze ('chapters 2-5, 8-10, 13-15 and III') and to sources.md. p01.u03 is narrowed to 'GRADE_guidance_published_outside_ch14 ... is_not_pinned', with downstream 'p01.move.certainty_follows_ch14_only_and_no_collision_or_implementation_claim_is_made_for_GRADE_refinements_beyond_ch14'."
+  },
+  {
+   "record": "p01.c18",
+   "resolved": true,
+   "evidence": "Now 'from: p01.move.risk_bias to: p01.action.compute_pool ... reason: pooled computation before compatibility judgment, if_taken: pooled claim unlicensed'. The c11 control gate is kept, and no permitted edge shares these endpoints."
+  },
+  {
+   "record": "p01 PRISMA pins",
+   "resolved": true,
+   "evidence": "sources.md now reads 'Pinned items: 5–15 (methods, including item 14 reporting bias assessment and item 15 certainty assessment), 16–23 ...'. p01.move.report exact_anchors include source:p01.prisma.items20_23, and 'No record now cites items 24–27'."
+  },
+  {
+   "record": "p02.move.interpret_report",
+   "resolved": true,
+   "evidence": "Now 'source_basis: ICH_E9_5_5_and_7_1_and_E9R1_A5, exact_anchors: [source:p02.e9.5.5, source:p02.e9.7.1, source:p02.e9r1.A5]'. §7.1 is added to frame ('sections 2-5 and 7.1') and to the registry. §5.6 moved to p02.move.protocol_sap ('exact_anchors: [source:p02.e9.sections2_5, source:p02.e9.5.6, source:p02.e9r1.A4]')."
+  },
+  {
+   "record": "p02.move.protocol_sap (sample size, interim)",
+   "resolved": true,
+   "evidence": "New p02.move.sample_size (verb derive, anchor source:p02.e9.3.5) feeds protocol_sap through c00a. Frame exclusion now reads 'interim analyses for efficacy or futility, early stopping, group-sequential designs and sample-size re-estimation (ICH E9 sections 3.4, 4.4-4.6); the variant is a fixed-sample design'. New prohibited edge p02.c19 runs from ascertain to sample_size."
+  },
+  {
+   "record": "p02 topology.prohibited_cycles",
+   "resolved": true,
+   "evidence": "Now reads 'prohibited_cycles: [[p02.move.ascertain, p02.move.objective_estimand], [p02.move.lock_audit, p02.move.conduct]]', which matches c17 and c18."
+  },
+  {
+   "record": "p02.u02",
+   "resolved": true,
+   "evidence": "'{id: p02.u02, status: source_limited, subject: policy_transfer, ... downstream_effect: conclusion_remains_within_trial_population_and_setting}'."
+  },
+  {
+   "record": "p03 exact-anchor registry",
+   "resolved": true,
+   "evidence": "Tokens are bound to numbered sections: 'simple_design = §3 with §3.1 ...; identification = §3.2 and §4.2; covariates = §4; covariate_balance = §4.1; estimation = §3.3 and §§5.1.1–5.1.3; pretrends = §5.1.2; data_design = §5.1 ... and Appendix A.5; sensitivity = §5.1.2 ... only'. The residual sensitivity scope is recorded in p03.u05, and the JEL numbering assumption in p03.u06; both are specific and state downstream effects. Frame lists the in-scope set and excludes §5.2, §5.3 and A.1-A.4. Web check confirms the arXiv v3 numbering."
+  },
+  {
+   "record": "p03.move.covariates / p03.u03",
+   "resolved": true,
+   "evidence": "New 'p03.move.covariates ... label: specify conditioning covariates and parallel-trends form' with a covariate_balance input fed by p03.action.balance_table (Baker §4.1). Its output conditioning_specification flows to assumptions (c21) and estimate (c22). Prohibited p03.c23 runs from estimate to covariates. The u03 downstream now names the move and c23."
+  },
+  {
+   "record": "p03.c17",
+   "resolved": true,
+   "evidence": "Permitted 'p03.c17a pretrend -> assumptions artifact_flow carries pretrend_diagnostics'. p03.move.assumptions has the input pretrend_diagnostics. c17 is re-anchored as prohibited 'p03.move.pretrend -> p03.move.estimate'. The retained c08 is removed, so pretrend reaches estimate only through gate c07."
+  },
+  {
+   "record": "p03.u04",
+   "resolved": true,
+   "evidence": "'status: known ... group_level_clustered_inference_has_two_clusters_and_is_not_available ... downstream_effect: p03.move.design_must_declare_the_inference_method ... and_p03.move.estimate_refuses_group_clustered_standard_errors'. The design and estimate records carry matching rule and refusal text."
+  },
+  {
+   "record": "p04 feedback loops",
+   "resolved": true,
+   "evidence": "Feedback edges added: c15a (return_cases to conditions, with a note distinguishing it from prohibited c21), c16a, c16b and c16c (resolve_contradictions to calibrate, conditions and population), and c16d (truth_table to calibrate). Each has creates_successor_version true, a loop_termination and 'termination_authority: human'. They are listed in optional_cycles with a cycle_note justifying optional rather than required."
+  },
+  {
+   "record": "p04.move.remainders necessity input",
+   "resolved": true,
+   "evidence": "Input '{slot: necessity_results, type: finding, role: context, ...}' with retained_context p04.c17a from necessity. The rule reads 'necessity_analysis_precedes_remainder_governance' and the refusal reads 'untenable_remainder_assumptions_that_contradict_established_necessary_conditions_are_barred', with anchor source:p04.sw.ch8."
+  },
+  {
+   "record": "p04 sources.md chapter mapping",
+   "resolved": true,
+   "evidence": "Labels are corrected: ch1 'Sets, set membership, and calibration' through ch9 'Potential pitfalls in the analysis of necessity and sufficiency...', with ch11 withdrawn and ch1 added to anchors. ch10-12 are recorded as 'p04.u05 status: source_limited ... downstream_effect: p04.move.population_and_p04.move.return_cases_rest_on_Ragin_2008_only_and_no_record_cites_Schneider_Wagemann_chapters_10_to_12'. That uncertainty is specific and states its downstream effect."
+  },
+  {
+   "record": "p14 missing search move",
+   "resolved": true,
+   "evidence": "New 'p14.move.search ... verb: search' under p14.phase.search. Outputs are candidate_sources and 'opportunity_search_receipts, type: review_event, role: result', recorded per opportunity as 'searched_inaccessible_or_not_searched'. The receipts feed anchor_evidence (c05d) and gate c18. p14.u04 is narrowed to search technique."
+  },
+  {
+   "record": "p14.c19, p14.c20",
+   "resolved": true,
+   "evidence": "c19 now runs 'from: p14.move.mechanisms to: p14.move.anchor_evidence' (an expected absence without a search receipt), and c20 'from: p14.move.anchor_evidence to: p14.move.update' (a bypass of dependencies). Both carry reason and if_taken, and neither shares endpoints with a permitted edge."
+  },
+  {
+   "record": "p14.move.conclude",
+   "resolved": true,
+   "evidence": "Frame source_freeze now reads 'chapter 1 (pp. 3-37), chapter 10 (pp. 260-275) and appendix'. sources.md resolves .conclusion to ch10 'Beyond metaphors...'. Title, authors and pages were confirmed on prio.org/publications/7600."
+  },
+  {
+   "record": "p14 frame exclusions",
+   "resolved": true,
+   "evidence": "Exclusions are restated as 'inductive theory-development use of Process Tracing (Bennett and Checkel 2015 ch1)' and 'the Beach and Pedersen three-variant typology is not used as a boundary (not pinned; see p14.u06)'. p14.u06 is source_limited and states its downstream effect."
+  },
+  {
+   "record": "p14.move.priors",
+   "resolved": true,
+   "evidence": "'record_id: p14.move.priors ... verb: estimate, label: elicit priors from background evidence'."
+  },
+  {
+   "record": "analysis_plan type addition",
+   "resolved": true,
+   "evidence": "A '## Type extension note' with a method-specific reason is present in each of p02, p03, p04 and p14 sources.md. For example, p04: 'the calibration plan and remainder policy are instead substantive commitments ... Their downstream use is to make software defaults detectable as unlicensed (p04.c20)'. The validator WARN remains by design; the spec only requires the note."
+  },
+  {
+   "record": "action-to-parent receipt connections",
+   "resolved": true,
+   "evidence": "p01.c04, p01.c13, p02.c03, p02.c12, p03.c03, p03.c10, p04.c04, p04.c11 and p14.c08 are now 'connection_type: artifact_flow' with from_output, to_input and 'transfer_semantics: preserving'. Slot names were checked against the records by script."
+  }
+ ],
+ "new_findings": [
+  {
+   "method": "p01, p03, p14",
+   "file": "p01/connections.yaml; p03/connections.yaml; p14/connections.yaml",
+   "record": "p01.c16, p03.c16, p14.c17",
+   "quote": "id: p01.c16 ... connection_type: feedback ... condition: new_evidence_or_material_method_change\n  creates_successor_version: true",
+   "criterion": "P3-A-AC2 (typed topology; spec 5.8 requires loop_termination and termination_authority on loop-back edges)",
+   "severity": "should_fix",
+   "correction": "Add loop_termination and termination_authority to these three feedback edges, as p04's feedback edges now do. For example, p01.c16: loop_termination 'successor protocol version registered or update declined with rationale', termination_authority human. p03.c16 and p14.c17 need the same fields, with their own method-specific termination condition. This does not block acceptance: each edge already creates a successor version, so the loop cannot silently rewrite history."
+  }
+ ]
+}
