@@ -27,6 +27,16 @@ strict = true
 packages = ["mixed_methods_workbench"]
 mypy_path = "src"
 
+# llm_client ships no py.typed and is imported lazily only by the two live-run
+# modules; it is not a dependency of this package (issue #46).
+[[tool.mypy.overrides]]
+module = ["llm_client", "llm_client.*"]
+ignore_missing_imports = true
+
+# data_contracts is not on PyPI; it resolves from the local checkout (README "Install").
+[tool.uv.sources]
+data-contracts = { path = "/home/brian/code2/data-contracts", editable = true }
+
 [tool.ruff]
 target-version = "py312"
 line-length = 100
