@@ -27,7 +27,7 @@
    "id": "producer_export",
    "label": "Method export",
    "kind": "concept",
-   "explain": "A producer's strict, versioned export (QC, PT or GT-inspired) as the workbench receives it."
+   "explain": "A producer's strict, versioned export shape (QC, PT or GT-inspired); in this repository it is a synthetic mirror used by the DEMO-C1 fixtures, not the producers' own schema."
   },
   {
    "id": "workbench_view",
@@ -148,6 +148,12 @@
    "label": "Meta-inference",
    "kind": "theory",
    "explain": "A bounded conclusion drawn by intentionally joining qualitative and quantitative strands; planned for version 0.4, not computed."
+  },
+  {
+   "id": "public_review",
+   "label": "Public review artifact",
+   "kind": "concept",
+   "explain": "The investigation-spine payload and page that scripts/build_psychosisbank_public_review.py copies into deploy/ and the Cloudflare Worker serves."
   }
  ],
  "edges": [
@@ -264,6 +270,24 @@
    "source": "review_packet",
    "target": "meta_inference",
    "label": "would support"
+  },
+  {
+   "id": "e20",
+   "source": "public_review",
+   "target": "publication_gate",
+   "label": "is held by"
+  },
+  {
+   "id": "e21",
+   "source": "public_review",
+   "target": "evidence_anchor",
+   "label": "shows"
+  },
+  {
+   "id": "e22",
+   "source": "verification_challenge",
+   "target": "public_review",
+   "label": "is shown in"
   }
  ]
 }

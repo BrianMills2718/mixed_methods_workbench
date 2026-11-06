@@ -1,7 +1,7 @@
 {
  "schema_version": "1.0",
  "record_type": "acceptance_criteria",
- "outcome": "Brian can open the public PsychosisBank review and judge each finding against its sources and its publication block, and can read which method steps the crosswalk found shared across methods.",
+ "outcome": "Brian can open the public PsychosisBank review and judge each finding against its sources and its publication block; a crosswalk view of which method steps are shared across methods is planned, not yet built or scheduled.",
  "note": "Brian's exact words for this package's request were not available to the building agent (the request reached it through a workflow); asked_by is left empty, so goal coverage shows WAIT.",
  "entries": [
   {
@@ -9,14 +9,15 @@
    "criterion": "I can open the public review and see, for each finding, what backs it and that no causal conclusion is published yet",
    "demonstration": [
     "Open https://psychosisbank-review.brianmills2718.workers.dev/",
-    "Read the findings section from top to bottom",
+    "Scroll to the 'Independent challenge' section and read each finding's card",
     "Click a cited excerpt's source link"
    ],
    "expected": "Each finding shows its verdict, the source excerpts behind it and the remaining source gap; the page says the causal conclusion is withheld pending researcher review; the source link opens the original public document.",
    "failure_example": "Finding 3's quote about 'this level' without its antecedent: a broken page shows the quote alone, with no note that the TalkBank policy names it 'Controlled access'.",
    "representation": {
     "view": "data-table",
-    "router_record": "docs/planning/router/A1.recommendation.json"
+    "router_record": "docs/planning/router/A1.recommendation.json",
+    "note": "The router picked a table for one row per finding; the existing page shows the same fields as one card per finding, which reads the same way on a phone. Kept, not rebuilt."
    },
    "entrypoint": "https://psychosisbank-review.brianmills2718.workers.dev/",
    "status": "built"
@@ -25,7 +26,7 @@
    "id": "A2",
    "criterion": "I can see which method steps the crosswalk found shared across methods, and why",
    "demonstration": [
-    "Open the crosswalk page",
+    "Open the crosswalk page (planned: a table rendered from docs/research/method_decomposition/phase5/adjudication.yaml; until then the file on GitHub)",
     "Read the table of groups, one row per group of steps from two or more methods",
     "Open one row's justification"
    ],

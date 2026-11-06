@@ -138,7 +138,7 @@
    ],
    "verdict": "unknown",
    "question_id": "Q5",
-   "note": "Running the tests regenerates deploy/psychosisbank-review/public/index.html into the bytes of pull request #57, so main's committed page lags the renderer; the live Worker serves main's older page."
+   "note": "Running the tests regenerates deploy/psychosisbank-review/public/index.html into the bytes of pull request #57, so main's committed page lags the renderer; the live Worker serves main's older page. Pull request #57 adds a 45-line NYC rendering branch to the deploy copy; the Worker does not route the NYC payload (worker.js:4), so that branch is unreachable publicly."
   },
   {
    "id": "F8",

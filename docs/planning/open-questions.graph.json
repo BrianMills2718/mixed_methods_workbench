@@ -58,7 +58,7 @@
    "id": "Q6",
    "label": "Q6 Test writes into deploy/",
    "kind": "question_agent",
-   "explain": "Should tests/test_psychosisbank_public_review.py build into a temporary folder instead of the committed deploy/ tree?"
+   "explain": "Should tests/test_psychosisbank_public_review.py stop writing into the committed deploy/ tree?"
   },
   {
    "id": "Q7",
@@ -71,6 +71,18 @@
    "label": "Q8 Public host for PsychosisBank",
    "kind": "question_agent_resolved",
    "explain": "Is there a public host for the PsychosisBank review (issue #27)?"
+  },
+  {
+   "id": "Q9",
+   "label": "Q9 Keeping deploy/ in step with the renderer",
+   "kind": "question_agent_resolved",
+   "explain": "How does the committed public page stay in step with the renderer once the test stops writing into deploy/?"
+  },
+  {
+   "id": "Q10",
+   "label": "Q10 NYC findings labelled human-approved",
+   "kind": "question_agent",
+   "explain": "The renderer labels the NYC qualitative findings 'Human-approved' and 'human approved', but Brian's 2026-10-04 review says to treat that result as unreviewed: relabel them?"
   },
   {
    "id": "d_Q1",
@@ -109,6 +121,12 @@
    "explain": "whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)"
   },
   {
+   "id": "d_Q10",
+   "label": "Blocks: whether the page source (copied into deploy/ by pull request #57) misstates the NYC result's review status",
+   "kind": "decision",
+   "explain": "whether the page source (copied into deploy/ by pull request #57) misstates the NYC result's review status"
+  },
+  {
    "id": "capability_verdict",
    "label": "Capability verdict",
    "kind": "concept",
@@ -139,14 +157,20 @@
    "explain": "Domain concept; see DOMAIN.md."
   },
   {
+   "id": "public_review",
+   "label": "Public review artifact",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
    "id": "publication_gate",
    "label": "Publication gate",
    "kind": "concept",
    "explain": "Domain concept; see DOMAIN.md."
   },
   {
-   "id": "review_packet",
-   "label": "Review packet",
+   "id": "quantitative_audit",
+   "label": "Quantitative audit",
    "kind": "concept",
    "explain": "Domain concept; see DOMAIN.md."
   },
@@ -225,15 +249,15 @@
    "label": "blocks"
   },
   {
-   "id": "tQ5_publication_gate",
+   "id": "tQ5_public_review",
    "source": "Q5",
-   "target": "publication_gate",
+   "target": "public_review",
    "label": "touches"
   },
   {
-   "id": "tQ5_review_packet",
+   "id": "tQ5_publication_gate",
    "source": "Q5",
-   "target": "review_packet",
+   "target": "publication_gate",
    "label": "touches"
   },
   {
@@ -243,15 +267,39 @@
    "label": "blocks"
   },
   {
-   "id": "tQ6_publication_gate",
+   "id": "tQ6_public_review",
    "source": "Q6",
-   "target": "publication_gate",
+   "target": "public_review",
    "label": "touches"
   },
   {
    "id": "tQ8_publication_gate",
    "source": "Q8",
    "target": "publication_gate",
+   "label": "touches"
+  },
+  {
+   "id": "tQ9_public_review",
+   "source": "Q9",
+   "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "bQ10",
+   "source": "Q10",
+   "target": "d_Q10",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ10_quantitative_audit",
+   "source": "Q10",
+   "target": "quantitative_audit",
+   "label": "touches"
+  },
+  {
+   "id": "tQ10_public_review",
+   "source": "Q10",
+   "target": "public_review",
    "label": "touches"
   }
  ]

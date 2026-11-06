@@ -1,4 +1,4 @@
-# Checks run 2026-11-06T22:01:46Z on b9bf498; validators from company-planning origin/main 212fd5b
+# Checks run 2026-11-06T22:20:05Z on d1e013d; validators from company-planning origin/main 212fd5b
 
 $ python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/durable_docs_check.py --repo . --arc42
 INVALID: /home/brian/code2/worktrees/mmw-planning-package/.agentic/repo.yaml not found
@@ -50,14 +50,14 @@ Fixture negative controls passed (41 controls).
 PASS w2_evidence_present: Live validation proved 4 exhaustively inventoried synthetic fixtures recoverable from 2 exact last-content Git commits; all recorded evidence-apparatus hashes match current bytes. All 41 hash-bound fixture controls executed. The evidence-removal control reached: F — Live inventory evidence failed: ERROR: manifest validation_observation must be an object. The malformed-JSON control reached: F — Live inventory evidence failed: ERROR: invalid JSON in manifest.json: Expecting property name enclosed in double quotes at line 2 column 1. This A applies only to inventory provenance; fixture contents remain C.
 PASS w2_evidence_removed: F — Live inventory evidence failed: ERROR: manifest validation_observation must be an object
 PASS w2_malformed_json: F — Live inventory evidence failed: ERROR: invalid JSON in manifest.json: Expecting property name enclosed in double quotes at line 2 column 1
-PASS stale_generated_reports: ERROR: generated coverage reports are stale or missing: ['/tmp/mmw-coverage-stale-report-n_z2u3vk/coverage_report.md', '/tmp/mmw-coverage-stale-report-n_z2u3vk/coverage_report.json']; run make coverage
+PASS stale_generated_reports: ERROR: generated coverage reports are stale or missing: ['/tmp/mmw-coverage-stale-report-l2efvzjb/coverage_report.md', '/tmp/mmw-coverage-stale-report-l2efvzjb/coverage_report.json']; run make coverage
 Coverage negative controls passed (3 controls).
 PASS coverage_json_stdout: one JSON document matching docs/coverage_report.json
 DEMO-C1 fixtures and review assembly passed.
 ...........                                                              [100%]
-11 passed in 1.00s
+11 passed in 0.76s
 ..............................                                           [100%]
-30 passed in 0.89s
+30 passed in 1.11s
 Success: no issues found in 19 source files
 exit_status=0
 
@@ -65,5 +65,9 @@ $ .venv/bin/python -m pytest -q -p no:cacheprovider
 ........................................................................ [ 35%]
 ........................................................................ [ 71%]
 ..........................................................               [100%]
-202 passed, 1 skipped in 36.82s
+202 passed, 1 skipped in 25.99s
+exit_status=0
+
+$ .venv/bin/python scripts/crosswalk_phase4.py --check
+RESULT: PASS (exit 0) steps=171 statistical=36 groups=36 {'signature': 4, 'stato_term': 5, 'type_pair': 1, 'verb_only': 26} errors=0
 exit_status=0

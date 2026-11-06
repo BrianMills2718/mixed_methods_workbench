@@ -148,7 +148,8 @@
     "collision_group": "scripts/crosswalk_phase4.py:72",
     "capability_verdict": "scripts/crosswalk_phase4.py:144",
     "guarded_decision": "src/mixed_methods_workbench/guarded_decision/models.py:175",
-    "quantitative_audit": "src/mixed_methods_workbench/nyc_crz_quantitative.py:193"
+    "quantitative_audit": "src/mixed_methods_workbench/nyc_crz_quantitative.py:193",
+    "public_review": "src/mixed_methods_workbench/investigation_spine.py:278"
    }
   },
   "diagrams": {
@@ -172,8 +173,8 @@
    "status": "present",
    "path": "docs/plans/007_keep_shippable.md",
    "relies_on": [
+    "public_review",
     "publication_gate",
-    "review_packet",
     "method_decomposition",
     "producer_export",
     "workbench_view"

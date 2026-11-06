@@ -7,7 +7,7 @@ their own repositories, and meta-inference is named by the method but not comput
 | Concept (node id) | Meaning | Status | Source |
 | --- | --- | --- | --- |
 | Method engine (producer) (`producer_engine`) | A method repository (qualitative_coding, process_tracing) that runs its own method and owns its strict export schema. | in producer repositories | `AGENTS.md:81` |
-| Method export (`producer_export`) | A producer's strict, versioned export (QC, PT or GT-inspired) as the workbench receives it. | implemented | `src/mixed_methods_workbench/models.py:268` |
+| Method export (`producer_export`) | A producer's strict, versioned export shape (QC, PT or GT-inspired); in this repository it is a synthetic mirror used by the DEMO-C1 fixtures, not the producers' own schema. | implemented | `src/mixed_methods_workbench/models.py:268` |
 | Workbench consumer view (`workbench_view`) | The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version. | implemented | `src/mixed_methods_workbench/models.py:438` |
 | Source segment (`source_segment`) | An exact span of a source document that evidence points to. | implemented | `src/mixed_methods_workbench/models.py:98` |
 | Cross-method link (`cross_method_link`) | A typed link between objects from two methods' exports. | implemented | `src/mixed_methods_workbench/models.py:505` |
@@ -28,6 +28,7 @@ their own repositories, and meta-inference is named by the method but not comput
 | Guarded decision (`guarded_decision`) | A decision request checked against bound artifacts, evidence and policy before it returns an outcome. | implemented | `src/mixed_methods_workbench/guarded_decision/models.py:175` |
 | Quantitative audit (`quantitative_audit`) | The NYC bounded quantitative comparison: frozen query, drift replay and predicted-versus-observed audit. | implemented | `src/mixed_methods_workbench/nyc_crz_quantitative.py:193` |
 | Meta-inference (`meta_inference`) | A bounded conclusion drawn by intentionally joining qualitative and quantitative strands; planned for version 0.4, not computed. | docs only | `AGENTS.md:104` |
+| Public review artifact (`public_review`) | The investigation-spine payload and page that `scripts/build_psychosisbank_public_review.py:16` copies into `deploy/` and the Cloudflare Worker serves. | implemented | `src/mixed_methods_workbench/investigation_spine.py:278` |
 
 "Method" is ambiguous here: a research method (qualitative coding, process tracing) or a method
 decomposition record. The decomposition is always called a decomposition.

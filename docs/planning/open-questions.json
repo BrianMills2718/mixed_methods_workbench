@@ -42,12 +42,13 @@
    "short": "Wiki over cap and unreachable",
    "question": "122 Markdown files exceed the 100 cap and 108 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
    "blocks": "wiki compliance for this repository",
-   "resolves_with": "Argument from reading: link the canonical documents named in AGENTS.md from wiki/index.md, and declare a cap exception for the frozen research records under docs/research (they are evidence, not reader documents).",
+   "resolves_with": "Argument from reading: wiki/index.md is generated (wiki/index.md:25), so declare the native documents (with Q2's .agentic/repo.yaml) and rerun project-meta's generate_wiki_routing_stub.py rather than hand-editing it; declare a cap exception for the frozen research records under docs/research.",
    "owner": "agent",
    "status": "open",
    "sources": [
     "docs/planning/checks.txt:15",
-    "wiki/index.md:21"
+    "wiki/index.md:21",
+    "wiki/index.md:25"
    ],
    "touches": [
     "method_decomposition"
@@ -83,16 +84,16 @@
     "scripts/build_psychosisbank_public_review.py:16"
    ],
    "touches": [
-    "publication_gate",
-    "review_packet"
+    "public_review",
+    "publication_gate"
    ]
   },
   {
    "id": "Q6",
    "short": "Test writes into deploy/",
-   "question": "Should tests/test_psychosisbank_public_review.py build into a temporary folder instead of the committed deploy/ tree?",
+   "question": "Should tests/test_psychosisbank_public_review.py stop writing into the committed deploy/ tree?",
    "blocks": "whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)",
-   "resolves_with": "Argument: a test must not change tracked files; pass an output folder to build() and point the test at tmp_path.",
+   "resolves_with": "Argument: a test must not change tracked files. Replace the write with a comparison (Q9), so a stale page fails the test instead of silently dirtying the checkout.",
    "owner": "agent",
    "status": "open",
    "sources": [
@@ -100,7 +101,7 @@
     "scripts/build_psychosisbank_public_review.py:24"
    ],
    "touches": [
-    "publication_gate"
+    "public_review"
    ]
   },
   {
@@ -126,12 +127,49 @@
    "resolves_with": "One live check of the Worker URL.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Commit 4035567 deployed the Worker; https://psychosisbank-review.brianmills2718.workers.dev/ returned 200 on 2026-11-06 with main's page. Issue #27 can close.",
+   "evidence": "Commit 4035567 deployed the Worker; https://psychosisbank-review.brianmills2718.workers.dev/ returned 200 on 2026-11-06 with main's page. Issue #27 can close. Issue #27 closed 2026-11-06 with this evidence.",
    "sources": [
     "deploy/psychosisbank-review/wrangler.jsonc:2"
    ],
    "touches": [
     "publication_gate"
+   ]
+  },
+  {
+   "id": "Q9",
+   "short": "Keeping deploy/ in step with the renderer",
+   "question": "How does the committed public page stay in step with the renderer once the test stops writing into deploy/?",
+   "blocks": "whether Plan 007 keeps the public page current or only makes it current once",
+   "resolves_with": "Argument, no test needed to decide: a fast deterministic test that the committed deploy/ index.html and payload equal what build() produces (fails when the renderer changes without a rebuild), plus a recorded rule that every merge touching deploy/ is followed by a wrangler deploy and a hash comparison of the served page. Deploys stay manual: the repository has no hosted CI (workspace rule) and the deploy is one command.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "Decided by argument 2026-11-06; carried into docs/plans/007_keep_shippable.md steps 2 and 3.",
+   "sources": [
+    "scripts/build_psychosisbank_public_review.py:16",
+    "tests/test_psychosisbank_public_review.py:6",
+    "deploy/psychosisbank-review/wrangler.jsonc:2"
+   ],
+   "touches": [
+    "public_review"
+   ]
+  },
+  {
+   "id": "Q10",
+   "short": "NYC findings labelled human-approved",
+   "question": "The renderer labels the NYC qualitative findings 'Human-approved' and 'human approved', but Brian's 2026-10-04 review says to treat that result as unreviewed: relabel them?",
+   "blocks": "whether the page source (copied into deploy/ by pull request #57) misstates the NYC result's review status",
+   "resolves_with": "Argument: AGENTS.md records the result as unreviewed, so the label should read 'blanket-approved, not item-reviewed'. The NYC route is not served by the Worker (worker.js:4 routes only PsychosisBank), so nothing public shows it today.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "src/mixed_methods_workbench/static/investigation_spine.html:340",
+    "src/mixed_methods_workbench/static/investigation_spine.html:356",
+    "AGENTS.md:16",
+    "deploy/psychosisbank-review/worker.js:4"
+   ],
+   "touches": [
+    "quantitative_audit",
+    "public_review"
    ]
   }
  ]
