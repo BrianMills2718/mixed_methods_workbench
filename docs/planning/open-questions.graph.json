@@ -169,12 +169,6 @@
    "explain": "Domain concept; see DOMAIN.md."
   },
   {
-   "id": "quantitative_audit",
-   "label": "Quantitative audit",
-   "kind": "concept",
-   "explain": "Domain concept; see DOMAIN.md."
-  },
-  {
    "id": "workbench_view",
    "label": "Workbench consumer view",
    "kind": "concept",
@@ -289,12 +283,6 @@
    "source": "Q10",
    "target": "d_Q10",
    "label": "blocks"
-  },
-  {
-   "id": "tQ10_quantitative_audit",
-   "source": "Q10",
-   "target": "quantitative_audit",
-   "label": "touches"
   },
   {
    "id": "tQ10_public_review",

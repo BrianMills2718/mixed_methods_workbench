@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "2c3c13f9f96b3d4afbf7420c34e65364ffdfa2c8",
+ "subject_revision": "794be795fc69eb2a813300280539180266920d0a",
  "request": "Workflow task, 2026-11-06: \"Brian asked to resolve his open pull requests and uncommitted files\"; ship refuses this repository without a planning package, so the package was built to land pull request #57. Brian's own words were not available to the building agent. Kept proportionate (no full_method): Brian has not turned to this repository.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -194,7 +194,10 @@
    "path": "proposals/planning-package/review-page/index.html"
   },
   "cold_review": {
-   "status": "missing"
+   "status": "present",
+   "path": "docs/planning/cold-review.md",
+   "verdict": "pass",
+   "reviewed_revision": "794be795fc69eb2a813300280539180266920d0a"
   }
  }
 }

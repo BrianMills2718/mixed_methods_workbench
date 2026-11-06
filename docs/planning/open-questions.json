@@ -47,7 +47,7 @@
    "status": "open",
    "sources": [
     "docs/planning/checks.txt:15",
-    "wiki/index.md:21",
+    "wiki/index.md:22",
     "wiki/index.md:24"
    ],
    "touches": [
@@ -168,7 +168,6 @@
     "deploy/psychosisbank-review/worker.js:4"
    ],
    "touches": [
-    "quantitative_audit",
     "public_review"
    ]
   }

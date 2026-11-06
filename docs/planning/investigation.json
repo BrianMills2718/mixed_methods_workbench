@@ -8,7 +8,7 @@
    "found": [
     "README.md:7",
     "AGENTS.md:16",
-    "wiki/index.md:21",
+    "wiki/index.md:22",
     "docs/PLANNING_STATUS.md:6",
     "docs/ARCHITECTURE.md:135",
     "docs/plans/006_method_crosswalk.md:1"
@@ -110,7 +110,7 @@
    "id": "F5",
    "claim": "wiki/index.md routes a reader to the documentation; it says there is no declared roadmap",
    "evidence": [
-    "wiki/index.md:21",
+    "wiki/index.md:22",
     "docs/ROADMAP.md",
     "docs/planning/checks.txt"
    ],
