@@ -3,12 +3,12 @@
 Strategy, contracts, and planning scaffold for a broad text-centered
 mixed-methods research workbench delivered through versioned thin slices.
 
-Install (no venv is committed; `data_contracts` is a local checkout):
+Install (no venv is committed; `data_contracts` resolves from the local checkout
+`~/code2/data-contracts` through `[tool.uv.sources]` in `pyproject.toml`):
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -e ~/code/data-contracts -e ".[dev]"
-.venv/bin/python -m pytest -q            # 161 tests
+uv sync --all-extras
+.venv/bin/python -m pytest -q            # 202 passed, 1 skipped (2026-11-06)
 make check PYTHON=.venv/bin/python
 ```
 
