@@ -1,0 +1,294 @@
+{
+ "schema": "typed-graph/v1",
+ "kinds": {
+  "question_brian": {
+   "label": "Open, Brian decides",
+   "explain": "A question only Brian can answer."
+  },
+  "question_agent": {
+   "label": "Open, agent settles",
+   "explain": "A question checking can settle."
+  },
+  "question_agent_resolved": {
+   "label": "Resolved",
+   "dashed": true,
+   "explain": "Settled, with evidence in the ledger."
+  },
+  "decision": {
+   "label": "Decision it blocks",
+   "explain": "What waits on the answer."
+  },
+  "concept": {
+   "label": "Domain concept",
+   "explain": "A node of the domain model."
+  }
+ },
+ "nodes": [
+  {
+   "id": "Q1",
+   "label": "Q1 Next direction after the crosswalk",
+   "kind": "question_brian",
+   "explain": "With the NYC lane paused (2026-10-04) and the Plan #6 crosswalk finding no same_capability group, what should the workbench do next?"
+  },
+  {
+   "id": "Q2",
+   "label": "Q2 Durable-documents check cannot run",
+   "kind": "question_agent",
+   "explain": "The durable-documents check exits 2 because .agentic/repo.yaml does not exist: what should the repository declare there?"
+  },
+  {
+   "id": "Q3",
+   "label": "Q3 Wiki over cap and unreachable",
+   "kind": "question_agent",
+   "explain": "122 Markdown files exceed the 100 cap and 108 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?"
+  },
+  {
+   "id": "Q4",
+   "label": "Q4 Architecture document is the old scaffold",
+   "kind": "question_agent",
+   "explain": "docs/ARCHITECTURE.md describes the 2026-07 scaffold, not the shipped modules: mark it as design history and link docs/planning/SYSTEM_MODEL.md as the current system model?"
+  },
+  {
+   "id": "Q5",
+   "label": "Q5 Deploy the synced review page",
+   "kind": "question_agent",
+   "explain": "After pull request #57 merges, does the public Worker serve the new page?"
+  },
+  {
+   "id": "Q6",
+   "label": "Q6 Test writes into deploy/",
+   "kind": "question_agent",
+   "explain": "Should tests/test_psychosisbank_public_review.py stop writing into the committed deploy/ tree?"
+  },
+  {
+   "id": "Q7",
+   "label": "Q7 make check and install",
+   "kind": "question_agent_resolved",
+   "explain": "Can the repository's environment be built and make check pass?"
+  },
+  {
+   "id": "Q8",
+   "label": "Q8 Public host for PsychosisBank",
+   "kind": "question_agent_resolved",
+   "explain": "Is there a public host for the PsychosisBank review (issue #27)?"
+  },
+  {
+   "id": "Q9",
+   "label": "Q9 Keeping deploy/ in step with the renderer",
+   "kind": "question_agent_resolved",
+   "explain": "How does the committed public page stay in step with the renderer once the test stops writing into deploy/?"
+  },
+  {
+   "id": "Q10",
+   "label": "Q10 NYC findings labelled human-approved",
+   "kind": "question_agent",
+   "explain": "The renderer labels the NYC qualitative findings 'Human-approved' and 'human approved', but Brian's 2026-10-04 review says to treat that result as unreviewed: relabel them?"
+  },
+  {
+   "id": "d_Q1",
+   "label": "Blocks: whether the next plan builds a new workbench slice or only keeps the repository shippable",
+   "kind": "decision",
+   "explain": "whether the next plan builds a new workbench slice or only keeps the repository shippable"
+  },
+  {
+   "id": "d_Q2",
+   "label": "Blocks: whether the durable-documents check can report this repository at all",
+   "kind": "decision",
+   "explain": "whether the durable-documents check can report this repository at all"
+  },
+  {
+   "id": "d_Q3",
+   "label": "Blocks: wiki compliance for this repository",
+   "kind": "decision",
+   "explain": "wiki compliance for this repository"
+  },
+  {
+   "id": "d_Q4",
+   "label": "Blocks: which document an agent reads as the architecture entry point",
+   "kind": "decision",
+   "explain": "which document an agent reads as the architecture entry point"
+  },
+  {
+   "id": "d_Q5",
+   "label": "Blocks: whether the public PsychosisBank review shows the current renderer",
+   "kind": "decision",
+   "explain": "whether the public PsychosisBank review shows the current renderer"
+  },
+  {
+   "id": "d_Q6",
+   "label": "Blocks: whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)",
+   "kind": "decision",
+   "explain": "whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)"
+  },
+  {
+   "id": "d_Q10",
+   "label": "Blocks: whether the page source (copied into deploy/ by pull request #57) misstates the NYC result's review status",
+   "kind": "decision",
+   "explain": "whether the page source (copied into deploy/ by pull request #57) misstates the NYC result's review status"
+  },
+  {
+   "id": "capability_verdict",
+   "label": "Capability verdict",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "meta_inference",
+   "label": "Meta-inference",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "method_decomposition",
+   "label": "Method decomposition",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "producer_engine",
+   "label": "Method engine (producer)",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "producer_export",
+   "label": "Method export",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "public_review",
+   "label": "Public review artifact",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "publication_gate",
+   "label": "Publication gate",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "workbench_view",
+   "label": "Workbench consumer view",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  }
+ ],
+ "edges": [
+  {
+   "id": "bQ1",
+   "source": "Q1",
+   "target": "d_Q1",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ1_capability_verdict",
+   "source": "Q1",
+   "target": "capability_verdict",
+   "label": "touches"
+  },
+  {
+   "id": "tQ1_producer_engine",
+   "source": "Q1",
+   "target": "producer_engine",
+   "label": "touches"
+  },
+  {
+   "id": "tQ1_meta_inference",
+   "source": "Q1",
+   "target": "meta_inference",
+   "label": "touches"
+  },
+  {
+   "id": "bQ2",
+   "source": "Q2",
+   "target": "d_Q2",
+   "label": "blocks"
+  },
+  {
+   "id": "bQ3",
+   "source": "Q3",
+   "target": "d_Q3",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ3_method_decomposition",
+   "source": "Q3",
+   "target": "method_decomposition",
+   "label": "touches"
+  },
+  {
+   "id": "bQ4",
+   "source": "Q4",
+   "target": "d_Q4",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ4_producer_export",
+   "source": "Q4",
+   "target": "producer_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ4_workbench_view",
+   "source": "Q4",
+   "target": "workbench_view",
+   "label": "touches"
+  },
+  {
+   "id": "bQ5",
+   "source": "Q5",
+   "target": "d_Q5",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ5_public_review",
+   "source": "Q5",
+   "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "tQ5_publication_gate",
+   "source": "Q5",
+   "target": "publication_gate",
+   "label": "touches"
+  },
+  {
+   "id": "bQ6",
+   "source": "Q6",
+   "target": "d_Q6",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ6_public_review",
+   "source": "Q6",
+   "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "tQ8_publication_gate",
+   "source": "Q8",
+   "target": "publication_gate",
+   "label": "touches"
+  },
+  {
+   "id": "tQ9_public_review",
+   "source": "Q9",
+   "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "bQ10",
+   "source": "Q10",
+   "target": "d_Q10",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ10_public_review",
+   "source": "Q10",
+   "target": "public_review",
+   "label": "touches"
+  }
+ ]
+}
