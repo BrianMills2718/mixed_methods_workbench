@@ -42,13 +42,13 @@
    "short": "Wiki over cap and unreachable",
    "question": "122 Markdown files exceed the 100 cap and 108 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
    "blocks": "wiki compliance for this repository",
-   "resolves_with": "Argument from reading: wiki/index.md is generated (wiki/index.md:25), so declare the native documents (with Q2's .agentic/repo.yaml) and rerun project-meta's generate_wiki_routing_stub.py rather than hand-editing it; declare a cap exception for the frozen research records under docs/research.",
+   "resolves_with": "Argument from reading: wiki/index.md is generated (wiki/index.md:24), so declare the native documents (with Q2's .agentic/repo.yaml) and rerun project-meta's generate_wiki_routing_stub.py rather than hand-editing it; declare a cap exception for the frozen research records under docs/research.",
    "owner": "agent",
    "status": "open",
    "sources": [
     "docs/planning/checks.txt:15",
     "wiki/index.md:21",
-    "wiki/index.md:25"
+    "wiki/index.md:24"
    ],
    "touches": [
     "method_decomposition"
