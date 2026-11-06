@@ -1,0 +1,138 @@
+{
+ "schema_version": "1.0",
+ "record_type": "open_questions",
+ "questions": [
+  {
+   "id": "Q1",
+   "short": "Next direction after the crosswalk",
+   "question": "With the NYC lane paused (2026-10-04) and the Plan #6 crosswalk finding no same_capability group, what should the workbench do next?",
+   "blocks": "whether the next plan builds a new workbench slice or only keeps the repository shippable",
+   "resolves_with": "A product and priority call: no argument or test settles it. Prior art: Plan #6 says a same_capability verdict is a candidate for later design, and none was found (adjudication: 29 different_capability, 7 shared_shell).",
+   "owner": "brian",
+   "status": "open",
+   "blocking": false,
+   "recommendation": "Build nothing new here for now. Keep the workbench as the integration record and let Qualitative Coding finish its grounded-theory speed-run; open the next workbench slice only when a study needs exports from two producers together.",
+   "default": "Plan 007 (keep the repository shippable and its public page current) runs; no new workbench capability is built.",
+   "sources": [
+    "docs/PLANNING_STATUS.md:6",
+    "docs/plans/006_method_crosswalk.md:48",
+    "docs/research/method_decomposition/phase5/adjudication.yaml"
+   ],
+   "touches": [
+    "capability_verdict",
+    "producer_engine",
+    "meta_inference"
+   ]
+  },
+  {
+   "id": "Q2",
+   "short": "Durable-documents check cannot run",
+   "question": "The durable-documents check exits 2 because .agentic/repo.yaml does not exist: what should the repository declare there?",
+   "blocks": "whether the durable-documents check can report this repository at all",
+   "resolves_with": "Prior art: copy the repo.yaml shape other code2 repositories use and name the canonical documents (AGENTS.md, docs/PLANNING_STATUS.md, docs/ROADMAP.md). No test is needed.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/planning/checks.txt:4"
+   ],
+   "touches": []
+  },
+  {
+   "id": "Q3",
+   "short": "Wiki over cap and unreachable",
+   "question": "122 Markdown files exceed the 100 cap and 108 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
+   "blocks": "wiki compliance for this repository",
+   "resolves_with": "Argument from reading: link the canonical documents named in AGENTS.md from wiki/index.md, and declare a cap exception for the frozen research records under docs/research (they are evidence, not reader documents).",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/planning/checks.txt:15",
+    "wiki/index.md:21"
+   ],
+   "touches": [
+    "method_decomposition"
+   ]
+  },
+  {
+   "id": "Q4",
+   "short": "Architecture document is the old scaffold",
+   "question": "docs/ARCHITECTURE.md describes the 2026-07 scaffold, not the shipped modules: mark it as design history and link docs/planning/SYSTEM_MODEL.md as the current system model?",
+   "blocks": "which document an agent reads as the architecture entry point",
+   "resolves_with": "Argument: reading the code against section 3 of ARCHITECTURE.md shows the gap (F4); the fix is a pointer, no test.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/ARCHITECTURE.md:135",
+    "src/mixed_methods_workbench/investigation_verification.py:136"
+   ],
+   "touches": [
+    "producer_export",
+    "workbench_view"
+   ]
+  },
+  {
+   "id": "Q5",
+   "short": "Deploy the synced review page",
+   "question": "After pull request #57 merges, does the public Worker serve the new page?",
+   "blocks": "whether the public PsychosisBank review shows the current renderer",
+   "resolves_with": "One check: deploy with wrangler from deploy/psychosisbank-review and compare the served index.html hash with the committed one.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "deploy/psychosisbank-review/wrangler.jsonc:2",
+    "scripts/build_psychosisbank_public_review.py:16"
+   ],
+   "touches": [
+    "publication_gate",
+    "review_packet"
+   ]
+  },
+  {
+   "id": "Q6",
+   "short": "Test writes into deploy/",
+   "question": "Should tests/test_psychosisbank_public_review.py build into a temporary folder instead of the committed deploy/ tree?",
+   "blocks": "whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)",
+   "resolves_with": "Argument: a test must not change tracked files; pass an output folder to build() and point the test at tmp_path.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "tests/test_psychosisbank_public_review.py:6",
+    "scripts/build_psychosisbank_public_review.py:24"
+   ],
+   "touches": [
+    "publication_gate"
+   ]
+  },
+  {
+   "id": "Q7",
+   "short": "make check and install",
+   "question": "Can the repository's environment be built and make check pass?",
+   "blocks": "merging anything through ship",
+   "resolves_with": "Running it: uv sync --all-extras and make check.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "b9bf498 resolves data_contracts from the local checkout and adds a mypy override for llm_client (issue #46); docs/planning/checks.txt: make check exit 0, pytest 202 passed, 1 skipped.",
+   "sources": [
+    "Makefile:47",
+    "README.md:7"
+   ],
+   "touches": []
+  },
+  {
+   "id": "Q8",
+   "short": "Public host for PsychosisBank",
+   "question": "Is there a public host for the PsychosisBank review (issue #27)?",
+   "blocks": "whether issue #27 stays open",
+   "resolves_with": "One live check of the Worker URL.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "Commit 4035567 deployed the Worker; https://psychosisbank-review.brianmills2718.workers.dev/ returned 200 on 2026-11-06 with main's page. Issue #27 can close.",
+   "sources": [
+    "deploy/psychosisbank-review/wrangler.jsonc:2"
+   ],
+   "touches": [
+    "publication_gate"
+   ]
+  }
+ ]
+}

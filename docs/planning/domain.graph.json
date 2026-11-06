@@ -1,0 +1,269 @@
+{
+ "schema": "typed-graph/v1",
+ "kinds": {
+  "concept": {
+   "label": "Implemented here",
+   "explain": "A concept the workbench code defines; its location is in the glossary."
+  },
+  "elsewhere": {
+   "label": "Implemented elsewhere",
+   "dashed": true,
+   "explain": "Runs in a producer repository, not here."
+  },
+  "theory": {
+   "label": "Method only",
+   "dashed": true,
+   "explain": "A mixed-methods idea the docs name that no code computes yet."
+  }
+ },
+ "nodes": [
+  {
+   "id": "producer_engine",
+   "label": "Method engine (producer)",
+   "kind": "elsewhere",
+   "explain": "A method repository (qualitative_coding, process_tracing) that runs its own method and owns its strict export schema."
+  },
+  {
+   "id": "producer_export",
+   "label": "Method export",
+   "kind": "concept",
+   "explain": "A producer's strict, versioned export (QC, PT or GT-inspired) as the workbench receives it."
+  },
+  {
+   "id": "workbench_view",
+   "label": "Workbench consumer view",
+   "kind": "concept",
+   "explain": "The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version."
+  },
+  {
+   "id": "source_segment",
+   "label": "Source segment",
+   "kind": "concept",
+   "explain": "An exact span of a source document that evidence points to."
+  },
+  {
+   "id": "cross_method_link",
+   "label": "Cross-method link",
+   "kind": "concept",
+   "explain": "A typed link between objects from two methods' exports."
+  },
+  {
+   "id": "review_packet",
+   "label": "Review packet",
+   "kind": "concept",
+   "explain": "What a reviewer reads: the assembled exports, links and claim limits for one demonstration."
+  },
+  {
+   "id": "evidence_anchor",
+   "label": "Evidence anchor",
+   "kind": "concept",
+   "explain": "A pointer from a finding to the exact source text that backs it."
+  },
+  {
+   "id": "publication_gate",
+   "label": "Publication gate",
+   "kind": "concept",
+   "explain": "The rule that withholds a causal conclusion from publication until a researcher has reviewed it."
+  },
+  {
+   "id": "connected_run_receipt",
+   "label": "Connected run receipt",
+   "kind": "concept",
+   "explain": "The record of one run across producers: inputs, attempts, where it stopped and the trace ids."
+  },
+  {
+   "id": "verification_challenge",
+   "label": "Independent challenge",
+   "kind": "concept",
+   "explain": "A second model's advisory challenge to one finding, with the excerpts it saw."
+  },
+  {
+   "id": "method_profile",
+   "label": "Method profile",
+   "kind": "concept",
+   "explain": "A method's description for question-first routing on the method dashboard."
+  },
+  {
+   "id": "route_plan",
+   "label": "Route plan",
+   "kind": "concept",
+   "explain": "The dashboard's suggested route from a study brief to method stages."
+  },
+  {
+   "id": "method_phase",
+   "label": "Method phase",
+   "kind": "concept",
+   "explain": "Level 1 of the accepted discovery format: a phase of a method."
+  },
+  {
+   "id": "analytical_move",
+   "label": "Analytical move",
+   "kind": "concept",
+   "explain": "Level 2: an analytical move inside a phase."
+  },
+  {
+   "id": "execution_action",
+   "label": "Execution action",
+   "kind": "concept",
+   "explain": "Level 3: an executable action a move is carried out by."
+  },
+  {
+   "id": "method_decomposition",
+   "label": "Method decomposition",
+   "kind": "concept",
+   "explain": "One of the 14 frozen Phase 3 records of a method's phases, moves and actions, checked by the validator."
+  },
+  {
+   "id": "stato_term",
+   "label": "STATO term",
+   "kind": "concept",
+   "explain": "A term of the pinned STATO 2026-04-20 release naming what a statistical step computes."
+  },
+  {
+   "id": "collision_group",
+   "label": "Collision group",
+   "kind": "concept",
+   "explain": "Steps from different methods grouped by canonical signature, verb, type pair or shared STATO term."
+  },
+  {
+   "id": "capability_verdict",
+   "label": "Capability verdict",
+   "kind": "concept",
+   "explain": "The section-10 verdict on a collision group: same_capability, shared_shell or different_capability, with its justification."
+  },
+  {
+   "id": "guarded_decision",
+   "label": "Guarded decision",
+   "kind": "concept",
+   "explain": "A decision request checked against bound artifacts, evidence and policy before it returns an outcome."
+  },
+  {
+   "id": "quantitative_audit",
+   "label": "Quantitative audit",
+   "kind": "concept",
+   "explain": "The NYC bounded quantitative comparison: frozen query, drift replay and predicted-versus-observed audit."
+  },
+  {
+   "id": "meta_inference",
+   "label": "Meta-inference",
+   "kind": "theory",
+   "explain": "A bounded conclusion drawn by intentionally joining qualitative and quantitative strands; planned for version 0.4, not computed."
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "source": "producer_engine",
+   "target": "producer_export",
+   "label": "emits"
+  },
+  {
+   "id": "e2",
+   "source": "producer_export",
+   "target": "workbench_view",
+   "label": "is read through"
+  },
+  {
+   "id": "e3",
+   "source": "workbench_view",
+   "target": "cross_method_link",
+   "label": "is joined by"
+  },
+  {
+   "id": "e4",
+   "source": "cross_method_link",
+   "target": "review_packet",
+   "label": "is assembled into"
+  },
+  {
+   "id": "e5",
+   "source": "producer_export",
+   "target": "evidence_anchor",
+   "label": "carries"
+  },
+  {
+   "id": "e6",
+   "source": "evidence_anchor",
+   "target": "source_segment",
+   "label": "points to"
+  },
+  {
+   "id": "e7",
+   "source": "review_packet",
+   "target": "publication_gate",
+   "label": "is held by"
+  },
+  {
+   "id": "e8",
+   "source": "connected_run_receipt",
+   "target": "producer_export",
+   "label": "records"
+  },
+  {
+   "id": "e9",
+   "source": "verification_challenge",
+   "target": "evidence_anchor",
+   "label": "challenges a finding through"
+  },
+  {
+   "id": "e10",
+   "source": "method_profile",
+   "target": "route_plan",
+   "label": "is routed into"
+  },
+  {
+   "id": "e11",
+   "source": "method_phase",
+   "target": "analytical_move",
+   "label": "contains"
+  },
+  {
+   "id": "e12",
+   "source": "analytical_move",
+   "target": "execution_action",
+   "label": "is carried out by"
+  },
+  {
+   "id": "e13",
+   "source": "method_decomposition",
+   "target": "method_phase",
+   "label": "records"
+  },
+  {
+   "id": "e14",
+   "source": "execution_action",
+   "target": "collision_group",
+   "label": "is grouped into"
+  },
+  {
+   "id": "e15",
+   "source": "stato_term",
+   "target": "collision_group",
+   "label": "matches steps in"
+  },
+  {
+   "id": "e16",
+   "source": "collision_group",
+   "target": "capability_verdict",
+   "label": "gets"
+  },
+  {
+   "id": "e17",
+   "source": "guarded_decision",
+   "target": "evidence_anchor",
+   "label": "binds"
+  },
+  {
+   "id": "e18",
+   "source": "quantitative_audit",
+   "target": "review_packet",
+   "label": "feeds"
+  },
+  {
+   "id": "e19",
+   "source": "review_packet",
+   "target": "meta_inference",
+   "label": "would support"
+  }
+ ]
+}

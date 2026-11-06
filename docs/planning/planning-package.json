@@ -1,0 +1,199 @@
+{
+ "schema_version": "1.0",
+ "record_type": "planning_package",
+ "repository": "BrianMills2718/mixed_methods_workbench",
+ "subject_revision": "2c3c13f9f96b3d4afbf7420c34e65364ffdfa2c8",
+ "request": "Workflow task, 2026-11-06: \"Brian asked to resolve his open pull requests and uncommitted files\"; ship refuses this repository without a planning package, so the package was built to land pull request #57. Brian's own words were not available to the building agent. Kept proportionate (no full_method): Brian has not turned to this repository.",
+ "initiative": {
+  "id": "mixed-methods-workbench",
+  "role": "home"
+ },
+ "runs_in_production": true,
+ "spectrum_rungs": {
+  "name": "README.md:1",
+  "controlled_vocabulary": "docs/planning/semantic-spectrum.json",
+  "glossary": "docs/planning/DOMAIN.md",
+  "thesaurus": "docs/planning/semantic-spectrum.json",
+  "informal_taxonomy": "docs/planning/semantic-spectrum.json",
+  "formal_taxonomy": "docs/planning/domain.graph.json",
+  "domain_model": "docs/planning/domain.graph.json",
+  "schema": [
+   "src/mixed_methods_workbench/models.py:86",
+   "src/mixed_methods_workbench/investigation_spine.py:278"
+  ],
+  "rules": [
+   "scripts/crosswalk_phase4.py:144",
+   "scripts/validate_phase3_methods.py:77"
+  ],
+  "instances": [
+   "docs/research/method_decomposition/phase4/collisions.json",
+   "docs/research/method_decomposition/phase5/adjudication.yaml"
+  ],
+  "architecture_views": [
+   "docs/planning/SYSTEM_MODEL.md",
+   "docs/planning/context.graph.json"
+  ],
+  "behavior_models": "src/mixed_methods_workbench/investigation_spine.py:160",
+  "interface_contracts": [
+   "src/mixed_methods_workbench/investigation_spine.py:278",
+   "deploy/psychosisbank-review/worker.js:4"
+  ],
+  "executable_specifications": [
+   "tests/test_psychosisbank_public_review.py",
+   "tests/test_crosswalk_phase4.py"
+  ]
+ },
+ "parts": {
+  "investigation": {
+   "status": "present",
+   "path": "docs/planning/investigation.json"
+  },
+  "checks": {
+   "status": "present",
+   "path": "docs/planning/checks.txt",
+   "results": [
+    {
+     "name": "durable documents",
+     "command": "python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/durable_docs_check.py --repo . --arc42",
+     "exit_status": 2,
+     "counts": {
+      "findings": 1
+     },
+     "tracked_by": "Q2"
+    },
+    {
+     "name": "navigation",
+     "command": "python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/validate_project_navigation.py .",
+     "exit_status": 0,
+     "counts": {
+      "findings": 0,
+      "delegated": 2
+     }
+    },
+    {
+     "name": "wiki compliance",
+     "command": "python3 ~/code/project-meta/scripts/md_file_cap.py --repo .",
+     "exit_status": 1,
+     "counts": {
+      "md_files": 122,
+      "cap": 100,
+      "unreachable": 108,
+      "findings": 2
+     },
+     "tracked_by": "Q3"
+    },
+    {
+     "name": "make check",
+     "command": "make check PYTHON=.venv/bin/python",
+     "exit_status": 0,
+     "counts": {
+      "failed": 0,
+      "steps": 7
+     }
+    },
+    {
+     "name": "test suite",
+     "command": ".venv/bin/python -m pytest -q -p no:cacheprovider",
+     "exit_status": 0,
+     "counts": {
+      "passed": 202,
+      "skipped": 1,
+      "failed": 0
+     }
+    },
+    {
+     "name": "crosswalk check",
+     "command": ".venv/bin/python scripts/crosswalk_phase4.py --check",
+     "exit_status": 0,
+     "counts": {
+      "steps": 171,
+      "groups": 36,
+      "errors": 0
+     }
+    }
+   ]
+  },
+  "open_questions": {
+   "status": "present",
+   "path": "docs/planning/open-questions.json"
+  },
+  "system_model": {
+   "status": "present",
+   "path": "docs/planning/SYSTEM_MODEL.md",
+   "executes_typed_rules": false,
+   "basis": "scripts/crosswalk_phase4.py:144"
+  },
+  "domain_model": {
+   "status": "present",
+   "path": "docs/planning/domain.graph.json",
+   "glossary": "docs/planning/DOMAIN.md",
+   "spectrum": "docs/planning/semantic-spectrum.json",
+   "implemented": {
+    "producer_export": "src/mixed_methods_workbench/models.py:268",
+    "workbench_view": "src/mixed_methods_workbench/models.py:438",
+    "source_segment": "src/mixed_methods_workbench/models.py:98",
+    "cross_method_link": "src/mixed_methods_workbench/models.py:505",
+    "review_packet": "src/mixed_methods_workbench/models.py:523",
+    "evidence_anchor": "src/mixed_methods_workbench/investigation_spine.py:127",
+    "publication_gate": "src/mixed_methods_workbench/investigation_spine.py:160",
+    "connected_run_receipt": "src/mixed_methods_workbench/investigation_run.py:124",
+    "verification_challenge": "src/mixed_methods_workbench/investigation_verification.py:42",
+    "method_profile": "src/mixed_methods_workbench/method_dashboard.py:118",
+    "route_plan": "src/mixed_methods_workbench/method_dashboard.py:190",
+    "method_phase": "src/mixed_methods_workbench/method_topology.py:62",
+    "analytical_move": "src/mixed_methods_workbench/method_topology.py:69",
+    "execution_action": "src/mixed_methods_workbench/method_topology.py:86",
+    "method_decomposition": "scripts/validate_phase3_methods.py:77",
+    "stato_term": "scripts/fetch_stato.py:42",
+    "collision_group": "scripts/crosswalk_phase4.py:72",
+    "capability_verdict": "scripts/crosswalk_phase4.py:144",
+    "guarded_decision": "src/mixed_methods_workbench/guarded_decision/models.py:175",
+    "quantitative_audit": "src/mixed_methods_workbench/nyc_crz_quantitative.py:193"
+   }
+  },
+  "diagrams": {
+   "status": "present",
+   "items": [
+    {
+     "path": "docs/planning/context.graph.json",
+     "question": "What is inside the workbench, and what talks to it?"
+    },
+    {
+     "path": "docs/planning/domain.graph.json",
+     "question": "Which concepts does the workbench code implement, and which live in producers or only in the method?"
+    },
+    {
+     "path": "docs/planning/open-questions.graph.json",
+     "question": "Which open question blocks which decision, and which concepts does it touch?"
+    }
+   ]
+  },
+  "plan": {
+   "status": "present",
+   "path": "docs/plans/007_keep_shippable.md",
+   "relies_on": [
+    "publication_gate",
+    "review_packet",
+    "method_decomposition",
+    "producer_export",
+    "workbench_view"
+   ],
+   "cost_basis": {
+    "steps": [],
+    "no_ai_steps_reason": "Plan 007 is file changes, a wrangler deploy and deterministic checks; it calls no model.",
+    "cheapest_design": "No model calls are needed for upkeep."
+   }
+  },
+  "acceptance": {
+   "status": "present",
+   "path": "docs/planning/acceptance-criteria.json"
+  },
+  "review_page": {
+   "status": "present",
+   "path": "proposals/planning-package/review-page/index.html"
+  },
+  "cold_review": {
+   "status": "missing"
+  }
+ }
+}

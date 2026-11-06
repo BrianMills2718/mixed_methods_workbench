@@ -1,0 +1,42 @@
+{
+ "schema_version": "1.0",
+ "record_type": "acceptance_criteria",
+ "outcome": "Brian can open the public PsychosisBank review and judge each finding against its sources and its publication block, and can read which method steps the crosswalk found shared across methods.",
+ "note": "Brian's exact words for this package's request were not available to the building agent (the request reached it through a workflow); asked_by is left empty, so goal coverage shows WAIT.",
+ "entries": [
+  {
+   "id": "A1",
+   "criterion": "I can open the public review and see, for each finding, what backs it and that no causal conclusion is published yet",
+   "demonstration": [
+    "Open https://psychosisbank-review.brianmills2718.workers.dev/",
+    "Read the findings section from top to bottom",
+    "Click a cited excerpt's source link"
+   ],
+   "expected": "Each finding shows its verdict, the source excerpts behind it and the remaining source gap; the page says the causal conclusion is withheld pending researcher review; the source link opens the original public document.",
+   "failure_example": "Finding 3's quote about 'this level' without its antecedent: a broken page shows the quote alone, with no note that the TalkBank policy names it 'Controlled access'.",
+   "representation": {
+    "view": "data-table",
+    "router_record": "docs/planning/router/A1.recommendation.json"
+   },
+   "entrypoint": "https://psychosisbank-review.brianmills2718.workers.dev/",
+   "status": "built"
+  },
+  {
+   "id": "A2",
+   "criterion": "I can see which method steps the crosswalk found shared across methods, and why",
+   "demonstration": [
+    "Open the crosswalk page",
+    "Read the table of groups, one row per group of steps from two or more methods",
+    "Open one row's justification"
+   ],
+   "expected": "36 rows; each says same capability, shared shell or different capability with a one-line reason; today none says same capability.",
+   "failure_example": "A row with members from one method only, or a verdict with no reason, means the generator or the check is broken.",
+   "representation": {
+    "view": "data-table",
+    "router_record": "docs/planning/router/A2.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+# Checks run 2026-11-06T22:01:46Z on b9bf498; validators from company-planning origin/main 212fd5b
+
+$ python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/durable_docs_check.py --repo . --arc42
+INVALID: /home/brian/code2/worktrees/mmw-planning-package/.agentic/repo.yaml not found
+durable-docs: mode=repo repo=/home/brian/code2/worktrees/mmw-planning-package invalid input, exit 2
+exit_status=2
+
+$ python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/validate_project_navigation.py .
+DELEGATED wiki/index.md: workspace wiki rule; project-wiki/v1 schema not applied; reachability, cap and layout are checked by python3 ~/code/project-meta/scripts/md_file_cap.py --repo R
+DELEGATED docs/ROADMAP.md: native roadmap accepted; project-roadmap-front-door/v1 schema not applied
+REPORT ONLY: 0 finding(s); semantic truth and approval were not evaluated
+exit_status=0
+
+$ python3 /home/brian/code/project-meta/scripts/md_file_cap.py --repo .
+OVER    122  BrianMills2718/mixed_methods_workbench  -- 122 > cap 100; prune, or add .md-file-cap.yaml with a limit and a reason
+UNREACHABLE   108  BrianMills2718/mixed_methods_workbench  -- 108 reader docs not linked from wiki/index.md (e.g. PROJECT.md, contracts/shared_contracts.md, docs/ARCHITECTURE.md)
+REPO  BrianMills2718/mixed_methods_workbench  md=122  cap=over  reach=orphans(108)  layout=undeclared(0)  durable=undeclared(0)
+md-file-cap: 1 given repos checked, cap 100: ok=0 exception=0 over=1 not-checked=0; wiki reachability ok=0 orphans=1 no-wiki=0; layout ok=0 findings=0 undeclared=1; durable ok=0 findings=0 undeclared=1   exit 1
+exit_status=1
+
+$ make check PYTHON=.venv/bin/python
+PASS malformed_manifest_json: ERROR: invalid JSON in manifest.json: Expecting property name enclosed in double quotes at line 2 column 1
+PASS fixture_directory_symlink: ERROR: fixture directory contains unsupported symlinks: ['linked']
+PASS fixture_directory_root_symlink: ERROR: fixture directory root must not be a symlink
+PASS missing_origin_kind: ERROR: qc_handoff_stub.json origin_kind must be workbench_synthetic
+PASS unsupported_origin_kind: ERROR: qc_handoff_stub.json origin_kind must be workbench_synthetic
+PASS missing_claim_limits: ERROR: qc_handoff_stub.json claim_limits must be a non-empty string list
+PASS not_substring_is_not_exclusion: ERROR: qc_handoff_stub.json claim_limits must disclose synthetic status and an explicit Not exclusion
+PASS generic_claim_limits: ERROR: qc_handoff_stub.json claim_limits must match its reviewed file-specific exclusions
+PASS second_entry_generic_claim_limits: ERROR: pt_export_stub.json claim_limits must match its reviewed file-specific exclusions
+PASS contradictory_claim_limits: ERROR: qc_handoff_stub.json claim_limits must match its reviewed file-specific exclusions
+PASS generic_intended_invariant: ERROR: qc_handoff_stub.json intended_invariant must match its reviewed file-specific invariant
+PASS synthetic_grade_escalation: ERROR: qc_handoff_stub.json evidence_grade must be C-synthetic-contract-only
+PASS manifest_claim_escalation: ERROR: manifest claim_limits must match the reviewed synthetic-only exclusions
+PASS manifest_purpose_escalation: ERROR: manifest purpose must match the reviewed synthetic contract purpose
+PASS manifest_replacement_gate_escalation: ERROR: manifest replacement_gates must match the reviewed real-export boundaries
+PASS entry_unknown_readiness_claim: ERROR: manifest file entry contains unknown fields: ['readiness_claim']
+PASS manifest_unknown_readiness_claim: ERROR: manifest contains unknown fields: ['readiness_claim']
+PASS arbitrary_head_as_content_commit: ERROR: qc_handoff_stub.json last_content_commit mismatch: 98b5310c864c8b5cf441583b23f5bc00d0bee647
+PASS recovered_bytes_differ: ERROR: qc_handoff_stub.json recovered Git bytes hash mismatch: e7d035b8c632d544b591819e941f44377a6418e9adf80fb2458c413024eca470
+PASS stale_validation_file_hash: ERROR: validation_observation file hashes do not match current manifest entries
+PASS stale_validator_hash: ERROR: validation_observation validator hash mismatch: 44d512185783b4b4348904531c046de666f4974d9951d7f649f1b5a7b3de592c
+PASS stale_control_hash: ERROR: validation_observation control hashes do not match current control scripts
+PASS missing_control_result: ERROR: validation_observation control_result must be pass
+PASS stale_evidence_deriver_hash: ERROR: validation_observation evidence deriver hash does not match current code
+PASS missing_validation_observation: ERROR: manifest validation_observation must be an object
+PASS future_validation_observation: ERROR: validation_observation observed_at must not be in the future
+PASS predates_manifest_validation_observation: ERROR: validation_observation observed_at must not predate manifest creation
+Fixture negative controls passed (41 controls).
+PASS w2_evidence_present: Live validation proved 4 exhaustively inventoried synthetic fixtures recoverable from 2 exact last-content Git commits; all recorded evidence-apparatus hashes match current bytes. All 41 hash-bound fixture controls executed. The evidence-removal control reached: F — Live inventory evidence failed: ERROR: manifest validation_observation must be an object. The malformed-JSON control reached: F — Live inventory evidence failed: ERROR: invalid JSON in manifest.json: Expecting property name enclosed in double quotes at line 2 column 1. This A applies only to inventory provenance; fixture contents remain C.
+PASS w2_evidence_removed: F — Live inventory evidence failed: ERROR: manifest validation_observation must be an object
+PASS w2_malformed_json: F — Live inventory evidence failed: ERROR: invalid JSON in manifest.json: Expecting property name enclosed in double quotes at line 2 column 1
+PASS stale_generated_reports: ERROR: generated coverage reports are stale or missing: ['/tmp/mmw-coverage-stale-report-n_z2u3vk/coverage_report.md', '/tmp/mmw-coverage-stale-report-n_z2u3vk/coverage_report.json']; run make coverage
+Coverage negative controls passed (3 controls).
+PASS coverage_json_stdout: one JSON document matching docs/coverage_report.json
+DEMO-C1 fixtures and review assembly passed.
+...........                                                              [100%]
+11 passed in 1.00s
+..............................                                           [100%]
+30 passed in 0.89s
+Success: no issues found in 19 source files
+exit_status=0
+
+$ .venv/bin/python -m pytest -q -p no:cacheprovider
+........................................................................ [ 35%]
+........................................................................ [ 71%]
+..........................................................               [100%]
+202 passed, 1 skipped in 36.82s
+exit_status=0

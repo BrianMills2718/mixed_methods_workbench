@@ -1,0 +1,115 @@
+{
+ "schema": "typed-graph/v1",
+ "kinds": {
+  "repo": {
+   "label": "This repository",
+   "explain": "mixed_methods_workbench"
+  },
+  "producer": {
+   "label": "Producer repository",
+   "explain": "Runs a method and exports results."
+  },
+  "shared": {
+   "label": "Shared dependency",
+   "explain": "Owned elsewhere; used at a seam."
+  },
+  "surface": {
+   "label": "What a person opens",
+   "explain": "A page or dashboard a reader uses."
+  }
+ },
+ "nodes": [
+  {
+   "id": "workbench",
+   "label": "Mixed Methods Workbench",
+   "kind": "repo",
+   "explain": "Integration authority: consumer contracts, review packets, method crosswalk, planning records."
+  },
+  {
+   "id": "qc",
+   "label": "qualitative_coding",
+   "kind": "producer",
+   "explain": "Qualitative coding and grounded-theory exports."
+  },
+  {
+   "id": "pt",
+   "label": "process_tracing",
+   "kind": "producer",
+   "explain": "Process-tracing exports (pt_export_v2)."
+  },
+  {
+   "id": "data_contracts",
+   "label": "data_contracts",
+   "kind": "shared",
+   "explain": "Neutral action grammar and boundary models; installed from the local checkout."
+  },
+  {
+   "id": "llm_client",
+   "label": "llm_client",
+   "kind": "shared",
+   "explain": "Model calls, used only by the two hand-run live modules."
+  },
+  {
+   "id": "stato",
+   "label": "STATO 2026-04-20",
+   "kind": "shared",
+   "explain": "Pinned statistics ontology release for the crosswalk."
+  },
+  {
+   "id": "public_page",
+   "label": "PsychosisBank review (Cloudflare Worker)",
+   "kind": "surface",
+   "explain": "Public read-only review page built from the investigation spine."
+  },
+  {
+   "id": "dashboard",
+   "label": "Method dashboard (local)",
+   "kind": "surface",
+   "explain": "make method-dashboard: question-first method routing."
+  }
+ ],
+ "edges": [
+  {
+   "id": "c1",
+   "source": "qc",
+   "target": "workbench",
+   "label": "exports read by"
+  },
+  {
+   "id": "c2",
+   "source": "pt",
+   "target": "workbench",
+   "label": "exports read by"
+  },
+  {
+   "id": "c3",
+   "source": "data_contracts",
+   "target": "workbench",
+   "label": "typed seams for"
+  },
+  {
+   "id": "c4",
+   "source": "llm_client",
+   "target": "workbench",
+   "label": "model calls for live runs"
+  },
+  {
+   "id": "c5",
+   "source": "stato",
+   "target": "workbench",
+   "label": "terms for the crosswalk"
+  },
+  {
+   "id": "c6",
+   "source": "workbench",
+   "target": "public_page",
+   "label": "builds"
+  },
+  {
+   "id": "c7",
+   "source": "workbench",
+   "target": "dashboard",
+   "label": "serves"
+  }
+ ]
+}

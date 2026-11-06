@@ -1,0 +1,21 @@
+{
+ "title": "Mixed Methods Workbench",
+ "north_star": "A text-centered mixed-methods workbench that joins method engines' exports through typed contracts, built in thin versioned slices (docs/adr/0002_broad_north_star_versioned_thin_slices.md).",
+ "thesis": "Methods stay in their own repositories; the workbench reads their exports, keeps claim limits, and joins them only where a study needs it.",
+ "disproof": "Joining two producers' exports for a real study needs method logic the producers do not export, or the crosswalk's different-capability verdicts are wrong in a way a real study exposes.",
+ "not_for": "Running a method itself, a universal schema or method planner, or publishing an unreviewed causal conclusion.",
+ "links": [
+  {
+   "name": "Public PsychosisBank review",
+   "href": "https://psychosisbank-review.brianmills2718.workers.dev/"
+  },
+  {
+   "name": "Next plan: keep shippable",
+   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/plans/007_keep_shippable.md"
+  },
+  {
+   "name": "Planning status",
+   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/PLANNING_STATUS.md"
+  }
+ ]
+}

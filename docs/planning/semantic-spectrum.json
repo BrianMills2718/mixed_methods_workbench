@@ -1,0 +1,141 @@
+{
+ "schema_version": "1.0",
+ "record_type": "semantic_spectrum",
+ "basis": "The workbench's project layer: every node of docs/planning/domain.graph.json, with the graph's kinds as classes.",
+ "terms": [
+  {
+   "id": "producer_engine",
+   "kind": "elsewhere",
+   "aliases": []
+  },
+  {
+   "id": "producer_export",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "workbench_view",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "source_segment",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "cross_method_link",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "review_packet",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "evidence_anchor",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "publication_gate",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "connected_run_receipt",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "verification_challenge",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "method_profile",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "route_plan",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "method_phase",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "analytical_move",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "execution_action",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "method_decomposition",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "stato_term",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "collision_group",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "capability_verdict",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "guarded_decision",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "quantitative_audit",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "meta_inference",
+   "kind": "theory",
+   "aliases": []
+  }
+ ],
+ "classes": [
+  {
+   "id": "concept",
+   "definition": "A concept the workbench code defines; its location is in the glossary."
+  },
+  {
+   "id": "elsewhere",
+   "definition": "Runs in a producer repository, not here."
+  },
+  {
+   "id": "theory",
+   "definition": "A mixed-methods idea the docs name that no code computes yet."
+  }
+ ],
+ "ambiguous": [
+  {
+   "word": "method",
+   "means": [
+    "producer_engine",
+    "method_decomposition"
+   ],
+   "note": "A research method runs in a producer engine; a method decomposition is the Phase 3 record of one."
+  }
+ ]
+}
