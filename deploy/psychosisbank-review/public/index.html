@@ -314,7 +314,52 @@
       byId("nonclaims").innerHTML = payload.do_not_infer.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
     }
 
+    function renderNycIntegrated(payload) {
+      const q = payload.qualitative;
+      const quant = payload.quantitative;
+      const baseline = payload.extraction_baseline;
+      document.title = "NYC Congestion Relief Zone · Mixed Methods Workbench";
+      byId("page-eyebrow").textContent = "Authentic mixed-methods investigation · integration complete";
+      byId("title").textContent = "NYC Congestion Relief Zone: first-year integrated evidence";
+      byId("research-question").textContent = baseline.research_question;
+      byId("status").textContent = "Extraction, quantitative audit, and the approved six-hearing qualitative result are integrated; policy appraisal still needs human priorities.";
+      byId("flow-label-1").textContent = "Qualitative";
+      byId("flow-value-1").textContent = "12 approved findings + boundary/unresolved";
+      byId("flow-label-2").textContent = "Quantitative";
+      byId("flow-value-2").textContent = "Descriptive comparison; causal effect not identified";
+      byId("flow-label-3").textContent = "Appraisal";
+      byId("flow-value-3").textContent = "Needs human priorities";
+      byId("result-title").textContent = "The strands are jointly visible without flattening their method boundaries.";
+      byId("result-eyebrow").textContent = "Integrated result";
+      byId("result-summary").textContent = payload.integration.map((x) => x.kind + ": " + x.statement).join(" ");
+      byId("result-limit-title").textContent = "Integration does not create stronger evidence.";
+      byId("result-limit-copy").textContent = payload.baseline_vs_federated.does_not_improve.join(" · ");
+      byId("journey-title").textContent = "Cross-strand dispositions";
+      byId("journey-intro").textContent = "Convergence, complementarity, divergence, and silence remain explicit; no scalar confidence score is produced.";
+      byId("journey-stages").innerHTML = payload.integration.map((item, index) => "<article class=\"stage\"><span class=\"stage-number\">" + (index + 1) + "</span><div><h3>" + escapeHtml(item.kind) + "</h3><p>" + escapeHtml(item.statement) + "</p></div><div class=\"stage-owner\"><strong>Limit</strong>" + escapeHtml(item.limit) + "</div></article>").join("");
+      byId("findings-title").textContent = "Human-approved qualitative findings";
+      byId("evidence-summary").textContent = "Twelve bounded findings retain exact QC evidence anchors and method ownership.";
+      byId("findings").innerHTML = q.findings.map((item) => "<article class=\"card\"><h3>" + escapeHtml(item.review_item_id) + "</h3><p>" + escapeHtml(item.proposed_text) + "</p></article>").join("");
+      byId("open-title").textContent = "Boundary and unresolved evidence";
+      byId("unresolved-card-title").textContent = "Method limits";
+      byId("publication-card-title").textContent = "Policy appraisal";
+      byId("publication-card-lede").textContent = "Evidence integration does not supply value weights.";
+      byId("unresolved").innerHTML = q.claim_limits.map((item) => "<li>" + escapeHtml(item) + "</li>").join("");
+      byId("publication-block").textContent = payload.policy_appraisal.reason;
+      byId("next-title").textContent = "What remains for MVP review";
+      byId("next-intro").textContent = "A retain/change/monitor appraisal remains intentionally unresolved until human priorities are supplied.";
+      byId("needs").innerHTML = [["Boundary case", q.boundary_case.proposed_text], ["Negative-case search", q.unresolved.proposed_text], ["Baseline vs federated", payload.baseline_vs_federated.federated]].map((x) => "<article class=\"need\"><h3>" + escapeHtml(x[0]) + "</h3><p>" + escapeHtml(x[1]) + "</p></article>").join("");
+      byId("sources-title").textContent = "Pinned qualitative evidence";
+      byId("sources-intro").textContent = "Qualitative Coding revision " + q.producer_revision + " · handoff sha256:" + q.handoff_sha256;
+      const used = new Set(q.findings.flatMap((item) => item.supporting_anchor_ids.concat(item.contrary_anchor_ids)));
+      byId("sources").innerHTML = Array.from(used).slice(0, 24).map((id) => { const a = q.anchors[id]; return "<div class=\"source-row\"><strong>" + escapeHtml(a.artifact_id) + "</strong><span>PDF page " + a.pdf_page_index + " · printed lines " + a.printed_line_start + "-" + a.printed_line_end + "</span></div>"; }).join("");
+      byId("artifacts").innerHTML = "<div class=\"artifact-row\"><div><strong>Qualitative handoff</strong><br><code>sha256:" + escapeHtml(q.handoff_sha256) + "</code></div><span class=\"availability\">human approved</span></div>";
+      byId("nonclaims").innerHTML = q.claim_limits.concat(quant.claim_boundary.must_not_say).map((item) => "<li>" + escapeHtml(item) + "</li>").join("");
+      byId("json-link").href = "/api/investigation/nyc-congestion-relief-zone";
+    }
+
     function renderNyc(payload) {
+      if (payload.schema_version === "mmw.nyc_crz_integrated.v1") return renderNycIntegrated(payload);
       document.title = `${payload.title} · Mixed Methods Workbench`;
       byId("page-eyebrow").textContent = "Authentic evidence slice · human review required";
       byId("title").textContent = payload.title;
