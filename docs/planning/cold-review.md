@@ -3,6 +3,19 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 17 (read b6aa623): revise
+
+The reviewer found R16-B1 fixed in structure (plan `:43` and F12 name what "validated" rests on, S1 builds the
+agreement panel, A3 requires it, and QC's figures and caveats are quoted correctly) and n-ff to n-jj fixed. It
+returned **revise** on one blocking finding, with notes n-kk to n-mm. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R17-B1 | "100 of 100 cited passages lie inside a passage the author coded" counts any overlap (73 lie wholly inside one), and it is the chance rate: she coded 69.6% of the text and every interviewee turn as long as the median cited passage (970 characters) overlaps her coding (135 of 135). Plan `:43` and Q12 (a) still offered it to Brian as a level of agreement | S1 (commit 43b57dc) counts overlap and containment separately, prints the chance rate beside them under "Where the evidence sits (location, not agreement)", and its test asserts both. Plan `:43`, F12, Q12 (a), A3, A8, S6 and "Done when" now say "validated" rests on QC's own verdict and Brian's judgement of A3 and A4; agreement is shown as evidence, stated as measured: the category share (best 0.47, under the bar), QC's own comparison where committed, and passage location beside its chance rate as location, not agreement. Q12 (a)'s recommendation and default no longer claim agreement as a pass. A3's failure example adds "the overlap figure shown without its chance rate" |
+| n-kk | A3's demonstration never read the panel or the label's reason | A3 adds "Read the panel 'Agreement with the author's coding' and the reason under the pin's label" |
+| n-ll | QC's Human Comparison tab computes its measure on request, so "has recorded no comparison" holds only for committed files | Every place says "QC has committed no comparison", and plan `:43` names the tab |
+| n-mm | QC's figure and the location figure count in opposite directions | Plan `:43`, F12 and S1's note name each direction |
+
 ## Plan #8, round 16 (read 0ae7d1b): revise
 
 The reviewer found R15-B1, n-cc, n-dd and n-ee fixed and the new wait rule holding for the next expected
@@ -1994,5 +2007,105 @@ Verdict: revise
 - **Need anything from human:** No. R16-B1 and the notes are agent work.
 
 Reviewed revision: 0ae7d1b071f8cb41aded9f9ea72e53833ec56ee3
+
+Verdict: revise
+
+## Plan #8, round 17 reviewer's report (verbatim)
+
+#### Cold review, round 17: Plan #8 package (mixed_methods_workbench, branch plan-008-finish)
+
+**Verdict: revise.** The R16-B1 fix holds together structurally. Plan :43 and finding F12 now say what "validated" rests on, S1 builds the agreement panel, A3 requires it, and S6, A8 and "Done when" carry it per strand. All of QC's figures and caveats are quoted correctly. But the new passage-level figure is the problem. "100 of 100 cited passages lie inside a passage the author coded" misdescribes what S1 computes, and it is exactly what chance gives on this corpus. It is presented to Brian as one of the two levels of agreement he is asked to accept in Q12 (a). That is one blocking finding, R17-B1.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails (verdict `revise`).
+- **Substance:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain baseline is `planned` with 2 cases, and 3 stages are `untested`.
+- **Other figures:** 109 file citations; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- **Other checks:** initiative and tiers 4 of 4. Coverage ok (3 requirements: 2 covered, 1 process). Goal provenance ok. Freshness ok (1 commit of work, 0.0 days).
+
+**Plan checklist** (`plan_checklist.py --check`): exit 0, 0 differing lines. The review page shows package revision b6aa62302ba3, which matches the manifest.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 9227dbe) | 194 units, all exact at their offsets. 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204 | Matches plan :159-173, Q15 and F24 |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches |
+| `durable_docs_check.py --arc42` | exit 2: `.agentic/repo.yaml` not found | Matches (1 finding, tracked by Q2) |
+| `make check PYTHON=.venv/bin/python` | exit 0: 41 controls, 11 + 30 tests, mypy clean | Matches (`pytest_passed` 41). Full pytest not run |
+| My own check: is each cited passage inside an author passage, and what does chance give? (S1's builder, run inline) | 100 of 100 overlap an author passage, but **73** lie inside one. Each is at least 87% covered by her passages together. Her passages cover **69.6%** of the corpus text (397,446 of 571,307 characters). Interviewee turns of 970+ characters (the cited median) overlapping one: **135 of 135**; of 500+ characters: **270 of 273**. Random spans of the cited lengths: **96.5%** | Contradicts the claim's wording and its weight (R17-B1) |
+| `git log --all --grep` for stop words | NYC pause (91a69a5); Phase 3 pause (e37fd80) and its lift (680c4d5) | No stop missed |
+| QC commits since 2026-11-05 under `public_demo_assets/` and `proposals/` | School readings, compare, disprove and a Human Comparison tab (#168). No newer theory file | Q26 and F23 still hold |
+
+#### Round-16 findings
+
+- **R16-B1: fixed in structure; one figure is wrong, carried as R17-B1 (blocking).**
+  - Plan :43 and F12 name three things "validated" rests on, and the 1.0 row maps to A3, A4 and Q12 (d).
+  - S1 builds the panel and its test. A3's expected result and failure example require it. S6 (:83), A8, "Done when" (:452) and Q12 (a) carry it.
+  - QC's figures match its pages:
+    - `PLAIN_VERSION_CHECK.md:13`: 587 (77.4%) against 605 (79.8%).
+    - `:36`: 605 touched, 454 mostly covered.
+    - `REVIEW_QUEUE.md:68`: "touched" is generous, one coder.
+    - `CURRENT_STATE_AND_ROADMAP.md:66-67`: "a comparison, not a reliability ceiling".
+  - "QC has recorded no comparison … for this run" holds for QC's committed files (see note n-ll).
+  - The passage-level figure is the remaining fault.
+- **n-ff: fixed.** Plan :43, S7 :410-411, Q12 (d)'s recommendation and default, and A12 now read "has not yet recorded … as passing its own coding test … as that test then reads (today … done and recorded by QC as passing)".
+- **n-gg: fixed.** The sentence is in S1 :100 and S3 :259. A5 has the "contradicted" label; A3 has the verdict label. A3 leaves out "verdicts changed on retest", which is trivial.
+- **n-hh: fixed.** The label reads "not its newest run (a67d7d6a)", and :43 records QC's two uses of "published" (`:32`, `:34`, `REVIEW_QUEUE.md:29`).
+- **n-ii: fixed.** S1's `study.json:41` quotes QC at :32, :22-23, :34 and :24-25 with its lines. A3 asks for QC's current verdict on whichever run is pinned.
+- **n-jj: fixed.** `readiness_record` cites :403.
+- **n-r: carried.** No remote branch contains b6aa623, so the page's 68 `/blob/main/` links still 404 until merge.
+- **n-y, n8–n11: carried** as round 16 listed them. I did not reopen them.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R17-B1 | plan, open questions, acceptance, investigation, S1 | plan :43 and :100; `open-questions.json` Q12 (a); `acceptance-criteria.json` A3 expected; `investigation.json` F12; mmw-s1 `study_workbench.py:524-537` and `:583`, `proposals/open-science-study/index.html:128-129`, `tests/test_study_workbench.py:98` | **(1) The wording is wrong.** The code counts any overlap (`a.start < p.end and p.start < a.end`) but names it `cited_passages_inside_an_author_coded_passage`. The page, plan, Q12, A3 and F12 all say "lie inside"; 73 of 100 do. **(2) The figure is the chance rate.** The author coded 70% of the text, and every interviewee turn as long as the median cited passage overlaps her coding (135 of 135). So "100 of 100" cannot tell QC's evidence from any long turn; it says nothing about agreement. **(3) It feeds a decision.** Plan :43 lists it as one of the two levels "validated" rests on. Q12 (a) puts it first when asking Brian whether agreement with the author's coding is enough for 1.0. Without it, the workbench's only agreement measure is the category share, best 0.47, which is under the plan's own bar. That changes what Q12 (a)'s recommendation ("1.0 claims agreement with the authors' coding") would claim. **(4)** The S1 test asserts the mislabelled count, a self-check that passes on the wrong name | Say "overlap" (or count containment: 73 of 100). Wherever the figure appears (S1 page, plan :43, Q12 (a), F12, A3, A8), print the chance rate beside it, for example "every interviewee turn of 970+ characters overlaps a passage she coded (135 of 135); she coded 70% of the text". Say this level shows location, not agreement, or drop it as an agreement level. Reword Q12 (a) and its recommendation so the agreement put to Brian is the category share plus QC's own 79.8% beside the 77.4% plain pass. Add to A3's failure example: "the overlap figure shown without its chance rate". Rename the key and fix the test | **blocking**: a wrong claim about what the 1.0 condition rests on, fed to Brian's Q12 (a) decision |
+| n-kk | acceptance | A3 `demonstration` | No step reads the agreement panel or the pin label's reason, though the expected result depends on both | Add "Read the panel 'Agreement with the author's coding' and the label's reason" | note |
+| n-ll | S1, plan | mmw-s1 `study.json:47-51`; plan :43 | QC's Human Comparison tab (#168) computes QC's measure "from the saved project on each request" for any Open Science project. "Has recorded no comparison" is true of committed files only | Say "has committed no comparison", or ask for the e131eb55 figure in issue #205 | note |
+| n-mm | plan, S1 | plan :43; `study.json:50` | QC's figure is the share of the author's passages that QC's applications touch. The workbench's is the share of QC's cited passages that her codes touch. These run in opposite directions, and the page shows them side by side without saying so | Add one clause naming each direction | note |
+| n-r, n-y, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. **Does the passage-level figure differ from what any passage of the same length would score?** No: 135 of 135 long turns overlap her coding. This is R17-B1.
+
+#### Checked and found sound
+
+- **One story everywhere.** Plan :43, S1, S3, S6, S7, "Done when", Q12 (a) and (d), Q15, Q26, A3, A4, A5, A8, A12, F10, F12 and the review page all agree with each other and with QC's current pages on:
+  - the pin (e131eb55);
+  - QC's verdict on it: 46% rejected, against the "wrong if" line of roughly a quarter (`CURRENT_STATE_AND_ROADMAP.md:21-25`, `:32`), and it predates the disprove test (`:34`, `REVIEW_QUEUE` D3);
+  - the a67d7d6a figures;
+  - the "met" condition: A3 and A4 judged pass in Brian's words, plus Q12 (d).
+- **Gates that read a producer's verdict all end on that producer's own verdict:**
+  - The qualitative-path row waits on QC's recorded pass "as that test then reads", not on the rejected share. QC's own rule says so: "A lower rejection rate alone … cannot satisfy completion" (`EVALUATION_HARNESS.md:181-182`, also `REVIEW_QUEUE.md:27-31`). A12's failure example covers the 11.7% case.
+  - S3's label quotes QC's disprove verdict in QC's words.
+  - S4 shows a conclusion only when Process Tracing's own fields allow it (`publishable`, `public_headline_eligible`, `publication_block_reason`), and picks its answer path by Process Tracing's own rules (ADR 0004 at :61-66; ADR 0005, "Archives Above the Window Are Read as Cards").
+  - S2 stays inside QC's `conceptual_follow_up_only`.
+- **The method owners' rules match what the plan cites:** decision 0017 (:33-35, :50) and QC's `METHODS_AND_THEORY.md:453-463` and `:471-473`.
+- **Domain model:** I sampled `workbench_view`, `publication_gate`, `connected_run_receipt` and `route_plan`; each is the named class. S1's types are dashed, correctly, since they are not on this branch.
+- **Router records** for A3, A4 and A8 chose the named view.
+- **Cost:** the S2 plain-version figure ($0.0783) recomputes within 1%.
+
+#### Judgments I was unsure about
+
+- **R17-B1's weight.** The plan does say the figure is "overlap of passages, not of meaning", and the round-16 reviewer suggested this very figure. I made it blocking because Q12 (a) asks Brian to accept "agreement" partly on a number that chance alone produces.
+- **n-ll.** I could not open QC's live site to see whether it already shows a figure for e131eb55.
+- **Limits of this review.** No browser render (I read the HTML). Full pytest was not run. Writing scratch files was refused, so my checks ran inline.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12, 0 failing, 2 WAIT). Checklist: exit 0.
+  - `overlap_e131.py`: 0 of 112 qualify.
+  - Crosswalk check: exit 0. Durable docs: exit 2 (tracked by Q2). `make check`: exit 0.
+  - Containment and chance check: 73 of 100 inside one passage; long turns 135 of 135; random spans 96.5%.
+- **Feedback:** when a package reports an overlap figure as agreement, compute what a passage chosen without the method would score before accepting it.
+- **Need anything from human:** No. R17-B1 and the notes are agent work.
+
+Reviewed revision: b6aa62302ba327d276416597edbedc8bcb09406b
 
 Verdict: revise
