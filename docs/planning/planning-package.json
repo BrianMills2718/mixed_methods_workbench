@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "9ad84d1a935515f616067d98c77a58aecf2a0084",
+ "subject_revision": "58f644a7e99565b103940b7c884c3b5cb7ab7a25",
  "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -419,21 +419,30 @@
       "words": "overbuilt",
       "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:142",
       "applies_to": "Process Tracing's pipeline design",
-      "status": "lifted (ADR 0004, approved by Brian 2026-11-05 'i approve those.', moves the answer to the small prototype S4 uses)"
+      "status": "lifted",
+      "lifted_on": "2026-11-05",
+      "lifted_words": "i approve those.",
+      "lifted_source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:10 (ADR 0004: the small draft-audit prototype becomes the answer path, the pipeline stays frozen; S4 uses the prototype and runs no pipeline)"
      },
      {
       "said_on": "2026-08-20",
       "words": "archive ... start over",
       "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:142",
       "applies_to": "the Process Tracing repository",
-      "status": "lifted (Brian, 2026-09-24: 'lets archive causal trace', keeping process_tracing as the active project; ADR 0004 2026-11-05)"
+      "status": "lifted",
+      "lifted_on": "2026-09-24",
+      "lifted_words": "lets archive causal trace unless yout hink there is a reason to keep it",
+      "lifted_source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:74 (the restart was archived and process_tracing kept as the active project; ADR 0004 then set its answer path on 2026-11-05)"
      },
      {
       "said_on": "2026-09-24",
       "words": "seems like a patch ot an actual fix",
       "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:143",
       "applies_to": "the pipeline's self-correction round cap",
-      "status": "lifted (ADR 0004 replaces the pipeline with the prototype as the answer path; S4 runs no pipeline)"
+      "status": "lifted",
+      "lifted_on": "2026-11-05",
+      "lifted_words": "i approve those.",
+      "lifted_source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:10 (ADR 0004: the small draft-audit prototype becomes the answer path, the pipeline stays frozen; S4 uses the prototype and runs no pipeline)"
      }
     ]
    }
@@ -450,7 +459,7 @@
    "status": "present",
    "path": "docs/planning/cold-review.md",
    "verdict": "revise",
-   "reviewed_revision": "bdf06d7310b1df76dd35c1334a02eec53ccd160a"
+   "reviewed_revision": "9ad84d1a935515f616067d98c77a58aecf2a0084"
   }
  },
  "full_method": true,
