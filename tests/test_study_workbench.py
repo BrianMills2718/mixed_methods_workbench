@@ -83,6 +83,8 @@ def test_page_labels_the_pinned_producer_run(payload: dict) -> None:
     assert "e131eb55" in strand["producer_trace_id"]
     assert strand["commit"] == "7f5a8af9056eb3c8b44685ed68c7ae505636fd7b"
     assert "Q26" in strand["pin_label"]["repin_when"]
+    # QC's own verdict on the pinned run is stated (round-13 cold review, R13-B2).
+    assert "rejects 46% of proposed quotes" in strand["pin_label"]["reason"]
     template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
     assert "S.pin_label.label" in template and 'id: "pin-label"' in template
 
