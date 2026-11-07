@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "b6aa62302ba327d276416597edbedc8bcb09406b",
+ "subject_revision": "10b9a7bd3ac41bea61ecdc02acb811cb26ec9c4f",
  "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -552,7 +552,7 @@
    "status": "present",
    "path": "docs/planning/cold-review.md",
    "verdict": "revise",
-   "reviewed_revision": "0ae7d1b071f8cb41aded9f9ea72e53833ec56ee3"
+   "reviewed_revision": "b6aa62302ba327d276416597edbedc8bcb09406b"
   }
  },
  "full_method": true,

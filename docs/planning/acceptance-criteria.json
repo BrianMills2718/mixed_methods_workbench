@@ -232,27 +232,27 @@
  ],
  "coverage": {
   "model": "openrouter/anthropic/claude-sonnet-5.5",
-  "judged_at": "2026-11-07T00:16:00-0500",
+  "judged_at": "2026-11-07T00:30:49-0500",
   "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
-  "criteria_sha256": "6f621dda0b8a34ddec62f4b57cf296ef13086b7d1bd251b4949885bfc09b9aec",
+  "criteria_sha256": "13d949c2a8ea46b6ae311e4e687f4f52b9baedbb7a528d0e02ce3329285d96f1",
   "outcome_sha256": "2e4aa6f53b264f2dfa1597843b832f5da33bb7d12a1ff78cfc33bb8a566aa566",
   "criteria_judged": {
    "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
    "A2": "d460c58369d08b270e9cc52cca2ccab248f9e07938b1814590016b67eabd4bd6",
-   "A3": "f90dc16027aec6f3aa454d4b81b5c92855ed174cf7d35ca9ba96e18ee5e55e03",
+   "A3": "3557d4a822743e5a7fe1d3e275f88ce27db40b18c8565c1ec05a503d14f1b231",
    "A4": "43d60d7b815a1f0751e0be29f03234ed5e3a798f6f18c6b9773b01bc895887dd",
    "A5": "cd9b6c701f44eefe65b0c4245ecaa94e5e732593c2785084dc23104f33c4988c",
    "A6": "143fc6c1b1a79637eb6565f7cf8360999a08beb702e06c552115732a4aef217a",
    "A7": "5e690deee1ffe95061766fdd92b947fc58d9ec12eb841876a10b4f68ad30a6c4",
-   "A8": "7a860ea7ab95e6e437b122b84846ca75ed3c93dcf16297a96b6e28ff3de1c2ec",
+   "A8": "a95a3c10a9400220623cda675dee59ca7cfb504789450228505f0014f15ca5fa",
    "A9": "5e1955dc1910222855791c80032ae121b1145c74ff4649dfaac70600214e6fc5",
    "A10": "41360e9582af181c3f7809b05e317c2f7285fd7720dca003355afd31ce84e90b",
    "A11": "8a8b89a69614938901bdcfc733504dd519ddf27972d9de5d68038347a01f5932",
    "A12": "f776545a1b92c84e35a09b29e1e740ccf7d063dc908c4b5b50d6a46d90edc422"
   },
   "deferrals_judged": [],
-  "trace_id": "planning-compliance/goal-coverage/20261107T001555-8b0fc96e-run1",
-  "cost_usd": 0.042852,
+  "trace_id": "planning-compliance/goal-coverage/20261107T003044-d212961f-run1",
+  "cost_usd": 0.043518,
   "requirements": [
    {
     "id": "R1",
@@ -282,48 +282,49 @@
     "covered_by": [
      "A12"
     ],
-    "coverage_reason": "A12 fails unless every 1.0 condition and gate row reads met and the end-to-end run passes, so an unfinished workbench fails it.",
+    "coverage_reason": "A12 fails unless every 1.0 condition and gate row reads met and the end-to-end run passes, so an unfinished workbench cannot pass.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says the Mixed Methods Workbench is finished to 1.0."
+    "outcome_reason": "The outcome line says the workbench is finished to 1.0 with the full capability set described."
    },
    {
     "requirement_id": "R2",
     "covered_by": [
-     "A10"
+     "A10",
+     "A3"
     ],
-    "coverage_reason": "A10 fails if a new corpus needs code changes or the second study page differs, which would show use-case-specific building.",
+    "coverage_reason": "A10 fails if a new corpus needs code changes or lacks the same study page, and A3 and A8 show a general example corpus, so a use-case-specific build would fail.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says it is a general tool, not for one use case."
+    "outcome_reason": "The outcome line states it is a general tool, not for one use case, run on two corpora."
    },
    {
     "requirement_id": "R3",
     "covered_by": [
      "A11"
     ],
-    "coverage_reason": "A11 checks that each study is an investigation record of the evidence-to-action product map, which would fail if the workbench were not part of that vision.",
+    "coverage_reason": "A11 checks that each study is the investigation record of the broader evidence-to-action vision linked to the product map, which a working interface can demonstrate.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "Non-outcome kind, so it is kept by default; the line also names the broader evidence-to-action vision."
+    "outcome_reason": "The outcome line keeps the broader evidence-to-action vision and the investigation spine."
    }
   ],
   "agreement": {
    "runs": 2,
    "agreed": true,
    "trace_ids": [
-    "planning-compliance/goal-coverage/20261107T001555-8b0fc96e-run1",
-    "planning-compliance/goal-coverage/20261107T001555-8b0fc96e-run2"
+    "planning-compliance/goal-coverage/20261107T003044-d212961f-run1",
+    "planning-compliance/goal-coverage/20261107T003044-d212961f-run2"
    ],
    "costs_usd": [
-    0.021316,
-    0.021536
+    0.021824,
+    0.021694
    ]
   },
   "trace": "coverage-trace.json"
