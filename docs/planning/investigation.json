@@ -242,11 +242,12 @@
    "id": "F12",
    "claim": "QC's qualitative path has been validated by an outside researcher",
    "evidence": [
-    "/home/brian/code2/qualitative_coding/docs/model/DOMAIN.md:48"
+    "/home/brian/code2/qualitative_coding/docs/model/DOMAIN.md:48",
+    "/home/brian/code2/qualitative_coding/docs/PLAIN_VERSION_CHECK.md:13"
    ],
    "verdict": "fails",
    "question_id": "Q12",
-   "note": "QC's roadmap step 5 is not done. Plan #8 states validation as agreement with the corpus author's own coding."
+   "note": "QC's roadmap step 5 is not done. Plan #8 states what \"validated\" rests on instead: QC's own verdict on the pinned run (Q12 d), agreement with the corpus author's own coding at passage level (100 of 100 cited passages inside an author-coded passage, S1 receipt) and category level (best 0.47, Q15), QC's own comparison where it records one (for QC's newer run a67d7d6a QC records 605 of 758 located author passages \"touched\" (79.8%) and 454 mostly covered, and a plain one-prompt pass on the same model touching 587 (77.4%); QC calls \"touched\" generous and notes one human coder (qualitative_coding docs/PLAIN_VERSION_CHECK.md:13 and :36, REVIEW_QUEUE.md:68)), and Brian's judgement of A3."
   },
   {
    "id": "F13",
@@ -323,7 +324,7 @@
    "claim": "The pinned theory's grounded-theory categories rest on distinct sets of evidence",
    "evidence": [
     "examples/studies/open_science/qc/theory.json (S1 branch)",
-    "docs/plans/008_finish_workbench.md:177"
+    "docs/plans/008_finish_workbench.md:176"
    ],
    "verdict": "holds",
    "question_id": "Q15",
@@ -335,7 +336,7 @@
    "evidence": [
     "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
     "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
-    "docs/plans/008_finish_workbench.md:285"
+    "docs/plans/008_finish_workbench.md:284"
    ],
    "verdict": "fails",
    "question_id": "Q24",
@@ -382,7 +383,7 @@
    "id": "F24",
    "claim": "The construct rule picks an author code on the theory S1 pins",
    "evidence": [
-    "docs/plans/008_finish_workbench.md:160",
+    "docs/plans/008_finish_workbench.md:159",
     "examples/studies/open_science/qc/theory.json (S1 branch)"
    ],
    "verdict": "fails",

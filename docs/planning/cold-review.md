@@ -3,6 +3,21 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 16 (read 0ae7d1b): revise
+
+The reviewer found R15-B1, n-cc, n-dd and n-ee fixed and the new wait rule holding for the next expected
+pin (the 11.7% run reads "not yet" while QC says the rate alone "does not settle it"). It returned
+**revise** on one blocking finding, with notes n-ff to n-jj. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R16-B1 | Plan `:43` said "validated" means agreement with the author's own coding, but no slice measured that agreement for the qualitative strand and no criterion would fail without it; QC's own figure (79.8% of 758 author passages "touched" on a67d7d6a, against 77.4% for a plain pass) was not cited | Plan `:43` and F12 now say what "validated" rests on, each with its figure: QC's own verdict (Q12 d); agreement with the author's coding at passage level (100 of 100 cited passages lie inside an author-coded passage, S1 receipt) and category level (best 0.47, S2's construct table, Q15), beside QC's own comparison where QC records one (for e131eb55 none; for a67d7d6a the 79.8% with QC's caveats); and Brian's judgement of A3. The 1.0 row maps to A3, A4 and Q12 (d). S1 builds the panel "Agreement with the author's coding" (S1 commit 9227dbe, with a test). A3's expected result and failure example require it; S6, A8 and "Done when" carry each strand's agreement; Q12 (a) gives the figures |
+| n-ff | "Does not yet call its pinned theory finished" mixed QC's tool finish with its coding test, and the test's parts may be rewritten by QC | The row reads "has not yet recorded its pinned theory (run e131eb55) as passing its own coding test", and the wait ends on that test "as that test then reads", with today's parts "done and recorded by QC as passing" |
+| n-gg | The rule for showing QC's disprove verdicts lived only in Q26 | One sentence in S1 and S3; A3 and A5 require the labels |
+| n-hh | QC calls e131eb55 "the published example" and a67d7d6a "the published run" | The label reads "not its newest run (a67d7d6a)"; plan `:43` and the S1 label note QC's two uses of "published" |
+| n-ii | S1's label paraphrased QC | S1's label quotes QC's lines with their sources (S1 commit 9227dbe); A3 asks for QC's current verdict on whichever run is pinned |
+| n-jj | `readiness_record` cited S7's cost line | It cites S7's build line |
+
 ## Plan #8, round 15 (read 3d8f599): revise
 
 The reviewer found R14-B1 fixed for the current pin and notes n-v, n-w, n-x, n-z (in part), n-aa and n-bb
@@ -1859,5 +1874,125 @@ The fix handles the current pinned run correctly. Q12 now has a part (d), the pl
 - **Need anything from human:** No. R15-B1 and the notes are agent work.
 
 Reviewed revision: 3d8f5999da6c3be326fc684913f57f635101fc30
+
+Verdict: revise
+
+## Plan #8, round 16 reviewer's report (verbatim)
+
+**Verdict: revise.** R15-B1 is fixed. One new blocking finding, R16-B1:
+
+- Plan line 43 says "validated" means the qualitative path agrees with the corpus author's own coding.
+- No slice measures that agreement for the qualitative strand, and no acceptance criterion would fail without it.
+- The 1.0 qualitative-path row would therefore read "met" on nothing it claims to rest on.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails (verdict `revise`).
+- **Substance:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are by the contract's design: the plain baseline is `planned` (2 cases), and 3 stages are `untested`.
+- **Other figures:**
+  - 107 file citations checked.
+  - 15 AI steps: 3 measured, 12 computed.
+  - 7 stops: 5 hold, 2 lifted.
+- **Initiative and spectrum tiers:** 4 of 4 ok.
+- **Coverage:** ok. 3 requirements: 2 covered, 1 counted as a process requirement.
+- **Goal provenance:** ok.
+- **Freshness:** ok, 1 commit of work, 0.0 days old.
+
+**Plan checklist** (`plan_checklist.py --check`): exit 0, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 1020267) | 194 cited units, all exact at their offsets. 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204 | Matches plan lines 160-177, Q15 and F24 |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| `make check PYTHON=.venv/bin/python` | exit 0: 41 controls, 11 + 30 tests passed, mypy clean | Matches the manifest. I was not allowed to run the full 204-test pytest |
+| `gh issue view 205 -R BrianMills2718/qc` | Open, 0 comments. It asks for "the revision of the a67d7d6a theory" once that revision settles | Matches plan line 43 and Q26 |
+| `git log --all -i -E --grep 'pause\|archive\|overbuilt\|start over\|stop'` | NYC pause (91a69a5); Phase 3 pause (e37fd80) and its lift (680c4d5) | No stop missed |
+| QC's commits since 2026-11-05 under `public_demo_assets/` and `proposals/` | Only school readings of a67d7d6a and review-page files. No newer theory file | Q26 and F23 still hold |
+
+#### Round-15 findings
+
+- **R15-B1: fixed.** The wait now ends on QC's own recorded verdict, not on the rejected share alone.
+  - The same rule appears in plan line 43, S7 (lines 411-413), Q12 (d)'s question, recommendation and default, A12's expected result and its new failure example (the 11.7% run reading "met"), A3, and five places on the review page.
+  - The rule holds for the next expected pin: the a67d7d6a revision reads "not yet" while QC says the rate alone "does not settle it".
+  - Every quote matches QC's words exactly: `CURRENT_STATE_AND_ROADMAP.md:24-25` and `:32`, `EVALUATION_HARNESS.md:181-182`, `REVIEW_QUEUE.md:30`.
+  - Small wording leftovers are note n-ff.
+- **n-cc: fixed.** Q12 touches `qc_theory_export`, `qualitative_strand` and `readiness_record`, and the open-questions map has those edges.
+- **n-dd: fixed.** Q15's `resolves_with` says "weak corroboration only".
+- **n-ee: fixed in F10's note.** Its `question_id` stays Q26, which is acceptable.
+- **Missed question 2: partly fixed.** The rule for showing QC's disprove verdicts is in the resolved Q26 only, not in the plan's S1 or S3 text or in A3 or A5 (n-gg).
+- **n-y, n-r, n8–n11: carried** (n-r: the `/blob/main/` links still 404, because the branch is not on any remote yet).
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R16-B1 | plan, acceptance, open questions | plan :43; `investigation.json:242` (F12); `acceptance-criteria.json:134` (A8) and :42 (A3); plan :452-454 (Done when); `open-questions.json:201` (Q12 (a)) | Plan :43 (and F12) say "validated" means agreement with the corpus author's own coding. No slice defines or computes that agreement for QC's strand: S1 only shows author codes beside each cited passage; S6 and A8 show "agreement with the authors' coding" per strand, with no measure, reference set or pass level for the qualitative one. A3, the S1 criterion, never tests agreement. The outcome line and "Done when" promise agreement only for the quantitative strand. QC has already measured this itself: 79.8% of 758 author passages "touched" on a67d7d6a (`PLAIN_VERSION_CHECK.md:13`, `:36`). QC calls "touched" generous (`REVIEW_QUEUE.md:68`), and a one-prompt plain pass on the same model reaches 77.4%. The package cites none of this. Q12 (a) asks Brian whether "agreement with the corpus authors' own published coding" is enough for 1.0, without saying what that agreement is or how it is measured | Either define the qualitative agreement measure and show it, or rewrite plan :43 and F12 to say what "validated" actually rests on (QC's verdict plus Brian's judgement). To define it: S1's receipt already counts `cited_passages_with_an_author_code`; quote QC's own human comparison for the pinned run beside it, with QC's caveats (one coder, "touched" is generous, the plain-pass figure). Name the criterion S7's qualitative-path row maps to, and give that criterion an expected result and failure example that show the figure. Give Q12 (a) the figure | **blocking**: a claim about what a 1.0 condition rests on that no slice delivers, feeding Brian's Q12 (a) decision |
+| n-ff | plan, open questions | plan :43 and :411-412; Q12 (d) | Three small wording gaps in the new rule. (1) "QC does not yet call its pinned theory finished": QC uses "finish" for the tool, and its finish includes step 5, which this rule hands to Q12 (a). (2) "section 8 reading … done": done is not passed (the main clause says "passing", so the meaning holds). (3) The parenthetical lists the test's current parts; QC's `PLAIN_VERSION_CHECK.md:21` now calls the rejection rate its pipeline's own check, so QC may rewrite that test | Say "has not yet recorded its pinned theory as passing its own coding test, as that test then reads", and "reading done and recorded by QC as passing" | note |
+| n-gg | plan, acceptance | plan S1 :99-101, S3 :238-260; A3, A5 | The rule for showing QC's disprove verdicts after the pin moves is recorded only in the resolved Q26 | Carry one sentence into S1 and S3, and into the expected results of A3 and A5 | note |
+| n-hh | plan, acceptance | plan :43, S7 :411; A12 | The readiness row quotes QC's "the published example rejects 46%" for e131eb55, while S1's page calls that same run "not its published run". QC's own pages disagree: `:32` and `REVIEW_QUEUE:28` call e131eb55 the published example; `:34` calls a67d7d6a the published run; `REVIEW_QUEUE:29` calls the 11.7% run "not yet published" | Name the run in the row, and note QC's two uses of "published" | note |
+| n-ii | acceptance, S1 | `acceptance-criteria.json:42` (A3); mmw-s1 `study.json:41` | A3 still fixes the label text to e131eb55. S1's built label paraphrases ("By Qualitative Coding's own measure that run is not finished") instead of quoting QC with its source line, as A3 now asks | Have S1 quote QC's line and source; write A3's label as a pattern | note |
+| n-jj | domain model | `DOMAIN.md:48` | `readiness_record` cites plan :420, which is S7's cost line; the build is at :404-418 | Cite :404 | note |
+| n-y, n-r, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. **How is the qualitative strand's agreement with the authors' coding measured, and which criterion shows it?** This is R16-B1. It matters doubly because QC's own figure equals a plain prompt's.
+
+#### Checked and found sound
+
+- **The pinned theory and QC's verdict on it agree wherever they are named:**
+  - plan lines 43 and 99-101, Q12, Q26, F10, F23 and F24;
+  - the S1 label;
+  - A12 and the review page.
+- **Gates that read a producer's verdict:**
+  - S4 shows a causal conclusion only on Process Tracing's (PT's) own `publishable`, `public_headline_eligible` and `publication_block_reason` fields, and picks PT's answer path by case size under its ADR 0004 or ADR 0005.
+  - S2 stays inside QC's `conceptual_follow_up_only` design.
+  - The Q12 (d) wait now ends on QC's recorded verdict.
+  - No gate ends on one number from a producer's rule.
+- **The method owners' rules match what the plan cites:**
+  - QC's `METHODS_AND_THEORY.md:453-500`;
+  - portfolio decision 0017 (:25-58);
+  - PT ADR 0004 (:8-16, :58-79), including the 7 vs 6.17 scores under the 1-point line;
+  - the efficiency README (:161-163: $0.0555, 7 calls, 277,101 cached tokens);
+  - `ROADMAP.md:60-66`, `:77-84` and `:435-438`.
+- **Domain model:** I sampled 6 implemented locations (`pt_export`, `connected_run_receipt`, `method_profile`, `capability_verdict`, `verification_challenge`, and `IndependentCaseSources` with :186). Each is the named class or function.
+- **Router records:** those for A3, A11 and A12 chose the named view.
+- **Coverage, split myself:**
+  - "finish" → A12.
+  - "not for a specific use case" → A10 and A12.
+  - "part of my broader vision" → A11.
+  - The outcome line keeps all three.
+- **Review page:**
+  - All three diagrams are drawn on it (`GraphViewer`).
+  - It shows package revision 0ae7d1b071f8.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+
+#### Judgments I was unsure about
+
+- **R16-B1's weight.** Fifteen rounds did not raise it, and S6 could design the measure later. I made it blocking because:
+  - plan :43 states what a 1.0 condition means, and nothing would fail if that meaning were never delivered;
+  - Q12 (a) asks Brian to accept that measure as enough without seeing it.
+- **n-ff.** I read the main clause ("QC's own pages record … as passing") as QC's own verdict, and the parenthetical as explanation, so I did not block on it.
+- **Limits of this review.**
+  - No browser tool, so I read the pages as HTML.
+  - Full pytest was not permitted.
+  - I could not read `plan-repos.conf`, which bears on Q11, because it is outside the allowed folders.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12, 0 failing, 2 WAIT). Checklist: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify; figures as above.
+  - Crosswalk check: exit 0, 171 steps, 36 groups, 0 errors.
+  - `make check`: exit 0, 41 tests passed.
+  - Issue #205: open. Stop grep: no stop missed.
+- **Feedback:** when a plan defines a condition ("validated means agreement with X"), check that some slice measures X and some criterion would fail without it, not only that the words are consistent.
+- **Need anything from human:** No. R16-B1 and the notes are agent work.
+
+Reviewed revision: 0ae7d1b071f8cb41aded9f9ea72e53833ec56ee3
 
 Verdict: revise
