@@ -91,18 +91,23 @@ def test_page_labels_the_pinned_producer_run(payload: dict) -> None:
     assert "S.pin_label.label" in template and 'id: "pin-label"' in template
 
 
-def test_agreement_with_the_author_is_shown_as_passage_overlap(payload: dict) -> None:
-    """Plan #8 S1, A3 (round-16 cold review, R16-B1): agreement with the author's coding is a figure, labelled by level."""
-    agreement = payload["qualitative_strand"]["agreement_with_author"]
-    assert agreement["cited_passages"] == 100
-    assert agreement["cited_passages_inside_an_author_coded_passage"] == 100
-    assert agreement["level"] == "passages, not meaning"
-    comparison = agreement["producer_comparison"]
+def test_passage_location_is_shown_with_its_chance_rate_not_as_agreement(payload: dict) -> None:
+    """Plan #8 S1, A3 (round-17 cold review, R17-B1): overlap with the author's coding is location, shown beside chance."""
+    location = payload["qualitative_strand"]["agreement_with_author"]["location"]
+    assert location["cited_passages"] == 100
+    assert location["cited_passages_overlapping_an_author_passage"] == 100
+    assert location["cited_passages_inside_one_author_passage"] == 73
+    assert (location["author_coded_characters"], location["corpus_characters"]) == (397446, 571307)
+    assert location["median_cited_passage_characters"] == 970
+    assert (location["of_those_overlapping_an_author_passage"], location["interviewee_segments_at_least_that_long"]) == (135, 135)
+    assert location["reads_as"] == "location, not agreement"
+    comparison = payload["qualitative_strand"]["agreement_with_author"]["producer_comparison"]
     assert comparison["recorded_for_pinned_run"] is False
-    assert comparison["statement"] == "QC has recorded no comparison with the author's coding for this run."
-    assert "79.8%" in comparison["newer_run_note"] and "generous" in comparison["newer_run_note"]
+    assert comparison["statement"] == "QC has committed no comparison with the author's coding for this run."
+    assert "79.8%" in comparison["newer_run_note"] and "77.4%" in comparison["newer_run_note"]
     template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
-    assert "Agreement with the author's coding" in template and "overlap of passages, not of meaning" in template
+    assert "location, not agreement" in template and "Chance gives the same" in template
+    assert "cannot show agreement" in template
 
 
 def test_pin_record_is_typed_and_refuses_unknown_fields(tmp_path: Path) -> None:

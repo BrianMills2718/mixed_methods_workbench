@@ -27,8 +27,8 @@
  },
  "producer_human_comparison": {
   "recorded_for_pinned_run": false,
-  "statement": "QC has recorded no comparison with the author's coding for this run.",
-  "newer_run_note": "For its newer run a67d7d6a, QC records 605 of 758 located author passages \"touched\" (79.8%) and 454 mostly covered; a plain one-prompt pass on the same model touched 587 (77.4%). QC calls \"touched\" generous, and there is one human coder, so it is \"a comparison, not a reliability ceiling\".",
+  "statement": "QC has committed no comparison with the author's coding for this run.",
+  "newer_run_note": "QC's measure runs the other way from the location figure above: the share of the author's passages that QC's coding touches. For its newer run a67d7d6a, QC records 605 of 758 located author passages \"touched\" (79.8%) and 454 mostly covered; a plain one-prompt pass on the same model touched 587 (77.4%). QC calls \"touched\" generous, and there is one human coder, so it is \"a comparison, not a reliability ceiling\". QC's Human Comparison tab computes this measure from a saved project on request; no figure for this run is committed.",
   "source": "qualitative_coding docs/PLAIN_VERSION_CHECK.md:13 and :36; docs/REVIEW_QUEUE.md:68; docs/CURRENT_STATE_AND_ROADMAP.md:66-67"
  }
 }

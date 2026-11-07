@@ -122,13 +122,18 @@ function show(id) {
 
 // ---- agreement with the author's coding (Plan #8 S1; R16-B1)
 function agreementPanel() {
-  const A = S.agreement_with_author, Q = A.producer_comparison;
+  const L = S.agreement_with_author.location, Q = S.agreement_with_author.producer_comparison;
+  const pct = (a, b) => Math.round(1000 * a / b) / 10 + "%";
   return $("details", {class: "panel", id: "agreement", open: ""},
     $("summary", {}, $("strong", {}, "Agreement with the author's coding")),
-    $("p", {}, A.cited_passages_inside_an_author_coded_passage, " of ", A.cited_passages,
-      " passages the theory cites lie inside a passage the author coded. This is overlap of passages, not of meaning: ",
-      "it says the theory's evidence sits where the author also coded, not that her code means what the theory's category means. ",
-      "How far her codes match each category is the construct table of the Measurement tab (S2)."),
+    $("p", {}, $("strong", {}, "Where the evidence sits (location, not agreement). "),
+      L.cited_passages_overlapping_an_author_passage, " of ", L.cited_passages, " passages the theory cites overlap a passage the author coded, and ",
+      L.cited_passages_inside_one_author_passage, " lie wholly inside one. Chance gives the same: she coded ",
+      pct(L.author_coded_characters, L.corpus_characters), " of the text, and ", L.of_those_overlapping_an_author_passage, " of ",
+      L.interviewee_segments_at_least_that_long, " interviewee turns at least as long as the median cited passage (",
+      L.median_cited_passage_characters, " characters) overlap her coding. So this figure cannot show agreement."),
+    $("p", {}, $("strong", {}, "Agreement by category. "),
+      "How far her codes match each of the theory's categories is the construct table of the Measurement tab (S2, not built yet): for each category, the share of its cited interviewee turns that her best code marks."),
     $("p", {}, $("strong", {}, Q.statement), " ", Q.newer_run_note, " ", $("span", {class: "note"}, "Source: ", Q.source, ".")));
 }
 

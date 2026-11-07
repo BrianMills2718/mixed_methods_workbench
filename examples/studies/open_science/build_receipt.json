@@ -19,7 +19,7 @@
   },
   {
    "path": "examples/studies/open_science/qc/provenance.json",
-   "sha256": "549765c1969adeb783ff4b8c125d4475047aed00b8e599491ff86c82af649928"
+   "sha256": "2bda21abb3e6638a803af709d4770ec92747528f44714205e337b9fd397e0f09"
   },
   {
    "path": "examples/studies/open_science/qc/segments.json",
@@ -143,11 +143,11 @@
   },
   {
    "path": "examples/studies/open_science/study.json",
-   "sha256": "a8abc56eb7d36e8dd3fb54d0b2ca5b7d44ef4957260f69cc723b4639f79464f5"
+   "sha256": "a6d81b11716170632ba085cf9c1b79e92c4be036f5e07759cd831c4f604af783"
   },
   {
    "path": "src/mixed_methods_workbench/static/study_workbench.html",
-   "sha256": "feb70c9f0e1ee48f07d624e22e611187a87a30d92e488a99fc2649b0ee907392"
+   "sha256": "6d89fb2511193e87241eec7b220605878f36070cc2532685ba9bef916602bf0b"
   }
  ],
  "steps": [
@@ -184,13 +184,19 @@
   {
    "step": "author codes overlapping each cited passage",
    "cited_passages_with_an_author_code": 100,
-   "cited_passages_without": 0
+   "cited_passages_without": 0,
+   "cited_passages_inside_one_author_passage": 73,
+   "author_coded_characters": 397446,
+   "corpus_characters": 571307,
+   "median_cited_passage_characters": 970,
+   "interviewee_segments_at_least_that_long": 135,
+   "of_those_overlapping_an_author_passage": 135
   }
  ],
  "outputs": [
   {
    "path": "proposals/open-science-study/index.html",
-   "sha256": "7c89b59407a5f8effd6bfd84c28cc4d23595a0a363a6f6e3aa944e14c3ed0494"
+   "sha256": "d55f9dec4fe3873fc1531edd3533f6ee8c186315bdb6a5d07bc97fe82ab021e1"
   }
  ]
 }

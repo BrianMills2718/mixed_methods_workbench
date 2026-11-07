@@ -306,6 +306,44 @@ def _read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _location_baseline(
+    passages: dict[str, dict[str, Any]],
+    producer_segments: list[dict[str, Any]],
+    by_file: dict[str, list[dict[str, Any]]],
+    texts: dict[str, str],
+) -> dict[str, Any]:
+    """What chance gives for "a cited passage overlaps the author's coding" (round-17 cold review, R17-B1).
+
+    The author coded most of the text, so overlap shows where the evidence sits, not agreement. The
+    baseline is every interviewee segment of the producer's own segmentation at least as long as the
+    median cited passage: how many of those overlap a passage she coded.
+    """
+    coded = 0
+    for name, text in texts.items():
+        marks = bytearray(len(text))
+        for a in by_file.get(name, []):
+            marks[max(a["start"], 0) : min(a["end"], len(text))] = b"\x01" * max(0, min(a["end"], len(text)) - max(a["start"], 0))
+        coded += sum(marks)
+    total = sum(len(t) for t in texts.values())
+    lengths = sorted(p["end"] - p["start"] for p in passages.values())
+    median = lengths[len(lengths) // 2] if lengths else 0
+    long_turns = [
+        r
+        for r in producer_segments
+        if r["offsets_match"] and (r["speaker"] or "").strip().lower() != "interviewer" and r["end"] - r["start"] >= median
+    ]
+    overlapping = sum(
+        1 for r in long_turns if any(a["start"] < r["end"] and r["start"] < a["end"] for a in by_file.get(r["file"] or "", []))
+    )
+    return {
+        "author_coded_characters": coded,
+        "corpus_characters": total,
+        "median_cited_passage_characters": median,
+        "interviewee_segments_at_least_that_long": len(long_turns),
+        "of_those_overlapping_an_author_passage": overlapping,
+    }
+
+
 def build_study_payload(study_dir: Path) -> dict[str, Any]:
     """Every panel of the study page, built only from the frozen files in ``study_dir``."""
     study = StudyDefinition.model_validate(_read_json(study_dir / "study.json"))
@@ -530,11 +568,19 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
         )
         passages[segment_id] = {**row, "author_codes": overlapping}
     with_codes = sum(1 for p in passages.values() if p["author_codes"])
+    inside_one = sum(
+        1
+        for p in passages.values()
+        if any(a["start"] <= p["start"] and p["end"] <= a["end"] for a in by_file.get(p["file"] or "", []))
+    )
+    location = _location_baseline(passages, [segment_rows[s.id] for s in segments], by_file, texts)
     steps.append(
         {
             "step": "author codes overlapping each cited passage",
             "cited_passages_with_an_author_code": with_codes,
             "cited_passages_without": len(passages) - with_codes,
+            "cited_passages_inside_one_author_passage": inside_one,
+            **location,
         }
     )
 
@@ -579,9 +625,13 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
             "producer_trace_id": gt.run.trace_id,
             "pin_label": pin.pin_label.model_dump(),
             "agreement_with_author": {
-                "cited_passages": len(passages),
-                "cited_passages_inside_an_author_coded_passage": with_codes,
-                "level": "passages, not meaning",
+                "location": {
+                    "cited_passages": len(passages),
+                    "cited_passages_overlapping_an_author_passage": with_codes,
+                    "cited_passages_inside_one_author_passage": inside_one,
+                    **location,
+                    "reads_as": "location, not agreement",
+                },
                 "producer_comparison": pin.producer_human_comparison.model_dump(),
             },
             "text_normalisation": pin.text_normalisation,
