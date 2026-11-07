@@ -362,7 +362,7 @@
    "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:60 and S6 (:291-292).",
    "sources": [
     "docs/plans/008_finish_workbench.md:60",
-    "docs/plans/008_finish_workbench.md:292"
+    "docs/plans/008_finish_workbench.md:312"
    ],
    "touches": [
     "study_corpus",
@@ -377,10 +377,10 @@
    "resolves_with": "Argument and prior art, no test: GitHub issues are already where this repository's tasks live and need no new server or credential. Each action on the served page opens a pre-filled issue in this repository (decision, meta-inference id, bundle hash, his note) that he submits; `make import-reviews` turns labelled issues into the same typed files the local server writes, and the page shows \"recorded, waiting to be imported\" until the next build. Locally, the server in the method_dashboard_server.py pattern writes the files directly.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:272-279) and acceptance A7 carry the route.",
+   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:292-299) and acceptance A7 carry the route.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:272",
-    "docs/plans/008_finish_workbench.md:274",
+    "docs/plans/008_finish_workbench.md:292",
+    "docs/plans/008_finish_workbench.md:294",
     "src/mixed_methods_workbench/method_dashboard_server.py:1"
    ],
    "touches": [
@@ -398,8 +398,8 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:285",
-    "docs/plans/008_finish_workbench.md:288"
+    "docs/plans/008_finish_workbench.md:305",
+    "docs/plans/008_finish_workbench.md:308"
    ],
    "touches": [
     "qc_theory_export",
@@ -415,9 +415,9 @@
    "resolves_with": "A written rule, no test, because a prevalence cannot confirm or contradict a conditional: before any verdict is drafted, each proposition is mapped to the measure only if it names a QC category the measured code qualified for (Q15); otherwise it is \"silent: not measured\", with the reason. A mapped row matched by prevalence alone may only say \"complements\"; the number and passage check refuses \"converges\" or \"diverges\" on it. The round-3 co-occurrence branch is dropped: S2 labels one theme, and QC's segments carry no category codes, so there is nothing to co-occur with. Rows whose units differ block aggregation and meta-inference, as the brief requires (:143-144). A5 states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so a row could converge or diverge, is a later slice's choice.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S3 carries the rule (docs/plans/008_finish_workbench.md:215); acceptance A5's expected result states the count of mapped rows and its failure example is a prevalence-only row marked \"converges\"; QC's theory export has 6 propositions over 8 categories (S1 receipt).",
+   "evidence": "Plan S3 carries the rule (docs/plans/008_finish_workbench.md:222); acceptance A5's expected result states the count of mapped rows and its failure example is a prevalence-only row marked \"converges\"; QC's theory export has 6 propositions over 8 categories (S1 receipt).",
    "sources": [
-    "docs/plans/008_finish_workbench.md:215",
+    "docs/plans/008_finish_workbench.md:222",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:143"
    ],
    "touches": [
@@ -426,6 +426,28 @@
     "measured_result",
     "meta_inference",
     "proposition_measure_map"
+   ]
+  },
+  {
+   "id": "Q23",
+   "short": "Which Process Tracing route S4 reads (the causal export)",
+   "question": "Process Tracing's answer path is now its draft-audit prototype (its ADR 0004, approved by Brian 2026-11-05, confirmed 2026-11-06), which writes no pt_export_v2; its pipeline, which accepts a QC handoff and writes the gated export, is frozen (Brian, 2026-09-30) and stopped without an answer on its last two hard cases. Which route gives S4 its causal result?",
+   "blocks": "S4's build and cost, acceptance A6, investigation finding F13",
+   "resolves_with": "An argument, no test: Process Tracing's own records settle it. (a) Add, in process_tracing under its rules, a qualitative-handoff input to the prototype and the small export adapter its open question Q20 recommends once a consumer resumes (only fields the merged answer supports, the rest marked absent, never a full V2 claim); the workbench shows the prototype's verdicts in their own panel and the conclusion as 'withheld' while publication_gate is absent. (b) Run the frozen pipeline once on the same proposition as the full provenance reference ADR 0004 keeps it for. (a) is chosen: it is the path Process Tracing scored best and Brian approved, it needs no pt/ work during the freeze, and no 1.0 condition needs a full provenance chain; the publishable branch of the gate is tested with the committed fixture that carries a gate. (b) stays available if a reader later needs the full chain.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "Plan S4 route and build (docs/plans/008_finish_workbench.md:258-275); cost $0.0555 per run measured (process_tracing efficiency_20261105 README:161-163); Process Tracing ADR 0004 and its Q20.",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:258",
+    "docs/plans/008_finish_workbench.md:268",
+    "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79",
+    "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
+    "/home/brian/code2/process_tracing/docs/planning/open-questions.json:404"
+   ],
+   "touches": [
+    "pt_export",
+    "publication_gate",
+    "connected_run_receipt"
    ]
   }
  ]

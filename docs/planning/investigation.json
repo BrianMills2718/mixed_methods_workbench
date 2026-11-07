@@ -229,13 +229,16 @@
   },
   {
    "id": "F13",
-   "claim": "Process Tracing can take a QC handoff and give the workbench a gated export",
+   "claim": "Process Tracing's answer path can take a QC handoff and give the workbench a gated export",
    "evidence": [
     "/home/brian/code2/process_tracing/pt/cli.py:72",
-    "/home/brian/code2/process_tracing/pt/export.py:634"
+    "/home/brian/code2/process_tracing/pt/export.py:634",
+    "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79",
+    "/home/brian/code2/process_tracing/docs/planning/open-questions.json:404"
    ],
-   "verdict": "holds",
-   "note": "--qualitative-handoff and pt_export_v2 with publication_gate exist; scientific validity of PT verdicts is not established, so S4 keeps the gate."
+   "verdict": "fails",
+   "note": "Only the frozen pipeline (pt/) accepts --qualitative-handoff and writes pt_export_v2 with a publication gate. The answer path, the draft-audit prototype (ADR 0004), takes no handoff and writes no pt_export_v2 (Process Tracing Q20). S4 adds the handoff input and Q20's partial adapter in process_tracing (Q23).",
+   "question_id": "Q23"
   },
   {
    "id": "F14",
@@ -292,6 +295,17 @@
    "verdict": "holds",
    "question_id": "Q1",
    "note": "PublicationGateV2.publishable exists in PT; the workbench's current pt_export_v2 reader reads only comparative_conclusion.public_headline_eligible, so S4 extends it."
+  },
+  {
+   "id": "F19",
+   "claim": "QC's 8 grounded-theory categories rest on 8 distinct sets of evidence",
+   "evidence": [
+    "examples/studies/open_science/qc/grounded_theory.json (S1 branch)",
+    "docs/plans/008_finish_workbench.md:157"
+   ],
+   "verdict": "fails",
+   "question_id": "Q15",
+   "note": "Two pairs of categories cite exactly the same two incidents (Traceable... with Corrective...; Terminological... with Attributed reuse...), so 8 categories rest on 6 distinct sets of cited turns. The two categories 'open data' qualified for are distinct, so the construct choice is unaffected; the study page says so (plan S2)."
   }
  ],
  "cost": {

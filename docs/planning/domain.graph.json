@@ -182,7 +182,7 @@
    "id": "joint_display",
    "label": "Joint display",
    "kind": "planned",
-   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict."
+   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a \"complements\" or \"silent: not measured\" verdict in 1.0 (a prevalence cannot confirm or contradict a when-then claim; open question Q22)."
   },
   {
    "id": "study_definition",

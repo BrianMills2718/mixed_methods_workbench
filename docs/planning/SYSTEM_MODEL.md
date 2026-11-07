@@ -48,7 +48,7 @@ Everything is files in git; there is no database.
 | S1 | Study page `proposals/<study>-study/index.html` and `build_receipt.json` | `scripts/build_study_page.py` | a person; the stale-page test |
 | S2 | Feasibility readout (the author's code measured and why), split manifest with the instrument's versioned definition, measured result per measure, run receipt | the measure step (task `mixed_methods_workbench.open_science.measure`) | the measurement tab, S3 |
 | S3 | Proposition-to-measure mapping, joint-display row, draft meta-inference, its number and passage check | the integrate step (task `...integrate`) and a deterministic check | the joint-display tab, S5 review |
-| S4 | `pt_export_v2` reader extended with `publication_gate.publishable` | `investigation_run.py` | the causal tab |
+| S4 | `pt_export_v2` reader extended with `publication_gate.publishable` (absent counts as withheld); in `process_tracing`, a qualitative-handoff input to the draft-audit prototype and its Q20 export adapter (Q23) | `investigation_run.py` | the causal tab |
 | S5 | Investigation record (general over studies), review decision, reflexivity memo, review log, research bundle manifest | the local study workbench server; on the served page, where no server runs, a pre-filled GitHub issue per review action that `make import-reviews` turns into the same typed files (open question Q20) | a person; the bundle |
 | S6 | Benchmark record (per corpus: agreement, planted failures caught, cost, files changed) | the benchmark builder | the benchmark page |
 

@@ -3,6 +3,24 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 5 (read c79e70b): revise
+
+The reviewer found round 4's F1, F2 and V fixed, and notes n1 to n7, n9 and n10 fixed. It reproduced the
+overlap figures, the fitted prices and the crosswalk counts. It returned **revise** with one blocking
+finding (B1) and notes n1 to n6. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | S4 named a Process Tracing route (draft-audit → `pt_export_v2`) that, by Process Tracing's own ADR 0004 and its Q20, writes no such export; F13 held only by citing the frozen pipeline; the cost left out the merge step; A6 needed a gate field the route never writes; `stops.searched` did not look at Process Tracing | New question Q23 (agent, resolved by argument): S4 adds, in `process_tracing`, a qualitative-handoff input to the draft-audit prototype and the partial export adapter Process Tracing's Q20 recommends; no `pt/` work and the frozen pipeline is not run. The workbench treats an absent gate as withheld, and tests the publishable branch with the committed fixture that carries a gate. S4's cost is now the measured full prototype run, $0.0555 over 7 calls (fomc_v4). F13's verdict is now "fails" with Q23; SYSTEM_MODEL's S4 row and A6's expected result say the same; `stops.searched` and `stops.found` add the `pt/` freeze (2026-09-30) and ADR 0004 |
+| n1 | Stale "convergence / complementarity / divergence" wording; A5 said "read whether they agree"; the goal said "a qualitative category" | The slice table, DOMAIN.md, the `joint_display` node and the questions map say "complements" or "silent: not measured" in 1.0; A5 reads "see which ones the measure speaks to and how"; the review page's goal says S2 measures one of the authors' own codes |
+| n2 | LiteLLM does list a price for gpt-5.6-luna | Each cost entry now cites LiteLLM's list price ($0.20 input, $1.20 output per million tokens) beside the fit, which is higher, so the figures are conservative |
+| n3 | Two pairs of QC categories cite exactly the same turns: 8 categories rest on 6 distinct evidence sets | Confirmed from S1's data; new finding F19, and plan S2 has the study page say so. "Open data"'s two categories are distinct, so the construct choice is unaffected |
+| n4 | Who drafts the instrument's definition was unnamed | One llm_client call (`mixed_methods_workbench.open_science.define`), traced, read and edited by the building agent, versioned in the split manifest; costed at about $0.004 in plan S2 and the manifest |
+| n5 | Agent-owned Q2, Q3, Q4, Q10 and Q21 could be settled now | Kept open, not settled in this round: Q2–Q4 and Q10 are upkeep fixes outside this plan's slices (a missing `.agentic/repo.yaml`, the wiki cap, the architecture pointer, a label on the paused NYC lane), each with its fix written in the question; Q21 waits on S6's corpus choice (Q19) |
+| n6 | The page's GitHub links 404 until the branch is merged | Unchanged by design; they resolve once this pull request merges |
+
+The reviewer's own report for round 5 is reproduced at the end of this file, ending with its verdict line.
+
 ## Plan #8, round 4 (read bdf06d7): revise
 
 The reviewer found B1 and B3 fixed, B2 and B4 fixed only in part, and returned **revise** with three
@@ -224,5 +242,111 @@ No recorded command could be rerun here. What I reproduced by hand:
 - **Need anything from human:** No.
 
 Reviewed revision: bdf06d7310b1df76dd35c1334a02eec53ccd160a
+
+Verdict: revise
+
+## Plan #8, round 5 reviewer's report (verbatim)
+
+I've finished the round-5 review. The verdict is **revise**, because of one new blocking finding.
+
+All three of round 4's blocking findings (F1, F2, V) are fixed, and so are nine of its ten notes. The new problem is in slice S4. The plan says it will take Process Tracing's results from a route that, according to Process Tracing's own records, does not produce the file the workbench reads.
+
+#### Validator
+
+I ran it at revision `2092693` and it exited 1.
+- **Parts:** 9 of 10 are ok. The only failure is the cold review, whose recorded verdict is still `revise`.
+- **Substance checks:** 10 of 12 are ok, none fail, and 2 show WAIT. The two WAIT lines are the plain-version comparison (still planned) and the three untested extra stages. The contract makes those WAIT by design.
+- **Other lines:** initiative and spectrum tiers are 4 of 4. Goal coverage (3 requirements), goal provenance and freshness all pass. Freshness counts 1 commit of work since the package revision.
+- **Odd output:** the validator's JSON output labels those two WAIT lines as "failing". The plan's generated checklist copies that word at lines 369-370, and `plan_checklist.py --check` says it matches, exit 0. This is a fault in the plugin, not the package.
+
+#### Recorded checks rerun
+
+- **Crosswalk check:** `scripts/crosswalk_phase4.py --check` gave 171 steps, 36 groups, 0 errors, exit 0. That matches the manifest, and the tree stayed clean.
+- **Overlap scripts:** `overlap.py` and `overlap2.py` on the S1 branch (`faf5399`) reproduce every figure the package quotes:
+  - 630 interviewee turns, 224 code-and-category pairs, and 11 numbered interview-question codes left out.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 turns (0.67, chance 1.2e-9).
+  - The next-best share is 0.48, and the highest two-way overlap is 0.18.
+  - "Open data" marks 72 turns in 23 of the 25 interviews (I counted this separately).
+- **Prices and token counts:** refitting the call log gives exactly what the package uses:
+  - 708 calls priced at $0.2168 input and $1.4057 output per million tokens, with medians of 4,052 input and 268 output tokens.
+  - $0.1354 and $0.2895 per million for gpt-6-luna, with medians of 15,196 and 807 across 55 calls.
+  - The S2 figure recomputes to $0.0783.
+- **Measured costs:** the five S4 stage averages sum to $0.030. Qualitative Coding's calls over 5-6 November now total 2,088 calls and $5.01, against the recorded 2,075 and $4.94; the gap is later calls, under 2%.
+- **Not rerun:** this session was not allowed to run the full test suite.
+
+#### Round 4 findings
+
+- **F1 (plain version first): fixed.**
+  - S2 now labels every turn in two calls (tuning interviews, then held-out interviews), at plan lines 186-198.
+  - S3 drafts every row in one call, at lines 235-239.
+  - Per-interview calls, per-turn calls and per-proposition drafts are now stages added only if the plain version shows a gap.
+  - The 922,000-token input and 128,000-token output limits are confirmed in LiteLLM's model data.
+- **F2 (what a prevalence can say about a when-then claim): fixed.**
+  - A row matched by prevalence alone may only say "complements", in Q22 and plan lines 215-226.
+  - A5's failure example is a prevalence-only row marked "converges".
+  - The co-occurrence branch is gone.
+  - With "open data", 3 of the 6 rows are mapped (propositions P2, P4 and P5).
+- **V (validator showed the two checks failing): fixed.** The text output shows WAIT, and `cold-review.md` records why.
+- **Notes n1 to n7, n9 and n10: fixed.**
+  - The challenge edge e38 is gone, and the two new concepts are in the domain graph.
+  - The brief's lines :110 and :118-121 now have rows (plan lines 121 and 125).
+  - The `PLANNING_STATUS.md:208-218` limits are quoted and handled.
+  - The A4, A5, A7 and A11 router records each choose the view their entry names.
+  - Q19 now cites :292, and the investigation file says S3 is computed.
+  - The context graph has a `github_issues` node.
+- **Note n8 (page links): not fixed, by choice.** It stays a note.
+
+#### Blocking finding
+
+**B1. S4: the Process Tracing route it names does not produce the export the workbench reads. Where:** plan lines 251-255 and 260-262; `planning-package.json:313-320`; `investigation.json:231-238` (F13); `SYSTEM_MODEL.md:51`; `acceptance-criteria.json:97-112` (A6).
+- **What is wrong:** S4 runs "QC handoff → PT draft-audit route → `pt_export_v2`" and prices the draft-audit route. Process Tracing's own records say otherwise:
+  - Its accepted ADR 0004, which Brian approved on 2026-11-05 ("i approve those."), says the draft-audit prototype "writes no `pt_export_v2.json` for `mixed_methods_workbench` (Q20)" (`process_tracing/docs/adr/0004_…md:79`).
+  - Its open question Q20 (`process_tracing/docs/planning/open-questions.json:404-412`) proposes only a small adapter that is "never a full V2 claim" and marks the missing fields absent.
+  - The prototype folder has no qualitative-handoff input at all (no match for `qualitative_handoff` under `proposals/pt-draft-audit`).
+  - The pipeline that does accept the handoff and write the gated export (`pt/cli.py:72`, `pt/export.py:634`) "stays frozen" and is kept as the comparison (ADR 0004:67-70). On its last two hard cases it stopped without an answer, after 122 calls and $0.94 on one of them.
+- **Why it blocks:**
+  - Investigation finding F13 says "holds" only because it cites the frozen pipeline.
+  - The $0.03 cost leaves out the merge step: Process Tracing records $0.0555 over 7 calls per run.
+  - A6's gate test needs a `publication_gate.publishable` field that the named route never writes.
+  - No question in this package's ledger raises any of this.
+  - `stops.searched` (`planning-package.json:376-381`) looked only for stops on the workbench, not on the Process Tracing work S4 runs.
+- **Fix:**
+  - Add a ledger question citing Process Tracing's ADR 0004 and its Q20. It should choose between (a) adding the Q20 adapter in Process Tracing, plus a handoff input, as costed producer work, with the gate shown as "withheld" when the field is absent, or (b) running the frozen pipeline on a small case as the "full provenance chain" reference that ADR 0004 allows.
+  - Correct S4's route and cost, F13's verdict, the system model's S4 row and A6.
+  - Extend `stops.searched` to Process Tracing's freeze and its 2026-11-05 decision.
+  - **Weight:** blocking.
+
+#### Notes (do not block)
+
+- **n1. Stale wording after the design change.**
+  - Plan line 74 (the S3 row of the slice table), `DOMAIN.md:35` and the `joint_display` node still offer "convergence / complementarity / divergence" verdicts.
+  - A5's criterion says "read whether they agree", but no row can now say that.
+  - The goal statement (`review-page.json`) says S2 measures "a qualitative category"; it now measures one of the author's codes.
+  - **Fix:** reword all four to "complements or silent in 1.0" and "one of the authors' codes".
+- **n2. Wrong claim about LiteLLM.** The cost evidence (`planning-package.json:224,241,258,275`) says LiteLLM "carries no price" for gpt-5.6-luna. llm_client's copy of LiteLLM lists $0.20 input and $1.20 output per million tokens (its price file, lines 33826/33839 and 65989-65990). The fitted prices are higher, so the figures are conservative. **Fix:** cite the list price beside the fit.
+- **n3. A question the ledger misses about the qualitative side.** Two pairs of QC's categories cite exactly the same turns: "Traceable…" with "Corrective…", and "Terminological…" with "Attributed reuse…". So QC's 8 categories rest on only 6 distinct sets of evidence. A3 will show 8. "Open data"'s two categories are distinct, so S2 and S3 are not affected. **Fix:** add a finding or question so the study page says so.
+- **n4. Unnamed step.** Plan line 122 does not say who drafts the instrument's definition from the author's passages. If a model drafts it, that call belongs in the cost table.
+- **n5. Agent-owned questions still open.** Q2, Q3, Q4, Q10 and Q21 could be settled now by checking (an old pattern).
+- **n6. Page links (carried from n8).** The branch is on no remote (`git branch -r --contains 2092693` is empty), so the page's `/blob/main/` links to the plan return 404 until it is pushed and merged. The repository belongs to Brian's own account, so the company-organization rule does not apply.
+
+#### What I was unsure about
+
+- **Whether B1 should block.** S4 is a later slice. But the package's claim that S4's route works is wrong, and it changes S4's design, its cost and how A6 is judged, so I counted it as blocking.
+- **Whether running the frozen pipeline would break a standing stop.** ADR 0004 keeps the pipeline as "the reference where a reader must step through a full provenance chain", which may allow option (b).
+- **Two limits on this review.** I did not render the page because no browser tool was available. I also could not run the test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1, with the counts above.
+  - `plan_checklist.py --check`: exit 0.
+  - Crosswalk check: exit 0, 171/36/0.
+  - Overlap scripts and an open-data spread check: figures as above.
+  - Price refit from a read-only query of `llm_observability.db`: matches.
+  - The Process Tracing ADR, ledger and autopsy were read directly.
+- **Feedback:** The validator's `--json` checklist labels planned or untested lines "failing" while its text output prints WAIT, so plans carry "failing" lines for a state the contract defines as pending. The fix belongs in `validate_planning_package.py`. This session also could not run the test suite (it needed approval) or list folders in sibling repositories.
+- **Need anything from human:** No.
+
+Reviewed revision: c79e70bc7704557221b028ebf168f910b843c68e
 
 Verdict: revise

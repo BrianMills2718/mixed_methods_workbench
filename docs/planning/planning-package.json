@@ -221,7 +221,7 @@
        "cached_usd_per_mtok": 0.2168,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "2 calls x 58,150 input tokens (the instrument, 3,924 tokens as measured for QC's comparable instrument, plus half of the corpus's 108,452 tokens: all 1,277 turns of the 25 interviews counted with the o200k tokenizer from QC's segments.json) and 18,900 output tokens (315 interviewee turns, half of the 630 counted from QC's segments, x about 60 tokens per label: turn id, yes or no, quoted words capped by the schema at about 40 tokens) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Both calls fit gpt-5.6-luna's limits (922,000 input, 128,000 output tokens; litellm.get_model_info('gpt-5.6-luna')).",
+      "evidence": "2 calls x 58,150 input tokens (the instrument, 3,924 tokens as measured for QC's comparable instrument, plus half of the corpus's 108,452 tokens: all 1,277 turns of the 25 interviews counted with the o200k tokenizer from QC's segments.json) and 18,900 output tokens (315 interviewee turns, half of the 630 counted from QC's segments, x about 60 tokens per label: turn id, yes or no, quoted words capped by the schema at about 40 tokens) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; LiteLLM's list price for openrouter/openai/gpt-5.6-luna is $0.20 input and $1.20 output per million tokens (llm_client's LiteLLM model_prices_and_context_window_backup.json); the fit is higher, so these figures are conservative). Both calls fit gpt-5.6-luna's limits (922,000 input, 128,000 output tokens; litellm.get_model_info('gpt-5.6-luna')).",
       "cost_per_run_usd": 0.0783,
       "calls_per_run": 2
      },
@@ -238,7 +238,7 @@
        "cached_usd_per_mtok": 0.2168,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "13 calls x 8,262 input tokens (instrument 3,924 plus a mean interview of 4,338 tokens, o200k counts from QC's segments.json) and 6,754 output tokens (25.2 interviewee turns per interview x the measured 268 per label of qualitative_coding.gt_constant_comparison.application, an upper figure) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it).",
+      "evidence": "13 calls x 8,262 input tokens (instrument 3,924 plus a mean interview of 4,338 tokens, o200k counts from QC's segments.json) and 6,754 output tokens (25.2 interviewee turns per interview x the measured 268 per label of qualitative_coding.gt_constant_comparison.application, an upper figure) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; LiteLLM's list price for openrouter/openai/gpt-5.6-luna is $0.20 input and $1.20 output per million tokens (llm_client's LiteLLM model_prices_and_context_window_backup.json); the fit is higher, so these figures are conservative).",
       "cost_per_run_usd": 0.1467,
       "calls_per_run": 13
      },
@@ -255,7 +255,7 @@
        "cached_usd_per_mtok": 0.2168,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "315 tuning turns x the closest measured task's median tokens per call (llm-cost estimate --task qualitative_coding.gt_constant_comparison.application, 2026-11-05: 4,052 input, 268 output, 0% cached) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it).",
+      "evidence": "315 tuning turns x the closest measured task's median tokens per call (llm-cost estimate --task qualitative_coding.gt_constant_comparison.application, 2026-11-05: 4,052 input, 268 output, 0% cached) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; LiteLLM's list price for openrouter/openai/gpt-5.6-luna is $0.20 input and $1.20 output per million tokens (llm_client's LiteLLM model_prices_and_context_window_backup.json); the fit is higher, so these figures are conservative).",
       "cost_per_run_usd": 0.3954,
       "calls_per_run": 315
      },
@@ -272,9 +272,26 @@
        "cached_usd_per_mtok": 0.2168,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "4 controls x the S2 plain-version tuning call (58,150 input, 18,900 output tokens, worked out above) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). If a stage is adopted instead, the controls rerun that stage and are redone from its figures. The fresh reviewer (plan S2) is a Claude Code session on the subscription, not an API call.",
+      "evidence": "4 controls x the S2 plain-version tuning call (58,150 input, 18,900 output tokens, worked out above) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; LiteLLM's list price for openrouter/openai/gpt-5.6-luna is $0.20 input and $1.20 output per million tokens (llm_client's LiteLLM model_prices_and_context_window_backup.json); the fit is higher, so these figures are conservative). If a stage is adopted instead, the controls rerun that stage and are redone from its figures. The fresh reviewer (plan S2) is a Claude Code session on the subscription, not an API call.",
       "cost_per_run_usd": 0.1567,
       "calls_per_run": 4
+     },
+     {
+      "step": "S2 drafting the instrument's definition from the author's tuning-interview passages, one call (mixed_methods_workbench.open_science.define)",
+      "per": "S2 build (once per instrument version)",
+      "basis": "computed",
+      "computation": {
+       "calls": 1,
+       "input_tokens_per_call": 14750,
+       "output_tokens_per_call": 800,
+       "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.2168,
+       "output_usd_per_mtok": 1.4057
+      },
+      "evidence": "1 call x at most all 81 of the author's 'open data' passages (55,001 characters counted from her CSV, about 13,750 tokens at 4 characters a token) plus about 1,000 tokens of instructions, and about 800 output tokens, x the fitted gpt-5.6-luna prices above. An upper figure: only tuning-interview passages are sent.",
+      "cost_per_run_usd": 0.0043,
+      "calls_per_run": 1
      },
      {
       "step": "S3 plain version: one call given all six propositions, the proposition-to-measure mapping, the measured result and the passages, returning every row's verdict and bounded meta-inference, then the deterministic number and passage check (mixed_methods_workbench.open_science.integrate)",
@@ -311,12 +328,12 @@
       "calls_per_run": 6
      },
      {
-      "step": "S4 Process Tracing draft-audit on one proposition",
-      "cost_per_run_usd": 0.03,
+      "step": "S4 Process Tracing draft-audit prototype on one proposition (drafts plus merge)",
+      "cost_per_run_usd": 0.0555,
       "per": "run",
       "basis": "measured",
-      "evidence": "Recorded calls in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: one draft-audit pass is five stages; mean cost per call by stage: decompose $0.0036 (7 calls), inference $0.0046 (6), verify $0.0095 (7), rivals $0.0053 (6), test $0.0069 (6); sum about $0.03. Example trace ids: draft-audit/challenger/d0/decompose, draft-audit/challenger/d0/inference, draft-audit/challenger/d0/verify. Replaced by S4's own run receipt total.",
-      "calls_per_run": 5
+      "evidence": "Measured: Process Tracing's full prototype run fomc_v4 (trace draft-audit/fomc_v4): 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555 (/home/brian/code2/process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163). FOMC is Process Tracing's large case, so one proposition's case costs at most this. The handoff input and the export adapter make no model call. Replaced by S4's own run receipt total.",
+      "calls_per_run": 7
      },
      {
       "step": "S6 rerun of the S2 plain version on the second corpus (S3's plain call adds about $0.014 per run)",
@@ -377,7 +394,8 @@
      "brian-positions 'mixed methods workbench overbuilt start over archive stop' (12 matches, no stop statement about the workbench)",
      "git log -i --grep 'pause|archive|overbuilt|start over' (finds the NYC pause, PR #41, and the Phase 3 pause lifted 2026-10-08)",
      "docs/plans history and AGENTS.md, docs/PLANNING_STATUS.md",
-     "docs/PLANNING_STATUS.md:208-218 (2026-08-13 integration assessment's limits, agent-written under Brian's approval of that assessment, not his words): 'must not rerun QC, Process Tracing ... merely to populate the Workbench'; read as still holding for the purpose it names, honoured in plan 'Not in this plan' (S4 and S6 run producers in their own repositories to test a 1.0 condition, never to fill the page); its limit on authorizing implementation beyond the Investigation Spine is superseded by Brian's 2026-11-06 direction to finish (open-questions.json Q1)"
+     "docs/PLANNING_STATUS.md:208-218 (2026-08-13 integration assessment's limits, agent-written under Brian's approval of that assessment, not his words): 'must not rerun QC, Process Tracing ... merely to populate the Workbench'; read as still holding for the purpose it names, honoured in plan 'Not in this plan' (S4 and S6 run producers in their own repositories to test a 1.0 condition, never to fill the page); its limit on authorizing implementation beyond the Investigation Spine is superseded by Brian's 2026-11-06 direction to finish (open-questions.json Q1)",
+     "Process Tracing's own stops: its pt/ freeze (Brian, 2026-09-30) and ADR 0004 (approved by Brian 2026-11-05: the draft-audit prototype is the answer path, the pipeline stays frozen), read in /home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67-79 and its open-questions.json Q20; S4 honours both (no pt/ work, prototype route, Q23)"
     ],
     "found": [
      {
@@ -385,6 +403,13 @@
       "words": "not sure he had decided it, or at least not on purpose",
       "source": "AGENTS.md:16 (NYC lane paused, quoting Brian's personal plan weekly-plans/personal/THIS_WEEK.md, Priority 1; commit 91a69a5, PR #41)",
       "applies_to": "the NYC Congestion Relief Zone lane and its use as the workbench's stable example",
+      "status": "holds"
+     },
+     {
+      "said_on": "2026-09-30",
+      "words": "pt/ stays frozen (Brian, 2026-09-30)",
+      "source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
+      "applies_to": "Process Tracing's pipeline (pt/), which S4 does not change or run",
       "status": "holds"
      }
     ]

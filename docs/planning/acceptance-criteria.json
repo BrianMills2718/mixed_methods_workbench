@@ -77,7 +77,7 @@
   },
   {
    "id": "A5",
-   "criterion": "I can compare each qualitative proposition with the measured numbers and read whether they agree, and what may be concluded from both together",
+   "criterion": "I can compare each qualitative proposition with the measured numbers, see which ones the measure speaks to and how, and what may be concluded from both together",
    "demonstration": [
     "Open the Joint display tab",
     "Read the count of mapped rows at the top (how many of the six propositions the measure speaks to)",
@@ -101,7 +101,7 @@
     "Read the hypothesis, each evidence test and its verdict",
     "Read the publication gate line"
    ],
-   "expected": "Process Tracing's within-case verdicts are shown in their own panel, never merged with the prevalence; the conclusion shows only when the gate says publishable, else 'withheld' and why.",
+   "expected": "Process Tracing's within-case verdicts are shown in their own panel, never merged with the prevalence; the conclusion shows only when the gate says publishable, else 'withheld' and why. On the Open Science proposition the export comes from Process Tracing's answer path, which carries no publication gate, so the line reads 'withheld: Process Tracing's answer path carries no publication gate'; the committed fixture with a publishable gate shows the conclusion.",
    "failure_example": "A Process Tracing export whose gate is not publishable: a broken page still shows the causal conclusion.",
    "representation": {
     "view": "argument-page",

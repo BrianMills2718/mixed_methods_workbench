@@ -71,7 +71,7 @@ Each slice ends with something a person can open and try. Every slice: tests fir
 | S0 | Plan 007 upkeep: deploy the current public page, stale-page test (done 2026-11-06, PR #59); then the remaining Plan 007 steps (deploy rule, NYC relabel, repo.yaml, wiki, architecture pointer) alongside S1–S2 | The public PsychosisBank page serves the committed bytes; `pytest` fails on a stale `deploy/` page |
 | S1 | Governed corpus and qualitative strand | The study page (`make study-page`): the 26 frozen interviews with licence and hash status, QC's categories and propositions, each supporting passage opening the interview at that place with its speaker, the author's codes beside them, and the quantitative and integration strands shown as "not built" |
 | S2 | Quantitative strand: one coded theme measured across every interviewee turn | The same page gains a measurement tab: the feasibility readout, the instrument (rule, included and excluded examples), each candidate measure beside its baselines, which interviews tuned and which tested it, prevalence error and agreement on held-out interviews, a shuffled-label control, and every disagreement listed and openable |
-| S3 | Joint display and meta-inference | A joint-display tab: one row per proposition, the qualitative claim beside the measured distribution, a convergence / complementarity / divergence / silence verdict with the passages behind it, and a bounded meta-inference that stays "pending review" |
+| S3 | Joint display and meta-inference | A joint-display tab: one row per proposition, the qualitative claim beside the measured distribution, a "complements" or "silent: not measured" verdict with the passages behind it (a prevalence cannot confirm or contradict a when-then claim, Q22), and a bounded meta-inference that stays "pending review" |
 | S4 | Process Tracing on one proposition | A causal tab: QC handoff → PT `pt_export_v2` for one proposition in one interview; within-case verdicts shown apart from the measured prevalence, and the publication gate respected |
 | S5 | Review, provenance and export, on one investigation record | The study page becomes the general investigation record (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), the PsychosisBank investigation rebuilt as one instance of it; accept, reject or annotate each meta-inference and see it saved; write a reflexivity memo; download one research bundle (corpus manifest, strand exports, joint display, decisions, traces, a GRAMMS reporting checklist). Served where open question Q11 says |
 | S6 | Second corpus and benchmark | A benchmark page: both corpora, each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and for each corpus the files its addition changed ("data only" or the code paths, in orange) |
@@ -119,7 +119,7 @@ finish).
 | Metric margins, split sizes and thresholds preregistered from the readout, not hard-coded (`:102-103`) | kept: after the readout and before any measure is scored on held-out interviews, the agreement bar and the split sizes are written into the split manifest with the readout's figures behind them, and the receipt shows they were not changed afterwards; the construct-matching rule (Construct, below) was fixed in this plan from S1's data, before any measure exists |
 | Learning curve and slices (`:114`) | kept: agreement on tuning folds at increasing numbers of tuning interviews, and every figure sliced by interview |
 | Error costs and an accountable reviewer (`:110`) | kept: a false positive counts a turn that is not about the theme and inflates its prevalence; a false negative hides the interviews where it is rare; both are listed by interview and neither is traded for the other. Brian is the accountable reviewer (he can reject the result on the page), after the fresh reviewer below |
-| Independently coded pilot and sealed set, with adjudication; a versioned codebook (`:111`) | **partly met**: the instrument is written for the author's own code, so the measure and its human reference name the same construct; but the reference is her existing single-coder coding with no adjudication, and her code has no written definition, so the instrument's definition is drafted from her tuning-interview passages and versioned in the split manifest. The page says "one coder, no adjudication, definition drafted from her passages" beside every agreement figure |
+| Independently coded pilot and sealed set, with adjudication; a versioned codebook (`:111`) | **partly met**: the instrument is written for the author's own code, so the measure and its human reference name the same construct; but the reference is her existing single-coder coding with no adjudication, and her code has no written definition, so the instrument's definition is drafted from her tuning-interview passages, in one llm_client call (task `mixed_methods_workbench.open_science.define`, traced and costed below) that the building agent reads and edits, and versioned in the split manifest. The page says "one coder, no adjudication, definition drafted from her passages" beside every agreement figure |
 | Immutable splits; nothing tuned sees sealed data (`:112`, `:126-129`) | kept: the split manifest fixes tuning and held-out interviews first; the receipt records which interviews each fitting step (word list, TF-IDF vocabulary, prompt edits) saw, and a check fails if any held-out interview appears there |
 | Per-class metrics, prevalence error, calibration, grouped uncertainty; accuracy alone prohibited; no turn-level intervals (`:114`, `:118-121`) | kept |
 | A count over a complete corpus has measurement error but no sampling error (`:118-121`) | kept: the 25 interviews are the whole corpus the count speaks for, so its interval is measurement error only (the instrument's held-out error rates, resampled by interview, applied to the count) and the page says it is not an estimate for linguists in general; agreement figures keep their by-interview interval, because those do generalise from tuning to held-out interviews |
@@ -154,6 +154,11 @@ finish).
   cites as examples (18–24 per category), so the highest two-way overlap among the 224 pairs is 0.18 and a
   0.3 floor could never be met. The page shows both counts, the share, the chance figure and the two-way
   overlap, such as "QC cites 22 turns; the code marks 14 of them and 72 in all", never a clean match.
+  The page also says that QC's 8 categories rest on 6 distinct sets of cited turns: two pairs
+  ("Traceable, linked, discoverable, and interpretable" with "Corrective, replicative, and reflexive
+  reviewability"; "Terminological and audience boundary work" with "Attributed reuse, translation, and
+  collaborative extension") cite exactly the same two incidents. The two categories "open data" qualified
+  for are distinct, so the construct choice is unaffected.
 - **Feasibility readout first:** before any instrument is chosen, the page shows the construct, unit,
   frame, intended and prohibited uses, its prevalence among the turns, how many interviews carry positive
   cases, whether it is lexical or contextual, and the disagreement locations in the author's own coding.
@@ -204,7 +209,9 @@ finish).
   shows, on the tuning interviews only: one call per interview, 13 calls, about $0.15; one call per turn,
   315 calls at that task's median 4,052 input and 268 output tokens, about $0.40. The four language-model
   controls (repeat, reordered examples, swapped label, codebook ablation) each rerun the chosen design on
-  the tuning interviews: with the plain version, 4 calls, about $0.16. The dictionary, dummy and regression
+  the tuning interviews: with the plain version, 4 calls, about $0.16. Drafting the instrument's definition is one call over
+  at most all 81 of her "open data" passages (55,001 characters, about 13,750 tokens at 4 characters a
+  token, plus about 1,000 of instructions) with about 800 output tokens: about $0.004. The dictionary, dummy and regression
   run locally at no model cost.
 - **Cheapest design that still does the job:** the plain version, two calls, about $0.08 per pass. It is
   also the starting design, so nothing more expensive is built unless the tuning interviews show the plain
@@ -248,18 +255,31 @@ finish).
 
 ### S4 — Process Tracing on one proposition
 
-- **Build:** QC `export-process-tracing-handoff` → PT draft-audit route → `pt_export_v2`; the workbench reads
-  only `pt_export_v2`. Its existing reader (`investigation_run.py`) reads
-  `comparative_conclusion.public_headline_eligible`; S4 extends it to read PT's
-  `publication_gate.publishable` (`process_tracing/pt/export.py`, `PublicationGateV2`) and shows a causal
-  conclusion only when both allow it.
+- **Route** (open question Q23): Process Tracing's answer path is its draft-audit prototype (its ADR
+  0004, approved by Brian on 2026-11-05 and confirmed on a fresh case on 2026-11-06), which writes no
+  `pt_export_v2` (ADR 0004, "Bad: the prototype writes no `pt_export_v2.json` for
+  `mixed_methods_workbench` (Q20)"), and its pipeline (`pt/`, which does accept a QC handoff and write the
+  gated export) has been frozen since 2026-09-30. So S4 starts with producer work in `process_tracing`,
+  under that repository's own rules: (1) a qualitative-handoff input to the prototype, so QC's
+  `export-process-tracing-handoff` output for the chosen proposition becomes a draft-audit case; (2) the
+  small export adapter Process Tracing's own open question Q20 recommends once a consumer resumes, which
+  writes only the fields the merged answer supports and marks the rest absent, never a full V2 claim. No
+  `pt/` code changes and the frozen pipeline is not run.
+- **Build:** the workbench reads only that export. Its existing reader (`investigation_run.py`) reads
+  `comparative_conclusion.public_headline_eligible`; S4 extends it to read `publication_gate.publishable`
+  (`process_tracing/pt/export.py`, `PublicationGateV2`) and shows a causal conclusion only when both allow
+  it. A field the adapter marks absent counts as not allowing it: the causal tab shows the prototype's
+  hypotheses, tests and verdicts in their own panel and the conclusion line reads "withheld: Process
+  Tracing's answer path carries no publication gate". The publishable branch is tested with the committed
+  fixture that carries a gate (`examples/fixtures/investigation_spine/process_tracing_return.json`).
 - **Trace:** PT's own trace ids recorded in a connected-run receipt. The existing receipt
   (`investigation_run.py`) is fixed to the PsychosisBank run (its ids and paths are constants), so S4
   generalises it to take the study, the proposition and the export paths from the study definition, and
   the PsychosisBank receipt must still build byte-identical.
-- **Cost (measured):** one draft-audit pass is five stages; their mean recorded costs per call in
-  llm_client's log (decompose, inference, verify, rivals, test; 2026-11-05 to 06) sum to about $0.03 per
-  run. Replaced by S4's own run receipt total.
+- **Cost (measured):** one full prototype run, drafts plus merge, on Process Tracing's large FOMC case
+  cost $0.0555 over 7 calls (`process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163`,
+  trace `draft-audit/fomc_v4`, 277,101 of 352,770 input tokens cached); one proposition's case is smaller, so this is an upper figure. The handoff input and the
+  adapter are code and make no model call. Replaced by S4's own run receipt total.
 
 ### S5 — Review, provenance and export
 
@@ -329,7 +349,7 @@ assessment's limits (`docs/PLANNING_STATUS.md:208-218`, written by an agent unde
 that assessment) said work must not "rerun QC, Process Tracing, Theory Forge, or simulation analyses
 merely to populate the Workbench" nor infer authorization beyond the Investigation Spine. Brian's
 2026-11-06 direction to finish authorises this plan's slices; the rerun limit still holds in this sense:
-S4 runs Process Tracing and S6 may run Qualitative Coding in their own repositories to test a 1.0
+S4 runs Process Tracing's answer path (adding only a handoff input and an export adapter, never `pt/` work during its freeze) and S6 may run Qualitative Coding in their own repositories to test a 1.0
 condition (a causal path; a second corpus for the benchmark), never to fill the page, and the workbench
 never runs either.
 

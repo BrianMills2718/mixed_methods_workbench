@@ -412,7 +412,7 @@
    "id": "joint_display",
    "label": "Joint display",
    "kind": "concept",
-   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict."
+   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a \"complements\" or \"silent: not measured\" verdict in 1.0 (a prevalence cannot confirm or contradict a when-then claim; open question Q22)."
   },
   {
    "id": "integration_check",
@@ -425,6 +425,30 @@
    "label": "Proposition-to-measure map",
    "kind": "concept",
    "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
+  },
+  {
+   "id": "Q23",
+   "label": "Q23: Which Process Tracing route S4 reads (the causal export)",
+   "kind": "question_agent_resolved",
+   "explain": "Process Tracing's answer path is now its draft-audit prototype (its ADR 0004, approved by Brian 2026-11-05, confirmed 2026-11-06), which writes no pt_export_v2; its pipeline, which accepts a QC handoff and writes the gated export, is frozen (Brian, 2026-09-30) and stopped without an answer on its last two hard cases. Which route gives S4 its causal result?"
+  },
+  {
+   "id": "d_Q23",
+   "label": "S4's build and cost, acceptance A6, investigation finding F13",
+   "kind": "decision",
+   "explain": "S4's build and cost, acceptance A6, investigation finding F13"
+  },
+  {
+   "id": "pt_export",
+   "label": "Process Tracing export (pt_export_v2)",
+   "kind": "concept",
+   "explain": "Process Tracing's versioned export, read here by ProcessTracingExport; its own publication_gate.publishable field is read from Plan #8 S4."
+  },
+  {
+   "id": "connected_run_receipt",
+   "label": "Connected run receipt",
+   "kind": "concept",
+   "explain": "The record of one run across producers: inputs, attempts, where it stopped and the trace ids."
   }
  ],
  "edges": [
@@ -810,6 +834,30 @@
    "id": "tQ22_proposition_measure_map",
    "source": "Q22",
    "target": "proposition_measure_map",
+   "label": "touches"
+  },
+  {
+   "id": "bQ23",
+   "source": "Q23",
+   "target": "d_Q23",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ23_pt_export",
+   "source": "Q23",
+   "target": "pt_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ23_publication_gate",
+   "source": "Q23",
+   "target": "publication_gate",
+   "label": "touches"
+  },
+  {
+   "id": "tQ23_connected_run_receipt",
+   "source": "Q23",
+   "target": "connected_run_receipt",
    "label": "touches"
   }
  ]
