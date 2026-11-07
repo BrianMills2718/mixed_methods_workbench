@@ -459,7 +459,7 @@ Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the valid
 if any line below differs from what it says now. Unticked pending items are not passes.
 
 Manifest: `docs/planning/planning-package.json`
-Package revision: `a58162af9d34`
+Package revision: `3d8f5999da6c`
 Verdict: not compliant
 
 - [x] part investigation: ok
