@@ -210,27 +210,27 @@
   }
  ],
  "coverage": {
-  "model": "claude-code/sonnet",
-  "judged_at": "2026-11-06T20:19:41-0500",
+  "model": "openrouter/anthropic/claude-sonnet-5.5",
+  "judged_at": "2026-11-06T20:42:49-0500",
   "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
-  "criteria_sha256": "6458d9689bb9115943612030579d9b428171bdece63b0f486ae3e70953da5432",
+  "criteria_sha256": "cb27b3209a39b6aa9d846f4a0811757885531729ad0a8ca4867ed02dd66c5394",
   "outcome_sha256": "2e4aa6f53b264f2dfa1597843b832f5da33bb7d12a1ff78cfc33bb8a566aa566",
   "criteria_judged": {
    "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
    "A2": "d460c58369d08b270e9cc52cca2ccab248f9e07938b1814590016b67eabd4bd6",
    "A3": "a5c98a3dbc08c6f63150ae182e393dbca0c4a54d00fbb266e60a9df1c98fe26b",
-   "A4": "991e76b61deb132024c3860bafd0bf5b4ebc73e828ac315d2f00fa17cbade772",
-   "A5": "da6f2de9556587a7d6b69d83fa0ae5e72ab7580fcca18845d5a6accaf1d851ec",
+   "A4": "7a0c0e36005eb530e29b9dde5a82da673df1a58d54e33df67688af960d22e2f9",
+   "A5": "591d7edeb3581a25f45e9faa02f375222eea7bbe15e9f768df42859cded3d4e0",
    "A6": "d1889f56f60109ac3de05579d4de0a3e264e23166950397bc8734371b992fb5a",
    "A7": "5e690deee1ffe95061766fdd92b947fc58d9ec12eb841876a10b4f68ad30a6c4",
    "A8": "b109a30047eb40383493517a6c0094e5c6008dab07d6891094675c781735960d",
    "A9": "5e1955dc1910222855791c80032ae121b1145c74ff4649dfaac70600214e6fc5",
    "A10": "1ce1b526eae4a85e15f0e9ac1123c9886130bfe8b245305dd57b0e3e5fbc1bd8",
-   "A11": "def516096f52f86a45b01f1e3010aa8c9d34c71614bd46ab5194abaa51b93749"
+   "A11": "8a8b89a69614938901bdcfc733504dd519ddf27972d9de5d68038347a01f5932"
   },
   "deferrals_judged": [],
-  "trace_id": "planning-compliance/goal-coverage/20261106T201844-a25f5229",
-  "cost_usd": 0.0,
+  "trace_id": "planning-compliance/goal-coverage/20261106T204242-53b9bbbc-run1",
+  "cost_usd": 0.036180000000000004,
   "requirements": [
    {
     "id": "R1",
@@ -258,49 +258,58 @@
    {
     "requirement_id": "R1",
     "covered_by": [
-     "A1",
-     "A2",
      "A3",
      "A4",
      "A5",
      "A6",
      "A7",
      "A8",
-     "A9",
-     "A10",
-     "A11"
+     "A9"
     ],
-    "coverage_reason": "Every criterion tests a distinct required capability of a finished workbench, and together they would fail if the workbench were left unfinished in any of those dimensions.",
+    "coverage_reason": "These criteria demonstrate the workbench's study page, measurement, joint display, causal check, review/export, benchmark and method-profile pieces working, and would fail if the workbench were unfinished in those parts.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says the workbench 'is finished to 1.0,' which keeps the finish requirement."
+    "outcome_reason": "The outcome line says the workbench is finished to 1.0 and lists the capabilities delivered."
    },
    {
     "requirement_id": "R2",
     "covered_by": [
-     "A8",
      "A10"
     ],
-    "coverage_reason": "A10 requires the workbench to handle a corpus it has never seen without any code change, which directly fails if it is built for one specific use case; A8 requires benchmark results on two distinct corpora.",
+    "coverage_reason": "A10 fails if the workbench needs code changes for a new corpus, and A3 and A8 show it on two different corpora, so it is not tied to one use case.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says 'as a general tool … not for one use case,' which keeps the constraint."
+    "outcome_reason": "The outcome line says it is a general tool, not for one use case, and runs on two corpora."
    },
    {
     "requirement_id": "R3",
-    "covered_by": [],
-    "coverage_reason": "No running demonstration of the workbench can show that work was done as part of Brian's broader vision; that is a statement of planning intent, not a property any interface exhibits.",
-    "extent": "none",
+    "covered_by": [
+     "A11"
+    ],
+    "coverage_reason": "A11 requires each study to be the investigation record of the broader vision with the product-map link and eight parts, which a demonstration could check.",
+    "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says 'as part of Brian's broader evidence-to-action vision,' which keeps it."
+    "outcome_reason": "The outcome line keeps the broader evidence-to-action vision and the investigation spine."
    }
   ],
+  "agreement": {
+   "runs": 2,
+   "agreed": true,
+   "trace_ids": [
+    "planning-compliance/goal-coverage/20261106T204242-53b9bbbc-run1",
+    "planning-compliance/goal-coverage/20261106T204242-53b9bbbc-run2"
+   ],
+   "costs_usd": [
+    0.01805,
+    0.01813
+   ]
+  },
   "trace": "coverage-trace.json"
  }
 }

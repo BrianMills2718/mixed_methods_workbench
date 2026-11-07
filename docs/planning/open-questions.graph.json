@@ -37,6 +37,24 @@
    "explain": "whether the next plan builds a new workbench slice or only keeps the repository shippable"
   },
   {
+   "id": "capability_verdict",
+   "label": "Capability verdict",
+   "kind": "concept",
+   "explain": "The section-10 verdict on a collision group: same_capability, shared_shell or different_capability, with its justification."
+  },
+  {
+   "id": "producer_engine",
+   "label": "Method engine (producer)",
+   "kind": "concept",
+   "explain": "A method repository (qualitative_coding, process_tracing) that runs its own method and owns its strict export schema."
+  },
+  {
+   "id": "meta_inference",
+   "label": "Meta-inference",
+   "kind": "concept",
+   "explain": "A bounded conclusion drawn by intentionally joining qualitative and quantitative strands."
+  },
+  {
    "id": "Q2",
    "label": "Q2: Durable-documents check cannot run",
    "kind": "question_agent",
@@ -61,6 +79,12 @@
    "explain": "wiki compliance for this repository"
   },
   {
+   "id": "method_decomposition",
+   "label": "Method decomposition",
+   "kind": "concept",
+   "explain": "One of the 14 frozen Phase 3 records of a method's phases, moves and actions, checked by the validator."
+  },
+  {
    "id": "Q4",
    "label": "Q4: Architecture document is the old scaffold",
    "kind": "question_agent",
@@ -73,6 +97,18 @@
    "explain": "which document an agent reads as the architecture entry point"
   },
   {
+   "id": "producer_export",
+   "label": "Method export",
+   "kind": "concept",
+   "explain": "The synthetic mirror of producer export shapes used by the DEMO-C1 fixtures, not any producer's own schema. The real exports Plan #8 reads are separate concepts: Qualitative Coding's grounded-theory export and Process Tracing's pt_export_v2."
+  },
+  {
+   "id": "workbench_view",
+   "label": "Workbench consumer view",
+   "kind": "concept",
+   "explain": "The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version. The cited class reads only the synthetic DEMO-C1 shape; Plan #8 S1 adds the reader for Qualitative Coding's real grounded-theory export."
+  },
+  {
    "id": "Q5",
    "label": "Q5: Deploy the synced review page",
    "kind": "question_agent_resolved",
@@ -83,6 +119,18 @@
    "label": "whether the public PsychosisBank review shows the current renderer",
    "kind": "decision",
    "explain": "whether the public PsychosisBank review shows the current renderer"
+  },
+  {
+   "id": "public_review",
+   "label": "Public review artifact",
+   "kind": "concept",
+   "explain": "The investigation-spine payload and page that scripts/build_psychosisbank_public_review.py copies into deploy/ and the Cloudflare Worker serves."
+  },
+  {
+   "id": "publication_gate",
+   "label": "Publication gate",
+   "kind": "concept",
+   "explain": "The investigation spine's gate on a Process Tracing return: status accepted or blocked, and a blocked gate withholds the public conclusion while any claim failed review. It does not record that a researcher reviewed the conclusion. PT's own pt_export_v2 gate is a separate field (pt_export)."
   },
   {
    "id": "Q6",
@@ -157,6 +205,12 @@
    "explain": "whether Brian can open each slice's result himself, or only through screenshots in replies"
   },
   {
+   "id": "study_corpus",
+   "label": "Study corpus",
+   "kind": "concept",
+   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date."
+  },
+  {
    "id": "Q12",
    "label": "Q12: What 1.0 promises: outside researcher, theory operationalization",
    "kind": "question_brian",
@@ -167,6 +221,12 @@
    "label": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must",
    "kind": "decision",
    "explain": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must also bring in Theory Forge"
+  },
+  {
+   "id": "measurement_instrument",
+   "label": "Measurement instrument",
+   "kind": "concept",
+   "explain": "A qualitative category turned into a rule applied to every interviewee turn, with included and excluded examples, so it can be counted and checked against human coding."
   },
   {
    "id": "Q13",
@@ -193,6 +253,18 @@
    "explain": "whether S1 can anchor every cited passage to the frozen source without a mapping step"
   },
   {
+   "id": "source_segment",
+   "label": "Source segment",
+   "kind": "concept",
+   "explain": "An exact span of a source document that evidence points to."
+  },
+  {
+   "id": "evidence_anchor",
+   "label": "Evidence anchor",
+   "kind": "concept",
+   "explain": "A pointer from a finding to the evidence and source it rests on, by id (evidence_id, source_id); it stores no text span. Anchoring a passage to an exact span of the frozen text is new work in Plan #8 slice S1."
+  },
+  {
    "id": "Q15",
    "label": "Q15: Which category S2 measures (the construct)",
    "kind": "question_brian",
@@ -205,6 +277,12 @@
    "explain": "S2's construct (S2 can start on the default)"
   },
   {
+   "id": "qualitative_strand",
+   "label": "Qualitative strand",
+   "kind": "concept",
+   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages."
+  },
+  {
    "id": "Q16",
    "label": "Q16: S2 adopts the quantitative-strand brief, with named exceptions",
    "kind": "question_agent_resolved",
@@ -215,6 +293,18 @@
    "label": "S2's design and acceptance A4",
    "kind": "decision",
    "explain": "S2's design and acceptance A4"
+  },
+  {
+   "id": "measured_result",
+   "label": "Measured result",
+   "kind": "concept",
+   "explain": "One measure's labels per unit, its per-class agreement and prevalence error on named held-out interviews, its interval by interview and its controls. Plan #8 S2."
+  },
+  {
+   "id": "author_coding",
+   "label": "Authors' reference coding",
+   "kind": "concept",
+   "explain": "The corpus authors' own published coding (here 837 passages under 39 codes exported from OpenQDA), located in the frozen text by their words and used as the human reference for every strand. Plan #8 S1."
   },
   {
    "id": "Q17",
@@ -232,13 +322,19 @@
    "id": "Q18",
    "label": "Q18: Which reading of the broader vision",
    "kind": "question_brian",
-   "explain": "Brian's \"it is part of my broader vision\": the repository's product map supports two readings. (1) General record: the workbench owns one investigation record per study (question, evidence, method runs, findings, unresolved questions, reviews, next actions), separate destinations are the defect (map sections 1 and 3), and any rights-clear corpus can fill it. (2) Policy product: the map's sections 5, 7 and 9 describe the product as running from a policy question through appraisal to a reviewed recommendation, call Open Science \"too weak to organize the general policy-analysis product\", rule it out as the flagship, and make the next step a completed public policy decision case. Which did he mean?"
+   "explain": "Brian's \"it is part of my broader vision\": the repository's product map supports two readings. (1) General record: the workbench owns one investigation record per study (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), separate destinations are the defect (map sections 1 and 3), and any rights-clear corpus can fill it. (2) Policy product: the map's sections 5, 7 and 9 describe the product as running from a policy question through appraisal to a reviewed recommendation, call Open Science \"too weak to organize the general policy-analysis product\", rule it out as the flagship, and make the next step a completed public policy decision case. Which did he mean?"
   },
   {
    "id": "d_Q18",
    "label": "S5's shape, S6's second study and acceptance A11",
    "kind": "decision",
    "explain": "S5's shape, S6's second study and acceptance A11"
+  },
+  {
+   "id": "investigation_record",
+   "label": "Investigation record",
+   "kind": "concept",
+   "explain": "One study's question, evidence, analytical plan, method runs, findings, unresolved questions, reviews and next actions kept together (the eight parts of the evidence-to-action map's investigation spine), general over studies. Plan #8 S5; today only the PsychosisBank investigation, hard-coded."
   },
   {
    "id": "Q19",
@@ -253,6 +349,12 @@
    "explain": "S6 and the 'not for a specific use case' claim (acceptance A10)"
   },
   {
+   "id": "benchmark",
+   "label": "Benchmark",
+   "kind": "concept",
+   "explain": "The page comparing both corpora: each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and the files each corpus's addition changed. Plan #8 S6."
+  },
+  {
    "id": "Q20",
    "label": "Q20: How a review decision is recorded from the served page",
    "kind": "question_agent_resolved",
@@ -263,120 +365,6 @@
    "label": "S5 and acceptance A7",
    "kind": "decision",
    "explain": "S5 and acceptance A7"
-  },
-  {
-   "id": "Q21",
-   "label": "Q21: Who runs Qualitative Coding on the second corpus",
-   "kind": "question_agent",
-   "explain": "S1 reads Qualitative Coding's existing grounded-theory export, which exists only for Open Science. For S6, does QC run its pipeline on the second corpus in its own repository first, or does S6 pick a corpus QC has already analysed?"
-  },
-  {
-   "id": "d_Q21",
-   "label": "S6, acceptance A10, and the claim that a study needs only a definition file",
-   "kind": "decision",
-   "explain": "S6, acceptance A10, and the claim that a study needs only a definition file and the producers' exports"
-  },
-  {
-   "id": "capability_verdict",
-   "label": "Capability verdict",
-   "kind": "concept",
-   "explain": "The section-10 verdict on a collision group: same_capability, shared_shell or different_capability, with its justification."
-  },
-  {
-   "id": "producer_engine",
-   "label": "Method engine (producer)",
-   "kind": "concept",
-   "explain": "A method repository (qualitative_coding, process_tracing) that runs its own method and owns its strict export schema."
-  },
-  {
-   "id": "meta_inference",
-   "label": "Meta-inference",
-   "kind": "concept",
-   "explain": "A bounded conclusion drawn by intentionally joining qualitative and quantitative strands."
-  },
-  {
-   "id": "method_decomposition",
-   "label": "Method decomposition",
-   "kind": "concept",
-   "explain": "One of the 14 frozen Phase 3 records of a method's phases, moves and actions, checked by the validator."
-  },
-  {
-   "id": "producer_export",
-   "label": "Method export",
-   "kind": "concept",
-   "explain": "The synthetic mirror of producer export shapes used by the DEMO-C1 fixtures, not any producer's own schema. The real exports Plan #8 reads are separate concepts: Qualitative Coding's grounded-theory export and Process Tracing's pt_export_v2."
-  },
-  {
-   "id": "workbench_view",
-   "label": "Workbench consumer view",
-   "kind": "concept",
-   "explain": "The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version. The cited class reads only the synthetic DEMO-C1 shape; Plan #8 S1 adds the reader for Qualitative Coding's real grounded-theory export."
-  },
-  {
-   "id": "public_review",
-   "label": "Public review artifact",
-   "kind": "concept",
-   "explain": "The investigation-spine payload and page that scripts/build_psychosisbank_public_review.py copies into deploy/ and the Cloudflare Worker serves."
-  },
-  {
-   "id": "publication_gate",
-   "label": "Publication gate",
-   "kind": "concept",
-   "explain": "The investigation spine's gate on a Process Tracing return: status accepted or blocked, and a blocked gate withholds the public conclusion while any claim failed review. It does not record that a researcher reviewed the conclusion. PT's own pt_export_v2 gate is a separate field (pt_export)."
-  },
-  {
-   "id": "study_corpus",
-   "label": "Study corpus",
-   "kind": "concept",
-   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date."
-  },
-  {
-   "id": "measurement_instrument",
-   "label": "Measurement instrument",
-   "kind": "concept",
-   "explain": "A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding."
-  },
-  {
-   "id": "source_segment",
-   "label": "Source segment",
-   "kind": "concept",
-   "explain": "An exact span of a source document that evidence points to."
-  },
-  {
-   "id": "evidence_anchor",
-   "label": "Evidence anchor",
-   "kind": "concept",
-   "explain": "A pointer from a finding to the evidence and source it rests on, by id (evidence_id, source_id); it stores no text span. Anchoring a passage to an exact span of the frozen text is new work in Plan #8 slice S1."
-  },
-  {
-   "id": "qualitative_strand",
-   "label": "Qualitative strand",
-   "kind": "concept",
-   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages."
-  },
-  {
-   "id": "measured_result",
-   "label": "Measured result",
-   "kind": "concept",
-   "explain": "One measure's labels per unit, its per-class agreement and prevalence error on named held-out interviews, its interval by interview and its controls. Plan #8 S2."
-  },
-  {
-   "id": "author_coding",
-   "label": "Authors' reference coding",
-   "kind": "concept",
-   "explain": "The corpus authors' own published coding (here 837 passages under 39 codes exported from OpenQDA), located in the frozen text by their words and used as the human reference for every strand. Plan #8 S1."
-  },
-  {
-   "id": "investigation_record",
-   "label": "Investigation record",
-   "kind": "concept",
-   "explain": "One study's question, evidence, method runs, findings, unresolved questions, reviews and next actions kept together (the evidence-to-action map's investigation spine), general over studies. Plan #8 S5; today only the PsychosisBank investigation, hard-coded."
-  },
-  {
-   "id": "benchmark",
-   "label": "Benchmark",
-   "kind": "concept",
-   "explain": "The page comparing both corpora: each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and the files each corpus's addition changed. Plan #8 S6."
   },
   {
    "id": "review_decision",
@@ -391,10 +379,40 @@
    "explain": "The researcher's positioning memo for one study: who did the analysis, what they brought to it and what that may have shaped, kept with the review log and in the bundle. Plan #8 S5."
   },
   {
+   "id": "Q21",
+   "label": "Q21: Who runs Qualitative Coding on the second corpus",
+   "kind": "question_agent",
+   "explain": "S1 reads Qualitative Coding's existing grounded-theory export, which exists only for Open Science. For S6, does QC run its pipeline on the second corpus in its own repository first, or does S6 pick a corpus QC has already analysed?"
+  },
+  {
+   "id": "d_Q21",
+   "label": "S6, acceptance A10, and the claim that a study needs only a definition file",
+   "kind": "decision",
+   "explain": "S6, acceptance A10, and the claim that a study needs only a definition file and the producers' exports"
+  },
+  {
    "id": "qc_theory_export",
    "label": "Qualitative Coding theory export",
    "kind": "concept",
    "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. Read in Plan #8 S1."
+  },
+  {
+   "id": "Q22",
+   "label": "Q22: Which propositions the measure speaks to (the S3 join)",
+   "kind": "question_agent_resolved",
+   "explain": "QC's six propositions are conditional statements spanning several categories, and S2 measures one category's prevalence. Which proposition does the measured number speak to, and how (prevalence by interview, or co-occurrence with another category in the same interviews)?"
+  },
+  {
+   "id": "d_Q22",
+   "label": "S3's joint display and acceptance A5",
+   "kind": "decision",
+   "explain": "S3's joint display and acceptance A5"
+  },
+  {
+   "id": "joint_display",
+   "label": "Joint display",
+   "kind": "concept",
+   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict."
   }
  ],
  "edges": [
@@ -744,6 +762,30 @@
    "id": "tQ21_benchmark",
    "source": "Q21",
    "target": "benchmark",
+   "label": "touches"
+  },
+  {
+   "id": "bQ22",
+   "source": "Q22",
+   "target": "d_Q22",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ22_joint_display",
+   "source": "Q22",
+   "target": "joint_display",
+   "label": "touches"
+  },
+  {
+   "id": "tQ22_measured_result",
+   "source": "Q22",
+   "target": "measured_result",
+   "label": "touches"
+  },
+  {
+   "id": "tQ22_meta_inference",
+   "source": "Q22",
+   "target": "meta_inference",
    "label": "touches"
   }
  ]

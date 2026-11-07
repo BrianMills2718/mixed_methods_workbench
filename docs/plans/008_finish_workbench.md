@@ -7,13 +7,13 @@ Planning package: docs/planning/planning-package.json
 ## Goal
 
 Brian, 2026-11-06, answering open question Q1 ("what the workbench does next"), whose recommendation had been
-upkeep only until a real study needed two methods' results joined:
+upkeep only until a real study needed two methods' results joined (source: docs/planning/open-questions.json:27):
 
-> "on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision"
+> "on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision" (source: docs/planning/open-questions.json:27)
 
-So the workbench is finished to its 1.0, as a general tool in his broader evidence-to-action vision, not as
-the back end of one study. A study is still needed to prove each slice works on real text; it is an
-example, not the product's purpose.
+For Brian and any researcher who joins qualitative and quantitative evidence, change today's hand-joining of separate
+method pages, done afresh for each study, into one general workbench finished to its 1.0, part of his broader evidence-to-action
+vision; a study proves each slice on real text and is an example, not the product's purpose (agent judgment, unconfirmed).
 
 **Broader vision, read from the repository** (open question Q18; Brian decides between two readings). The
 repository's own product map, `docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md`, supports two readings.
@@ -28,7 +28,7 @@ not a new page per feature, and S5 makes that record the general form of the exi
 investigation record (`investigation_spine.py`, today hard-coded to one investigation). Open Science is
 used to prove the methods on real text, not as the policy flagship. If Brian picks the second reading, S6's
 second study becomes a completed public policy decision and the record runs to a reviewed recommendation
-(Q18 says what that costs).
+(Q18 says what that costs) (source: docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15-17). Which reading he meant is agent judgment, unconfirmed.
 
 ## What "finished" means here
 
