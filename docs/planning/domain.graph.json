@@ -163,14 +163,14 @@
   {
    "id": "study_corpus",
    "label": "Study corpus",
-   "kind": "planned",
-   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date."
+   "kind": "concept",
+   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date. Built in Plan #8 S1 (src/mixed_methods_workbench/study_workbench.py:46)."
   },
   {
    "id": "qualitative_strand",
    "label": "Qualitative strand",
-   "kind": "planned",
-   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages."
+   "kind": "concept",
+   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages. Built in Plan #8 S1 (src/mixed_methods_workbench/study_workbench.py:648)."
   },
   {
    "id": "measurement_instrument",
@@ -187,20 +187,20 @@
   {
    "id": "study_definition",
    "label": "Study definition",
-   "kind": "planned",
-   "explain": "One file per study naming its source record, file pattern, the authors' coding columns and the producer export paths; adding a study adds this file and frozen data, never code. Plan #8 S1."
+   "kind": "concept",
+   "explain": "One file per study naming its source record, file pattern, the authors' coding columns and the producer export paths; adding a study adds this file and frozen data, never code. Built in Plan #8 S1 (src/mixed_methods_workbench/study_workbench.py:86)."
   },
   {
    "id": "qc_theory_export",
    "label": "Qualitative Coding theory export",
-   "kind": "planned",
-   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the passage ids each rests on), pinned by commit and sha256; S1 pins run e131eb55's review-candidate file, which carries the cited passages with their offsets, and reads QC's segment records for the turns (Q26). The file itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
+   "kind": "concept",
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the passage ids each rests on), pinned by commit and sha256; S1 pins run e131eb55's review-candidate file, which carries the cited passages with their offsets, and reads QC's segment records for the turns (Q26). The file itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Built in Plan #8 S1 (src/mixed_methods_workbench/study_workbench.py:192)."
   },
   {
    "id": "author_coding",
    "label": "Authors' reference coding",
-   "kind": "planned",
-   "explain": "The corpus authors' own published coding (here 837 passages under 39 codes exported from OpenQDA), located in the frozen text by their words and used as the human reference for every strand. Plan #8 S1."
+   "kind": "concept",
+   "explain": "The corpus authors' own published coding (here 837 passages under 39 codes exported from OpenQDA), located in the frozen text by their words and used as the human reference for every strand. Built in Plan #8 S1 (src/mixed_methods_workbench/study_workbench.py:77)."
   },
   {
    "id": "measured_result",

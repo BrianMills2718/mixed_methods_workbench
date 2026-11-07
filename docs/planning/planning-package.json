@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "10b9a7bd3ac41bea61ecdc02acb811cb26ec9c4f",
+ "subject_revision": "a99f95e8d069b0c7878b6ee621ec9f6b8627ca94",
  "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -151,7 +151,12 @@
     "guarded_decision": "src/mixed_methods_workbench/guarded_decision/models.py:175",
     "quantitative_audit": "src/mixed_methods_workbench/nyc_crz_quantitative.py:193",
     "public_review": "src/mixed_methods_workbench/investigation_spine.py:278",
-    "pt_export": "src/mixed_methods_workbench/investigation_run.py:101"
+    "pt_export": "src/mixed_methods_workbench/investigation_run.py:101",
+    "study_definition": "src/mixed_methods_workbench/study_workbench.py:86",
+    "study_corpus": "src/mixed_methods_workbench/study_workbench.py:46",
+    "qualitative_strand": "src/mixed_methods_workbench/study_workbench.py:648",
+    "qc_theory_export": "src/mixed_methods_workbench/study_workbench.py:192",
+    "author_coding": "src/mixed_methods_workbench/study_workbench.py:77"
    }
   },
   "diagrams": {
