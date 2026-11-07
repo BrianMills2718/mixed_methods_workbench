@@ -3,6 +3,25 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 14 (read a58162a): revise
+
+The reviewer found both round-13 blocking findings and notes n-s to n-u fixed, reproduced the 46% from
+the pin itself (288 rejected against 330 accepted) and confirmed QC issue #205's text. It returned
+**revise** on one blocking finding, with notes n-v to n-bb and two missed questions. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R14-B1 | The plan states QC's own verdict on the pinned run but never says whether 1.0 may count that run as its "validated qualitative path"; A3 would pass a page without the verdict | Q12 gains part (d), Brian's: may the 1.0 qualitative-path row read "met" on a run QC calls unfinished? Recommended and default: wait; the row reads "not yet: Qualitative Coding's pinned theory is unfinished by its own measure" until QC commits a theory under its own line (issue #205); builds do not wait, only the tag. Plan `:43`, S7 and A12 carry the rule; A3's expected result and failure example require QC's verdict in the label |
+| n-v | Six concept nodes and Q23 in the open-questions map carried older definitions | Copied from the domain graph and the ledger |
+| n-w | F13 and F18 described S4's adapter and partial export as built unconditionally | Both say "only if Brian names a case (Q25)" |
+| n-x | The study page called QC's output "grounded theory"; QC's decision D2 calls it a "grounded-theory-inspired candidate theory" | The S1 page uses QC's term (S1 commit 1020267); planning files keep "grounded-theory export" for the file type |
+| n-y | R3 ("part of my broader vision") is stored as a process requirement | Kept: the coverage mapping still ties R3 to A11, and re-judging it would change only the label |
+| n-z | Q15's recommendation leaned on the August export | Q15 and plan S2 call it weak corroboration only |
+| n-aa | QC's spend window had no end time | Pinned: 2026-11-05 00:00 to 2026-11-07 00:00 UTC, read 2026-11-07 04:50 UTC, 2,077 paid calls, $5.01 (plan S6, Q12, Q21, both manifest entries) |
+| n-bb | The page's plan copy showed an older package revision | The page is rebuilt after the checklist rewrite |
+| Missed question 2 | Does a pin move void Brian's Q15 pick and S5 decisions on old rows? | Q15's default and Q26: Q15 is asked again whatever the new table shows, and S5 decisions on old-pin rows are marked "made on the earlier pin" and judged again |
+| Missed question 3 | QC's own quantitative design for the pinned run says `conceptual_follow_up_only` | Plan's 1.0 quantitative row and Q26 cite the file (QC commit a278264d) and say how S2 stays inside its limits |
+
 ## Plan #8, round 13 (read d7ec806): revise
 
 The reviewer found both round-12 blocking findings and notes n-l to n-q fixed, confirmed the category
@@ -1582,5 +1601,130 @@ QC's own pages say these things about the pinned run, e131eb55:
 - **Need anything from human:** No. Both fixes are agent work.
 
 Reviewed revision: d7ec806fe59442367008c1e1895cbb7bc17878bc
+
+Verdict: revise
+
+## Plan #8, round 14 reviewer's report (verbatim)
+
+The verdict is **revise**, on one new blocking finding.
+
+Both round-13 blocking findings are fixed, and their sources say what the fixes claim. The downstream sweep found that the fix for R13-B2 stated QC's verdict but did not carry it through to what 1.0 claims.
+
+Qualitative Coding's (QC's) own pages say the pinned run, e131eb55, is not finished. The plan now says so too, but it never says whether 1.0 may count that run as its "validated qualitative path". As written, the 1.0 readiness page could mark that condition "met" on a run its owner calls unfinished. No open question asks Brian about it.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head 0d5f38f): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails, because its verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain baseline is `planned`, and 3 stages are untested.
+- **Other figures:** 100 citations checked; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- **Initiative and spectrum-tier checks:** 4 of 4 ok.
+- **Coverage:** ok, 3 requirements: 2 covered, 1 counted as a process requirement.
+- **Goal provenance:** ok.
+- **Freshness:** ok, 1 commit of work since a58162a (0d5f38f, the checklist rewrite).
+
+**Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 871983e) | 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204. All 194 passages sit at their offsets | Matches plan :160-177, Q15, F24, A4 |
+| Pin hash | sha256 a77661f9… is the same for S1's `qc/theory.json` and QC's `expected-view.json`. QC's only asset commits since 2026-11-01 change the a67d7d6a school-readings file, which holds readings and a comparison, not the theory | Matches Q26, F23 |
+| QC's verdict, from the pin itself | 330 quotes accepted; 288 rejected (246 fail the inclusion question, 41 not word for word, 1 unknown code). That is **46.6%** | Matches F10, Q26, plan :43 and the S1 label |
+| Categories each pinned proposition names; the P5 input | P1 [1,3], P2 [1,2], P3 [2,4], P4 [2,3], P5 [1,4], P6 [1,2,4]. Category 1 maps to P1, P2, P5, P6; category 3 to P1, P4. The P5 input is revision d921baaf, version p5-v1, and its "minimum-compliance disclosure" claim is closest to pinned P4 | Matches S3, Q15, S4, A6 |
+| `make check PYTHON=.venv/bin/python` | exit 0; pytest 11 + 30 = 41 passed; mypy: no issues | Matches the manifest |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| S1 tests (`tests/test_study_workbench.py`) | 13 passed, including the new 46% assertion | — |
+| QC spend, read-only from `llm_observability.db` (projects `qc` and `qualitative_coding`, 2026-11-05 to 06 UTC) | 2,384 calls, $5.01 | Package says $4.94 over 2,075 calls (note n-aa) |
+| Cost figures recomputed | S2 plain: 2 × (58,150 × $0.2168 + 18,900 × $1.4057) per million = $0.0783. S3: $0.0137. S4's $0.0555 matches PT's efficiency README :161-163 | Match |
+
+#### Round-13 findings
+
+- **R13-B1: fixed.**
+  - Plan :46 and Q12(c) now say no code passes the rule on the pinned theory, and the measured code is Brian's own pick below the bar.
+  - The open-questions map's Q12 node carries the same wording.
+  - On the review page, the old phrases survive only inside the quoted round-13 report.
+- **R13-B2: fixed, as asked.**
+  - F10 now fails and points to Q26.
+  - Q26 and plan :43 state QC's figures, and they match QC's pages: the "wrong if" line at `CURRENT_STATE_AND_ROADMAP.md:21-25`, the 46% at :32, the 11.7% at :34, and review-queue decisions D2 and D3.
+  - QC issue #205 is open, and its text matches Q26.
+  - The S1 label (commit 871983e) states the 46% figure, and a test asserts it.
+  - What 1.0 then claims is not carried through: R14-B1 below.
+- **n-s: fixed.** A5's expected result and failure example both ask for the below-bar label.
+- **n-t: fixed where it was named.** Q24, the system model's S4 row, DOMAIN.md and the domain graph's `pt_export` node all carry the label. The open-questions map's copy of `pt_export` does not (n-v).
+- **n-u: fixed.** S4 (:328-330) names ADR 0005, which reads "accepted for building (Brian said go, 2026-11-06)".
+- **n-r and n8–n11: carried.** The `/blob/main/` links still return 404 until the branch merges.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R14-B1 | plan, open questions, acceptance | plan `:43` (row "At least one validated qualitative path: kept, consumed"); S7 `:404-415`; Q12 and Q26; A3 `acceptance-criteria.json:50` | The plan now says the pinned run fails QC's own "wrong if" line (46% rejected, against a line of roughly a quarter). It never says what the 1.0 qualitative-path row needs while the pin stays on that run. Nothing makes 1.0 wait for QC's newer theory, and no question asks Brian whether 1.0 may claim a "validated qualitative path" on it. S7 marks a row "met" when its criterion is judged pass. The nearest criterion, A3, checks passage tracing and the label's title, not QC's verdict: a page that dropped the 46% would still pass A3. The roadmap's G2 asks for "one validated path" | Add Q12(d), or a default in Q26: while the pinned run is above QC's own "wrong if" line, the row reads "not yet: Qualitative Coding's pinned theory is unfinished by its own measure" unless Brian accepts it in his words. Recommend waiting for the theory requested in issue #205. Add QC's verdict to A3's expected result, plus a failure example where the label lacks it | **blocking** (a missing material question about a decision the package feeds: the 1.0 tag) |
+| n-v | diagrams, review page | `open-questions.graph.json:442`, `:424`, `:394`; shown on `open-questions.html` and `diagram-open-questions.html` | 6 of the 29 concept nodes in the open-questions map carry older definitions than the domain graph. `pt_export` says "Plan #8 S4 reads instead the answer path's partial export … through a second, partial reader", which contradicts S4: that export is read only if Brian names a case (Q25). `proposition_measure_map` lacks Brian's below-bar pick | Copy (or generate) the concept nodes' definitions from `domain.graph.json`, then rebuild the page | note |
+| n-w | investigation | `investigation.json:261` (F13), `:310` (F18) | F13 says S4 "adds the handoff input and Q20's partial adapter in process_tracing". F18 calls the partial export "the export S4 reads". Both happen only if Brian names a case (plan :328-335, Q23) | Add "only if Brian names a case (Q25)" | note |
+| n-x | plan, domain glossary, S1 page | mmw-s1 `static/study_workbench.html:96` ("Qualitative Coding's grounded theory"); plan :43, :61-62; DOMAIN.md `qc_theory_export` | QC's decision D2 (`REVIEW_QUEUE.md:18`) calls its output a "grounded-theory-inspired candidate theory", keeping "grounded theory" for the method, because the term can overclaim (QC-PORT-003). The study page still calls the output "grounded theory" | Use QC's term on the page. Planning files may keep "grounded-theory export" for the file type | note |
+| n-y | acceptance coverage | `acceptance-criteria.json:275` | R3, "part of my broader vision", is stored as a process requirement. It is a constraint on the outcome. A11 covers it today, but as a process requirement the check would not fail if A11 were dropped | Re-judge it once with `--force`, or record why "process" fits | note |
+| n-z | open questions, plan | Q15 recommendation; plan :170-171 | The recommendation leans on the August export ("qualified on QC's earlier theory, so it speaks to QC's theory on both"). The plan itself sets that export aside because it predates QC's coding-quality step | Say the August run is weak corroboration, or drop it | note |
+| n-aa | cost basis | S6 and Q12(c) entries in the manifest | "$4.94 over 2,075 calls, 2026-11-05 to 06" names no end time. The same log now gives 2,384 calls and $5.01 for those days | Pin the window's end time | note |
+| n-bb | review page | `review.html` (embedded plan text) | The page's copy of the plan shows "Package revision: d7ec806fe594". It was built at d24240b, before 0d5f38f rewrote the checklist. It self-corrects on the next rebuild | Rebuild the page last | note |
+| n-r, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. May 1.0's qualitative-path condition be met on a run QC calls unfinished, or does 1.0 wait for QC's newer theory? (R14-B1)
+2. When the pin moves after S2–S5 are built, does the move void Brian's Q15 pick and any S5 review decisions on rows built from the old theory? The default re-asks Q15 only "if another row then leads the table".
+3. QC has committed its own quantitative design for the pinned theory (`public_demo_assets/grounded_theory_quantitative_designs/e131eb55-….json`). Its verdict is `conceptual_follow_up_only`, and it says coding counts "cannot establish validated measurement, population prevalence…". S2 already argues past this: it validates against human coding and makes no claim beyond the 25 interviews. The package should cite the file rather than only the generic verdict.
+
+#### Checked and found sound
+
+- **Method owners' rules:**
+  - S4 keeps QC's independence condition and anti-circularity rule (`METHODS_AND_THEORY.md:453-474`).
+  - S2 and S3 make the separate decisions the quantitative-projection rule asks for (:485-500).
+  - Decision 0017 (:27-58) matches S4, S6, S7 and A12.
+  - ADR 0004 (:55-80) and ADR 0005 match S4.
+  - QC's D8 (plain-first coding) is covered by Q26's repin rule.
+- **Stops:**
+  - My `git log` search finds the NYC pause (91a69a5) and the Phase 3 lift (680c4d5), as recorded.
+  - QC's "workbench sequence" pause read "Workbench NYC sequence" before its rewrite (9008d5bc^), as the package says.
+- **Router records:** all 12 chose the view named in their entry.
+- **Coverage, split myself:**
+  - "finish" → A12.
+  - "not for a specific use case" → A10 and A12.
+  - "part of my broader vision" → A11.
+  - The outcome line keeps all three.
+- **Implemented concepts, three sampled:**
+  - `PublicationGate`: line 158, cited :160.
+  - `ProcessTracingExport`: line 101.
+  - `RoutePlan`: line 189, cited :190.
+  - All are within a few lines of the citation.
+- **System model:** its S1 row lists `ProducerInputPin`.
+- **Review page:**
+  - It shows subject revision a58162af9d34 and draws all three diagrams on the page (`GraphViewer.mount`).
+  - It shows all nine sections.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+
+#### Judgments I was unsure about
+
+- **R14-B1's weight.** Brian judges every readiness row himself, and the S1 page shows the 46% today, so he would likely see it. I made it blocking for two reasons: no rule or question governs the row, and A3 would pass a page without the figure. If QC is expected to commit its theory before S7, a one-line default in Q26 is enough.
+- **n-v's weight.** It is a wrong claim, but only in the node details of one diagram, and the plan, the domain map and the glossary all contradict it.
+- **n-x.** I am not sure QC's naming decision binds a consumer's page.
+- **Limits of this review.**
+  - No browser tool was available, so I read the pages as HTML.
+  - The full `pytest` run needed an approval I did not have, so the manifest's 204-test result is not reproduced. `make check` ran its 41 tests.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT). `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify. Pin sha256 equal. Rejected share 288/618 = 46.6%.
+  - `make check`: exit 0 (41 passed). Crosswalk check: exit 0, 171/36/0. S1 tests: 13 passed.
+  - `gh issue view 205`: open, text matches Q26.
+  - Log query: 2,384 calls, $5.01.
+- **Feedback:** a sweep after a "state the owner's verdict" fix also has to ask what each gate that consumes that result now requires, not only whether the verdict is printed.
+- **Need anything from human:** No. R14-B1's fix is agent work: add the question and default, and extend A3.
+
+Reviewed revision: a58162af9d347ce0a6cdaeb70693ca02f19b96de
 
 Verdict: revise

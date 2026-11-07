@@ -258,7 +258,7 @@
     "/home/brian/code2/process_tracing/docs/planning/open-questions.json:404"
    ],
    "verdict": "fails",
-   "note": "Only the frozen pipeline (pt/) accepts --qualitative-handoff and writes pt_export_v2 with a publication gate. The answer path, the draft-audit prototype (ADR 0004), takes no handoff and writes no pt_export_v2 (Process Tracing Q20). S4 adds the handoff input and Q20's partial adapter in process_tracing (Q23).",
+   "note": "Only the frozen pipeline (pt/) accepts --qualitative-handoff and writes pt_export_v2 with a publication gate. The answer path, the draft-audit prototype (ADR 0004), takes no handoff and writes no pt_export_v2 (Process Tracing Q20). S4 adds the handoff input and Q20's partial adapter in process_tracing (Q23) only if Brian names a case with its own records (Q25).",
    "question_id": "Q23"
   },
   {
@@ -307,7 +307,7 @@
   },
   {
    "id": "F18",
-   "claim": "Process Tracing's frozen pipeline's pt_export_v2 carries a publication gate the workbench can require before showing a causal conclusion; the export S4 reads, the answer path's partial export, carries none (Q23)",
+   "claim": "Process Tracing's frozen pipeline's pt_export_v2 carries a publication gate the workbench can require before showing a causal conclusion; the export S4 would read only if Brian names a case (Q25), the answer path's partial export, carries none (Q23)",
    "evidence": [
     "/home/brian/code2/process_tracing/pt/export.py:598",
     "/home/brian/code2/process_tracing/pt/export.py:648",

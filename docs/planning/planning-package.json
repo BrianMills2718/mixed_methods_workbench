@@ -335,9 +335,9 @@
       "step": "Q12(c), only if Brian answers \"need agree or disagree\": Qualitative Coding reruns its theory on a subset of the interviews in its own repository, so a proposition's condition and outcome are measured only on interviews held out from it",
       "per": "one rerun",
       "basis": "measured",
-      "cost_per_run_usd": 4.94,
-      "calls_per_run": 2075,
-      "evidence": "Upper figure, the same as S6's entry: every qualitative_coding call on the Open Science corpus recorded in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: 2,075 calls, $4.94 in total, including partial reruns and four grounded-theory school variants; a subset rerun costs less."
+      "cost_per_run_usd": 5.01,
+      "calls_per_run": 2077,
+      "evidence": "Upper figure, the same as S6's entry: every qualitative_coding call recorded in ~/projects/data/llm_observability.db (llm_client's log) for projects qc and qualitative_coding from 2026-11-05 00:00 to 2026-11-07 00:00 UTC, read 2026-11-07 04:50 UTC: 2,077 paid calls (3,164 log rows), $5.01 in total, including partial reruns and four grounded-theory school variants; a subset rerun costs less."
      },
      {
       "step": "Q12(c), only if Brian answers \"need agree or disagree\": S2's plain version labelling three themes per turn (the construct, the proposition's condition and its outcome) on held-out interviews, two calls per pass",
@@ -402,9 +402,9 @@
       "step": "S6 Qualitative Coding's grounded-theory pass on the second corpus, run in its own repository if Q21 needs one",
       "per": "one corpus of about 25 interviews",
       "basis": "measured",
-      "cost_per_run_usd": 4.94,
-      "calls_per_run": 2075,
-      "evidence": "Every qualitative_coding call on the Open Science corpus recorded in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: 2,075 calls, $4.94 in total, including partial reruns and four grounded-theory school variants, so one clean pass on a corpus of similar size costs at most about that."
+      "cost_per_run_usd": 5.01,
+      "calls_per_run": 2077,
+      "evidence": "Every qualitative_coding call recorded in ~/projects/data/llm_observability.db (llm_client's log) for projects qc and qualitative_coding from 2026-11-05 00:00 to 2026-11-07 00:00 UTC, read 2026-11-07 04:50 UTC: 2,077 paid calls (3,164 log rows), $5.01 in total, including partial reruns and four grounded-theory school variants, so one clean pass on a corpus of similar size costs at most about that."
      },
      {
       "step": "S7 fresh end-to-end run on the second corpus, measurement step: S2's plain version again (the readiness page itself makes no model call)",

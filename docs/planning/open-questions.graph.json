@@ -214,13 +214,13 @@
    "id": "Q12",
    "label": "Q12: What 1.0 promises: outside researcher, theory operationalization",
    "kind": "question_brian",
-   "explain": "Three narrowings of the roadmap's 1.0 that only Brian can accept. (a) Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim? (b) The roadmap's 1.0 includes theory operationalization (ROADMAP.md:65); Plan #8 keeps within-case causal reasoning (Process Tracing) and moves theory operationalization (Theory Forge, which has no consumer export) to after 1.0. Is that acceptable? (c) The roadmap's G4 1.0 condition names \"contradiction disposition\" (ROADMAP.md:83). In Plan #8 S2 measures one of the author's codes (on the pinned theory none passes the construct rule, so it is your own pick below the bar, Q15), and a prevalence cannot confirm or contradict a when-then proposition, so every 1.0 joint-display row says \"complements\" or \"silent: not measured\": 1.0 never shows the two strands agreeing or disagreeing, and contradiction disposition is built and exercised only by planted failures. Is a complements-only 1.0 acceptable, or must one row be able to agree or disagree? A row that agrees or disagrees tests the proposition, so under your decision 0017 and Qualitative Coding's rule it must be measured on interviews the proposition was not built from, not on the interviews that produced it."
+   "explain": "Four narrowings of the roadmap's 1.0 that only Brian can accept. (a) Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim? (b) The roadmap's 1.0 includes theory operationalization (ROADMAP.md:65); Plan #8 keeps within-case causal reasoning (Process Tracing) and moves theory operationalization (Theory Forge, which has no consumer export) to after 1.0. Is that acceptable? (c) The roadmap's G4 1.0 condition names \"contradiction disposition\" (ROADMAP.md:83). In Plan #8 S2 measures one of the author's codes (on the pinned theory none passes the construct rule, so it is your own pick below the bar, Q15), and a prevalence cannot confirm or contradict a when-then proposition, so every 1.0 joint-display row says \"complements\" or \"silent: not measured\": 1.0 never shows the two strands agreeing or disagreeing, and contradiction disposition is built and exercised only by planted failures. Is a complements-only 1.0 acceptable, or must one row be able to agree or disagree? A row that agrees or disagrees tests the proposition, so under your decision 0017 and Qualitative Coding's rule it must be measured on interviews the proposition was not built from, not on the interviews that produced it. (d) The roadmap's G2 asks for one validated qualitative path. The theory S1 pins (Qualitative Coding's run e131eb55) is unfinished by QC's own measure: it rejects 46% of proposed quotes, against QC's \"wrong if\" line of roughly a quarter, and predates QC's disprove test. May 1.0's qualitative-path row read \"met\" on that run, or does the 1.0 tag wait until QC commits a theory under its own line (asked in BrianMills2718/qc issue #205)?"
   },
   {
    "id": "d_Q12",
    "label": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must",
    "kind": "decision",
-   "explain": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must also bring in Theory Forge"
+   "explain": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must also bring in Theory Forge; whether S2 also measures one proposition's condition and outcome (part c); when 1.0 can be tagged while QC's committed theory is unfinished by its own measure (part d)"
   },
   {
    "id": "measurement_instrument",
@@ -394,7 +394,7 @@
    "id": "qc_theory_export",
    "label": "Qualitative Coding theory export",
    "kind": "concept",
-   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. The export itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the passage ids each rests on), pinned by commit and sha256; S1 pins run e131eb55's review-candidate file, which carries the cited passages with their offsets, and reads QC's segment records for the turns (Q26). The file itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
   },
   {
    "id": "Q22",
@@ -424,13 +424,13 @@
    "id": "proposition_measure_map",
    "label": "Proposition-to-measure map",
    "kind": "concept",
-   "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
+   "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for, or, when Brian picks a code below the bar, the category of the table row he picks, labelled as his pick), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
   },
   {
    "id": "Q23",
    "label": "Q23: Which Process Tracing route S4 reads (the causal export)",
    "kind": "question_agent_resolved",
-   "explain": "Process Tracing's answer path is now its draft-audit prototype (its ADR 0004, approved by Brian 2026-11-05, confirmed 2026-11-06), which writes no pt_export_v2; its pipeline, which accepts a QC handoff and writes the gated export, is frozen (Brian, 2026-09-30) and stopped without an answer on its last two hard cases. Which route gives S4 its causal result?"
+   "explain": "Process Tracing's answer path is now its draft-audit prototype (its ADR 0004, approved by Brian 2026-11-05, confirmed 2026-11-06), which writes no pt_export_v2; its pipeline, which accepts a QC handoff and writes the gated export, is frozen (Brian, 2026-09-30) and stopped without an answer on its last two hard cases. If Brian names an independent case (Q25), which route gives S4 its causal result? Without such a case no Process Tracing run happens (decision 0017), and this question does not arise."
   },
   {
    "id": "d_Q23",
@@ -442,7 +442,7 @@
    "id": "pt_export",
    "label": "Process Tracing export (pt_export_v2)",
    "kind": "concept",
-   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport. Plan #8 S4 reads instead the answer path's partial export (provisionally pt_draft_audit_export_v1, never a full V2 claim, no publication gate) through a second, partial reader; publication_gate.publishable is read when present, and shown on two made-up test exports."
+   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport (the PsychosisBank appraisal of an earlier QC theory's proposition P5 is one). Plan #8 S4 extends the reader to read publication_gate.publishable when present and shows it on two made-up test exports."
   },
   {
    "id": "connected_run_receipt",
@@ -454,19 +454,19 @@
    "id": "independent_case_packet",
    "label": "Independent case packet",
    "kind": "concept",
-   "explain": "A named case's own records (decision records, timelines, correspondence) with the proposition to test, generalising the P5 input and IndependentCaseSources; never the study's own interviews. Plan #8 S4 (Q24, Q25)."
+   "explain": "One named case's own records for a process-tracing test of one QC proposition: the proposition (by id, from the pinned grounded-theory export, or with its own theory pin when it comes from another QC theory version, as P5 does), the case's name, focal window and outcome, its source records and known gaps. Generalises the P5 input (qc-p5-process-tracing-input/1) and the implemented IndependentCaseSources packet (src/mixed_methods_workbench/investigation_spine.py:79); the reader refuses any of the study's own interviews (decision 0017). Plan #8 S4 (Q24, Q25)."
   },
   {
    "id": "selection_gate",
    "label": "Selection gate",
    "kind": "concept",
-   "explain": "The six method-selection questions answered by a person for a named case, with name and date; nothing is tested until they are. Plan #8 S4."
+   "explain": "The six method-selection questions of QC's methods document, each answered by a person for one named case, with the answerer and date, stored with the study definition; while any is unanswered the causal tab reads 'not tested'. No model call drafts answers. Plan #8 S4."
   },
   {
    "id": "pt_partial_export",
    "label": "Process Tracing partial export",
    "kind": "concept",
-   "explain": "The answer path's partial export (provisionally pt_draft_audit_export_v1), built only if Q25 names a case. Plan #8 S4."
+   "explain": "The draft-audit answer path's partial export (provisionally pt_draft_audit_export_v1, never a full V2 claim): only fields the merged answer supports, the rest marked absent, read by a second, partial reader. Built in Process Tracing's repository only if Brian names an independent case (Q25). Plan #8 S4 (Q23)."
   },
   {
    "id": "qc_pt_handoff",
