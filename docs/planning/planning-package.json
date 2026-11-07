@@ -188,6 +188,7 @@
     "joint_display",
     "meta_inference",
     "verification_challenge",
+    "qc_pt_handoff",
     "pt_export",
     "publication_gate",
     "connected_run_receipt",
@@ -395,7 +396,8 @@
      "git log -i --grep 'pause|archive|overbuilt|start over' (finds the NYC pause, PR #41, and the Phase 3 pause lifted 2026-10-08)",
      "docs/plans history and AGENTS.md, docs/PLANNING_STATUS.md",
      "docs/PLANNING_STATUS.md:208-218 (2026-08-13 integration assessment's limits, agent-written under Brian's approval of that assessment, not his words): 'must not rerun QC, Process Tracing ... merely to populate the Workbench'; read as still holding for the purpose it names, honoured in plan 'Not in this plan' (S4 and S6 run producers in their own repositories to test a 1.0 condition, never to fill the page); its limit on authorizing implementation beyond the Investigation Spine is superseded by Brian's 2026-11-06 direction to finish (open-questions.json Q1)",
-     "Process Tracing's own stops: its pt/ freeze (Brian, 2026-09-30) and ADR 0004 (approved by Brian 2026-11-05: the draft-audit prototype is the answer path, the pipeline stays frozen), read in /home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67-79 and its open-questions.json Q20; S4 honours both (no pt/ work, prototype route, Q23)"
+     "Process Tracing's own stops: its pt/ freeze (Brian, 2026-09-30) and ADR 0004 (approved by Brian 2026-11-05: the draft-audit prototype is the answer path, the pipeline stays frozen), read in /home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67-79 and its open-questions.json Q20; S4 honours both (no pt/ work, prototype route, Q23)",
+     "Process Tracing's autopsy of its stop signals, /home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:73-75 and :142-143"
     ],
     "found": [
      {
@@ -407,10 +409,31 @@
      },
      {
       "said_on": "2026-09-30",
-      "words": "pt/ stays frozen (Brian, 2026-09-30)",
-      "source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
+      "words": "Backend freeze (an agent's paraphrase in commit a88aac6; Brian's own words for it were not found, per Process Tracing's autopsy)",
+      "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:75; /home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
       "applies_to": "Process Tracing's pipeline (pt/), which S4 does not change or run",
       "status": "holds"
+     },
+     {
+      "said_on": "2026-07-29",
+      "words": "overbuilt",
+      "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:142",
+      "applies_to": "Process Tracing's pipeline design",
+      "status": "lifted (ADR 0004, approved by Brian 2026-11-05 'i approve those.', moves the answer to the small prototype S4 uses)"
+     },
+     {
+      "said_on": "2026-08-20",
+      "words": "archive ... start over",
+      "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:142",
+      "applies_to": "the Process Tracing repository",
+      "status": "lifted (Brian, 2026-09-24: 'lets archive causal trace', keeping process_tracing as the active project; ADR 0004 2026-11-05)"
+     },
+     {
+      "said_on": "2026-09-24",
+      "words": "seems like a patch ot an actual fix",
+      "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:143",
+      "applies_to": "the pipeline's self-correction round cap",
+      "status": "lifted (ADR 0004 replaces the pipeline with the prototype as the answer path; S4 runs no pipeline)"
      }
     ]
    }

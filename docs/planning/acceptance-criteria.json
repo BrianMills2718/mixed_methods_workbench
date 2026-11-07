@@ -99,10 +99,11 @@
    "demonstration": [
     "Open the Causal tab",
     "Read the hypothesis, each evidence test and its verdict",
-    "Read the publication gate line"
+    "Read the publication gate line",
+    "Open 'How the gate behaves' and read both test exports"
    ],
-   "expected": "Process Tracing's within-case verdicts are shown in their own panel, never merged with the prevalence; the conclusion shows only when the gate says publishable, else 'withheld' and why. On the Open Science proposition the export comes from Process Tracing's answer path, which carries no publication gate, so the line reads 'withheld: Process Tracing's answer path carries no publication gate'; the committed fixture with a publishable gate shows the conclusion.",
-   "failure_example": "A Process Tracing export whose gate is not publishable: a broken page still shows the causal conclusion.",
+   "expected": "Process Tracing's within-case verdicts are shown in their own panel, never merged with the prevalence; a conclusion shows only when the gate says publishable, else 'withheld' and why. On the Open Science proposition the export comes from Process Tracing's answer path, which carries no publication gate, so the line reads 'withheld: Process Tracing's answer path carries no publication gate'. In 'How the gate behaves', two made-up test exports, labelled as test data: the one with a publishable gate shows its conclusion, the one with a blocked gate reads 'withheld' and why.",
+   "failure_example": "A Process Tracing export whose gate is not publishable still shows the causal conclusion; or the publishable test export still reads 'withheld' (a page that never shows any conclusion).",
    "representation": {
     "view": "argument-page",
     "router_record": "docs/planning/router/A6.recommendation.json"

@@ -3,6 +3,23 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 6 (read 9ad84d1): revise
+
+The reviewer found round 5's S4 route fixed (the draft-audit prototype with a handoff input and Process
+Tracing's Q20 adapter, F13 now "fails", the measured $0.0555 cost, the freeze in `stops`) and notes n1 to
+n4 fixed. It reproduced the overlap figures, the crosswalk counts, `make check` and every computed cost. It
+returned **revise** on one remaining part of B1, with notes N1 to N6. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 (rest) | The fixture cited for A6's publishable case is a `pt_theory_test_return_v1` record with a blocked gate and no `publishable` field; no committed file shows a conclusion, so half of A6 could not be judged | Claim corrected in the plan's S4 build, A6 and Q23. S4 now commits two made-up test exports, labelled as test data (one publishable, one blocked), shown in a "how the gate behaves" panel; A6 gains a step that opens it and a second failure example ("the publishable test export still reads 'withheld'") |
+| N1 | Plan lines 45 and 75 and the `pt_export` glossary entry described the old route; the adapter's schema was unnamed | Reworded; the plan says no 1.0 causal conclusion from the answer path shows as published; the adapter's schema is named (provisionally `pt_draft_audit_export_v1`) with a second, partial reader whose gate and conclusion fields are optional |
+| N2 | `stops` missed Process Tracing's earlier stop signals; the freeze's words were an agent's paraphrase | Added "overbuilt" (2026-07-29), "archive ... start over" (2026-08-20) and "a patch ot an actual fix" (2026-09-24), each `lifted` with its reason; the freeze entry now says its words are a paraphrase |
+| N3 | F18 held only for the frozen pipeline's export | Narrowed, and pointed to Q23 |
+| N4 | The coverage record called "part of my broader vision" a process requirement | Re-judged with `--force` |
+| N5 | QC's Process Tracing handoff was missing from the domain model | Added as `qc_pt_handoff` (glossary, graph, spectrum, `relies_on`); S4 first checks the proposition is an anchored `GT_PROPOSITION` claim |
+| N6, n5, n6 | Stale reviewed revision; agent questions settleable now; page links 404 before merge | N6 is replaced by this round's record. n5 and n6 stand as answered in round 5 |
+
 ## Plan #8, round 5 (read c79e70b): revise
 
 The reviewer found round 4's F1, F2 and V fixed, and notes n1 to n7, n9 and n10 fixed. It reproduced the
@@ -350,5 +367,107 @@ I ran it at revision `2092693` and it exited 1.
 - **Need anything from human:** No.
 
 Reviewed revision: c79e70bc7704557221b028ebf168f910b843c68e
+
+Verdict: revise
+
+## Plan #8, round 6 reviewer's report (verbatim)
+
+The verdict is **revise**. One blocking problem is left, and it is the part of the round-5 fix that changed acceptance check A6. That fix leans on a test file that does not exist in the form the plan describes. The rest of the round-5 fix holds, and so do the overlap figures, the crosswalk counts and the S4 cost.
+
+#### Validator
+
+I ran it on the current branch (revision 0782bbf); it exited **1**.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review, whose recorded verdict is still `revise`. That was expected.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and the 3 untested extra stages; the contract makes both WAIT on purpose.
+- **Other lines:** initiative and spectrum tiers 4 of 4. Goal coverage passes (2 requirements covered, 1 marked as being about process). Goal provenance passes. Freshness passes, counting 1 commit of work since 9ad84d1.
+- **Plan checklist:** `plan_checklist.py --check` matches, 0 differing lines, exit 0.
+
+#### Recorded checks I reran
+
+- **Overlap scripts** (`overlap.py` and `overlap2.py` on the S1 branch at faf5399): every figure matches the package. There are 630 interviewee turns, 224 pairs of a QC category and an author code, and 11 numbered question codes. "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48 and the highest two-way overlap is 0.18. The two pairs of QC categories that cite identical turns show up as stated.
+- **Crosswalk check:** 171 steps, 36 groups, 0 errors, exit 0. Matches the manifest, and the tree stayed clean.
+- **`make check`:** exit 0, with 41 pytest tests passing (11 + 30). Matches the manifest.
+- **S4 cost:** Process Tracing's efficiency readout (lines 161-163) gives `fomc_v4` as 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555, with no audits. That matches the cost entry and the default setup ADR 0004 chose.
+- **Computed costs:** the S2 plain version ($0.0783), the definition call ($0.0043) and the S3 plain version ($0.0137) all recompute.
+- **A1 (marked built):** the live page returned 200. Its `index.html` hash (eae2c256…) equals the committed `deploy/psychosisbank-review/public/index.html`. It contains the "Independent challenge" section, "withheld" and "Controlled access", so the demonstration can be followed there.
+
+#### Round-5 findings
+
+- **B1 (S4's Process Tracing route): partly fixed; the A6 part is fixed wrongly, so B1 stays blocking.**
+  - **Fixed:** S4 now names the draft-audit prototype plus a handoff input and the export adapter that Process Tracing's own Q20 recommends. That matches ADR 0004 (line 79: the prototype "writes no `pt_export_v2.json`"; line 67: `pt/` stays frozen) and Q20 (open-questions.json, line 410: "never a full V2 claim").
+  - **Also fixed:** finding F13 now says "fails" and points to Q23. The S4 row in SYSTEM_MODEL.md (line 51) is corrected, the cost is the measured $0.0555, and `stops` now records the freeze.
+  - **Fixed wrongly:** the claim that "the publishable branch is tested with the committed fixture that carries a gate" (detail under the blocking finding below).
+- **n1 (stale verdict wording): fixed.** No "convergence / complementarity / divergence" wording is left. A5 reads "which ones the measure speaks to and how". The goal fields name "one of the corpus authors' own codes".
+- **n2 (LiteLLM price): fixed.** The list price ($0.20 input, $1.20 output per million tokens) is cited beside the higher fitted price.
+- **n3 (QC categories citing the same turns): fixed.** Finding F19 and plan lines 157-161 cover it, and my overlap run confirms it.
+- **n4 (who drafts the instrument's definition): fixed.** One traced llm_client call, costed at $0.0043 in the plan (line 212) and the manifest.
+- **n5 (agent questions that could be settled now): not fixed, by choice.** Still a note.
+- **n6 (page links): not fixed, by design.** Still a note: the branch is still on no remote.
+
+#### Blocking finding
+
+- **B1 (remaining part): acceptance and plan.** Where: `docs/plans/008_finish_workbench.md:272-274`, `docs/planning/acceptance-criteria.json:104` (A6 expected result) and `docs/planning/open-questions.json:436` (Q23 `resolves_with`).
+  - **What is wrong:** the fixture cited for the "publishable" case, `examples/fixtures/investigation_spine/process_tracing_return.json`, does not support that claim:
+    - It is a `pt_theory_test_return_v1` record, not a `pt_export_v2`.
+    - Its gate says `"status": "blocked"` and `"public_conclusion_status": "withheld_pending_repair"`, which is the withheld case.
+    - It has no `publishable` field at all.
+    - The only real `pt_export_v2` in the repository (`examples/runs/psychosisbank-synthesis-20260923/pt-generated/pt_export_v2.json`) has no `publication_gate` either, and its `public_headline_eligible` is false.
+  - **Why it matters:** no committed file exercises the "conclusion shows" case. A6's demonstration has no step that reaches one. On the only real case, the Open Science proposition, a working page and a broken page that never shows any conclusion both read "withheld". So Brian cannot judge the half of A6 that says "unless the gate allows it".
+  - **Fix:**
+    - Correct the claim in all three places.
+    - Then do one of two things:
+      - (i) Commit a small `pt_export_v2` test file with a publishable gate (status accepted, integrity verified, `publishable` true), and one with a blocked gate. Label them as made-up test data, which supports only a claim about their shape. Show both in a "how the gate behaves" panel on the Causal tab, with an A6 step that opens it.
+      - (ii) Run the frozen pipeline once on the same small one-interview case. ADR 0004 (lines 67-69) keeps it "as the reference where a reader must step through a full provenance chain (… report and workbench)", so this gives a real gated export.
+    - Add a second failure example: "the publishable example still reads 'withheld'".
+  - **Weight:** blocking.
+
+#### Notes (do not block)
+
+- **N1 (plan wording).** `008_finish_workbench.md:45`, `:75` and `DOMAIN.md:42` still describe the old route:
+  - Line 45 says "PT's `pt_export_v2` already takes a QC handoff". Only the frozen pipeline's command does.
+  - Line 75 says "QC handoff → PT `pt_export_v2` … publication gate respected".
+  - DOMAIN.md:42 still says the export's own `publication_gate.publishable` field is read from S4, but S4's export will carry no gate.
+  - Also missing: in 1.0, no causal conclusion from Process Tracing's answer path is ever shown, because that path carries no gate.
+  - Also unnamed: the schema the adapter's partial export declares. Process Tracing's Q20 says "never a full V2 claim", yet `ProcessTracingExport` (`investigation_run.py:101-113`) requires `schema_version` to be "pt_export_v2" and a full set of required sections.
+  - **Fix:** reword lines 45 and 75 and the glossary entry, and name the adapter's schema and which reader fields become optional. Weight: note.
+- **N2 (`stops`).** `planning-package.json:398` and `:410`:
+  - The search line says Process Tracing's stops were read, but the stops its autopsy lists are not recorded: "overbuilt" (2026-07-29), "archive … start over" (2026-08-20) and "a patch, not an actual fix" (2026-09-24). See `process_tracing/docs/analysis/autopsy_20261106.md:142-143`.
+  - None of them holds against S4's work on the prototype. Brian's 2026-09-24 decision to archive the restart and his 2026-11-05 "i approve those." lift them, so they should be recorded as `lifted`.
+  - The freeze entry's `words`, "pt/ stays frozen (Brian, 2026-09-30)", is the ADR's paraphrase. The autopsy (line 75) says Brian's own words for the freeze were not found.
+  - Weight: note.
+- **N3 (investigation).** `investigation.json:288`: F18 says "holds" and points to Q1. That is true of the frozen pipeline's schema, not of the export S4 will read. **Fix:** narrow the claim and point it to Q23. Weight: note.
+- **N4 (acceptance coverage record).** `acceptance-criteria.json:251-254`: the stored record calls "part of broader vision" a process requirement and leaves it uncovered.
+  - I split Brian's words myself into three requirements:
+    - "finish" is covered by A2-A9;
+    - "not for a specific use case" is covered by A10 and A3;
+    - "part of my broader vision" is covered by A11, and the outcome line keeps it.
+  - So nothing is lost today. But if A11 were later dropped, no coverage check would notice. **Fix:** re-judge once with `--force` so the third requirement becomes a constraint mapped to A11. Weight: note.
+- **N5 (domain model).** S4 builds an input for QC's `export-process-tracing-handoff` package (`qc/qc_clean/core/process_tracing_handoff.py:202`, which exports `state.claims`). That concept is in neither the domain graph nor `relies_on`. S4 should also confirm that the Open Science project state carries the chosen proposition as an anchored claim (QC has a `GT_PROPOSITION` claim kind). Weight: note.
+- **N6 (cold-review record).** `planning-package.json:430` and the page still give bdf06d7 (round 4) as the reviewed revision, though round 5 read c79e70b. This round replaces it. Weight: note.
+- **n5 (carried, ledger).** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now. Weight: note.
+- **n6 (carried, page).** `git branch -r --contains 9ad84d1` is empty, so the page's `/blob/main/` links return 404 until the branch is pushed and merged. The repository is in Brian's own account, so the company-organization rule does not apply. Weight: note.
+
+#### What I was unsure about
+
+- **Whether the A6 problem should block.** It is narrow and S4 is a later slice. But it is a false claim inside a blocking fix, and it leaves half of a user outcome impossible for Brian to judge, so I kept it blocking.
+- **Whether option (b) is the better route.** Running the frozen pipeline once on the small one-interview case changes no `pt/` code, ADR 0004 names the workbench as a reason to keep it, and it would give A6 a real gate. Choosing between (a) and (b) is the agent's technical call; Q23's reasoning for (a) is defensible.
+- **What I could not do.** No browser tool was available (Playwright is not installed), so the page was read as HTML, not rendered. I ran the 41 tests inside `make check`, not the full 204-test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0.
+  - Overlap scripts: figures as above.
+  - Fixture and real-export gate fields: read directly.
+  - Process Tracing's ADR 0004, its Q20, the efficiency readout lines 161-163 and the autopsy: read directly.
+  - A1's live page: fetched; its hash equals the committed copy.
+- **Feedback:** the validator's JSON checklist labels the pending lines "failing" (plan lines 389-390) while its text output prints WAIT. This is a plugin fault, carried from round 5.
+- **Need anything from human:** No.
+
+Reviewed revision: 9ad84d1a935515f616067d98c77a58aecf2a0084
 
 Verdict: revise

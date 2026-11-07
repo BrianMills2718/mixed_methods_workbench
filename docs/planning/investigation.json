@@ -286,14 +286,15 @@
   },
   {
    "id": "F18",
-   "claim": "Process Tracing's pt_export_v2 carries a publication gate the workbench can require before showing a causal conclusion",
+   "claim": "Process Tracing's frozen pipeline's pt_export_v2 carries a publication gate the workbench can require before showing a causal conclusion; the export S4 reads, the answer path's partial export, carries none (Q23)",
    "evidence": [
     "/home/brian/code2/process_tracing/pt/export.py:598",
     "/home/brian/code2/process_tracing/pt/export.py:648",
-    "src/mixed_methods_workbench/investigation_run.py:72"
+    "src/mixed_methods_workbench/investigation_run.py:72",
+    "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79"
    ],
    "verdict": "holds",
-   "question_id": "Q1",
+   "question_id": "Q23",
    "note": "PublicationGateV2.publishable exists in PT; the workbench's current pt_export_v2 reader reads only comparative_conclusion.public_headline_eligible, so S4 extends it."
   },
   {

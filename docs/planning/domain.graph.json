@@ -212,7 +212,7 @@
    "id": "pt_export",
    "label": "Process Tracing export (pt_export_v2)",
    "kind": "concept",
-   "explain": "Process Tracing's versioned export, read here by ProcessTracingExport; its own publication_gate.publishable field is read from Plan #8 S4."
+   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport. Plan #8 S4 reads instead the answer path's partial export (provisionally pt_draft_audit_export_v1, never a full V2 claim, no publication gate) through a second, partial reader; publication_gate.publishable is read when present, and shown on two made-up test exports."
   },
   {
    "id": "investigation_record",
@@ -273,6 +273,12 @@
    "label": "Number and passage check",
    "kind": "planned",
    "explain": "The deterministic check on every S3 draft: each number it cites equals the measured result, each passage id resolves, and a verdict the map refuses (converges or diverges on a prevalence-only row) is refused; a failing draft is shown in orange, never silently corrected. Plan #8 S3."
+  },
+  {
+   "id": "qc_pt_handoff",
+   "label": "QC's Process Tracing handoff",
+   "kind": "planned",
+   "explain": "Qualitative Coding's export-process-tracing-handoff package: the project's anchored claims (state.claims, with GT_PROPOSITION claims among them) for Process Tracing to test. Plan #8 S4 turns one proposition's handoff into a draft-audit case."
   }
  ],
  "edges": [
@@ -623,6 +629,18 @@
    "source": "proposition_measure_map",
    "target": "integration_check",
    "label": "sets the verdicts allowed by"
+  },
+  {
+   "id": "e159",
+   "source": "qc_theory_export",
+   "target": "qc_pt_handoff",
+   "label": "propositions exported as"
+  },
+  {
+   "id": "e160",
+   "source": "qc_pt_handoff",
+   "target": "pt_export",
+   "label": "becomes a case producing"
   }
  ]
 }
