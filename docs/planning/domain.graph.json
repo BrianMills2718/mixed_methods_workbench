@@ -154,6 +154,30 @@
    "label": "Public review artifact",
    "kind": "concept",
    "explain": "The investigation-spine payload and page that scripts/build_psychosisbank_public_review.py copies into deploy/ and the Cloudflare Worker serves."
+  },
+  {
+   "id": "study_corpus",
+   "label": "Study corpus",
+   "kind": "theory",
+   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date. Planned in Plan #8, not built yet."
+  },
+  {
+   "id": "qualitative_strand",
+   "label": "Qualitative strand",
+   "kind": "theory",
+   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages. Planned in Plan #8, not built yet."
+  },
+  {
+   "id": "measurement_instrument",
+   "label": "Measurement instrument",
+   "kind": "theory",
+   "explain": "A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding. Planned in Plan #8, not built yet."
+  },
+  {
+   "id": "joint_display",
+   "label": "Joint display",
+   "kind": "theory",
+   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict. Planned in Plan #8, not built yet."
   }
  ],
  "edges": [
@@ -288,6 +312,48 @@
    "source": "verification_challenge",
    "target": "public_review",
    "label": "is shown in"
+  },
+  {
+   "id": "e23",
+   "source": "study_corpus",
+   "target": "source_segment",
+   "label": "contains"
+  },
+  {
+   "id": "e24",
+   "source": "qualitative_strand",
+   "target": "study_corpus",
+   "label": "is drawn from"
+  },
+  {
+   "id": "e25",
+   "source": "qualitative_strand",
+   "target": "workbench_view",
+   "label": "is read through"
+  },
+  {
+   "id": "e26",
+   "source": "measurement_instrument",
+   "target": "qualitative_strand",
+   "label": "is derived from"
+  },
+  {
+   "id": "e27",
+   "source": "joint_display",
+   "target": "qualitative_strand",
+   "label": "joins"
+  },
+  {
+   "id": "e28",
+   "source": "joint_display",
+   "target": "measurement_instrument",
+   "label": "joins"
+  },
+  {
+   "id": "e29",
+   "source": "meta_inference",
+   "target": "joint_display",
+   "label": "is drawn from"
   }
  ]
 }

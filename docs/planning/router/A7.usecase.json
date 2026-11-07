@@ -1,0 +1,47 @@
+{
+ "id": "mmw-A7",
+ "title": "Review each meta-inference and download the bundle",
+ "concern": "Accept, reject or annotate each meta-inference, see the decision saved, and download one research bundle with every trace.",
+ "intent": [
+  "decide",
+  "modify"
+ ],
+ "informationStructure": [
+  "list"
+ ],
+ "tasks": [
+  "annotate",
+  "confirm",
+  "select"
+ ],
+ "entities": [
+  "meta-inference",
+  "review decision",
+  "bundle"
+ ],
+ "relationships": [],
+ "scale": {
+  "items": 6,
+  "density": "low"
+ },
+ "interaction": {
+  "mode": "authoring",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

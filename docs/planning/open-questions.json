@@ -9,20 +9,22 @@
    "blocks": "whether the next plan builds a new workbench slice or only keeps the repository shippable",
    "resolves_with": "A product and priority call: no argument or test settles it. Prior art: Plan #6 says a same_capability verdict is a candidate for later design, and none was found (adjudication: 29 different_capability, 7 shared_shell).",
    "owner": "brian",
-   "status": "open",
+   "status": "resolved",
    "blocking": false,
    "recommendation": "Build nothing new here for now. Keep the workbench as the integration record and let Qualitative Coding finish its grounded-theory speed-run; open the next workbench slice only when a study needs exports from two producers together.",
    "default": "Plan 007 (keep the repository shippable and its public page current) runs; no new workbench capability is built.",
    "sources": [
     "docs/PLANNING_STATUS.md:6",
     "docs/plans/006_method_crosswalk.md:48",
-    "docs/research/method_decomposition/phase5/adjudication.yaml"
+    "docs/research/method_decomposition/phase5/adjudication.yaml",
+    "docs/plans/008_finish_workbench.md:12"
    ],
    "touches": [
     "capability_verdict",
     "producer_engine",
     "meta_inference"
-   ]
+   ],
+   "evidence": "Brian, 2026-11-06, answering this question: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The recommendation (upkeep only) was rejected; Plan 008 (docs/plans/008_finish_workbench.md) finishes the workbench to 1.0 on a general, rights-clear example study."
   },
   {
    "id": "Q2",
@@ -78,15 +80,16 @@
    "blocks": "whether the public PsychosisBank review shows the current renderer",
    "resolves_with": "One check: deploy with wrangler from deploy/psychosisbank-review and compare the served index.html hash with the committed one.",
    "owner": "agent",
-   "status": "open",
+   "status": "resolved",
    "sources": [
     "deploy/psychosisbank-review/wrangler.jsonc:2",
-    "scripts/build_psychosisbank_public_review.py:16"
+    "docs/plans/007_keep_shippable.md:21"
    ],
    "touches": [
     "public_review",
     "publication_gate"
-   ]
+   ],
+   "evidence": "Deployed 2026-11-06 (Worker version e46676f3); served index.html sha256 eae2c256...0231 equals the committed file; payload 7ff58b07...92d0 equals too (docs/plans/007_keep_shippable.md:21)."
   },
   {
    "id": "Q6",
@@ -95,14 +98,15 @@
    "blocks": "whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)",
    "resolves_with": "Argument: a test must not change tracked files. Replace the write with a comparison (Q9), so a stale page fails the test instead of silently dirtying the checkout.",
    "owner": "agent",
-   "status": "open",
+   "status": "resolved",
    "sources": [
-    "tests/test_psychosisbank_public_review.py:6",
-    "scripts/build_psychosisbank_public_review.py:24"
+    "scripts/build_psychosisbank_public_review.py:18",
+    "tests/test_psychosisbank_public_review.py:22"
    ],
    "touches": [
     "public_review"
-   ]
+   ],
+   "evidence": "PR #59 (bb7390f): build(out_dir) and the test builds into tmp_path; tests/test_psychosisbank_public_review.py:22 fails on a stale deploy/ page (negative control run 2026-11-06)."
   },
   {
    "id": "Q7",
@@ -169,6 +173,96 @@
    ],
    "touches": [
     "public_review"
+   ]
+  },
+  {
+   "id": "Q11",
+   "short": "Where Brian opens the study page",
+   "question": "The study page each slice builds is committed in git but served nowhere Brian can open from his phone. Serve it, and this package's review page, from hive.brianmills.dev (add this public repository to personal-vps plan-repos.conf), from the existing PsychosisBank Worker under a new path, or keep both local?",
+   "blocks": "whether Brian can open each slice's result himself, or only through screenshots in replies",
+   "resolves_with": "A product call about his sites: no argument settles it. Prior art: hive.brianmills.dev already serves other repositories' review pages from git (personal-vps apps/hive-dashboard/plan-repos.conf); the corpus is CC BY-SA and the repository is already public, so neither route exposes private data.",
+   "owner": "brian",
+   "status": "open",
+   "blocking": false,
+   "recommendation": "Add the repository to hive.brianmills.dev's plan list (one line in personal-vps) so the study page and the review page are served from main behind his existing login; keep the PsychosisBank Worker for PsychosisBank only.",
+   "default": "Both pages stay committed and local; each slice report carries screenshots and the GitHub path.",
+   "answer_words": "\"hive yes\" / \"worker\" / \"local only\"",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:150",
+    "deploy/psychosisbank-review/worker.js:4"
+   ],
+   "touches": [
+    "study_corpus",
+    "public_review"
+   ]
+  },
+  {
+   "id": "Q12",
+   "short": "Does 1.0 need an outside researcher",
+   "question": "Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim?",
+   "blocks": "the 1.0 benchmark's claim wording and whether S6 waits on a person",
+   "resolves_with": "A product call about what 1.0 promises: no test settles whether a person's review is required. Prior art: Qualitative Coding set the same bar for its finish (its step 5) and has not met it.",
+   "owner": "brian",
+   "status": "open",
+   "blocking": false,
+   "recommendation": "1.0 claims only agreement with the authors' coding and the planted-failure results; an outside researcher's hour is the first post-1.0 step, so 1.0 does not wait on finding a person.",
+   "default": "The recommendation: the 1.0 claim is limited to agreement with the authors' coding.",
+   "answer_words": "\"author coding is enough\" / \"need a researcher\"",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:32",
+    "docs/ROADMAP.md:85"
+   ],
+   "touches": [
+    "meta_inference",
+    "measurement_instrument"
+   ]
+  },
+  {
+   "id": "Q13",
+   "short": "Second corpus for the benchmark",
+   "question": "Which second rights-clear corpus, with its authors' own coding published, does S6 use?",
+   "blocks": "S6 (the benchmark's held-out corpus)",
+   "resolves_with": "Prior art search (Zenodo, OSF, QDR open data, UK Data Service open access) under the S1 rules: open licence, participant consent to publication, the authors' coding published. No test needed.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:42"
+   ],
+   "touches": [
+    "study_corpus"
+   ]
+  },
+  {
+   "id": "Q14",
+   "short": "QC segment offsets against the Zenodo text",
+   "question": "Do the character offsets of QC's segments (and of the author's coded passages) point at the same text in the files downloaded from Zenodo, or did QC normalise the text on import?",
+   "blocks": "whether S1 can anchor every cited passage to the frozen source without a mapping step",
+   "resolves_with": "One check in S1: compare each segment's text with the frozen file at its offsets and count matches; a normalisation difference is mapped and the mapping recorded, never patched by hand.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:67"
+   ],
+   "touches": [
+    "source_segment",
+    "evidence_anchor"
+   ]
+  },
+  {
+   "id": "Q15",
+   "short": "Which category S2 measures",
+   "question": "Which QC category becomes the S2 measurement instrument?",
+   "blocks": "S2's construct",
+   "resolves_with": "Argument by a written rule, no test: the category with the most supporting passages that also has a matching author code, so a human reference exists. The roadmap's 2026-07-12 note gave this choice to Brian; under the 2026-11-05 authority rule (technical and method calls are the agent's) the agent decides and reports it, and Brian can overrule.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:78",
+    "docs/ROADMAP.md:349"
+   ],
+   "touches": [
+    "measurement_instrument",
+    "qualitative_strand"
    ]
   }
  ]

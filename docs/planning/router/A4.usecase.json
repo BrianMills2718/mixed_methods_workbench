@@ -1,0 +1,47 @@
+{
+ "id": "mmw-A4",
+ "title": "Quantitative strand: one category measured across every interview",
+ "concern": "See the measurement rule, the measure per interview, and how often it agrees with the author's coding on held-out interviews, then open each disagreement.",
+ "intent": [
+  "inspect",
+  "compare"
+ ],
+ "informationStructure": [
+  "table"
+ ],
+ "tasks": [
+  "compare",
+  "lookup",
+  "inspect"
+ ],
+ "entities": [
+  "interview",
+  "measure",
+  "disagreement"
+ ],
+ "relationships": [],
+ "scale": {
+  "items": 26,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "exploratory",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

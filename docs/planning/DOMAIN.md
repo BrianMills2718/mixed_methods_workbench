@@ -2,7 +2,7 @@
 
 The concepts this repository is about, what each means and where it is defined. The graph is
 [domain.graph.json](domain.graph.json). Dashed concepts are not implemented here: producers run in
-their own repositories, and meta-inference is named by the method but not computed.
+their own repositories, meta-inference is named by the method but not computed, and the Plan #8 concepts (study corpus, qualitative strand, measurement instrument, joint display) are planned, not built.
 
 | Concept (node id) | Meaning | Status | Source |
 | --- | --- | --- | --- |
@@ -29,6 +29,10 @@ their own repositories, and meta-inference is named by the method but not comput
 | Quantitative audit (`quantitative_audit`) | The NYC bounded quantitative comparison: frozen query, drift replay and predicted-versus-observed audit. | implemented | `src/mixed_methods_workbench/nyc_crz_quantitative.py:193` |
 | Meta-inference (`meta_inference`) | A bounded conclusion drawn by intentionally joining qualitative and quantitative strands; planned for version 0.4, not computed. | docs only | `AGENTS.md:104` |
 | Public review artifact (`public_review`) | The investigation-spine payload and page that `scripts/build_psychosisbank_public_review.py:16` copies into `deploy/` and the Cloudflare Worker serves. | implemented | `src/mixed_methods_workbench/investigation_spine.py:278` |
+| Study corpus (`study_corpus`) | A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:64` |
+| Qualitative strand (`qualitative_strand`) | A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:53` |
+| Measurement instrument (`measurement_instrument`) | A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:79` |
+| Joint display (`joint_display`) | One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:55` |
 
 "Method" is ambiguous here: a research method (qualitative coding, process tracing) or a method
 decomposition record. The decomposition is always called a decomposition.

@@ -3,7 +3,7 @@
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
  "subject_revision": "794be795fc69eb2a813300280539180266920d0a",
- "request": "Workflow task, 2026-11-06: \"Brian asked to resolve his open pull requests and uncommitted files\"; ship refuses this repository without a planning package, so the package was built to land pull request #57. Brian's own words were not available to the building agent. Kept proportionate (no full_method): Brian has not turned to this repository.",
+ "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
   "role": "home"
@@ -54,7 +54,7 @@
    "results": [
     {
      "name": "durable documents",
-     "command": "python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/durable_docs_check.py --repo . --arc42",
+     "command": "python3 ~/.claude/plugins/cache/inside-success/company-planning/0.2.0-codex.20261106061552/scripts/durable_docs_check.py --repo . --arc42",
      "exit_status": 2,
      "counts": {
       "findings": 1
@@ -63,7 +63,7 @@
     },
     {
      "name": "navigation",
-     "command": "python3 /home/brian/code2/worktrees/mmw-cp-main/plugins/company-planning/scripts/validate_project_navigation.py .",
+     "command": "python3 ~/.claude/plugins/cache/inside-success/company-planning/0.2.0-codex.20261106061552/scripts/validate_project_navigation.py .",
      "exit_status": 0,
      "counts": {
       "findings": 0,
@@ -75,9 +75,9 @@
      "command": "python3 ~/code/project-meta/scripts/md_file_cap.py --repo .",
      "exit_status": 1,
      "counts": {
-      "md_files": 122,
+      "md_files": 126,
       "cap": 100,
-      "unreachable": 108,
+      "unreachable": 112,
       "findings": 2
      },
      "tracked_by": "Q3"
@@ -88,15 +88,16 @@
      "exit_status": 0,
      "counts": {
       "failed": 0,
-      "steps": 7
+      "steps": 7,
+      "pytest_passed": 41
      }
     },
     {
      "name": "test suite",
-     "command": ".venv/bin/python -m pytest -q -p no:cacheprovider",
+     "command": "PYTHONPATH=src .venv/bin/python -m pytest -q -p no:cacheprovider",
      "exit_status": 0,
      "counts": {
-      "passed": 202,
+      "passed": 203,
       "skipped": 1,
       "failed": 0
      }
@@ -171,18 +172,62 @@
   },
   "plan": {
    "status": "present",
-   "path": "docs/plans/007_keep_shippable.md",
+   "path": "docs/plans/008_finish_workbench.md",
    "relies_on": [
-    "public_review",
-    "publication_gate",
-    "method_decomposition",
+    "study_corpus",
+    "qualitative_strand",
+    "source_segment",
+    "evidence_anchor",
     "producer_export",
-    "workbench_view"
+    "workbench_view",
+    "measurement_instrument",
+    "joint_display",
+    "meta_inference",
+    "publication_gate",
+    "public_review"
    ],
    "cost_basis": {
-    "steps": [],
-    "no_ai_steps_reason": "Plan 007 is file changes, a wrangler deploy and deterministic checks; it calls no model.",
-    "cheapest_design": "No model calls are needed for upkeep."
+    "steps": [
+     {
+      "step": "S2 measure: apply the instrument to each interviewee passage (mixed_methods_workbench.open_science.measure)",
+      "cost_per_run_usd": 0.72,
+      "per": "full pass over the corpus",
+      "calls_per_run": 650,
+      "basis": "measured",
+      "evidence": "llm-cost estimate --task qualitative_coding.gt_constant_comparison.application (median $0.0011, p90 $0.0019 per call, 708 calls, 2026-11-05): the same job, one inclusion rule applied to one passage; 650 calls x $0.0011"
+     },
+     {
+      "step": "S2 second model on disagreements only",
+      "cost_per_run_usd": 0.3,
+      "per": "full pass",
+      "basis": "guess",
+      "evidence": "Upper bound: the disagreement count is unknown until S2 runs; replaced by llm-cost estimate on the S2 task after its first run"
+     },
+     {
+      "step": "S3 integrate: draft verdict and meta-inference, then a second model's challenge (mixed_methods_workbench.open_science.integrate)",
+      "cost_per_run_usd": 0.046,
+      "per": "run over 6 propositions",
+      "calls_per_run": 12,
+      "basis": "measured",
+      "evidence": "llm-cost estimate --task qualitative_coding.grounded_theory_verdict (median $0.0038, p90 $0.0111 per call, 55 calls): a verdict over a category's passages; 12 calls x $0.0038"
+     },
+     {
+      "step": "S4 Process Tracing draft-audit on one proposition",
+      "cost_per_run_usd": 0.04,
+      "per": "run",
+      "basis": "measured",
+      "evidence": "llm-cost cost --group-by task, 2026-11-06: process_tracing.draft_audit.* total $0.233 over about 6 runs"
+     },
+     {
+      "step": "S6 rerun of S2 + S3 on the second corpus",
+      "cost_per_run_usd": 0.77,
+      "per": "run",
+      "calls_per_run": 662,
+      "basis": "measured",
+      "evidence": "Sum of the two measured per-call figures above: 650 x $0.0011 + 12 x $0.0038; three runs about $2.31"
+     }
+    ],
+    "cheapest_design": "One full pass with one model plus a second model only on disagreements, not two full passes; the embedding classifier runs locally at no model cost; S1, S5 and S7 call no model. Quality is not traded: every passage is judged once, every disagreement twice."
    }
   },
   "acceptance": {
@@ -199,5 +244,8 @@
    "verdict": "pass",
    "reviewed_revision": "794be795fc69eb2a813300280539180266920d0a"
   }
- }
+ },
+ "full_method": true,
+ "route": "durable_solo",
+ "route_decision": "docs/plans/008_finish_workbench.path-decision.json"
 }

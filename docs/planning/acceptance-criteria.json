@@ -1,8 +1,7 @@
 {
  "schema_version": "1.0",
  "record_type": "acceptance_criteria",
- "outcome": "Brian can open the public PsychosisBank review and judge each finding against its sources and its publication block; a crosswalk view of which method steps are shared across methods is planned, not yet built or scheduled.",
- "note": "Brian's exact words for this package's request were not available to the building agent (the request reached it through a workflow); asked_by is left empty, so goal coverage shows WAIT.",
+ "outcome": "The Mixed Methods Workbench is finished to 1.0 as a general tool in Brian's broader vision, not for one use case: on two rights-clear interview corpora a person can open a study page, follow every qualitative claim to its passage, see a quantitative strand measured and checked against the authors' own coding, read a joint display with bounded meta-inferences and a gated causal check, review and export everything with full traces, and read on a benchmark page what works, what fails and what it cost. The public PsychosisBank review stays served from committed files.",
  "entries": [
   {
    "id": "A1",
@@ -38,6 +37,246 @@
    },
    "entrypoint": "planned",
    "status": "not built"
+  },
+  {
+   "id": "A3",
+   "criterion": "I can open the study page for a general example corpus and follow each qualitative claim back to the interview passage it rests on, and see the corpus is frozen with its licence",
+   "demonstration": [
+    "Open proposals/open-science-study/index.html (committed; served locally with `make study-page`)",
+    "Read the corpus panel: 26 interviews, licence CC BY-SA 4.0, each file's hash status",
+    "Click a category, then one of its supporting passages",
+    "Read the passage in its interview, with its speaker and the author's own codes for that span"
+   ],
+   "expected": "Every interview shows 'hash matches Zenodo' in blue; each of QC's 8 categories and 6 propositions lists its passages; each passage opens at the right place in the right interview; the quantitative and integration strands say 'not built yet' in grey.",
+   "failure_example": "A passage whose offsets do not match the frozen text: a broken page shows the wrong words silently; a working page lists it under 'offset mismatches' in orange with both texts.",
+   "representation": {
+    "view": "composite-linked-view",
+    "router_record": "docs/planning/router/A3.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A4",
+   "criterion": "I can see one category measured across every interview, and how well that measure agrees with the author's own coding on interviews it was not tuned on",
+   "demonstration": [
+    "Open the study page's Measurement tab",
+    "Read the instrument: the rule and its included and excluded examples",
+    "Read the per-interview measure and the agreement figure with its interval",
+    "Click a disagreement and read the passage, the model's quoted reason and the author's code"
+   ],
+   "expected": "Agreement is shown with a bootstrap interval by interview and the count of held-out interviews; every disagreement is listed and opens its passage and its model trace.",
+   "failure_example": "Agreement computed on the same interviews used to tune the rule: the page must say 'held out: 0' and refuse to show a figure.",
+   "representation": {
+    "view": "data-table",
+    "router_record": "docs/planning/router/A4.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A5",
+   "criterion": "I can compare each qualitative proposition with the measured numbers and read whether they agree, and what may be concluded from both together",
+   "demonstration": [
+    "Open the Joint display tab",
+    "Read one row per proposition: the claim, the measured distribution, the verdict",
+    "Open a row's meta-inference and its challenger's critique"
+   ],
+   "expected": "Each row shows a verdict word (converges, complements, diverges, silent) with the passages and numbers it rests on; every meta-inference says 'pending review' until reviewed.",
+   "failure_example": "A meta-inference that claims more than either strand supports (for example a population rate from 26 interviews): the challenger flags it in orange and it is not marked accepted.",
+   "representation": {
+    "view": "composite-linked-view",
+    "router_record": "docs/planning/router/A5.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A6",
+   "criterion": "I can see a causal check on one proposition kept apart from how common it is, and that no causal conclusion shows unless the gate allows it",
+   "demonstration": [
+    "Open the Causal tab",
+    "Read the hypothesis, each evidence test and its verdict",
+    "Read the publication gate line"
+   ],
+   "expected": "Process Tracing's within-case verdicts are shown in their own panel, never merged with the prevalence; the conclusion shows only when the gate says publishable, else 'withheld' and why.",
+   "failure_example": "A Process Tracing export whose gate is not publishable: a broken page still shows the causal conclusion.",
+   "representation": {
+    "view": "argument-page",
+    "router_record": "docs/planning/router/A6.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A7",
+   "criterion": "I can accept, reject or annotate each meta-inference, see it saved, and download one bundle with every trace",
+   "demonstration": [
+    "Run `make study-workbench` and open the local address it prints",
+    "Accept one meta-inference and reject another with a note",
+    "Reload the page",
+    "Click 'Download bundle' and open its manifest"
+   ],
+   "expected": "Decisions survive the reload and appear in the review log; the bundle's manifest lists every file with its hash, including each run's trace and the reporting checklist.",
+   "failure_example": "A decision that vanishes on reload, or a bundle file whose hash differs from its manifest line.",
+   "representation": {
+    "view": "master-detail",
+    "router_record": "docs/planning/router/A7.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A8",
+   "criterion": "I can see on two different corpora what the workbench gets right, what it gets wrong, which planted failures it catches, and what each run cost",
+   "demonstration": [
+    "Open the benchmark page",
+    "Read one row per corpus and strand: agreement with the authors' coding",
+    "Read the planted-failure table",
+    "Read cost and time per run with its basis"
+   ],
+   "expected": "Both corpora appear; every planted failure is listed as caught (blue) or missed (orange); costs cite their llm-cost measurement.",
+   "failure_example": "A planted altered quote that the checks pass: the row reads 'missed' in orange, not hidden.",
+   "representation": {
+    "view": "data-table",
+    "router_record": "docs/planning/router/A8.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A9",
+   "criterion": "I can see which methods the finished workbench actually runs and which it does not",
+   "demonstration": [
+    "Open the method-profile page",
+    "Filter to 'runs in 1.0'",
+    "Read the reason beside an unsupported method"
+   ],
+   "expected": "Every method profile carries runs / does not run, the latter with a one-line reason; the release notes list both lists.",
+   "failure_example": "A method marked as run with no slice or test behind it.",
+   "representation": {
+    "view": "data-table",
+    "router_record": "docs/planning/router/A9.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A10",
+   "criterion": "I can point the workbench at a corpus it has never seen and get the same study page, without anyone changing its code",
+   "demonstration": [
+    "Open the benchmark page's 'corpora' list and the second corpus's study page",
+    "Open the second corpus's study definition file (the only file added for it)",
+    "Read the commit that added the corpus: it changes no file under src/"
+   ],
+   "expected": "The second corpus's study page has the same panels as the first; it was added by one study definition file plus frozen data; the page states which corpus fields were required and which were optional.",
+   "failure_example": "A corpus name, file layout or code list written into the workbench's code: the commit adding the second corpus touches src/, and the benchmark page shows that commit in orange.",
+   "representation": {
+    "view": "data-table",
+    "router_record": "docs/planning/router/A10.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
   }
- ]
+ ],
+ "asked_by": [
+  {
+   "who": "Brian",
+   "date": "2026-11-06",
+   "words": "on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision",
+   "source": "docs/plans/008_finish_workbench.md:12"
+  }
+ ],
+ "coverage": {
+  "model": "claude-code/sonnet",
+  "judged_at": "2026-11-06T19:32:38-0500",
+  "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
+  "criteria_sha256": "8c5ec7d2c4dd4da4d93b79f6596f198d1c12cdc7239b378c20c6d3c0da7d9ab2",
+  "outcome_sha256": "02446b3a799ffa6538ac193c52ec9cec7b207122f5b63da2ca4eaf10a3ea776d",
+  "criteria_judged": {
+   "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
+   "A2": "1c9bf559d2b6462c632f8915da35f11112c10f32394ebb8a7aa4e70509d204ff",
+   "A3": "677a95b37bce8f8fcd6b3c8917804567e9276b22cedbcbe95c329ac1a5681b11",
+   "A4": "926f227b236ce9ead6f2adb3a297b346e7f91e4bcc5a416ba1a22135a9331fae",
+   "A5": "da6f2de9556587a7d6b69d83fa0ae5e72ab7580fcca18845d5a6accaf1d851ec",
+   "A6": "d1889f56f60109ac3de05579d4de0a3e264e23166950397bc8734371b992fb5a",
+   "A7": "493f730dec2222dc9b2751d405317acb1eec68f177085f8587fb6114823ccdf5",
+   "A8": "b109a30047eb40383493517a6c0094e5c6008dab07d6891094675c781735960d",
+   "A9": "456278786bbe58c8bb8375c3937ea509d6d8e542d182e3c29d9f2bb727d95a8a",
+   "A10": "6a739d31054a535ece27f7a5f8dfb9eba76a87bc5096e550b6393bea777cbbb1"
+  },
+  "deferrals_judged": [],
+  "trace_id": "planning-compliance/goal-coverage/20261106T193132-13989ac2",
+  "cost_usd": 0.0,
+  "requirements": [
+   {
+    "id": "R1",
+    "requirement": "finish the workbench",
+    "quote": "finsih",
+    "asked_by_index": 1,
+    "kind": "outcome"
+   },
+   {
+    "id": "R2",
+    "requirement": "not use-case-specific",
+    "quote": "not for a specific use case",
+    "asked_by_index": 1,
+    "kind": "constraint"
+   },
+   {
+    "id": "R3",
+    "requirement": "part of broader vision",
+    "quote": "it is part of my broader vision",
+    "asked_by_index": 1,
+    "kind": "process"
+   }
+  ],
+  "mappings": [
+   {
+    "requirement_id": "R1",
+    "covered_by": [
+     "A1",
+     "A2",
+     "A3",
+     "A4",
+     "A5",
+     "A6",
+     "A7",
+     "A8",
+     "A9",
+     "A10"
+    ],
+    "coverage_reason": "All ten criteria test a distinct deliverable strand of the workbench; leaving any strand unbuilt fails the criterion that covers it, so together they would fail if the workbench were not finished.",
+    "extent": "full",
+    "missing": "",
+    "deferral": 0,
+    "in_outcome": true,
+    "outcome_reason": "The outcome says 'finished to 1.0' and enumerates every deliverable strand, keeping the requirement in full."
+   },
+   {
+    "requirement_id": "R2",
+    "covered_by": [
+     "A8",
+     "A10"
+    ],
+    "coverage_reason": "A10 requires the workbench to accept a never-seen corpus with no code changes — it fails if the tool is hard-coded to one use case; A8 requires correct results on two distinct corpora, failing if only one is wired in.",
+    "extent": "full",
+    "missing": "",
+    "deferral": 0,
+    "in_outcome": true,
+    "outcome_reason": "Non-outcome kind; in_outcome is true by convention."
+   },
+   {
+    "requirement_id": "R3",
+    "covered_by": [],
+    "coverage_reason": "No working interface can demonstrate that a tool is part of a person's broader vision; this is a planning-context statement, not a property of the delivered product.",
+    "extent": "none",
+    "missing": "",
+    "deferral": 0,
+    "in_outcome": true,
+    "outcome_reason": "Non-outcome kind; in_outcome is true by convention."
+   }
+  ],
+  "trace": "coverage-trace.json"
+ }
 }

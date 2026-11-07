@@ -117,6 +117,30 @@
    "id": "public_review",
    "kind": "concept",
    "aliases": []
+  },
+  {
+   "id": "study_corpus",
+   "kind": "theory",
+   "aliases": [
+    "corpus"
+   ]
+  },
+  {
+   "id": "qualitative_strand",
+   "kind": "theory",
+   "aliases": []
+  },
+  {
+   "id": "measurement_instrument",
+   "kind": "theory",
+   "aliases": [
+    "instrument"
+   ]
+  },
+  {
+   "id": "joint_display",
+   "kind": "theory",
+   "aliases": []
   }
  ],
  "classes": [

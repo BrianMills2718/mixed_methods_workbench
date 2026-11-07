@@ -1,9 +1,27 @@
 # Mixed Methods Workbench Roadmap
 
-Status: canonical future strategy; documentation only, no release is active
-Updated: 2026-08-13; phase order amended 2026-09-06
+Status: canonical future strategy; the current execution plan is Plan #8
+Updated: 2026-08-13; phase order amended 2026-09-06; finish direction 2026-11-06
 
-## Current Phase
+## Current direction: finish to 1.0 (Plan #8, 2026-11-06)
+
+Brian, 2026-11-06, answering open question Q1: "on mixed mtheod work bench
+finsih that is not for a specific use case it is part of my broader vision".
+[`plans/008_finish_workbench.md`](plans/008_finish_workbench.md) is the
+execution plan from today to 1.0: slices S0 (Plan #7 upkeep) through S7 (1.0
+release) on a general, rights-clear example (the CC BY-SA Open Science
+linguist interviews), not NYC. It keeps the 1.0 definition below with these
+changes: the qualitative path is consumed from Qualitative Coding, not rebuilt;
+the quantitative text path is workbench-owned; only Process Tracing is on the
+causal critical path; the benchmark uses two corpora with their authors' own
+coding as the reference; phases B–E of the adopted A–G sequence are no longer
+prerequisites, because the Plan #6 crosswalk found no shared capability to build
+first (36 groups: 29 different, 7 shared shell, 0 same); NYC is no longer the
+stable example; versions 0.2, 0.3 and 0.6–0.8 move after 1.0. Where the text
+below disagrees with Plan #8, Plan #8 controls. The text below is the earlier
+record.
+
+## Earlier current phase (2026-08-13)
 
 The project is establishing the capability architecture and adoption baseline
 before another implementation vertical. This roadmap does not authorize

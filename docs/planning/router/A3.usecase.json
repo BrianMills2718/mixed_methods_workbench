@@ -1,0 +1,54 @@
+{
+ "id": "mmw-A3",
+ "title": "Open Science study: frozen corpus and the qualitative strand",
+ "concern": "Check that each interview is frozen with its licence and hash, then follow each grounded-theory category and proposition to the interview passages behind it and the author's own codes for those passages.",
+ "intent": [
+  "inspect",
+  "trace"
+ ],
+ "informationStructure": [
+  "hierarchy",
+  "document"
+ ],
+ "tasks": [
+  "lookup",
+  "trace",
+  "inspect"
+ ],
+ "entities": [
+  "interview",
+  "category",
+  "proposition",
+  "passage",
+  "author code"
+ ],
+ "relationships": [
+  "category supported by passage",
+  "passage located in interview",
+  "passage coded by author"
+ ],
+ "scale": {
+  "items": 120,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "exploratory",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

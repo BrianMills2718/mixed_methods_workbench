@@ -1,0 +1,50 @@
+{
+ "id": "mmw-A6",
+ "title": "Causal tab: Process Tracing on one proposition",
+ "concern": "Read the within-case verdict on one proposition in one interview, apart from the measured prevalence, and see whether the publication gate allows a causal conclusion.",
+ "intent": [
+  "inspect",
+  "decide"
+ ],
+ "informationStructure": [
+  "sequence",
+  "document"
+ ],
+ "tasks": [
+  "trace",
+  "inspect"
+ ],
+ "entities": [
+  "hypothesis",
+  "evidence test",
+  "verdict",
+  "publication gate"
+ ],
+ "relationships": [
+  "evidence tests hypothesis"
+ ],
+ "scale": {
+  "items": 12,
+  "density": "low"
+ },
+ "interaction": {
+  "mode": "read-only",
+  "dynamics": "static"
+ },
+ "consequence": {
+  "risk": "high",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

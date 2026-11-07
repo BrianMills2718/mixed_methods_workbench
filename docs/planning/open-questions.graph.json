@@ -27,7 +27,7 @@
   {
    "id": "Q1",
    "label": "Q1 Next direction after the crosswalk",
-   "kind": "question_brian",
+   "kind": "question_agent_resolved",
    "explain": "With the NYC lane paused (2026-10-04) and the Plan #6 crosswalk finding no same_capability group, what should the workbench do next?"
   },
   {
@@ -51,13 +51,13 @@
   {
    "id": "Q5",
    "label": "Q5 Deploy the synced review page",
-   "kind": "question_agent",
+   "kind": "question_agent_resolved",
    "explain": "After pull request #57 merges, does the public Worker serve the new page?"
   },
   {
    "id": "Q6",
    "label": "Q6 Test writes into deploy/",
-   "kind": "question_agent",
+   "kind": "question_agent_resolved",
    "explain": "Should tests/test_psychosisbank_public_review.py stop writing into the committed deploy/ tree?"
   },
   {
@@ -171,6 +171,96 @@
   {
    "id": "workbench_view",
    "label": "Workbench consumer view",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "Q11",
+   "label": "Q11 Where Brian opens the study page",
+   "kind": "question_brian",
+   "explain": "The study page each slice builds is committed in git but served nowhere Brian can open from his phone. Serve it, and this package's review page, from hive.brianmills.dev (add this public repository to personal-vps plan-repos.conf), from the existing PsychosisBank Worker under a new path, or keep both local?"
+  },
+  {
+   "id": "d_Q11",
+   "label": "whether Brian can open each slice's result himself, or only ",
+   "kind": "decision",
+   "explain": "whether Brian can open each slice's result himself, or only through screenshots in replies"
+  },
+  {
+   "id": "study_corpus",
+   "label": "study corpus",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "Q12",
+   "label": "Q12 Does 1.0 need an outside researcher",
+   "kind": "question_brian",
+   "explain": "Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim?"
+  },
+  {
+   "id": "d_Q12",
+   "label": "the 1.0 benchmark's claim wording and whether S6 waits on a ",
+   "kind": "decision",
+   "explain": "the 1.0 benchmark's claim wording and whether S6 waits on a person"
+  },
+  {
+   "id": "measurement_instrument",
+   "label": "measurement instrument",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "Q13",
+   "label": "Q13 Second corpus for the benchmark",
+   "kind": "question_agent",
+   "explain": "Which second rights-clear corpus, with its authors' own coding published, does S6 use?"
+  },
+  {
+   "id": "d_Q13",
+   "label": "S6 (the benchmark's held-out corpus)",
+   "kind": "decision",
+   "explain": "S6 (the benchmark's held-out corpus)"
+  },
+  {
+   "id": "Q14",
+   "label": "Q14 QC segment offsets against the Zenodo text",
+   "kind": "question_agent",
+   "explain": "Do the character offsets of QC's segments (and of the author's coded passages) point at the same text in the files downloaded from Zenodo, or did QC normalise the text on import?"
+  },
+  {
+   "id": "d_Q14",
+   "label": "whether S1 can anchor every cited passage to the frozen sour",
+   "kind": "decision",
+   "explain": "whether S1 can anchor every cited passage to the frozen source without a mapping step"
+  },
+  {
+   "id": "source_segment",
+   "label": "source segment",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "evidence_anchor",
+   "label": "evidence anchor",
+   "kind": "concept",
+   "explain": "Domain concept; see DOMAIN.md."
+  },
+  {
+   "id": "Q15",
+   "label": "Q15 Which category S2 measures",
+   "kind": "question_agent",
+   "explain": "Which QC category becomes the S2 measurement instrument?"
+  },
+  {
+   "id": "d_Q15",
+   "label": "S2's construct",
+   "kind": "decision",
+   "explain": "S2's construct"
+  },
+  {
+   "id": "qualitative_strand",
+   "label": "qualitative strand",
    "kind": "concept",
    "explain": "Domain concept; see DOMAIN.md."
   }
@@ -288,6 +378,90 @@
    "id": "tQ10_public_review",
    "source": "Q10",
    "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "bQ11",
+   "source": "Q11",
+   "target": "d_Q11",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ11_study_corpus",
+   "source": "Q11",
+   "target": "study_corpus",
+   "label": "touches"
+  },
+  {
+   "id": "tQ11_public_review",
+   "source": "Q11",
+   "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "bQ12",
+   "source": "Q12",
+   "target": "d_Q12",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ12_meta_inference",
+   "source": "Q12",
+   "target": "meta_inference",
+   "label": "touches"
+  },
+  {
+   "id": "tQ12_measurement_instrument",
+   "source": "Q12",
+   "target": "measurement_instrument",
+   "label": "touches"
+  },
+  {
+   "id": "bQ13",
+   "source": "Q13",
+   "target": "d_Q13",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ13_study_corpus",
+   "source": "Q13",
+   "target": "study_corpus",
+   "label": "touches"
+  },
+  {
+   "id": "bQ14",
+   "source": "Q14",
+   "target": "d_Q14",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ14_source_segment",
+   "source": "Q14",
+   "target": "source_segment",
+   "label": "touches"
+  },
+  {
+   "id": "tQ14_evidence_anchor",
+   "source": "Q14",
+   "target": "evidence_anchor",
+   "label": "touches"
+  },
+  {
+   "id": "bQ15",
+   "source": "Q15",
+   "target": "d_Q15",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ15_measurement_instrument",
+   "source": "Q15",
+   "target": "measurement_instrument",
+   "label": "touches"
+  },
+  {
+   "id": "tQ15_qualitative_strand",
+   "source": "Q15",
+   "target": "qualitative_strand",
    "label": "touches"
   }
  ]

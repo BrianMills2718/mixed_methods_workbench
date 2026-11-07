@@ -59,6 +59,40 @@
     "deploy/psychosisbank-review/wrangler.jsonc:2",
     "https://psychosisbank-review.brianmills2718.workers.dev/"
    ]
+  },
+  {
+   "where": "docs",
+   "how": "2026-11-06, for Plan #8: read ROADMAP.md ('What 1.0 Means', G1-G6, A-G phases), SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md, CAPABILITY_ADOPTION_MAP.md, plan 006 and its phase 5 adjudication",
+   "found": [
+    "docs/ROADMAP.md:85",
+    "docs/ROADMAP.md:328",
+    "docs/research/method_decomposition/phase5/adjudication.yaml"
+   ]
+  },
+  {
+   "where": "prior_art",
+   "how": "read ~/code2/workspace/docs/capabilities.md and the status docs of the producer repositories (qualitative_coding, process_tracing, theory-forge, grounded-research) at their current main",
+   "found": [
+    "/home/brian/code2/qualitative_coding/docs/model/DOMAIN.md:48",
+    "/home/brian/code2/process_tracing/pt/export.py:634",
+    "/home/brian/code2/process_tracing/pt/cli.py:72",
+    "/home/brian/code2/theory-forge/docs/ROADMAP.md"
+   ]
+  },
+  {
+   "where": "run_records",
+   "how": "`llm-cost estimate --task qualitative_coding.gt_constant_comparison.application`, `--task qualitative_coding.grounded_theory_verdict`, `llm-cost cost --group-by task` filtered to process_tracing.draft_audit",
+   "found": [
+    "llm-cost estimate: application median $0.0011 p90 $0.0019 (708 calls); grounded_theory_verdict median $0.0038 p90 $0.0111 (55 calls); PT draft_audit total $0.233"
+   ]
+  },
+  {
+   "where": "other",
+   "how": "Zenodo API https://zenodo.org/api/records/17630137 (files, md5, licence) and QC's copy under public_demo_assets/open_science",
+   "found": [
+    "https://zenodo.org/records/17630137",
+    "/home/brian/code2/qualitative_coding/public_demo_assets/open_science/ATTRIBUTION.md"
+   ]
   }
  ],
  "findings": [
@@ -150,6 +184,78 @@
    "verdict": "fails",
    "question_id": "Q6",
    "note": "The test calls build(), which writes into deploy/; that is how the primary checkout came to hold an uncommitted index.html."
+  },
+  {
+   "id": "F9",
+   "claim": "A shared capability across methods exists to build first (roadmap phases B-E)",
+   "evidence": [
+    "docs/research/method_decomposition/phase5/adjudication.yaml",
+    "docs/plans/006_method_crosswalk.md:48"
+   ],
+   "verdict": "fails",
+   "question_id": "Q1",
+   "note": "36 groups: 29 different capability, 7 shared shell only, 0 same capability. Plan #8 cuts phases B-E."
+  },
+  {
+   "id": "F10",
+   "claim": "Qualitative Coding has a finished grounded-theory result on a rights-clear general corpus the workbench can read",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/public_demo_assets/open_science/ATTRIBUTION.md",
+    "https://zenodo.org/records/17630137"
+   ],
+   "verdict": "holds",
+   "question_id": "Q14",
+   "note": "Schema 3 package on 25 Open Science interviews: 8 categories, 6 propositions; all 93 cited segment ids resolve to QC segments. Whether their offsets match the Zenodo text is Q14."
+  },
+  {
+   "id": "F11",
+   "claim": "Some repository in ~/code2 already measures text quantitatively, so the workbench can consume it",
+   "evidence": [
+    "/home/brian/code2/workspace/docs/capabilities.md"
+   ],
+   "verdict": "fails",
+   "question_id": "Q15",
+   "note": "No such capability; QC's quantitative follow-up only returns conceptual_follow_up_only. The workbench owns the S2 adapter; which category it measures is Q15."
+  },
+  {
+   "id": "F12",
+   "claim": "QC's qualitative path has been validated by an outside researcher",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/docs/model/DOMAIN.md:48"
+   ],
+   "verdict": "fails",
+   "question_id": "Q12",
+   "note": "QC's roadmap step 5 is not done. Plan #8 states validation as agreement with the corpus author's own coding."
+  },
+  {
+   "id": "F13",
+   "claim": "Process Tracing can take a QC handoff and give the workbench a gated export",
+   "evidence": [
+    "/home/brian/code2/process_tracing/pt/cli.py:72",
+    "/home/brian/code2/process_tracing/pt/export.py:634"
+   ],
+   "verdict": "holds",
+   "note": "--qualitative-handoff and pt_export_v2 with publication_gate exist; scientific validity of PT verdicts is not established, so S4 keeps the gate."
+  },
+  {
+   "id": "F14",
+   "claim": "Theory Forge offers a consumer export the workbench could read for 1.0",
+   "evidence": [
+    "/home/brian/code2/theory-forge/docs/ROADMAP.md"
+   ],
+   "verdict": "fails",
+   "question_id": "Q1",
+   "note": "No consumer export; roadmap stale. Moved after 1.0 in Plan #8."
+  },
+  {
+   "id": "F15",
+   "claim": "A second rights-clear corpus with its authors' own coding is identified for the benchmark",
+   "evidence": [
+    "docs/plans/008_finish_workbench.md:42"
+   ],
+   "verdict": "unknown",
+   "question_id": "Q13",
+   "note": "Chosen in S6."
   }
  ],
  "cost": {
@@ -174,5 +280,5 @@
    "source": "examples/runs/psychosisbank-synthesis-20260923/connected_run_receipt.json:35"
   }
  },
- "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts."
+ "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts. Plan #8 (2026-11-06) added findings F9-F15 and their searches; AI-step costs for Plan #8 are measured analogues from llm-cost, recorded per step in the manifest's plan.cost_basis."
 }

@@ -1,0 +1,50 @@
+{
+ "id": "mmw-A5",
+ "title": "Joint display: each proposition beside its measured distribution",
+ "concern": "For each proposition, compare the qualitative claim with the measured numbers, read the convergence, complementarity, divergence or silence verdict and the bounded meta-inference.",
+ "intent": [
+  "compare",
+  "decide"
+ ],
+ "informationStructure": [
+  "matrix"
+ ],
+ "tasks": [
+  "compare",
+  "inspect",
+  "trace"
+ ],
+ "entities": [
+  "proposition",
+  "measure",
+  "verdict",
+  "meta-inference"
+ ],
+ "relationships": [
+  "proposition measured by"
+ ],
+ "scale": {
+  "items": 6,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "exploratory",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "high",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

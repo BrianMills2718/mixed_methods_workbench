@@ -1,7 +1,18 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23; NYC pause added 2026-10-04
+Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23; NYC pause added 2026-10-04; Plan #8 finish direction 2026-11-06
+
+## Current phase: finish to 1.0 (Plan #8, 2026-11-06)
+
+Brian, 2026-11-06, answering open question Q1: "on mixed mtheod work bench
+finsih that is not for a specific use case it is part of my broader vision".
+Authorized work is the slice sequence in
+[`plans/008_finish_workbench.md`](plans/008_finish_workbench.md) (S0 Plan #7
+upkeep, S1 governed corpus and qualitative strand, S2 quantitative strand, S3
+joint display and meta-inference, S4 Process Tracing, S5 review and export, S6
+second corpus and benchmark, S7 release). The sections below are the earlier
+record; where they disagree, Plan #8 controls.
 
 ## NYC lane paused (2026-10-04)
 

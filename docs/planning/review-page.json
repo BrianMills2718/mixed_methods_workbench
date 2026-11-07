@@ -1,21 +1,25 @@
 {
  "title": "Mixed Methods Workbench",
- "north_star": "Direction: join method engines' outputs where a real study needs more than one method, without taking the methods' logic away from their own repositories (docs/adr/0002_broad_north_star_versioned_thin_slices.md).",
- "thesis": "Methods stay in their own repositories; the workbench reads their exports, keeps claim limits, and joins them only where a study needs it.",
- "disproof": "A real study that needs two producers' exports joined cannot be answered from what the producers export without re-running method logic inside the workbench.",
- "not_for": "Running a method itself, a universal schema or method planner, or publishing an unreviewed causal conclusion.",
+ "north_star": "Brian, 2026-11-06: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". Finish the workbench to 1.0 as a general tool: a governed corpus, a qualitative strand read from Qualitative Coding, a quantitative strand checked against human coding, a joint display with bounded meta-inference, a gated causal check, review and export, proven on two rights-clear corpora (docs/plans/008_finish_workbench.md).",
+ "thesis": "Methods stay in their own repositories; the workbench freezes the corpus, reads each method's export, owns the narrow quantitative adapter no repository has, and joins the strands with every claim traceable to its passage.",
+ "disproof": "On a second rights-clear corpus added without code changes, the quantitative strand fails to agree with the authors' coding beyond chance, or the planted failures pass the checks unnoticed.",
+ "not_for": "Running a qualitative method inside the workbench, a universal schema or method planner, contacting corpus authors, or publishing an unreviewed causal conclusion.",
  "links": [
+  {
+   "name": "Plan #8: finish the workbench",
+   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/plans/008_finish_workbench.md"
+  },
   {
    "name": "Public PsychosisBank review",
    "href": "https://psychosisbank-review.brianmills2718.workers.dev/"
   },
   {
-   "name": "Next plan: keep shippable",
+   "name": "Plan #7: keep shippable",
    "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/plans/007_keep_shippable.md"
   },
   {
-   "name": "Planning status",
-   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/PLANNING_STATUS.md"
+   "name": "Reading order",
+   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/index.md"
   }
  ]
 }
