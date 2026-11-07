@@ -254,6 +254,7 @@ All three of round 4's blocking findings (F1, F2, V) are fixed, and so are nine 
 #### Validator
 
 I ran it at revision `2092693` and it exited 1.
+
 - **Parts:** 9 of 10 are ok. The only failure is the cold review, whose recorded verdict is still `revise`.
 - **Substance checks:** 10 of 12 are ok, none fail, and 2 show WAIT. The two WAIT lines are the plain-version comparison (still planned) and the three untested extra stages. The contract makes those WAIT by design.
 - **Other lines:** initiative and spectrum tiers are 4 of 4. Goal coverage (3 requirements), goal provenance and freshness all pass. Freshness counts 1 commit of work since the package revision.
@@ -299,6 +300,7 @@ I ran it at revision `2092693` and it exited 1.
 #### Blocking finding
 
 **B1. S4: the Process Tracing route it names does not produce the export the workbench reads. Where:** plan lines 251-255 and 260-262; `planning-package.json:313-320`; `investigation.json:231-238` (F13); `SYSTEM_MODEL.md:51`; `acceptance-criteria.json:97-112` (A6).
+
 - **What is wrong:** S4 runs "QC handoff → PT draft-audit route → `pt_export_v2`" and prices the draft-audit route. Process Tracing's own records say otherwise:
   - Its accepted ADR 0004, which Brian approved on 2026-11-05 ("i approve those."), says the draft-audit prototype "writes no `pt_export_v2.json` for `mixed_methods_workbench` (Q20)" (`process_tracing/docs/adr/0004_…md:79`).
   - Its open question Q20 (`process_tracing/docs/planning/open-questions.json:404-412`) proposes only a small adapter that is "never a full V2 claim" and marks the missing fields absent.
