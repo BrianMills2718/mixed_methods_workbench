@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "47475efe910bb22ba94f392881e01db03c537a03",
+ "subject_revision": "395777903a556327ab42faa43b45db46bfcd25d8",
  "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -151,7 +151,7 @@
     "guarded_decision": "src/mixed_methods_workbench/guarded_decision/models.py:175",
     "quantitative_audit": "src/mixed_methods_workbench/nyc_crz_quantitative.py:193",
     "public_review": "src/mixed_methods_workbench/investigation_spine.py:278",
-    "pt_export": "src/mixed_methods_workbench/investigation_run.py:100"
+    "pt_export": "src/mixed_methods_workbench/investigation_run.py:101"
    }
   },
   "diagrams": {
@@ -197,7 +197,9 @@
     "planted_failure",
     "benchmark",
     "method_profile",
-    "public_review"
+    "public_review",
+    "capability_verdict",
+    "reflexivity_memo"
    ],
    "cost_basis": {
     "steps": [
@@ -224,32 +226,23 @@
       "basis": "computed",
       "computation": {
        "calls": 13,
-       "input_tokens_per_call": 10500,
+       "input_tokens_per_call": 8262,
        "input_usd_per_mtok": 0.2168,
        "cached_share": 0,
        "cached_usd_per_mtok": 0.2168,
-       "output_tokens_per_call": 6700,
+       "output_tokens_per_call": 6754,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "13 calls x about 10,500 input tokens (25 turns x about 300 tokens plus a 3,000-token instrument; the reviewer's estimate, not measured) and 6,700 output tokens (25 turns x the measured 268) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Run once, to choose per-turn or per-interview calls by agreement.",
-      "cost_per_run_usd": 0.152,
+      "evidence": "13 calls x 8,262 input tokens (the instrument prompt, 3,924 tokens, plus a mean interview of 4,338 tokens: 108,452 tokens for all 1,277 turns of the 25 interviews, counted with the o200k tokenizer from QC's segments.json) and 6,754 output tokens (25.2 interviewee turns per interview x the measured 268 per label) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Run once, to choose per-turn or per-interview calls by agreement. A full per-interview pass (25 calls) is about $0.28.",
+      "cost_per_run_usd": 0.147,
       "calls_per_run": 13
      },
      {
       "step": "S3 integrate: draft verdict and meta-inference, then a second model's challenge (mixed_methods_workbench.open_science.integrate)",
       "per": "run over 6 propositions",
-      "basis": "computed",
-      "computation": {
-       "calls": 12,
-       "input_tokens_per_call": 15196,
-       "input_usd_per_mtok": 0.1354,
-       "cached_share": 0,
-       "cached_usd_per_mtok": 0.1354,
-       "output_tokens_per_call": 807,
-       "output_usd_per_mtok": 0.2895
-      },
-      "evidence": "12 calls (6 propositions x draft and challenge) x the measured median tokens of qualitative_coding.grounded_theory_verdict (llm-cost estimate, 55 calls: 15,196 input, 807 output, 0% cached; median $0.0038, p90 $0.0111 per call) x per-token prices for openrouter/openai/gpt-6-luna (llm_client's default model) fitted by least squares to its 32 recorded qualitative_coding.grounded_theory_verdict calls in ~/projects/data/llm_observability.db (input $0.1354, output $0.2895 per million tokens). The challenge uses a different model, priced here at the same rates; redone from S3's receipt.",
-      "cost_per_run_usd": 0.027,
+      "basis": "measured",
+      "evidence": "12 calls (6 propositions x draft and challenge) x the measured median cost per call of the closest task, qualitative_coding.grounded_theory_verdict (llm-cost estimate --task qualitative_coding.grounded_theory_verdict, 55 calls: median $0.0038, p90 $0.0111 per call; median 15,196 input and 807 output tokens, 0% cached). About $0.05 per run, $0.13 if every call costs the p90. The challenge uses a different model; redone from S3's own receipt.",
+      "cost_per_run_usd": 0.046,
       "calls_per_run": 12
      },
      {
@@ -261,7 +254,7 @@
       "calls_per_run": 5
      },
      {
-      "step": "S6 rerun of the S2 measure on the second corpus (S3 adds about $0.03 per run)",
+      "step": "S6 rerun of the S2 measure on the second corpus (S3 adds about $0.05 per run)",
       "per": "run",
       "basis": "computed",
       "computation": {
@@ -273,12 +266,20 @@
        "output_tokens_per_call": 268,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "The S2 computation for a corpus of similar size; three runs to show variation about $2.46 with S3. Redone with llm-cost estimate on S2's own task after S2 runs.",
+      "evidence": "The S2 computation for a corpus of similar size, $0.79, plus S3's measured $0.05: about $0.84 per run, three runs to show variation about $2.52. Redone with llm-cost estimate on S2's own task after S2 runs.",
       "cost_per_run_usd": 0.791,
       "calls_per_run": 630
+     },
+     {
+      "step": "S6 Qualitative Coding's grounded-theory pass on the second corpus, run in its own repository if Q21 needs one",
+      "per": "one corpus of about 25 interviews",
+      "basis": "measured",
+      "cost_per_run_usd": 4.94,
+      "calls_per_run": 2075,
+      "evidence": "Every qualitative_coding call on the Open Science corpus recorded in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: 2,075 calls, $4.94 in total, including partial reruns and four grounded-theory school variants, so one clean pass on a corpus of similar size costs at most about that."
      }
     ],
-    "cheapest_design": "One call per interviewee turn with the instrument as a cached prefix (about $0.79 per pass), and no second model until traces show a gap; the per-interview alternative (one call labels all of an interview's turns) is tried once on the tuning interviews (about $0.15) and adopted if its agreement is no worse. The dummy, word-list count and TF-IDF regression run locally at no model cost; S1, S5 and S7 call no model. Quality decides between the two, not cost: both are under a dollar per pass."
+    "cheapest_design": "One call per interviewee turn with the instrument as a cached prefix (about $0.79 per pass), and no second model until traces show a gap. One call per interview labelling all its turns costs about a third as much (about $0.28 per pass, worked out from the o200k token counts of QC's segments); it is tried once on the tuning interviews (about $0.15) and adopted if its agreement is no worse, because labels from one long call can influence one another. The dummy, word-list count and TF-IDF regression run locally at no model cost; S1, S5 and S7 call no model. Quality decides between the two, not cost: both are under a dollar per pass."
    }
   },
   "acceptance": {
@@ -293,7 +294,7 @@
    "status": "present",
    "path": "docs/planning/cold-review.md",
    "verdict": "revise",
-   "reviewed_revision": "a2952304143bc30c7bbe2adaa06ed7ac364031c9"
+   "reviewed_revision": "47475efe910bb22ba94f392881e01db03c537a03"
   }
  },
  "full_method": true,

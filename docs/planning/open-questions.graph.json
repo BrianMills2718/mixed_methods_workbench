@@ -32,7 +32,7 @@
   },
   {
    "id": "d_Q1",
-   "label": "whether the next plan builds a new workbench slice or only keeps the repository ",
+   "label": "whether the next plan builds a new workbench slice or only keeps the",
    "kind": "decision",
    "explain": "whether the next plan builds a new workbench slice or only keeps the repository shippable"
   },
@@ -52,7 +52,7 @@
    "id": "Q3",
    "label": "Q3: Wiki over cap and unreachable",
    "kind": "question_agent",
-   "explain": "128 tracked Markdown files exceed the 100 cap and most are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?"
+   "explain": "md_file_cap counts 126 Markdown files against a cap of 100, and 112 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?"
   },
   {
    "id": "d_Q3",
@@ -92,7 +92,7 @@
   },
   {
    "id": "d_Q6",
-   "label": "whether running the tests leaves a checkout clean (the cause of the primary chec",
+   "label": "whether running the tests leaves a checkout clean (the cause of the primary",
    "kind": "decision",
    "explain": "whether running the tests leaves a checkout clean (the cause of the primary checkout's uncommitted file)"
   },
@@ -140,7 +140,7 @@
   },
   {
    "id": "d_Q10",
-   "label": "whether the page source (copied into deploy/ by pull request #57) misstates the ",
+   "label": "whether the page source (copied into deploy/ by pull request #57) misstates",
    "kind": "decision",
    "explain": "whether the page source (copied into deploy/ by pull request #57) misstates the NYC result's review status"
   },
@@ -152,21 +152,21 @@
   },
   {
    "id": "d_Q11",
-   "label": "whether Brian can open each slice's result himself, or only through screenshots ",
+   "label": "whether Brian can open each slice's result himself, or only through",
    "kind": "decision",
    "explain": "whether Brian can open each slice's result himself, or only through screenshots in replies"
   },
   {
    "id": "Q12",
-   "label": "Q12: Does 1.0 need an outside researcher",
+   "label": "Q12: What 1.0 promises: outside researcher, theory operationalization",
    "kind": "question_brian",
-   "explain": "Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim?"
+   "explain": "Two narrowings of the roadmap's 1.0 that only Brian can accept. (a) Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim? (b) The roadmap's 1.0 includes theory operationalization (ROADMAP.md:65); Plan #8 keeps within-case causal reasoning (Process Tracing) and moves theory operationalization (Theory Forge, which has no consumer export) to after 1.0. Is that acceptable?"
   },
   {
    "id": "d_Q12",
-   "label": "the 1.0 benchmark's claim wording and whether S6 waits on a person",
+   "label": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must",
    "kind": "decision",
-   "explain": "the 1.0 benchmark's claim wording and whether S6 waits on a person"
+   "explain": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must also bring in Theory Forge"
   },
   {
    "id": "Q13",
@@ -183,32 +183,32 @@
   {
    "id": "Q14",
    "label": "Q14: QC segment offsets against the Zenodo text",
-   "kind": "question_agent",
+   "kind": "question_agent_resolved",
    "explain": "Do the character offsets of QC's segments (and of the author's coded passages) point at the same text in the files downloaded from Zenodo, or did QC normalise the text on import?"
   },
   {
    "id": "d_Q14",
-   "label": "whether S1 can anchor every cited passage to the frozen source without a mapping",
+   "label": "whether S1 can anchor every cited passage to the frozen source without a",
    "kind": "decision",
    "explain": "whether S1 can anchor every cited passage to the frozen source without a mapping step"
   },
   {
    "id": "Q15",
-   "label": "Q15: Which category S2 measures",
-   "kind": "question_agent",
-   "explain": "Which QC category becomes the S2 measurement instrument?"
+   "label": "Q15: Which category S2 measures (the construct)",
+   "kind": "question_brian",
+   "explain": "Which Qualitative Coding category becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349)."
   },
   {
    "id": "d_Q15",
-   "label": "S2's construct",
+   "label": "S2's construct (S2 can start on the default)",
    "kind": "decision",
-   "explain": "S2's construct"
+   "explain": "S2's construct (S2 can start on the default)"
   },
   {
    "id": "Q16",
-   "label": "Q16: S2 keeps the quantitative-strand brief",
+   "label": "Q16: S2 adopts the quantitative-strand brief, with named exceptions",
    "kind": "question_agent_resolved",
-   "explain": "Does S2 keep every condition of the repository's 2026-07-12 quantitative-strand brief (word-list count baseline, always-majority and TF-IDF baselines, the language model as a challenger, no embedding or topic output as the first measure, a feasibility readout before choosing the instrument, prevalence error because accuracy alone is prohibited, grouped splits with no turn-level intervals), and how are the cases a second model re-judges chosen?"
+   "explain": "The repository's 2026-07-12 quantitative-strand brief was never approved (its status line reads \"decision required; documentation only\"). Does S2 adopt its conditions as its method, which ones can it not meet, and how are the cases a second model re-judges chosen?"
   },
   {
    "id": "d_Q16",
@@ -230,15 +230,15 @@
   },
   {
    "id": "Q18",
-   "label": "Q18: Is the 1.0 study the general investigation record",
+   "label": "Q18: Which reading of the broader vision",
    "kind": "question_brian",
-   "explain": "Brian's \"it is part of my broader vision\": is the 1.0 study the general form of the workbench's investigation record from the Evidence-to-Action product map (one record per study keeping question, evidence, method runs, findings, unresolved questions, reviews and next actions), with the PsychosisBank investigation rebuilt as one instance of it?"
+   "explain": "Brian's \"it is part of my broader vision\": the repository's product map supports two readings. (1) General record: the workbench owns one investigation record per study (question, evidence, method runs, findings, unresolved questions, reviews, next actions), separate destinations are the defect (map sections 1 and 3), and any rights-clear corpus can fill it. (2) Policy product: the map's sections 5, 7 and 9 describe the product as running from a policy question through appraisal to a reviewed recommendation, call Open Science \"too weak to organize the general policy-analysis product\", rule it out as the flagship, and make the next step a completed public policy decision case. Which did he mean?"
   },
   {
    "id": "d_Q18",
-   "label": "S5's shape and acceptance A11",
+   "label": "S5's shape, S6's second study and acceptance A11",
    "kind": "decision",
-   "explain": "S5's shape and acceptance A11"
+   "explain": "S5's shape, S6's second study and acceptance A11"
   },
   {
    "id": "Q19",
@@ -251,6 +251,30 @@
    "label": "S6 and the 'not for a specific use case' claim (acceptance A10)",
    "kind": "decision",
    "explain": "S6 and the 'not for a specific use case' claim (acceptance A10)"
+  },
+  {
+   "id": "Q20",
+   "label": "Q20: How a review decision is recorded from the served page",
+   "kind": "question_agent_resolved",
+   "explain": "S5's accept, reject, annotate and memo actions need somewhere to write. Q11's hosting options all serve static files from git, so on the served page there is no server. How does Brian record a decision from his phone?"
+  },
+  {
+   "id": "d_Q20",
+   "label": "S5 and acceptance A7",
+   "kind": "decision",
+   "explain": "S5 and acceptance A7"
+  },
+  {
+   "id": "Q21",
+   "label": "Q21: Who runs Qualitative Coding on the second corpus",
+   "kind": "question_agent",
+   "explain": "S1 reads Qualitative Coding's existing grounded-theory export, which exists only for Open Science. For S6, does QC run its pipeline on the second corpus in its own repository first, or does S6 pick a corpus QC has already analysed?"
+  },
+  {
+   "id": "d_Q21",
+   "label": "S6, acceptance A10, and the claim that a study needs only a definition file",
+   "kind": "decision",
+   "explain": "S6, acceptance A10, and the claim that a study needs only a definition file and the producers' exports"
   },
   {
    "id": "capability_verdict",
@@ -286,7 +310,7 @@
    "id": "workbench_view",
    "label": "Workbench consumer view",
    "kind": "concept",
-   "explain": "The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version."
+   "explain": "The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version. The cited class reads only the synthetic DEMO-C1 shape; Plan #8 S1 adds the reader for Qualitative Coding's real grounded-theory export."
   },
   {
    "id": "public_review",
@@ -353,6 +377,24 @@
    "label": "Benchmark",
    "kind": "concept",
    "explain": "The page comparing both corpora: each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and the files each corpus's addition changed. Plan #8 S6."
+  },
+  {
+   "id": "review_decision",
+   "label": "Review decision",
+   "kind": "concept",
+   "explain": "A person's accept, reject or annotation of one meta-inference, saved with time and reviewer, appended to the review log. Plan #8 S5."
+  },
+  {
+   "id": "reflexivity_memo",
+   "label": "Reflexivity memo",
+   "kind": "concept",
+   "explain": "The researcher's positioning memo for one study: who did the analysis, what they brought to it and what that may have shaped, kept with the review log and in the bundle. Plan #8 S5."
+  },
+  {
+   "id": "qc_theory_export",
+   "label": "Qualitative Coding theory export",
+   "kind": "concept",
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. Read in Plan #8 S1."
   }
  ],
  "edges": [
@@ -653,6 +695,54 @@
   {
    "id": "tQ19_benchmark",
    "source": "Q19",
+   "target": "benchmark",
+   "label": "touches"
+  },
+  {
+   "id": "bQ20",
+   "source": "Q20",
+   "target": "d_Q20",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ20_review_decision",
+   "source": "Q20",
+   "target": "review_decision",
+   "label": "touches"
+  },
+  {
+   "id": "tQ20_reflexivity_memo",
+   "source": "Q20",
+   "target": "reflexivity_memo",
+   "label": "touches"
+  },
+  {
+   "id": "tQ20_public_review",
+   "source": "Q20",
+   "target": "public_review",
+   "label": "touches"
+  },
+  {
+   "id": "bQ21",
+   "source": "Q21",
+   "target": "d_Q21",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ21_qc_theory_export",
+   "source": "Q21",
+   "target": "qc_theory_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ21_study_corpus",
+   "source": "Q21",
+   "target": "study_corpus",
+   "label": "touches"
+  },
+  {
+   "id": "tQ21_benchmark",
+   "source": "Q21",
    "target": "benchmark",
    "label": "touches"
   }

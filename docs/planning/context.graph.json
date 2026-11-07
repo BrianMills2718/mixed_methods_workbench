@@ -115,6 +115,12 @@
    "label": "Method dashboard (local)",
    "kind": "surface",
    "explain": "make method-dashboard: question-first method routing."
+  },
+  {
+   "id": "cybernetic",
+   "kind": "producer",
+   "label": "cybernetic_influence_v3",
+   "explain": "Cybernetic Influence: retained simulation runs; its outbreak-comparison projection is read by the simulation policy appraisal (simulation_policy_appraisal.py:51, :146)."
   }
  ],
  "edges": [
@@ -201,6 +207,18 @@
    "source": "contracts",
    "target": "study",
    "label": "consumer-view pattern reused by"
+  },
+  {
+   "id": "c15",
+   "source": "cybernetic",
+   "target": "cases",
+   "label": "outbreak projection read by (simulation appraisal)"
+  },
+  {
+   "id": "c16",
+   "source": "data_contracts",
+   "target": "cases",
+   "label": "decision grammar for (guarded decision)"
   }
  ]
 }

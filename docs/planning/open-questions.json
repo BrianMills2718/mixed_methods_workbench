@@ -117,7 +117,7 @@
    "resolves_with": "Running it: uv sync --all-extras and make check.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "b9bf498 resolves data_contracts from the local checkout and adds a mypy override for llm_client (issue #46); docs/planning/checks.txt: make check exit 0, pytest 203 passed, 1 skipped.",
+   "evidence": "b9bf498 resolves data_contracts from the local checkout and adds a mypy override for llm_client (issue #46); docs/planning/checks.txt: make check exit 0, pytest 204 passed, 1 skipped.",
    "sources": [
     "Makefile:47",
     "README.md:7"
@@ -189,7 +189,7 @@
    "default": "Both pages stay committed and local; each slice report carries screenshots and the GitHub path.",
    "answer_words": "\"hive yes\" / \"worker\" / \"local only\"",
    "sources": [
-    "docs/plans/008_finish_workbench.md:213",
+    "docs/plans/008_finish_workbench.md:76",
     "deploy/psychosisbank-review/worker.js:4"
    ],
    "touches": [
@@ -199,19 +199,21 @@
   },
   {
    "id": "Q12",
-   "short": "Does 1.0 need an outside researcher",
-   "question": "Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim?",
-   "blocks": "the 1.0 benchmark's claim wording and whether S6 waits on a person",
+   "short": "What 1.0 promises: outside researcher, theory operationalization",
+   "question": "Two narrowings of the roadmap's 1.0 that only Brian can accept. (a) Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim? (b) The roadmap's 1.0 includes theory operationalization (ROADMAP.md:65); Plan #8 keeps within-case causal reasoning (Process Tracing) and moves theory operationalization (Theory Forge, which has no consumer export) to after 1.0. Is that acceptable?",
+   "blocks": "the 1.0 claim's wording, whether S6 waits on a person, and whether S4 must also bring in Theory Forge",
    "resolves_with": "A product call about what 1.0 promises: no test settles whether a person's review is required. Prior art: Qualitative Coding set the same bar for its finish (its step 5) and has not met it.",
    "owner": "brian",
    "status": "open",
    "blocking": false,
-   "recommendation": "1.0 claims only agreement with the authors' coding and the planted-failure results; an outside researcher's hour is the first post-1.0 step, so 1.0 does not wait on finding a person.",
-   "default": "The recommendation: the 1.0 claim is limited to agreement with the authors' coding.",
-   "answer_words": "\"author coding is enough\" / \"need a researcher\"",
+   "recommendation": "Both narrowings: 1.0 claims agreement with the authors' coding and the planted-failure results, and covers within-case causal reasoning only; an outside researcher's hour and theory operationalization are the first post-1.0 steps, so 1.0 waits on neither a person nor a Theory Forge export.",
+   "default": "The recommendation: the 1.0 claim is limited to agreement with the authors' coding, and theory operationalization comes after 1.0.",
+   "answer_words": "\"author coding is enough\" / \"need a researcher\"; and \"theory after 1.0\" / \"theory in 1.0\"",
    "sources": [
-    "docs/plans/008_finish_workbench.md:42",
-    "docs/ROADMAP.md:85"
+    "docs/plans/008_finish_workbench.md:45",
+    "docs/plans/008_finish_workbench.md:48",
+    "docs/ROADMAP.md:65",
+    "docs/ROADMAP.md:82"
    ],
    "touches": [
     "meta_inference",
@@ -227,7 +229,7 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:53"
+    "docs/plans/008_finish_workbench.md:60"
    ],
    "touches": [
     "study_corpus"
@@ -240,47 +242,57 @@
    "blocks": "whether S1 can anchor every cited passage to the frozen source without a mapping step",
    "resolves_with": "One check in S1: compare each segment's text with the frozen file at its offsets and count matches; a normalisation difference is mapped and the mapping recorded, never patched by hand.",
    "owner": "agent",
-   "status": "open",
+   "status": "resolved",
    "sources": [
-    "docs/plans/008_finish_workbench.md:80"
+    "docs/plans/008_finish_workbench.md:87",
+    "docs/plans/008_finish_workbench.md:89"
    ],
    "touches": [
     "source_segment",
     "evidence_anchor"
-   ]
+   ],
+   "evidence": "Settled by the S1 check on branch s1-open-science-study (commit e9f2434, receipt examples/studies/open_science/build_receipt.json): all 25 of QC's documents are byte-identical to the frozen Zenodo files and all 1,277 of its segments, including the 90 passages its theory cites, match the frozen text at their offsets once the CRLF line endings in one file are normalised to LF (a recorded mapping, not a hand patch). The author's own OpenQDA offsets match only 12 of her 837 passages, so her passages are located by their words: 681 exact, 113 whitespace-only differences, 36 text differs, 7 not found; the last two groups are listed on the page. Plan S1 now says so."
   },
   {
    "id": "Q15",
-   "short": "Which category S2 measures",
-   "question": "Which QC category becomes the S2 measurement instrument?",
-   "blocks": "S2's construct",
-   "resolves_with": "Argument by a written rule, no test: the category with the most supporting passages that also has a matching author code, so a human reference exists. The roadmap's 2026-07-12 note gave this choice to Brian; under the 2026-11-05 authority rule (technical and method calls are the agent's) the agent decides and reports it, and Brian can overrule.",
-   "owner": "agent",
+   "short": "Which category S2 measures (the construct)",
+   "question": "Which Qualitative Coding category becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349).",
+   "blocks": "S2's construct (S2 can start on the default)",
+   "resolves_with": "Brian's call, because the brief reserves it to him; a written rule gives the default. A category matches one of the author's 39 codes by passage overlap, not by name: for each code, the share of the category's cited passages that her passages with that code overlap in the frozen text; the code with the highest share is the match. The rule picks the category with the most supporting passages that has a match, and the page shows the share (\"matches 9 of 14 passages\") so a partial match never reads as a clean one.",
+   "owner": "brian",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:102",
+    "docs/plans/008_finish_workbench.md:131",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:101",
     "docs/ROADMAP.md:349"
    ],
    "touches": [
     "measurement_instrument",
     "qualitative_strand"
-   ]
+   ],
+   "blocking": false,
+   "recommendation": "Use the written rule; the feasibility readout shows the chosen category, its matched code and its overlap share before any measure is run, and Brian can switch category there.",
+   "default": "The rule's category is used, and the feasibility readout names it and its overlap share; S2 proceeds on it unless Brian names another.",
+   "answer_words": "\"use the rule\" / \"pick another category: <name>\""
   },
   {
    "id": "Q16",
-   "short": "S2 keeps the quantitative-strand brief",
-   "question": "Does S2 keep every condition of the repository's 2026-07-12 quantitative-strand brief (word-list count baseline, always-majority and TF-IDF baselines, the language model as a challenger, no embedding or topic output as the first measure, a feasibility readout before choosing the instrument, prevalence error because accuracy alone is prohibited, grouped splits with no turn-level intervals), and how are the cases a second model re-judges chosen?",
+   "short": "S2 adopts the quantitative-strand brief, with named exceptions",
+   "question": "The repository's 2026-07-12 quantitative-strand brief was never approved (its status line reads \"decision required; documentation only\"). Does S2 adopt its conditions as its method, which ones can it not meet, and how are the cases a second model re-judges chosen?",
    "blocks": "S2's design and acceptance A4",
-   "resolves_with": "Argument, no test: the brief is the repository's own reviewed method decision and Plan #8 states no reason to drop any condition, so all are adopted (plan S2). The second model is removed from S2; if traces later show a gap, the cases it re-judges are chosen without the author's codes (for example where the language model and the regression disagree), so agreement with her coding is never inflated by giving only the misses a second chance.",
+   "resolves_with": "Argument, no test: the brief is the most careful method statement the repository has, and nothing found on 2026-11-06 argues against any condition, so S2 adopts it condition by condition (plan S2's table). Two are not met, with reasons: no fine-tuned encoder (25 interviews give too few groups for a grouped held-out fine-tune; the codebook-prompted model is the contextual comparator) and no independently coded, adjudicated pilot (the reference is the author's single-coder coding, stated beside every figure). Ordinal shuffling and topic-stability controls do not arise. Brian's two calls in the brief stay his: the construct (Q15) and authorising the slice, which his 2026-11-06 direction to finish gives. A second model is removed from S2; if traces later show a gap, the cases it re-judges are chosen without the author's codes.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "docs/plans/008_finish_workbench.md:109 and :121 now carry each condition; the brief's conditions are at docs/decisions/2026-07-12-first-quantitative-text-strand.md:18, :22 and :118.",
+   "evidence": "Plan S2's brief-condition table lists each condition with its brief line and how S2 meets it (docs/plans/008_finish_workbench.md:109-122); brief status line at :4.",
    "sources": [
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:4",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:18",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:22",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:111",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118",
+    "docs/plans/008_finish_workbench.md:102",
     "docs/plans/008_finish_workbench.md:109",
-    "docs/plans/008_finish_workbench.md:121"
+    "docs/plans/008_finish_workbench.md:116"
    ],
    "touches": [
     "measurement_instrument",
@@ -296,9 +308,9 @@
    "resolves_with": "Argument from the data, no test: the unit is one interviewee turn as Qualitative Coding segmented it, so the qualitative and quantitative strands share one unit and every label opens a passage QC already anchors. A turn is a positive reference case when any author passage with the matching code overlaps it; passages that touch only interviewer turns are counted and listed. Counted on the frozen S1 files (study_workbench.py's anchoring): 630 interviewee turns of 1277 segments; of the author's 830 located passages, 717 lie within one interviewee turn, 75 span two or more and 38 touch only interviewer turns; 481 turns carry at least one author code. The interview is the independent group for splits, intervals and prevalence.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:95.",
+   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:124.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:95",
+    "docs/plans/008_finish_workbench.md:124",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118"
    ],
    "touches": [
@@ -309,19 +321,22 @@
   },
   {
    "id": "Q18",
-   "short": "Is the 1.0 study the general investigation record",
-   "question": "Brian's \"it is part of my broader vision\": is the 1.0 study the general form of the workbench's investigation record from the Evidence-to-Action product map (one record per study keeping question, evidence, method runs, findings, unresolved questions, reviews and next actions), with the PsychosisBank investigation rebuilt as one instance of it?",
-   "blocks": "S5's shape and acceptance A11",
-   "resolves_with": "A product call about what his vision means: the repository's own map argues for it (one workbench-owned investigation spine; separate destinations named as the defect), but only Brian can say that map is the vision he meant.",
+   "short": "Which reading of the broader vision",
+   "question": "Brian's \"it is part of my broader vision\": the repository's product map supports two readings. (1) General record: the workbench owns one investigation record per study (question, evidence, method runs, findings, unresolved questions, reviews, next actions), separate destinations are the defect (map sections 1 and 3), and any rights-clear corpus can fill it. (2) Policy product: the map's sections 5, 7 and 9 describe the product as running from a policy question through appraisal to a reviewed recommendation, call Open Science \"too weak to organize the general policy-analysis product\", rule it out as the flagship, and make the next step a completed public policy decision case. Which did he mean?",
+   "blocks": "S5's shape, S6's second study and acceptance A11",
+   "resolves_with": "A product call about what his vision means; no argument settles it. His \"not for a specific use case\" fits reading 1; the map's flagship strategy fits reading 2. Under reading 2, S6's second study becomes a completed public policy decision and the record runs to a reviewed recommendation (more producer work: the appraisal and recommendation steps, at a cost worked out when that case is chosen).",
    "owner": "brian",
    "status": "open",
    "blocking": false,
-   "recommendation": "Yes: each study is one investigation record built from its study definition, and S5 makes the PsychosisBank investigation one instance of it.",
-   "default": "The recommendation; Plan #8 proceeds with one investigation record per study.",
-   "answer_words": "\"one record yes\" / \"separate pages\"",
+   "recommendation": "Reading 1 for 1.0: one record per study, PsychosisBank rebuilt as one instance, Open Science as the method proof; a completed public policy decision becomes the first study after 1.0.",
+   "default": "Reading 1; Plan #8 proceeds with one general investigation record per study.",
+   "answer_words": "\"one record yes\" / \"policy flagship\" / \"separate pages\"",
    "sources": [
     "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15",
-    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:66",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:114",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:129",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:207",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:303",
     "src/mixed_methods_workbench/investigation_spine.py:280",
     "docs/plans/008_finish_workbench.md:18"
    ],
@@ -338,11 +353,50 @@
    "resolves_with": "Argument, no test: a second set of interviews by the same team, on the same subject, coded in the same tool would show only that the code handles a near-copy. It must differ in subject, in research team and in coding tool or export format; if no published corpus meets all three, the benchmark page states which it shares and narrows the claim to match.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:53 and S6.",
+   "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:60 and S6 (:232).",
    "sources": [
-    "docs/plans/008_finish_workbench.md:53"
+    "docs/plans/008_finish_workbench.md:60",
+    "docs/plans/008_finish_workbench.md:232"
    ],
    "touches": [
+    "study_corpus",
+    "benchmark"
+   ]
+  },
+  {
+   "id": "Q20",
+   "short": "How a review decision is recorded from the served page",
+   "question": "S5's accept, reject, annotate and memo actions need somewhere to write. Q11's hosting options all serve static files from git, so on the served page there is no server. How does Brian record a decision from his phone?",
+   "blocks": "S5 and acceptance A7",
+   "resolves_with": "Argument and prior art, no test: GitHub issues are already where this repository's tasks live and need no new server or credential. Each action on the served page opens a pre-filled issue in this repository (decision, meta-inference id, bundle hash, his note) that he submits; `make import-reviews` turns labelled issues into the same typed files the local server writes, and the page shows \"recorded, waiting to be imported\" until the next build. Locally, the server in the method_dashboard_server.py pattern writes the files directly.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:212-219) and acceptance A7 carry the route.",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:212",
+    "docs/plans/008_finish_workbench.md:214",
+    "src/mixed_methods_workbench/method_dashboard_server.py:1"
+   ],
+   "touches": [
+    "review_decision",
+    "reflexivity_memo",
+    "public_review"
+   ]
+  },
+  {
+   "id": "Q21",
+   "short": "Who runs Qualitative Coding on the second corpus",
+   "question": "S1 reads Qualitative Coding's existing grounded-theory export, which exists only for Open Science. For S6, does QC run its pipeline on the second corpus in its own repository first, or does S6 pick a corpus QC has already analysed?",
+   "blocks": "S6, acceptance A10, and the claim that a study needs only a definition file and the producers' exports",
+   "resolves_with": "Checking, no test: list the corpora QC has run (its run records) against Q19's rule. If one fits, use it; otherwise QC runs on the chosen corpus in its own repository before S6 starts, and the workbench never runs it. Cost measured: every qualitative_coding call on Open Science, 2026-11-05 to 06, totals $4.94 over 2,075 calls in llm_client's log, including reruns and four school variants.",
+   "owner": "agent",
+   "status": "open",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:225",
+    "docs/plans/008_finish_workbench.md:228"
+   ],
+   "touches": [
+    "qc_theory_export",
     "study_corpus",
     "benchmark"
    ]

@@ -4,6 +4,45 @@ Status: adopted 2026-11-06 on Brian's direction below; slice S1 in progress.
 
 Planning package: docs/planning/planning-package.json
 
+<!-- planning-compliance-checklist:v1 -->
+## Compliance checklist
+
+Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the validator and fails
+if any line below differs from what it says now. Unticked pending items are not passes.
+
+Manifest: `docs/planning/planning-package.json`
+Package revision: `395777903a55`
+Verdict: not compliant
+
+- [x] part investigation: ok
+- [x] part checks: ok
+- [x] part open_questions: ok
+- [x] part system_model: ok
+- [x] part domain_model: ok
+- [x] part diagrams: ok
+- [x] part plan: ok
+- [x] part acceptance: ok
+- [x] part review_page: ok
+- [ ] part cold_review: failing
+- [x] substance route follows from its path decision: ok
+- [x] substance citations resolve: ok
+- [x] substance domain model has a glossary: ok
+- [x] substance project layer checks against the planning layer: ok
+- [x] substance concepts point at their code: ok
+- [x] substance plan names the concepts it relies on: ok
+- [x] substance plan records the cost basis of each AI step: ok
+- [x] substance type-level model of executable rules: ok
+- [ ] substance cold review report states its verdict: failing
+- [ ] substance cold review read this revision: failing
+- [x] initiative initiative names its home: ok
+- [x] tiers spectrum rungs 1-11 are cited: ok
+- [x] tiers production rungs 12-14 are cited when it runs in production: ok
+- [x] tiers thesaurus separates near-identical names (rung 4): ok
+- [x] coverage goal coverage: ok
+- [x] freshness package is current: ok
+<!-- /planning-compliance-checklist -->
+
+
 ## Goal
 
 Brian, 2026-11-06, answering open question Q1 ("what the workbench does next"), whose recommendation had been

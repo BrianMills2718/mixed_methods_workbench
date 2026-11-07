@@ -191,6 +191,13 @@
    "id": "benchmark",
    "kind": "planned",
    "aliases": []
+  },
+  {
+   "id": "reflexivity_memo",
+   "kind": "planned",
+   "aliases": [
+    "positioning memo"
+   ]
   }
  ],
  "classes": [

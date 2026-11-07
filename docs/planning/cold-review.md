@@ -3,6 +3,37 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 2 (read 47475ef): revise
+
+The reviewer returned **revise** with five blocking findings and notes a to q. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| 1 | S2 did not keep every condition of the quantitative-strand brief, and Q16 called the unapproved brief "reviewed" | Plan S2 now has a table of every brief condition with its line and how S2 meets it; two are named as not met with reasons (no fine-tuned encoder; no independent adjudicated pilot); the language model's behavioural and compliance controls and the held-out trace check are added; Q16 rewritten (brief never approved, adopted condition by condition); the construct is Brian's call again (Q15, with a default) |
+| 2 | Q18 showed only half the product map; R3 uncovered | Q18 gives both readings (map sections 1 and 3 against 5, 7 and 9) with a third answer, "policy flagship"; the plan says Open Science is the method proof, not the flagship; A11 and the outcome tie the record to the evidence-to-action vision; coverage rerun: verdict covered, R3 judged a statement about the planning process |
+| 3 | A7 needed a server that Q11's static hosting does not give; reflexivity memo had no criterion | New Q20 (resolved): served-page actions open pre-filled GitHub issues and `make import-reviews` imports them; A7 adds the memo, the import state and the page's own hash check (mismatch in orange) |
+| 4 | S6 needs Qualitative Coding to run on corpus 2; no question or cost | New Q21 (open, agent); S6 schedules it; measured cost $4.94 over 2,075 calls added to the cost basis; the thesis says QC runs in its own repository |
+| 5 | Q14 answered by the S1 receipt but still open | Q14 resolved with the receipt's counts; plan S1 says the author's passages are located by their words (12 of 837 stated offsets match) and lists the 36 that differ and 7 not found |
+
+Notes: a, theory operationalization added to Q12; b, the overlap match defined (Q15, plan S2); c,
+`capability_verdict` and `reflexivity_memo` in relies_on; d, `reflexivity_memo` is a planned domain
+concept; e, `workbench_view` says it reads the synthetic DEMO-C1 shape; f, `pt_export` cites
+`investigation_run.py:101`; g, S4 generalises the PsychosisBank receipt and keeps it byte-identical; h,
+`scripts/type_inventory.py` now keys classes by module and resolves imports; i, per-interview cost stated
+as about $0.28 against $0.79, S3 measured per call ($0.05), S2 feasibility tokens counted from QC's segments;
+j, counts 204 and the cost note reworded; k, round-1 notes listed below; l, the review page has no served
+URL until Q11 is answered, and its GitHub links resolve once this branch merges; m, the duplicate
+`adr-2026` ids come from the shared builder (date-named decision files), filed as
+BrianMills2718/company-planning#264; n, disproof reads "agrees no better than", and the thesis now claims
+the measure's agreement, which A4 tests; o, A7 hash check on the page, A9 links the slice and test, A10's
+"data only" computed by a test from `git diff`; p, context diagram: Cybernetic Influence added and the
+case slices connected; q, F10 says 90 cited passages.
+
+Round-1 notes not listed before: N5, planned concepts have their own "Planned (Plan #8)" kind and "passage"
+is in the spectrum's ambiguous list; N12, the standing publish rule does not settle Q11 because serving
+from hive.brianmills.dev needs a change to another repository and Brian's direction limits deploys to the
+existing Worker, so Q11 stays his; N13, see note l.
+
 ## Plan #8, round 1 (read a295230): revise
 
 The reviewer (`company-planning:planning-compliance-reviewer`, run cold with `claude -p`) returned

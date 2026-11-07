@@ -106,7 +106,7 @@
    ],
    "verdict": "fails",
    "question_id": "Q7",
-   "note": "On main 92dc1a5 `uv sync` failed (data_contracts not on PyPI) and mypy --strict failed on llm_client (issue #46). Fixed in b9bf498 and 2c3c13f; now make check exits 0 and pytest reports 202 passed, 1 skipped."
+   "note": "On main 92dc1a5 `uv sync` failed (data_contracts not on PyPI) and mypy --strict failed on llm_client (issue #46). Fixed in b9bf498 and 2c3c13f; now make check exits 0 and pytest reports 204 passed, 1 skipped."
   },
   {
    "id": "F2",
@@ -205,7 +205,7 @@
    ],
    "verdict": "holds",
    "question_id": "Q14",
-   "note": "Schema 3 package on 25 Open Science interviews: 8 categories, 6 propositions; all 93 cited segment ids resolve to QC segments. Whether their offsets match the Zenodo text is Q14."
+   "note": "Schema 3 package on 25 Open Science interviews: 8 categories, 6 propositions; the 90 distinct passages its theory cites all resolve to QC segments (S1 receipt). Their offsets match the Zenodo text once one file's CRLF line endings are normalised (Q14, resolved)."
   },
   {
    "id": "F11",
@@ -251,7 +251,7 @@
    "id": "F15",
    "claim": "A second rights-clear corpus with its authors' own coding is identified for the benchmark",
    "evidence": [
-    "docs/plans/008_finish_workbench.md:53"
+    "docs/plans/008_finish_workbench.md:60"
    ],
    "verdict": "unknown",
    "question_id": "Q13",
@@ -267,7 +267,7 @@
    ],
    "verdict": "holds",
    "question_id": "Q16",
-   "note": "Word-list count baseline mandatory; dummy and TF-IDF baselines; language model a challenger; feasibility readout first; accuracy alone prohibited. Plan #8 S2 adopts all of it."
+   "note": "Word-list count baseline mandatory; dummy and TF-IDF baselines; language model a challenger with behavioural tests; feasibility readout first; accuracy alone prohibited. The brief was never approved (status line :4). Plan #8 S2 adopts it condition by condition and names the two it cannot meet (Q16)."
   },
   {
    "id": "F17",
@@ -316,5 +316,5 @@
    "source": "examples/runs/psychosisbank-synthesis-20260923/connected_run_receipt.json:35"
   }
  },
- "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts. Plan #8 (2026-11-06) added findings F9-F15 and their searches; AI-step costs for Plan #8 are measured analogues from llm-cost, recorded per step in the manifest's plan.cost_basis."
+ "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts. Plan #8 (2026-11-06) added findings F9-F15 and their searches; AI-step costs for Plan #8 are recorded per step in the manifest's plan.cost_basis: S3, S4 and Qualitative Coding's pass are measured per call from llm_client's log (llm-cost estimate or the call table); S2 and S6 are worked out from a measured analogue task's token counts and fitted per-token prices."
 }
