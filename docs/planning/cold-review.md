@@ -3,6 +3,22 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 15 (read 3d8f599): revise
+
+The reviewer found R14-B1 fixed for the current pin and notes n-v, n-w, n-x, n-z (in part), n-aa and n-bb
+fixed, reproduced QC's spend ($5.0119 over 2,077 paid calls) and matched QC's quantitative design file to
+the pinned theory's hash. It returned **revise** on one blocking finding, with notes n-cc to n-ee and two
+missed questions. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R15-B1 | The rule ending the Q12 (d) wait was the rejected-quote share alone, but QC's own pages say "a lower rejection rate alone does not pass" (`CURRENT_STATE_AND_ROADMAP.md:24-25`, `EVALUATION_HARNESS.md:181-182`), and the 11.7% run issue #205 asks for is exactly that case | The row now follows QC's own verdict, not the number: it reads "not yet: Qualitative Coding does not yet call its pinned theory finished", quoting QC's current words and source line about whichever run is pinned, until QC's own pages record that run as passing its "wrong if" test (rejected share under the line and its section-8 reading of accepted quotes done). Plan `:43`, S7, Q12 (d)'s question, recommendation and default, A3 and A12 changed; A12 gains the failure example of the 11.7% run reading "met". The answer words stay "wait for a finished QC theory" / "accept the October run": "finished" now means QC's own finish verdict |
+| n-cc | Q12's `touches` left out what part (d) governs | Q12 touches `qc_theory_export`, `qualitative_strand` and `readiness_record`; the open-questions map gains those edges (and the `readiness_record` node) |
+| n-dd | Q15's `resolves_with` still said "the same code leads on both theories" | It says "weak corroboration only" |
+| n-ee | F10 pointed only at the resolved Q26 | F10's note names Q12 (d) as the live decision |
+| Missed question 1 | What ends the wait in Q12 (d)? | R15-B1's fix |
+| Missed question 2 | How are QC's disprove verdicts shown after the pin moves? | Q26: the page shows each verdict in QC's words, labelled "QC's own test, a model's reading" with QC's retest note (`CURRENT_STATE_AND_ROADMAP.md:58-62`); S3 may show "complements" beside a proposition QC's test contradicted only with that label |
+
 ## Plan #8, round 14 (read a58162a): revise
 
 The reviewer found both round-13 blocking findings and notes n-s to n-u fixed, reproduced the 46% from
@@ -1726,5 +1742,122 @@ Qualitative Coding's (QC's) own pages say the pinned run, e131eb55, is not finis
 - **Need anything from human:** No. R14-B1's fix is agent work: add the question and default, and extend A3.
 
 Reviewed revision: a58162af9d347ce0a6cdaeb70693ca02f19b96de
+
+Verdict: revise
+
+## Plan #8, round 15 reviewer's report (verbatim)
+
+**Verdict: revise.** One blocking finding, R15-B1. It is the part of R14-B1 the fix did not carry through.
+
+The fix handles the current pinned run correctly. Q12 now has a part (d), the plan's 1.0 table and S7 say the qualitative-path row reads "not yet" while the pin is above Qualitative Coding's (QC's) "wrong if" line, and A3 requires QC's verdict in the page label. The problem is the rule for when that wait ends. The plan takes QC's "wrong if" line to be the rejected-quote share alone (roughly a quarter). QC's own pages say a lower share alone does not pass. The run QC is expected to commit next (a67d7d6a, which issue #205 asks for) is exactly that case: 11.7% rejected, and QC itself says that does not settle it yet.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head f2c18ba): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails (verdict `revise`).
+- **Substance:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are by the contract's design: the plain baseline is `planned`, and 3 stages are `untested`.
+- **Other figures:** 104 file citations checked. 15 AI steps (3 measured, 12 computed). 7 stops (5 hold, 2 lifted).
+- **Initiative and spectrum tiers:** 4 of 4 ok.
+- **Coverage:** ok. 3 requirements: 2 covered, 1 counted as a process requirement.
+- **Goal provenance:** ok.
+- **Freshness:** ok, 1 commit of work since 3d8f599.
+
+**Plan checklist** (`plan_checklist.py --check`): exit 0, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 1020267) | 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204. All 194 passages sit at their offsets | Matches plan :160-177, Q15, A4 |
+| Pin hash | sha256 a77661f9… for both S1's `qc/theory.json` and QC's `expected-view.json`. That QC file has only ever changed at 7f5a8af9 | Matches Q26 |
+| QC's committed Open Science files (`public_demo_assets/`, `proposals/`) | Every theory file under `open_science/` predates September. Since then QC has committed only a278264d (the e131eb55 quantitative design) and the a67d7d6a school readings. Still no newer theory | Matches Q26 and F23 |
+| QC's quantitative design file against the pin | Its `source_development_sha256` (5d71b9c1…) equals the pin's hash under QC's own `grounded_theory_development_sha256`. The design is of exactly the pinned theory version | Round-14 missed question 3 is fixed with the right file |
+| QC spend, read-only from `llm_observability.db` (projects `qc` and `qualitative_coding`, 2026-11-05 00:00 to 2026-11-07 00:00) | 3,164 rows, 2,077 paid calls, $5.0119 | Matches S6, Q12(c), Q21 and both manifest entries (n-aa fixed) |
+| `make check PYTHON=.venv/bin/python` | exit 0; pytest 11 + 30 = 41 passed; mypy: no issues | Matches the manifest |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| `gh issue view 205 -R BrianMills2718/qc` | Open, no comments; its text matches Q26 and the S1 label | — |
+| `git log -i -E --grep 'pause\|archive\|overbuilt\|start over'` | Finds the NYC pause (91a69a5) and the Phase 3 lift (680c4d5), as `stops` records | — |
+
+#### Round-14 findings
+
+- **R14-B1: partly fixed; the rest is R15-B1, still blocking.**
+  - Fixed for the current pin, in Q12(d), plan :43, S7 :411-412, A3's expected result and failure example, and A12's expected result.
+  - The S1 label states the 46% (`study.json` `pin_label.reason`, rendered on the page).
+  - What still fails is the rule for when the row may read "met" (R15-B1 below).
+- **n-v: fixed.** All 29 concept nodes in the open-questions map now match the domain graph (0 differ).
+- **n-w: fixed.** F13 and F18 say "only if Brian names a case (Q25)".
+- **n-x: fixed.** The S1 page (`study_workbench.html:96`) now reads "grounded-theory-inspired candidate theory (its own term)".
+- **n-y: not changed, reason recorded.** Carried as a note.
+- **n-z: partly fixed.** The recommendation and plan :170-171 now say "weak corroboration only". Q15's `resolves_with` still says "so the same code leads on both theories" (n-dd).
+- **n-aa: fixed.** The window is pinned, and its figure reproduces.
+- **n-bb: fixed.** `review.html` shows package revision 3d8f5999da6c.
+- **Missed questions 2 and 3: fixed.** Q15's default and Q26 now cover a pin move, and plan :44 cites QC's design file.
+- **n-r and n8–n11: carried.** The `/blob/main/` links still return 404 until the branch merges.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R15-B1 | plan, open questions, acceptance | plan :43 and S7 :411-412; `open-questions.json:203-211` (Q12(d)'s question, recommendation, default and answer words); `acceptance-criteria.json:214` (A12 expected); A3's expected label (:50) | **What the plan says:** the qualitative-path row reads "not yet" only "while the pin is above that line", where "that line" is a rejected-quote share of roughly a quarter. The default is "the 1.0 tag waits for a QC theory under its own 'wrong if' line". **What QC's sources say:** the plan cites QC's line at `CURRENT_STATE_AND_ROADMAP.md:21-25`, which itself says "A lower rejection rate alone does not pass: see Evaluation section 8". `EVALUATION_HARNESS.md:181-182` says "A lower rejection rate alone … cannot satisfy completion". `REVIEW_QUEUE.md:27-31` says the 11.7% run "does not settle it" and the reading against the rules is "under way". **Why it matters:** the theory issue #205 asks QC to commit is that 11.7% run. Once it is pinned, the plan's rule lifts the "unfinished" reason while QC still calls the run unsettled. Brian's answer "wait for a finished QC theory" would then be carried out as "wait for a number QC says is not enough". A3's expected label is also fixed to the e131eb55 wording, so it says nothing about a later pin | Make the row's reason follow QC's own verdict, not the number. It reads "not yet: Qualitative Coding does not yet call its pinned theory finished", quoting QC's current words and source line, until QC's own pages record the pinned run as passing its "wrong if" test: the rejected share under the line and its Evaluation §8 reading of accepted quotes against their rules done. The outside-researcher step (QC step 5) stays with Q12(a). Change plan :43, S7, Q12(d)'s default and answer words, and A12 the same way. Add an A12 failure example: the pin moves to the 11.7% run while QC's page still says the rate alone does not settle it, and the row reads "met". Make A3 require QC's current verdict on whichever run is pinned | **blocking**: a wrong reading of a cited source that changes when the 1.0 tag may be cut, which is the decision Q12(d) feeds |
+| n-cc | open questions, diagrams | `open-questions.json:201` (Q12 `touches`) | Q12 now governs the qualitative-path row, but its `touches` (`integration_check`, `joint_display`, `measurement_instrument`, `meta_inference`) leave out `qc_theory_export`, `qualitative_strand` and `readiness_record`. The open-questions map does not link part (d) to what it governs | Add those three, then rebuild the map and page | note |
+| n-dd | open questions | `open-questions.json:273` (Q15 `resolves_with`) | It still says "so the same code leads on both theories". That is the August-export reasoning n-z asked to weaken | Say "weak corroboration only", as the recommendation now does | note |
+| n-ee | investigation | `investigation.json:219` (F10) | F10 fails and points only at Q26, which is resolved. The live decision on that failure is Q12(d) | Point F10 at Q12 as well | note |
+| n-y, n-r, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. **What ends the wait in Q12(d)?** QC's rejected-quote share alone, or QC's own statement that the run passes its finish line? This is R15-B1.
+2. **How are QC's disprove verdicts shown after the pin moves?** The run issue #205 asks for carries QC's own verdicts: one proposition contradicted and one where a rival explanation fits as well (`CURRENT_STATE_AND_ROADMAP.md:34`). QC also says three of four verdicts changed when retested (:59-63). Does the study page show these verdicts, with what label? And may S3 put a "complements" row beside a proposition QC's own test contradicted? Q26's re-pin rule recomputes figures, not how verdicts are shown. Weight: note, because it arises only after the pin moves.
+
+#### Checked and found sound
+
+- **Pinned theory, swept everywhere it is named:**
+  - Category names match the pin.
+  - P4 is the "minimum-compliance" claim, as the plan says.
+  - The P5 input is revision d921baaf, version `p5-v1`, with the `selection_disclosure` and `allowed_use` the plan quotes.
+- **QC's verdict:** every figure the package and the S1 page give (46%, 11.7%, "predates the disprove test") agrees with `CURRENT_STATE_AND_ROADMAP.md:32-34` and `REVIEW_QUEUE.md:19, 27-31`.
+- **Method owners' rules:**
+  - S4 keeps QC's independence condition and anti-circularity rule (`METHODS_AND_THEORY.md:453-474`).
+  - S2's claims stay inside QC's design file's prohibited inference (:40) and `METHODS_AND_THEORY.md:498`. It validates against human coding and claims nothing beyond the 25 interviews.
+  - S4, S6 and S7 match decision 0017 (:27-58).
+  - S4 matches ADR 0004 (:8-16 and :58-68) and the efficiency README (:161-163, $0.0555 over 7 calls).
+  - QC's "workbench sequence" pause is recorded in `stops.searched` with its NYC history.
+- **Domain model, implemented concepts:** four sampled (`evidence_anchor`, `cross_method_link`, `quantitative_audit`, `public_review`). Each citation is within one or two lines of its class.
+- **System model:** its S1 row lists `StudyDefinition`, `CorpusManifest` and `ProducerInputPin`.
+- **Review page:**
+  - All three diagrams are drawn on the page (`GraphViewer.mount` on each).
+  - Q12(d) and "accept the October run" appear on it.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+- **Coverage, split myself:**
+  - "finish" → A12.
+  - "not for a specific use case" → A10 and A12.
+  - "part of my broader vision" → A11.
+  - The outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **R15-B1's weight.** Two things argue against blocking. Brian judges every readiness row himself. And QC may update its pages when it commits the newer theory. I made it blocking for two reasons:
+  - the plan's rule misreads the very lines it cites;
+  - the next expected pin (the run issue #205 asks for) triggers it.
+
+  The round-14 wording I was asked to check suggested this same "above the line" test, so this is partly a flaw in that suggestion, not the author's.
+- **Process Tracing's pipeline export.** The causal tab shows the 2026-09-23 export from Process Tracing's frozen pipeline. ADR 0004 keeps the pipeline as the comparison on small cases, not as a disowned result, and the conclusion is withheld anyway. So I did not treat it like QC's unfinished run.
+- **Limits of this review.**
+  - No browser tool was available, so I read the pages as HTML.
+  - I did not rerun the 204-test `pytest` suite; `make check` ran its 41 tests.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT). `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify. Pin sha256 equal. QC's own development hash equals the design file's (5d71b9c1…).
+  - `make check`: exit 0 (41 passed). Crosswalk check: exit 0, 171/36/0.
+  - Log query: 2,077 paid calls, $5.0119.
+  - `gh issue view 205`: open.
+- **Feedback:** when a fix makes a gate wait on a producer's verdict, the wait should end on the producer's own verdict, not on one number from its rule. Check the producer's "a lower X alone does not pass" clauses.
+- **Need anything from human:** No. R15-B1 and the notes are agent work.
+
+Reviewed revision: 3d8f5999da6c3be326fc684913f57f635101fc30
 
 Verdict: revise
