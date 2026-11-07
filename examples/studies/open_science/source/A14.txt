@@ -1,0 +1,69 @@
+Interviewer: There we go. So you've already sent me the form of consent, but I want to remind you that this interview is being recorded and it will be transcribed by myself and my student research assistants with the help of a large language model. Is that okay with you?
+
+Interviewee 14: Yeah, it is.
+
+Interviewer: Brilliant. Yeah, so this is qualitative, preliminary research on open science practices in linguistics. And so linguistics being a very broad field, my first question would be, where do you situate yourself in linguistics?
+
+Interviewee 14: I would say I'm mainly a corpus linguist, dabbling into cognitive linguistics, but mainly for theoretical reasons, for PROJECT, not for experimental work.
+
+Interviewer: Mm-hmm. Great. And we'll begin with your personal experience within linguistics. What do you associate with open science in linguistics? What springs to mind when we speak of open science?
+
+Interviewee 14: I would say the accessibility of results and, well, science to the general public. So to everyone who might think that this might be of use to their work, profession, or maybe also just out of interest.
+
+Interviewer: That's really interesting. And I spoke of open science as how I introduced the project. But linguistics is traditionally thought of as a humanity. And so as a result, some people in the humanities prefer to speak of open research rather than open science. And there are others still that prefer the term open scholarship, which is sometimes understood to be even broader to encompass open science and open research and open education as well. And I was wondering whether you had any thoughts on that. Which term do you think is most suitable for linguistics? I'm going to put the terms in the chat because there are quite a few that I mentioned. So you can have a look first.
+
+Interviewee 14: Yeah. I honestly don't have a strong personal opinion of what will be applicable to linguistics, but I think everything could apply to linguistics. It's such a multifaceted field. So I don't think anything would be wrong to say. I think some linguists prefer to situate themselves in science and humanity. So I think anything really would be okay for linguistics.
+
+Interviewer: I'm going to continue using the term open science, but I also mean it in a very broad sense. So I include all of these things, including open education, and feel free to use whichever term you feel is most appropriate. So let's turn now to your own experiences of open science. Have you been involved in any open science practices so far?
+
+Interviewee 14: I mean, not in publishing. I think involvement as in I can access papers that are maybe published, open access. That's, I think, the only involvement that I can think of. I don't know if we also count science communication as open science. Then I would say I am a consumer of that through different channels.
+
+Interviewer: What kind of channels?
+
+Interviewee 14: On Instagram, like reels about linguistics. I don't know if that counts as open science, but I would kind of count it under the umbrella of that.
+
+Interviewer: Yeah, I mean, open science is what you make of it, right? And many people would certainly include science communication as part of that. So yeah, that's really interesting. And yeah, looking to the future, so when you start publishing yourself as well, or for your PhD, are there any open science practices that you're planning on engaging in?
+
+Interviewee 14: I would like to publish open access, but I think that depends on how this could be financed. Because I'm not sure with the different publishers what the costs are. And I don't know if the university funds any of that. So really, that depends on whether there's funding and how much that costs. Because I don't think I would be willing to pay myself.
+
+Interviewer: Yeah, fair enough. Yeah. And yeah, so let's try not to think sort of beyond your personal beliefs and experiences and think about the broader field of linguistics, the broader community. And as far as you can tell, how widespread are open science practices in linguistics?
+
+Interviewee 14: I think, especially with science communication, it's getting better. So people are, or there's an interest in linguistics. I think like on TikTok and Instagram, I don't have TikTok, so I don't really know. But I think what kind of comes over to Instagram, I think there is a growing interest, which is cool. Yeah. Other than that, I don't think linguistics is a very popular field for the general public. So I think I don't think the general public really knows what's going on in linguistics. So I think there's still room for open science there.
+
+Interviewer: And what about in terms of open access publications?
+
+Interviewee 14: I think many publications are not open access. I mean, I'm not sure because I always access everything through the university network. So I don't know if it would have been open access anyways. But still, there are many publications that I can't access because it's not included in my university's contract. I don't know. So there must still be a lot of gaps.
+
+Interviewer: Yeah, that's interesting. And which factors do you think contribute to this, by the sound of things, fairly low uptake of open science practices in linguistics? And you're welcome to think more specifically in cognitive linguistics, if that's easier.
+
+Interviewee 14: I mean, I think for open access publications, it's mainly just how to finance it. I don't think that that's a big problem. And I think a lot of linguistic work is mainly theoretical, that maybe financing that to go open access, I mean, there might not be enough interest in the general public for very theoretical works, which is, of course, a bit disappointing. But I mean, that is probably the reality of that. But I think other, so in other domains of linguistics, like cognitive linguistics, as in like neural networks and, you know, brain imaging and that kind of stuff, maybe that is more open access because it could be used for, or in all sorts of areas. Maybe that is more open access. I don't know. I'm not, I don't have a lot of experience with that field.
+
+Interviewer: And are you familiar with preprints or green open access routes?
+
+Interviewee 14: Preprint, yes, but not green open access.
+
+Interviewer: Okay. So it's the idea of rather, as you quite rightly say, open access is very often associated with costs, which the authors or the libraries have to pay. And with a preprint, you publish your manuscript before it's been peer reviewed, and so it's in your own formatting, it's not the nice publisher's formatting. And the green open access is very similar, and you're publishing your own author copy, not the publisher's version. And that's very often possible for most journals. And then you put that file in the repository, like Zenodo or OSF, or I'm not sure, or even ResearchGate, you know, that kind of thing. So that's another way of doing open access without the fees. Is that something that you've seen being done in linguistics?
+
+Interviewee 14: Yeah, I have a lot of the times when I can't find an article, I usually find a preprint on ResearchGate. So that's good, so that everyone can read the articles. But then again, for people who want to cite the articles, maybe even quote, then you don't have the correct page numbers. So that's the problem. So then you're kind of, you can't quote directly from an article. That's the problem. But I think the more important point is that you are able to read the article. But then again, it's not peer reviewed, right? So we don't know the quality of the work that has been put out.
+
+Interviewer: Yeah, that's a good point. I'm not sure how familiar you are with open science practices outside of linguistics. I mean, it's a movement, if we can call it that, that doesn't come from linguistics. It came more originally from psychology and then also maybe medicine and other fields. And my question would be, do you think there are any specificities about linguistics that need to be taken into consideration when we try and apply open science practices?
+
+Interviewee 14: I think for certain areas of linguistics, it's very important that they kind of become more open to the public, especially when it comes to language education. So I think many language teachers will be interested in reading publications about language teaching, for example. And I think that should be taken into consideration so that educators have the option to read books works for free.
+
+Interviewer: Would they need to be adapted to this other audience? Because obviously we tend to publish papers for other researchers. What might be solutions to make it accessible, not just in terms of physical access, but also just general accessibility for teachers or other people?
+
+Interviewee 14: Uh that's an interesting question. So I think I mean at least teachers that have gone through COUNTRY university teaching, I don't know how it is in other countries but here teachers should be able to read those kinds of articles. But then again of course they have a lot of work anyways and that might not have the time to read these very long very complex articles. Yeah so I think science communication would be a good idea. Maybe there could be special journals that prepare the results of articles in a more concise manner for teachers to read and then apply.
+
+Interviewer: Yeah, that's really interesting. Yeah, I was wondering, now going back to your experiences, currently as a PhD student, as a doctoral researcher, what would you need to do more open science? Like what would help you personally?
+
+Interviewee 14: Um oh that's an interesting question. Um I mean, for me, open science is mainly open access publishing which I haven't gotten to. Um I know that I’m currently under review for journal and for that I know that I won't have the funds to publish open access. So funds is a big problem. Um and I think I just don't, I wouldn't know how to do science communication if we also count that under open science. So I wouldn't know, or I don't have the audience to communicate what I do.
+
+Interviewer: Okay, yeah. That's interesting. Yeah, and my own feeling, and again, you're welcome to disagree, is that my observation is that often open science advocates in linguistics tend to preach to the choir or preach to the converted. And my first question is, I mean, do you have that feeling? And then the other question would be like, what could we do to reach out to more linguists, those that are maybe just not even aware of open science practices?
+
+Interviewee 14: Yeah. I mean, I agree that we're usually preaching to the choir. Because I mean, I'm not even sure if a lot of linguists disagree that there should be open science. I think most linguists agree that, yes, we should definitely make our work and results accessible. I'm not sure how we will be able to convince anyone else. I mean there are just a lot of obvious advantages of making everything accessible and that is what science is for. It's funded by wherever your funds come from but these are public funds so the results should come back to the public, I think. That is maybe something that could convince people, but I don't know what their counter arguments are. So I don't, I wouldn't know how to, how to convince them really.
+
+Interviewer: That's really interesting. Yeah. Yeah. I'm reaching the end of my official interview scheme. The last question is simply, is there anything else that you would like to add on open sciences in linguistics or in fact, in the humanities more broadly?
+
+Interviewee 14: I think it's just very important to have more open science, especially because I don't think a lot of people know what the humanities are doing. So I think it would be interesting to see how people react if they suddenly have access to maybe a specially prepared chunk of results from the humanities or just research from the humanities.
+
+Interviewer: Yeah, that's really interesting. Thank you so much. I'll stop the recording here.

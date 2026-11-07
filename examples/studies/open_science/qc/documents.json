@@ -1,0 +1,202 @@
+[
+ {
+  "id": "open-science-interview-a02",
+  "name": "Open Science interview A02",
+  "source_filename": "A02.txt",
+  "source_file_sha256": "3da1e3fd1c6df1cbc4ab8584ab1bc8754b3f740b1037fe65ee04f7e5b7170f9d",
+  "characters": 18089,
+  "content_sha256": "3da1e3fd1c6df1cbc4ab8584ab1bc8754b3f740b1037fe65ee04f7e5b7170f9d"
+ },
+ {
+  "id": "open-science-interview-a03",
+  "name": "Open Science interview A03",
+  "source_filename": "A03.txt",
+  "source_file_sha256": "eda739e87bb2d13723aad8a9e3859c829e54e7986873405e7501119a638a9dff",
+  "characters": 31169,
+  "content_sha256": "eda739e87bb2d13723aad8a9e3859c829e54e7986873405e7501119a638a9dff"
+ },
+ {
+  "id": "open-science-interview-a04",
+  "name": "Open Science interview A04",
+  "source_filename": "A04.txt",
+  "source_file_sha256": "630117a6f02d432e665f1293f419daed5476867da9dac51f68550cca80d1f43a",
+  "characters": 26330,
+  "content_sha256": "630117a6f02d432e665f1293f419daed5476867da9dac51f68550cca80d1f43a"
+ },
+ {
+  "id": "open-science-interview-a05",
+  "name": "Open Science interview A05",
+  "source_filename": "A05.txt",
+  "source_file_sha256": "d14ed92e7ad376ee91339a10abfbd6ce5e08a56900d6143a3a0b6281c1968f33",
+  "characters": 29143,
+  "content_sha256": "d14ed92e7ad376ee91339a10abfbd6ce5e08a56900d6143a3a0b6281c1968f33"
+ },
+ {
+  "id": "open-science-interview-a06",
+  "name": "Open Science interview A06",
+  "source_filename": "A06.txt",
+  "source_file_sha256": "e0bcad857b095053b9751222f54f3bb261c08fe31799c7d8b0e0ad8b13585c1a",
+  "characters": 26904,
+  "content_sha256": "e0bcad857b095053b9751222f54f3bb261c08fe31799c7d8b0e0ad8b13585c1a"
+ },
+ {
+  "id": "open-science-interview-a07",
+  "name": "Open Science interview A07",
+  "source_filename": "A07.txt",
+  "source_file_sha256": "7e2432af30551a9c05cb05a780893753b7bf5cdac2599339263958ff199277e9",
+  "characters": 21833,
+  "content_sha256": "7e2432af30551a9c05cb05a780893753b7bf5cdac2599339263958ff199277e9"
+ },
+ {
+  "id": "open-science-interview-a08",
+  "name": "Open Science interview A08",
+  "source_filename": "A08.txt",
+  "source_file_sha256": "7c26f7b97a9e7014a31a3dfbd14503d4a6d96473d0bf1917d437715ff83a4e9e",
+  "characters": 34152,
+  "content_sha256": "5619fc46efb65500730bd3c596abad3fe8906851afeea7cad48f17dccd5f4174"
+ },
+ {
+  "id": "open-science-interview-a09",
+  "name": "Open Science interview A09",
+  "source_filename": "A09.txt",
+  "source_file_sha256": "330c3820c0d5683e70c06062b131726cfeacc00a41208728a34ddc7031c281eb",
+  "characters": 26729,
+  "content_sha256": "330c3820c0d5683e70c06062b131726cfeacc00a41208728a34ddc7031c281eb"
+ },
+ {
+  "id": "open-science-interview-a10",
+  "name": "Open Science interview A10",
+  "source_filename": "A10.txt",
+  "source_file_sha256": "086546f6ce740def5be1536aa2ee0e33b0d02fc577f064c8c278d0b2a2ff146d",
+  "characters": 16004,
+  "content_sha256": "086546f6ce740def5be1536aa2ee0e33b0d02fc577f064c8c278d0b2a2ff146d"
+ },
+ {
+  "id": "open-science-interview-a11",
+  "name": "Open Science interview A11",
+  "source_filename": "A11.txt",
+  "source_file_sha256": "45e8eed93c7dfa7b542105ca8bcfb13009442f472a34b53142cd7e9cd0542cd1",
+  "characters": 18183,
+  "content_sha256": "45e8eed93c7dfa7b542105ca8bcfb13009442f472a34b53142cd7e9cd0542cd1"
+ },
+ {
+  "id": "open-science-interview-a12",
+  "name": "Open Science interview A12",
+  "source_filename": "A12.txt",
+  "source_file_sha256": "d5d9b28d7a63e51aa30b10bb914ad035f670c69dacc5effa8581d4897f7b5820",
+  "characters": 22844,
+  "content_sha256": "d5d9b28d7a63e51aa30b10bb914ad035f670c69dacc5effa8581d4897f7b5820"
+ },
+ {
+  "id": "open-science-interview-a13",
+  "name": "Open Science interview A13",
+  "source_filename": "A13.txt",
+  "source_file_sha256": "0eeead0e7a657022c8b2efb229e5fc2edef69e5b806ab9d1a4a98f2c7b953bed",
+  "characters": 21123,
+  "content_sha256": "0eeead0e7a657022c8b2efb229e5fc2edef69e5b806ab9d1a4a98f2c7b953bed"
+ },
+ {
+  "id": "open-science-interview-a14",
+  "name": "Open Science interview A14",
+  "source_filename": "A14.txt",
+  "source_file_sha256": "cac61a4371b4341cdd48eb8a3e00e0a9d2af6b0eebc451f8fc93bcac42a8b7f1",
+  "characters": 12054,
+  "content_sha256": "cac61a4371b4341cdd48eb8a3e00e0a9d2af6b0eebc451f8fc93bcac42a8b7f1"
+ },
+ {
+  "id": "open-science-interview-a15",
+  "name": "Open Science interview A15",
+  "source_filename": "A15.txt",
+  "source_file_sha256": "9ffd44abbc665251be065b6d0fc19637c0526db00cae176a299c9e5a83ec3b22",
+  "characters": 14547,
+  "content_sha256": "9ffd44abbc665251be065b6d0fc19637c0526db00cae176a299c9e5a83ec3b22"
+ },
+ {
+  "id": "open-science-interview-a16",
+  "name": "Open Science interview A16",
+  "source_filename": "A16.txt",
+  "source_file_sha256": "9fcd5e13e137716c82fa7bcca3becdcc426c4cfd6241c6dd65f92d5bdaf1c9f8",
+  "characters": 13928,
+  "content_sha256": "9fcd5e13e137716c82fa7bcca3becdcc426c4cfd6241c6dd65f92d5bdaf1c9f8"
+ },
+ {
+  "id": "open-science-interview-a17",
+  "name": "Open Science interview A17",
+  "source_filename": "A17.txt",
+  "source_file_sha256": "c38e46996c41182b4057685af0df08bd95a88061b2e155d1f389c76dc681a5d4",
+  "characters": 14447,
+  "content_sha256": "c38e46996c41182b4057685af0df08bd95a88061b2e155d1f389c76dc681a5d4"
+ },
+ {
+  "id": "open-science-interview-a18",
+  "name": "Open Science interview A18",
+  "source_filename": "A18.txt",
+  "source_file_sha256": "3cce93ec1735375755ca3e94bcd2a3ef75808451eeaa6bd32a97444a035e508f",
+  "characters": 24185,
+  "content_sha256": "3cce93ec1735375755ca3e94bcd2a3ef75808451eeaa6bd32a97444a035e508f"
+ },
+ {
+  "id": "open-science-interview-a19",
+  "name": "Open Science interview A19",
+  "source_filename": "A19.txt",
+  "source_file_sha256": "1202c094787975c065de5759efcd80bdf306f37001108d1b73567a0af128e5a5",
+  "characters": 20910,
+  "content_sha256": "1202c094787975c065de5759efcd80bdf306f37001108d1b73567a0af128e5a5"
+ },
+ {
+  "id": "open-science-interview-a20",
+  "name": "Open Science interview A20",
+  "source_filename": "A20.txt",
+  "source_file_sha256": "2439ee303f3f54e1aaedf50e4b0f706c7a6a3f6399ee811f465cc46021f5ebb9",
+  "characters": 15691,
+  "content_sha256": "2439ee303f3f54e1aaedf50e4b0f706c7a6a3f6399ee811f465cc46021f5ebb9"
+ },
+ {
+  "id": "open-science-interview-a21",
+  "name": "Open Science interview A21",
+  "source_filename": "A21.txt",
+  "source_file_sha256": "d7dd18860903c31c2ced84764e4ff7b4ab02749e6f89900507f78059802cd2d9",
+  "characters": 18432,
+  "content_sha256": "d7dd18860903c31c2ced84764e4ff7b4ab02749e6f89900507f78059802cd2d9"
+ },
+ {
+  "id": "open-science-interview-a22",
+  "name": "Open Science interview A22",
+  "source_filename": "A22.txt",
+  "source_file_sha256": "062ce74cd9846350ab608c671537dac6580e98921b81b422f9ef8f09487db66c",
+  "characters": 13668,
+  "content_sha256": "062ce74cd9846350ab608c671537dac6580e98921b81b422f9ef8f09487db66c"
+ },
+ {
+  "id": "open-science-interview-a23",
+  "name": "Open Science interview A23",
+  "source_filename": "A23.txt",
+  "source_file_sha256": "3e8a0a76dae96d706d43b7e26da576acfbffa83e2585e71eabd45443b2e94738",
+  "characters": 30345,
+  "content_sha256": "3e8a0a76dae96d706d43b7e26da576acfbffa83e2585e71eabd45443b2e94738"
+ },
+ {
+  "id": "open-science-interview-a24",
+  "name": "Open Science interview A24",
+  "source_filename": "A24.txt",
+  "source_file_sha256": "fecd1455818112045535a8872d932f5136bd077f17f53d5710b337e2ba305b95",
+  "characters": 17180,
+  "content_sha256": "fecd1455818112045535a8872d932f5136bd077f17f53d5710b337e2ba305b95"
+ },
+ {
+  "id": "open-science-interview-a25",
+  "name": "Open Science interview A25",
+  "source_filename": "A25.txt",
+  "source_file_sha256": "34c75ced89960f754a1f1e2559af4b3b0d2e588669a304d7a9ef7e4f03c2d775",
+  "characters": 23342,
+  "content_sha256": "34c75ced89960f754a1f1e2559af4b3b0d2e588669a304d7a9ef7e4f03c2d775"
+ },
+ {
+  "id": "open-science-interview-a26",
+  "name": "Open Science interview A26",
+  "source_filename": "A26.txt",
+  "source_file_sha256": "b3206339431eb0581b338f7935b47e64d2b18402ab146cec097ad613f8b07632",
+  "characters": 23197,
+  "content_sha256": "b3206339431eb0581b338f7935b47e64d2b18402ab146cec097ad613f8b07632"
+ }
+]

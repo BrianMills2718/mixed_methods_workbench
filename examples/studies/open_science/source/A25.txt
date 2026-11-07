@@ -1,0 +1,123 @@
+Interviewer: Thank you so much for agreeing to this interview. You've already read the form of consent. But as a reminder, this interview is being recorded and the audio and video material will be viewed by myself and my student research assistants to create an anonymized transcript. And it's the anonymized transcripts that will be shared with the research community. And we will be using a local large language model to help us in that task. Is that OK with you?
+
+Interviewee 25: Yeah, that's perfectly fine.
+
+Interviewer: Great. So the aim of this research is to find out about open science practices in linguistics. And so my first question is simply, where do you situate yourself and your research within this broad field of linguistics?
+
+Interviewee 25: Well, LANGUAGE studies and teacher training. Yeah, in LANGUAGE.
+
+Interviewer: Yeah. Great. And so we'll start with your personal beliefs and associations. So what do you associate with open science? What springs to mind when we speak of open science practices in linguistics?
+
+Interviewee 25: I think making available one's ideas, thought processes, research processes, after reading your texts on the issue as well, also sharing resources, which I found very interesting, and which is, I believe, done in linguistics already, to a quite excessive extent, I think. Thinking about for example, about research being shared and yeah.
+
+Interviewer: And I opened up this whole research project on the topic of open science. But linguistics is traditionally considered a humanity. And for some people in the humanities, open science is like not necessarily the best term. And so some people in the humanities prefer to use the term open research or others prefer open scholarship, which is often thought to be like a broader term that encompasses also open education. I was wondering whether you have any thoughts on this. Do you think that open science is suitable for linguistics or any other terms that I'm going to put in the chat for you to look at more suitable in your opinion? Do you have any thoughts?
+
+Interviewee 25: Honestly, I didn't really give it a thought like that. Science and humanities are not the same, which is probably true. Probably due to my German-speaking background where we don't really draw this distinction. So it's just Wissenschaft.
+
+Interviewer: Yeah.
+
+Interviewee 25: So, but now that you bring that to mind, I think that maybe open research would be more suitable. Well, as a broader category. So I kind of like this option. Open scholarship, I don't think that I like this term too much, to be honest, because this somehow gives me other associations. So I'd say that, yeah, I'd stick with open research. I like that.
+
+Interviewer: What kind of associations spring to mind with open scholarship?
+
+Interviewee 25: So scholarship for me is always something financial. So where you get something. So I'd be misleaded probably a little bit by this term.
+
+Interviewer: Interesting. Yeah. Yeah, so I'm going to continue using the term open science, but feel free to use whichever term you prefer. And I mean, in the broadest of sense, to include all of these things. But now I'd like to talk about your own personal experiences. So have you taken part in any open science practices yourself? And if so, which ones?
+
+Interviewee 25: I contributed to PROJECT, to the book about what was PROJECT. And I supervised some master's theses as well, the master thesis that contributed to PROJECT. So this was probably the project where I participated consciously. And then I also kind of participated, well, kind of share my corpora, which I wasn't aware of for a long time. But then I noticed that I apparently share my corpora that I used for my PhD.
+
+Interviewer: How did that work?
+
+Interviewee 25: Well, they're stored under PERSON account in Sketch Engine and PERSON shared them with the university access. Strictly speaking, probably not really open science or open research, but I mean, it's still shared with the university. But it's not open-open, it's university-open. Yeah, so this was, so this is also something where I kind of share my data or my resources. Yeah, as I said, without being aware of it. But it's fine. So I'm happy to share my data. Yeah, this is my experience so far.
+
+Interviewer: And have you heard that your corpora are being used?
+
+Interviewee 25: Yes, actually, I know that my corpus is used in one of the seminars.
+
+Interviewer: Cool.
+
+Interviewee 25: Which is not really a coincidence because there I'm working with my PROJECT, so the PROJECT that I produced for my dissertation project. And students tend to use them also for the seminars that are corpus-related, because they're PROJECT, like PROJECT spoken language, but still. They come in quite handy for a lot of questions that pop up during seminars. So yes, they're being used.
+
+Interviewer: Nice. Oh, I had a question that I've already forgotten now. Never mind, it'll come back. Okay, so the next question is actually, where did you learn about open science practices and what or who encouraged you to get involved?
+
+Interviewee 25: You do come across the term at some point. I don't want to say that I really spent a lot of, well that I gave a lot of thought before you asked me to do this interview with you. I think it's probably mainly you who kind of brought that to my mind, like, and not just with the interview, but also before, because you mentioned at several occasions how important you think it is to actually share ideas and ways of working and processes and also resources, which is, in my opinion, a very, very interesting point in this whole open science or open research debate. Yeah, so It's basically, it all comes back to you in a way.
+
+Interviewer: Oh, I've remembered my question, which is we spoke about sharing teaching materials and you've been involved in and supervising a thesis that was then shared or parts of it was shared. And how about publishing in open access? Because that's another open science practice. Is that something you've got experience doing?
+
+Interviewee 25: No, I haven't done that so far, but I'd be very happy to do so. So, yeah. I'm in the process of looking for a publisher for my thesis, for my dissertation project. I kind of read through the open access publishing policy at the publishing companies. And I think that this is something that might maybe be an obstacle because it's, to me at least, I mean, I didn't really spend a lot of time trying to find out how it works, but the first impression that you have when you scroll down the information on their publishing policies, you find that it seems to be quite difficult to actually do open access publishing yourself or quite expensive depending on the publisher. So this might be an obstacle. Yeah. In general, I really like the idea of doing open access publishing, but I think that maybe financial issues might, yeah you know.
+
+Interviewer: And are you familiar with the idea of publishing preprints or postprints? And is that something you have done before?
+
+Interviewee 25: No, I haven't done that, but I'm familiar with that.
+
+Interviewer: Mm-hmm.
+
+Interviewee 25: Mm-hmm. Like pre-prints, at least post-prints, I'm not sure. What is a post-print?
+
+Interviewer: The post-print is, I mean, there are different terms. And sometimes people use pre-print to mean post-print, which is not very helpful. But the idea of the post-print is the final text that is published, but in the formatting that you had on your own computer. So it's not
+
+Interviewee 25: Oh, yeah, I know that. Yeah, yeah, yeah.
+
+Interviewer: Whereas really the pre-print is, in the stricter sense, is what you submitted. So then.
+
+Interviewee 25: Okay, yeah, I understand. Yeah. Okay. Yes, I'm familiar with both. And I use both, but as a consumer rather than as a provider. Okay.
+
+Interviewer: Interesting. Yeah. And because you're still in the process of working out where you're going to publish your PhD thesis or the book that comes out of it, as part of publishing the thesis, do you intend to publish, to make any of the materials, you know, the outputs freely available or freely accessible?
+
+Interviewee 25: This is something that I really want to do. So my PhD is about, well, a PROJECT. So, and the text itself deals with the research process and, of course, the theoretical basis of the whole project and so on, and also discusses the results, so what came of these PROJECT. But the main outcome of the dissertation project is of course the PROJECT itself, or are the PROJECT themselves, so it depends on how you look at it. And the PROJECT I really do want to make accessible to, well, to everyone basically, and not just for consulting purposes so that people can look up things there. So not just as the reference work it is, but my idea is that it can really be also be used as a basis to further develop that the PROJECT of language is something developing, something that is not monolithical. I think it does not, well, it does make sense, but it makes more sense to actually have the PROJECT that I established as a basis to, well, add to the PROJECT as well. So add maybe other varieties. Yeah, this is probably the main point. Ideally, of course, I mean, that would kind of require the contributors to the PROJECT to actually go along with my model, with the PROJECT, because otherwise it gets very, well, it will not be very comprehensible anymore. Can you still see me? It's important that the contributors to the PROJECT are familiar with the work, basically, and not just add lines to the PROJECT, of course. But the idea is really, in a way, so I've not quite worked out how, but in a way that researchers are welcome to contribute to the PROJECT in the end. Yeah. So to cut an exceedingly long story short.
+
+Interviewer: Okay. And what about the corpora? I mean, you're currently sharing them within the university. Do you intend to make them public as well?
+
+Interviewee 25: Sorry? To make them public? This is maybe another issue that I had when I started thinking about this whole open access, about this whole open research or open science idea which I really like, but one thing that kind of troubles me a little bit is the question of you know copyright and all sorts of legal questions that I find incredibly difficult to to answer or to find answers to particularly with the whole with the whole corpus issue. So I'm really not sure whether I'm allowed or entitled to actually share this with with the with the wider public. So yeah this is something that I'd have to find out first. This may be also very German perspective but as I'm on my for my current project I'm trying to to recording sets calls and I see how incredible how incredibly difficult that is also with the with the whole permissions and that yeah and I mean you put one foot into prison already when you start doing something like that so this be something that would maybe stop me or, prevent me from actually sharing that with the wider public.
+
+Interviewer: Makes sense. Yeah. Yeah. Thanks for sharing those experiences. And now we're trying to move away from your personal experiences or associations and try and think about linguistics more broadly in the linguistics community. But of course, you'll be thinking from your own perspective and your own experiences. So you're welcome to think about the subdisciplines that you're most familiar with. So as far as you can tell, How widespread are open science practices currently in linguistics?
+
+Interviewee 25: I mean, it depends a little bit on, well, actually, I do find it quite easy when I'm researching something to actually access a lot of information, which is probably a good start and I also find that, for example, well, corpus data, particularly from small corpora that are where people are more in, well, I don't know how you put that, but where corpus data is collected more qualitatively, I don't know if that is a term, but those corpora actually are also, or this corpus data is shared quite often or quite frequently, in my opinion.
+
+Interviewer: Are these kind of like PROJECT corpora? What kind of corpora are you thinking of?
+
+Interviewee 25: For example, PROJECT corpora for all sorts of languages. So this is something I find really interesting. But I also, well, but this is then probably not qualified as open access or open research anymore because there are a lot of resources that are free to a certain extent and then have a number of of searches for free, for example, and then they require you to at least register, even if it's free, but then you have to register in a way. And which, I mean, if it's not, if you don't have to pay, then registering of course should not really be a problem, but yeah, still it's not, yeah. You have to submit in a way. Yeah, but really in numbers, I can't really say. So, yeah. But I feel that it really is part of the whole research field in a way. So I feel that you can get at least somewhere with open access or open research.
+
+Interviewer: And do you think there are any specificities about linguistics and linguistics research that need to be taken into consideration when we try and apply open science practices and principles?
+
+Interviewee 25: Yes, so I definitely say those legal questions are very, very important to sort out beforehand. And I think it would be a very good idea, well, to have a qualified opinion on that and to make that publicly available and to kind of transform that maybe into some sort of guideline. Because I think that this is really very often something that hinders people from actually or from actively contributing something to the to the research community that can be shared on a, well, to a wider public or with a wider public. So maybe this would be a very good start and also I think that maybe with particularly with linguistics or, yeah you you do have a lot of people involved in your data collection, for example, right? So I'm not sure that everyone is happy about their utterances or opinions or contributions being shared with the public that they don't know. So maybe this would be another issue that can probably not be sorted within the research community because this also involves people, well, contributing language basically. So this is something that I see maybe a bit critical, critically. Also from my, I know we're not talking about my experiences anymore.
+
+Interviewer: No, no, it's still relevant, yeah.
+
+Interviewee 25: But also from the point of view of my current project, where really everyone involved seems to be actually quite reluctant to contribute their own, well, not to contribute, but to know that somebody else is going to hear what they say in class, for example. Yeah. Yeah, which is maybe also something very German, but I don't know. Yeah, because people seem to feel that they're being judged or at least evaluated or assessed whenever they contribute something to a research project. Yeah. They don't want to be assessed which I understand.
+
+Interviewer: Yeah and that's even though you're anonymizing presumably.
+
+Interviewee 25: Yes, sure, yeah, I'm not even there. So they just get the recorder and then they do the recordings themselves. Yeah I mean I offered to be there if they preferred. But well I don't have to be there too you know it's just yeah it's a little bit difficult. Plus you have to put up with the administrative stuff, the INSTITUTION. But sorry, I got carried away a little bit again.
+
+Interviewer: No, but actually, the next question does come back to you as a researcher, and you've partly answered the question. And the question is, what would you need personally to do more open science or open research?
+
+Interviewee 25: Probably more open minds. In a way, because, yeah, it's just, I don't know, maybe this is also like an academic tradition that may be different across European countries or worldwide, not made, but probably truly is. But I somehow have the feeling that, yeah, research projects very often, people are are skeptical towards research projects quite often. So they're not sure what you do with the data that you collect, and they think that the outcome they're not gonna be able to understand, or this is all not very transparent. So this is a little bit the feeling that I have. So what would help my research would be people who say, yeah, that sounds cool. We really do want to bridge the gap between theory and practice. And this is something that we all want to contribute to, even though we don't have any direct outcomes for ourselves. But we know that in the future, teaching will be a lot more based on practical considerations. So that would be cool. So more open minds, open minds for open science.
+
+Interviewer: That's a cool title for my next publication, thank you!
+
+Interviewee 25: Yeah, and also this whole red tape. I mean I know, it's, I understand and it's perfectly reasonable. We do have all these yeah requirements that we have to meet and that it's yeah that not everyone can just go somewhere and do a recording of somebody and then really do understand that. But sometimes I feel it's a little bit yeah it's not based on reality too much I have the impression. Because for my sorry but coming back against my research project it's a little bit difficult because they want me to to indicate every little detail of the whole project in the in the Antrag which is very difficult for me because I mean, it's NUMBER schools that I want to ask whether they want to participate in my project or not. So I can't possibly tell beforehand how many students will be involved in one recording. And I mean, I can only guess, you know, and then if this takes hours and hours and hours and I've written, I don't know, by now it's, I think around 12 pages that I've written, I'm justifying why I'm doing that. And so, you know, just the administrative stuff. This is all very tiring. And yeah, so maybe, maybe some standardized processes would make that a little bit easier because then I think more people would also would, would really try to do that. Yeah. Because what I'm planning on doing is not witchcraft, so you don't have to be super clever to do that, right? So it's just a lot of work. It's a fleißige Bienchenarbeit, as we say, right? But it's very useful. I think a corpus of the sort that I want to compile, I think is very, very, very, very, very super, very useful for teacher training or to get conclusions about just develop new ways of teaching or of training teachers, future teachers. So I think that would be a very good idea. So, and I think that probably somebody else would have done that already. Yeah. If it wasn't so, so, so yeah, it just seems impossible to get the permission to do it. So this is, so maybe if you reduce the, yeah, the obstacles here a little bit, or just, yeah, as I said, standardized processes, maybe just like, yeah, an online form, you know, where you can upload something and, but just click and then you know what you're supposed to, which information you're supposed to share and so on and so forth. And maybe a link to the, to the data regulations and stuff, because like that, I get the information you have to, yeah, everything has to be in line with the data regulations, which is perfectly fine, like data privacy. But then you have to do the research yourself, which is fine. I mean, we are researchers. But I guess that everyone trying to get the permission to record something in a school has to do the research again and again and again. And I wonder whether that's really necessary or whether you can just have a page yeah where you can just do your Anträge but I'm not sure. Yeah maybe that's wishful thinking and yeah
+
+Interviewer: It's not very time effective and
+
+Interviewee 25: No it's not. Yeah. So I mean I spent most of my time at the moment I spent at these administrative issues which is a shame because yeah yeah I'd like to do a little bit more research like not into data privacy policies, but into linguistics actually.
+
+Interviewer: Yeah, it'd be nice to be able to do linguistics. Yeah yeah that's really interesting. And the final question I have is, it's maybe a bit of a personal one but you sort of hinted at it when I asked you know how you found out about open science and then it was we had a chat right at some point. And there are many linguists who seem to be unaware of open science practices, and perhaps because I don't have someone in the department who, you know, is aware. And sometimes I have the feeling that sort of advocates of open science, if we can put it that way, have a tendency to preach to the choir. So we're often organizing workshops and then it's like people who already are into open science who turn up and that's nice. But my question is how can we reach out to more linguists, the ones who don't have someone in the department who's talking about open science all the time?
+
+Interviewee 25: Yeah, that's a good question. I mean, it's definitely a good idea to address the issue at at university like teaching students and then mentioning that at some point or and using well using data or resources or materials that are open science. That would maybe be a good idea because these are the future researchers. I mean, not all of them, but a proportion of them will probably end up, well, it's not negative, end up at university. So it's maybe a good idea to address that in seminars, courses, classes, I think. Yeah. And then spread the word.
+
+Interviewer: Spread the word, yeah. Yeah, that was the last official question. Is there anything else you wanted to say on open science and linguistics or in the humanities more broadly?
+
+Interviewee 25: Basically, thank you, because as I said, I didn't give it a lot of thought before. So before you asked me to do this interview, and I think it's really interesting. And yeah, and also, you know, I feel that it's really worth yeah doing research into open research or just promoting or fostering open research a lot more because I think that is really yeah. That is really what yeah what gets you results and what gets yeah what, was dich voran bringt.
+
+Interviewer: It's interesting because you did mention how some people are reluctant to be involved in research projects, you know, some of your informants. And one reason that you mentioned is that they don't see any direct outputs or benefits for them. And within the open science movement, like research transfer is sometimes another pillar, you know, more or less forgotten, depending on who you speak to. But yeah, is that something that you are involved in or would like to be involved in sort of open research transfer?
+
+Interviewee 25: Yeah, sure. Yeah, this is yeah, I mean, as I just started thinking about them, but sure. I'm, I'm very open to all these practices and yeah, sure.
+
+Interviewer: That's good. Thank you very much.
+
+Interviewee 25: What are you going to like, because this is maybe something I should have asked you beforehand. I mean, everything is perfectly fine, but I just, I'm just curious what you're going to do with the, how are you going to analyze the interviews? Or what's your, what's well, what's your, main objective or goal or aim?
+
+Interviewer: If you don't mind I'll stop the recording so we don't have to transcribe that if it's okay.
+
+Interviewee 25: Yeah sure.

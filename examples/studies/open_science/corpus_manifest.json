@@ -1,0 +1,213 @@
+{
+ "schema_version": "1.0",
+ "record_type": "corpus_manifest",
+ "study_id": "open_science",
+ "title": "Semi-structured interviews with linguists about Open Science",
+ "doi": "10.5281/zenodo.17630137",
+ "url": "https://zenodo.org/records/17630137",
+ "creator": "Elen Le Foll",
+ "publication_date": "2025-11-17",
+ "licence": "CC BY-SA 4.0",
+ "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "licence_id_in_record": "cc-by-sa-4.0",
+ "consent_statement": "The interviewees consented to the interviews being recorded and to the anonymised transcription being published on an open repository (00_README.md, 'Data collection').",
+ "retrieved_on": "2026-11-06",
+ "files": [
+  {
+   "name": "00_README.md",
+   "role": "supporting",
+   "bytes": 10629,
+   "published_md5": "2eca3e2713b810311b0772db3e9316c3",
+   "sha256": "5e6d27f3e8182eaccc37ea66e752ee0675627414a2c9a51861d49f5879a69fa4"
+  },
+  {
+   "name": "A01.txt",
+   "role": "document",
+   "bytes": 37270,
+   "published_md5": "33bade5921bbc3b023343ec4760c27e4",
+   "sha256": "a372e372f03786e567f111c4969a0b30e4bffa0167cedb1e3cf68e82a6e6d1bf"
+  },
+  {
+   "name": "A02.txt",
+   "role": "document",
+   "bytes": 18089,
+   "published_md5": "4cb2aadb47716847c704d3252a274530",
+   "sha256": "3da1e3fd1c6df1cbc4ab8584ab1bc8754b3f740b1037fe65ee04f7e5b7170f9d"
+  },
+  {
+   "name": "A03.txt",
+   "role": "document",
+   "bytes": 31169,
+   "published_md5": "386edefb64cccfda77646744868ac6e9",
+   "sha256": "eda739e87bb2d13723aad8a9e3859c829e54e7986873405e7501119a638a9dff"
+  },
+  {
+   "name": "A04.txt",
+   "role": "document",
+   "bytes": 26330,
+   "published_md5": "c7108c1dd0f1a2825d4e5dd485e71d4f",
+   "sha256": "630117a6f02d432e665f1293f419daed5476867da9dac51f68550cca80d1f43a"
+  },
+  {
+   "name": "A05.txt",
+   "role": "document",
+   "bytes": 29157,
+   "published_md5": "8f32220e06128e8d7f04cf5686a78fdd",
+   "sha256": "d14ed92e7ad376ee91339a10abfbd6ce5e08a56900d6143a3a0b6281c1968f33"
+  },
+  {
+   "name": "A06.txt",
+   "role": "document",
+   "bytes": 26912,
+   "published_md5": "a78c34366d65c22ad4076437c0574ff6",
+   "sha256": "e0bcad857b095053b9751222f54f3bb261c08fe31799c7d8b0e0ad8b13585c1a"
+  },
+  {
+   "name": "A07.txt",
+   "role": "document",
+   "bytes": 21847,
+   "published_md5": "77e69f3f567dcfc9460ef836a808cf99",
+   "sha256": "7e2432af30551a9c05cb05a780893753b7bf5cdac2599339263958ff199277e9"
+  },
+  {
+   "name": "A08.txt",
+   "role": "document",
+   "bytes": 34395,
+   "published_md5": "4e23b182498023d5d5243c95166856f7",
+   "sha256": "7c26f7b97a9e7014a31a3dfbd14503d4a6d96473d0bf1917d437715ff83a4e9e"
+  },
+  {
+   "name": "A09.txt",
+   "role": "document",
+   "bytes": 26731,
+   "published_md5": "105ece37a402298c61401fdcfe64976a",
+   "sha256": "330c3820c0d5683e70c06062b131726cfeacc00a41208728a34ddc7031c281eb"
+  },
+  {
+   "name": "A10.txt",
+   "role": "document",
+   "bytes": 16016,
+   "published_md5": "0a78cd8a8e9f48dcc71b50068a238147",
+   "sha256": "086546f6ce740def5be1536aa2ee0e33b0d02fc577f064c8c278d0b2a2ff146d"
+  },
+  {
+   "name": "A11.txt",
+   "role": "document",
+   "bytes": 18185,
+   "published_md5": "6fea32727900031a11e2b3a973dc5580",
+   "sha256": "45e8eed93c7dfa7b542105ca8bcfb13009442f472a34b53142cd7e9cd0542cd1"
+  },
+  {
+   "name": "A12.txt",
+   "role": "document",
+   "bytes": 22845,
+   "published_md5": "84681cebf825afb06ae832a782b4c7fa",
+   "sha256": "d5d9b28d7a63e51aa30b10bb914ad035f670c69dacc5effa8581d4897f7b5820"
+  },
+  {
+   "name": "A13.txt",
+   "role": "document",
+   "bytes": 21123,
+   "published_md5": "1821abbd7c656da33f4b17d49c284e3b",
+   "sha256": "0eeead0e7a657022c8b2efb229e5fc2edef69e5b806ab9d1a4a98f2c7b953bed"
+  },
+  {
+   "name": "A14.txt",
+   "role": "document",
+   "bytes": 12056,
+   "published_md5": "a7d776f364ee4e18e7552845e181d94d",
+   "sha256": "cac61a4371b4341cdd48eb8a3e00e0a9d2af6b0eebc451f8fc93bcac42a8b7f1"
+  },
+  {
+   "name": "A15.txt",
+   "role": "document",
+   "bytes": 14547,
+   "published_md5": "e968fc2b5e5ffa37ddd686adb377805e",
+   "sha256": "9ffd44abbc665251be065b6d0fc19637c0526db00cae176a299c9e5a83ec3b22"
+  },
+  {
+   "name": "A16.txt",
+   "role": "document",
+   "bytes": 13928,
+   "published_md5": "4ac834b1d9ad85d9edc35f5b414a006c",
+   "sha256": "9fcd5e13e137716c82fa7bcca3becdcc426c4cfd6241c6dd65f92d5bdaf1c9f8"
+  },
+  {
+   "name": "A17.txt",
+   "role": "document",
+   "bytes": 14447,
+   "published_md5": "da53e2dc117ca4f5aa2a81465117614f",
+   "sha256": "c38e46996c41182b4057685af0df08bd95a88061b2e155d1f389c76dc681a5d4"
+  },
+  {
+   "name": "A18.txt",
+   "role": "document",
+   "bytes": 24187,
+   "published_md5": "85ddb22fcb80fb0f89db1ec021439642",
+   "sha256": "3cce93ec1735375755ca3e94bcd2a3ef75808451eeaa6bd32a97444a035e508f"
+  },
+  {
+   "name": "A19.txt",
+   "role": "document",
+   "bytes": 20920,
+   "published_md5": "60223188c815d543c0184db2a619441d",
+   "sha256": "1202c094787975c065de5759efcd80bdf306f37001108d1b73567a0af128e5a5"
+  },
+  {
+   "name": "A20.txt",
+   "role": "document",
+   "bytes": 15691,
+   "published_md5": "b21bd3b5702761cb819938023b5c5c49",
+   "sha256": "2439ee303f3f54e1aaedf50e4b0f706c7a6a3f6399ee811f465cc46021f5ebb9"
+  },
+  {
+   "name": "A21.txt",
+   "role": "document",
+   "bytes": 18432,
+   "published_md5": "b5410545fc20879c290ff1a3a4ea211d",
+   "sha256": "d7dd18860903c31c2ced84764e4ff7b4ab02749e6f89900507f78059802cd2d9"
+  },
+  {
+   "name": "A22.txt",
+   "role": "document",
+   "bytes": 13668,
+   "published_md5": "1c12296b026f0ac14a8bd9583f8680a7",
+   "sha256": "062ce74cd9846350ab608c671537dac6580e98921b81b422f9ef8f09487db66c"
+  },
+  {
+   "name": "A23.txt",
+   "role": "document",
+   "bytes": 30345,
+   "published_md5": "f3a2d496dec04e828cad75c6f4ab46fd",
+   "sha256": "3e8a0a76dae96d706d43b7e26da576acfbffa83e2585e71eabd45443b2e94738"
+  },
+  {
+   "name": "A24.txt",
+   "role": "document",
+   "bytes": 17180,
+   "published_md5": "7797f04d4c442d497d7defc4e5aa20ab",
+   "sha256": "fecd1455818112045535a8872d932f5136bd077f17f53d5710b337e2ba305b95"
+  },
+  {
+   "name": "A25.txt",
+   "role": "document",
+   "bytes": 23344,
+   "published_md5": "f5a62886482dd3bdb916ea6bacff78fc",
+   "sha256": "34c75ced89960f754a1f1e2559af4b3b0d2e588669a304d7a9ef7e4f03c2d775"
+  },
+  {
+   "name": "A26.txt",
+   "role": "document",
+   "bytes": 23197,
+   "published_md5": "b3793d2bda5cc85bd9466c7ecbb5938a",
+   "sha256": "b3206339431eb0581b338f7935b47e64d2b18402ab146cec097ad613f8b07632"
+  },
+  {
+   "name": "OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv",
+   "role": "supporting",
+   "bytes": 695439,
+   "published_md5": "42c16358b70e3d2c1d7dc517ec9e8c2e",
+   "sha256": "e4c5774b3703c5155491c3113e4607b543d7f204c22e8b84b05562388c5b86c9"
+  }
+ ]
+}

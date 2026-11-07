@@ -1,0 +1,203 @@
+{
+ "schema_version": "1.0",
+ "record_type": "study_build_receipt",
+ "study_id": "open_science",
+ "builder": "scripts/build_study_page.py",
+ "model_calls": 0,
+ "inputs": [
+  {
+   "path": "examples/studies/open_science/NOTICE.txt",
+   "sha256": "ec97cfe874fe177c2af63e62a42d4d6740fda1bc15d4b1b6f5cc1a4a7f9b60e8"
+  },
+  {
+   "path": "examples/studies/open_science/corpus_manifest.json",
+   "sha256": "89cb18d74ff258607d6d81f9eed09d8884f2b54f2b06be35f0d625b44100318c"
+  },
+  {
+   "path": "examples/studies/open_science/qc/documents.json",
+   "sha256": "981864d3b6772edc57c88eb9fe799ad56d2245870f450d6656c3785233613a2f"
+  },
+  {
+   "path": "examples/studies/open_science/qc/provenance.json",
+   "sha256": "2bda21abb3e6638a803af709d4770ec92747528f44714205e337b9fd397e0f09"
+  },
+  {
+   "path": "examples/studies/open_science/qc/segments.json",
+   "sha256": "60bcf497de465324041ab463e2a7cf4b61a7198ae7cc19e6ae7f2be66b2bfc1b"
+  },
+  {
+   "path": "examples/studies/open_science/qc/theory.json",
+   "sha256": "a77661f999add6a3295b884e306846665800b796e2775571bf3262847d562522"
+  },
+  {
+   "path": "examples/studies/open_science/source/00_README.md",
+   "sha256": "5e6d27f3e8182eaccc37ea66e752ee0675627414a2c9a51861d49f5879a69fa4"
+  },
+  {
+   "path": "examples/studies/open_science/source/A01.txt",
+   "sha256": "a372e372f03786e567f111c4969a0b30e4bffa0167cedb1e3cf68e82a6e6d1bf"
+  },
+  {
+   "path": "examples/studies/open_science/source/A02.txt",
+   "sha256": "3da1e3fd1c6df1cbc4ab8584ab1bc8754b3f740b1037fe65ee04f7e5b7170f9d"
+  },
+  {
+   "path": "examples/studies/open_science/source/A03.txt",
+   "sha256": "eda739e87bb2d13723aad8a9e3859c829e54e7986873405e7501119a638a9dff"
+  },
+  {
+   "path": "examples/studies/open_science/source/A04.txt",
+   "sha256": "630117a6f02d432e665f1293f419daed5476867da9dac51f68550cca80d1f43a"
+  },
+  {
+   "path": "examples/studies/open_science/source/A05.txt",
+   "sha256": "d14ed92e7ad376ee91339a10abfbd6ce5e08a56900d6143a3a0b6281c1968f33"
+  },
+  {
+   "path": "examples/studies/open_science/source/A06.txt",
+   "sha256": "e0bcad857b095053b9751222f54f3bb261c08fe31799c7d8b0e0ad8b13585c1a"
+  },
+  {
+   "path": "examples/studies/open_science/source/A07.txt",
+   "sha256": "7e2432af30551a9c05cb05a780893753b7bf5cdac2599339263958ff199277e9"
+  },
+  {
+   "path": "examples/studies/open_science/source/A08.txt",
+   "sha256": "7c26f7b97a9e7014a31a3dfbd14503d4a6d96473d0bf1917d437715ff83a4e9e"
+  },
+  {
+   "path": "examples/studies/open_science/source/A09.txt",
+   "sha256": "330c3820c0d5683e70c06062b131726cfeacc00a41208728a34ddc7031c281eb"
+  },
+  {
+   "path": "examples/studies/open_science/source/A10.txt",
+   "sha256": "086546f6ce740def5be1536aa2ee0e33b0d02fc577f064c8c278d0b2a2ff146d"
+  },
+  {
+   "path": "examples/studies/open_science/source/A11.txt",
+   "sha256": "45e8eed93c7dfa7b542105ca8bcfb13009442f472a34b53142cd7e9cd0542cd1"
+  },
+  {
+   "path": "examples/studies/open_science/source/A12.txt",
+   "sha256": "d5d9b28d7a63e51aa30b10bb914ad035f670c69dacc5effa8581d4897f7b5820"
+  },
+  {
+   "path": "examples/studies/open_science/source/A13.txt",
+   "sha256": "0eeead0e7a657022c8b2efb229e5fc2edef69e5b806ab9d1a4a98f2c7b953bed"
+  },
+  {
+   "path": "examples/studies/open_science/source/A14.txt",
+   "sha256": "cac61a4371b4341cdd48eb8a3e00e0a9d2af6b0eebc451f8fc93bcac42a8b7f1"
+  },
+  {
+   "path": "examples/studies/open_science/source/A15.txt",
+   "sha256": "9ffd44abbc665251be065b6d0fc19637c0526db00cae176a299c9e5a83ec3b22"
+  },
+  {
+   "path": "examples/studies/open_science/source/A16.txt",
+   "sha256": "9fcd5e13e137716c82fa7bcca3becdcc426c4cfd6241c6dd65f92d5bdaf1c9f8"
+  },
+  {
+   "path": "examples/studies/open_science/source/A17.txt",
+   "sha256": "c38e46996c41182b4057685af0df08bd95a88061b2e155d1f389c76dc681a5d4"
+  },
+  {
+   "path": "examples/studies/open_science/source/A18.txt",
+   "sha256": "3cce93ec1735375755ca3e94bcd2a3ef75808451eeaa6bd32a97444a035e508f"
+  },
+  {
+   "path": "examples/studies/open_science/source/A19.txt",
+   "sha256": "1202c094787975c065de5759efcd80bdf306f37001108d1b73567a0af128e5a5"
+  },
+  {
+   "path": "examples/studies/open_science/source/A20.txt",
+   "sha256": "2439ee303f3f54e1aaedf50e4b0f706c7a6a3f6399ee811f465cc46021f5ebb9"
+  },
+  {
+   "path": "examples/studies/open_science/source/A21.txt",
+   "sha256": "d7dd18860903c31c2ced84764e4ff7b4ab02749e6f89900507f78059802cd2d9"
+  },
+  {
+   "path": "examples/studies/open_science/source/A22.txt",
+   "sha256": "062ce74cd9846350ab608c671537dac6580e98921b81b422f9ef8f09487db66c"
+  },
+  {
+   "path": "examples/studies/open_science/source/A23.txt",
+   "sha256": "3e8a0a76dae96d706d43b7e26da576acfbffa83e2585e71eabd45443b2e94738"
+  },
+  {
+   "path": "examples/studies/open_science/source/A24.txt",
+   "sha256": "fecd1455818112045535a8872d932f5136bd077f17f53d5710b337e2ba305b95"
+  },
+  {
+   "path": "examples/studies/open_science/source/A25.txt",
+   "sha256": "34c75ced89960f754a1f1e2559af4b3b0d2e588669a304d7a9ef7e4f03c2d775"
+  },
+  {
+   "path": "examples/studies/open_science/source/A26.txt",
+   "sha256": "b3206339431eb0581b338f7935b47e64d2b18402ab146cec097ad613f8b07632"
+  },
+  {
+   "path": "examples/studies/open_science/source/OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv",
+   "sha256": "e4c5774b3703c5155491c3113e4607b543d7f204c22e8b84b05562388c5b86c9"
+  },
+  {
+   "path": "examples/studies/open_science/study.json",
+   "sha256": "a6d81b11716170632ba085cf9c1b79e92c4be036f5e07759cd831c4f604af783"
+  },
+  {
+   "path": "src/mixed_methods_workbench/static/study_workbench.html",
+   "sha256": "abb161b4ab7df691d2ad2039d5c4611f9d6063839119e6f574e75d57b29284f0"
+  }
+ ],
+ "steps": [
+  {
+   "step": "corpus files checked against the publisher's md5 and the manifest's sha256",
+   "files": 28,
+   "md5_matches": 28,
+   "sha256_matches": 28
+  },
+  {
+   "step": "producer documents matched to frozen files by sha256",
+   "producer_documents": 25,
+   "same_bytes": 25,
+   "same_length_after_normalisation": 25
+  },
+  {
+   "step": "every passage the theory cites resolved and checked against the frozen text",
+   "producer_segments": 1277,
+   "producer_segments_matching": 1277,
+   "passages_carried_by_the_pin": 194,
+   "cited_passages": 100,
+   "cited_matching": 100,
+   "cited_unresolved": 0
+  },
+  {
+   "step": "the author's coded passages located in the frozen text by their own words",
+   "author_passages": 837,
+   "located_exact": 681,
+   "located_whitespace": 113,
+   "located_text_differs": 36,
+   "located_not_found": 7,
+   "stated_offsets_exact": 12
+  },
+  {
+   "step": "author codes overlapping each cited passage",
+   "cited_passages_with_an_author_code": 100,
+   "cited_passages_without": 0,
+   "cited_passages_inside_one_author_passage": 73,
+   "author_coded_characters": 397446,
+   "corpus_characters": 571307,
+   "median_cited_passage_characters": 970,
+   "interviewee_segments_at_least_that_long": 135,
+   "of_those_overlapping_an_author_passage": 135,
+   "of_those_inside_one_author_passage": 89
+  }
+ ],
+ "outputs": [
+  {
+   "path": "proposals/open-science-study/index.html",
+   "sha256": "e94db42b0e086b8d5b0638b5a3c26863cdb95a0d181ee2587bd15df5a2930e6e"
+  }
+ ]
+}

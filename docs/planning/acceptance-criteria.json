@@ -54,8 +54,8 @@
     "view": "composite-linked-view",
     "router_record": "docs/planning/router/A3.recommendation.json"
    },
-   "entrypoint": "planned",
-   "status": "not built"
+   "entrypoint": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/proposals/open-science-study/index.html",
+   "status": "built"
   },
   {
    "id": "A4",

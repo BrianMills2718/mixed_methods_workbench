@@ -38,14 +38,15 @@ Everything is files in git; there is no database.
 | `nyc_crz_*.py`, `mist_trail_decision.py`, `simulation_policy_appraisal.py` | Bounded case slices (NYC paused 2026-10-04) |
 | `scripts/validate_phase3_methods.py`, `scripts/crosswalk_phase4.py`, `scripts/fetch_stato.py` | Validate the 14 decompositions; generate and check the crosswalk collisions and verdicts |
 | `scripts/build_psychosisbank_public_review.py` | Copies the investigation page and payload into `deploy/` |
+| `study_workbench.py`, `scripts/freeze_study_inputs.py`, `scripts/build_study_page.py` | Plan #8 S1 (built): study definition, frozen corpus manifest, the reader for QC's grounded-theory export, the author's coding located by its words, the study page and its build receipt |
 
 ### Planned by Plan #8
 
 | Slice | Type or module (planned) | Built by | Read by |
 | --- | --- | --- | --- |
-| S1 | `StudyDefinition`, `CorpusManifest`, `ProducerInputPin` (the `producer_input_pin` record in `qc/provenance.json`: QC's repository, commit, path, sha256, form and the pin label) (`study_workbench.py`); `scripts/freeze_study_inputs.py` | the freeze script, from a study's `study.json` and the Zenodo record | `build_study_payload`, the study page builder |
-| S1 | Grounded-theory view of QC's export (schema major 3), segment and document records | `read_grounded_theory` from the frozen `qc/` files | the study payload |
-| S1 | Study page `proposals/<study>-study/index.html` and `build_receipt.json` | `scripts/build_study_page.py` | a person; the stale-page test |
+| S1 (built) | `StudyDefinition`, `CorpusManifest`, `ProducerInputPin` (the `producer_input_pin` record in `qc/provenance.json`: QC's repository, commit, path, sha256, form and the pin label) (`study_workbench.py`); `scripts/freeze_study_inputs.py` | the freeze script, from a study's `study.json` and the Zenodo record | `build_study_payload`, the study page builder |
+| S1 (built) | Grounded-theory view of QC's export (schema major 3), segment and document records | `read_grounded_theory` from the frozen `qc/` files | the study payload |
+| S1 (built) | Study page `proposals/<study>-study/index.html` and `build_receipt.json` | `scripts/build_study_page.py` | a person; the stale-page test |
 | S2 | Feasibility readout (the author's code measured and why), split manifest with the instrument's versioned definition, measured result per measure, run receipt | the measure step (task `mixed_methods_workbench.open_science.measure`) | the measurement tab, S3 |
 | S3 | Proposition-to-measure mapping, joint-display row, draft meta-inference, its number and passage check | the integrate step (task `...integrate`) and a deterministic check | the joint-display tab, S5 review |
 | S4 | the selection gate (six questions answered by a person for a named case) and the independent case packet read from the study definition, refusing the study's own interviews (decision 0017, Q24); the existing reader extended to read `publication_gate.publishable`; the PsychosisBank appraisal of proposition P5 of an earlier QC theory (not the pinned theory's P5) shown bounded with its conclusion withheld; two made-up test exports, one publishable and one blocked; only if Brian names a case (Q25), in `process_tracing`, an independent-case input to the draft-audit prototype and its Q20 partial export (Q23) | `investigation_run.py`, `investigation_spine.py` | the causal tab |

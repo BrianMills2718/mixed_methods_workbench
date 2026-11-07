@@ -49,6 +49,12 @@ typecheck-demo:  ## Type-check the DEMO-C1 package strictly
 type-inventory:  ## Rewrite docs/planning/TYPES.md from the code
 	@$(PYTHON) scripts/type_inventory.py
 
+study-page:  ## Build the Open Science study page and receipt, then serve it at http://127.0.0.1:8765/
+	@$(PYTHON) scripts/build_study_page.py examples/studies/open_science --serve 8765
+
+test-study-workbench:  ## Run the Plan #8 study workbench checks
+	@PYTHONPATH=src:. $(PYTHON) -m pytest -q tests/test_study_workbench.py
+
 method-dashboard:  ## Run the local METHOD-DASH-C1 review dashboard
 	@PYTHONPATH=src $(PYTHON) -m mixed_methods_workbench.method_dashboard_server
 
@@ -73,7 +79,7 @@ coverage:  ## Generate human-readable coverage report
 coverage-json:  ## Print machine-readable coverage without changing files
 	@python3 scripts/check_coverage.py --format json
 
-check: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts validate-demo-fixtures validate-demo-controls typecheck-demo  ## Run all current repo checks
+check: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts validate-demo-fixtures validate-demo-controls typecheck-demo test-study-workbench  ## Run all current repo checks
 
 # ─── Help ────────────────────────────────────────────────────────────────
 

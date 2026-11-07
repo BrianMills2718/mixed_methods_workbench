@@ -1,0 +1,109 @@
+Interviewer: There we go. There we go. We are recording. Thank you so much for agreeing to this interview. And just as a reminder, we are recording. You have signed the form of consent. But yeah, the video and audio will be used by myself and my student research assistants to transcribe the interview. And it's the anonymized transcripts that will be made available. Is that OK with you?
+
+Interviewee 21: Yes.
+
+Interviewer: Brilliant. So this is a study about open science practices in linguistics. And linguistics being such a broad field, I begin by asking people where they situate themselves and their research within this broad field of linguistics.
+
+Interviewee 21: Okay, so I guess there are two phases for myself. So the first one was leading up to my dissertation, and maybe the one or two years following it, it was mainly in second language acquisition, PROJECT. And yes, since then, so since maybe 2019, 2020, it's been corpus linguistics and especially questions of PERSON. So it's changed to methodology, yeah.
+
+Interviewer: Yeah. And we'll begin with yourself and your personal associations. So what do you personally associate with open science and open science practices? What springs to mind?
+
+Interviewee 21: So I guess for the kind of research that I'm reading and that I'm doing, It's primarily about sharing data and sharing what's usually analysis code for repeating, for reproducing an analysis. So that's mainly the kind of open science that I appreciate in my work and that I'm kind of also dependent on. Yeah, so mainly that, I guess. Yeah, so basically trying to offer as much background and transparency and materials and data and computational breadcrumbs for the others, for the readers and the consumers of my work, and for me, if I consume others' works.
+
+Interviewer: Okay, yeah. And I just introduced this as open science and open science practices. But linguistics is traditionally thought of as a humanity. And in the humanities, there are some who say that open science is not so suitable. And perhaps open research might be more suitable, has been put forward as an alternative for the humanities. And others still have put forward the idea of using the term open scholarship, which is often thought to be broader to also include open education, for instance. I was wondering, have you got any thoughts on this? Do you think that open science is suitable for linguistics or are there any better terms?
+
+Interviewee 21: I would have to read about what kind of difference they recognize between open science and open research, for instance. I guess what I described was open research. Yeah, I guess as long as it includes the qualifier open, it's fine. No, I don't have any thoughts on this. I'm sorry.
+
+Interviewer: And I will continue to use the term open science myself, but I mean it in a very broad sense. So it includes for me open research and open education as well, as far as necessary. But now let's talk about your own experiences. And you've started talking about this. So the question is, are you involved in any open science practices yourself? And if so, which ones and why?
+
+Interviewee 21: So I guess if I can interpret involved as meaning I practice them, I would have a few that I could list. So yeah, I think as I described it, the two main things for me are yeah, sharing data, and I usually do this using TROLLing, the Tromso Repository Of Language and Linguistics. And the second pillar is mainly using the Open Science Framework to share, yeah, basically the analysis scripts, online appendices, things that are usually, made available using supplementary, materials, via journal platforms. Um, yes. And, I've, well, not, not so recently, but maybe since half a year or a year, I've been a member of the scientific advisory board for PROJECT. Um, Yes, so that's as far as my research is concerned. And I also, well, not on a regular basis, but I've taught quite a number of workshops on PROJECT. And those have been, well, there have been two or three dedicated ones to kind of today's topic. One was a one-hour workshop on PROJECT, just on data publication using PROJECT. And another one was open science practices in general for linguists. It was a 90-minute talk. And yes, for my other talks, I just sprinkle in bits and pieces. So I'm also trying to pass on the good spirit. Yeah.
+
+Interviewer: Nice.
+
+Interviewee 21: I guess that's all I can think of at the moment. Yeah.
+
+Interviewer: What about open access publication?
+
+Interviewee 21: Oh, yes. So I, so yeah, that's a good point. So what I always do is I try to, or I do share the, it depends on the journal you publish with. They have different restrictions, but you can almost always share at least the submitted version of a manuscript. So I always try to have, yeah, the, the most advanced version of something I've submitted or that's been published available as what's called a preprint or a working paper. So if I don't publish open access, I try to make available some sort of manuscript, but I haven't really picked journals based on their publishing practices. I think there's quite a few people who do that. And who, I think, also decide whether they do review work for a journal on that basis. But yeah, I think our university allows us one open access publication per year, which they fund, where they cover the fee. Yeah, but other than that, I still pick journals based on, yeah, suitability in terms of, and that's usually quite narrow, so I don't often have a choice. Yes, but yeah, sharing some sort of preprint, that's kind of become my habit, you know. So yeah, each listing in my publication list usually includes a link to the TROLLing data post, the OSF project associated with it. And yeah, some manuscript in some form.
+
+Interviewer: Nice. You've mentioned peer review and open peer review is another open science practice. Is that something you've ever been involved in?
+
+Interviewee 21: No, I haven't. No. So open peer review, meaning that, does that mean that your name is disclosed to the authors?
+
+Interviewer: There are different forms. Yeah. So sometimes they're signed. Sometimes they're not signed, but the text is made available.
+
+Interviewee 21: Yeah. So, well, actually once, yes, I don't quite remember if it was fully open or only post publication. I was listed on the paper as a reviewer. So yeah. And that was the journal from, I don't know how to pronounce it. The PLOS line of journals. It was something in that. Yeah.
+
+Interviewer: But the actual review itself wasn't published.
+
+Interviewee 21: No.
+
+Interviewer: No, OK. Because as far as I understand it, that's the main criteria for an open review. And in theory, is that something that you think would be valuable linguistics or not?
+
+Interviewee 21: Yes, I kind of like the idea, especially because it encourages or forces reviewers to be, yeah, how should I say it? I mean, writing a critical and sloppy review isn't too much of a job. And that's also usually not that helpful. So maybe it would help us pay more attention to face-saving acts in the review process. And of course, if you have a substantial piece of review for a work, I think at least that's my impression, not all the pieces of advice are integrated into the final product, which is okay of course, but I think it would be informative for someone who's really interested in a paper some specific aspects of it to kind of to find out about other thoughts, maybe to anticipate encouragements that they might receive themselves down the road. So I like the idea, but it would make I guess it would make writing reviews consume two or three times the time it does at the moment. So we need more reviewers.
+
+Interviewer: Yes, there aren't too many as it is. Interesting. I mean, clearly, you're someone who already practices a lot of open science, yeah, different open science aspects. Where did you learn about these practices? Or what or who encouraged you to get started?
+
+Interviewee 21: Yeah, so I think it was in 2018 that I co-organized with a colleague of mine with PERSON, a workshop at a conference on the PROJECT. And I think in the course of preparing for this workshop and so on, I became much more aware of different things to pay attention to, different functionalities of the software you're already using and things like that. And I think it really developed in very small steps. So I think before that I already started using the OSF, but just for posting the slides for my talks. So that was kind of the minimal use of OSF. And yeah, I think I became aware of TROLLing through this workshop and yet the R skills to produce something that many people can consume, like using Markdown, I think that only developed a bit later. So it's been a slow and steady upwards, uphill struggle, yeah. Yeah, I guess in some sense I'm self-taught, which is quite easy nowadays, right? Because there's so much helpful stuff on the internet.
+
+Interviewer: Yeah, this would be the next question, actually. Were you at any stage obliged or incentivized in some way to share your data, share your code? Was it like a requirement as part of your PhD or some other project?
+
+Interviewee 21: No, I think. No, I, maybe from 2018 onwards, I've always shared my data. So that also included my dissertation then. So no, maybe I was a step ahead because I usually already share the data when I submit a manuscript to a journal, but none of the journals had any specific policy that required authors to share their data. I think every time when I was reviewing a paper and I kindly asked for the data, I got it from the authors. 
+
+Interviewer: Oh wow!
+
+Interviewee 21: Yeah so that's been a very positive development. I've always tried to reassure them in the email and the request that I know what it's like to have to share data and so on, so they wouldn't have to be afraid of anything. But it just makes work easier for myself. And that's been very positive. I don't think anyone ever declined to do so, even though none of the journals had a specific lever to pull.
+
+Interviewer: Interesting. We'll now move away from your personal experiences and try and think about the broader field of linguistics and the community of linguists. As far as you can tell, how widespread are open science practices in linguistics at the moment?
+
+Interviewee 21: That's difficult. I can really only give my very subjective impression.
+
+Interviewer: Sure.
+
+Interviewee 21: On a scale from one to ten, or?
+
+Interviewer: For instance, you know, which practices are, are actually practiced?
+
+Interviewee 21: Yeah. So I, it's really, there's lots of variation. And for, I guess it's mainly individual-based, but also some, I don't have to call them schools, but where you know, okay, someone, did their PhD in some research cluster at this university. It's all pretty solid in terms of how they communicate their research and share that data. So I think there have always been pockets of very active use of open science resources. Um, I'm thinking particularly of, of, what this is again, based on my narrow, scope, but PERSON and, everything he's done, along with the dissertations he's supervised. Um, yes. So, I think what I would call proper data publication is quite rare. Depositing data on the OSF is more common, but yeah, I guess based on the papers I'm reading with data availability statements, or I mean, if someone publishes their data or shares them, they will always state that they did, I think, because that's important. And I don't read that a lot, which has been frustrating at times. So it's, yeah, I can't really, I don't think I can say much more about this. What do you think?
+
+Interviewer: I think you're right about the pockets. I would add CITY to the pockets you know?
+
+Interviewee 21: CITY, yeah.
+
+Interviewer: I don't know if they're also, I mean, my impression is also that there are subdisciplines of linguistics that are more open than others and I'm not sure I would situate PROJECT as being particularly positive in terms of, I mean, yeah, maybe not the worst among linguists but not the best either, pretty average maybe.
+
+Interviewee 21: So there's work to do.
+
+Interviewer: It's my impression.
+
+Interviewee 21: Yeah, but you know I mean from my, so I, if I were a junior scholar again, and I would see someone using the OSF just to share their presentation slides, I would copy that behavior instantly. Because, I mean, just because if people are even, yeah, distantly interested in what I just talked about, that's kind of the idea to get them interested and so on. So I guess this kind of minimal use of sharing something nowadays, even with a QR code so it's really pretty straightforward. I'm a bit surprised that this hasn't caught on. Because it's just, I mean, I wouldn't call it smart, but it's strategically good, too.
+
+Interviewer: I sometimes feel the same with, with postprints or whatever you want to call it, like some kind of, whatever you're able to share from your published manuscript. If it's closed access, then what does it cost you to upload the latest version that you have that you can share? You know, other people can read your paper.
+
+Interviewee 21: So you know, but I guess, you're probably aware of this website, it's called Sherpa Romeo, where you can look up the policies of different journals. And that was a big help for me, because I myself, and I would assume many others too, would probably be quite hesitant to do anything that violates whatever copyright there might be in the end, or something, so maybe there's some the word doesn't come to me, but there's some sort of fear maybe you know that you know with the contract they sign with a journal, or maybe the journal website states, you have to check the box that this hasn't been published anywhere. So there's possibly quite some insecurities related to sharing pre- and post-prints and so on.
+
+Interviewer: This actually ties into the next question, which is, which factors do you think contribute to yeah not a particularly high uptake of open science practices in some areas of linguistics? So fear of legal repercussions or just not having enough information about how these things work seems to be one aspect.
+
+Interviewee 21: Yes, possibly, yeah. I think, so I mean, I'm biased. I mainly think of data publication and code publication. And yeah, so I guess for data publication, there's two things. The first one is the one that's always named you don't want anyone else sniffing around in your data, possibly detecting mistakes you made, and even worse, using your data for academic success, whatever. So kind of the piracy slash criticism argument. But the other one, I think if you publish data, for instance, using TROLLing, it's work. It's quite a lot of work. So especially documenting your data and the whole thing goes through a review process with back and forth communication, you know, you have to change this and that, and this isn't a permanent file format and so on. So the second argument is I think that it takes time. And even to prepare a well-structured OSF project for your paper where you have a Wiki and you link stuff and so on, that's also work and you have to update it, de-anonymize it and so on. So it's just, I think that's one important factor. So.
+
+Interviewer: And what can be done to improve the uptake of open science practices in linguistics?
+
+Interviewee 21: Well, I guess you would have to somehow incentivize researchers to adopt these practices. And I'm not really deep into the systemic forces of academia. But if it's really the case that quantity counts, you know this then it's probably not going to happen because instead of having two or three extra weeks for this part of one piece of publication we'll probably move on to to a different project instead. Um yeah I mean of course people in charge, journal editors and so on, they could make data and code publication a requirement. We could integrate some sort of teaching modules into PhD programs where they have four or five essential lessons on some pieces related to open science. Yeah, I guess I think it's been my experience that if people attend such a workshop or class, they're usually really interested in making an effort. They're all idealists, you know? So, yeah. Yeah, but I guess it would have to be rewarded by whatever accreditation system or evaluation indices or whatever. So it has to go from seeming or reflecting transparency and sort of idealism to reflecting academic integrity and scholarly quality. But I'm, yeah. Hmm.
+
+Interviewer: You just mentioned workshops and PROJECT. There is sometimes a risk that the people who attend these kinds of workshops are already largely convinced of the need and interested, as you said, motivated to do science in a more open, transparent way. How can we reach out to the linguists who are maybe not against open science per se, but just unaware?
+
+Interviewee 21: Mm-hmm. We have to confront them personally. At conferences.
+
+Interviewer: At conferences.
+
+Interviewee 21: For instance. So in 2019, we had a conference in CITY. It was, by linguistic standards, a major one, meaning 120 talks, maybe 200 participants. And we had a PROJECT we call it PROJECT that solves the terminological problem a a series of talks four or five talks um sprinkled into the program, so it wasn't kind of a satellite workshop or whatever on block but it was individual slots with purposely little competition in terms of the number of other talks. So that would mean usually afternoon. And that got pretty good feedback because it allowed, well, because it was in the conference program, you didn't have to sign up for anything. You didn't have to travel to CITY one day earlier. So I guess that was, it seemed a sensible step in that direction. So instead of isolated sessions, if you have something, and those were all invited speakers. So they, four or five individuals, and it was a 20 minute paper. So 30 minute session. So yeah, the typical dose. So yeah, so that's one way of personal confrontation at a conference, I guess.
+
+Interviewer: That's good. Yeah, that was the end of my official questions. Is there anything else you wanted to add on open science in linguistics or in the humanities more broadly?
+
+Interviewee 21: I don't think so. No.
+
+Interviewer: I'll stop the recording there. Thank you.
+
+Interviewee 21: I'll save your students some extra coding work.
+
+Interviewer: Thanks.
