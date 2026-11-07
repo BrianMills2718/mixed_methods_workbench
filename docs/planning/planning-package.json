@@ -551,8 +551,8 @@
   "cold_review": {
    "status": "present",
    "path": "docs/planning/cold-review.md",
-   "verdict": "revise",
-   "reviewed_revision": "b6aa62302ba327d276416597edbedc8bcb09406b"
+   "verdict": "pass",
+   "reviewed_revision": "10b9a7bd3ac41bea61ecdc02acb811cb26ec9c4f"
   }
  },
  "full_method": true,

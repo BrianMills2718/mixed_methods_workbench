@@ -460,7 +460,7 @@ if any line below differs from what it says now. Unticked pending items are not 
 
 Manifest: `docs/planning/planning-package.json`
 Package revision: `10b9a7bd3ac4`
-Verdict: not compliant
+Verdict: compliant
 
 - [x] part investigation: ok
 - [x] part checks: ok
@@ -471,7 +471,7 @@ Verdict: not compliant
 - [x] part plan: ok
 - [x] part acceptance: ok
 - [x] part review_page: ok
-- [ ] part cold_review: failing
+- [x] part cold_review: ok
 - [x] substance route follows from its path decision: ok
 - [x] substance citations resolve: ok
 - [x] substance domain model has a glossary: ok

@@ -3,6 +3,19 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 18 (read 10b9a7b): pass
+
+The reviewer found R17-B1 and notes n-kk to n-mm fixed: the location figure is shown beside its chance rate and
+called location, not agreement, everywhere; "validated" rests on QC's own verdict and Brian's judgement of A3 and
+A4; every gate that reads a producer's verdict ends on that producer's own verdict. It returned **pass** with three
+notes, carried as follows:
+
+| Finding | What it said | Where it goes |
+| --- | --- | --- |
+| n-nn | S1's "chance gives the same" sentence is fixed text, and no chance figure is printed for "wholly inside" | Fixed in S1's pull request: the page prints the wholly-inside baseline too and words the sentence from the figures |
+| n-oo | QC's "wrong if" line also has a researcher clause (QC step 5); the answer words "wait for a finished QC theory" could be read as QC's whole finish line | Carried: the step-5 clause stays with Q12 (a), as plan `:43` says; the report to Brian names this when it puts Q12 (d) to him |
+| n-pp | S6 does not say what a second corpus's pin label shows when QC records no verdict on that run | Carried to S6: the label then reads "Qualitative Coding has recorded no verdict on this run" |
+
 ## Plan #8, round 17 (read b6aa623): revise
 
 The reviewer found R16-B1 fixed in structure (plan `:43` and F12 name what "validated" rests on, S1 builds the
@@ -2109,3 +2122,112 @@ Verdict: revise
 Reviewed revision: b6aa62302ba327d276416597edbedc8bcb09406b
 
 Verdict: revise
+
+## Plan #8, round 18 reviewer's report (verbatim)
+
+**Verdict: pass.** Round 17's one blocking finding, R17-B1, is fixed. The location figure is no longer called agreement anywhere, and S1 builds and tests what the plan says. The three new findings are all notes.
+
+#### Validator and checklist
+
+- **Validator:** exit 1. The only failing part is the cold review, whose verdict is still round 17's `revise`.
+  - Parts: 9 of 10 ok.
+  - Substance: 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain-version comparison is `planned` (2 cases) and 3 stages are `untested`.
+  - Other counts: 109 file citations, 15 AI steps (3 measured, 12 computed), 7 stops (5 hold, 2 lifted).
+  - Initiative and tiers: 4 of 4. Coverage, goal provenance and freshness are ok (1 commit of work since the subject revision: the checklist rewrite).
+- **Plan checklist** (`plan_checklist.py --check`): exit 0, 0 lines differ.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 43b57dc) | 194 cited passages, all exact at their offsets; 630 interviewee turns; 112 pairs, 0 qualify. Best shares 0.47 (18 of 38), 0.40, 0.28. Highest two-way overlap 0.204 | Matches plan :159-173, Q15 and F24 |
+| S1 build receipt, plus my own run of S1's builder | 100 of 100 cited passages overlap the author's coding and 73 lie wholly inside one passage. She coded 397,446 of 571,307 characters (69.6%). Median cited passage is 970 characters; 135 of 135 interviewee turns at least that long overlap her coding | Matches plan :43, Q12 (a), A3 and F12 |
+| My own check: what does chance give for "wholly inside"? | 89 of 135 long turns, and 79.2% of 20,000 random spans of the cited lengths, lie wholly inside one passage, against 73 of 100 cited | "Chance gives the same" holds for containment too, though no figure is printed for it (n-nn) |
+| `md_file_cap.py` | exit 1: 126 files against a cap of 100, 112 unreachable | Matches (tracked by Q3) |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches |
+| `make check PYTHON=.venv/bin/python` | 11 + 30 tests passed, mypy clean. I piped the output to `tail`, so the exit code was not captured | Matches `pytest_passed` 41. The full 204-test run needed an approval this session lacks |
+| Class sweep | 184 classes in `src/`; 0 missing from TYPES.md or SYSTEM_MODEL.md | System model covers every type |
+| `git log --all --grep` for stop words | NYC pause (91a69a5); Phase 3 pause (e37fd80) and its lift (680c4d5) | No stop missed |
+| `gh issue view 205 --repo BrianMills2718/qc` | Open, 0 comments | Q26 and F23 still hold. QC has committed no newer theory; the a67d7d6a file in `public_demo_assets/` holds school readings, not the theory |
+
+#### Round-17 findings
+
+- **R17-B1: fixed.**
+  - **Code:** S1 now counts overlap and wholly-inside separately (`study_workbench.py:562-575`). It computes the chance rate (`_location_baseline`, :309-344) and labels the result "location, not agreement" (:633). The test asserts each figure (`test_study_workbench.py:94-110`).
+  - **Page:** it heads the panel "Where the evidence sits (location, not agreement)" and says "So this figure cannot show agreement".
+  - **Package:** plan :43, :100, :83 (S6) and :452 (Done when) carry the same wording, as do Q12 (a) and its recommendation and default, A3, A8, F12 and the review page.
+  - **What "validated" rests on:** QC's own verdict (Q12 d) and Brian's judgement of A3 and A4. Agreement is shown as evidence only.
+  - **QC's figures match its current pages:**
+    - `PLAIN_VERSION_CHECK.md:13`: 587 (77.4%) for the plain pass against 605 (79.8%).
+    - `:36`: 605 touched, 454 mostly covered.
+    - `REVIEW_QUEUE.md:68`: "touched" is generous, and there is one coder.
+    - `CURRENT_STATE_AND_ROADMAP.md:21-25`, `:32`, `:34`, `:66-67` and `EVALUATION_HARNESS.md:181-182`.
+- **n-kk: fixed.** A3's demonstration step 5 reads the agreement panel and the reason under the pin's label.
+- **n-ll: fixed.** Every place now says "QC has committed no comparison", and plan :43 names the Human Comparison tab.
+- **n-mm: fixed.** Plan :43, F12 and S1's `newer_run_note` each name the direction they count in.
+- **n-r: carried.** No remote branch contains 10b9a7b or 7cfe3e2, so the page's `/blob/main/` links return 404 until the branch merges.
+- **n-y and n8–n11: carried** as earlier rounds listed them.
+
+#### Do the gates that read a producer's verdict end on that verdict?
+
+| Gate | What it ends on | Sound? |
+| --- | --- | --- |
+| The 1.0 qualitative-path row (plan :43, S7 :410-412, Q12 d, A12) | QC's own recorded pass "as that test then reads". The rejected share alone never ends it, which follows QC's own rule (`EVALUATION_HARNESS.md:181-182`, `REVIEW_QUEUE.md:27-31`). A12's failure example covers the 11.7% run | Yes |
+| S1's pin label | QC's current words and source line | Yes |
+| S3's label beside a contradicted proposition | QC's own disprove verdict, in QC's words | Yes |
+| S4's causal conclusion | Process Tracing's own fields: `publishable`, `public_headline_eligible`, `publication_block_reason` | Yes |
+| S4's answer path | Process Tracing's ADR 0004 (:61-66) and ADR 0005 | Yes |
+| S2's scope | QC's `conceptual_follow_up_only` | Yes |
+
+QC's newest change does not alter this. On 2026-11-07 Brian approved QC's "plain first" coding (D8) and "keep disprove" (D9) (`REVIEW_QUEUE.md:24-25`). The pin moves only when QC commits a new theory file, and Q15 is asked again then.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| n-nn | S1, plan | mmw-s1 `study_workbench.html:131-134`; plan :100 | "Chance gives the same … So this figure cannot show agreement" is fixed text, not computed. It is true for e131eb55, including for wholly-inside (my check above). But it will stay on the page whatever the figures show after the pin moves, and no chance figure is printed for wholly-inside | Print the wholly-inside baseline too. Make the sentence depend on the figures, or have the pin-move test S2 runs first fail when the cited figures leave the chance range | note |
+| n-oo | plan, open questions, acceptance | plan :43, :411; Q12 (d) question and answer words; A12 expected | QC's "wrong if" line has two clauses: a qualitative researcher's judgement, and the misfit share above about a quarter (`CURRENT_STATE_AND_ROADMAP.md:21-25`). The plan's "today:" summary of the test names only the misfit share and the section-8 reading. It sends the researcher clause to Q12 (a) as QC's step 5. That follows QC's own step-1 row (:32), and Q12 (d) defines "finished" in its own sentence. Still, the answer words "wait for a finished QC theory" could be read as QC's whole finish line, which needs step 5 ("Model comparisons do not substitute", :36) | Add one clause: the line's researcher clause is QC's step 5, and the row waits on it only if Brian answers Q12 (a) "need a researcher". Consider "wait for QC's recorded coding-test pass" as the answer words | note |
+| n-pp | plan, acceptance | plan S6 :379-386; A10 | QC's verdict pages cover Open Science only. Nothing says what the second corpus's pin label shows when QC's pages record no verdict on that run. A3's failure example ("drops QC's own verdict, so the theory reads as finished") would then fit that page | S6 states that the label reads "Qualitative Coding has recorded no verdict on this run" in that case | note |
+| n-r, n-y, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+None that would change a decision. QC's own "touched" figure has no chance rate either. But the plan shows it only as QC's comparison, with QC's caveats, beside the plain pass (77.4%), which serves as its baseline. No 1.0 claim rests on it.
+
+#### Checked and found sound
+
+- **One story everywhere.** Plan :43, S1, S2, S3, S6, S7, Done when, Q12, Q15, Q26, A3, A4, A5, A8, A12, F10, F12 and the review page agree with each other, with QC's current pages and with S1 at 43b57dc on:
+  - the pin, e131eb55;
+  - QC's verdict on it: 46% rejected, against a "wrong if" line of roughly a quarter, and it predates the disprove test;
+  - QC's a67d7d6a figures and the direction they count in;
+  - the location figure, shown beside its chance rate;
+  - the category share, best 0.47;
+  - the condition for "met".
+- **Method owners' rules.** Decision 0017 (:27-35, :50) and QC's `METHODS_AND_THEORY.md:453-463` and `:471-473` say what the plan cites them for. Process Tracing's $0.0555 (7 calls, 277,101 of 352,770 input tokens cached) matches `efficiency_20261105/README.md:161-163`.
+- **Domain model.** Sampled `workbench_view` (`models.py:438`), `source_segment` (:98) and `evidence_anchor` (`investigation_spine.py:127`): each points at the named class. The S1 concepts are dashed, correctly, since they are not on this branch.
+- **Router records.** A3, A8 and A12 chose the views their entries name.
+- **Review page.** It shows revision 10b9a7bd3ac4 and all 26 questions, and draws every diagram on the page from embedded data.
+- **Goal fields.** North star, thesis and disproof fit the planning layer's definitions.
+- **Coverage.** My own split of Brian's words gives three requirements: finish → A12; not for one use case → A10 (and A3); part of his broader vision → A11. The outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **n-oo's weight.** If Brian answers (a) "author coding is enough" and (d) "wait", the row could read "met" while QC itself says its output's main disproof (the researcher's hour) is untested. I kept it a note because plan :43, Q12 (a) and S7 all say step 5 is not done, and Q12 (d) defines what it means by "finished".
+- **What I could not do.**
+  - No browser tool was available, so I read the pages as HTML.
+  - I did not run the full 204-test suite; `make check` ran its 41 tests.
+  - Writing scratch files was refused, so my containment check ran inline.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12, 0 failing, 2 WAIT). Checklist: exit 0.
+  - `overlap_e131.py`: 0 of 112 qualify, best share 0.47.
+  - Builder recomputation: 100 / 73 / 69.6% / 135 of 135. Containment chance: 89 of 135, 79.2%.
+  - Wiki cap: exit 1 (126, 112). Crosswalk: exit 0. `make check`: 41 tests and mypy clean, exit code not captured. Class sweep: 184 classes, 0 missing.
+- **Feedback:** where a page prints a sentence judging a figure against chance ("chance gives the same"), compute that sentence from the figures, so a moved pin cannot leave a true-looking claim behind.
+- **Need anything from human:** No. The three notes are agent work.
+
+Reviewed revision: 10b9a7bd3ac41bea61ecdc02acb811cb26ec9c4f
+
+Verdict: pass
