@@ -176,7 +176,7 @@
    "id": "measurement_instrument",
    "label": "Measurement instrument",
    "kind": "planned",
-   "explain": "A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding."
+   "explain": "A qualitative category turned into a rule applied to every interviewee turn, with included and excluded examples, so it can be counted and checked against human coding."
   },
   {
    "id": "joint_display",
@@ -218,7 +218,7 @@
    "id": "investigation_record",
    "label": "Investigation record",
    "kind": "planned",
-   "explain": "One study's question, evidence, method runs, findings, unresolved questions, reviews and next actions kept together (the evidence-to-action map's investigation spine), general over studies. Plan #8 S5; today only the PsychosisBank investigation, hard-coded."
+   "explain": "One study's question, evidence, analytical plan, method runs, findings, unresolved questions, reviews and next actions kept together (the eight parts of the evidence-to-action map's investigation spine), general over studies. Plan #8 S5; today only the PsychosisBank investigation, hard-coded."
   },
   {
    "id": "review_decision",
@@ -249,6 +249,18 @@
    "label": "Reflexivity memo",
    "kind": "planned",
    "explain": "The researcher's positioning memo for one study: who did the analysis, what they brought to it and what that may have shaped, kept with the review log and in the bundle. Plan #8 S5."
+  },
+  {
+   "id": "split_manifest",
+   "label": "Split manifest",
+   "kind": "planned",
+   "explain": "The fixed list of tuning and held-out interviews, with the thresholds preregistered from the feasibility readout (agreement bar, minimum overlap, split sizes), written before any measure is scored; the receipt checks no held-out interview reached a fitting step. Plan #8 S2."
+  },
+  {
+   "id": "feasibility_readout",
+   "label": "Feasibility readout",
+   "kind": "planned",
+   "explain": "What is known before an instrument is chosen: the construct, its two-way overlap with the author's matched code, the unit, the frame, intended and prohibited uses, prevalence among turns, how many interviews carry positive cases, and where the author's coding is hard. Plan #8 S2."
   }
  ],
  "edges": [
@@ -551,6 +563,36 @@
    "source": "research_bundle",
    "target": "reflexivity_memo",
    "label": "contains"
+  },
+  {
+   "id": "e150",
+   "source": "investigation_record",
+   "target": "route_plan",
+   "label": "takes its analytical plan from"
+  },
+  {
+   "id": "e151",
+   "source": "feasibility_readout",
+   "target": "measurement_instrument",
+   "label": "precedes the choice of"
+  },
+  {
+   "id": "e152",
+   "source": "feasibility_readout",
+   "target": "split_manifest",
+   "label": "sets the thresholds in"
+  },
+  {
+   "id": "e153",
+   "source": "split_manifest",
+   "target": "measured_result",
+   "label": "fixes the held-out interviews of"
+  },
+  {
+   "id": "e154",
+   "source": "feasibility_readout",
+   "target": "author_coding",
+   "label": "matches a category to"
   }
  ]
 }

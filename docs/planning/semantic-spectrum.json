@@ -198,6 +198,20 @@
    "aliases": [
     "positioning memo"
    ]
+  },
+  {
+   "id": "split_manifest",
+   "kind": "planned",
+   "aliases": [
+    "splits"
+   ]
+  },
+  {
+   "id": "feasibility_readout",
+   "kind": "planned",
+   "aliases": [
+    "readout"
+   ]
   }
  ],
  "classes": [

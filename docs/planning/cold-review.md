@@ -3,6 +3,28 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 3 (read 3957779): revise
+
+The reviewer confirmed all five round-2 findings fixed and returned **revise** with four new blocking
+findings (B1 to B4) and notes N1 to N11. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | S2's construct match was a one-way share against a different codebook, with no minimum, so broad numbered interview-question codes could win | Plan S2 and Q15: the match is two-way (turns both mark ÷ turns either marks, over the 630 interviewee turns); the author's 11 numbered interview-question codes are left out by their label format and listed; a minimum overlap (0.3 unless the readout gives a reason) is preregistered from the feasibility readout, else the next category, else S2 stops; the brief's :111 row and A4 name the different codebook |
+| B2 | No question said which proposition the single measure speaks to; mismatched units must block aggregation | New Q22 (resolved by a written rule): each proposition maps to the measure (prevalence or co-occurrence by interview) or to "silent: not measured"; differing units block aggregation (brief :143-144); A5 states how many rows are comparable |
+| B3 | The product map names eight parts; the analytical plan was dropped | The analytical plan added to A11 ("eight parts"), `investigation_record` (glossary and graph, with an edge to `route_plan`), plan S5, the vision paragraph, the S5 slice row and Q18 |
+| B4 | No `plain_baseline`, `stage_effects` or `stops`; S3's challenger had no shown effect | Manifest adds all three (plain baseline planned for S2 and S3; two untested stages; stops: the NYC pause holds). S3's second-model challenger is dropped: a deterministic check verifies every cited number and passage id, S6 plants an overclaimed meta-inference for it to catch, and S3 is 6 calls (computed, $0.014) plus one plain-version call |
+
+Notes: N1, the plan checklist moved to the end of the plan, so every citation into the plan is back at
+the line it was set against and later checklist rewrites cannot shift them; N2, the four language-model
+controls are a computed step ($1.58 once per corpus) and the fresh reviewer is a Claude Code session; N3,
+S3 relabelled computed with fitted gpt-6-luna prices, the $0.0038 measured median kept as the upper
+figure; N4, brief rows :25 (overridden by "not for a specific use case"), :83-85, :102-103, :113 and :114
+added to S2's table; N5, Q16 records the task/owner pattern as an agent working default; N6, coverage
+rerun after B3; N7, the instrument is applied to every interviewee turn; N8, links resolve once merged; N9,
+the test command reads `PYTHONPATH=src:.`; N10, A4 prints the chance level beside the shuffled-label row;
+N11, `split_manifest` and `feasibility_readout` are planned domain concepts and in relies_on.
+
 ## Plan #8, round 2 (read 47475ef): revise
 
 The reviewer returned **revise** with five blocking findings and notes a to q. What changed in answer:

@@ -63,10 +63,10 @@
     "Open the study page's Measurement tab (the study page's address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots))",
     "Read the feasibility readout and the instrument: the rule and its included and excluded examples",
     "Read the table of measures: always-majority, word-list count, TF-IDF regression and the language model, each with per-class agreement, prevalence error and its interval by interview",
-    "Read which interviews tuned each measure and which tested it, and the shuffled-label control row",
+    "Read which interviews tuned each measure and which tested it, and the shuffled-label control row with the chance level printed beside it",
     "Click a disagreement and read the turn, the model's quoted reason and the author's code"
    ],
-   "expected": "Every figure names its held-out interviews, none of which tuned it; the shuffled-label control sits near chance and the always-majority row shows its null; prevalence error is shown beside agreement (never accuracy alone); every disagreement opens its turn and its model trace.",
+   "expected": "Every figure names its held-out interviews, none of which tuned it; the shuffled-label control sits near the chance level printed beside it and the always-majority row shows its null; prevalence error is shown beside agreement (never accuracy alone); every disagreement opens its turn and its model trace. The construct's match to the author's code is shown as a two-way overlap with both counts, and every agreement figure carries \"one coder, no adjudication, a different codebook\".",
    "failure_example": "A build that let tuning see the held-out interviews: the page shows an interview on both the tuned and tested lists in orange and refuses the figure; or the shuffled-label control scores well above chance, shown in orange, which means the measure is reading something other than the construct.",
    "representation": {
     "view": "data-table",
@@ -80,11 +80,12 @@
    "criterion": "I can compare each qualitative proposition with the measured numbers and read whether they agree, and what may be concluded from both together",
    "demonstration": [
     "Open the Joint display tab",
-    "Read one row per proposition: the claim, the measured distribution, the verdict",
-    "Open a row's meta-inference and its challenger's critique"
+    "Read the count of comparable rows at the top (how many of the six propositions the measure speaks to)",
+    "Read one row per proposition: the claim, then either the measured figure it is compared with and the verdict, or \"silent: not measured\" in grey with the reason",
+    "Open a comparable row's meta-inference and its number and passage check"
    ],
-   "expected": "Each row shows a verdict word (converges, complements, diverges, silent) with the passages and numbers it rests on; every meta-inference says 'pending review' until reviewed.",
-   "failure_example": "A meta-inference that claims more than either strand supports (for example a population rate from 26 interviews): the challenger flags it in orange and it is not marked accepted.",
+   "expected": "The page states how many of the six rows are comparable; each comparable row shows a verdict word (converges, complements, diverges) with the passages and numbers it rests on, and its number check passed; each other row says \"silent: not measured\" with its reason; a row whose units differ says aggregation is blocked; every meta-inference says 'pending review' until reviewed.",
+   "failure_example": "A meta-inference citing a number that is not in the measured result (S6 plants one): the number check shows it in orange with the number it could not find, and it cannot be marked accepted. Or every row shows the same measured distribution as if each proposition were measured: the mapping to the measure is missing.",
    "representation": {
     "view": "composite-linked-view",
     "router_record": "docs/planning/router/A5.recommendation.json"
@@ -183,15 +184,15 @@
   },
   {
    "id": "A11",
-   "criterion": "Each study is the investigation record of my broader evidence-to-action vision (the product map's investigation spine): one record I can open that keeps its question, evidence, method runs, findings, unresolved questions, reviews and next actions together, and the PsychosisBank investigation is one of them, not a separate destination",
+   "criterion": "Each study is the investigation record of my broader evidence-to-action vision (the product map's investigation spine): one record I can open that keeps its question, evidence, analytical plan, method runs, findings, unresolved questions, reviews and next actions together, and the PsychosisBank investigation is one of them, not a separate destination",
    "demonstration": [
     "Open the workbench's study list (the study workbench's address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots))",
     "Open the Open Science study, then the PsychosisBank investigation",
-    "In each, read the question, then follow one finding to its evidence, the method run that produced it and its review decision",
+    "In each, read the question and the analytical plan (which strands run, the integration design, the evidence each needs), then follow one finding to its evidence, the method run that produced it and its review decision",
     "Read the unresolved questions and the next actions, and open the product-map link at the top of the record"
    ],
-   "expected": "Both studies open in the same record layout with the same seven parts the product map names, and the record links that map; each finding links its evidence, its run receipt and its review state; each next action says what it would do with the evidence; the PsychosisBank public page still shows the same content.",
-   "failure_example": "The PsychosisBank investigation still opens as its own one-off page with a different layout, a finding shows no run or review link, or the record stops at findings with no next actions: it is a report, not the evidence-to-action record.",
+   "expected": "Both studies open in the same record layout with the same eight parts the product map names (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), and the record links that map; each finding links its evidence, its run receipt and its review state; each next action says what it would do with the evidence; the PsychosisBank public page still shows the same content.",
+   "failure_example": "The PsychosisBank investigation still opens as its own one-off page with a different layout, a finding shows no run or review link, the record has no analytical plan, or it stops at findings with no next actions: it is a report, not the evidence-to-action record.",
    "representation": {
     "view": "schema-explorer",
     "router_record": "docs/planning/router/A11.recommendation.json"

@@ -4,45 +4,6 @@ Status: adopted 2026-11-06 on Brian's direction below; slice S1 in progress.
 
 Planning package: docs/planning/planning-package.json
 
-<!-- planning-compliance-checklist:v1 -->
-## Compliance checklist
-
-Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the validator and fails
-if any line below differs from what it says now. Unticked pending items are not passes.
-
-Manifest: `docs/planning/planning-package.json`
-Package revision: `395777903a55`
-Verdict: not compliant
-
-- [x] part investigation: ok
-- [x] part checks: ok
-- [x] part open_questions: ok
-- [x] part system_model: ok
-- [x] part domain_model: ok
-- [x] part diagrams: ok
-- [x] part plan: ok
-- [x] part acceptance: ok
-- [x] part review_page: ok
-- [ ] part cold_review: failing
-- [x] substance route follows from its path decision: ok
-- [x] substance citations resolve: ok
-- [x] substance domain model has a glossary: ok
-- [x] substance project layer checks against the planning layer: ok
-- [x] substance concepts point at their code: ok
-- [x] substance plan names the concepts it relies on: ok
-- [x] substance plan records the cost basis of each AI step: ok
-- [x] substance type-level model of executable rules: ok
-- [ ] substance cold review report states its verdict: failing
-- [ ] substance cold review read this revision: failing
-- [x] initiative initiative names its home: ok
-- [x] tiers spectrum rungs 1-11 are cited: ok
-- [x] tiers production rungs 12-14 are cited when it runs in production: ok
-- [x] tiers thesaurus separates near-identical names (rung 4): ok
-- [x] coverage goal coverage: ok
-- [x] freshness package is current: ok
-<!-- /planning-compliance-checklist -->
-
-
 ## Goal
 
 Brian, 2026-11-06, answering open question Q1 ("what the workbench does next"), whose recommendation had been
@@ -57,7 +18,7 @@ example, not the product's purpose.
 **Broader vision, read from the repository** (open question Q18; Brian decides between two readings). The
 repository's own product map, `docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md`, supports two readings.
 Section 1 defines the workbench's place: one workbench-owned investigation record that keeps the question,
-evidence, method runs, findings, unresolved questions, reviews and next actions together, while each
+evidence, analytical plan, method runs, findings, unresolved questions, reviews and next actions together, while each
 method stays in its own repository; section 3 names "separate destinations rather than one evolving study"
 as the defect. Sections 5, 7 and 9 go further: the product runs from a policy question to a reviewed
 recommendation, Open Science is "too weak to organize the general policy-analysis product", and the next
@@ -112,7 +73,7 @@ Each slice ends with something a person can open and try. Every slice: tests fir
 | S2 | Quantitative strand: one QC category measured across every interviewee turn | The same page gains a measurement tab: the feasibility readout, the instrument (rule, included and excluded examples), each candidate measure beside its baselines, which interviews tuned and which tested it, prevalence error and agreement on held-out interviews, a shuffled-label control, and every disagreement listed and openable |
 | S3 | Joint display and meta-inference | A joint-display tab: one row per proposition, the qualitative claim beside the measured distribution, a convergence / complementarity / divergence / silence verdict with the passages behind it, and a bounded meta-inference that stays "pending review" |
 | S4 | Process Tracing on one proposition | A causal tab: QC handoff → PT `pt_export_v2` for one proposition in one interview; within-case verdicts shown apart from the measured prevalence, and the publication gate respected |
-| S5 | Review, provenance and export, on one investigation record | The study page becomes the general investigation record (question, evidence, method runs, findings, unresolved questions, reviews, next actions), the PsychosisBank investigation rebuilt as one instance of it; accept, reject or annotate each meta-inference and see it saved; write a reflexivity memo; download one research bundle (corpus manifest, strand exports, joint display, decisions, traces, a GRAMMS reporting checklist). Served where open question Q11 says |
+| S5 | Review, provenance and export, on one investigation record | The study page becomes the general investigation record (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), the PsychosisBank investigation rebuilt as one instance of it; accept, reject or annotate each meta-inference and see it saved; write a reflexivity memo; download one research bundle (corpus manifest, strand exports, joint display, decisions, traces, a GRAMMS reporting checklist). Served where open question Q11 says |
 | S6 | Second corpus and benchmark | A benchmark page: both corpora, each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and for each corpus the files its addition changed ("data only" or the code paths, in orange) |
 | S7 | 1.0 release | The method-profile page marks what the workbench runs and what it does not; the crosswalk page (acceptance A2) shows the Plan #6 verdicts; the release bundle lists unsupported methods as prominently as supported ones |
 
@@ -147,18 +108,23 @@ finish).
 
 | Brief condition (line) | In S2 |
 | --- | --- |
+| A narrow, case-specific adapter owned by the workbench (`:25`) | **overridden** by Brian's 2026-11-06 "not for a specific use case": the adapter is general (it reads any study definition), and S6's second corpus tests that |
+| One typed core behind every interface (`:83-85`) | kept: `study_workbench.py` is the core; the page builder and the command line call it, never their own copy |
 | Word-list count baseline mandatory; always-majority and TF-IDF baselines (`:18`, `:113`) | kept |
+| Human-only baseline (`:113`) | **not met**: there is one human coder and no second human labelling, so no human-only figure exists; the page says so beside the baselines |
 | Strongest eligible contextual incumbent (`:113`) | the codebook-prompted language model is the contextual comparator; **no fine-tuned encoder**, because 25 interviews give too few groups for a grouped held-out fine-tune |
 | Language model is a challenger with behavioural and compliance tests (`:22-23`, `:136-137`, `:146-148`) | kept: label-free checks before any labelled evaluation (same answer when the turn is repeated, and when the instrument's order of examples changes), then a swapped-label control (another category's definition under this category's name), a codebook ablation (the instrument's rule removed) and an invented-label check (an answer outside yes/no is refused and counted) |
 | Topic or embedding output not the first measure (`:21-22`) | kept; no topic model is run, so the topic-stability controls (`:140-142`) do not arise |
 | Feasibility readout before choosing the instrument (`:87-99`) | kept |
-| Independently coded pilot and sealed set, with adjudication (`:111`) | **not met**: the human reference is the author's existing single-coder coding; the page says "one coder, no adjudication" beside every agreement figure |
+| Metric margins, split sizes and thresholds preregistered from the readout, not hard-coded (`:102-103`) | kept: after the readout and before any measure is scored on held-out interviews, the agreement bar, the minimum overlap and the split sizes are written into the split manifest with the readout's figures behind them, and the receipt shows they were not changed afterwards |
+| Learning curve and slices (`:114`) | kept: agreement on tuning folds at increasing numbers of tuning interviews, and every figure sliced by interview |
+| Independently coded pilot and sealed set, with adjudication; a versioned codebook (`:111`) | **not met**: the human reference is the author's existing single-coder coding, under her own codebook, which differs from QC's categories; the page says "one coder, no adjudication, a different codebook" beside every agreement figure, and shows the two-way overlap that matched them (Construct, below) |
 | Immutable splits; nothing tuned sees sealed data (`:112`, `:126-129`) | kept: the split manifest fixes tuning and held-out interviews first; the receipt records which interviews each fitting step (word list, TF-IDF vocabulary, prompt edits) saw, and a check fails if any held-out interview appears there |
 | Per-class metrics, prevalence error, calibration, grouped uncertainty; accuracy alone prohibited; no turn-level intervals (`:114`, `:118-121`) | kept |
 | Dictionary polysemy, negation, quotation and attribution reach their error readouts (`:130-131`) | kept: the word list's false positives and false negatives on tuning interviews are listed with their words, so these errors can be read |
 | Off-construct proxy, rare-case erasure, grouped shortcuts (`:132-135`) | kept as per-class recall and prevalence error by interview; there is one source, so source ablation does not arise |
 | Ordinal label shuffling (`:138-139`) | does not arise: the label is yes or no |
-| Fresh reviewer can reject promotion (`:116`) | kept: a fresh agent session reads raw turns, splits, errors and traces before the result is called measured; Brian can reject it on the page |
+| Fresh reviewer can reject promotion (`:116`) | kept: a fresh Claude Code session (no API cost) reads raw turns, splits, errors and traces before the result is called measured; Brian can reject it on the page |
 
 - **Unit of analysis** (open question Q17): one interviewee turn, as Qualitative Coding segmented it (630
   interviewee turns in the 25 analysed interviews; interviewer turns are not measured). A turn is a
@@ -169,10 +135,17 @@ finish).
   turn-level confidence interval is reported.
 - **Construct** (open question Q15, Brian's call with a default): the QC category with the most supporting
   passages that also has a matching author code, picked by that written rule and shown on the page with
-  the rule. A category matches an author code by passage overlap, not by name: for each of the author's 39
-  codes, the share of the category's cited passages that her passages with that code overlap in the frozen
-  text; the code with the highest share is its match, and the page shows the share, so a partial match
-  reads as "matches 9 of 14 passages", never as a clean match.
+  the rule. The two codings come from different codebooks, so a match is measured, never assumed, and
+  never by name. For each QC category and each of the author's codes, the match is two-way: the interviewee
+  turns both mark, divided by the turns either marks (a Jaccard overlap over the 630 turns), so a broad
+  code that covers many turns does not match everything. The author's 11 numbered interview-question codes
+  (their names begin with the question's number, such as "1. subdisciplines") mark which question a passage
+  answers, not a theme; they are left out of matching by that label format and listed on the page. A
+  category's match is the code with the highest overlap, and only if that overlap reaches the minimum
+  preregistered from the readout (0.3 unless the readout shows a reason to change it, recorded before
+  measuring); otherwise S2 takes the next category by the same rule, and if none qualifies it stops and
+  says so on the page. The page shows the overlap and both counts, such as "both mark 14 turns; either
+  marks 31; overlap 0.45", never a clean match.
 - **Feasibility readout first:** before any instrument is chosen, the page shows the construct, unit,
   frame, intended and prohibited uses, its prevalence among the turns, how many interviews carry positive
   cases, whether it is lexical or contextual, and the disagreement locations in the author's own coding.
@@ -205,7 +178,9 @@ finish).
   median 4,052 input and 268 output tokens, 0% cached; median $0.0011, p90 $0.0019 per call; `llm-cost
   estimate`, 708 calls, 2026-11-05), priced at gpt-5.6-luna's per-token rates fitted to those 708 recorded
   calls (input $0.2168, output $1.4057 per million tokens). About $0.79 per full pass, counting no cache
-  discount. The dictionary, dummy and regression run locally at no model cost.
+  discount. The dictionary, dummy and regression run locally at no model cost. The four language-model
+  controls (repeat, reordered examples, swapped label, codebook ablation) each rerun the language model on
+  the tuning interviews (about 315 turns): 4 × 315 calls at the same figures, about $1.58 once per corpus.
 - **Cheapest design that still does the job:** one call per turn with the instrument as a cached prefix.
   The alternative, one call per interview labelling all its turns at once, costs about a third as much:
   about $0.28 per pass against $0.79 (25 calls; the instrument once per interview plus the whole
@@ -217,16 +192,33 @@ finish).
 
 ### S3 — Joint display and meta-inference
 
-- **Build:** for each QC proposition, a draft integration verdict and bounded meta-inference through
-  `llm_client`, citing passage ids and the measured numbers; a second, different model challenges each draft
-  (as the PsychosisBank independent challenge did, the existing `verification_challenge`). Both stay
-  "pending review" until S5's review.
+- **Which rows can be compared** (open question Q22, resolved by a written rule): QC's six propositions
+  are conditional statements spanning several categories, and S2 measures one category's prevalence. Each
+  proposition is mapped, before any verdict is drafted, either to the measure (it names the measured
+  category, and the measure speaks to it as prevalence by interview or as co-occurrence with another
+  category in the same interviews) or to "silent: not measured". Only mapped rows get a convergence,
+  complementarity or divergence verdict; a silent row shows the qualitative claim and the word "silent" in
+  grey, with the reason. A row whose units differ (a turn-level claim against an interview-level figure)
+  blocks aggregation and meta-inference, as the brief requires (`:143-144`), and says so in orange. The
+  page states how many of the six rows are comparable.
+- **Build:** for each comparable row, a draft integration verdict and bounded meta-inference through
+  `llm_client`, citing passage ids and the measured numbers. A deterministic check then verifies that
+  every number the draft cites equals the measured result and every passage id resolves; a draft that
+  fails is shown in orange with the failing number or id, never silently corrected. No second model
+  challenges the drafts: the PsychosisBank challenge (`verification_challenge`) returned "bounded
+  support" on all three of its findings and changed no answer, so a challenger is added only when S3's
+  traces show a gap it would close. Drafts stay "pending review" until S5's review.
+- **Plain version** (the comparison every AI answer path gets): one call given all six propositions, the
+  measured result and the passages, asked for the same verdicts. S3's per-proposition drafts are kept only
+  if they beat it on the number and passage check and on Brian's review; the two are shown side by side
+  on the first run.
 - **Trace:** task `mixed_methods_workbench.open_science.integrate`; receipt as in S2. The agent reads every
-  draft and challenge in full.
-- **Cost (measured per call):** 6 propositions × 2 calls at the measured cost of the closest task, QC's
-  `qualitative_coding.grounded_theory_verdict` (`llm-cost estimate`, 55 calls: median $0.0038, p90
-  $0.0111 per call; median 15,196 input and 807 output tokens). About $0.05 per run, $0.13 if every call
-  costs the p90; redone from S3's receipt.
+  draft in full.
+- **Cost (computed):** at most 6 calls (one per comparable proposition) × the closest measured task's
+  median tokens, QC's `qualitative_coding.grounded_theory_verdict` (`llm-cost estimate`, 55 calls: median
+  15,196 input and 807 output tokens), at gpt-6-luna's per-token rates fitted to its recorded calls (input
+  $0.1354, output $0.2895 per million tokens): about $0.014 per run, plus one plain-version call. At that
+  task's measured median of $0.0038 per call it would be $0.023; redone from S3's receipt.
 
 ### S4 — Process Tracing on one proposition
 
@@ -245,9 +237,12 @@ finish).
 
 ### S5 — Review, provenance and export
 
-- **Build:** the study record becomes the general investigation record of the product map: the question,
-  evidence, method runs, findings, unresolved questions, reviews and next actions of one study, read from the
-  study definition; `investigation_spine.py`'s PsychosisBank investigation is rebuilt as one instance of it
+- **Build:** the study record becomes the general investigation record of the product map: the eight parts
+  the map names (`EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15-17`): the question, evidence, analytical
+  plan, method runs, findings, unresolved questions, reviews and next actions of one study, read from the
+  study definition. The analytical plan is the study's design (which strands run, the integration design,
+  the evidence each strand needs), taken from the study definition and the method dashboard's route plan
+  (`route_plan`), and a record without it is refused; `investigation_spine.py`'s PsychosisBank investigation is rebuilt as one instance of it
   and its public page must still pass `tests/test_psychosisbank_public_review.py`. A local server in the
   `method_dashboard_server.py` pattern writes review decisions and the reflexivity memo to typed JSON files
   in the study folder, committed. On the served page, where no server runs (open question Q20), each
@@ -269,15 +264,19 @@ finish).
   school variants, so one pass on a corpus of similar size costs at most about that.
 - **Build:** the whole S1–S3 path on a second rights-clear corpus with its authors' coding, differing from
   the first in subject, research team and coding tool or export format (Q19); planted failures (a quote
-  altered by one word, a passage from the wrong interview, a swapped label, a fabricated segment id) that
+  altered by one word, a passage from the wrong interview, a swapped label, a fabricated segment id, and
+  the overclaim below) that
   the checks must catch. The second corpus is added by one study definition file plus its frozen data; a
   test, not the builder that reads the corpus, lists the files that commit changed (`git diff --name-only`)
   and the page shows "data only" or, in orange, any code path (the test of "not for a specific use case"). If the second corpus's export format needs a new reader, that
   reader is general (named by format, not by corpus) and the page says so.
 - **Trace:** one receipt per run; the benchmark page links each.
-- **Cost (computed):** S2 + S3 on a corpus of similar size from the same figures, about $0.84 per run;
-  three repeat runs to show variation, about $2.52, plus Qualitative Coding's own pass if Q21 needs one.
-  Redone with `llm-cost estimate` on S2's own task once S2 has run.
+- **Planted failures include an overclaim:** a meta-inference citing a number that is not in the measured
+  result, which S3's number check must catch.
+- **Cost (computed):** S2 + S3 on a corpus of similar size from the same figures, about $0.81 per run;
+  three repeat runs to show variation, about $2.42, plus the S2 language-model controls once (about
+  $1.58), plus Qualitative Coding's own pass if Q21 needs one. Redone with `llm-cost estimate` on S2's own
+  task once S2 has run.
 
 ### S7 — 1.0 release
 
@@ -290,16 +289,56 @@ finish).
 `evidence_anchor`, `author_coding`, `workbench_view`, `measurement_instrument`, `measured_result`,
 `joint_display`, `meta_inference`, `verification_challenge`, `pt_export`, `publication_gate`,
 `connected_run_receipt`, `investigation_record`, `review_decision`, `research_bundle`, `planted_failure`,
-`benchmark`, `method_profile`, `public_review`, `capability_verdict`, `reflexivity_memo` (see `docs/planning/DOMAIN.md`).
+`benchmark`, `method_profile`, `public_review`, `capability_verdict`, `reflexivity_memo`, `split_manifest`,
+`feasibility_readout`, `route_plan` (see `docs/planning/DOMAIN.md`).
 
 ## Not in this plan
 
 Running a qualitative method inside the workbench; a universal schema or method planner; OntoCanon, DIGIMON
 or Theory Forge on the critical path; contacting any corpus author; publishing anything beyond the existing
-PsychosisBank Worker without Brian's answer to open question Q11.
+PsychosisBank Worker without Brian's answer to open question Q11. Brian's NYC pause (2026-10-04) still
+holds: NYC is not used as an example and its vertical is not extended.
 
 ## Done when
 
 S7 is merged: on two rights-clear corpora a person can open one investigation record per study, follow
 every claim to its passage, see the quantitative strand's agreement with the authors' coding, read each meta-inference with its
 review state, download the bundle, and read on the benchmark page what works, what fails and what it cost.
+
+<!-- planning-compliance-checklist:v1 -->
+## Compliance checklist
+
+Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the validator and fails
+if any line below differs from what it says now. Unticked pending items are not passes.
+
+Manifest: `docs/planning/planning-package.json`
+Package revision: `395777903a55`
+Verdict: not compliant
+
+- [x] part investigation: ok
+- [x] part checks: ok
+- [x] part open_questions: ok
+- [x] part system_model: ok
+- [x] part domain_model: ok
+- [x] part diagrams: ok
+- [x] part plan: ok
+- [x] part acceptance: ok
+- [x] part review_page: ok
+- [ ] part cold_review: failing
+- [x] substance route follows from its path decision: ok
+- [x] substance citations resolve: ok
+- [x] substance domain model has a glossary: ok
+- [x] substance project layer checks against the planning layer: ok
+- [x] substance concepts point at their code: ok
+- [x] substance plan names the concepts it relies on: ok
+- [x] substance plan records the cost basis of each AI step: ok
+- [x] substance type-level model of executable rules: ok
+- [ ] substance cold review report states its verdict: failing
+- [ ] substance cold review read this revision: failing
+- [x] initiative initiative names its home: ok
+- [x] tiers spectrum rungs 1-11 are cited: ok
+- [x] tiers production rungs 12-14 are cited when it runs in production: ok
+- [x] tiers thesaurus separates near-identical names (rung 4): ok
+- [x] coverage goal coverage: ok
+- [x] freshness package is current: ok
+<!-- /planning-compliance-checklist -->
