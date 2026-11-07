@@ -211,17 +211,17 @@
  ],
  "coverage": {
   "model": "openrouter/anthropic/claude-sonnet-5.5",
-  "judged_at": "2026-11-06T21:22:17-0500",
+  "judged_at": "2026-11-06T21:37:12-0500",
   "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
-  "criteria_sha256": "231b15eedbab48efeb550c8e06ab42834fc6143ebb017704ba91732e25c27385",
+  "criteria_sha256": "6410b5fd03faa85637eeb855f5ee1f68adf7e2df2bae5f139cb580267656b08f",
   "outcome_sha256": "2e4aa6f53b264f2dfa1597843b832f5da33bb7d12a1ff78cfc33bb8a566aa566",
   "criteria_judged": {
    "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
    "A2": "d460c58369d08b270e9cc52cca2ccab248f9e07938b1814590016b67eabd4bd6",
    "A3": "a5c98a3dbc08c6f63150ae182e393dbca0c4a54d00fbb266e60a9df1c98fe26b",
    "A4": "91296065154013088124c2cb35d1a0730211d0a333001f8608425e0eb8a5f7f6",
-   "A5": "76d6c1565012cf653b8f221a825cdded772d99a58184cb6634b7a9e106b05025",
-   "A6": "d1889f56f60109ac3de05579d4de0a3e264e23166950397bc8734371b992fb5a",
+   "A5": "2c33c135264780f4073c2123a304c4ceb46c42208b8dee482d06384f20afc235",
+   "A6": "15e4b54b78991a56ca44fa0023c57bc0fd93c878e43729f96dfcd196f52924e2",
    "A7": "5e690deee1ffe95061766fdd92b947fc58d9ec12eb841876a10b4f68ad30a6c4",
    "A8": "b109a30047eb40383493517a6c0094e5c6008dab07d6891094675c781735960d",
    "A9": "5e1955dc1910222855791c80032ae121b1145c74ff4649dfaac70600214e6fc5",
@@ -229,8 +229,8 @@
    "A11": "8a8b89a69614938901bdcfc733504dd519ddf27972d9de5d68038347a01f5932"
   },
   "deferrals_judged": [],
-  "trace_id": "planning-compliance/goal-coverage/20261106T212211-8cbc6fdb-run1",
-  "cost_usd": 0.036622,
+  "trace_id": "planning-compliance/goal-coverage/20261106T213707-25b8fb5f-run1",
+  "cost_usd": 0.03691,
   "requirements": [
    {
     "id": "R1",
@@ -266,12 +266,12 @@
      "A8",
      "A9"
     ],
-    "coverage_reason": "Together these criteria demonstrate the workbench's study page, measurement, joint display, causal check, review/export, benchmark and method scope, so an unfinished workbench would fail them.",
+    "coverage_reason": "Together these criteria fail if the workbench's study page, measurement, joint display, causal check, review/export, benchmark or method-profile pieces are not delivered and working.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome says the Mixed Methods Workbench is finished to 1.0 with the full set of capabilities listed."
+    "outcome_reason": "The outcome says the workbench is finished to 1.0 with the study record, measurement, joint display, causal check, review/export and benchmark all working."
    },
    {
     "requirement_id": "R2",
@@ -279,36 +279,34 @@
      "A3",
      "A10"
     ],
-    "coverage_reason": "A3 uses a general example corpus and A10 requires a never-seen corpus to yield the same study page with data only, which would fail if the workbench were tied to one use case.",
+    "coverage_reason": "A3 uses a general example corpus and A10 fails if a new unseen corpus needs code changes or does not produce the same study page.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome states it is a general tool, not for one use case, and uses two corpora."
+    "outcome_reason": "The outcome states it is a general tool, not for one use case, and runs on two corpora."
    },
    {
     "requirement_id": "R3",
-    "covered_by": [
-     "A11"
-    ],
-    "coverage_reason": "A11 requires each study to be the investigation record of the broader evidence-to-action vision with a link to the product map.",
-    "extent": "full",
+    "covered_by": [],
+    "coverage_reason": "No demonstration of the interface can show it is part of a broader vision; A11 checks a record layout, which is a proxy rather than the vision itself.",
+    "extent": "none",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome explicitly keeps it as part of Brian's broader evidence-to-action vision and the investigation spine."
+    "outcome_reason": "Process kind, kept in the outcome by naming Brian's broader evidence-to-action vision."
    }
   ],
   "agreement": {
    "runs": 2,
    "agreed": true,
    "trace_ids": [
-    "planning-compliance/goal-coverage/20261106T212211-8cbc6fdb-run1",
-    "planning-compliance/goal-coverage/20261106T212211-8cbc6fdb-run2"
+    "planning-compliance/goal-coverage/20261106T213707-25b8fb5f-run1",
+    "planning-compliance/goal-coverage/20261106T213707-25b8fb5f-run2"
    ],
    "costs_usd": [
-    0.018356,
-    0.018266
+    0.01847,
+    0.01844
    ]
   },
   "trace": "coverage-trace.json"
