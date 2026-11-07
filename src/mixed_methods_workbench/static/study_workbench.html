@@ -93,7 +93,7 @@ document.title = "Study Workbench: " + P.title.slice(0, 40);
 document.getElementById("sub").append(
   "By ", C.creator, " (", C.publication_date, "), ", $("a", {href: C.url}, "doi:" + C.doi), ", ",
   $("a", {href: C.licence_url}, C.licence), ". ", C.consent_statement, " Frozen ", C.retrieved_on,
-  ". Qualitative strand: Qualitative Coding's grounded-theory export at commit ", S.commit.slice(0, 10), " (trace ", S.producer_trace_id, ").");
+  ". Qualitative strand: Qualitative Coding's grounded theory, ", S.theory_path, " at commit ", S.commit.slice(0, 10), " (trace ", S.producer_trace_id, ").");
 document.getElementById("sub").after($("p", {class: "pin", id: "pin-label"},
   $("strong", {}, S.pin_label.label), ". ", S.pin_label.reason, " ", S.pin_label.repin_when));
 for (const s of P.strands)

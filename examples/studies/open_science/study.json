@@ -14,18 +14,34 @@
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
   "consent_statement": "The interviewees consented to the interviews being recorded and to the anonymised transcription being published on an open repository (00_README.md, 'Data collection').",
   "document_pattern": "^A[0-9]{2}\\.txt$",
-  "extra_files": ["00_README.md", "OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv"]
+  "extra_files": [
+   "00_README.md",
+   "OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv"
+  ]
  },
  "human_coding": {
   "file": "OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv",
   "coder": "Elen Le Foll (the corpus author), exported from OpenQDA",
   "delimiter": ";",
-  "columns": {"file": "file", "code": "code category", "text": "selection", "start": "start pos", "end": "end pos"}
+  "columns": {
+   "file": "file",
+   "code": "code category",
+   "text": "selection",
+   "start": "start pos",
+   "end": "end pos"
+  }
  },
  "qualitative_producer": {
   "producer": "qualitative_coding",
   "repository": "BrianMills2718/qualitative_coding",
-  "grounded_theory_path": "public_demo_assets/open_science/grounded_theory_full_corpus.json",
+  "theory_path": "proposals/qc-gt-review-candidate/expected-view.json",
+  "theory_form": "view",
+  "pin_label": {
+   "label": "Qualitative Coding's October 2026 theory (run e131eb55), not its published run",
+   "reason": "Qualitative Coding's status page names a later run, a67d7d6a (2026-11-05), as published and says that theory is being revised. It has committed neither that theory nor the revision, so this page reads the newest Open Science theory it has committed with its cited passages: run e131eb55, from 2026-10-09, which predates its disprove test.",
+   "repin_when": "When Qualitative Coding commits the newer theory in its own repository, this pin moves to it and every figure built on the theory is recomputed (Plan #8, open question Q26).",
+   "source": "docs/planning/open-questions.json Q26; qualitative_coding docs/CURRENT_STATE_AND_ROADMAP.md:34 and :41-47"
+  },
   "project_state_path": "public_demo_assets/open_science/project_state.json.gz",
   "text_normalisation": "line endings: CRLF and CR read as LF before offsets are counted"
  }

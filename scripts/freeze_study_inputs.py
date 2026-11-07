@@ -88,7 +88,7 @@ def freeze_qualitative(study_dir: Path, study: dict[str, Any], qc_root: Path) ->
     producer = study["qualitative_producer"]
     out = study_dir / "qc"
     out.mkdir(parents=True, exist_ok=True)
-    gt_path = qc_root / producer["grounded_theory_path"]
+    gt_path = qc_root / producer["theory_path"]
     state_path = qc_root / producer["project_state_path"]
     gt_bytes = gt_path.read_bytes()
     state_bytes = state_path.read_bytes()
@@ -103,7 +103,7 @@ def freeze_qualitative(study_dir: Path, study: dict[str, Any], qc_root: Path) ->
         )
         return result.stdout.strip()
 
-    (out / "grounded_theory.json").write_bytes(gt_bytes)
+    (out / "theory.json").write_bytes(gt_bytes)
     documents = [
         {
             "id": d["id"],
@@ -127,7 +127,8 @@ def freeze_qualitative(study_dir: Path, study: dict[str, Any], qc_root: Path) ->
         "producer": producer["producer"],
         "repository": producer["repository"],
         "grounded_theory": {
-            "path": producer["grounded_theory_path"],
+            "path": producer["theory_path"],
+            "form": producer["theory_form"],
             "commit": commit_of(gt_path),
             "sha256": _sha256(gt_bytes),
         },
@@ -138,6 +139,7 @@ def freeze_qualitative(study_dir: Path, study: dict[str, Any], qc_root: Path) ->
             "extracted": ["corpus.documents (without content)", "segments"],
         },
         "text_normalisation": producer["text_normalisation"],
+        "pin_label": producer["pin_label"],
     }
     (out / "provenance.json").write_text(json.dumps(provenance, indent=1) + "\n", encoding="utf-8")
     return provenance

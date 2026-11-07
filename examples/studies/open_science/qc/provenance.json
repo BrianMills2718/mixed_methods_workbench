@@ -4,9 +4,10 @@
  "producer": "qualitative_coding",
  "repository": "BrianMills2718/qualitative_coding",
  "grounded_theory": {
-  "path": "public_demo_assets/open_science/grounded_theory_full_corpus.json",
-  "commit": "bcf808802f449f4597d4c53fc7e25c4653e97ec2",
-  "sha256": "538a26465bb91cfe79bb62a2f16b6e0ea8b0017412f8fe1874fef4045ea66e3b"
+  "path": "proposals/qc-gt-review-candidate/expected-view.json",
+  "form": "view",
+  "commit": "7f5a8af9056eb3c8b44685ed68c7ae505636fd7b",
+  "sha256": "a77661f999add6a3295b884e306846665800b796e2775571bf3262847d562522"
  },
  "project_state": {
   "path": "public_demo_assets/open_science/project_state.json.gz",
@@ -19,9 +20,9 @@
  },
  "text_normalisation": "line endings: CRLF and CR read as LF before offsets are counted",
  "pin_label": {
-  "label": "Qualitative Coding's August 2026 theory (run expansion-4), not its current run",
-  "reason": "Qualitative Coding's status page names a later run as published and says that theory is being revised; it has committed no export of either, so this page keeps the August export it can check.",
-  "repin_when": "When Qualitative Coding commits the revised theory's export in its own repository, this pin moves to it (Plan #8, open question Q26).",
+  "label": "Qualitative Coding's October 2026 theory (run e131eb55), not its published run",
+  "reason": "Qualitative Coding's status page names a later run, a67d7d6a (2026-11-05), as published and says that theory is being revised. It has committed neither that theory nor the revision, so this page reads the newest Open Science theory it has committed with its cited passages: run e131eb55, from 2026-10-09, which predates its disprove test.",
+  "repin_when": "When Qualitative Coding commits the newer theory in its own repository, this pin moves to it and every figure built on the theory is recomputed (Plan #8, open question Q26).",
   "source": "docs/planning/open-questions.json Q26; qualitative_coding docs/CURRENT_STATE_AND_ROADMAP.md:34 and :41-47"
  }
 }

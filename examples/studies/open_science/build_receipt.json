@@ -18,16 +18,16 @@
    "sha256": "981864d3b6772edc57c88eb9fe799ad56d2245870f450d6656c3785233613a2f"
   },
   {
-   "path": "examples/studies/open_science/qc/grounded_theory.json",
-   "sha256": "538a26465bb91cfe79bb62a2f16b6e0ea8b0017412f8fe1874fef4045ea66e3b"
-  },
-  {
    "path": "examples/studies/open_science/qc/provenance.json",
-   "sha256": "707bd4348a6055a69388e0c52c2cbdb46d2271e87ef8b5d36d8b8c7061f71216"
+   "sha256": "4d4d031dad73edab30fd795213d2221d4c325906a72612b0e9a6ce55177d040a"
   },
   {
    "path": "examples/studies/open_science/qc/segments.json",
    "sha256": "60bcf497de465324041ab463e2a7cf4b61a7198ae7cc19e6ae7f2be66b2bfc1b"
+  },
+  {
+   "path": "examples/studies/open_science/qc/theory.json",
+   "sha256": "a77661f999add6a3295b884e306846665800b796e2775571bf3262847d562522"
   },
   {
    "path": "examples/studies/open_science/source/00_README.md",
@@ -143,11 +143,11 @@
   },
   {
    "path": "examples/studies/open_science/study.json",
-   "sha256": "488d90190c6b6e3064b42c69ca7d4d76bb7e4a1d4fbf4329444a542f5518d396"
+   "sha256": "707d9f0693c56e243bfcd720b3e7300344c6a143904c02c35b036b341e10a9fb"
   },
   {
    "path": "src/mixed_methods_workbench/static/study_workbench.html",
-   "sha256": "421701c9a2b5ed752226c26c0534f0274bcb37760077987ac55939928d05f6ed"
+   "sha256": "73bcb67ad9eafc0dff7478e04491b85327cf41e4026bad137bc2b17cdc211bfa"
   }
  ],
  "steps": [
@@ -167,8 +167,9 @@
    "step": "every passage the theory cites resolved and checked against the frozen text",
    "producer_segments": 1277,
    "producer_segments_matching": 1277,
-   "cited_passages": 90,
-   "cited_matching": 90,
+   "passages_carried_by_the_pin": 194,
+   "cited_passages": 100,
+   "cited_matching": 100,
    "cited_unresolved": 0
   },
   {
@@ -182,14 +183,14 @@
   },
   {
    "step": "author codes overlapping each cited passage",
-   "cited_passages_with_an_author_code": 89,
-   "cited_passages_without": 1
+   "cited_passages_with_an_author_code": 100,
+   "cited_passages_without": 0
   }
  ],
  "outputs": [
   {
    "path": "proposals/open-science-study/index.html",
-   "sha256": "aa3a09bace42878caed8eccdf0c8a9f3e51cb82fc0f53c5aa249a929830eaadb"
+   "sha256": "2f394a7d46bb415a61805349117630dda6218267ca3542d97e7e2a81585f1599"
   }
  ]
 }

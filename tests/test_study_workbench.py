@@ -49,10 +49,11 @@ def test_producer_documents_are_the_frozen_files(payload: dict) -> None:
 def test_every_cited_passage_is_the_frozen_text_at_its_offsets(payload: dict) -> None:
     step = _step(payload, "theory cites")
     assert step["producer_segments"] == step["producer_segments_matching"] == 1277
-    assert step["cited_passages"] == step["cited_matching"] == 90
+    assert step["passages_carried_by_the_pin"] == 194
+    assert step["cited_passages"] == step["cited_matching"] == 100
     assert step["cited_unresolved"] == 0
     strand = payload["qualitative_strand"]
-    assert len(strand["categories"]) == 8 and len(strand["propositions"]) == 6
+    assert len(strand["categories"]) == 4 and len(strand["propositions"]) == 6
     for passage in strand["passages"].values():
         document = next(d for d in payload["corpus"]["documents"] if d["file"] == passage["file"])
         assert document["text"][passage["start"] : passage["end"]] == passage["text"]
@@ -73,19 +74,20 @@ def test_quantitative_and_integration_strands_say_not_built(payload: dict) -> No
 
 
 def test_page_labels_the_pinned_producer_run(payload: dict) -> None:
-    """Plan #8 S1 and open question Q26: the August export is named and labelled as not QC's current run."""
+    """Plan #8 S1 and open question Q26: the pinned run is named and labelled as not QC's published run."""
     strand = payload["qualitative_strand"]
     assert strand["pin_label"]["label"] == (
-        "Qualitative Coding's August 2026 theory (run expansion-4), not its current run"
+        "Qualitative Coding's October 2026 theory (run e131eb55), not its published run"
     )
-    assert strand["producer_trace_id"].endswith("/expansion-4")
+    assert "e131eb55" in strand["producer_trace_id"]
+    assert strand["commit"] == "7f5a8af9056eb3c8b44685ed68c7ae505636fd7b"
     assert "Q26" in strand["pin_label"]["repin_when"]
     template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
     assert "S.pin_label.label" in template and 'id: "pin-label"' in template
 
 
 def test_unsupported_producer_schema_is_refused() -> None:
-    raw = json.loads((STUDY / "qc" / "grounded_theory.json").read_text(encoding="utf-8"))
+    raw = json.loads((STUDY / "qc" / "theory.json").read_text(encoding="utf-8"))["development"]
     assert read_grounded_theory(raw).schema_version == 3
     for version in (2, 4, "4.0", None):
         raw["schema_version"] = version
@@ -101,16 +103,14 @@ def _copy_study(tmp_path: Path) -> Path:
 
 def test_planted_altered_passage_is_listed_not_dropped(tmp_path: Path) -> None:
     study = _copy_study(tmp_path)
-    segments_path = study / "qc" / "segments.json"
-    segments = json.loads(segments_path.read_text(encoding="utf-8"))
-    cited = json.loads((study / "qc" / "grounded_theory.json").read_text())["proposal"]["propositions"][0][
-        "supporting_source_unit_ids"
-    ][0]
-    victim = next(s for s in segments if s["id"] == cited)
+    theory_path = study / "qc" / "theory.json"
+    theory = json.loads(theory_path.read_text(encoding="utf-8"))
+    cited = theory["development"]["proposal"]["propositions"][0]["supporting_source_unit_ids"][0]
+    victim = theory["source_units"][cited]
     words = victim["text"].split(" ")
     words[1] = "NOT"
     victim["text"] = " ".join(words)
-    segments_path.write_text(json.dumps(segments), encoding="utf-8")
+    theory_path.write_text(json.dumps(theory), encoding="utf-8")
     payload = build_study_payload(study)
     step = _step(payload, "theory cites")
     assert step["cited_matching"] == step["cited_passages"] - 1
@@ -121,9 +121,9 @@ def test_planted_altered_passage_is_listed_not_dropped(tmp_path: Path) -> None:
 
 def test_planted_fabricated_passage_id_is_reported(tmp_path: Path) -> None:
     study = _copy_study(tmp_path)
-    gt_path = study / "qc" / "grounded_theory.json"
+    gt_path = study / "qc" / "theory.json"
     gt = json.loads(gt_path.read_text(encoding="utf-8"))
-    gt["proposal"]["propositions"][0]["supporting_source_unit_ids"].append("segment-" + "0" * 32)
+    gt["development"]["proposal"]["propositions"][0]["supporting_source_unit_ids"].append("segment-" + "0" * 32)
     gt_path.write_text(json.dumps(gt), encoding="utf-8")
     payload = build_study_payload(study)
     assert payload["qualitative_strand"]["unresolved_passage_ids"] == ["segment-" + "0" * 32]

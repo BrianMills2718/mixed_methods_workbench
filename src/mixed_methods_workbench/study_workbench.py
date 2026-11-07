@@ -265,8 +265,14 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
     study = StudyDefinition.model_validate(_read_json(study_dir / "study.json"))
     manifest = CorpusManifest.model_validate(_read_json(study_dir / "corpus_manifest.json"))
     provenance = _read_json(study_dir / "qc" / "provenance.json")
-    gt_bytes = (study_dir / "qc" / "grounded_theory.json").read_bytes()
-    gt = read_grounded_theory(json.loads(gt_bytes))
+    gt_bytes = (study_dir / "qc" / "theory.json").read_bytes()
+    theory_raw = json.loads(gt_bytes)
+    # A "view" pin is QC's review-candidate file: the schema-3 package under "development" plus the cited
+    # passages ("source_units", with document, speaker, offsets and text). An "export" pin is the bare
+    # package, whose citations resolve through QC's segments.
+    form = provenance["grounded_theory"].get("form", "export")
+    gt = read_grounded_theory(theory_raw["development"] if form == "view" else theory_raw)
+    source_units: dict[str, Any] = theory_raw.get("source_units", {}) if form == "view" else {}
     qc_documents = [QCDocument.model_validate(d) for d in _read_json(study_dir / "qc" / "documents.json")]
     segments = [QCSegment.model_validate(s) for s in _read_json(study_dir / "qc" / "segments.json")]
 
@@ -325,7 +331,6 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
     )
 
     # 3. every producer segment against the frozen text at its offsets
-    segment_by_id = {s.id: s for s in segments}
     segment_rows: dict[str, dict[str, Any]] = {}
     offset_mismatches = []
     for seg in segments:
@@ -390,13 +395,34 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
                 "qualifying": cite(proposition.qualifying_source_unit_ids),
             }
         )
-    unresolved = [segment_id for segment_id in cited if segment_id not in segment_by_id]
+    # cited passages carried by the pin itself are checked against the frozen text like segments
+    doc_by_name = {d.name: d for d in qc_documents}
+    for unit_id, unit in source_units.items():
+        owner = doc_by_name.get(unit.get("document_name", ""))
+        source = texts.get(owner.source_filename, "") if owner else ""
+        start, end = int(unit["start_char"]), int(unit["end_char"])
+        at_offsets = source[start:end]
+        ok = owner is not None and at_offsets == unit["text"]
+        row = {
+            "id": unit_id,
+            "file": owner.source_filename if owner else None,
+            "start": start,
+            "end": end,
+            "speaker": unit.get("speaker"),
+            "text": unit["text"],
+            "offsets_match": ok,
+        }
+        segment_rows[unit_id] = row
+        if not ok:
+            offset_mismatches.append({**row, "frozen_text_at_offsets": at_offsets})
+    unresolved = [segment_id for segment_id in cited if segment_id not in segment_rows]
     cited_ok = sum(1 for s in cited if s in segment_rows and segment_rows[s]["offsets_match"])
     steps.append(
         {
             "step": "every passage the theory cites resolved and checked against the frozen text",
             "producer_segments": len(segments),
-            "producer_segments_matching": len(segments) - len(offset_mismatches),
+            "producer_segments_matching": sum(1 for s in segments if segment_rows[s.id]["offsets_match"]),
+            "passages_carried_by_the_pin": len(source_units),
             "cited_passages": len(cited),
             "cited_matching": cited_ok,
             "cited_unresolved": len(unresolved),
@@ -500,6 +526,7 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
             "producer": provenance["producer"],
             "repository": provenance["repository"],
             "commit": provenance["grounded_theory"]["commit"],
+            "theory_path": provenance["grounded_theory"]["path"],
             "export_sha256": _sha256(gt_bytes),
             "schema_version": gt.schema_version,
             "model": gt.run.model_name,
