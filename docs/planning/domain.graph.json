@@ -665,6 +665,12 @@
    "source": "readiness_record",
    "target": "review_decision",
    "label": "reads Brian's judgements from"
+  },
+  {
+   "id": "e163",
+   "source": "qc_pt_handoff",
+   "target": "pt_export",
+   "label": "feeds Process Tracing's frozen pipeline, which writes"
   }
  ]
 }
