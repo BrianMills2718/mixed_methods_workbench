@@ -268,7 +268,7 @@
    "id": "Q15",
    "label": "Q15: Which coded theme S2 measures (the construct)",
    "kind": "question_brian",
-   "explain": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349)."
+   "explain": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349). On the theory S1 pins (run e131eb55, Q26) the written rule picks no code, so the construct is Brian's call from the rule's table; if the pin moves, S2's first test recomputes the table first."
   },
   {
    "id": "d_Q15",
@@ -502,7 +502,7 @@
    "id": "Q26",
    "label": "Q26: Which Qualitative Coding result S1 pins",
    "kind": "question_agent_resolved",
-   "explain": "S1 pins Qualitative Coding's August 2026 grounded-theory export (public_demo_assets/open_science/grounded_theory_full_corpus.json, run plan345/method-review1c/expansion-4, QC commit bcf80880, 8 categories, 6 propositions). QC's status page names a newer 25-interview run, a67d7d6a (2026-11-05), as its published run and says it is revising that theory now. Which result is the workbench's qualitative strand?"
+   "explain": "Which Qualitative Coding result does S1 pin? QC's status page names run a67d7d6a (2026-11-05) as its published 25-interview run and says it is revising that theory now; its review queue calls run e131eb55 current; this plan read QC's August 2026 export (public_demo_assets/open_science/grounded_theory_full_corpus.json, run plan345/method-review1c/expansion-4, QC commit bcf80880, 8 categories) until round 11."
   },
   {
    "id": "d_Q26",

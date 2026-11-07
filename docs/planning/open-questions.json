@@ -206,7 +206,7 @@
    "owner": "brian",
    "status": "open",
    "blocking": false,
-   "recommendation": "Both narrowings: 1.0 claims agreement with the authors' coding and the planted-failure results, and covers within-case causal reasoning only; an outside researcher's hour and theory operationalization are the first post-1.0 steps, so 1.0 waits on neither a person nor a Theory Forge export. (c) Complements only in 1.0: the S1 overlap shows only the author's \"open data\" code holds a QC category's evidence (share 0.64, next best 0.48, highest two-way overlap 0.18), so a proposition's condition or outcome measured as a second theme would have no human reference, and an unchecked number in the joint display would trade quality for breadth. Measuring a proposition's condition and outcome becomes the first post-1.0 integration step, on a corpus whose authors coded both. Option (c) 'need agree or disagree' needs Qualitative Coding to rerun its theory on a subset of the interviews in its own repository (measured upper figure $4.94 for a full pass, S6's entry) so the condition and outcome are measured only on interviews held out from it (your decision 0017; QC never counts the same material as independent confirmation, METHODS_AND_THEORY.md:470-472), and then costs about $0.19 per S2 pass, worked out: 2 calls x (58,150 input tokens x $0.2168 + 56,700 output tokens, three labels per turn, x $1.4057) per million, plus two definition calls at $0.0043, and its two new labels are checked only by Brian's review, not by an author's coding.",
+   "recommendation": "Both narrowings: 1.0 claims agreement with the authors' coding and the planted-failure results, and covers within-case causal reasoning only; an outside researcher's hour and theory operationalization are the first post-1.0 steps, so 1.0 waits on neither a person nor a Theory Forge export. (c) Complements only in 1.0: on the pinned theory no author code holds half of a QC category's cited turns (best \"open data\" at 0.47, next 0.40, highest two-way overlap 0.20; Q15), so a proposition's condition or outcome measured as a second theme would have no human reference, and an unchecked number in the joint display would trade quality for breadth. Measuring a proposition's condition and outcome becomes the first post-1.0 integration step, on a corpus whose authors coded both. Option (c) 'need agree or disagree' needs Qualitative Coding to rerun its theory on a subset of the interviews in its own repository (measured upper figure $4.94 for a full pass, S6's entry) so the condition and outcome are measured only on interviews held out from it (your decision 0017; QC never counts the same material as independent confirmation, METHODS_AND_THEORY.md:471-473), and then costs about $0.19 per S2 pass, worked out: 2 calls x (58,150 input tokens x $0.2168 + 56,700 output tokens, three labels per turn, x $1.4057) per million, plus two definition calls at $0.0043, and its two new labels are checked only by Brian's review, not by an author's coding.",
    "default": "The recommendation: the 1.0 claim is limited to agreement with the authors' coding, and theory operationalization comes after 1.0; and (c) 1.0 joint-display rows say only \"complements\" or \"silent\", with the narrowing shown on the readiness page.",
    "answer_words": "\"author coding is enough\" / \"need a researcher\"; and \"theory after 1.0\" / \"theory in 1.0\"; and \"complements is enough\" / \"need agree or disagree\"",
    "sources": [
@@ -216,7 +216,7 @@
     "docs/ROADMAP.md:82",
     "docs/plans/008_finish_workbench.md:46",
     "docs/plans/008_finish_workbench.md:53",
-    "docs/plans/008_finish_workbench.md:242",
+    "docs/plans/008_finish_workbench.md:249",
     "docs/ROADMAP.md:83",
     "docs/ROADMAP.md:437",
     "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:470",
@@ -254,7 +254,7 @@
    "status": "resolved",
    "sources": [
     "docs/plans/008_finish_workbench.md:93",
-    "docs/plans/008_finish_workbench.md:95"
+    "docs/plans/008_finish_workbench.md:96"
    ],
    "touches": [
     "source_segment",
@@ -265,13 +265,13 @@
   {
    "id": "Q15",
    "short": "Which coded theme S2 measures (the construct)",
-   "question": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349). The overlap figures come from Qualitative Coding's August 2026 export, the one S1 pins (Q26); if the pin moves, S2's first test recomputes them before the rule picks a code.",
+   "question": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349). On the theory S1 pins (run e131eb55, Q26) the written rule picks no code, so the construct is Brian's call from the rule's table; if the pin moves, S2's first test recomputes the table first.",
    "blocks": "S2's construct (S2 can start on the default)",
-   "resolves_with": "Brian's call, because the brief reserves it to him; a written rule, fixed from S1's data, gives the default. The measure is one of the author's codes, so the measure and its human reference name the same construct; it is chosen by how much of a QC category's evidence it holds, so it speaks to QC's theory. Her 11 numbered interview-question codes (names beginning with the question's number, such as \"1. subdisciplines\") say which question a passage answers, not a theme, and are left out and listed. A code qualifies for a QC category when it marks at least half of the interviewee turns QC cites for that category and a one-sided chance test over the 630 turns (hypergeometric) gives below 0.001; the qualifying code with the largest share is taken, and if none qualifies S2 stops and says so. Computed 2026-11-06 over 8 categories x 28 codes (224 pairs): only \"open data\" qualifies, marking 14 of the 22 turns QC cites for \"Conditional and claim-adequate disclosure\" (0.64, chance 3e-9) and 14 of 21 for \"Labour, governance, priority, credit, and scrutiny negotiation\" (0.67, chance 1e-9); the next share is 0.48. \"Open data\" marks 72 of 630 turns in 23 of 25 interviews. The round-3 two-way (Jaccard) floor of 0.3 is replaced: QC marks only the turns it cites as examples (18-24 per category), so the highest Jaccard among the 224 pairs is 0.18; it is shown on the page but does not gate.",
+   "resolves_with": "Brian's call, because the brief reserves it to him; a written rule, fixed from S1's data, picks a code when one qualifies. The measure is one of the author's codes, so the measure and its human reference name the same construct; it is chosen by how much of a QC category's evidence it holds, so it speaks to QC's theory. Her 11 numbered interview-question codes (names beginning with the question's number, such as \"1. subdisciplines\") say which question a passage answers, not a theme, and are left out and listed. A code qualifies for a QC category when it marks at least half of the interviewee turns QC cites for that category and a one-sided chance test over the 630 turns (hypergeometric) gives below 0.001; the qualifying code with the largest share is taken. Computed 2026-11-06 on the pinned theory, run e131eb55, over 4 categories x 28 codes (112 pairs): no code qualifies. The best pair is \"open data\" with 18 of the 38 turns QC cites for \"Conditional, usable, and situated traceability\" (0.47, chance 7.9e-9); next are \"open data\" with 16 of 40 for \"Academic-capital, legal, and infrastructural negotiation\" (0.40, chance 1.2e-6) and \"(lack of) incentives/motivation\" with 11 of 40 (0.28). The rule is not loosened after seeing this: when it picks no code, S2 builds the feasibility readout with this table and stops before any measure is run, and the construct is Brian's call. On QC's August export (read until round 11) \"open data\" qualified at 0.64 and 0.67, so the same code leads on both theories. \"Open data\" marks 72 of 630 turns in 23 of 25 interviews. The two-way (Jaccard) overlap is shown but does not gate: QC marks only the turns it cites as examples (35-43 per category), so the highest among the 112 pairs is 0.20.",
    "owner": "brian",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:147",
+    "docs/plans/008_finish_workbench.md:150",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:101",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:102",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:111",
@@ -282,9 +282,9 @@
     "qualitative_strand"
    ],
    "blocking": false,
-   "recommendation": "Use the written rule: measure the author's \"open data\" code, the only code that holds at least half of a QC category's cited turns beyond chance. The feasibility readout shows it, both QC categories it qualifies for, the counts, the chance figure and the excluded question codes before any measure is run, and Brian can switch there.",
-   "default": "S2 measures \"open data\" and proceeds unless Brian names another of the author's codes; the instrument's definition is drafted from her tuning-interview passages and versioned before held-out scoring.",
-   "answer_words": "\"use the rule\" / \"pick another code: <name>\""
+   "recommendation": "Measure the author's \"open data\" code. It is the best pair on the pinned theory (0.47 of a category's cited turns, chance 8e-9) and qualified on QC's earlier theory, so it speaks to QC's theory on both; it has positive turns in 23 of 25 interviews, enough for a grouped held-out test; and it has the author's own coding as its reference. The page prints \"chosen by Brian below the rule's half-share bar (0.47)\" beside it, so no reader takes it for a rule pick.",
+   "default": "S2 measures \"open data\" with that label on the page; the instrument's definition is drafted from her tuning-interview passages and versioned before held-out scoring. If QC's newer theory moves the pin and another code then leads the table, S2 stops at the feasibility readout and this question is asked again.",
+   "answer_words": "\"use open data\" / \"pick another code: <name>\" / \"no construct\" (S2 stops at the feasibility readout and S7 marks 1.0's quantitative condition unmet)"
   },
   {
    "id": "Q16",
@@ -294,16 +294,16 @@
    "resolves_with": "Argument, no test: the brief is the most careful method statement the repository has, and nothing found on 2026-11-06 argues against any condition, so S2 adopts it condition by condition (plan S2's table). Two are not met, with reasons: no fine-tuned encoder (25 interviews give too few groups for a grouped held-out fine-tune; the codebook-prompted model is the contextual comparator) and no independently coded, adjudicated pilot (the reference is the author's single-coder coding, stated beside every figure). Ordinal shuffling and topic-stability controls do not arise. Brian's two calls in the brief stay his: the construct (Q15) and authorising the slice, which his 2026-11-06 direction to finish gives. A second model is removed from S2; if traces later show a gap, the cases it re-judges are chosen without the author's codes. The brief's other reservation to Brian, approving the task/owner pattern (brief :6, ROADMAP.md:349: the workbench owns the narrow adapter, QC supplies strict exports, PT owns within-case inference), is recorded as an agent working default under his 2026-11-06 direction to finish; the brief's \"narrow, case-specific\" adapter (:25) is overridden by his \"not for a specific use case\", so the adapter reads any study definition.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S2's brief-condition table lists each condition with its brief line and how S2 meets it, including :25, :83-85, :102-103, :113 and :114 (docs/plans/008_finish_workbench.md:118-138); brief status line at :4.",
+   "evidence": "Plan S2's brief-condition table lists each condition with its brief line and how S2 meets it, including :25, :83-85, :102-103, :113 and :114 (docs/plans/008_finish_workbench.md:119-139); brief status line at :4.",
    "sources": [
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:4",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:18",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:22",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:111",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118",
-    "docs/plans/008_finish_workbench.md:111",
-    "docs/plans/008_finish_workbench.md:118",
-    "docs/plans/008_finish_workbench.md:131",
+    "docs/plans/008_finish_workbench.md:112",
+    "docs/plans/008_finish_workbench.md:119",
+    "docs/plans/008_finish_workbench.md:132",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:6",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:25",
     "docs/ROADMAP.md:349"
@@ -322,9 +322,9 @@
    "resolves_with": "Argument from the data, no test: the unit is one interviewee turn as Qualitative Coding segmented it, so the qualitative and quantitative strands share one unit and every label opens a passage QC already anchors. A turn is a positive reference case when any author passage with the matching code overlaps it; passages that touch only interviewer turns are counted and listed. Counted on the frozen S1 files (study_workbench.py's anchoring): 630 interviewee turns of 1277 segments; of the author's 830 located passages, 717 lie within one interviewee turn, 75 span two or more and 38 touch only interviewer turns; 481 turns carry at least one author code. The interview is the independent group for splits, intervals and prevalence.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:140.",
+   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:141.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:140",
+    "docs/plans/008_finish_workbench.md:141",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118"
    ],
    "touches": [
@@ -371,7 +371,7 @@
    "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:66 and S6 (:291-292).",
    "sources": [
     "docs/plans/008_finish_workbench.md:66",
-    "docs/plans/008_finish_workbench.md:365"
+    "docs/plans/008_finish_workbench.md:372"
    ],
    "touches": [
     "study_corpus",
@@ -386,10 +386,10 @@
    "resolves_with": "Argument and prior art, no test: GitHub issues are already where this repository's tasks live and need no new server or credential. Each action on the served page opens a pre-filled issue in this repository (decision, meta-inference id, bundle hash, his note) that he submits; `make import-reviews` turns labelled issues into the same typed files the local server writes, and the page shows \"recorded, waiting to be imported\" until the next build. Locally, the server in the method_dashboard_server.py pattern writes the files directly.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:342-349) and acceptance A7 carry the route.",
+   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:349-356) and acceptance A7 carry the route.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:342",
-    "docs/plans/008_finish_workbench.md:344",
+    "docs/plans/008_finish_workbench.md:349",
+    "docs/plans/008_finish_workbench.md:351",
     "src/mixed_methods_workbench/method_dashboard_server.py:1"
    ],
    "touches": [
@@ -407,8 +407,8 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:358",
-    "docs/plans/008_finish_workbench.md:361"
+    "docs/plans/008_finish_workbench.md:365",
+    "docs/plans/008_finish_workbench.md:368"
    ],
    "touches": [
     "qc_theory_export",
@@ -424,9 +424,9 @@
    "resolves_with": "A written rule, no test, because a prevalence cannot confirm or contradict a conditional: before any verdict is drafted, each proposition is mapped to the measure only if it names a QC category the measured code qualified for (Q15); otherwise it is \"silent: not measured\", with the reason. A mapped row matched by prevalence alone may only say \"complements\"; the number and passage check refuses \"converges\" or \"diverges\" on it. The round-3 co-occurrence branch is dropped: S2 labels one theme, and QC's segments carry no category codes, so there is nothing to co-occur with. Rows whose units differ block aggregation and meta-inference, as the brief requires (:143-144). A5 states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so a row could converge or diverge, narrows what 1.0 promises about integration and is Brian's call (Q12, part c).",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S3 carries the rule (docs/plans/008_finish_workbench.md:231); acceptance A5's expected result states the count of mapped rows and its failure example is a prevalence-only row marked \"converges\"; QC's theory export has 6 propositions over 8 categories (S1 receipt).",
+   "evidence": "Plan S3 carries the rule (docs/plans/008_finish_workbench.md:238); acceptance A5's expected result states the count of mapped rows and its failure example is a prevalence-only row marked \"converges\"; QC's theory export has 6 propositions over 8 categories (S1 receipt).",
    "sources": [
-    "docs/plans/008_finish_workbench.md:231",
+    "docs/plans/008_finish_workbench.md:238",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:143"
    ],
    "touches": [
@@ -445,10 +445,10 @@
    "resolves_with": "An argument, no test: Process Tracing's own records settle it. (a) Add, in process_tracing under its rules, an independent-case input to the prototype (the named case's own records, never the study's interviews) and the small export adapter its open question Q20 recommends once a consumer resumes (only fields the merged answer supports, the rest marked absent, never a full V2 claim); the workbench shows the prototype's verdicts in their own panel and the conclusion as 'withheld' while publication_gate is absent. (b) Run the frozen pipeline once on the same proposition as the full provenance reference ADR 0004 keeps it for. (a) is chosen: it is the path Process Tracing scored best and Brian approved, it needs no pt/ work during the freeze, and no 1.0 condition needs a full provenance chain; no committed file carries a publishable Process Tracing gate, so S4 commits two made-up test exports in pt_export_v2's shape with a publication_gate block (one publishable, one blocked), labelled as test data, and shows both in a 'how the gate behaves' panel. The adapter's file declares its own partial schema (provisionally pt_draft_audit_export_v1), read by a second, partial reader. (b) stays available if a reader later needs the full chain.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S4's conditional route (docs/plans/008_finish_workbench.md:313); cost $0.0555 per run measured (process_tracing efficiency_20261105 README:161-163); Process Tracing ADR 0004 and its Q20.",
+   "evidence": "Plan S4's conditional route (docs/plans/008_finish_workbench.md:320); cost $0.0555 per run measured (process_tracing efficiency_20261105 README:161-163); Process Tracing ADR 0004 and its Q20.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:313",
-    "docs/plans/008_finish_workbench.md:274",
+    "docs/plans/008_finish_workbench.md:320",
+    "docs/plans/008_finish_workbench.md:281",
     "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79",
     "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
     "/home/brian/code2/process_tracing/docs/planning/open-questions.json:404"
@@ -469,8 +469,8 @@
    "status": "resolved",
    "evidence": "portfolio decision 0017 (status accepted) :27-35 and :50; qualitative_coding/docs/METHODS_AND_THEORY.md:453-463 ('owner decision, 2026-09-25'); examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json (allowed_use bounded_independent_case_process_appraisal; excluded: 'The QC interviews are not evidence in this case appraisal.'); src/mixed_methods_workbench/investigation_spine.py:79 and :186.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:274",
     "docs/plans/008_finish_workbench.md:281",
+    "docs/plans/008_finish_workbench.md:288",
     "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27",
     "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:50",
     "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:453",
@@ -499,7 +499,7 @@
    "answer_words": "\"gated handoff is enough\" / \"find a case\"",
    "sources": [
     "docs/plans/008_finish_workbench.md:45",
-    "docs/plans/008_finish_workbench.md:313",
+    "docs/plans/008_finish_workbench.md:320",
     "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:33",
     "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:58",
     "/home/brian/code2/portfolio/wiki/plans/v16-two-pillar-portfolio.md:151"
@@ -514,17 +514,18 @@
   {
    "id": "Q26",
    "short": "Which Qualitative Coding result S1 pins",
-   "question": "S1 pins Qualitative Coding's August 2026 grounded-theory export (public_demo_assets/open_science/grounded_theory_full_corpus.json, run plan345/method-review1c/expansion-4, QC commit bcf80880, 8 categories, 6 propositions). QC's status page names a newer 25-interview run, a67d7d6a (2026-11-05), as its published run and says it is revising that theory now. Which result is the workbench's qualitative strand?",
+   "question": "Which Qualitative Coding result does S1 pin? QC's status page names run a67d7d6a (2026-11-05) as its published 25-interview run and says it is revising that theory now; its review queue calls run e131eb55 current; this plan read QC's August 2026 export (public_demo_assets/open_science/grounded_theory_full_corpus.json, run plan345/method-review1c/expansion-4, QC commit bcf80880, 8 categories) until round 11.",
    "blocks": "S1's pin and label, the overlap figures behind Q15, S3's joint-display rows and finding F19",
-   "resolves_with": "Reading, no test (round-10 cold review, R10-B1): QC has committed no grounded-theory export of a67d7d6a or of the revised theory; its only committed schema-3 export is the August file (the a67d7d6a file in public_demo_assets/grounded_theory_school_readings holds school readings, not the export), and QC's own records disagree on which run is current (status page :34 against REVIEW_QUEUE.md :29 and :40). So S1 keeps the August pin, and the study page names it and labels it \"Qualitative Coding's August 2026 theory (run expansion-4), not its current run\". When QC commits the revised theory's export in its own repository, S1's pin moves to it and S2's first test recomputes the overlap figures, Q15's construct and F19 before S2 or S3 build on them. The workbench never runs QC to make that export.",
+   "resolves_with": "Reading, no test (round-11 cold review, R11-B1, correcting round 10's answer): QC has committed no theory file of a67d7d6a or of the revision (the a67d7d6a file in public_demo_assets/grounded_theory_school_readings holds school readings of it, not the theory). It has committed the theory of run e131eb55 (QC's review-candidate file proposals/qc-gt-review-candidate/expected-view.json, QC commit 7f5a8af9, 2026-10-09, sha256 a77661f9...: 4 categories, 6 propositions, 194 passages with offsets), which its own tests read and its ledger records; round 10's answer, that the August export was QC's only committed theory, was wrong. So S1 pins the e131eb55 file byte for byte and resolves the theory's 100 cited passages through the passages it carries (all 100 are the frozen text at their offsets), and the study page labels it \"Qualitative Coding's October 2026 theory (run e131eb55), not its published run\" with the reason. The August export predates QC's coding-quality step (2026-10-05) and is not read. When QC commits the newer theory in its own repository, S1's pin moves to it and S2's first test recomputes the construct table (Q15), F19 and the row counts before S2 or S3 build on them; the unit of analysis, QC's turn segmentation of the frozen files, does not move. The workbench never runs QC to make that file.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "qualitative_coding docs/CURRENT_STATE_AND_ROADMAP.md:34 and :41-47; docs/REVIEW_QUEUE.md:29 and :40; public_demo_assets/open_science/grounded_theory_full_corpus.json last changed at bcf80880 (2026-08-04), sha256 538a2646... equal to S1's pin.",
+   "evidence": "qualitative_coding docs/CURRENT_STATE_AND_ROADMAP.md:34 and :41-47; docs/REVIEW_QUEUE.md:40; proposals/qc-gt-review-candidate/expected-view.json last changed at 7f5a8af9 (2026-10-09), sha256 a77661f9..., equal to S1's pin (examples/studies/open_science/qc/provenance.json on the S1 branch); construct table recomputed with the scratch script overlap_e131.py on S1's data.",
    "sources": [
     "docs/plans/008_finish_workbench.md:43",
-    "docs/plans/008_finish_workbench.md:101",
+    "docs/plans/008_finish_workbench.md:99",
     "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:34",
-    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:41"
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:41",
+    "/home/brian/code2/qualitative_coding/docs/REVIEW_QUEUE.md:40"
    ],
    "touches": [
     "qc_theory_export",

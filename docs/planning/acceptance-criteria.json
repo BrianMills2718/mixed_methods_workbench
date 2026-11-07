@@ -47,7 +47,7 @@
     "Click a category, then one of its supporting passages",
     "Read the passage in its interview, with its speaker and the author's own codes for that span"
    ],
-   "expected": "Every interview shows 'hash matches Zenodo' in blue; each of QC's 8 categories and 6 propositions lists its passages; each passage opens at the right place in the right interview; the quantitative and integration strands say 'not built yet' in grey.",
+   "expected": "Every interview shows 'hash matches Zenodo' in blue; the page names the pinned Qualitative Coding run and labels it \"Qualitative Coding's October 2026 theory (run e131eb55), not its published run\"; each of the pinned theory's categories and propositions (4 and 6 for that run, counted from the pin) lists its passages; each passage opens at the right place in the right interview; the quantitative and integration strands say 'not built yet' in grey.",
    "failure_example": "A passage whose offsets do not match the frozen text: a broken page shows the wrong words silently; a working page lists it under 'offset mismatches' in orange with both texts.",
    "representation": {
     "view": "composite-linked-view",
@@ -80,11 +80,11 @@
    "criterion": "I can compare each qualitative proposition with the measured numbers, see which ones the measure speaks to and how, and what may be concluded from both together",
    "demonstration": [
     "Open the Joint display tab",
-    "Read the count of mapped rows at the top (how many of the six propositions the measure speaks to)",
+    "Read the count of mapped rows at the top (how many of the pinned theory's propositions, six for run e131eb55, the measure speaks to)",
     "Read one row per proposition: the claim, then either the measured figure it is compared with and the verdict, or \"silent: not measured\" in grey with the reason",
     "Open a mapped row's meta-inference and its number and passage check"
    ],
-   "expected": "The page states how many of the six rows are mapped. A mapped row is matched by prevalence alone, so it shows the verdict word \"complements\" with the passages and numbers it rests on and a passed number and passage check; the page says why it cannot say converges or diverges. Each other row says \"silent: not measured\" in grey with its reason; a row whose units differ says aggregation is blocked; every meta-inference says 'pending review' until reviewed.",
+   "expected": "The page states how many of the pinned theory's rows (six for run e131eb55) are mapped. A mapped row is matched by prevalence alone, so it shows the verdict word \"complements\" with the passages and numbers it rests on and a passed number and passage check; the page says why it cannot say converges or diverges. Each other row says \"silent: not measured\" in grey with its reason; a row whose units differ says aggregation is blocked; every meta-inference says 'pending review' until reviewed.",
    "failure_example": "A prevalence-only row marked \"converges\": the check shows it in orange, says a prevalence cannot confirm a when-then claim, and it cannot be accepted. Or a meta-inference citing a number that is not in the measured result (S6 plants one): the check shows it in orange with the number it could not find. Or every row shows the same measured figure as if each proposition were measured: the mapping is missing.",
    "representation": {
     "view": "composite-linked-view",

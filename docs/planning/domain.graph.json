@@ -194,7 +194,7 @@
    "id": "qc_theory_export",
    "label": "Qualitative Coding theory export",
    "kind": "planned",
-   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. The export itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the passage ids each rests on), pinned by commit and sha256; S1 pins run e131eb55's review-candidate file, which carries the cited passages with their offsets, and reads QC's segment records for the turns (Q26). The file itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
   },
   {
    "id": "author_coding",

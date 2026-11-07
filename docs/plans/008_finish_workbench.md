@@ -40,7 +40,7 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 | --- | --- | --- |
 | Governed study and corpus foundation | kept | Slice S1. |
 | Method profiles that keep each tradition's validity rules | kept, reusing the method dashboard | `method_dashboard.py` already routes questions to method profiles; S7 marks which profiles the workbench actually runs. |
-| At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. The export read is Qualitative Coding's August 2026 grounded-theory export (run `plan345/method-review1c/expansion-4`, QC commit bcf80880: 8 categories, 6 propositions), the only one QC has committed as a file; QC's status page names a newer 25-interview run (`a67d7d6a`, 2026-11-05) and is revising that theory now, so the study page labels the pin and S1's pin moves when QC commits the revised export (Q26). |
+| At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. The theory read is Qualitative Coding's October 2026 theory of run `e131eb55` (its review-candidate file `proposals/qc-gt-review-candidate/expected-view.json`, QC commit 7f5a8af9, 2026-10-09: 4 categories, 6 propositions, and the theory's cited passages with their offsets), the newest Open Science theory QC has committed. QC's status page names a later run (`a67d7d6a`, 2026-11-05) as published and is revising that theory now, but has committed neither, so the study page labels the pin and S1's pin moves when QC commits the newer theory (Q26). QC's August export (bcf80880) predates its coding-quality step and is not read. |
 | At least one computational or quantitative text path | kept, **workbench-owned** | No repository in `~/code2` measures text quantitatively (survey of capabilities.md and repo names, 2026-11-06); QC's quantitative follow-up can only say `conceptual_follow_up_only`. The workbench owns a narrow adapter around established libraries (roadmap 0.5 already says so). |
 | Causal and theory work without category errors | **changed: within-case causal reasoning kept as Process Tracing's gated handoff, with no causal test in 1.0 unless Brian names a case (Q25); theory operationalization after 1.0** | Brian's decision 0017 (2026-09-25) and Qualitative Coding's own method rule (`qualitative_coding/docs/METHODS_AND_THEORY.md:453-463`) allow a process-tracing test of a grounded-theory proposition only on case evidence the theory was not built from (decision records, timelines, correspondence for one named case), with the six method-selection questions answered by a person for that case; no automatic theory-to-test step is built, and no page may present a same-corpus test as verification. Neither corpus in this plan has such a record. So S4 builds the gate, not a test: the causal tab shows the six questions and whether they are answered, the one existing bounded appraisal (Open Science proposition P5 on PsychosisBank's and TalkBank's own public records, 2026-09-23: a case chosen by an analyst's scan of public sources, its six questions never answered by a person, its conclusion withheld by Process Tracing's own checks, and by decision 0017 not enough on its own because the case's decision record was unavailable), and how the publication gate behaves. A real causal run happens only if Brian names a case with its own records (Q25). Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call (Q12 and Q25). |
 | One genuine qualitative–quantitative design with joint display and meta-inference | **changed: exploratory sequential, with verdicts limited to "complements" or "silent" in 1.0** | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). Only that one code qualifies, and a prevalence cannot confirm or contradict a when-then proposition (S3, Q22), so in 1.0 no row can show the two strands agreeing or disagreeing. The roadmap's G4 condition names "contradiction disposition" (`ROADMAP.md:83`): S5 records a disposition for every row the number and passage check marks orange, and S6's planted overclaim exercises it, but a real disagreement between strands cannot arise. This narrows what 1.0 promises, so it is Brian's call (open question Q12, part c). The interviews are held out from tuning the instrument, not from building the theory (S2's known limit), so a "complements" row describes the examined corpus only, and the readiness page says so. |
@@ -90,14 +90,15 @@ Each slice ends with something a person can open and try. Every slice: tests fir
   corpus is written into `src/`. `scripts/freeze_study_inputs.py` downloads the Zenodo files, checks each
   against the record's md5, and writes the texts and a typed `CorpusManifest` (DOI, licence, consent
   statement, per-file sha256, retrieval date) under `examples/studies/open_science/`. A permissive consumer view of QC's
-  grounded-theory package (schema 3, pinned by QC commit and sha256) and of QC's segments; each segment's
-  offsets are checked against the frozen text (after the recorded CRLF-to-LF normalisation). The author's
+  grounded-theory package (schema 3, read from QC's review-candidate file, which also carries the theory's
+  cited passages with their offsets, pinned by QC commit and sha256) and of QC's segments; each cited
+  passage's and each segment's offsets are checked against the frozen text (after the recorded CRLF-to-LF normalisation). The author's
   OpenQDA offsets do not point at the published text (12 of 837 match), so her passages are located by
   their own words: exact, whitespace-only difference, text differs, or not found, each counted, and the
   ones whose text differs or is not found listed on the page (open question Q14). The page names the
-  pinned Qualitative Coding run and labels it "Qualitative Coding's August 2026 theory (run expansion-4),
-  not its current run" until QC commits its revised export; then the pin moves, and S2's first test
-  recomputes the overlap figures below on it (Q26).
+  pinned Qualitative Coding run and labels it "Qualitative Coding's October 2026 theory (run e131eb55), not its
+  published run" until QC commits a newer theory; then the pin moves, and S2's first test recomputes the
+  overlap figures below on it (Q26).
   `src/mixed_methods_workbench/study_workbench.py` builds the payload; a static page renders it.
 - **Checks:** md5 of every file equals Zenodo's; every QC segment the theory cites resolves and its text
   equals the frozen source at its offsets (counted, mismatches listed, never silently dropped); an
@@ -143,7 +144,9 @@ finish).
   overlaps it. Her passages vary in length and overlap one another; each maps to the turns it overlaps, and
   passages that fall only on interviewer turns are counted and listed, not dropped. The interview, not the
   turn, is the independent group: splits, intervals and the prevalence estimate are by interview, and no
-  turn-level confidence interval is reported.
+  turn-level confidence interval is reported. The unit does not move when the theory pin moves: the turns
+  are QC's segmentation of the frozen files (project state c488e89c: 1,277 segments, each the frozen text at
+  its offsets), and a pinned theory's cited passages map onto turns by their offsets.
 - **Construct** (open question Q15, Brian's call with a default): one of the author's codes, measured with
   its own human reference, chosen by how much of a QC category's evidence it holds, so the measure speaks to
   QC's theory and is checked against coding of the same construct. The rule, fixed now from S1's data
@@ -154,20 +157,24 @@ finish).
   code, count the interviewee turns QC cites for the category that the code also marks; a code qualifies for
   a category when it marks at least half of them and a one-sided chance test over the 630 turns
   (hypergeometric) gives below 0.001; take the code that qualifies with the largest share; if none does,
-  S2 stops and says so. On S1's data (8 categories × 28 codes, 224 pairs) one code qualifies: "open data"
-  marks 14 of the 22 turns QC cites for "Conditional and claim-adequate disclosure" (0.64, chance
-  3 × 10⁻⁹) and 14 of the 21 for "Labour, governance, priority, credit, and scrutiny negotiation" (0.67,
-  chance 1 × 10⁻⁹); the next best share is 0.48 ("resistance/reasons not to do OS"). "Open data" marks 72
-  of the 630 turns (11%) in 23 of the 25 interviews, so a grouped held-out test is possible. A two-way
-  overlap (turns both mark ÷ turns either marks) is shown but does not gate: QC marks only the turns it
-  cites as examples (18–24 per category), so the highest two-way overlap among the 224 pairs is 0.18 and a
-  0.3 floor could never be met. The page shows both counts, the share, the chance figure and the two-way
-  overlap, such as "QC cites 22 turns; the code marks 14 of them and 72 in all", never a clean match.
-  The page also says that QC's 8 categories rest on 6 distinct sets of cited turns: two pairs
-  ("Traceable, linked, discoverable, and interpretable" with "Corrective, replicative, and reflexive
-  reviewability"; "Terminological and audience boundary work" with "Attributed reuse, translation, and
-  collaborative extension") cite exactly the same two incidents. The two categories "open data" qualified
-  for are distinct, so the construct choice is unaffected.
+  S2 stops and says so. On S1's pinned theory (run e131eb55: 4 categories × 28 codes, 112 pairs) no
+  code qualifies. The best pair is "open data", which marks 18 of the 38 turns QC cites for "Conditional,
+  usable, and situated traceability" (0.47, chance 8 × 10⁻⁹), under the half-share bar; next come "open
+  data" with 16 of 40 for "Academic-capital, legal, and infrastructural negotiation" (0.40, chance
+  1 × 10⁻⁶) and "(lack of) incentives/motivation" with 11 of 40 (0.28). The rule is not loosened after
+  seeing this. **When the rule picks no code** (here, and possibly on QC's newer theory or on the second
+  corpus), S2 builds the feasibility readout with the table of best pairs and stops before any measure is
+  run; the construct is then Brian's call from that table (Q15), and the page prints the chosen code's
+  share beside the bar, such as "chosen by Brian below the rule's half-share bar (0.47)". 1.0's
+  quantitative condition is met only through that recorded choice; if Brian answers "no construct", S7
+  marks it unmet. On QC's August export, which this plan read until round 11, "open data" qualified (0.64
+  and 0.67), so the same code leads on both theories. "Open data" marks 72 of the 630 turns (11%) in 23 of
+  the 25 interviews, so a grouped held-out test is possible. A two-way overlap (turns both mark ÷ turns
+  either marks) is shown but does not gate: QC marks only the turns it cites as examples (35–43 per
+  category), so the highest two-way overlap among the 112 pairs is 0.20 and a 0.3 floor could never be met.
+  The page shows both counts, the share, the chance figure and the two-way overlap, such as "QC cites 38
+  turns; the code marks 18 of them and 72 in all", never a clean match. The pinned theory's 4 categories
+  rest on 4 distinct sets of cited turns (the August export's 8 rested on 6; finding F19).
 - **Feasibility readout first:** before any instrument is chosen, the page shows the construct, unit,
   frame, intended and prohibited uses, its prevalence among the turns, how many interviews carry positive
   cases, whether it is lexical or contextual, and the disagreement locations in the author's own coding.
@@ -238,11 +245,11 @@ finish).
   and the page says why. A silent row shows the qualitative claim and the word "silent" in grey, with the
   reason. A row whose units differ (a turn-level claim against an interview-level figure) blocks
   aggregation and meta-inference, as the brief requires (`:143-144`), and says so in orange. The page
-  states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so
+  states how many of the pinned theory's rows (six propositions for run e131eb55) are mapped. Measuring a proposition's condition and outcome together, so
   a row could converge or diverge, is not in 1.0 unless Brian answers Q12 (c) "need agree or disagree".
   Such a row tests the proposition, so it must be measured on interviews the proposition was not built
   from: Qualitative Coding never counts the same material as independent confirmation
-  (`qualitative_coding/docs/METHODS_AND_THEORY.md:470-472`) and decision 0017 forbids presenting a
+  (`qualitative_coding/docs/METHODS_AND_THEORY.md:471-473`) and decision 0017 forbids presenting a
   same-corpus test as verification. Under that answer QC reruns its theory on a subset of the interviews
   in its own repository, and S2 measures one proposition's condition and outcome, each a labelled theme
   with its own instrument definition, only on the interviews held out from that run; that row may then

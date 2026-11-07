@@ -332,6 +332,48 @@
       "calls_per_run": 6
      },
      {
+      "step": "Q12(c), only if Brian answers \"need agree or disagree\": Qualitative Coding reruns its theory on a subset of the interviews in its own repository, so a proposition's condition and outcome are measured only on interviews held out from it",
+      "per": "one rerun",
+      "basis": "measured",
+      "cost_per_run_usd": 4.94,
+      "calls_per_run": 2075,
+      "evidence": "Upper figure, the same as S6's entry: every qualitative_coding call on the Open Science corpus recorded in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: 2,075 calls, $4.94 in total, including partial reruns and four grounded-theory school variants; a subset rerun costs less."
+     },
+     {
+      "step": "Q12(c), only if Brian answers \"need agree or disagree\": S2's plain version labelling three themes per turn (the construct, the proposition's condition and its outcome) on held-out interviews, two calls per pass",
+      "per": "full pass",
+      "basis": "computed",
+      "computation": {
+       "calls": 2,
+       "input_tokens_per_call": 58150,
+       "output_tokens_per_call": 56700,
+       "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.2168,
+       "output_usd_per_mtok": 1.4057
+      },
+      "evidence": "S2's plain-version input (58,150 tokens per call) with three labels per turn instead of one (18,900 x 3 = 56,700 output tokens per call), x the fitted gpt-5.6-luna prices of S2's entry.",
+      "cost_per_run_usd": 0.1846,
+      "calls_per_run": 2
+     },
+     {
+      "step": "Q12(c), only if Brian answers \"need agree or disagree\": drafting the condition's and the outcome's instrument definitions, one call each",
+      "per": "S2 build (once per instrument version)",
+      "basis": "computed",
+      "computation": {
+       "calls": 2,
+       "input_tokens_per_call": 14750,
+       "output_tokens_per_call": 800,
+       "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.2168,
+       "output_usd_per_mtok": 1.4057
+      },
+      "evidence": "Two calls of S2's definition step (14,750 input, 800 output tokens each, an upper figure), x the fitted gpt-5.6-luna prices.",
+      "cost_per_run_usd": 0.0086,
+      "calls_per_run": 2
+     },
+     {
       "step": "S4 Process Tracing draft-audit prototype on a named independent case (drafts plus merge), only if Brian names one (Q25); by default S4 makes no model call",
       "cost_per_run_usd": 0.0555,
       "per": "run",

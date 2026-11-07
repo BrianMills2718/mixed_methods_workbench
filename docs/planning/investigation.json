@@ -103,6 +103,15 @@
     "examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json",
     "src/mixed_methods_workbench/investigation_spine.py:79"
    ]
+  },
+  {
+   "where": "code",
+   "how": "listed every file Qualitative Coding has committed that names an Open Science run id (git ls-files | xargs grep -l 'a67d7d6a\\|e131eb55'), opened each one holding a schema-3 'development' object, and recomputed the construct rule on run e131eb55's file with S1's data",
+   "found": [
+    "/home/brian/code2/qualitative_coding/proposals/qc-gt-review-candidate/expected-view.json",
+    "/home/brian/code2/qualitative_coding/public_demo_assets/grounded_theory_school_readings/a67d7d6a-185b-416f-ad11-c921e15f66a7.json",
+    "/home/brian/code2/qualitative_coding/qc_clean/plugins/api/api_server.py:45"
+   ]
   }
  ],
  "findings": [
@@ -215,7 +224,7 @@
    ],
    "verdict": "holds",
    "question_id": "Q14",
-   "note": "Schema 3 package on 25 Open Science interviews: 8 categories, 6 propositions; the 90 distinct passages its theory cites all resolve to QC segments (S1 receipt). Their offsets match the Zenodo text once one file's CRLF line endings are normalised (Q14, resolved)."
+   "note": "Schema 3 package on 25 Open Science interviews. S1 pins run e131eb55 (Q26): 4 categories, 6 propositions; the 100 distinct passages its theory cites are carried in QC's file with their offsets, and all 100 are the frozen Zenodo text at those offsets once one file's CRLF line endings are normalised (S1 receipt; Q14, resolved)."
   },
   {
    "id": "F11",
@@ -309,14 +318,14 @@
   },
   {
    "id": "F19",
-   "claim": "QC's 8 grounded-theory categories rest on 8 distinct sets of evidence",
+   "claim": "The pinned theory's grounded-theory categories rest on distinct sets of evidence",
    "evidence": [
-    "examples/studies/open_science/qc/grounded_theory.json (S1 branch)",
-    "docs/plans/008_finish_workbench.md:166"
+    "examples/studies/open_science/qc/theory.json (S1 branch)",
+    "docs/plans/008_finish_workbench.md:177"
    ],
-   "verdict": "fails",
+   "verdict": "holds",
    "question_id": "Q15",
-   "note": "Two pairs of categories cite exactly the same two incidents (Traceable... with Corrective...; Terminological... with Attributed reuse...), so 8 categories rest on 6 distinct sets of cited turns. The two categories 'open data' qualified for are distinct, so the construct choice is unaffected; the study page says so (plan S2)."
+   "note": "On run e131eb55, the 4 categories rest on 4 distinct sets of cited turns. On QC's August export, read until round 11, two pairs of categories cited exactly the same two incidents, so its 8 categories rested on 6 sets; the study page states the count for whichever theory is pinned."
   },
   {
    "id": "F20",
@@ -324,7 +333,7 @@
    "evidence": [
     "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
     "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
-    "docs/plans/008_finish_workbench.md:274"
+    "docs/plans/008_finish_workbench.md:281"
    ],
    "verdict": "fails",
    "question_id": "Q24",
@@ -354,7 +363,29 @@
    ],
    "verdict": "fails",
    "question_id": "Q26",
-   "note": "The pinned file is QC's August 2026 export (run expansion-4, commit bcf80880); QC's status page names run a67d7d6a (2026-11-05) as published and is revising that theory, but has committed no export of either. Found by the round-10 cold review; S1 keeps the pin with a label and re-pins when QC commits the revised export (Q26)."
+   "note": "QC's status page names run a67d7d6a (2026-11-05) as published and is revising that theory; S1 pins the earlier run e131eb55 because neither newer theory is committed, labels it on the page, and re-pins when QC commits one (Q26). Found by the round-10 cold review; round 11 corrected which file is pinned (F23)."
+  },
+  {
+   "id": "F23",
+   "claim": "Qualitative Coding has committed no Open Science theory newer than its August 2026 export",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/proposals/qc-gt-review-candidate/expected-view.json",
+    "/home/brian/code2/qualitative_coding/docs/REVIEW_QUEUE.md:40"
+   ],
+   "verdict": "fails",
+   "question_id": "Q26",
+   "note": "QC commit 7f5a8af9 (2026-10-09) holds the theory of run e131eb55 (QC's review-candidate file proposals/qc-gt-review-candidate/expected-view.json, QC commit 7f5a8af9, 2026-10-09, sha256 a77661f9...: 4 categories, 6 propositions, 194 passages with offsets); three of QC's tests read it. Round 10's answer missed it because it searched only public_demo_assets/. Found by the round-11 cold review; S1 now pins it."
+  },
+  {
+   "id": "F24",
+   "claim": "The construct rule picks an author code on the theory S1 pins",
+   "evidence": [
+    "docs/plans/008_finish_workbench.md:160",
+    "examples/studies/open_science/qc/theory.json (S1 branch)"
+   ],
+   "verdict": "fails",
+   "question_id": "Q15",
+   "note": "On run e131eb55 no code of 112 pairs qualifies: the best is 'open data' at 18 of 38 cited turns (0.47, chance 7.9e-9), under the half-share bar. The rule is kept; when it picks no code S2 stops at the feasibility readout and the construct is Brian's call (Q15), labelled on the page."
   }
  ],
  "cost": {
