@@ -368,8 +368,8 @@ finish).
   each step's trace openable; 1.0 is tagged only when every row reads "met" and that run passed; release notes; version
   tag.
 - **Cost (computed):** the readiness page makes no model call. The fresh end-to-end run repeats S6's
-  per-run steps: S2's plain version and S3, about $0.10, plus the causal check, measured upper figure
-  $0.0555 (S4), about $0.16 in all; QC's strand is read from its committed export, not rerun.
+  per-run steps: S2's plain version ($0.0783) and S3 ($0.0137), plus the causal check, measured upper
+  figure $0.0555 (S4), about $0.15 in all over 10 calls; QC's strand is read from its committed export, not rerun.
 
 ## Relies on
 
@@ -408,7 +408,7 @@ Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the valid
 if any line below differs from what it says now. Unticked pending items are not passes.
 
 Manifest: `docs/planning/planning-package.json`
-Package revision: `58f644a7e995`
+Package revision: `89aadea09941`
 Verdict: not compliant
 
 - [x] part investigation: ok
@@ -427,7 +427,7 @@ Verdict: not compliant
 - [x] substance project layer checks against the planning layer: ok
 - [x] substance concepts point at their code: ok
 - [x] substance plan names the concepts it relies on: ok
-- [x] substance plan records the cost basis of each AI step: ok
+- [ ] substance plan records the cost basis of each AI step: failing
 - [ ] substance plan compares its AI answer path with the plain version: failing
 - [ ] substance plan shows what each stage adds over the plain version: failing
 - [x] substance plan records Brian's stops on this work: ok
