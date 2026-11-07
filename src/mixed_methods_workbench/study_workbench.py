@@ -94,6 +94,40 @@ class StudyDefinition(BaseModel):
     human_coding: HumanCoding
 
 
+class PinLabel(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    label: str
+    reason: str
+    repin_when: str
+    source: str
+
+
+class PinnedFile(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    path: str
+    commit: str
+    sha256: str
+    form: Literal["view", "export"] = "export"
+    extracted: list[str] = []
+
+
+class ProducerInputPin(BaseModel):
+    """``qc/provenance.json``: which committed producer files a study reads, by commit and sha256."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    schema_version: Literal["1.0"]
+    record_type: Literal["producer_input_pin"]
+    producer: str
+    repository: str
+    grounded_theory: PinnedFile
+    project_state: PinnedFile
+    text_normalisation: str
+    pin_label: PinLabel
+
+
 # ---------------------------------------------------------------- producer consumer views
 
 
@@ -264,13 +298,13 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
     """Every panel of the study page, built only from the frozen files in ``study_dir``."""
     study = StudyDefinition.model_validate(_read_json(study_dir / "study.json"))
     manifest = CorpusManifest.model_validate(_read_json(study_dir / "corpus_manifest.json"))
-    provenance = _read_json(study_dir / "qc" / "provenance.json")
+    pin = ProducerInputPin.model_validate(_read_json(study_dir / "qc" / "provenance.json"))
     gt_bytes = (study_dir / "qc" / "theory.json").read_bytes()
     theory_raw = json.loads(gt_bytes)
     # A "view" pin is QC's review-candidate file: the schema-3 package under "development" plus the cited
     # passages ("source_units", with document, speaker, offsets and text). An "export" pin is the bare
     # package, whose citations resolve through QC's segments.
-    form = provenance["grounded_theory"].get("form", "export")
+    form = pin.grounded_theory.form
     gt = read_grounded_theory(theory_raw["development"] if form == "view" else theory_raw)
     source_units: dict[str, Any] = theory_raw.get("source_units", {}) if form == "view" else {}
     qc_documents = [QCDocument.model_validate(d) for d in _read_json(study_dir / "qc" / "documents.json")]
@@ -523,16 +557,16 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
             "documents": documents,
         },
         "qualitative_strand": {
-            "producer": provenance["producer"],
-            "repository": provenance["repository"],
-            "commit": provenance["grounded_theory"]["commit"],
-            "theory_path": provenance["grounded_theory"]["path"],
+            "producer": pin.producer,
+            "repository": pin.repository,
+            "commit": pin.grounded_theory.commit,
+            "theory_path": pin.grounded_theory.path,
             "export_sha256": _sha256(gt_bytes),
             "schema_version": gt.schema_version,
             "model": gt.run.model_name,
             "producer_trace_id": gt.run.trace_id,
-            "pin_label": provenance["pin_label"],
-            "text_normalisation": provenance["text_normalisation"],
+            "pin_label": pin.pin_label.model_dump(),
+            "text_normalisation": pin.text_normalisation,
             "core_process": gt.proposal.core_process.model_dump() if gt.proposal.core_process else None,
             "categories": categories,
             "propositions": propositions,

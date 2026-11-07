@@ -7,6 +7,7 @@ import shutil
 from pathlib import Path
 
 import pytest
+from pydantic import ValidationError
 
 from mixed_methods_workbench.study_workbench import (
     UnsupportedProducerSchema,
@@ -84,6 +85,18 @@ def test_page_labels_the_pinned_producer_run(payload: dict) -> None:
     assert "Q26" in strand["pin_label"]["repin_when"]
     template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
     assert "S.pin_label.label" in template and 'id: "pin-label"' in template
+
+
+def test_pin_record_is_typed_and_refuses_unknown_fields(tmp_path: Path) -> None:
+    """The pin (qc/provenance.json) is read through ProducerInputPin, not as a raw dict."""
+    study = _copy_study(tmp_path)
+    pin_path = study / "qc" / "provenance.json"
+    pin = json.loads(pin_path.read_text(encoding="utf-8"))
+    assert pin["repository"] == "BrianMills2718/qc"
+    pin["grounded_theory"]["unexpected"] = "x"
+    pin_path.write_text(json.dumps(pin), encoding="utf-8")
+    with pytest.raises(ValidationError):
+        build_study_payload(study)
 
 
 def test_unsupported_producer_schema_is_refused() -> None:

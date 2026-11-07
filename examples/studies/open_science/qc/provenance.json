@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "producer_input_pin",
  "producer": "qualitative_coding",
- "repository": "BrianMills2718/qualitative_coding",
+ "repository": "BrianMills2718/qc",
  "grounded_theory": {
   "path": "proposals/qc-gt-review-candidate/expected-view.json",
   "form": "view",

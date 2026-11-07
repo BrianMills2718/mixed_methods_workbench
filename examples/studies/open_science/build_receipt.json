@@ -19,7 +19,7 @@
   },
   {
    "path": "examples/studies/open_science/qc/provenance.json",
-   "sha256": "4d4d031dad73edab30fd795213d2221d4c325906a72612b0e9a6ce55177d040a"
+   "sha256": "12f1b2a1ac9cd096065bea992a3cbe63e42afd8b8adc675cdcf395bc4f3e76ed"
   },
   {
    "path": "examples/studies/open_science/qc/segments.json",
@@ -143,7 +143,7 @@
   },
   {
    "path": "examples/studies/open_science/study.json",
-   "sha256": "707d9f0693c56e243bfcd720b3e7300344c6a143904c02c35b036b341e10a9fb"
+   "sha256": "4a10593e694faba4c6d78c1f74662eb90b15281d170d15b1a571b8e9b3231ebd"
   },
   {
    "path": "src/mixed_methods_workbench/static/study_workbench.html",
@@ -190,7 +190,7 @@
  "outputs": [
   {
    "path": "proposals/open-science-study/index.html",
-   "sha256": "2f394a7d46bb415a61805349117630dda6218267ca3542d97e7e2a81585f1599"
+   "sha256": "9a8dfd5e3d3620eb99ba8afb9b250263b24bbf721bd166d6a2fa360a3e2a3e39"
   }
  ]
 }

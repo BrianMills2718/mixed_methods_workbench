@@ -33,7 +33,7 @@
  },
  "qualitative_producer": {
   "producer": "qualitative_coding",
-  "repository": "BrianMills2718/qualitative_coding",
+  "repository": "BrianMills2718/qc",
   "theory_path": "proposals/qc-gt-review-candidate/expected-view.json",
   "theory_form": "view",
   "pin_label": {

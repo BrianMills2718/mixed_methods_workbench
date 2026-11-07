@@ -28,6 +28,10 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from mixed_methods_workbench.study_workbench import ProducerInputPin  # noqa: E402
+
 
 def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -141,6 +145,7 @@ def freeze_qualitative(study_dir: Path, study: dict[str, Any], qc_root: Path) ->
         "text_normalisation": producer["text_normalisation"],
         "pin_label": producer["pin_label"],
     }
+    ProducerInputPin.model_validate(provenance)
     (out / "provenance.json").write_text(json.dumps(provenance, indent=1) + "\n", encoding="utf-8")
     return provenance
 
