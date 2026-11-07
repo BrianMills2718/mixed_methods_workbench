@@ -212,7 +212,7 @@
    "id": "pt_export",
    "label": "Process Tracing export (pt_export_v2)",
    "kind": "concept",
-   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport. Plan #8 S4 reads instead the answer path's partial export (provisionally pt_draft_audit_export_v1, never a full V2 claim, no publication gate) through a second, partial reader; publication_gate.publishable is read when present, and shown on two made-up test exports."
+   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport (the PsychosisBank P5 appraisal's export is one). Plan #8 S4 extends the reader to read publication_gate.publishable when present and shows it on two made-up test exports."
   },
   {
    "id": "investigation_record",
@@ -281,10 +281,22 @@
    "explain": "Qualitative Coding's export-process-tracing-handoff package (implemented in qualitative_coding, qc_clean/core/process_tracing_handoff.py:202): the project's anchored claims (state.claims) for Process Tracing to test. It never reads the grounded-theory export, and QC builds GT_PROPOSITION claims only from state.theoretical_model, which the pinned Open Science state lacks (1,139 claims, none of that kind), so it carries no proposition; Plan #8 does not use it (open question Q24)."
   },
   {
-   "id": "proposition_case",
-   "label": "Proposition case",
+   "id": "independent_case_packet",
+   "label": "Independent case packet",
    "kind": "planned",
-   "explain": "One file the workbench writes from the pinned grounded-theory export for Process Tracing to test: one proposition's text, its supporting segment ids and each segment's text and document, with the export's commit and sha256 (provisionally mmw_proposition_case_v1). Plan #8 S4 (open question Q24)."
+   "explain": "One named case's own records for a process-tracing test of one QC proposition: the proposition (by id, from the pinned grounded-theory export), the case's name, focal window and outcome, its source records and known gaps. Generalises the P5 input (qc-p5-process-tracing-input/1) and the implemented IndependentCaseSources packet (src/mixed_methods_workbench/investigation_spine.py:79); the reader refuses any of the study's own interviews (decision 0017). Plan #8 S4 (Q24, Q25)."
+  },
+  {
+   "id": "selection_gate",
+   "label": "Selection gate",
+   "kind": "planned",
+   "explain": "The six method-selection questions of QC's methods document, each answered by a person for one named case, with the answerer and date, stored with the study definition; while any is unanswered the causal tab reads 'not tested'. No model call drafts answers. Plan #8 S4."
+  },
+  {
+   "id": "pt_partial_export",
+   "label": "Process Tracing partial export",
+   "kind": "planned",
+   "explain": "The draft-audit answer path's partial export (provisionally pt_draft_audit_export_v1, never a full V2 claim): only fields the merged answer supports, the rest marked absent, read by a second, partial reader. Built in Process Tracing's repository only if Brian names an independent case (Q25). Plan #8 S4 (Q23)."
   },
   {
    "id": "readiness_record",
@@ -645,14 +657,14 @@
   {
    "id": "e159",
    "source": "qc_theory_export",
-   "target": "proposition_case",
-   "label": "propositions written as"
+   "target": "independent_case_packet",
+   "label": "supplies the proposition named in"
   },
   {
    "id": "e160",
-   "source": "proposition_case",
-   "target": "pt_export",
-   "label": "becomes a case producing"
+   "source": "independent_case_packet",
+   "target": "pt_partial_export",
+   "label": "if Brian names a case, is tested into"
   },
   {
    "id": "e161",
@@ -671,6 +683,24 @@
    "source": "qc_pt_handoff",
    "target": "pt_export",
    "label": "feeds Process Tracing's frozen pipeline, which writes"
+  },
+  {
+   "id": "e164",
+   "source": "selection_gate",
+   "target": "independent_case_packet",
+   "label": "is answered for"
+  },
+  {
+   "id": "e165",
+   "source": "pt_partial_export",
+   "target": "pt_export",
+   "label": "is a partial form of"
+  },
+  {
+   "id": "e166",
+   "source": "pt_partial_export",
+   "target": "publication_gate",
+   "label": "is shown only as far as allowed by"
   }
  ]
 }

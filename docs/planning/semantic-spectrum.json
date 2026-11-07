@@ -235,10 +235,25 @@
    ]
   },
   {
-   "id": "proposition_case",
+   "id": "independent_case_packet",
    "kind": "planned",
    "aliases": [
-    "case file"
+    "case packet",
+    "independent case"
+   ]
+  },
+  {
+   "id": "selection_gate",
+   "kind": "planned",
+   "aliases": [
+    "six selection questions"
+   ]
+  },
+  {
+   "id": "pt_partial_export",
+   "kind": "planned",
+   "aliases": [
+    "partial export"
    ]
   },
   {

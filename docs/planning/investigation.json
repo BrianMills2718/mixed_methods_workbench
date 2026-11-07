@@ -93,6 +93,16 @@
     "https://zenodo.org/records/17630137",
     "/home/brian/code2/qualitative_coding/public_demo_assets/open_science/ATTRIBUTION.md"
    ]
+  },
+  {
+   "where": "method owners' rules",
+   "how": "read qualitative_coding/docs/METHODS_AND_THEORY.md 'From qualitative theory to theory testing' and portfolio decision 0017; read examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json and investigation_spine.py's IndependentCaseSources",
+   "found": [
+    "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:453",
+    "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27",
+    "examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json",
+    "src/mixed_methods_workbench/investigation_spine.py:79"
+   ]
   }
  ],
  "findings": [
@@ -314,11 +324,25 @@
    "evidence": [
     "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
     "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
-    "docs/plans/008_finish_workbench.md:280"
+    "docs/plans/008_finish_workbench.md:265"
    ],
    "verdict": "fails",
    "question_id": "Q24",
-   "note": "The handoff exports state.claims and never reads the grounded-theory export; GT_PROPOSITION claims are built only from state.theoretical_model, and the pinned state has 1,139 claims, none of that kind. Found by the round-8 cold review; S4 now writes the proposition case from the pinned grounded-theory export instead."
+   "note": "The handoff exports state.claims and never reads the grounded-theory export; GT_PROPOSITION claims are built only from state.theoretical_model, and the pinned state has 1,139 claims, none of that kind. Found by the round-8 cold review. The round-8 fix (a case written from the grounded-theory export's interview passages) was itself circular (F21); S4 now builds the gated handoff instead."
+  },
+  {
+   "id": "F21",
+   "claim": "A Process Tracing test of a QC proposition may use the interview passages the proposition was built from",
+   "evidence": [
+    "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27",
+    "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:50",
+    "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:453",
+    "examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json",
+    "src/mixed_methods_workbench/investigation_spine.py:186"
+   ],
+   "verdict": "fails",
+   "question_id": "Q24",
+   "note": "Brian's decision 0017 and QC's own method rule (owner decision, 2026-09-25) call that test circular and forbid an automatic theory-to-test step; this repository's own P5 input already excludes the QC interviews as evidence and its spine fixes theory_evidence_relationship to 'independent'. Each Open Science proposition's supporting segments span 7 or 8 interviews. Found by the round-9 cold review; S4 now shows the gate and the bounded P5 appraisal, and runs Process Tracing only on a named independent case (Q25)."
   }
  ],
  "cost": {

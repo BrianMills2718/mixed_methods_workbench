@@ -3,6 +3,23 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 9 (read 861d1e3): revise
+
+The reviewer confirmed round 8's facts (QC's handoff carries no proposition; the grounded-theory export
+does) and notes n1 to n7 fixed, and reproduced the overlap figures, the crosswalk counts, `make check` and
+the S4 cost. It then opened the method owners' rules and returned **revise** on two blocking findings, with
+notes n-a and n-b. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | The round-8 proposition case tested a proposition on the interview passages it was built from, which Brian's decision 0017 and QC's own method rule (owner decision, 2026-09-25) call circular; they also forbid an automatic theory-to-test step and any end-to-end page presenting a same-corpus test as verification | S4 becomes "Causal tab: the gated handoff": the six method-selection questions answered by a person for a named independent case (`selection_gate`), an `independent_case_packet` generalising the P5 input and `IndependentCaseSources` that refuses the study's own interviews, the existing bounded P5 appraisal on PsychosisBank's and TalkBank's own records with its conclusion withheld, and the "how the gate behaves" panel. A Process Tracing run happens only if Brian names a case with its own records (new Brian question Q25, recommended "gated handoff is enough"). Q24 rewritten (route (a) rejected as circular), Q21 drops the causal precondition, Q23 applies only under Q25; `proposition_case` removed, `pt_partial_export` split out (planned, conditional); S6 and S7's causal step reads "no independent case named: not tested"; A6 and A12 rewritten (A12 now fails on a same-corpus test shown as verification); S7's run costs about $0.092 over 3 calls; finding F21 (fails) |
+| B2 | `stops.searched` missed decision 0017, which holds a stop on this work | Decision 0017 added to `stops.found` as `holds`, honoured by the gated handoff; QC's methods document and the portfolio decisions added to `stops.searched` |
+| n-a | The plan checklist was stale | Rewritten last, after every package edit |
+| n-b | `pt_export` folded in the planned partial export | Split out as planned concept `pt_partial_export` |
+| n8 to n11 | Carried notes and the plugin's WAIT labelling | Unchanged, as answered in rounds 5 to 7 |
+
+The reviewer's own report for round 9 is reproduced at the end of this file, ending with its verdict line.
+
 ## Plan #8, round 8 (read 9dd6009): revise
 
 The reviewer found both round-7 blocking findings and notes a to d fixed, and reproduced the overlap
@@ -772,5 +789,144 @@ All match the manifest.
 - **Need anything from human:** No.
 
 Reviewed revision: 9dd600945f7dbbdcf3803486ff1d14981331c5f8
+
+Verdict: revise
+
+## Plan #8, round 9 reviewer's report (verbatim)
+
+**Round 9 cold review: revise.** The round-8 fix gets the facts right: Qualitative Coding's handoff carries no proposition, and the pinned grounded-theory export does. But the route it chose for S4 tests a proposition against the same interview passages it was built from. Brian ruled that out on 2026-09-25: it is recorded in an accepted portfolio decision and in Qualitative Coding's own methods document, and this repository's own earlier Process Tracing run followed that rule. That one problem blocks. Everything else reproduces.
+
+#### Validator
+
+I ran it on the branch head, 7728976. Since the subject revision 861d1e3, that commit changed only package files. It **exited 1**, as expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review (verdict `revise`).
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and 3 untested stages; the contract makes both WAIT on purpose.
+- **Other figures:** 83 citations checked; 13 AI steps (3 measured, 10 computed); 6 stops found (4 hold, 2 lifted).
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage, provenance and freshness:** all ok. Coverage found 3 requirements: R1 is covered by A12 and A9, R2 by A10, and R3 is classed as about process.
+- **Plan checklist** (`plan_checklist.py --check`): **exit 1, 2 lines differ.** The checklist says "project layer … failing", but the validator now says ok. The checklist was written before the package commit added edge e163. This is note n-a.
+
+#### Recorded checks I reran
+
+All match the manifest.
+
+- **Overlap scripts** (S1 worktree; its head is now 735a75a, rebased, with the same `src/`, `examples/`, `scripts/` and `tests/` as faf5399):
+  - 630 turns, 224 pairs, 11 numbered codes.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48 and the highest two-way overlap is 0.18.
+- **Crosswalk check:** 171 steps, 36 groups, 0 errors, exit 0.
+- **`make check`:** exit 0, 41 tests passing (11 + 30).
+- **S4 cost:** Process Tracing's efficiency readout (`README.md:161-163`) gives 7 calls, 352,770 input tokens (277,101 cached), 26,828 output and $0.0555. That matches.
+
+#### Round-8 findings
+
+- **B1 (no proposition in QC's handoff): fix wrong, so it stays blocking.**
+  - The facts in Q24 hold. `process_tracing_handoff.py` reads only `state.claims` (`:221`, `:298`), and `claims.py:433-461` and `:999-1013` say what Q24 says.
+  - The pinned state (sha256 a16375a1…) has 1,139 claims, none of the proposition kind, and no theoretical model.
+  - The grounded-theory export (sha256 538a2646…, byte-identical to QC's file) has 6 propositions with 8 or 9 supporting segment ids each, all of which resolve.
+  - But the case the fix writes is exactly the circular test described in new finding B1 below. The round-8 reviewer suggested this option, so the error started in the review.
+- **n1 to n7: fixed.**
+  - n1: `DOMAIN.md:37` now says only the reader is planned.
+  - n2: `readiness_record` is in the graph and in "Relies on".
+  - n3: plan `:332-335` names the dispositions and roles.
+  - n4: S6's cost entry names the $0.0555.
+  - n5: plan `:313-315` cites ADR 0004, and ADR 0004 `:61-66` says what it is cited for.
+  - n6: the Phase 3 stop entry says the lift was inferred.
+  - n7: the disproof now includes an integration observation.
+- **n8 to n11: not fixed, by choice.** They remain notes.
+
+#### Blocking findings
+
+**B1. Plan, Q24, domain model and acceptance: S4 tests a proposition against the same interviews that produced it, which Brian ruled out.**
+
+- **Where:**
+  - plan `:80` and `:280-289` (S4)
+  - `:355-359` (S6)
+  - `:378-380` (S7)
+  - Q24 in `open-questions.json`
+  - `DOMAIN.md:39` (`proposition_case`)
+  - acceptance A6 and A12
+- **What is wrong:**
+  - The proposition case is one proposition's text and its supporting segments: the interview passages the theory was built from. Each proposition's segments come from 7 or 8 interviews. That contradicts the slice table's "one proposition in one interview" (plan `:80`).
+  - Qualitative Coding's methods document says a process-tracing test of a QC theory "must draw on case evidence that the theory was not built from … Testing a theory against the same interviews that produced it is circular and is not a test". It adds that a person answers the six method-selection questions for a named case, and that no automatic theory-to-test step will be built (`qualitative_coding/docs/METHODS_AND_THEORY.md:453-463`, labelled "owner decision, 2026-09-25", commit d8134a7b).
+  - Portfolio decision 0017 (`portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27-35`, `:50`, status accepted) says the same. It also says: "No 'end-to-end' page may present a same-corpus test as verification."
+  - Even so, S4 builds an automatic proposition-to-Process-Tracing step from the theory export. S6 runs it again on the second corpus, and A12 fails the end-to-end run if it "skips the causal check".
+  - This repository already has the honest route:
+    - `examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json` is a typed proposition input (`qc-p5-process-tracing-input/1`). Its allowed use is "bounded_independent_case_process_appraisal" and it excludes "The QC interviews are not evidence in this case appraisal."
+    - `investigation_spine.py` already reads that route: `IndependentCaseSources` at `:79` and `theory_evidence_relationship: Literal["independent"]` at `:186`.
+    - QC's `p5_theory_test_return_v1.json` holds the completed test of proposition P5 on PsychosisBank's own sources.
+  - The plan, the investigation and the domain model never cite any of this.
+- **Fix:**
+  - Reopen Q24, or add a question resolved by this prior art: 1.0's causal check tests a proposition only on an independent case's own records. Recommended route:
+    - generalise the existing P5 input and its `IndependentCaseSources` packet, rather than a new `mmw_proposition_case_v1` of interview passages;
+    - run it through Process Tracing's answer path;
+    - have a person answer the six selection questions for the named case.
+  - S6 and S7 run the causal step only when that corpus has such a case. Otherwise the step reads "no independent case: not tested", and A12's failure example stops requiring it. Overriding the independence rule instead is Brian's call.
+  - Correct plan `:80`, the `proposition_case` definition, and A6's and A12's expected results.
+  - Add the independent case packet to the domain model and to "Relies on" (it is implemented at `investigation_spine.py:79`), and add an investigation finding with verdict "fails".
+- **Weight:** blocking. A reader would conclude S4 is a valid causal test ready to build, but Brian's recorded decision and QC's method rules say it is not a test.
+
+**B2. Stops: `stops.searched` missed decision 0017, and the plan goes against it.**
+
+- **Where:** the manifest's `parts.plan.stops`.
+- **What is wrong:**
+  - The search covered this repository, Process Tracing and `brian-positions`, but not Qualitative Coding's methods document or the portfolio decisions.
+  - Decision 0017 holds a stop on exactly this work: "The synthesis demonstration is built only when a real case exists with both an interview corpus and an independent record". Its "Why" quotes Brian: "just kind of mashing this together just to do it".
+  - S6 and S7's end-to-end run is that synthesis demonstration, on corpora with no independent record.
+- **Fix:**
+  - Add the decision to `stops.found` with status `holds`.
+  - Add QC's methods document and `portfolio/wiki/decisions` to `stops.searched`.
+  - Make the plan honour it, through B1's fix.
+- **Weight:** blocking. A stop that holds is being resumed.
+
+**Questions the ledger misses** (both are part of B1):
+
+1. May a causal check use the interviews that built the theory?
+2. Which named case, with its own records, does 1.0's causal check use, and who answers the six selection questions?
+
+#### Notes (do not block)
+
+- **n-a. Plan checklist** (plan `:440`): it is stale; `plan_checklist.py --check` exits 1. **Fix:** rewrite it last.
+- **n-b. Domain model** (`DOMAIN.md:44`): `pt_export` is marked implemented, but the partial export and the partial reader that S4 builds are folded into its definition. **Fix:** split out a planned concept for them.
+- **n8, carried:** the coverage record classes R3 as process.
+- **n9, carried:** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+- **n10, carried:**
+  - The branch is not on the remote, so the page's 148 `/blob/main/` links return 404 until merge.
+  - There is no served address yet (Q11).
+  - The 33 local links resolve. The repository is in Brian's own account, so the company-organization rule does not apply.
+- **n11, carried:** the plugin's checklist labels WAIT lines "failing".
+
+#### Checked and found sound
+
+- The overlap, cost and crosswalk figures above.
+- The S4 measured cost.
+- The goal fields against the planning layer.
+- The review page draws all three diagrams (`GraphViewer.mount`) and shows Q24.
+- The S4 row of `SYSTEM_MODEL.md:51` matches the plan.
+- My own reading of Brian's words gives the same three requirements as the coverage record, each with a covering criterion.
+
+#### Judgments I was unsure about
+
+- **Whether decision 0017 binds the workbench.** It is filed as a portfolio decision. I judged that it binds because QC's methods document states the same rule as the method owner's, and this repository's AGENTS.md says to keep each method's own claim limits.
+- **Whether showing "withheld" saves the route.** I judged that it does not: 0017 forbids building the automatic step itself, and A12 requires the step to run.
+- **What I could not do:**
+  - No browser tool was available, so I read the page as HTML.
+  - I did not fetch A1's live page.
+  - I did not run the 204-test suite, because the session needed approval for it.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 0 failing and 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 1, 2 lines differ.
+  - Overlap scripts: the figures above.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0, 41 tests.
+  - QC state read with `python3 -I`: 1,139 claims, 0 of the proposition kind.
+  - Proposition segments: 6 of 6 resolve; each proposition spans 7 or 8 interviews.
+- **Feedback:** two rounds in a row, the review checked a producer's data but not its method rules. The reviewer contract could also ask the reviewer to open the method owner's rules for any cross-method route.
+- **Need anything from human:** No. B1's fix only needs Brian if the plan wants to override his 0017 decision.
+
+Reviewed revision: 861d1e3d432163cd094ab85b286fc45701bc0cf4
 
 Verdict: revise

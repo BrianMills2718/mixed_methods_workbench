@@ -451,10 +451,22 @@
    "explain": "The record of one run across producers: inputs, attempts, where it stopped and the trace ids."
   },
   {
-   "id": "proposition_case",
-   "label": "Proposition case",
+   "id": "independent_case_packet",
+   "label": "Independent case packet",
    "kind": "concept",
-   "explain": "One file the workbench writes from the pinned grounded-theory export for Process Tracing to test: one proposition's text, its supporting segment ids and each segment's text and document, with the export's commit and sha256 (provisionally mmw_proposition_case_v1). Plan #8 S4 (open question Q24)."
+   "explain": "A named case's own records (decision records, timelines, correspondence) with the proposition to test, generalising the P5 input and IndependentCaseSources; never the study's own interviews. Plan #8 S4 (Q24, Q25)."
+  },
+  {
+   "id": "selection_gate",
+   "label": "Selection gate",
+   "kind": "concept",
+   "explain": "The six method-selection questions answered by a person for a named case, with name and date; nothing is tested until they are. Plan #8 S4."
+  },
+  {
+   "id": "pt_partial_export",
+   "label": "Process Tracing partial export",
+   "kind": "concept",
+   "explain": "The answer path's partial export (provisionally pt_draft_audit_export_v1), built only if Q25 names a case. Plan #8 S4."
   },
   {
    "id": "qc_pt_handoff",
@@ -464,15 +476,27 @@
   },
   {
    "id": "Q24",
-   "label": "Q24: Where S4's proposition comes from (QC's handoff carries none)",
+   "label": "Q24: What S4 may test, and on which evidence",
    "kind": "question_agent_resolved",
-   "explain": "S4 needs one grounded-theory proposition, with its supporting passages, as a Process Tracing case. QC's export-process-tracing-handoff exports state.claims and never reads the grounded-theory export; QC builds GT_PROPOSITION claims only from state.theoretical_model, and the pinned Open Science state has 1,139 claims, none of that kind, and no theoretical model. Where does the case come from?"
+   "explain": "S4 needs a causal check of a grounded-theory proposition. QC's process-tracing handoff carries no proposition (it exports state.claims; GT_PROPOSITION claims come only from a theoretical model the pinned Open Science state lacks). The round-8 fix wrote a case from the grounded-theory export: one proposition with its supporting interview passages. May S4 test a proposition on the interviews that produced it, and if not, what does S4 build?"
   },
   {
    "id": "d_Q24",
-   "label": "S4's build, acceptance A6, S6's causal check and the causal step of A12's end-to-end run",
+   "label": "S4's build, acceptance A6, S6's causal step and the causal step of A12's end-to-end run",
    "kind": "decision",
-   "explain": "S4's build, acceptance A6, S6's causal check and the causal step of A12's end-to-end run"
+   "explain": "S4's build, acceptance A6, S6's causal step and the causal step of A12's end-to-end run"
+  },
+  {
+   "id": "Q25",
+   "label": "Q25: Should 1.0 include a real causal test on a case with its own records",
+   "kind": "question_brian",
+   "explain": "Your decision 0017 (2026-09-25) allows a process-tracing test of a grounded-theory proposition only on a named case's own records (decision records, timelines, correspondence), with the six method-selection questions answered by a person, and says the combined demonstration is built only when such a case exists. Neither 1.0 corpus has one. Should 1.0 stop at the gated handoff (the gate shown, the existing bounded P5 appraisal on PsychosisBank's and TalkBank's records with its conclusion withheld, no new causal run), or should finding a real case with both an interview corpus and its own decision record be part of 1.0?"
+  },
+  {
+   "id": "d_Q25",
+   "label": "whether S4 runs Process Tracing on a named case",
+   "kind": "decision",
+   "explain": "whether S4 builds the independent-case input and export adapter in Process Tracing and runs it; the causal step of S6 and of A12's end-to-end run"
   }
  ],
  "edges": [
@@ -867,9 +891,9 @@
    "label": "blocks"
   },
   {
-   "id": "tQ23_pt_export",
+   "id": "tQ23_pt_partial_export",
    "source": "Q23",
-   "target": "pt_export",
+   "target": "pt_partial_export",
    "label": "touches"
   },
   {
@@ -885,21 +909,15 @@
    "label": "touches"
   },
   {
-   "id": "tQ21_proposition_case",
-   "source": "Q21",
-   "target": "proposition_case",
-   "label": "touches"
-  },
-  {
    "id": "bQ24",
    "source": "Q24",
    "target": "d_Q24",
    "label": "blocks"
   },
   {
-   "id": "tQ24_proposition_case",
+   "id": "tQ24_independent_case_packet",
    "source": "Q24",
-   "target": "proposition_case",
+   "target": "independent_case_packet",
    "label": "touches"
   },
   {
@@ -917,6 +935,42 @@
   {
    "id": "tQ24_pt_export",
    "source": "Q24",
+   "target": "pt_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ24_selection_gate",
+   "source": "Q24",
+   "target": "selection_gate",
+   "label": "touches"
+  },
+  {
+   "id": "bQ25",
+   "source": "Q25",
+   "target": "d_Q25",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ25_independent_case_packet",
+   "source": "Q25",
+   "target": "independent_case_packet",
+   "label": "touches"
+  },
+  {
+   "id": "tQ25_selection_gate",
+   "source": "Q25",
+   "target": "selection_gate",
+   "label": "touches"
+  },
+  {
+   "id": "tQ25_pt_partial_export",
+   "source": "Q25",
+   "target": "pt_partial_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ25_pt_export",
+   "source": "Q25",
    "target": "pt_export",
    "label": "touches"
   }

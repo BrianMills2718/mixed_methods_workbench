@@ -95,15 +95,15 @@
   },
   {
    "id": "A6",
-   "criterion": "I can see a causal check on one proposition kept apart from how common it is, and that no causal conclusion shows unless the gate allows it",
+   "criterion": "I can see whether a causal check ran and on what evidence, that no proposition is tested on the interviews that produced it, and that no causal conclusion shows unless the gate allows it",
    "demonstration": [
     "Open the Causal tab",
-    "Read the hypothesis, each evidence test and its verdict",
-    "Read the publication gate line",
+    "Read the six selection questions and the line under them",
+    "Read the bounded P5 appraisal: its hypotheses, tests and verdicts, its label and its conclusion line",
     "Open 'How the gate behaves' and read both test exports"
    ],
-   "expected": "Process Tracing's within-case verdicts are shown in their own panel, never merged with the prevalence; a conclusion shows only when the gate says publishable, else 'withheld' and why. On the Open Science proposition the export comes from Process Tracing's answer path, which carries no publication gate, so the line reads 'withheld: Process Tracing's answer path carries no publication gate'. In 'How the gate behaves', two made-up test exports, labelled as test data: the one with a publishable gate shows its conclusion, the one with a blocked gate reads 'withheld' and why.",
-   "failure_example": "A Process Tracing export whose gate is not publishable still shows the causal conclusion; or the publishable test export still reads 'withheld' (a page that never shows any conclusion).",
+   "expected": "For Open Science, each of the six questions reads 'not answered' and the line reads 'no independent case named: not tested'. The P5 appraisal on PsychosisBank's and TalkBank's own records shows Process Tracing's within-case verdicts in their own panel, never merged with a prevalence, labelled 'bounded: the case's own decision record was unavailable', and its conclusion line reads 'withheld' with the export's own reason. In 'How the gate behaves', two made-up test exports, labelled as test data: the one with a publishable gate shows its conclusion, the one with a blocked gate reads 'withheld' and why.",
+   "failure_example": "The tab shows a causal test of a proposition on the study's own interviews, or presents the bounded P5 appraisal as verification; an export whose gate is not publishable still shows its conclusion; or the publishable test export still reads 'withheld' (a page that never shows any conclusion).",
    "representation": {
     "view": "argument-page",
     "router_record": "docs/planning/router/A6.recommendation.json"
@@ -208,11 +208,11 @@
     "Open the 1.0 readiness page",
     "Read each condition, its source (the roadmap's 1.0 definition, its G1–G6 1.0 conditions, or my answer that changed it) and whether it reads 'met' or 'not yet'",
     "For one 'met' row, open its link and check the evidence it names and my recorded 'judged pass'",
-    "Open the end-to-end run linked at the top: the second corpus taken from frozen corpus through qualitative strand, measurement, joint display, the causal check on one of its propositions, review and bundle with no code change, every step's trace openable",
+    "Open the end-to-end run linked at the top: the second corpus taken from frozen corpus through qualitative strand, measurement, joint display, the causal tab's gate state, review and bundle with no code change, every step's trace openable",
     "For one 'not yet' row (if any), read what is missing"
    ],
-   "expected": "One row for each of the eight conditions of the roadmap's 1.0 definition and one for each G1–G6 1.0 condition, none missing; a condition the plan changed shows the change and the answer of mine that approved it, or 'awaiting your answer'; each row names its slice and acceptance criterion and reads 'met' (blue) only when that criterion is 'judged pass' in my recorded words, else 'not yet' (orange) with the reason, such as 'awaiting your judgement'; every 'met' link opens the evidence; the end-to-end run opens with each step's output and trace, the causal step reading 'withheld' because Process Tracing's answer path carries no gate; the 1.0 tag exists only when every row reads 'met' and the end-to-end run passed.",
-   "failure_example": "A condition of the roadmap's 1.0 definition or of G1–G6 is missing from the page or changed without my answer; a row reads 'met' while its link opens nothing, its criterion is still 'not built', or an agent marked it built and I have not judged it; or the end-to-end run needed a code change, skips the causal check, or stops partway.",
+   "expected": "One row for each of the eight conditions of the roadmap's 1.0 definition and one for each G1–G6 1.0 condition, none missing; a condition the plan changed shows the change and the answer of mine that approved it, or 'awaiting your answer'; each row names its slice and acceptance criterion and reads 'met' (blue) only when that criterion is 'judged pass' in my recorded words, else 'not yet' (orange) with the reason, such as 'awaiting your judgement'; every 'met' link opens the evidence; the end-to-end run opens with each step's output and trace, the causal step reading 'no independent case named: not tested' unless my answer to Q25 named a case with its own records; the 1.0 tag exists only when every row reads 'met' and the end-to-end run passed.",
+   "failure_example": "A condition of the roadmap's 1.0 definition or of G1–G6 is missing from the page or changed without my answer; a row reads 'met' while its link opens nothing, its criterion is still 'not built', or an agent marked it built and I have not judged it; or the end-to-end run needed a code change, shows a same-corpus test as verification, or stops partway.",
    "representation": {
     "view": "data-table",
     "router_record": "docs/planning/router/A12.recommendation.json"
