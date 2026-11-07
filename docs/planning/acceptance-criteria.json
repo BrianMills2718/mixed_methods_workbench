@@ -231,14 +231,14 @@
  ],
  "coverage": {
   "model": "openrouter/anthropic/claude-sonnet-5.5",
-  "judged_at": "2026-11-06T23:34:08-0500",
+  "judged_at": "2026-11-06T23:49:01-0500",
   "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
-  "criteria_sha256": "652f17df431bef92fd823bd0570e681cf5014e6fc85c7c07aa3c83575ee67a36",
+  "criteria_sha256": "da8fa1288580086031b5b94cd51a4151bd259ddad62c60726b5f83d51b944419",
   "outcome_sha256": "2e4aa6f53b264f2dfa1597843b832f5da33bb7d12a1ff78cfc33bb8a566aa566",
   "criteria_judged": {
    "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
    "A2": "d460c58369d08b270e9cc52cca2ccab248f9e07938b1814590016b67eabd4bd6",
-   "A3": "ab8d9717342e16a055d61bcd1eaa2ed4a3b621a8f3ef4db6780cacf5120d995c",
+   "A3": "c43d24125434cda7f76d6845cc1beb7c729be7f81132b0f75cb168dc33af39c7",
    "A4": "43d60d7b815a1f0751e0be29f03234ed5e3a798f6f18c6b9773b01bc895887dd",
    "A5": "b277e5a34ad20813eafabfb2d5903c5313f87f65c7f14b77d735a242615747ee",
    "A6": "143fc6c1b1a79637eb6565f7cf8360999a08beb702e06c552115732a4aef217a",
@@ -247,11 +247,11 @@
    "A9": "5e1955dc1910222855791c80032ae121b1145c74ff4649dfaac70600214e6fc5",
    "A10": "41360e9582af181c3f7809b05e317c2f7285fd7720dca003355afd31ce84e90b",
    "A11": "8a8b89a69614938901bdcfc733504dd519ddf27972d9de5d68038347a01f5932",
-   "A12": "852c10f9a8f7ea49e2fe4a40c1538c948c0ced8315cb4bb3246f6e6fdc1a979f"
+   "A12": "2261690b06f26100d6a23f508f7d4b78893dd517487fbb838aebb5cb50334907"
   },
   "deferrals_judged": [],
-  "trace_id": "planning-compliance/goal-coverage/20261106T233402-e0225582-run1",
-  "cost_usd": 0.040906,
+  "trace_id": "planning-compliance/goal-coverage/20261106T234857-51c6d805-run1",
+  "cost_usd": 0.041094,
   "requirements": [
    {
     "id": "R1",
@@ -281,20 +281,19 @@
     "covered_by": [
      "A12"
     ],
-    "coverage_reason": "A12 fails unless every 1.0 condition and gate row reads met and the end-to-end run passes, so the workbench cannot pass while unfinished.",
+    "coverage_reason": "A12 fails unless every 1.0 condition and gate is met and the end-to-end run passes, so an unfinished workbench cannot pass.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says the Mixed Methods Workbench is finished to 1.0 with the full capability chain."
+    "outcome_reason": "The outcome line states the workbench is finished to 1.0 with the full set of capabilities."
    },
    {
     "requirement_id": "R2",
     "covered_by": [
-     "A10",
-     "A12"
+     "A10"
     ],
-    "coverage_reason": "A10 fails if a second corpus needs code changes, and A12 runs the second corpus end to end with no code change, so a use-case-specific workbench would fail.",
+    "coverage_reason": "A10 fails if a second, unseen corpus needs code changes or its study page differs, so a use-case-specific tool fails it.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
@@ -306,24 +305,24 @@
     "covered_by": [
      "A11"
     ],
-    "coverage_reason": "A11 requires each study to be the investigation record of the broader evidence-to-action vision, linking the product map, and can be demonstrated in the interface.",
+    "coverage_reason": "A11 requires each study to be the investigation record of the broader evidence-to-action vision, with the product map linked, which a working interface can demonstrate.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line places it as part of Brian's broader evidence-to-action vision via the investigation spine."
+    "outcome_reason": "The outcome line keeps the broader evidence-to-action vision and the investigation spine."
    }
   ],
   "agreement": {
    "runs": 2,
    "agreed": true,
    "trace_ids": [
-    "planning-compliance/goal-coverage/20261106T233402-e0225582-run1",
-    "planning-compliance/goal-coverage/20261106T233402-e0225582-run2"
+    "planning-compliance/goal-coverage/20261106T234857-51c6d805-run1",
+    "planning-compliance/goal-coverage/20261106T234857-51c6d805-run2"
    ],
    "costs_usd": [
-    0.020498,
-    0.020408
+    0.020572,
+    0.020522
    ]
   },
   "trace": "coverage-trace.json"
