@@ -346,7 +346,7 @@ Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the valid
 if any line below differs from what it says now. Unticked pending items are not passes.
 
 Manifest: `docs/planning/planning-package.json`
-Package revision: `bdf06d7310b1`
+Package revision: `c79e70bc7704`
 Verdict: not compliant
 
 - [x] part investigation: ok
@@ -370,8 +370,7 @@ Verdict: not compliant
 - [ ] substance plan shows what each stage adds over the plain version: failing
 - [x] substance plan records Brian's stops on this work: ok
 - [x] substance type-level model of executable rules: ok
-- [ ] substance cold review report states its verdict: failing
-- [ ] substance cold review read this revision: failing
+- [x] substance cold review read this revision: ok
 - [x] initiative initiative names its home: ok
 - [x] tiers spectrum rungs 1-11 are cited: ok
 - [x] tiers production rungs 12-14 are cited when it runs in production: ok

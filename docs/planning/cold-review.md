@@ -24,7 +24,7 @@ blocking findings (F1, F2, V) and notes n1 to n10. What changed in answer:
 | n9 | A4 and A10 wording was technical | Reworded in plain terms |
 | n10 | The fresh reviewer is a model step mentioned only in prose | It is a Claude Code session on the subscription, named in the S2 controls step's evidence and in `cheapest_design` |
 
-The reviewer's own text for round 4 was kept in the session scratchpad; its findings are restated above.
+The reviewer's own report for round 4 is reproduced at the end of this file, ending with its verdict line.
 
 ## Plan #8, round 3 (read 3957779): revise
 
@@ -142,3 +142,87 @@ The package now passes. Both blocking findings from round 1 are fixed, and nothi
 Reviewed revision: 794be795fc69eb2a813300280539180266920d0a
 
 Verdict: pass
+
+## Plan #8, round 4 reviewer's report (verbatim)
+
+I've finished the round 4 review, and the verdict is **revise**. Of round 3's four blocking findings, two are fixed. The other two were answered in a way that is only partly right, so they stay blocking. One more thing blocks too: the validator's own record shows two checks failing on the plan's plain-version comparison.
+
+Two limits on this review. First, this session could not read the plugin's contract or validator, or run any Python, so I could not rerun the validator or any recorded check. I reproduced counts by hand instead (below). Second, I did not render the page in a browser.
+
+### Validator
+
+I could not run it. Its last recorded result is the checklist it writes into the plan (`008_finish_workbench.md:308-348`, revision `bdf06d7310b1`): "not compliant", exit status not shown.
+
+- **Parts:** 9 of 10 ok; the cold review part fails, and this report supplies it.
+- **Substance:** 9 of 13 ok. Two of the four failures are the cold review's and clear with this report. The other two will not clear on their own: "plan compares its AI answer path with the plain version" and "plan shows what each stage adds over the plain version".
+- **Other lines:** the 3 tier checks, initiative, goal coverage, goal provenance and freshness are all ok.
+
+### Checks
+
+No recorded command could be rerun here. What I reproduced by hand:
+
+- `grep "^class "` over `src` and `scripts` finds 195 classes, matching `TYPES.md:7`.
+- The S1 receipt (`s1-open-science-study`, `examples/studies/open_science/build_receipt.json`) matches Q14, Q17 and F10: 28 of 28 md5 matches, 1,277 of 1,277 segments, 90 of 90 cited passages, and the author's passages located as 681 exact, 113 whitespace-only, 36 text differs, 7 not found, with 12 stated offsets correct.
+- QC's export says 630 interviewee units, 8 categories and 6 propositions.
+- The author's CSV has exactly 11 numbered interview-question codes.
+
+### Round 3 findings
+
+- **B1** (two-way construct match): **fixed**. Plan :136-148, Q15, the brief's :111 row and A4 all carry it.
+- **B2** (which proposition the measure speaks to): **fix wrong in part**, stays blocking (F2 below).
+- **B3** (analytical plan in the record): **fixed** in A11, the graph (e150), S5, the vision paragraph and Q18. Router record A11 is stale (note n5).
+- **B4** (plain version, stage effects, stops; S3 challenger dropped): **fix wrong in part**, stays blocking (F1 below). The challenger is gone from the plan, but the domain graph still shows it (note n1).
+- **N1–N7, N9–N11:** fixed. **N8** (GitHub links resolve once merged) is not fixed, by choice: the plan is still not on `origin/main` and the branch is not on GitHub (note n8).
+
+### Blocking findings
+
+- **F1. Plan / plain version.** `planning-package.json:330-350`, plan `:184-191` and `:211-214`.
+  - The S2 "plain" comparison is 25 calls, one per interview. Brian's rule says the plain version is the same model given the whole source in one or two calls.
+  - The whole corpus is 108,452 tokens (plan :187), so it fits in one window; nothing in the package rules that version out.
+  - The design also builds the staged versions first: one call per turn in S2, one per proposition in S3. Both stages are marked "untested", and the validator fails both checks.
+  - **Fix:** make the plain version the starting design in S2 and S3. For S2 that is one or two calls over the whole corpus; split the calls tuning/held-out, and state the model's output limit, since 630 labels × 268 ≈ 169k output tokens. If that limit really forces more calls, record the proof from construction and per-interview calls become the plain version. List per-turn and per-proposition calls as stages added only after the plain version shows a gap. Reword `cheapest_design`: per-turn is not the cheapest (about $0.31 even with a cached prefix, against about $0.28 per interview). Then rerun the validator.
+- **F2. Open questions / S3 join (Q22).** `open-questions.json:415`, plan `:195-203`.
+  - All six of QC's propositions are conditionals that each name 2–3 categories (export `grounded_theory.json:3218-3345`). The prevalence of one category cannot confirm or contradict "when X, then Y".
+  - Yet the rule lets such a row carry "converges" or "diverges", and the number-and-passage check would not catch that.
+  - The "co-occurrence with another category" branch has nothing to compare against: S2 labels one category, and QC's segments carry no category codes.
+  - **Fix:**
+    - A row matched by prevalence alone may only say "complements", and the check refuses any other verdict.
+    - Either have S2 measure both categories of one chosen proposition (cost computed), or drop the co-occurrence branch.
+    - Add "a prevalence-only row marked converges" to A5's failure example.
+- **V. Validator.** `008_finish_workbench.md:335-336`: the two plain-version and stage-effects checks fail. A failing validator is a revise finding. F1's fix should clear it; if the validator rejects every not-yet-run comparison by design, record that reason in the package.
+
+### Notes (do not block)
+
+- **n1.** Domain model `domain.graph.json:489-494`: edge e38 still says a second model challenges each meta-inference. The S3 number-and-passage check and the proposition-to-measure mapping (planned types in `SYSTEM_MODEL.md:50`) are not concepts and not in `relies_on`. `DOMAIN.md:47` leaves out the planted overclaim. **Fix:** drop e38, add the check as a planned concept.
+- **n2.** Q15 / S2 (plan :139-146):
+  - QC's side of the overlap is only its cited examples: 8 incidents, 88 turns, about 22 per category. Its two-incident categories mark at most about 22 turns, while the author's broad codes are large ("open data" 81 passages, "open/closed access publishing" 57).
+  - So a two-way overlap is capped at roughly 22 divided by the author code's turns, and a real match to a broad code can fall below 0.3.
+  - The S1 data can produce the 8 × 28 overlap table now, settling whether the 0.3 floor is reachable before S2 is built around it.
+- **n3.** S2's table of brief conditions leaves out brief `:110` (error costs, accountable reviewer) and `:118-121`. The second says the count over a complete corpus has measurement error but no sampling error. It does not fit cleanly with the plan's by-interview interval on prevalence.
+- **n4.** Stops: `PLANNING_STATUS.md:208-218` (2026-08-13) says work "must not rerun QC, Process Tracing ... merely to populate the Workbench". S4 and S6/Q21 do that. `stops.searched` read the file but did not record whether Brian's 2026-11-06 direction lifts this. I'm unsure it still applies; its section is headed "Completed Phase".
+- **n5.** Acceptance router inputs predate later changes: `router/A11.usecase.json:18-27` has no analytical plan, A7 has no memo, A5 has no comparable count. Each still chose the view named in its entry. Rerun them.
+- **n6.** Stale citations: Q19 evidence cites plan ":232", which is now S4 (should be :265-266). `investigation.json:319` still says S3 is measured; it is now computed.
+- **n7.** The context diagram and `SYSTEM_MODEL.md:52` leave out the GitHub-issue review route and `make import-reviews` (Q20).
+- **n8.** Page:
+  - The diagrams are drawn on the page and every part is shown.
+  - The page does not show the manifest's cost table, plain-version record, stage effects or stops; only the plan text and the checklist carry them.
+  - The page is not served anywhere (Q11), and its Plan #8 GitHub links 404 until the branch is pushed and merged. The repository is personal, so the company-organization rule does not apply.
+- **n9.** Acceptance wording: A4's expected result (`:69`) uses "per-class agreement", "prevalence error" and "shows its null", and A10's (`:176`) names `git diff --name-only`. The orange failure flags are judgeable by a non-expert; the wording could be plainer.
+- **n10.** Cost basis `:256`: the fresh reviewer (a Claude Code session) is a model step mentioned only in prose. Q21 is nearly settled by the plan's own S6 text (`:259-261`). S4's measured $0.03 and QC's $4.94 could not be checked against llm_client's log here.
+
+### Judgments I was unsure about
+
+- Whether F1 and F2 are blocking rather than notes. The cost at stake is cents; the joint display's validity and Brian's plain-version rule are what tipped them.
+- Why the validator fails the two checks; I couldn't read it.
+- Whether n4's 2026-08-13 constraint still holds.
+- The output limit of gpt-5.6-luna, which decides whether two calls suffice for F1.
+
+---
+
+- **Verification:** every count above came from `grep`, `git show` and file reads at a251ee2; the validator, `pytest` and the crosswalk check were denied by this session's permissions.
+- **Feedback:** the cold reviewer ran without permission to read the plugin or run Python, so required steps 1–2 could not be done. Grant read and run access to the plugin path and `.venv/bin/python` for review sessions.
+- **Need anything from human:** No.
+
+Reviewed revision: bdf06d7310b1df76dd35c1334a02eec53ccd160a
+
+Verdict: revise
