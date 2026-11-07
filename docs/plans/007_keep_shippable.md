@@ -14,10 +14,13 @@ the public page lags the renderer, a test writes into tracked files, and the doc
 ## Steps
 
 1. Q5: after pull request #57 merges, deploy `deploy/psychosisbank-review` with wrangler and confirm the
-   served `index.html` matches the committed one byte for byte.
+   served `index.html` matches the committed one byte for byte. **Done 2026-11-06:** Worker version
+   `e46676f3`; served and committed `index.html` both sha256 `eae2c256…0231`, payload both `7ff58b07…92d0`.
 2. Q6 and Q9: make `build()` take an output folder; the test builds into `tmp_path` and fails when the
    committed `deploy/` page or payload differs from what `build()` produces, so a renderer change without a
-   rebuild is caught by `pytest` instead of silently dirtying the checkout.
+   rebuild is caught by `pytest` instead of silently dirtying the checkout. **Done 2026-11-06:**
+   `build(out_dir)` and `test_committed_deploy_page_matches_renderer`; a one-line change to the page source
+   made the test fail with "deploy/ is stale for ['index.html']".
 3. Q9: record in `deploy/psychosisbank-review/` (README) that every merge touching `deploy/` is followed by a
    wrangler deploy and a hash comparison of the served page; deploys stay manual (no hosted CI).
 4. Q10: relabel the NYC findings in `src/mixed_methods_workbench/static/investigation_spine.html` as
