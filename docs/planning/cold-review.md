@@ -3,6 +3,27 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 8 (read 9dd6009): revise
+
+The reviewer found both round-7 blocking findings and notes a to d fixed, and reproduced the overlap
+figures, the crosswalk counts, `make check`, the S4, S7 and Q12(c) costs and the stop search. It opened
+Qualitative Coding's own code and its pinned Open Science state, and returned **revise** on one blocking
+finding, with notes n1 to n11. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | QC's process-tracing handoff exports `state.claims` and never reads the grounded-theory export; QC builds `GT_PROPOSITION` claims only from a theoretical model the pinned state lacks (1,139 claims, none of that kind), so S4's causal route could not start as written | Option (a): the workbench writes a proposition case (the proposition, its supporting segment ids and texts, with the export's commit and sha256, provisionally `mmw_proposition_case_v1`) from the grounded-theory export S1 already pins, and Process Tracing's new input reads it; QC needs no change. Recorded as resolved agent question Q24 and investigation finding F20 (fails). Plan S4, S6, the finished table, `qc_pt_handoff`'s definition, Q21's precondition and the system model's S4 row now say so; `proposition_case` is a planned concept and `qc_pt_handoff` leaves "Relies on" |
+| n1 | `qc_theory_export` read as planned though QC's export exists | Its definition now says the export exists in QC and only the workbench's reader is planned |
+| n2 | S7's readiness record was in neither the domain graph nor "Relies on" | Added as planned concept `readiness_record` |
+| n3 | S5 did not name the disposition of orange rows or G5's roles | S5's build now records a disposition for every orange row and the reviewer's role in every review entry |
+| n4 | S6's cost entry left out the causal check | Its evidence now adds S4's measured upper figure, $0.0555 per run |
+| n5 | The causal tab's plain-version comparison was not cited | S4 cites Process Tracing's own comparison (ADR 0004 :61-66: 7 and 7 against a plain-draft mean of 6.17, under its noise line); the workbench adds no stage |
+| n6 | The Phase 3 lift was inferred from the crosswalk approval | The stop entry says so, and that Phase 3 is complete |
+| n7 | The disproof tested no integration observation | The disproof now also fails if a joined claim cannot be followed to both its passage and its number, or Brian rejects most meta-inferences in review |
+| n8 to n11 | Carried notes and the plugin's WAIT labelling | Unchanged, as answered in rounds 5 to 7 |
+
+The reviewer's own report for round 8 is reproduced at the end of this file, ending with its verdict line.
+
 ## Plan #8, round 7 (read 58f644a): revise
 
 The reviewer found round 6's B1 fixed (the two made-up test exports match Process Tracing's
@@ -20,7 +41,7 @@ blocking findings and notes a to g. What changed in answer:
 | d | The test exports' schema and reader were unnamed | The plan says they use the partial schema (`pt_draft_audit_export_v1` with the optional gate block in `PublicationGateV2`'s shape), read by the reader the real case uses |
 | e, f, g | Coverage classes R3 as process; agent questions settleable now; page links 404 before merge | Unchanged, as answered in rounds 5 and 6: R3 stays mapped to A11; the questions are upkeep outside this plan's slices; the links resolve when this pull request merges |
 
-The reviewer's own report for round 7 is reproduced at the end of this file, ending with its verdict line.
+The reviewer's own report for round 7 is reproduced near the end of this file, before round 8's.
 
 ## Plan #8, round 6 (read 9ad84d1): revise
 
@@ -610,5 +631,146 @@ All match the manifest.
 - **Need anything from human:** No.
 
 Reviewed revision: 58f644a7e99565b103940b7c884c3b5cb7ab7a25
+
+Verdict: revise
+
+## Plan #8, round 8 reviewer's report (verbatim)
+
+**Round 8 cold review: revise.** Both round-7 blocking findings are fixed. One new problem blocks, and the round-7 fix for A12 now leans on it: the causal check in S4 and S6 needs Qualitative Coding's handoff to Process Tracing to carry a proposition, and QC's own code and its pinned Open Science data show it carries none.
+
+#### Validator
+
+I ran it on the branch head, 2757565. Since the subject revision 9dd6009, that commit changed only package files. It **exited 1**, which was expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review, whose recorded verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and the 3 untested stages; the contract makes both WAIT on purpose.
+- **Other figures:**
+  - Cost basis: 13 AI steps, 3 measured and 10 computed.
+  - Stops: 6 found, 4 hold and 2 lifted.
+  - Citations: 79 checked.
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage:** ok. It found 3 requirements in Brian's words: R1 is covered by A12 and A9, R2 by A10, and R3 is classed as about process (mapped to A11).
+- **Goal provenance and freshness:** both ok.
+- **Plan checklist** (`plan_checklist.py --check`): matches, 0 differing lines, exit 0.
+
+#### Recorded checks I reran
+
+All match the manifest.
+
+- **Overlap scripts** (`overlap.py` and `overlap2.py` on the S1 checkout, faf5399, clean tree):
+  - 630 interviewee turns, 224 pairs, 11 numbered question codes.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48, and the highest two-way overlap is 0.18.
+- **Crosswalk check:** 171 steps, 36 groups, 0 errors, exit 0.
+- **`make check`:** exit 0, 41 tests passing (11 + 30).
+- **S4 cost:** Process Tracing's efficiency readout (`README.md:161-163`) gives 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555. That matches.
+- **S7 cost:** $0.0783 + $0.0137 + $0.0555 = $0.1475 over 10 calls, which matches "about $0.15".
+- **Q12(c)'s cost:** 2 × (58,150 × $0.2168 + 56,700 × $1.4057) per million tokens, plus 2 × $0.0043, is $0.193. That matches "about $0.19".
+- **Stop search:** `git log -i --grep 'pause|archive|overbuilt|start over'` finds the NYC pause (91a69a5) and the Phase 3 pause (e37fd80) and its lift (680c4d5). It found no stop the manifest missed.
+
+#### Round-7 findings
+
+- **1. A12's causal check had no slice: fixed as asked.**
+  - S6 now runs S4's route on one second-corpus proposition (plan `:343-347`).
+  - S7's run is costed, with three `cost_basis` entries.
+  - A row reads "met" only when its criterion is "judged pass" in Brian's recorded words (plan `:362-364`; A12's expected result and failure example).
+  - However, the route it adds depends on the same QC precondition as S4, which fails (new finding B1).
+- **2. Integration narrowed but labelled "kept": fixed.**
+  - The row now reads "changed: … 'complements' or 'silent' in 1.0" (plan `:46`) and cites G4's "contradiction disposition" (`ROADMAP.md:83`).
+  - Q12 has a part (c) with a recommendation, a default, the worked-out cost of the other option and answer words. Q22 points there.
+  - S7 and A12 now carry both the eight bullets and the G1–G6 1.0 conditions (plan `:53-56`, `:359-361`; `ROADMAP.md:79-84`, `:437`).
+- **a. `stops` labels: fixed.**
+  - "overbuilt" and "a patch ot an actual fix" are now `holds`.
+  - The freeze entry quotes Decision 1, matching ADR 0004 lines 10-15.
+  - The Phase 3 pause is listed (see note n6).
+- **b. `qc_pt_handoff`: fixed in kind, citation and "Relies on".** `domain.py:179` is where the claim kind is defined. Its definition is now wrong (B1).
+- **c. System model had no S7 row: fixed** (`SYSTEM_MODEL.md:54`, `:73-74`).
+- **d. Test exports' schema and reader unnamed: fixed** (plan `:293-295`).
+- **e, f, g: not fixed, by choice.** They remain notes n8 to n10.
+
+#### Blocking finding
+
+**B1. Plan, domain model and open questions: QC's handoff to Process Tracing carries no proposition, so S4's causal route cannot start as written.**
+
+- **Where:**
+  - `docs/plans/008_finish_workbench.md:270-271` and `:280-283` (S4)
+  - `:343-347` (S6)
+  - `docs/planning/DOMAIN.md:38` (`qc_pt_handoff`)
+  - Q21's `resolves_with`
+- **What is wrong:**
+  - The plan says that QC's `export-process-tracing-handoff` output for the chosen proposition becomes a draft-audit case. It also says that S4 "first checks" that the Open Science project state carries the proposition as an anchored claim of QC's `GT_PROPOSITION` kind.
+  - QC's code already answers that check, and the answer is no:
+    - `qc_clean/core/claims.py:999-1013` builds that kind of claim as an "unanchored grounded-theory proposition-like claim".
+    - It is called only from `claims_for_gt_theory` (`:433-461`), which reads `state.theoretical_model`.
+  - The pinned Open Science state (`public_demo_assets/open_science/project_state.json.gz`, sha256 a16375a1…, matching S1's pin) has 1,139 claims, none of them of the proposition kind, and no `theoretical_model`.
+  - The six propositions and their supporting segment ids exist only in the grounded-theory export (`proposal.propositions[].supporting_source_unit_ids`). `process_tracing_handoff.py` never reads that export: the words "proposition", "theor" and "grounded" do not appear in it.
+  - So the handoff would hand Process Tracing no proposition at all. That breaks S4, A6, S6's causal check and the causal step of A12's end-to-end run.
+  - The investigation never checked the QC side of this route; F13 looks only at Process Tracing.
+- **Fix:**
+  - Record an agent question, resolved by this reading.
+  - Choose one of:
+    - (a) S4's handoff input reads the chosen proposition and its supporting segments from the grounded-theory export S1 already pins. Name that reader and its schema; QC needs no change.
+    - (b) QC adds anchored proposition claims to `state.claims`, done in QC's repository under its own rules and with its cost.
+  - Correct the `qc_pt_handoff` definition and Q21's precondition to match.
+- **Weight:** blocking. A reader would conclude S4 is ready to build, but the only causal route in 1.0 cannot start as written.
+
+#### Notes (do not block)
+
+- **n1. Domain model** (`DOMAIN.md:37`): `qc_theory_export` is marked planned, but QC's export already exists; only the workbench's reader of it is planned. This is the same issue round-7 note b found for the handoff. **Fix:** mark it "elsewhere", or say that only the reader is planned.
+- **n2. "Relies on" and domain graph:** S7's 1.0 readiness record (`SYSTEM_MODEL.md:54`) is something the plan creates, but it is in neither the domain graph nor `relies_on`. **Fix:** add a planned concept for it.
+- **n3. Plan `:46` against S5 `:310-323`:**
+  - Line 46 says S5 "records a disposition for every row the number and passage check marks orange", but S5's build text says only "accept, reject or annotate each meta-inference".
+  - G5's "roles" (`ROADMAP.md:84`) is not named in any slice.
+  - **Fix:** one clause in S5 for each.
+- **n4. Cost basis:** S6's own causal-check run and its S3 call have no entries of their own. The S4 and S3 "per run" entries cover them, but the S6 entry's evidence leaves out the $0.0555 that plan `:353` adds.
+- **n5. Plain version:** the causal tab shows Process Tracing's prototype output, but `plain_baseline` covers only S2 and S3. Process Tracing's own records show the prototype beat a plain draft by 0.83, under its 1-point noise line (ADR 0004 `:61-66`). **Fix:** cite that comparison, or say the answer path is Process Tracing's.
+- **n6. `stops`, the Phase 3 entry:**
+  - Its `words` are an agent's record of the pause, not Brian's words.
+  - The lift words "i approve." (`ROADMAP_AGENT_MODEL.md:19`) approved the crosswalk. The lift itself was inferred from that approval (row 5a, and `GOAL_FINISH_DECOMPOSITIONS.md:14-16`).
+  - It has no effect on this plan, because Phase 3 is complete.
+- **n7. Goal fields:**
+  - The thesis's headline, "Integration is the workbench's own value", is not tested by any observation in the disproof. The disproof tests only measurement agreement, planted faults and code changes.
+  - **Fix:** add one integration observation to the disproof, or narrow the thesis.
+- **n8. Carried e:** the coverage record classes R3 as process.
+- **n9. Carried f:** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now. Q21 could be answered today by listing QC's run records.
+- **n10. Carried g:**
+  - The branch is not on the remote, so the page's 147 `/blob/main/` links return 404 until this pull request merges.
+  - The page has no served address (Q11).
+  - The repository is in Brian's own account, so the company-organization rule does not apply. Every local link on the page resolves.
+- **n11. Plugin fault:** the plan checklist labels the WAIT lines "failing" (plan `:431-432`). This is carried from earlier rounds.
+
+#### Checked and found sound
+
+- **Domain model:**
+  - The eight implemented locations I opened (`models.py:268` and `:438`, `investigation_spine.py:127`, `:160` and `:278`, `investigation_run.py:101` and `:124`, `method_dashboard.py:190`) are the classes named.
+  - `executes_typed_rules: false` holds: the guarded-decision module calls a policy function passed in, and evaluates no rules itself.
+- **Router records:** A6, A11 and A12 choose the views their entries name.
+- **No code changed since round 7:** `git diff 58f644a HEAD -- deploy/ src/ tests/ scripts/ examples/` is empty.
+- **Review page:**
+  - It draws all three diagrams on the page (`GraphViewer.mount`).
+  - It carries round 7's changes: Q12(c), "awaiting your judgement", and the causal check on the second corpus.
+- **Goal fields:** the north star, disproof and outcome fit their definitions.
+
+#### Judgments I was unsure about
+
+- **B1's weight.** Option (a) is a small redesign, so it could look like a note. I kept it blocking because the plan states a precondition the pinned data already contradicts, on the only causal route in 1.0.
+- **Q12(c)'s recommendation.** It says a second measured theme would have no human reference. The argument holds for any category other than the one "open data" already qualifies for. I did not test other options, such as co-occurrence of two author codes by interview; it is Brian's call.
+- **What I could not do:**
+  - No browser tool was available, so I read the page as HTML.
+  - I did not fetch A1's live page.
+  - I ran the 41 tests inside `make check`, not the 204-test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 0 failing and 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0.
+  - Overlap scripts: the figures above.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0.
+  - QC state read with `python3 -I` after a sha256 check: 1,139 claims, 0 of the proposition kind.
+- **Feedback:** the investigation part records no check of the producer's own export path, so a route that is broken on QC's side passed seven rounds of review. The reviewer contract could ask the reviewer to open the producer data a route depends on, not only its documentation.
+- **Need anything from human:** No.
+
+Reviewed revision: 9dd600945f7dbbdcf3803486ff1d14981331c5f8
 
 Verdict: revise

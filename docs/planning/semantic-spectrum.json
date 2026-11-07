@@ -233,6 +233,20 @@
     "number and passage check",
     "number check"
    ]
+  },
+  {
+   "id": "proposition_case",
+   "kind": "planned",
+   "aliases": [
+    "case file"
+   ]
+  },
+  {
+   "id": "readiness_record",
+   "kind": "planned",
+   "aliases": [
+    "readiness page"
+   ]
   }
  ],
  "classes": [

@@ -307,6 +307,18 @@
    "verdict": "fails",
    "question_id": "Q15",
    "note": "Two pairs of categories cite exactly the same two incidents (Traceable... with Corrective...; Terminological... with Attributed reuse...), so 8 categories rest on 6 distinct sets of cited turns. The two categories 'open data' qualified for are distinct, so the construct choice is unaffected; the study page says so (plan S2)."
+  },
+  {
+   "id": "F20",
+   "claim": "QC's process-tracing handoff can hand Process Tracing one grounded-theory proposition of the Open Science study",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
+    "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
+    "docs/plans/008_finish_workbench.md:280"
+   ],
+   "verdict": "fails",
+   "question_id": "Q24",
+   "note": "The handoff exports state.claims and never reads the grounded-theory export; GT_PROPOSITION claims are built only from state.theoretical_model, and the pinned state has 1,139 claims, none of that kind. Found by the round-8 cold review; S4 now writes the proposition case from the pinned grounded-theory export instead."
   }
  ],
  "cost": {

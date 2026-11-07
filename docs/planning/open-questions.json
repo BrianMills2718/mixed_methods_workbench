@@ -369,7 +369,7 @@
    "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:65 and S6 (:291-292).",
    "sources": [
     "docs/plans/008_finish_workbench.md:65",
-    "docs/plans/008_finish_workbench.md:336"
+    "docs/plans/008_finish_workbench.md:348"
    ],
    "touches": [
     "study_corpus",
@@ -384,10 +384,10 @@
    "resolves_with": "Argument and prior art, no test: GitHub issues are already where this repository's tasks live and need no new server or credential. Each action on the served page opens a pre-filled issue in this repository (decision, meta-inference id, bundle hash, his note) that he submits; `make import-reviews` turns labelled issues into the same typed files the local server writes, and the page shows \"recorded, waiting to be imported\" until the next build. Locally, the server in the method_dashboard_server.py pattern writes the files directly.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:316-323) and acceptance A7 carry the route.",
+   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:325-332) and acceptance A7 carry the route.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:316",
-    "docs/plans/008_finish_workbench.md:318",
+    "docs/plans/008_finish_workbench.md:325",
+    "docs/plans/008_finish_workbench.md:327",
     "src/mixed_methods_workbench/method_dashboard_server.py:1"
    ],
    "touches": [
@@ -401,19 +401,19 @@
    "short": "Who runs Qualitative Coding on the second corpus",
    "question": "S1 reads Qualitative Coding's existing grounded-theory export, which exists only for Open Science. For S6, does QC run its pipeline on the second corpus in its own repository first, or does S6 pick a corpus QC has already analysed?",
    "blocks": "S6, acceptance A10, and the claim that a study needs only a definition file and the producers' exports, and S6's causal check on the second corpus",
-   "resolves_with": "Checking, no test: list the corpora QC has run (its run records) against Q19's rule. If one fits, use it; otherwise QC runs on the chosen corpus in its own repository before S6 starts, and the workbench never runs it. Cost measured: every qualitative_coding call on Open Science, 2026-11-05 to 06, totals $4.94 over 2,075 calls in llm_client's log, including reruns and four school variants. Either way, QC's process-tracing handoff for that corpus must carry one proposition as a GT_PROPOSITION claim, for S6's causal check.",
+   "resolves_with": "Checking, no test: list the corpora QC has run (its run records) against Q19's rule. If one fits, use it; otherwise QC runs on the chosen corpus in its own repository before S6 starts, and the workbench never runs it. Cost measured: every qualitative_coding call on Open Science, 2026-11-05 to 06, totals $4.94 over 2,075 calls in llm_client's log, including reruns and four school variants. Either way, that corpus's grounded-theory export must carry propositions with their supporting segment ids, from which the workbench writes the proposition case for S6's causal check (Q24).",
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:329",
-    "docs/plans/008_finish_workbench.md:332",
-    "docs/plans/008_finish_workbench.md:343"
+    "docs/plans/008_finish_workbench.md:341",
+    "docs/plans/008_finish_workbench.md:344",
+    "docs/plans/008_finish_workbench.md:355"
    ],
    "touches": [
     "qc_theory_export",
     "study_corpus",
     "benchmark",
-    "qc_pt_handoff"
+    "proposition_case"
    ]
   },
   {
@@ -445,10 +445,10 @@
    "resolves_with": "An argument, no test: Process Tracing's own records settle it. (a) Add, in process_tracing under its rules, a qualitative-handoff input to the prototype and the small export adapter its open question Q20 recommends once a consumer resumes (only fields the merged answer supports, the rest marked absent, never a full V2 claim); the workbench shows the prototype's verdicts in their own panel and the conclusion as 'withheld' while publication_gate is absent. (b) Run the frozen pipeline once on the same proposition as the full provenance reference ADR 0004 keeps it for. (a) is chosen: it is the path Process Tracing scored best and Brian approved, it needs no pt/ work during the freeze, and no 1.0 condition needs a full provenance chain; no committed file carries a publishable Process Tracing gate, so S4 commits two made-up test exports (one publishable, one blocked), labelled as test data, and shows both in a 'how the gate behaves' panel. The adapter's file declares its own partial schema (provisionally pt_draft_audit_export_v1), read by a second, partial reader. (b) stays available if a reader later needs the full chain.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S4 route and build (docs/plans/008_finish_workbench.md:265-299); cost $0.0555 per run measured (process_tracing efficiency_20261105 README:161-163); Process Tracing ADR 0004 and its Q20.",
+   "evidence": "Plan S4 route and build (docs/plans/008_finish_workbench.md:265-305); cost $0.0555 per run measured (process_tracing efficiency_20261105 README:161-163); Process Tracing ADR 0004 and its Q20.",
    "sources": [
     "docs/plans/008_finish_workbench.md:265",
-    "docs/plans/008_finish_workbench.md:284",
+    "docs/plans/008_finish_workbench.md:290",
     "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79",
     "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
     "/home/brian/code2/process_tracing/docs/planning/open-questions.json:404"
@@ -457,6 +457,28 @@
     "pt_export",
     "publication_gate",
     "connected_run_receipt"
+   ]
+  },
+  {
+   "id": "Q24",
+   "short": "Where S4's proposition comes from (QC's handoff carries none)",
+   "question": "S4 needs one grounded-theory proposition, with its supporting passages, as a Process Tracing case. QC's export-process-tracing-handoff exports state.claims and never reads the grounded-theory export; QC builds GT_PROPOSITION claims only from state.theoretical_model, and the pinned Open Science state has 1,139 claims, none of that kind, and no theoretical model. Where does the case come from?",
+   "blocks": "S4's build, acceptance A6, S6's causal check and the causal step of A12's end-to-end run",
+   "resolves_with": "Reading, no test (round-8 cold review, B1): (a) the workbench writes the case from the grounded-theory export S1 already pins (the proposition, its supporting_source_unit_ids and each segment's text, with commit and sha256, in a schema the workbench declares, provisionally mmw_proposition_case_v1), and Process Tracing's new input reads it; QC needs no change. (b) QC adds anchored proposition claims to state.claims, in its own repository and at its own cost. (a) is chosen: the propositions and their segment ids already exist in the pinned export, so (b) would add a producer change and a rerun for data the workbench already holds.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "qualitative_coding qc_clean/core/process_tracing_handoff.py (no reference to propositions or the grounded-theory export); qc_clean/core/claims.py:433-461 and :999-1013; public_demo_assets/open_science/project_state.json.gz (1,139 claims, 0 GT_PROPOSITION, no theoretical_model), sha256 matching S1's pin.",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:280",
+    "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
+    "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:433",
+    "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221"
+   ],
+   "touches": [
+    "proposition_case",
+    "qc_theory_export",
+    "qc_pt_handoff",
+    "pt_export"
    ]
   }
  ]

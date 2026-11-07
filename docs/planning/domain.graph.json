@@ -194,7 +194,7 @@
    "id": "qc_theory_export",
    "label": "Qualitative Coding theory export",
    "kind": "planned",
-   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. Read in Plan #8 S1."
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. The export itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
   },
   {
    "id": "author_coding",
@@ -278,7 +278,19 @@
    "id": "qc_pt_handoff",
    "label": "QC's Process Tracing handoff",
    "kind": "elsewhere",
-   "explain": "Qualitative Coding's export-process-tracing-handoff package (implemented in qualitative_coding, qc_clean/core/process_tracing_handoff.py:202): the project's anchored claims (state.claims, with GT_PROPOSITION claims among them) for Process Tracing to test. Plan #8 S4 adds an input that turns one proposition's handoff into a draft-audit case."
+   "explain": "Qualitative Coding's export-process-tracing-handoff package (implemented in qualitative_coding, qc_clean/core/process_tracing_handoff.py:202): the project's anchored claims (state.claims) for Process Tracing to test. It never reads the grounded-theory export, and QC builds GT_PROPOSITION claims only from state.theoretical_model, which the pinned Open Science state lacks (1,139 claims, none of that kind), so it carries no proposition; Plan #8 does not use it (open question Q24)."
+  },
+  {
+   "id": "proposition_case",
+   "label": "Proposition case",
+   "kind": "planned",
+   "explain": "One file the workbench writes from the pinned grounded-theory export for Process Tracing to test: one proposition's text, its supporting segment ids and each segment's text and document, with the export's commit and sha256 (provisionally mmw_proposition_case_v1). Plan #8 S4 (open question Q24)."
+  },
+  {
+   "id": "readiness_record",
+   "label": "1.0 readiness record",
+   "kind": "planned",
+   "explain": "S7's record behind the 1.0 readiness page: one row per condition of the plan's finished table and per G1-G6 1.0 condition, each with its slice, acceptance criterion, status ('met' only when Brian judged it pass) and evidence link, plus the end-to-end run receipt. Plan #8 S7."
   }
  ],
  "edges": [
@@ -633,14 +645,26 @@
   {
    "id": "e159",
    "source": "qc_theory_export",
-   "target": "qc_pt_handoff",
-   "label": "propositions exported as"
+   "target": "proposition_case",
+   "label": "propositions written as"
   },
   {
    "id": "e160",
-   "source": "qc_pt_handoff",
+   "source": "proposition_case",
    "target": "pt_export",
    "label": "becomes a case producing"
+  },
+  {
+   "id": "e161",
+   "source": "readiness_record",
+   "target": "benchmark",
+   "label": "reports the result of"
+  },
+  {
+   "id": "e162",
+   "source": "readiness_record",
+   "target": "review_decision",
+   "label": "reads Brian's judgements from"
   }
  ]
 }

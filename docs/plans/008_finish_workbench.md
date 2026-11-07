@@ -42,7 +42,7 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 | Method profiles that keep each tradition's validity rules | kept, reusing the method dashboard | `method_dashboard.py` already routes questions to method profiles; S7 marks which profiles the workbench actually runs. |
 | At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. |
 | At least one computational or quantitative text path | kept, **workbench-owned** | No repository in `~/code2` measures text quantitatively (survey of capabilities.md and repo names, 2026-11-06); QC's quantitative follow-up can only say `conceptual_follow_up_only`. The workbench owns a narrow adapter around established libraries (roadmap 0.5 already says so). |
-| Causal and theory work without category errors | **changed: within-case causal reasoning kept (Process Tracing); theory operationalization after 1.0** | Process Tracing's frozen pipeline takes a QC handoff and writes `pt_export_v2`; its answer path, the draft-audit prototype, does neither yet, so S4 adds a handoff input and a partial export (open question Q23). That answer path carries no publication gate, so in 1.0 no causal conclusion from it is shown as published: the line reads "withheld". Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call with the benchmark change (open question Q12). |
+| Causal and theory work without category errors | **changed: within-case causal reasoning kept (Process Tracing); theory operationalization after 1.0** | Process Tracing's frozen pipeline takes a QC handoff and writes `pt_export_v2`; its answer path, the draft-audit prototype, does neither yet, so S4 adds a proposition-case input, written by the workbench from QC's grounded-theory export because QC's handoff carries no proposition (Q24), and a partial export (open question Q23). That answer path carries no publication gate, so in 1.0 no causal conclusion from it is shown as published: the line reads "withheld". Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call with the benchmark change (open question Q12). |
 | One genuine qualitative–quantitative design with joint display and meta-inference | **changed: exploratory sequential, with verdicts limited to "complements" or "silent" in 1.0** | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). Only that one code qualifies, and a prevalence cannot confirm or contradict a when-then proposition (S3, Q22), so in 1.0 no row can show the two strands agreeing or disagreeing. The roadmap's G4 condition names "contradiction disposition" (`ROADMAP.md:83`): S5 records a disposition for every row the number and passage check marks orange, and S6's planted overclaim exercises it, but a real disagreement between strands cannot arise. This narrows what 1.0 promises, so it is Brian's call (open question Q12, part c). |
 | Human review, reflexivity, provenance, reporting, exports | kept | Slice S5; reflexivity is a researcher-positioning memo per study, kept with the review log and the bundle. |
 | An observed benchmark | **changed** | From "multi-domain benchmark with expert review" to "two rights-clear corpora, each with its authors' own human coding as the reference, held-out interviews, and planted failures that must be caught". Whether 1.0 also needs an outside researcher's hour is open question Q12. |
@@ -77,7 +77,7 @@ Each slice ends with something a person can open and try. Every slice: tests fir
 | S1 | Governed corpus and qualitative strand | The study page (`make study-page`): the 26 frozen interviews with licence and hash status, QC's categories and propositions, each supporting passage opening the interview at that place with its speaker, the author's codes beside them, and the quantitative and integration strands shown as "not built" |
 | S2 | Quantitative strand: one coded theme measured across every interviewee turn | The same page gains a measurement tab: the feasibility readout, the instrument (rule, included and excluded examples), each candidate measure beside its baselines, which interviews tuned and which tested it, prevalence error and agreement on held-out interviews, a shuffled-label control, and every disagreement listed and openable |
 | S3 | Joint display and meta-inference | A joint-display tab: one row per proposition, the qualitative claim beside the measured distribution, a "complements" or "silent: not measured" verdict with the passages behind it (a prevalence cannot confirm or contradict a when-then claim, Q22), and a bounded meta-inference that stays "pending review" |
-| S4 | Process Tracing on one proposition | A causal tab: QC handoff → Process Tracing's draft-audit answer path → its partial export, for one proposition in one interview; within-case verdicts shown apart from the measured prevalence, the conclusion "withheld" while no gate allows it, and a "how the gate behaves" panel opening two made-up test exports (one publishable, one blocked) |
+| S4 | Process Tracing on one proposition | A causal tab: one proposition from QC's grounded-theory export → Process Tracing's draft-audit answer path → its partial export, for one proposition in one interview; within-case verdicts shown apart from the measured prevalence, the conclusion "withheld" while no gate allows it, and a "how the gate behaves" panel opening two made-up test exports (one publishable, one blocked) |
 | S5 | Review, provenance and export, on one investigation record | The study page becomes the general investigation record (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), the PsychosisBank investigation rebuilt as one instance of it; accept, reject or annotate each meta-inference and see it saved; write a reflexivity memo; download one research bundle (corpus manifest, strand exports, joint display, decisions, traces, a GRAMMS reporting checklist). Served where open question Q11 says |
 | S6 | Second corpus and benchmark | A benchmark page: both corpora, each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and for each corpus the files its addition changed ("data only" or the code paths, in orange) |
 | S7 | 1.0 release | The method-profile page marks what the workbench runs and what it does not; the crosswalk page (acceptance A2) shows the Plan #6 verdicts; the release bundle lists unsupported methods as prominently as supported ones; a 1.0 readiness page lists every condition of this plan's "finished" bar, the slice that meets it, met or not yet, and a link to where it can be seen |
@@ -267,8 +267,8 @@ finish).
   `pt_export_v2` (ADR 0004, "Bad: the prototype writes no `pt_export_v2.json` for
   `mixed_methods_workbench` (Q20)"), and its pipeline (`pt/`, which does accept a QC handoff and write the
   gated export) has been frozen since 2026-09-30. So S4 starts with producer work in `process_tracing`,
-  under that repository's own rules: (1) a qualitative-handoff input to the prototype, so QC's
-  `export-process-tracing-handoff` output for the chosen proposition becomes a draft-audit case; (2) the
+  under that repository's own rules: (1) a proposition-case input to the prototype, so one proposition from
+  QC's grounded-theory export becomes a draft-audit case; (2) the
   small export adapter Process Tracing's own open question Q20 recommends once a consumer resumes, which
   writes only the fields the merged answer supports and marks the rest absent, never a full V2 claim. No
   `pt/` code changes and the frozen pipeline is not run.
@@ -276,11 +276,17 @@ finish).
   Tracing names it when it builds the adapter), never `pt_export_v2`. The workbench's reader
   `ProcessTracingExport` (`investigation_run.py:101-113`) requires `schema_version` "pt_export_v2" and every
   section, so S4 adds a second, partial reader in which the comparative conclusion, the publication gate
-  and any section the merged answer does not support are optional and shown as "absent". QC's
-  `export-process-tracing-handoff` exports the project's claims (`state.claims`,
-  `qualitative_coding/qc_clean/core/process_tracing_handoff.py:221`), so S4 first checks that the Open
-  Science project state carries the chosen proposition as an anchored claim of QC's `GT_PROPOSITION` kind
-  (`qc_clean/schemas/domain.py:179`).
+  and any section the merged answer does not support are optional and shown as "absent".
+- **Proposition case** (open question Q24): QC's `export-process-tracing-handoff` exports the project's
+  claims (`state.claims`, `qualitative_coding/qc_clean/core/process_tracing_handoff.py:221`) and never
+  reads the grounded-theory export; QC builds `GT_PROPOSITION` claims only from `state.theoretical_model`
+  (`qc_clean/core/claims.py:433-461`, `:999-1013`), and the pinned Open Science state has 1,139 claims, none
+  of that kind, and no theoretical model. So that handoff carries no proposition, and S4 does not use it.
+  The workbench writes the case instead, from the grounded-theory export S1 already pins and reads
+  (`read_grounded_theory`): the chosen proposition's text, its supporting segment ids
+  (`proposal.propositions[].supporting_source_unit_ids`) and each segment's text and document, with the
+  export's commit and sha256, as one file in a schema the workbench declares (provisionally
+  `mmw_proposition_case_v1`). Process Tracing's new input reads that file. QC needs no change.
 - **Build:** the workbench reads only that export. Its existing reader (`investigation_run.py`) reads
   `comparative_conclusion.public_headline_eligible`; S4 extends it to read `publication_gate.publishable`
   (`process_tracing/pt/export.py`, `PublicationGateV2`) and shows a causal conclusion only when both allow
@@ -302,8 +308,11 @@ finish).
   the PsychosisBank receipt must still build byte-identical.
 - **Cost (measured):** one full prototype run, drafts plus merge, on Process Tracing's large FOMC case
   cost $0.0555 over 7 calls (`process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163`,
-  trace `draft-audit/fomc_v4`, 277,101 of 352,770 input tokens cached); one proposition's case is smaller, so this is an upper figure. The handoff input and the
+  trace `draft-audit/fomc_v4`, 277,101 of 352,770 input tokens cached); one proposition's case is smaller, so this is an upper figure. The proposition-case input and the
   adapter are code and make no model call. Replaced by S4's own run receipt total.
+- **Plain version:** the causal answer path is Process Tracing's own, compared there: on its fresh case the
+  prototype scored 7 and 7 under two blind graders against a plain-draft mean of 6.17, a margin under its
+  1-point noise line (`process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:61-66`). The workbench adds no stage to it.
 
 ### S5 — Review, provenance and export
 
@@ -320,7 +329,10 @@ finish).
   from his phone; `make import-reviews` turns labelled issues into the same typed files, and the page shows
   "recorded, waiting to be imported" until the next build. The bundle is a zip of committed files plus a
   manifest of hashes; the page itself recomputes each file's hash and shows any mismatch in orange. QDPX
-  exchange is reused from QC's export, not rebuilt.
+  exchange is reused from QC's export, not rebuilt. Every row the number and passage check marks orange gets
+  a recorded disposition (accepted as stated, revised, or kept as unresolved, each with its reason), and
+  every review entry names the reviewer's role (researcher, or agent drafting), G5's "roles"
+  (`ROADMAP.md:84`).
 - **Trace:** each review action appended to one review log per day; the bundle's manifest lists every trace.
 - **Cost:** none (no AI step).
 
@@ -341,9 +353,9 @@ finish).
   and the page shows "data only" or, in orange, any code path (the test of "not for a specific use case"). If the second corpus's export format needs a new reader, that
   reader is general (named by format, not by corpus) and the page says so.
 - **Causal check on the second corpus:** S4's route run once on one proposition of the second corpus, so
-  the end-to-end run (S7) covers every strand: QC's handoff for that corpus must carry the proposition as a
-  `GT_PROPOSITION` claim (part of Q21's precondition, done in Qualitative Coding's repository), the
-  prototype runs in Process Tracing's repository, and the workbench reads its partial export through S4's
+  the end-to-end run (S7) covers every strand: that corpus's grounded-theory export must carry propositions
+  with their supporting segment ids (part of Q21's precondition), the workbench writes the proposition case
+  from it as in S4, the prototype runs in Process Tracing's repository, and the workbench reads its partial export through S4's
   reader; with no gate, the conclusion line reads "withheld" as on Open Science.
 - **Trace:** one receipt per run; the benchmark page links each.
 - **Planted failures include an overclaim:** a meta-inference citing a number that is not in the measured
@@ -378,7 +390,8 @@ finish).
 `joint_display`, `meta_inference`, `verification_challenge`, `pt_export`, `publication_gate`,
 `connected_run_receipt`, `investigation_record`, `review_decision`, `research_bundle`, `planted_failure`,
 `benchmark`, `method_profile`, `public_review`, `capability_verdict`, `reflexivity_memo`, `split_manifest`,
-`feasibility_readout`, `route_plan`, `proposition_measure_map`, `integration_check`, `qc_pt_handoff` (see
+`feasibility_readout`, `route_plan`, `proposition_measure_map`, `integration_check`, `proposition_case`,
+`readiness_record` (see
 `docs/planning/DOMAIN.md`).
 
 ## Not in this plan
@@ -391,7 +404,7 @@ assessment's limits (`docs/PLANNING_STATUS.md:208-218`, written by an agent unde
 that assessment) said work must not "rerun QC, Process Tracing, Theory Forge, or simulation analyses
 merely to populate the Workbench" nor infer authorization beyond the Investigation Spine. Brian's
 2026-11-06 direction to finish authorises this plan's slices; the rerun limit still holds in this sense:
-S4 runs Process Tracing's answer path (adding only a handoff input and an export adapter, never `pt/` work during its freeze) and S6 may run Qualitative Coding in their own repositories to test a 1.0
+S4 runs Process Tracing's answer path (adding only a proposition-case input and an export adapter, never `pt/` work during its freeze) and S6 may run Qualitative Coding in their own repositories to test a 1.0
 condition (a causal path; a second corpus for the benchmark), never to fill the page, and the workbench
 never runs either.
 

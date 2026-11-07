@@ -188,7 +188,6 @@
     "joint_display",
     "meta_inference",
     "verification_challenge",
-    "qc_pt_handoff",
     "pt_export",
     "publication_gate",
     "connected_run_receipt",
@@ -205,7 +204,9 @@
     "feasibility_readout",
     "route_plan",
     "proposition_measure_map",
-    "integration_check"
+    "integration_check",
+    "proposition_case",
+    "readiness_record"
    ],
    "cost_basis": {
     "steps": [
@@ -333,7 +334,7 @@
       "cost_per_run_usd": 0.0555,
       "per": "run",
       "basis": "measured",
-      "evidence": "Measured: Process Tracing's full prototype run fomc_v4 (trace draft-audit/fomc_v4): 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555 (/home/brian/code2/process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163). FOMC is Process Tracing's large case, so one proposition's case costs at most this. The handoff input and the export adapter make no model call. Replaced by S4's own run receipt total.",
+      "evidence": "Measured: Process Tracing's full prototype run fomc_v4 (trace draft-audit/fomc_v4): 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555 (/home/brian/code2/process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163). FOMC is Process Tracing's large case, so one proposition's case costs at most this. The proposition-case writer and input and the export adapter make no model call. Replaced by S4's own run receipt total.",
       "calls_per_run": 7
      },
      {
@@ -349,7 +350,7 @@
        "cached_usd_per_mtok": 0.2168,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "The S2 plain-version computation for a corpus of similar size, $0.079, plus S3's computed $0.014: about $0.093 per run, three runs to show variation about $0.28, plus the S2 language-model controls once per corpus (about $0.16). Redone with llm-cost estimate on S2's own task after S2 runs.",
+      "evidence": "The S2 plain-version computation for a corpus of similar size, $0.079, plus S3's computed $0.014: about $0.093 per run, three runs to show variation about $0.28, plus the S2 language-model controls once per corpus (about $0.16), plus S6's causal check, S4's measured upper figure $0.0555 per run (its own entry). Redone with llm-cost estimate on S2's own task after S2 runs.",
       "cost_per_run_usd": 0.0783,
       "calls_per_run": 2
      },
@@ -400,7 +401,7 @@
       "cost_per_run_usd": 0.0555,
       "per": "one end-to-end run",
       "basis": "measured",
-      "evidence": "Same figures as the matching S2, S3 or S4 entry; the run's own receipt total replaces them. Measured: Process Tracing's full prototype run fomc_v4 (trace draft-audit/fomc_v4): 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555 (/home/brian/code2/process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163). FOMC is Process Tracing's large case, so one proposition's case costs at most this. The handoff input and the export adapter make no model call. Replaced by S4's own run receipt total.",
+      "evidence": "Same figures as the matching S2, S3 or S4 entry; the run's own receipt total replaces them. Measured: Process Tracing's full prototype run fomc_v4 (trace draft-audit/fomc_v4): 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555 (/home/brian/code2/process_tracing/docs/evaluations/efficiency_20261105/README.md:161-163). FOMC is Process Tracing's large case, so one proposition's case costs at most this. The proposition-case writer and input and the export adapter make no model call. Replaced by S4's own run receipt total.",
       "calls_per_run": 7
      }
     ],
@@ -488,7 +489,7 @@
       "status": "lifted",
       "lifted_on": "2026-10-07",
       "lifted_words": "i approve.",
-      "lifted_source": "/home/brian/code2/observation-to-action-metamodel/ROADMAP_AGENT_MODEL.md:19 (Brian approved the crosswalk that reads the integrated decompositions; the lift was carried out 2026-10-08, commit 680c4d5)"
+      "lifted_source": "/home/brian/code2/observation-to-action-metamodel/ROADMAP_AGENT_MODEL.md:19 (Brian approved the crosswalk that reads the integrated decompositions; the lift was carried out 2026-10-08, commit 680c4d5) ; the lift is inferred from that approval, not separate words, and Phase 3 is complete, so it has no effect on this plan"
      }
     ]
    }

@@ -394,7 +394,7 @@
    "id": "qc_theory_export",
    "label": "Qualitative Coding theory export",
    "kind": "concept",
-   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. Read in Plan #8 S1."
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. The export itself already exists in qualitative_coding; only the workbench's reader of it is planned, in Plan #8 S1."
   },
   {
    "id": "Q22",
@@ -449,6 +449,30 @@
    "label": "Connected run receipt",
    "kind": "concept",
    "explain": "The record of one run across producers: inputs, attempts, where it stopped and the trace ids."
+  },
+  {
+   "id": "proposition_case",
+   "label": "Proposition case",
+   "kind": "concept",
+   "explain": "One file the workbench writes from the pinned grounded-theory export for Process Tracing to test: one proposition's text, its supporting segment ids and each segment's text and document, with the export's commit and sha256 (provisionally mmw_proposition_case_v1). Plan #8 S4 (open question Q24)."
+  },
+  {
+   "id": "qc_pt_handoff",
+   "label": "QC's Process Tracing handoff",
+   "kind": "concept",
+   "explain": "Qualitative Coding's export-process-tracing-handoff package (implemented in qualitative_coding, qc_clean/core/process_tracing_handoff.py:202): the project's anchored claims (state.claims) for Process Tracing to test. It never reads the grounded-theory export, and QC builds GT_PROPOSITION claims only from state.theoretical_model, which the pinned Open Science state lacks (1,139 claims, none of that kind), so it carries no proposition; Plan #8 does not use it (open question Q24)."
+  },
+  {
+   "id": "Q24",
+   "label": "Q24: Where S4's proposition comes from (QC's handoff carries none)",
+   "kind": "question_agent_resolved",
+   "explain": "S4 needs one grounded-theory proposition, with its supporting passages, as a Process Tracing case. QC's export-process-tracing-handoff exports state.claims and never reads the grounded-theory export; QC builds GT_PROPOSITION claims only from state.theoretical_model, and the pinned Open Science state has 1,139 claims, none of that kind, and no theoretical model. Where does the case come from?"
+  },
+  {
+   "id": "d_Q24",
+   "label": "S4's build, acceptance A6, S6's causal check and the causal step of A12's end-to-end run",
+   "kind": "decision",
+   "explain": "S4's build, acceptance A6, S6's causal check and the causal step of A12's end-to-end run"
   }
  ],
  "edges": [
@@ -858,6 +882,42 @@
    "id": "tQ23_connected_run_receipt",
    "source": "Q23",
    "target": "connected_run_receipt",
+   "label": "touches"
+  },
+  {
+   "id": "tQ21_proposition_case",
+   "source": "Q21",
+   "target": "proposition_case",
+   "label": "touches"
+  },
+  {
+   "id": "bQ24",
+   "source": "Q24",
+   "target": "d_Q24",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ24_proposition_case",
+   "source": "Q24",
+   "target": "proposition_case",
+   "label": "touches"
+  },
+  {
+   "id": "tQ24_qc_theory_export",
+   "source": "Q24",
+   "target": "qc_theory_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ24_qc_pt_handoff",
+   "source": "Q24",
+   "target": "qc_pt_handoff",
+   "label": "touches"
+  },
+  {
+   "id": "tQ24_pt_export",
+   "source": "Q24",
+   "target": "pt_export",
    "label": "touches"
   }
  ]
