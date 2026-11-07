@@ -78,15 +78,31 @@ def test_page_labels_the_pinned_producer_run(payload: dict) -> None:
     """Plan #8 S1 and open question Q26: the pinned run is named and labelled as not QC's published run."""
     strand = payload["qualitative_strand"]
     assert strand["pin_label"]["label"] == (
-        "Qualitative Coding's October 2026 theory (run e131eb55), not its published run"
+        "Qualitative Coding's October 2026 theory (run e131eb55), not its newest run (a67d7d6a)"
     )
     assert "e131eb55" in strand["producer_trace_id"]
     assert strand["commit"] == "7f5a8af9056eb3c8b44685ed68c7ae505636fd7b"
     assert "Q26" in strand["pin_label"]["repin_when"]
     # QC's own verdict on the pinned run is stated (round-13 cold review, R13-B2).
     assert "rejects 46% of proposed quotes" in strand["pin_label"]["reason"]
+    # The verdict is quoted with its source line (round-16 cold review, n-ii).
+    assert "docs/CURRENT_STATE_AND_ROADMAP.md:32" in strand["pin_label"]["reason"]
     template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
     assert "S.pin_label.label" in template and 'id: "pin-label"' in template
+
+
+def test_agreement_with_the_author_is_shown_as_passage_overlap(payload: dict) -> None:
+    """Plan #8 S1, A3 (round-16 cold review, R16-B1): agreement with the author's coding is a figure, labelled by level."""
+    agreement = payload["qualitative_strand"]["agreement_with_author"]
+    assert agreement["cited_passages"] == 100
+    assert agreement["cited_passages_inside_an_author_coded_passage"] == 100
+    assert agreement["level"] == "passages, not meaning"
+    comparison = agreement["producer_comparison"]
+    assert comparison["recorded_for_pinned_run"] is False
+    assert comparison["statement"] == "QC has recorded no comparison with the author's coding for this run."
+    assert "79.8%" in comparison["newer_run_note"] and "generous" in comparison["newer_run_note"]
+    template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
+    assert "Agreement with the author's coding" in template and "overlap of passages, not of meaning" in template
 
 
 def test_pin_record_is_typed_and_refuses_unknown_fields(tmp_path: Path) -> None:

@@ -120,11 +120,24 @@ function show(id) {
   try { history.replaceState(null, "", "#" + id); } catch (e) {}
 }
 
+// ---- agreement with the author's coding (Plan #8 S1; R16-B1)
+function agreementPanel() {
+  const A = S.agreement_with_author, Q = A.producer_comparison;
+  return $("details", {class: "panel", id: "agreement", open: ""},
+    $("summary", {}, $("strong", {}, "Agreement with the author's coding")),
+    $("p", {}, A.cited_passages_inside_an_author_coded_passage, " of ", A.cited_passages,
+      " passages the theory cites lie inside a passage the author coded. This is overlap of passages, not of meaning: ",
+      "it says the theory's evidence sits where the author also coded, not that her code means what the theory's category means. ",
+      "How far her codes match each category is the construct table of the Measurement tab (S2)."),
+    $("p", {}, $("strong", {}, Q.statement), " ", Q.newer_run_note, " ", $("span", {class: "note"}, "Source: ", Q.source, ".")));
+}
+
 // ---- qualitative strand: claims -> passages -> interview
 const listPanel = $("div", {class: "panel"}), detail = $("div", {class: "panel"}), reader = $("div", {class: "panel"});
 sections.theory.append(
   $("p", {class: "note"}, "Pick a category or proposition, then a passage: the interview opens at that place, with the speaker and the author's own codes for that span. ",
     "Every passage below was checked: its words are the frozen interview's words at its stated position (", step("theory cites").cited_matching, " of ", step("theory cites").cited_passages, ")."),
+  agreementPanel(),
   $("div", {class: "grid"}, listPanel, detail, reader));
 reader.append($("h2", {}, "Interview"), $("p", {class: "note", id: "reader-note"}, "Pick a passage to open it here."), $("div", {class: "reader", id: "reader", tabindex: "0"}));
 

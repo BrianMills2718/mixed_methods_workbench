@@ -144,6 +144,7 @@ def freeze_qualitative(study_dir: Path, study: dict[str, Any], qc_root: Path) ->
         },
         "text_normalisation": producer["text_normalisation"],
         "pin_label": producer["pin_label"],
+        "producer_human_comparison": producer["producer_human_comparison"],
     }
     ProducerInputPin.model_validate(provenance)
     (out / "provenance.json").write_text(json.dumps(provenance, indent=1) + "\n", encoding="utf-8")

@@ -103,6 +103,17 @@ class PinLabel(BaseModel):
     source: str
 
 
+class ProducerHumanComparison(BaseModel):
+    """What the producer itself records about agreement with the author's coding (Plan #8 S1, round-16 cold review R16-B1)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    recorded_for_pinned_run: bool
+    statement: str
+    newer_run_note: str
+    source: str
+
+
 class PinnedFile(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -126,6 +137,7 @@ class ProducerInputPin(BaseModel):
     project_state: PinnedFile
     text_normalisation: str
     pin_label: PinLabel
+    producer_human_comparison: ProducerHumanComparison
 
 
 # ---------------------------------------------------------------- producer consumer views
@@ -566,6 +578,12 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
             "model": gt.run.model_name,
             "producer_trace_id": gt.run.trace_id,
             "pin_label": pin.pin_label.model_dump(),
+            "agreement_with_author": {
+                "cited_passages": len(passages),
+                "cited_passages_inside_an_author_coded_passage": with_codes,
+                "level": "passages, not meaning",
+                "producer_comparison": pin.producer_human_comparison.model_dump(),
+            },
             "text_normalisation": pin.text_normalisation,
             "core_process": gt.proposal.core_process.model_dump() if gt.proposal.core_process else None,
             "categories": categories,
