@@ -1,0 +1,93 @@
+Interviewer: There we go. And yeah, thank you so much for agreeing to this interview. And you've already given me your form of consent. But just to make sure that you're aware of what's happening. This interview is being recorded, and it will be transcribed by myself and my student research assistants with the help of a local large language model. Is that okay with you?
+
+Interviewee 15: Yeah, thank you. And it's okay. You're welcome. It's okay.
+
+Interviewer: That's good to know. And this is about open science practices in linguistics. And of course, linguistics is a very broad field. So my first question would be, where do you situate yourself and your research within linguistics?
+
+Interviewee 15: Okay, the project that at the moment I am working in, and it seems to be my focus in my career, is related to sociolinguistics, we can say. I am doing a kind of corpus linguistic. I collect the data. I analyze them through transcription, annotation, and so on.
+
+Interviewer: Yeah, so sociolinguistics and corpus linguistics would be sort of your subdisciplines. Lovely. And we'll start with your own personal work and begin with your personal beliefs or associations. So what do you associate with open science? What comes to mind?
+
+Interviewee 15: Just my idea about it? Mm-hmm. I think it's a great movement that has been started with related to data, I say. Because in the past, whatever any linguist has done was just to have, I know, a piece of data anyway. They would be analyzed in different forms in their Excel file or anyway in their PCs and nobody else could use them. Nowadays, it's a good movement that linguists are trying to collect data and analyze data in a way that it will be usable to others. It's great because, you know, that collecting data, annotating data, it's a it's a kind of lots of work, lots of labor. And it's great if we provide others with these opportunities to use them. And then it paves the way for us to get benefit from the data of others.
+
+Interviewer: Yeah, that's true. Yeah. And I've opened up this project by talking about open science. But linguistics is traditionally thought of a humanity. And sometimes in the humanities, some people prefer to speak of open research rather than open science. And others prefer the term open scholarship, which is often thought to be like more of an umbrella term that includes open science slash research. And open education as well. So that's a lot of terms. I'm going to put them in the chat. But my question is, have you thought about this? Do you think open science is appropriate for linguistics? Or is one of these other terms perhaps more appropriate? What do you think?
+
+Interviewee 15: I think open science seems to me to be a general cover term that includes other terms too. So why not? And linguistics, as you say, as a part of humanity, I don't think that it's something separate. And in some cases, I, specifically, when I am thinking about sociolinguistic, for example, data, I think it is more fine-grained than other maybe humanistic.
+
+Interviewer: What do you mean by fine-grained?
+
+Interviewee 15: You know, for example, in linguistics, we see that we are specifically focused on some specific verbal data. It is, for example, so in philosophy or other kind of, for example, humanistic field of study. So I assume every type of subcategories of open science that you told, they will be attributed to linguistics.
+
+Interviewer: Yeah. I mean, I'm going to continue to use the term open science. Feel free to use whichever term you like. And it's just to be aware that these other terms are around. And now I'd like to talk about your own experiences. So you're more towards the start of your career as a linguist, but you have been involved in research processes. And so my question would be, have you taken part in any open science practices yourself? And if so, which ones?
+
+Interviewee 15: Yes, the data that I have collected is part of a, to some extent, bigger program, which is PROJECT. And then we collected data for different linguistic, different languages. It is PROJECT. We collected data in different registers based on the same paradigm. Then we are preparing the data in a way that it will be completely accessible for anybody. Up to now, whatever we have done is completely accessible online. And then the next plan is to do universal dependencies. And again, it will be again available to everybody.
+
+Interviewer: Wow, yeah, that's great. And so, to a certain extent, you've already told me this is part of a larger project, but still, my next question is, where did you learn about these practices? Like, where did you learn about open data, for instance?
+
+Interviewee 15: If you mean a specific place that I learned from, I'm not sure.
+
+Interviewer: Where did you hear about them? People are not all aware of this, but you are. So my question is, how come?
+
+Interviewee 15: Yeah, practically, step by step, it started from COUNTRY, to tell the truth, when I was doing my MA, because I did a kind of anthology work. I developed an anthology for a specific subgroup of linguistic COUNTRY concepts. And then I got linked to a group that they work on a big project. It is called PROJECT, which was done parallel to PROJECT.
+
+Interviewer: Yeah.
+
+Interviewee 15: So the start of being familiar with how important is it not to keep your data in your PC and let others to use it started from 10 or 12 years ago when I was doing my MA. Step by step, when I was more into linguistic and specifically linguistic data, I got aware of it. But specifically about the term of open science and replication, really, I got it through your project [ReproducibiliTea in the HumaniTeas].
+
+Interviewer: Oh, okay.
+
+Interviewee 15: Really, because I have heard about replication and something like that, but not in that fine grained and systematic way. Yeah.
+
+Interviewer: Okay, interesting.
+
+Interviewee 15: Yeah, I had the privilege of taking part in some ReproducibiliTea sessions last semester. I hope I can attend others too.
+
+Interviewer: Yeah, you'd be very welcome. In fact, it's as if you could read my questions because the next question is about ReproducibiliTea in the HumaniTeas. And of course, you have attended some sessions. So my question would be like, what was your motivation for attending? And what did you gain from the sessions that you have attended?
+
+Interviewee 15: To tell the truth because I finished my master some years ago as I told you and there was a gap between that I was in academy. Then because of having children I continued working as kind of administrative job. Then I came back to university again. This concept of replication was a bit interesting for me because I have never thought about it really. I was aware that it's good that we can use other people's data, but the idea of replication was not, to me, so legible. Because I had this idea in my mind that some people just, even some students, sometimes, because of laziness, they just imitate another paper. And then for me, it was not a good scientific work. When I heard about replication and when I saw the program in that fine grained way, it came to my mind that you are going to talk about something which is completely a good scientific work. Then I searched and then I thought, okay, no, it's great. Yeah, it's great. It's a way just to do it systematically, very clear to mention which part of a paper I am using, which part I am not using and which part I am going to improve, which is the base of whatever we are doing in science. We set our question based on whatever has been done before and then we continue. Yeah.
+
+Interviewer: Yeah, interesting. Yeah. And now I'd like to move sort of away from your personal experiences and beliefs and trying to think about linguistics more broadly, but you're welcome to think of sociolinguistics and corpus linguistics, you know, whichever subfields you're most familiar with. My question would be as far as you can tell, how widespread are open science practices in linguistics at the moment?
+
+Interviewee 15: I don't have any kind of exact statistic in my mind, but it seems to me that it's not that widespread yet. It has started, as I said in the beginning of our talk, that it seems to be a new movement, a new kind of trend and even fashion to some extent. But it is not that widespread. For some people, still, I see even those that claim that we are into it, they try to keep some of their data for themselves. I completely see it and feel it. And, in some countries, if I try to think globally, I'm not aware of many countries, but I'm coming from COUNTRY. In COUNTRY, I know that it is similar to COUNTRY. It is new. And if I want to compare, even it is less widespread. Just some universities and some scientists and scholars are trying to publish their work openly make it accessible to others. In my idea it's not that widespread yet.
+
+Interviewer: Okay yeah interesting and you mentioned so open data, open access publication, would you say those are the two open science practices that linguists are most aware of? Or are there any others that people are more aware of?
+
+Interviewee 15: Yeah, maybe they are those that I am aware of. Because two important pillars in open science in my idea is open data and another one is open publication. Because again, it's an issue. Specifically in some countries that they have difficulty to access to open net or something like that. I remember back from my country that sometimes it was an issue really to find a paper. And sometimes it pushed scholars, unfortunately, to find paper through illegal ways, although they were not happy with it. So when everything will be openly accessible to everybody, some day, it's great for science.
+
+Interviewer: Yeah. And you've said that uptake of open science practices in linguistics is relatively low, at least in COUNTRY and in COUNTRY, the countries that you're familiar with. What do you think could be done to increase this uptake?
+
+Interviewee 15: It's a bit difficult to say because I know that those who are not interested in open science, they have some kind of economical and something or even professional kind of things in mind. But encouragement at the moment just comes to my mind.
+
+Interviewer: What kind of encouragement?
+
+Interviewee 15: Just awareness, making people aware that how beneficial it is in the long run. Because when we think in short run, we think about ourself and we think about our personal benefit and there is no benefit in it really when you think these short term and just personal. But if we try to think a bit more global and more we take a distance from ourselves and we think about it in the long run, then we can see the benefits. Because in the long run, okay, nowadays as a PhD student, I do something when it is open to others. And then if it will be a trend later, I benefit from the others too. So awareness is important, specifically for master's students, young or junior PhD students that it is difficult for them to see the broader picture. Yeah. It's important to make them aware.
+
+Interviewer: Yeah, great. And open science is a movement, I mean, we've called it a movement, right, which goes across all kinds of disciplines. And my question would be, do you think that there are any specificities about linguistics that need to be taken into consideration when we think of open science practices? Do we need to adapt them, you know, for linguistics in some way?
+
+Interviewee 15: I'm not sure how much linguistics is different from other disciplines with regard to data, but it seems to me in the field of sociolinguistics, the more, it seems to me, I'm not sure really, that people are working more with data. And working with data is really time consuming. If you want to adapt open science for linguists, we may, for example, try to improve these, not scientific, but if we can call them platforms. That is easy for, for example, master's students, PhD students to handle their data. Step by step, they come into these process of open science in general.
+
+Interviewer: Yeah. And what would you need personally to do more open science?
+
+Interviewee 15: Personally, when I think about myself, this way that I have been integrated in this project and I get help from others when I am, for example, processing my data is good. And so if I can have this kind of support, the possibility of working in team and developing our data together, learning from each other, learning how to use different tools is great. So, yeah, if I can have this possibility, this is really beneficial for me.
+
+Interviewer: Yeah, interesting, collaboration is important to you, then.
+
+Interviewee 15: Yes, exactly, collaboration.
+
+Interviewer: Yeah. One final question is a bit of a personal one. I sometimes have the feeling, you know, I co-organize ReproducibiliTea in the HumaniTeas and various other things. And sometimes I have the feeling that all of these initiatives only ever preach to the converted. Do you know what I mean? We speak to people who are already convinced and we're not reaching linguists who are not interested or not aware or against maybe open science. How could we reach out to more people?
+
+Interviewee 15: It's a good point. Yeah it's an issue that if in the first spot people do not agreed, they ignore it. Difficult.
+
+Interviewer: Yeah what do you think are the reasons for resistance? Where there is resistance
+
+Interviewee 15: Isn't it financial? Because, for example, I see that those people, that their papers, for example, are not accessible. They get money. Different platforms, okay? So I'm not sure, but if, for example, universities can handle it in a way that. It's very ideal. But by providing the authors or scholars with some kind of financial support in exchange of getting their, for example, papers or something like that to be openly accessible, it may help those who are thinking about financial aspect of publishing a paper or publishing a book.
+
+Interviewer: Yeah, that's really interesting. Yeah, that was the end of my questions. Is there anything else you wanted to say on open science in linguistics or the humanities more broadly?
+
+Interviewee 15: No, thank you. I'm happy to get familiar with you and to get more familiar with this issue. And I hope that my answer has been beneficial for you.
+
+Interviewer: Certainly, yes.
+
+Interviewee 15: I haven't thought about anything because you said no preparation.
+
+Interviewer: No, no, I just want your immediate thoughts. Thank you so much. I'll stop the recording.

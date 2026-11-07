@@ -1,0 +1,101 @@
+Interviewer: So thank you very much for agreeing to this interview, PERSON. And we've already discussed this, but this interview is being recorded and it will be transcribed by myself and my student research assistants using a local large language model. Is that okay with you?
+
+Interviewee 10: Yes.
+
+Interviewer: Brilliant. And so the aim of this study is to study open science practices in linguistics. And so my first question would be, where do you situate yourself within this broad field of linguistics?
+
+Interviewee 10: So what are my interests?
+
+Interviewer: Yeah what kind of disciplines have you been involved in?
+
+Interviewee 10: Mostly I think yeah in the like the general linguistics in the field work and typology side and then also a little bit of corpus linguistics, but yeah I haven't done too much with that, but yeah.
+
+Interviewer: Great. And we're going to start with your personal beliefs or personal associations. So what do you personally associate with open science? What springs to mind when you hear open science for linguistics?
+
+Interviewee 10: Um I think of first of all yeah one part is like open access papers. So yeah just being able to access them and read them openly. That's the one side and the other side yeah that's Yeah first in mind I shared data. So yeah it's yeah. People collect data that this is made public. Um yeah either on, I don't know, GitHub or other platforms or yeah, so yeah.
+
+Interviewer: And I said, I spoke of open science, and that's how I sort of introduced this project. But linguistics is traditionally considered a humanity. And in the humanities, some people prefer to speak of open research rather than open science. And others prefer to speak of open scholarship, which is often understood as an umbrella term to include open science slash research. And open education as well. And I was wondering whether you had any thoughts on this terminology, where what do you think is most suitable for linguistics? I'm going to put the terms in the chat so you can look at them.
+
+Interviewee 10: Yeah, I mean, I think it's a tough question with, I know of the discussions around if linguistics is like only a humanities field or I think it maybe sits on the like just on on the cusp like it connects like the humanities and natural sciences. So I, I mean I’m, I haven't read much about it but I would say open sciences is a valid way to refer to it. Um and maybe yeah, I'm not too familiar with the subject. So I would say it would make sense to refer to open sciences just as open sciences, because then it is comparable to other fields who call the practice open science. But yeah, maybe there are some reasons to have another term.
+
+Interviewer: Yeah. I mean, I will continue to use the term open science, but feel free to use whatever term you prefer. And you should know that I understand it as a very broad term, as an umbrella term that covers all of these things. So now I'd like to talk about your own experiences. So either in projects that you've done as part of your studies or projects that you've been involved in as an assistant somewhere. Have you taken part in any open science practices?
+
+Interviewee 10: Um, actually only a little bit with, I think, yeah, the project that I did with PERSON. So the, little, yeah, the script that we wrote, where you can, yeah, import, data from ELAN files into R and work with it. And we, yeah, published that, on its own GitHub page. Um but other than that I don't think I really have come in contact with it myself. Um yeah I mean I’m working as a student assistant at the department of linguistics and I also yeah help in with work with projects, but yeah I’m more of a, I don't know, we do the annotations and transcription of files, for example, in videos. But yeah, as students assistants, we are not really in the process. Yeah, in the later stages where, yeah, the, I don't know. Where the people of the project decide whether they will make the data publicly available or something like that. So I'm not really familiar.
+
+Interviewer: Sure. And have you used data or code that other linguists have published? Or materials for that matter? I mean yeah just generally.
+
+Interviewee 10: Um I don't think I have actually so far, I mean only yeah when I was in your course. Uh just last semester when I looked at for my presentation looked at some code but I haven't really worked with anything. I think yeah yeah.
+
+Interviewer: And thinking back to this project that you did with this friend where you published a package, an R package. Yeah, it's an R package, isn't it? And you've published it on GitHub, so it's open code. Where did you like find out about this practice. So what, how did you come up with this idea of actually publishing it? Presumably it would have been enough to hand it in as a seminar paper, seminar project, and then job done. But you made that extra step or you took that extra step. What motivated you?
+
+Interviewee 10: This was also the first time I got into contact with GitHub. I didn't really know about it before. It was actually my friend, PERSON, who proposed that we could work on GitHub together and he showed me how it works. And yeah then we had a talk with PERSON. So yeah our I don't know professor from this seminar yeah and she yeah said that it was a good idea to actually publish it if it works and it did. So yeah this kind of was
+
+Interviewer: Yeah by encouragement.
+
+Interviewee 10: Yeah
+
+Interviewer: Wonderful. But just to clarify, it wasn't a requirement or was it a requirement?
+
+Interviewee 10: No, as far as I remember, not. It was optional for us.
+
+Interviewer: Yeah. Yeah, and then I wanted to ask you about ReproducibiliTea in the HumaniTeas, because I know that you've attended a few times. And my question would be like, what was your motivation for coming to these sessions? And what did you gain from them? And what would you like to gain from such events?
+
+Interviewee 10: Um, so, I mean, I, I heard of the series from you and, I, yeah, my motivation was that I haven't really, hadn't really, I mean, I knew of some of the issues surrounding this broader topic but I hadn't had never really read anything about it or discussed it or yeah I didn't really know much about it. So yeah that was my main motivation because I think it is important and important to talk about it and I mean, I also did my Bachelor's at INSTITUTION and now my Master's. And yeah, there weren't really any classes where we talked about it then much or intensively. And so I thought this series is a good way to start to get into the topic and the problems.
+
+Interviewer: What kind of issues are you referring to here?
+
+Interviewee 10: So for example, what I found really interesting was, I can't really remember who did the session. But we once talked about open access articles and how accessible they really are. So even if other people can yeah access them without paying anything? Are they really accessible for for everyone? Um and yeah should we like write another version of this article maybe for lay people? Um so this was really interesting and a topic I’ve never thought about before like that. And also, yeah, talks about reproducing other studies and how it is still a little bit looked down upon by some people. And yeah, it doesn't have as much prestige and how important it is actually. Yeah.
+
+Interviewer: Yeah, it's very interesting. And if you think of what, like in an ideal world, what kind of sessions would you like to see? What would be helpful for you as an MA student, maybe going forward to carry on doing research in linguistics in the future?
+
+Interviewee 10: I mean what comes to my mind is I'm not sure if it's possible but maybe a more if we had like one or two sessions which would be more practical. So more like a workshop where we maybe discover like platforms like GitHub and others. I'm sure there are others out there but I really don't know. So how yeah where to start if I had something that I want to make public and maybe things I have to think about? I'm not sure. Yeah if it's possible yeah.
+
+Interviewer: Yeah no it's definitely yeah. I mean for now we're just thinking in an ideal world you know yeah anything's possible but
+
+Interviewee 10: Yeah true but yeah. So maybe something on the yeah practical workshop side. Yeah, so what is required? Like yeah all these forms of consent maybe also if you're working with data from yeah other people and yeah.
+
+Interviewer: Sounds good. We're now going to move away from your personal experiences and associations and try to think about the linguistics field more broadly. And so from your own, I mean, still from your own experiences, as far as you can tell, how widespread are open science practices in linguistics at the moment?
+
+Interviewee 10: I don't think very much. I have the feeling it's changing a little bit. So, yeah, especially if, for example, I'm reading more recent papers, they are often, yeah, do have the data available, but not yeah, from my experience, it's not very widespread to be able to look into the data.
+
+Interviewer: And apart from data sharing, which other open science practices have you seen being done in linguistics? Or in typology, you're welcome to think of a field that you're more familiar with, a subdiscipline that you're more familiar with. 
+
+Interviewee 10: I'm not really sure. So what are the questions? What are other practices?
+
+Interviewer: So you could think of open code. Open materials would be things like sharing questionnaire items or stimuli in an experiment. Then things like, well, open access publication and also a pre-registration. And also another aspect we haven't talked about, but would be sort of open communication. So what you were saying, communicating with lay people or with other people of interest, teachers in the context of language teaching research, that kind of thing.
+
+Interviewee 10: So yeah I think maybe what I've seen the most then is yeah open access like articles but yeah also not, not enough I would say. So there are still some yeah articles that you can access yeah but this is I think the most and maybe sharing of like yeah questionnaires and stuff like this. So I think yeah these are maybe the most I’ve come across. But yeah, I think not enough.
+
+Interviewer: So, yeah, you've just said not enough. What do you think could be done to increase the uptake of open science practices in linguistics or in the subdisciplines of linguistics that you are more familiar with?
+
+Interviewee 10: Um so I think maybe I mean there are obviously always the like bottom-up and top-down approaches but yeah from the bottom-up I think it's great if I mean I know that like curricula are already very like full and you only have so much time. But if yeah maybe I already bachelor students would come into contact through courses with these issues. And if the importance is stressed that open sciences are important, then maybe this would be a way to change that. So if already the young students know these issues and problems and also solutions and how you go about it I think yeah this could change a lot.
+
+Interviewer: Yeah so you're advocating more or your feeling would be that a bottom-up approach would be more successful. Is that what I'm hearing?
+
+Interviewee 10: Yeah so I mean it's a long-term thing of course but yeah I imagine if, I don't know, maybe there would be just even if it's just one class that everyone has where you talk a little bit about those things. And also, yeah, I mean you could tie it with statistics as we did. But yeah I think that would be really helpful and maybe as a like term paper option you could opt to replicate another study. So, yeah, I don't know I was introduced to it fairly early but it could.
+
+Interviewer: Yeah yeah. And do you think there are any specificities of linguistics or, as I say, typology research or field research in linguistics that ought to be taken into consideration when trying to promote open science practices?
+
+Interviewee 10: So you mean like subfields that are, where it's more difficult?
+
+Interviewer: Yeah, I'm thinking so open science is across all sciences, right? So it's very pushed forward by psychology, but also medicine, biology. And my question is, are there in linguistics some aspects that are different that mean that we need to adapt open science practices for our field?
+
+Interviewee 10: Ah ok, never really thought about it, but interesting question. I mean, one thing is obviously we are most working with data. For example, when you talk about data sharing, we're talking about data from people. But I think, I mean, in psychology, we have the same thing. And there are steps and rules that are in place, which you have to take. But I'm not really sure. Yeah, I've never really thought about it. Yeah, so maybe I'm not sure I have an answer to this.
+
+Interviewer: No worries. And maybe, you know, maybe there are no differences or no specificities.
+
+Interviewee 10: It's good to think about that.
+
+Interviewer: One worry that I have is I have sometimes the feeling that open science advocates in linguistics, but actually in other fields too, tend to preach to the choir as in we are speaking among ourselves. We're all convinced that this is a good idea, that we should be open, but we're not reaching out to the people who aren't convinced yet. My first question would be, do you share that feeling? And if so, what can we do to reach out to more linguists? The ones that don't know anything about open science or aren't involved in any open science practices at the moment?
+
+Interviewee 10: Yeah, that could be a problem. I mean, maybe I mean, I think that lecture series like ReproducibiliTea are very good because anyone can come and it's kind of a low-effort thing. But yeah, also I mean, yeah, that's coming back to the bottom-up approach. I mean, for future linguists to teach that early on, but people who are, yeah, have been in the field already for a long, long time or some years. Yeah, maybe. Yeah, I think talking about it openly and having discussions, I don't really know if there's much we can do otherwise. So if these people just don't want to, yeah, don't want to then we can't force them. Obviously but maybe I could imagine that for some of them at least or maybe the majority they maybe they just kind of are too unfamiliar. So it's maybe not that they explicitly dislike open science practices, but maybe they just don't have an idea where to start. Yeah, and then they leave the whole topic being. So, yeah, maybe Yeah, I think these kinds of lecture series and workshops, I mean, yeah, of course it's not mandatory, but yeah, that's a good idea.
+
+Interviewer: Well, thank you. In effect, that was my last question, but is there anything else you wanted to add on open science and linguistics or in the humanities more broadly?
+
+Interviewee 10: Don't think so, I yeah, I’m not sure. I don't have yeah any more thoughts. So yeah maybe just I mean that's obviously from my perspective but I I had yeah wished that I had come into contact with this topic earlier in my studies so I could. I mean. I mean, it's not too late, I think. But yeah, I would have found it interesting in my Bachelor's studies to just get to know the issues and what falls under open sciences and what can be done about it and tools. But yeah, I'm doing it now.
+
+Interviewer: Yeah, it's good to know that you have the feeling it really should be very early on the Bachelor level.
+
+Interviewee 10: Yeah, I think so. I mean, of course, not everyone who does a bachelor in linguistics is going into academia. But I mean, still, if people are, I don't know, going into like journalism, journalism yeah, yeah or other kinds of, I think it's still important to to know this and maybe they will come into contact with articles that they read for their work.
+
+Interviewer: And yeah that's a really good point. Yeah great I'll stop the recording here then. Thank you ever so much. Let me find my mouse.

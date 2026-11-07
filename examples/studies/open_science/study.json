@@ -1,0 +1,32 @@
+{
+ "schema_version": "1.0",
+ "record_type": "study_definition",
+ "study_id": "open_science",
+ "title": "Semi-structured interviews with linguists about Open Science",
+ "purpose": "General example corpus for Plan #8 (docs/plans/008_finish_workbench.md); an example, not the product's purpose.",
+ "source": {
+  "kind": "zenodo",
+  "record_id": "17630137",
+  "doi": "10.5281/zenodo.17630137",
+  "url": "https://zenodo.org/records/17630137",
+  "creator": "Elen Le Foll",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "consent_statement": "The interviewees consented to the interviews being recorded and to the anonymised transcription being published on an open repository (00_README.md, 'Data collection').",
+  "document_pattern": "^A[0-9]{2}\\.txt$",
+  "extra_files": ["00_README.md", "OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv"]
+ },
+ "human_coding": {
+  "file": "OS_Interviews_Coded_Passages_OpenQDA_12_11_2025.csv",
+  "coder": "Elen Le Foll (the corpus author), exported from OpenQDA",
+  "delimiter": ";",
+  "columns": {"file": "file", "code": "code category", "text": "selection", "start": "start pos", "end": "end pos"}
+ },
+ "qualitative_producer": {
+  "producer": "qualitative_coding",
+  "repository": "BrianMills2718/qualitative_coding",
+  "grounded_theory_path": "public_demo_assets/open_science/grounded_theory_full_corpus.json",
+  "project_state_path": "public_demo_assets/open_science/project_state.json.gz",
+  "text_normalisation": "line endings: CRLF and CR read as LF before offsets are counted"
+ }
+}

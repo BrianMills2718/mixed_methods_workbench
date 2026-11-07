@@ -1,0 +1,243 @@
+Interviewer: Thank you so much for taking the time and for agreeing to this interview.
+
+Interviewee 08: I don't know how much I can help. I can say a few things from my experience.
+
+Interviewer: Yeah, and all the perspectives are interesting, actually, so I'm really looking forward to it. You sent me the form of consent back, right? So as a reminder, this interview is being recorded and will be transcribed by myself and my student research assistants using a local large language model. And is that still okay with you?
+
+Interviewee 08: Okay, yeah, that's fine. Yeah, yeah. I used to be in the ethics committee for a couple of years, so I'm very, very aware of everything. Anyway, yeah.
+
+Interviewer: Yeah, so this is about open science practices in linguistics. And my first question we'll begin with your personal associations. And so my first question would be, which, because linguistics is such a broad field, which subdisciplines of linguistics do you situate yourself in?
+
+Interviewee 08: Well, in terms of methodology, it's corpus linguistics, and that's, I think, where I'll be commenting on on sharing data. In terms of subject matter, it's either PROJECT or what's called PROJECT.
+
+Interviewer: Yeah. And we'll start, as I say, with your personal beliefs. And what are your personal associations with open science? Like what springs to mind? What is open science to you?
+
+Interviewee 08: Well, that comes from my sort of personal experience. I mean, the way I understand it is being able to share data. So because, you know, I'm I have personally compiled spent months compiling corpora that are not accessible to anyone else. And then these corpora, because they tend to be time-specific, then they become useless a few years later. I mean, you could revisit them for historical purposes, but, I mean, my experience is mainly with corpora of newspapers. And that's where copyright comes in.
+
+Interviewer: Yeah.
+
+Interviewee 08: So I remember that my first ever experience was I was still a PhD student, you know, financing my PhD, working as a research assistant. And we built this huge corpus of PROJECT newspapers in PROJECT. It was the PROJECT. I think it was one of the first. And we used, can I use brand names in the interview?
+
+Interviewer: You can, we'll be anonymizing them.
+
+Interviewee 08: So we used PROJECT. And I had to download these articles from PROJECT. INSTITUTION had a license so that that was legit. Yeah the thing is they had no idea what corpus linguistics was. They had no idea what we would do with the articles. And because it was a one-year project I think I had to download the articles and then clean them up and create the corpus as quickly as possible. So that was me there, you know, coffee, coffee, jazz in the background and, you know, Monday downloading, putting a nice, you know, per newspaper, per year folders so that we can then sort of, you know, upload them and create the corpus. And about three months before I could finish, we got a very, not exactly aggressive, but you know, very close email saying, what are you doing there? Stop now. What are you going to do with all these articles? So the principal investigators dealt with that. I was sort of copied to the emails because I had to cease and desist, no more downloads. And this is why the corpus is not PROJECT. Because they thought we were infringing their copyright, that we would, I don't know, what they thought, sell old newspaper articles? I mean, it was, of course, before the, you know, most newspapers became, you know, online and online versions. So we had to explain that we would not sell anything. It was just for academic research and it was basically for our eyes only that would publish sort of excerpts examples from some of them. We're talking about tens of thousands of articles and they said yes but once the project is done you need to delete whatever you've downloaded. So for years, I had emails, we had emails from other researchers saying, oh, you know, I saw your paper on this. Can I have access to the corpus? And we had to say, sorry, you know, it doesn't exist anymore. Which means, you know, if we want to revisit it, if we want to revisit the analysis, maybe compile another corpus. You know, PROJECT current years, because that was back in YEAR. We can't do that. And this is the case with every other corpus I've compiled. I can't really share it with anyone. I mean, this is the, I don't know, the sad side of it. I see another side in reproducibility because, okay, this is going to be a bit of a, I don't know, coming from a left field, so to speak. But quite a lot of research is published. And there's no way, even for the reviewers, to tell whether the results provided are warranted. No one can check because the data is hidden. So that's, to me, that's another side of open science. The checking, the reliability of results. No one can check, no one can, ah, what's the word?
+
+Interviewer: Reproduce?
+
+Interviewee 08: Reproduce. So I've been reading that there's a couple of Facebook groups on psychology PROJECT. They have what they call the reproducibility crisis because people try to replicate results and they find something very, very different. There's the p-hacking side as well and in linguistics we don't even check. We may have a reproducibility crisis but no one has looked. And we can't look because no one can have access to each other's data. I mean I know that in some disciplines there are online depositories of data that are open access. I think that would help quite a lot. You know, sometimes, not sometimes, I mean, almost always, any messiness is hidden. So it would be nice to see the messiness, you know, acknowledge the messiness. But, you know, a corpus might have I don't know, duplicates, because, you know, the cleaning method, you use regular expressions, you clean headers, footers or whatnot, but you clean other things as well. I mean, a friend of mine is a programmer, you know, that's his job. He's not in academia. And he taught me the expression, you have a problem. And you come up with a regular expression to solve it. Now you have two problems. And I've seen it because I do manual annotation. My methodology involves quite a lot of slog. And I've seen it, you know, half a sentence missing. Words, you know, you do a find replace. And, you know, it works. 95% of the time you replace what you want, but you replace other things that your regular expression didn't include. But I don't think that's a problem. If you have a hundred million word corpus, a few words being misspelled or truncated won't change the result. If a pattern is there. And if you use the statistical significance checking appropriately and wisely, then you can't get results, you know, skewed just because of, you know, two, three, four, five percent of these words have been, you know, changed a bit or removed.
+
+Interviewer: I wonder, because corpus linguistics is specific that we very often work with copyright data. Yeah. Are there any other ways in which we could share maybe secondary data to ensure some reproducibility? Like we often can't have the full pipeline being reproducible because we can't publish stuff for newspaper articles. But would it be possible, like, have you seen this happen where people share sort of secondary data that allows some reproducibility?
+
+Interviewee 08: Well, I mean, I'm not, I don't understand what you mean by secondary data. Is it like...
+
+Interviewer: For example, word frequencies, if that's what people are working with.
+
+Interviewee 08: Oh, right.
+
+Interviewer: Concordance lines, if that's still within the copyright, you know.
+
+Interviewee 08: I'm not sure about that because the way I work is with random samples. When you've got large corpora you can't, so we might have, I don't know, semantic groups of collocates.
+
+Interviewer: Yeah.
+
+Interviewee 08: You know, linked by semantic preference that we then get random samples and we manually annotate those. I'm not sure whether we can share that. We can share the annotation scheme.
+
+Interviewer: Yeah.
+
+Interviewee 08: Usually it's like a very elaborate, long document. I remember a couple of years ago oh names. Sorry. Works with corpora and sort of newspapers. PERSON. I can't remember her first name.
+
+Interviewer: PERSON, no?
+
+Interviewee 08: Yeah right she shared bits of their annotation scheme. And it was great because I thought, wow, there's someone else doing that. There's someone else spending days creating this and going back and forth. But I've never come across the full annotations being published. I know some journals ask for supplementary materials to be submitted, but usually it's optional. I'm on the board of PROJECT. And we encourage people to submit data if they can, but we don't make them.
+
+Interviewer: How many do it, roughly?
+
+Interviewee 08: Very few.
+
+Interviewer: Very few.
+
+Interviewee 08: Very, very few. I mean, look, again, maybe I should have started with that. I'm a cynic. Okay, so, keep that in mind. I mean, if you submit something in a journal and there's a proliferation of journals, right? And the journal says, oh, you know, in order to accept it, you must submit this, that and the other. Well, go to another journal. You know, a journal that is a bit more friendly in that respect. So unless, I don't think there is a way to get everybody to agree. And I'm not sure there is a way to make it compulsory by law. So I don't know if there is a solution. I know there are sort of groups of people in particular disciplines who are very much into the sort of sharing. I know coders share code. But no, I don't know. But yeah, it would be great if we could share random samples because they are a very, very small subsection of the whole thing. But I don't know what the law is in that respect.
+
+Interviewer: Yeah. And what about sharing code? Because you just mentioned that. Is that a practice that you're familiar with, either having shared code or having used code that people have shared?
+
+Interviewee 08: Well, I don't code. And I sort of only dabble with regular expressions with help from people who know. But I've got sort of a bank of regular expressions I use for my, sort of the other, not the discourse studies side, the PROJECT side. And I've shared those with PhD students. I've shared those with colleagues who've emailed me. You know, I saw your paper and you say that you got this via these regular expressions. You know, I send them the regular expression with a key, you know, what it means in case they don't know. But it's more in terms of, I don't know, one-to-one interaction. There's no repository where, you know, people can submit regular expressions. The other thing is regular expressions might work in CQPweb, but they might not work in the same way in Sketch Engine. So it's what I call the PC-Mac division. So, you know, you need a different language to speak to CQPweb. And to clarify, my experience is in getting PROJECT.
+
+Interviewer: Yeah.
+
+Interviewee 08: Okay. Rather than just getting if with different syntactic functions. And, you know, I can help people if they want to do that.
+
+Interviewer: Yeah.
+
+Interviewee 08: I have modified it, again, with help from more knowledgeable colleagues to getting other lexicogrammatical patterns. With, you know, some good level of accuracy. Cleaning is needed anyway. But as I said, this is done by just, you know, someone sends me an email saying, oh, can you help? But I'm not aware of any central repository of regular expressions that people have used and people can adapt to. We, I mean, in linguistics, we tend to be very insular and sometimes protective of our data. I don't know if somewhere there is a mentality, you know, I spent months compiling this. Why should you have it? But I don't know.
+
+Interviewer: Yeah. We've mentioned open data, open code or methods. I mean, regular expression is certainly a method if it's maybe not programming in the broader sense. Another aspect of open science that people often think of is open access. So publishing in open access. Is that something that you've got experience in or thoughts on in linguistics?
+
+Interviewee 08: I'm all for it. I mean, the journal I'm working on is open access. And open access, I think, I can't remember now, is it diamond open access?
+
+Interviewer: Yeah, it's diamond.
+
+Interviewee 08: When no one pays anything. But of course then, everybody working for the journal works for free. So, I mean, to me, it's this practice of academics working for publishers for free or peanuts. I have almost stopped doing book reviews because I read the offer and it's insulting. Did I do it? Yes, I did it when I needed to enrich my CV. After a point, apart from contributing to the academic community, where is the reward? Your name is not even mentioned. No one says this book got reviewed by these people. Sometimes authors thank the anonymous reviewers, but again, where is the credit? And then they give you, I don't know, something like 200 pounds or twice that in books or something like that. No, it's, and then you try to, you know, to buy a book and a monograph can be over a hundred pounds.
+
+Interviewer: Yeah.
+
+Interviewee 08: So, if your library doesn't have it and it doesn't have sort of interlibrary loan, why can't academics own books? We write the books, we review the books, and then sometimes they're too expensive for us to buy. They're a luxury item.
+
+Interviewer: Yeah.
+
+Interviewee 08: I know libraries have to buy packs. You can't just say, I want this book. No, because this book comes with these other five books and maybe two journal subscriptions. But that is the package. Take it or leave it. So it's, I mean, again, can we all coordinate and say, right, that's it. No more reviews. No academic ever in the world says no reviews. We can't. There's no way to communicate and convince people. How do you convince someone who just finished their PhD? They're desperate to find a job. They will do any reviews. I did. To make a name for themselves. So how can you ask these people to not do it because it's not, I don't know, profitable for you anymore. I don't know how to put it. So it's a system where academics, we sometimes even do research in our free time. I know this is not relevant to what we're talking about, but if you look at the context, then the sharing the data sort of side of it. Might be seen, as I said, you know, I spent time and effort to create this. Why should I give it for free? We give so much else for free.
+
+Interviewer: But it's interesting that, I mean, there are some alternatives, for instance, in open publishing. You mentioned the journal, the diamond OA journal that you work at. And there's LangSci Press, for instance, for open access books in linguistics.
+
+Interviewee 08: Yeah, yeah.
+
+Interviewer: But these are still like the major publishers remain and the high reputation journals, I think it's fair to say, remain with the big publishers and the paying open access, if any. Yeah, what could be done to make that change?
+
+Interviewee 08: I don't know if like a major campaign would change that. Maybe to me what's more effective is talking to people you know over coffee yeah and and making your case but I need to go back to open access because open access has been given a bad name. Yeah because of the predatory journals and because people don't really know what open access is because it's it's a polysemous term open access. Yeah okay so a journal can present itself as open access in the sense that the reader doesn't pay anything, but then the author pays. And when the author pays, then we move into vanity publishing, really. I know someone who published their MA dissertation in one of the many German vanity publishers. I mean, PUBLISHER started this way. It evolved, but others haven't. So, I can't remember, it was PUBLISHER, or something like that. And, you know, I tried to prevent him from doing that. That was years, years ago. Because he wanted to show publications in his CV. Yeah and then he showed me the book which was print-on-demand. Obviously right they published it in exactly the same format that he sent it to them. Oh wow it looked like an MA thesis double spaced in word. And he paid for that.
+
+Interviewer: Yeah.
+
+Interviewee 08: So I know in countries that won't be mentioned, you get points for every publication. And when you reach a level, you get promotion or some sort of, I don't know, salary increase.
+
+Interviewer: So regardless of the quality.
+
+Interviewee 08: Yeah. Because they don't check whether it's a predatory journal.
+
+Interviewer: Yeah.
+
+Interviewee 08: I get invitations for that. And I sort of, I go to, or maybe used to, now that I know, I've stopped. So they offer a response, a decision within two to six weeks.
+
+Interviewer: Yeah. The dream.
+
+Interviewee 08: There's no way. Because when I get, you know, invitations for something, invitations, to review, usually they give me three months and then I ask for another three because I don't have the time. So, and I know from other colleagues who've tried that, the review is something like a paragraph. Yes, this is a very good paper, some typos, but yeah, that's fine. Why? Because that's the system they have. It's a money-making business.
+
+Interviewer: Yeah, I mean, I think from what I've heard also in previous interviews, open access has had a bad name, not only with these obviously predatory journals, but also with the fact that it's very, very expensive with reputable companies, you know, the big ones. And for many, open science is only that. It's those open access fees that the authors or their libraries end up having to pay. Yeah, and I don't know what your thoughts are on that. Like, should we not be paying them at all? And in that case, rather go for closed access, but with a reputable journal or go the diamond and opt for these journals that are completely free for everyone?
+
+Interviewee 08: Well, OK, it's going to be a long answer. So bear with me. I mean, in the beginning, right, publishers had to actually print the journals. So they had expenses. They had to have printing plants, buy paper, pay people to do the type editing or whatever, you know, movable print even. So yeah, I would understand that the publisher would need to make a profit, right? And journals, by definition, were expensive. Books, same thing. But now, we have print-on-demand. And I haven't set foot in my library for a few years now because everything I want is online. I can access the library online. I can read ebooks, download chapters, you know, if my library doesn't have it, you know, I can email the author, I can go to academia, I can go to ResearchGate and get what I want. So why do we still pay these fees for the journals when they don't actually need to print anything? Yes, someone needs to do the equivalent of the typesetting, someone needs to format it. But we're talking about a fraction of the price. So even if we look at it in a sort of, I don't know, free-market context, it's too expensive. And it's too expensive because it's a, it's not exactly a monopoly, it's an oligopoly. You know, they actually, I think there is a better term for that. You have all the publishers. There's like a trust, I think it's called. Trust, not in the sense of trusting someone. So my first degree was in PROJECT. I'm trying to remember some of the terms. So basically they agree with each other to keep the prices high. And any competing journal like the one I am on relies on free labor from everybody.
+
+Interviewer: But so do they, right? They also rely on our free labor.
+
+Interviewee 08: They do, but they ask for money because of tradition. That's what I'm trying to say. Because traditionally, costs existed much higher than now. They can justify it. They don't need to justify it. It's just, you know, this is the way things have been. Yeah. So they remain. Something else I wanted to say. God. Same, sorry, same with books. Why print I don't know, 10,000 copies. Hardback?
+
+Interviewer: I don't think they do that anymore.
+
+Interviewee 08: Sometimes they do. I see colleagues presenting their books at the university and they're hardback, hardcopy. And to me, again, this goes back to tradition. This goes back even further. Back when books were a luxury item. And, you know, you needed well-bound books because otherwise they would wither and die. Again, we don't need, I mean, do we need hard copies? Yes, because if, I don't know, the Armageddon comes, and every computer is wiped out, every hard disk is wiped out, right? Then you would need these copies. So yeah, maybe some central libraries or even university libraries can have one copy of each publication and that's it. And it doesn't need to be a fancy copy, just a record of what has been written. It doesn't need to look good. But in order for that to change, you know, people's attitudes need to change. Sometimes I, I don't know, I see what I call a book fetish. You know, you have to hold it. Okay. I mean, I grew up with, you know, to move to another area with, you know, the vinyl records. You open the gatefold, you read the lyrics. Fine, I got over it. And now all my music is online. You know, my LP collection is in COUNTRY. My CD collection is over there. You might be able to see it. But I've stopped.
+
+Interviewer: You've stopped? Oh, I still listen to my CDs.
+
+Interviewee 08: I used to listen to my CDs through my laptop, which is connected to my hi-fi system. But my new laptop is a DVD drive because we've moved to the cloud. So I listen to music from the cloud. I mean, YouTube is my friend. I find things that I couldn't, even if I want to find on CD, they might be difficult to find. But I think as a species, we haven't moved as quickly. I mean, my PERSON looks at my, you know, physical music collection as if it's, you know, ancient ruins. So maybe that's how things will change. When the current teenagers and, I don't know, I guess PhD students as well, people who grew up with everything on the cloud, then maybe this need to hold a print copy of a book will vanish.
+
+Interviewer: Maybe, yeah.
+
+Interviewee 08: And then we might be able to move to a lower cost. See, I'm not against publishers making a profit as long as it's not, I don't know, 10 times what it should be.
+
+Interviewer: Yeah.
+
+Interviewee 08: Another solution would be for reviewers to get paid. Mm-hmm.
+
+Interviewer: That's been put forward as an idea as well, yeah.
+
+Interviewee 08: But it's not going to work. Because, yeah, okay. Again, remember, I have my cynical hat on. So if any process can be corrupted, it will. So then you will have people saying, if I reject this, they won't ask me next time. And I'm making good money out of it. I'm supplementing. My income. So that might lead people to say, yeah, yeah, let's publish it and have things out there that supposedly went through peer review, but they haven't really.
+
+Interviewer: Yeah, it's interesting because another open science practice that has been put forward and that some people advocate for is open peer review, which involves publishing the peer reviews and signing them. So getting rid of the blind aspect totally. I don't know if you've thought about this before.
+
+Interviewee 08: I have thought and discussed this. I don't know if you know, I think it's called DORA.
+
+Interviewer: Yeah.
+
+Interviewee 08: Yeah. I'm part of it through my university, though they haven't been active lately. Again, as I said, if something can be corrupted, it will. So then you will say, you know, that they know my name. They will know that I said that this is not good work. And then maybe no one will want to collaborate with me in the future because I'm a bad person. I am difficult. So I believe in the double blind. I think this is a good practice. Can it be abused? Yes. But then, you know, as an editor, when I get back reviews, well, I can read the malice. If a review is malicious, you know, I have eyes. I've read the the submission myself, I have my own views. So if I see that the comments are intentionally malicious, you know, sometimes people can't even hide. Basically what they're saying is, why haven't you cited my work? Or why haven't you used the methodology or theoretical sort of background that I use? Yeah. So to me, one solution to that is to get more reviewers involved. But again, you know.
+
+Interviewer: How do we convince them?
+
+Interviewee 08: Yeah. I mean, I know, as an editor, I need to invite five or six people to get two.
+
+Interviewer: Yeah.
+
+Interviewee 08: If I'm lucky sometimes.
+
+Interviewer: Yeah. Everyone's been complaining about that.
+
+Interviewee 08: Yeah. So, I mean, I have now a sort of a pool of trusted reviewers. People whose opinion I trust and I know they won't reject or accept something for reasons outside the quality of the work. I'm not sure whether we veered away from the focus of the interview.
+
+Interviewer: I'm not following my interview structure very thoroughly, but there's one more question I'd like to ask you, because that's what I've been asking everyone, which is, linguistics is often considered a humanity, and so some people in the humanities prefer not to speak of open science, but to speak of open research. Or others prefer to speak of open scholarship, which is often thought to be broader and to also encompass open education as well as open science slash research. And I was wondering whether you've had you have any thoughts on that as Yeah, open science in the context of the humanity and linguistics in particular?
+
+Interviewee 08: Right. Um, do to start with, I'm not happy with the arts, humanities, social sciences distinction, but if I had to pick what linguistics is, it's a social science. I'm not very appreciative of work in what is called the arts, but particularly research that tends to be along the lines of I wear the goggles, you know, the tinted glasses of that theory, so everything I see conforms to that theory, and there's the whole point of research. To me is to test the theory, and if there is a clash, then the theory needs to be revised. It's not the data's fault, unless the data collection is flawed. But I'm not sure I understand the distinction of open education as in free education, or?
+
+Interviewer: Yeah, with open education, I mean, mostly open educational resources. So in the context of university teaching, you know, sharing our materials, our slides, our whatever we build. Or also the intersection between open science and open education in the sense of if we publish our scripts or even our data, then students can reuse it, explore the data.
+
+Interviewee 08: I would say yes. With one proviso that there is attribution to whoever created the materials. And again, I'm saying this from bitter experience. PROJECT.
+
+Interviewer: Research or educational materials?
+
+Interviewee 08: Both.
+
+Interviewer: Both? Wow.
+
+Interviewee 08: PROJECT. PROJECT.
+
+Interviewer: Mm-hmm.
+
+Interviewee 08: So as long as there is a system where everything is attributed to the creator and if someone has adapted, then they can say, you know, so-and-so adapted from that, then yeah, I can't see why not. But again, it's not just the system. It's the people who use the system.
+
+Interviewer: Sure, yeah.
+
+Interviewee 08: So there needs to be trust. There needs to be trust that if you help someone with something, well, they say, oh, and by the way, this thing here, I got it from this person. The way the system is, I don't know how things were in the 1950s or 1960s when I mean, I don't know if COUNTRY has got a system like the COUNTRY where your research is, well, examined, so to speak, every, well, seven years.
+
+Interviewer: It's a different system, but it's not better.
+
+Interviewee 08: So we have to submit, I think, four or five papers every seven years. And we get a mark. And then based on that, I mean, the university doesn't know the mark of particular people, but they can see the mark of a particular subject area. So based on that, sometimes promotion decisions are made. So there's quite a lot of competition. There's competition to publish and there's competition to publish single author papers. That's what my other part there is that there is lots of lip service on collaborative cross-fertilization between subjects. Yeah, but this means papers written by three, four, five, six people.
+
+Interviewer: Sure, yeah.
+
+Interviewee 08: But then hiring committees don't like it. Hiring committees want you to, particularly the humanities, they want you to publish books and to be the sole author. You know, we have expressions like the lead author. But the lead author might be first because of alphabetical order. Okay. Or the lead author might be the person who got the money rather than the person who did the work. So I can't see solutions. I have to be honest with you. I think what can be done is localized. Local networks. But the whole picture, the big picture, I can't see it. So yeah, people will plagiarize. People will steal so that they can get a job, get a promotion.
+
+Interviewer: Wow, it's a very bleak perspective.
+
+Interviewee 08: So, you know, and talking about openness.
+
+Interviewer: Yeah.
+
+Interviewee 08: Openness needs trust. And in my experience, I can, you know, you may be able to trust individuals, but not across the board.
+
+Interviewer: I mean, I'm almost, and this may be me being still naive in this academic system, but my instinct would be to think that if it is open out there with my name, then it's actually harder to, I mean, you have to be even more nasty or even more, yeah, what's the word I'm looking for? Like, obviously the mean one to then appropriate the work and pretend it was your own original idea and your own work. If there is a record that actually, look, I published it on this website on that date, and then it appears somewhere else with someone else's name at a later date, you know?
+
+Interviewee 08: Who can check that?
+
+Interviewer: That's the thing, who does check?
+
+Interviewee 08: Okay, I do a lot of Googling and I have come across four paragraphs from my work being reproduced with no attribution. Okay. Sometimes it's because of, it's not malice, sometimes it's incompetence.
+
+Interviewer: Yeah.
+
+Interviewee 08: Okay. I mean, sometimes I find a reference to what I have said and I never said it.
+
+Interviewer: Yeah.
+
+Interviewee 08: Or I said the opposite. You know I was cited in a few cases as being an advocate for using PROJECT. Only when we look at PROJECT when I've been jumping up and down for about a decade saying no no no so sometimes people don't actually read. You know I mean I know this is not relevant but there is this this paper with my name on it, like it's like NUMBER names. And it's like a staple reference in PROJECT. And I'm not sure whether even one in four people citing it have ever read it. It's just now. It's like a talisman. You have to cite it because it's the, you know, the source to cite. Among others. Because if you read it, then you wouldn't say other things in other parts of the paper that contradict what the paper says. So I think everything is accelerating. Everything is, I don't know, standards are dropping because of the publish or perish culture. I hope not in all countries. I don't know. I don't know how things are in COUNTRY. Is there pressure to publish? Do people check?
+
+Interviewer: It's very, in my impression, it's very quantitative. It's exactly what you described. In fact, I thought it would be better in the COUNTRY. Single authors paper are better. So I've been on hiring committees where there've been people with like lots of interesting, I think, interesting collaborations and work with different kinds of people and that was just brushed aside as well. We don't know how much he really contributed so they just didn't count all of the papers that were co-authored. And then suddenly this candidate had far fewer publications than the others. And I just thought what have we just done? You know
+
+Interviewee 08: I wouldn't mind if the discourse surrounding it was single authored works, you know, are good. Everything else is not good. The more of us, the worse. But the discourse is collaboration. The discourse is, you know, cross-disciplinary work. Well, cross-disciplinary means minimum two.
+
+Interviewer: Yeah, definitely.
+
+Interviewee 08: I mean, in the last three projects I worked on at INSTITUTION with SUBJECT, Well, there were always two SUBJECT and two SUBJECT. So four.
+
+Interviewer: Yeah, sounds good.
+
+Interviewee 08: And all the papers we've published and we'll be publishing will have four authors.
+
+Interviewer: Yeah.
+
+Interviewee 08: Does it mean we wasted years of our lives publishing something that doesn't, you know, pass the, I don't know, muster because it's not single authored? Mm-hmm.
+
+Interviewer: I mean, and also it's the best science single authored? I also have my doubts on that. I mean, there are some individual geniuses, but linguistics is complex. And if we do interesting work, it tends to be multifaceted and we need different people with different expertise.
+
+Interviewee 08: Yeah. I mean, how can I say anything, interpret my results when it has to do with the last project was on PROJECT? Yeah. The current one I'm working on is on PROJECT. How do I know? I have no experience in that. So you need lots of people to collaborate somehow, and the names have to be in the final paper, even if they didn't write anything, if they did the research, if they consulted, if they helped with interpretation of the data, then the name needs to be there. So, on the other hand, this is not a problem in STEM. You know, 15 authors is not seen as something out of the ordinary. In the humanities, over three, it's a bit too much.
+
+Interviewer: Yeah, definitely.
+
+Interviewee 08: Each one of you did very little, seems to be the approach.
+
+Interviewer: Wow, well, it's been very interesting. I don't want to rob any more of your time.
+
+Interviewee 08: It's okay. As I said, it's an amazing break for me because I need to go back to more mundane things. I hope I've helped a bit. I tend to ramble.

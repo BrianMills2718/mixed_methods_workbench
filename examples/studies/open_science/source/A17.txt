@@ -1,0 +1,85 @@
+Interviewer: Yeah, thank you so much for accepting this interview, PERSON. As you know, this interview is being recorded, but I just thought I'd remind you. And the video and audio will only be used by myself and my student research assistants to transcribe it and then to anonymize it. We will be using a local large language model to help us with that task. Is that okay with you?
+
+Interviewee 17: Yes.
+
+Interviewer: Okay, great. And this project, as you know, is about open science practices and linguistics. My first question is, linguistics being such a broad field, where do you situate yourself and your research within that broad field of linguistics?
+
+Interviewee 17: Um, yeah, I did sociolinguistics, so, yeah, specifically variational or variationist linguistics. Um, and I combined it with psycholinguistics experiments.
+
+Interviewer: Yeah. Great. And we'll start with, um, with you, your work and your personal beliefs and associations. So what do you personally associate with open science and open science practices?
+
+Interviewee 17: It makes research more transparent and more, well, the goal is to make it more fair as well to the whole scientific community, basically, so that everyone has access to the research outputs, the data. Yeah, of course, the publications are accessible freely online. And in general, open science also promotes open access to research software, for example. And also I think citizen science is also a part of it. And open educational research, open educational resources. So everyone can benefit from it.
+
+Interviewer: Yeah, and you've mentioned education as a term. It's funny because in linguistics being a humanity, in the humanities sometimes some people seem to be reticent to using the term open science and prefer open research, for instance, or others prefer the term open scholarship, which is often thought to be more inclusive to also include open science slash research and open education. I'm going to put all of these terms in the chat because I've just mentioned a lot of them. My question is simply, which do you think is most suitable for linguistics? So does open science work as far as you're concerned? Or do you think another term would be more helpful?
+
+Interviewee 17: Yeah, that's interesting. So in my own experience, open science is the most widely used term. I would stick with that. But I'm not so much familiar with the subtle differences of open scholarship, for example. Maybe that would be suitable as well.
+
+Interviewer: But it doesn't sort of shock you in any way that a humanity can be associated with open science?
+
+Interviewee 17: Not at all, because, I mean, I used empirical methods as well in my research, and I think linguistics is more oriented towards empirical research. Yeah. So I never questioned that, actually. Yeah, that's really interesting.
+
+Interviewer: I'm going to carry on using the term open science as well. I understand it to be very broad and to include all of the things that you've mentioned before. Feel free to use whichever term you prefer for the rest of the interview. But next, I'd like to speak about your own experiences. So which open science practices have you been involved in?
+
+Interviewee 17: Um, yes, so I think, well, most of my articles are published in open access and that I think the publication fund, um, of the university that I worked, um, at funded this, um, yeah, the, the APCs basically. And my, at the beginning of my project, my supervisor also, um, asked me to fill in a pre-registration form of Open Science Network. Or what's it called? Yeah, the Open Science.
+
+Interviewer: The framework, maybe.
+
+Interviewee 17: Framework, yeah, that's what I meant. So, yeah, that's, basically, he was more, he was already involved with these practices and he asked me to also do these things, so the pre-registration and also share the data openly. We used Open Science Framework for that. I think it would be great to have a specific linguistic repository for that. But because I think my data gets a bit, it's a bit hidden. You have to know my paper to find it basically.
+
+Interviewer: Yeah.
+
+Interviewee 17: So that's a disadvantage, but we try to be as open as possible about the whole research process in my project. Yeah.
+
+Interviewer: My next question is one that you've partly already answered, and it's how you came across these practices, like how you found out about open science and who encouraged you to be involved?
+
+Interviewee 17: Yeah, my supervisor.
+
+Interviewer: Yeah, and it sounds like it was a requirement rather than an encouragement.
+
+Interviewee 17: Well, we had a short chat about it. I was a bit reluctant in the beginning. I was like, oh my God, I cannot make my data openly available. Everyone will see what's wrong with it or something. But yeah, I didn't, I mean, he convinced me with the advantages. So I think it's good to make research reproducible. And yeah, so basically he was the main person who encouraged me. And then I had some contact information sessions of librarians. And I think there was research data management workshops that I attended. It was more about data management plans, for example, and managing folder structure on your personal laptop. They didn't really encourage a lot to make the data openly available. They always emphasize that it depends on different criteria. Like to what's it called, data protection and so on that you have to, that it's always an individual choice. It depends on the criteria of the project and so on and the data. Yes, but they also mentioned that it's preferable to make it openly available.
+
+Interviewer: Yeah, interesting. And we'll now move away from your personal experiences and think about the broader field of linguistics. So as far as you can tell, and you're welcome to think about the subdisciplines that you're most familiar with, how widespread are open science practices in linguistics?
+
+Interviewee 17: That's a good question. So I, in terms of open access, I know that there are certain journals that are fully open access. I also noticed that there are more and more monographs or edited volumes that appear in open access, for example. I think that certain journals also committed to flipping. Yeah, but I don't know exactly about the open access or open science practices in general. I have to admit. Yeah, as I said, I would love to have a linguistic specific data repository, probably now more. And yeah, there are projects to establish something like that. But that would be great, actually.
+
+Interviewer: Yeah. I mean, there's a TROLling, I'm not sure I'm pronouncing it correctly and IRIS for more second language type research. But yeah, I'm not sure how well known they are really broadly across linguistics. It's still a bit niche, I think. It's my impression. Yeah. What do you think could be done to increase the uptake of open science practices in linguistics?
+
+Interviewee 17: I think that there needs to be visibility for open science practices. I just learned that there are two repositories that I didn't know before.
+
+Interviewer: Yeah, it's true. So if you didn't know, how can someone who's not familiar with open science at all know?
+
+Interviewee 17: Indeed, maybe some networking or some events at conferences would help as well to promote these tools or repositories and practices. Probably, yeah. Yeah. Very renowned researchers promote it. That would be quite influential. I now work in a library field and there's always this difficulty to reach researchers and to promote library services. It's very difficult. It's yeah this may be a communication issue so I think that it's it's good that there are scholar-led initiatives as well and for example libraries can support it. But there's always this difficulty how to get in contact with the researchers and the community.
+
+Interviewer: Yeah, this is actually really the next question. I sometimes have the feeling that open science advocates in linguistics and probably in other fields are quite often sort of preaching to the choir. So if we organize something, the people who turn up are the people who are already aware and interested and maybe already practicing some of these things. And I wonder how can we reach out to more linguists, the ones who maybe don't know about these practices or even disapprove of them.
+
+Interviewee 17: Yeah, that's interesting. I just thought of the Linguist List because a lot of researchers are interested in that newsletter. But as you said, people who are already interested in a topic, they will look at offers and services. Yeah, it's an interesting question. Probably will help also to make it maybe more visible through platforms like that. And I think it's really important to already. Because I was a PhD student and my supervisor encouraged me to do open science practices. And I think that's really very important to already address the the early career researchers to this cultural change so to say and for that we we need the professors to encourage them.
+
+Interviewer: Yeah But I mean, you were lucky in a sense that not all supervisors are open or interested or aware of open science practices. And can you think of any reasons why some are reluctant or just even maybe outright against open science practices?
+
+Interviewee 17: Yeah, I cannot think of a reason why someone would be against it. Because as I mentioned, I was in this community at my university. They were I think most of them were quite open about it. Yeah sorry what was the question again?
+
+Interviewer: Whether you can think of any factors that contribute to this reluctance to be involved in any open science practices from some professors or just linguists in general.
+
+Interviewee 17: Yeah in terms of yeah it's it's a very diverse field like in terms of open access. Maybe people think okay it's too too expensive, if you have to, if they have to finance it themselves. Um for the data, as I said, for data protection, personal information and so on, there are some issues of course, and yeah, maybe people are a bit, as I was myself, I was a bit reluctant in the first place to share my data because I was anxious or I was afraid to get criticized for it. Yeah. Yeah. But I think you can always argue that it makes research, it, yeah, it creates some progress and it makes it more reproducible and interesting. Maybe faster, even faster if you reuse data, for example.
+
+Interviewer: Yeah, it's true. Yeah. And you mentioned high, what they called APCs, the processing charges, which, yeah, may well be a problem for some journals and books for that matter. How widespread do you think are preprints and postprints in linguistics?
+
+Interviewee 17: Postprints are quite widespread, in my opinion. I mean, most universities have their publication repositories and you can upload your full text there without a layout usually. And then it's also indexed in Google Scholar. So I think that's a common practice since years already. For preprints, I'm not so sure. I know that there are some people who use it, but I think the issue is that you cannot really cite it. I mean, you can cite it, but then you don't know if it changes during the publication process, maybe the wording changes. And yeah, it's difficult also to cite specific pages also with the postprints, of course. Yeah but I think for post-prints it's already quite established and I also yeah I also used it during my research yeah I always try to get the published version.
+
+Interviewer: Yeah. Yeah. That's interesting. Thinking back to your time as a PhD researcher and also now in your new position, if that's relevant, I'm not sure, what would you need or what would you have needed to do more open science or better open science? Bearing in mind you already did a lot.
+
+Interviewee 17: Yes, well, better open science. Yeah, as I said, I already followed some training offered by the library. Maybe it would have been nice to also get face-to-face consulting. I didn't actually make use of that. I think it would have been possible. But I relied on the feedback of my supervisors most of the time for the data and so on. Maybe it would have been nice to also consult a librarian or a data manager for my data sets, actually. Now that I think of it. What else? Well, yeah, I don't know.
+
+Interviewer: And in your new role, are you involved in promoting or helping researchers to do open science?
+
+Interviewee 17: No, actually, not directly. So, of course, I try to promote our services in the Faculty of Arts, Linguistics or Literature department but there are experts in our library for these questions so I'm not the first person to contact. Maybe yes to get them in touch with the experts but not to give some tips or yeah.
+
+Interviewer: Sure. Thank you so much. That was my last question, but is there anything else you wanted to add on open science practices in linguistics or more broadly in the humanities for that matter?
+
+Interviewee 17: Yes, so I think that the humanities are lagging a bit behind other sciences in general because I mean, it started with open access and with journal articles, basically. And in some fields, like literature studies, a lot of monographs are still published. And yeah, that's, I think, the main reason why they are lagging a bit behind, because it's so expensive to publish an open access monograph. Yeah and then of course as well not yeah for example in terms of data not all. Humanities work with empirical methods and data or maybe yes but they don't know that it's data that they could potentially publish. For example, with the digital humanities, more and more projects are getting involved in open science, also in citizen science for annotation, for example. Yeah, and I think that's quite interesting.
+
+Interviewer: Definitely. Yeah, that's fascinating. Thank you so much. I'll stop the recording here. Okay.
+
+<addition type="e-mail">Interviewee 17: It was a pleasure to talk to you. Reflecting on our conversation, it occurred to me that research funders have a lot of power to incentivize Open Science practices. But even if there are requirements by the funders, the benefits of Open Science should be clearly communicated and convincing. Otherwise, these requirements will be imposed and the opposite effect could occur, namely the requirements would demotivate researchers. There is also still the difficulty that Open Science does not play a decisive role in research evaluation.</addition>
+
+

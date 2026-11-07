@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Workbench</title>
+<style>
+:root {
+  --bg: #f7f8fa; --panel: #ffffff; --ink: #1c2330; --muted: #5d6675; --line: #d9dee6;
+  --blue: #1f5fa8; --blue-soft: #e3edf9; --orange: #b45309; --orange-soft: #fdf0e1;
+  --grey: #6b7280; --grey-soft: #eef0f3; --mark: #cfe0f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161d; --panel: #1a2029; --ink: #e6e9ee; --muted: #a2abb8; --line: #2e3744;
+    --blue: #7fb0ec; --blue-soft: #1d2d44; --orange: #f0a35a; --orange-soft: #3a2a19;
+    --grey: #9aa3af; --grey-soft: #262d37; --mark: #2a4569;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { padding: 18px 16px 8px; max-width: 1400px; margin: 0 auto; }
+h1 { font-size: 1.35rem; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.strands { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.chip { display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: .82rem; border: 1px solid var(--line); }
+.ok { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.warn { background: var(--orange-soft); color: var(--orange); border-color: var(--orange); }
+.off { background: var(--grey-soft); color: var(--grey); border-style: dashed; }
+nav.tabs { max-width: 1400px; margin: 0 auto; padding: 0 16px; display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+nav.tabs button { background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 10px; color: var(--ink); font: inherit; cursor: pointer; }
+nav.tabs button[aria-selected="true"] { border-color: var(--blue); color: var(--blue); font-weight: 600; }
+nav.tabs button.off { color: var(--grey); border-radius: 0; background: none; }
+main { max-width: 1400px; margin: 0 auto; padding: 12px 16px 40px; }
+section[hidden] { display: none; }
+.grid { display: grid; grid-template-columns: minmax(240px, 1fr) minmax(280px, 1.3fr) minmax(300px, 1.5fr); gap: 12px; }
+@media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 8px; }
+.panel h3 { font-size: .92rem; margin: 12px 0 6px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.list button { display: block; width: 100%; text-align: left; background: none; border: 1px solid transparent; border-radius: 6px; padding: 6px 8px; color: var(--ink); font: inherit; cursor: pointer; }
+.list button:hover { background: var(--grey-soft); }
+.list button[aria-pressed="true"] { border-color: var(--blue); background: var(--blue-soft); }
+.num { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 4px; }
+.passage { border: 1px solid var(--line); border-radius: 6px; padding: 8px; margin: 6px 0; cursor: pointer; background: var(--panel); width: 100%; text-align: left; color: var(--ink); font: inherit; }
+.passage:hover, .passage:focus { border-color: var(--blue); outline: none; }
+.passage .meta { font-size: .8rem; color: var(--muted); }
+.passage .q { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.codes { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.codes .chip { font-size: .75rem; padding: 0 8px; }
+.reader { white-space: pre-wrap; max-height: 70vh; overflow: auto; font-size: .9rem; border-top: 1px solid var(--line); padding-top: 8px; overflow-wrap: anywhere; }
+@media (max-width: 1000px) { .reader { max-height: 55vh; } }
+mark { background: var(--mark); color: inherit; border-radius: 2px; outline: 2px solid var(--blue); }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 5px 6px; vertical-align: top; }
+th { color: var(--muted); font-weight: 600; }
+.tablewrap { overflow-x: auto; }
+.empty { color: var(--grey); border: 1px dashed var(--grey); border-radius: 8px; padding: 18px; background: var(--grey-soft); }
+.note { color: var(--muted); font-size: .88rem; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 700px) { .pair { grid-template-columns: 1fr; } }
+.pair div { border: 1px solid var(--line); border-radius: 6px; padding: 6px; white-space: pre-wrap; font-size: .85rem; overflow-wrap: anywhere; }
+a { color: var(--blue); }
+details summary { cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Study</h1>
+  <p class="sub" id="sub"></p>
+  <div class="strands" id="strands" aria-label="Strands of the study"></div>
+</header>
+<nav class="tabs" role="tablist" id="tabs"></nav>
+<main id="main"></main>
+<script>
+const P = /*STUDY_PAYLOAD*/null;
+const $ = (tag, attrs = {}, ...kids) => {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") el.className = v; else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (v !== undefined && v !== null) el.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) if (kid !== null && kid !== undefined) el.append(kid.nodeType ? kid : String(kid));
+  return el;
+};
+const S = P.qualitative_strand, C = P.corpus, H = P.human_coding;
+const docs = Object.fromEntries(C.documents.map(d => [d.file, d]));
+const step = w => P.steps.find(s => s.step.includes(w));
+
+document.getElementById("title").textContent = P.title;
+document.title = "Study Workbench: " + P.title.slice(0, 40);
+document.getElementById("sub").append(
+  "By ", C.creator, " (", C.publication_date, "), ", $("a", {href: C.url}, "doi:" + C.doi), ", ",
+  $("a", {href: C.licence_url}, C.licence), ". ", C.consent_statement, " Frozen ", C.retrieved_on,
+  ". Qualitative strand: Qualitative Coding's grounded-theory export at commit ", S.commit.slice(0, 10), ".");
+for (const s of P.strands)
+  document.getElementById("strands").append($("span", {class: "chip " + (s.status === "built" ? "ok" : "off")},
+    s.name + ": " + (s.status === "built" ? "built" : "not built yet (" + s.slice + ")")));
+
+const tabs = [
+  ["theory", "Qualitative strand"], ["corpus", "Corpus"], ["author", "Author's coding"],
+  ["measure", "Measurement", true], ["joint", "Joint display", true], ["checks", "Checks and trace"]];
+const nav = document.getElementById("tabs"), main = document.getElementById("main");
+const sections = {};
+for (const [id, label, off] of tabs) {
+  const b = $("button", {role: "tab", id: "tab-" + id, "aria-controls": "panel-" + id, class: off ? "off" : "",
+    onclick: () => show(id)}, label + (off ? " (not built)" : ""));
+  nav.append(b);
+  sections[id] = $("section", {id: "panel-" + id, role: "tabpanel", "aria-labelledby": "tab-" + id});
+  main.append(sections[id]);
+}
+function show(id) {
+  for (const [k] of tabs) {
+    sections[k].hidden = k !== id;
+    document.getElementById("tab-" + k).setAttribute("aria-selected", k === id);
+  }
+  try { history.replaceState(null, "", "#" + id); } catch (e) {}
+}
+
+// ---- qualitative strand: claims -> passages -> interview
+const listPanel = $("div", {class: "panel"}), detail = $("div", {class: "panel"}), reader = $("div", {class: "panel"});
+sections.theory.append(
+  $("p", {class: "note"}, "Pick a category or proposition, then a passage: the interview opens at that place, with the speaker and the author's own codes for that span. ",
+    "Every passage below was checked: its words are the frozen interview's words at its stated position (", step("theory cites").cited_matching, " of ", step("theory cites").cited_passages, ")."),
+  $("div", {class: "grid"}, listPanel, detail, reader));
+reader.append($("h2", {}, "Interview"), $("p", {class: "note", id: "reader-note"}, "Pick a passage to open it here."), $("div", {class: "reader", id: "reader", tabindex: "0"}));
+
+function passageCard(id, kind) {
+  const p = S.passages[id];
+  if (!p) return $("div", {class: "passage warn"}, "Passage " + id + " is cited but does not exist in the producer's records.");
+  const codes = p.author_codes.length ? p.author_codes.map(c => $("span", {class: "chip ok"}, c))
+    : [$("span", {class: "chip off"}, "no author code on this span")];
+  return $("button", {class: "passage", onclick: () => openPassage(id)},
+    $("div", {class: "meta"}, p.file.replace(".txt", ""), " · ", p.speaker || "speaker unknown", kind ? " · " + kind : "",
+      p.offsets_match ? "" : " · OFFSET MISMATCH"),
+    $("div", {class: "q"}, p.text), $("div", {class: "codes"}, codes));
+}
+function openPassage(id) {
+  const p = S.passages[id], d = docs[p.file], r = document.getElementById("reader");
+  r.replaceChildren(d.text.slice(0, p.start), $("mark", {id: "hit"}, d.text.slice(p.start, p.end)), d.text.slice(p.end));
+  document.getElementById("reader-note").replaceChildren(
+    $("strong", {}, p.file), " · characters ", p.start, "–", p.end, " · ", p.speaker || "speaker unknown", " · author's codes: ",
+    p.author_codes.length ? p.author_codes.join(", ") : "none");
+  const hit = document.getElementById("hit");
+  r.scrollTop = Math.max(0, hit.offsetTop - r.offsetTop - 40);
+  if (!booting && window.matchMedia("(max-width: 1000px)").matches) reader.scrollIntoView({behavior: "smooth", block: "start"});
+}
+let booting = true;
+const pressed = [];
+function select(btn, render) {
+  pressed.forEach(b => b.setAttribute("aria-pressed", "false")); pressed.length = 0;
+  btn.setAttribute("aria-pressed", "true"); pressed.push(btn); render();
+}
+listPanel.append($("h2", {}, "Categories (", S.categories.length, ")"));
+const catList = $("div", {class: "list"}); listPanel.append(catList);
+for (const c of S.categories) {
+  const b = $("button", {"aria-pressed": "false"}, $("span", {class: "num"}, c.number + "."), c.name);
+  b.addEventListener("click", () => select(b, () => {
+    const ids = [...new Set(c.incidents.flatMap(i => i.passages))];
+    detail.replaceChildren($("h2", {}, c.name), $("p", {}, c.definition),
+      c.role ? $("p", {class: "note"}, "Role: " + c.role) : null,
+      $("h3", {}, "Properties"), $("p", {}, c.properties.join(" · ")),
+      $("h3", {}, "Dimensions"), $("p", {}, c.dimensions.join(" · ")),
+      $("h3", {}, "Incidents (", c.incidents.length, ")"), ...c.incidents.map(i => $("p", {}, $("strong", {}, i.open_code), ": ", i.meaning)),
+      $("h3", {}, "Supporting passages (", ids.length, ")"), ...ids.map(id => passageCard(id)));
+  }));
+  catList.append(b);
+}
+listPanel.append($("h2", {style: "margin-top:14px"}, "Propositions (", S.propositions.length, ")"));
+const propList = $("div", {class: "list"}); listPanel.append(propList);
+for (const pr of S.propositions) {
+  const b = $("button", {"aria-pressed": "false"}, $("span", {class: "num"}, "P" + pr.number + "."), pr.statement.slice(0, 110) + (pr.statement.length > 110 ? "…" : ""));
+  b.addEventListener("click", () => select(b, () => {
+    detail.replaceChildren($("h2", {}, "Proposition " + pr.number), $("p", {}, pr.statement),
+      $("p", {class: "note"}, "Joins categories ", pr.categories.map(n => n + " (" + S.categories[n - 1].name + ")").join("; ")),
+      $("h3", {}, "Supporting passages (", pr.supporting.length, ")"), ...pr.supporting.map(id => passageCard(id, "supports")),
+      $("h3", {}, "Qualifying passages (", pr.qualifying.length, ")"), ...pr.qualifying.map(id => passageCard(id, "qualifies")),
+      $("p", {class: "note"}, "Measured prevalence and its agreement with the author's coding: not built yet (slice S2)."));
+  }));
+  propList.append(b);
+}
+if (S.core_process) {
+  listPanel.append($("details", {style: "margin-top:12px"}, $("summary", {}, "Core process"),
+    $("h3", {}, "Conditions"), $("ul", {}, S.core_process.conditions.map(x => $("li", {}, x))),
+    $("h3", {}, "Actions"), $("ul", {}, S.core_process.actions_or_responses.map(x => $("li", {}, x))),
+    $("h3", {}, "Consequences"), $("ul", {}, S.core_process.consequences.map(x => $("li", {}, x)))));
+}
+
+// ---- corpus
+const fileRows = C.files.map(f => {
+  const d = docs[f.name];
+  const ok = f.md5_matches_publisher && f.sha256_matches_manifest;
+  return $("tr", {}, $("td", {}, f.name), $("td", {}, f.role), $("td", {}, f.bytes.toLocaleString()),
+    $("td", {}, $("span", {class: "chip " + (ok ? "ok" : "warn")}, ok ? "hash matches Zenodo" : "HASH DIFFERS")),
+    $("td", {}, d ? (d.analysed_by_producer ? $("span", {class: "chip ok"}, "analysed") : $("span", {class: "chip off"}, "not analysed")) : "—"),
+    $("td", {}, d ? d.author_passages : "—"));
+});
+sections.corpus.append($("div", {class: "panel"},
+  $("h2", {}, "Frozen corpus: ", C.files.filter(f => f.role === "document").length, " interviews and ", C.files.filter(f => f.role !== "document").length, " supporting files"),
+  $("p", {class: "note"}, "Each file was downloaded from the Zenodo record and is kept byte for byte; its md5 is checked against the record's and its sha256 against the manifest every time this page is built. ",
+    "A01 is the one interview in German; Qualitative Coding analysed the other 25."),
+  $("div", {class: "tablewrap"}, $("table", {}, $("thead", {}, $("tr", {}, ["File", "Role", "Bytes", "Hash", "Qualitative Coding", "Author's coded passages"].map(h => $("th", {}, h)))), $("tbody", {}, fileRows)))));
+
+// ---- author's coding
+const st = step("author's coded passages");
+const byCode = {};
+for (const a of H.passages) (byCode[a.code] = byCode[a.code] || []).push(a);
+const codeRows = Object.entries(byCode).sort((a, b) => b[1].length - a[1].length).map(([code, rows]) =>
+  $("tr", {}, $("td", {}, code), $("td", {}, rows.length), $("td", {}, new Set(rows.map(r => r.file)).size),
+    $("td", {}, rows.filter(r => r.status === "exact" || r.status === "whitespace").length)));
+const differing = H.passages.filter(a => a.status === "text_differs" || a.status === "not_found");
+sections.author.append($("div", {class: "panel"},
+  $("h2", {}, "The author's own coding: ", st.author_passages, " passages, ", H.codes.length, " codes"),
+  $("p", {class: "note"}, H.coder, ". This is the human reference the quantitative strand (S2) will be checked against. ",
+    "The export's own character positions do not point at the published text (", st.stated_offsets_exact, " of ", st.author_passages,
+    " do), so each passage is located by its own words: ",
+    $("span", {class: "chip ok"}, st.located_exact + " exact"), " ", $("span", {class: "chip ok"}, st.located_whitespace + " same words, different spacing"), " ",
+    $("span", {class: "chip warn"}, st.located_text_differs + " wording differs"), " ", $("span", {class: "chip warn"}, st.located_not_found + " not found"), "."),
+  $("div", {class: "tablewrap"}, $("table", {}, $("thead", {}, $("tr", {}, ["Code", "Passages", "Interviews", "Located (same words)"].map(h => $("th", {}, h)))), $("tbody", {}, codeRows))),
+  $("h2", {style: "margin-top:16px"}, "Passages whose wording differs from the published transcript (", differing.length, ")"),
+  $("p", {class: "note"}, "Coding was done before the transcripts were last corrected and anonymised, so some coded words were changed later. Each is listed, never dropped: the coded words beside the published words at the nearest match."),
+  ...differing.map(a => $("details", {}, $("summary", {}, a.file, " · ", a.code, " · ", a.status === "not_found" ? "not found" : "similarity " + a.similarity),
+    $("div", {class: "pair"}, $("div", {}, $("strong", {}, "Coded words: "), a.text),
+      $("div", {}, $("strong", {}, "Published words: "), a.start === null ? "no match" : docs[a.file].text.slice(a.start, a.end)))))));
+
+// ---- not built
+sections.measure.append($("div", {class: "empty"}, $("h2", {}, "Measurement: not built yet (slice S2)"),
+  "One of the categories above becomes a measurement rule applied to every interviewee passage, and its agreement with the author's coding is shown here on interviews it was not tuned on."));
+sections.joint.append($("div", {class: "empty"}, $("h2", {}, "Joint display: not built yet (slice S3)"),
+  "One row per proposition: the qualitative claim beside the measured numbers, with a verdict and a bounded conclusion that stays pending review."));
+
+// ---- checks and trace
+const stepRows = P.steps.map(s => $("tr", {}, $("td", {}, s.step), $("td", {}, Object.entries(s).filter(([k]) => k !== "step").map(([k, v]) => k.replaceAll("_", " ") + ": " + v).join(" · "))));
+sections.checks.append($("div", {class: "panel"},
+  $("h2", {}, "What was checked when this page was built"),
+  $("p", {class: "note"}, "No model was called. The same steps, with every input's and output's sha256, are in examples/studies/", P.study_id, "/build_receipt.json. ",
+    "The producer's own run is trace ", S.producer_trace_id || "unknown", " (", S.model || "model unknown", "); its export's sha256 is ", S.export_sha256.slice(0, 16), "…"),
+  $("div", {class: "tablewrap"}, $("table", {}, $("thead", {}, $("tr", {}, $("th", {}, "Step"), $("th", {}, "Counts"))), $("tbody", {}, stepRows))),
+  $("h2", {style: "margin-top:16px"}, "Offset mismatches (", S.offset_mismatches.length, ")"),
+  S.offset_mismatches.length ? S.offset_mismatches.map(m => $("div", {class: "pair"}, $("div", {}, "Producer: " + m.text), $("div", {}, "Frozen: " + m.frozen_text_at_offsets)))
+    : $("p", {}, $("span", {class: "chip ok"}, "none"), " every producer passage is the frozen text at its offsets, after the recorded normalisation (", S.text_normalisation, ")."),
+  $("h2", {style: "margin-top:16px"}, "Cited passages that do not exist (", S.unresolved_passage_ids.length, ")"),
+  S.unresolved_passage_ids.length ? $("ul", {}, S.unresolved_passage_ids.map(i => $("li", {class: "warn"}, i))) : $("p", {}, $("span", {class: "chip ok"}, "none"))));
+
+const start = (location.hash || "#theory").slice(1);
+show(sections[start] ? start : "theory");
+if (pressed.length === 0) catList.querySelector("button").click();
+const first = detail.querySelector(".passage"); if (first) first.click();
+booting = false;
+</script>
+</body>
+</html>

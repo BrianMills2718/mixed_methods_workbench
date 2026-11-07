@@ -1,0 +1,97 @@
+Interviewer: Yeah, thank you so much for agreeing to this interview. You have signed and returned the form of consent, but I just thought I'd remind you that this interview is being recorded and the audio and video will be used by myself and my student research assistants to anonymize a transcript. And we will be using a local large language model to help us with that. Is that okay with you?
+
+Interviewee 20: Yes, of course.
+
+Interviewer: Great. So this is a study about open science practices in linguistics. And linguistics is a very broad field. So my first question is, where do you situate yourself and your research within linguistics?
+
+Interviewee 20: I think I'm somewhere in between a theoretical linguist and an applied linguist because I rely heavily on big data sets. So I'm using a lot of coding and statistical inferences from my data sets. So that's where the practical side really lies. But I'm mostly doing that to try and understand how people conceive of language and how they acquire language and use language. So that's where I lean more towards the theory. So I would say I'm more of a theoretical linguist than an applied linguist, although I use a lot of applied linguistics techniques in my research.
+
+Interviewer: Yeah, that's really interesting. And we'll start with you and your work. To start off with, what do you personally associate with open science? What springs to mind when we say open science practices?
+
+Interviewee 20: Well, a lot of things. Let's say, open access journals, sharing methodology and data sets, making it available for the sake of what's the English word? I forgot it. Reproducibility, right? Yeah. Yes. So yeah, it's mostly making the data and methodology accessible and transparent to everyone and also making research basically accessible. So no paper pay to regional articles and things like that. So I would lean towards these two things.
+
+Interviewer: And I've just introduced this project as being about open science and open science practices. But linguistics being a humanity, some people in the humanities prefer to use the term open research rather than open science. And others prefer the term open scholarship, which is often thought to be a broader term to encompass open science slash research and also open education. I'm going to put the terms in the chat because I've just mentioned a lot of them. And my question would be, does open science feel suitable to you for linguistics? Or do you think another term might be better suited to linguistics?
+
+Interviewee 20: I would agree with open science. I mean, essentially, it is. I mean, it's not a hard science the same way medicine or other fields are, but it's still a scientific field. So, yeah, I wouldn't mind the term open science. It makes perfect sense to me.
+
+Interviewer: Yeah, I will also continue to use the term open science. But I mean it in a very broad sense to encompass all of these things. And you can use whichever term you prefer, of course. We'd like to think about your experiences. Have you been involved in any open science practices yourself? And if so, which ones?
+
+Interviewee 20: Well, from where can I start? If I go back to when I was doing my master's, I was, as you already know, I'm super interested in corpus linguistics. And well, when I started, at least in the program that I was studying, there were no corpus linguistics courses. And at the time, I couldn't really afford to really buy a course or subscribe, register in a foreign university or something that offered these kind of courses. So I found something in MOOC. I think it was offered by UNIVERSITY. Yeah. And well, you could pay to get a certificate, but you could also take the course for free. So that really helped me out tremendously. And then it just I took off from there. So without having access to this kind of easily accessible open sources, then it would have been much more challenging to get where I am today. So with that experience, that helped me a lot when it comes to pursuing what I'm interested in. But also, I shouldn't just focus on these kind of professional courses, because if you consider YouTube only, with PERSON's PROJECT and all that, that's also really helped me out tremendously because, well, as you know, I got the chance to read about and learn about things that are not necessarily part of the program and things that I could not afford at the time. So, in that regard, I think it's really super helpful and I'd encourage anyone to try things similar to that one.
+
+Interviewer: Yeah. And in terms of you yourself putting materials out there, I know you've got YouTube tutorials out there. And as part of your PhD, are you also involved in open science practices in some way?
+
+Interviewee 20: Not yet, but I will be. Because right now, I don't know if you know about what I'm doing, but I'm mostly working on PROJECT and all that. And we're in the process of PROJECT. So once we make that happen, then I would make the scripts freely available to everyone. So that would be part of what I'm going to publish when I'm done with my dissertation. So the code, the data, the videos, all of that would be freely accessible.
+
+Interviewer: Yeah, great. It's already baked into the plan of your project.
+
+Interviewee 20: Yeah.
+
+Interviewer: And my next question you've already partly answered, but maybe you can go into a little bit more detail, which is how did you first found out about these practices? And if anyone or anything encouraged you to get started yourself?
+
+Interviewee 20: Okay, it's a combination of many things. Like I said, I was interested. I mean, the main thing that really got me started was corpus linguistics. So I just learned about it in passing as I was reading a paper or something. I can't really quite remember. But it just fascinated me. So I wanted to learn more about it, but I really couldn't find something that was accessible to me at the time. So then I'm just doing some Google searches or exploring Facebook, what have you. I just came across that MOOC course. So I just took it and then I took it from there. And the same thing with the PERSON videos. Those really were like my main inspiration. That kind of is what inspired me to start posting my own YouTube videos. Because like I said at the time, I was in corpus linguistics, but I couldn't find stuff. So then when I learned enough about it to be able to, let's say, teach it to other people, even though I don't want to sound like, oh, I'm teaching people when I didn't know that much back then. But anyway, the point is, PERSON videos really inspired me. So I thought, hey, the same way he helped me out when I couldn't have access to other things, I could help other people. Who don't have the same access to these corpus linguistics materials and stuff like that. And that really is what inspired me to start the YouTube videos. So I think that answers your question, doesn't it?
+
+Interviewer: Yeah, definitely. Yeah. Maybe one more question I would have regarding your PhD project. You say you intend to publish the scripts and the data and so on. Is this something that is compulsory? Is it a requirement for your PhD from whoever or is it entirely your own choice?
+
+Interviewee 20: As far as I know, it's not compulsory. I might be wrong, but as far as I know, I haven't been told that you must make everything available. But I think it's good practice. I think it makes more sense.
+
+Interviewer: Yeah.
+
+Interviewee 20: I mean, personally, I don't mind if I share the scripts, because if anything, it could only help research increase further. So I'm fine with that. Yeah.
+
+Interviewer: Yeah. And now we'll try and move away from your own experiences and associations and try and think about linguistics, the linguistics community at large. Of course, you're welcome to think about the subdisciplines that you're most familiar with. But as far as you can tell, how widespread are open science practices in linguistics?
+
+Interviewee 20: Well, judging from the fact that almost every article that I want to read is not freely available, I would say not so much. Yeah. And same thing goes for data sets, scripts. It's really, I mean, at best you can ask permission from the author and then they can maybe make something happen, but mostly you wouldn't find stuff freely available out there. So I think it's not really that open kind of a science, I would say. But that's just based on my experience. I may be wrong.
+
+Interviewer: Yeah. And which factors do you think contribute to this low, let's be honest, uptake of open science in linguistics?
+
+Interviewee 20: I guess maybe lack of funding. And also, like the heavy impact journals kind of. Most people would like to publish in those kind of journals, so usually those journals are what you need to pay. So maybe those kind of two factors. I mean, there's lack of funding, so there's not a lot of open access journals being funded, and therefore people can publish in them more. And so for lack of better options, then, people's go-to journals are those that you would have to pay to basically either publish or have access to other people's work. So in my opinion, I guess it's a combination of both.
+
+Interviewer: I mean, it makes sense for publication, but what about publishing code or data? That's usually free, right? You can do it on the OSF for example. What might be the factors there that contribute to not many linguists doing it?
+
+Interviewee 20: I honestly cannot tell. It could be personal. Maybe the linguist is not yet ready to have their script available. Maybe they want to either improve it or make more things happen with that script. And then when they're finally done with their bigger projects, then they can finally make it available to everyone else. I really cannot tell. I think it's a personal matter here.
+
+Interviewer: Yeah. Interesting. And do you think there are any specificities about linguistics compared to other scientific disciplines that need to be taken into consideration when we try and apply open science principles to linguistics?
+
+Interviewee 20: I guess it depends on the field. If you're working, for example, with video data, where people would share sensitive information, then that would be kind of hard to anonymize. Yeah. I mean, I wouldn't say it's super, super hard because you can easily either blur out the face or alter the voice. So you can kind of make that happen. But then you run into the problem of if you're really studying authentic language use and you're considering the whole multimodal aspects of it, then if you alter the voice, then that kind of ruins prosody and other features. Same thing with facial expressions. So in that regard, it would be really hard to make that kind of data openly accessible to everyone. So in this regards here, I can kind of see why it wouldn't be that easily done. But if you work, for example, with corpus data where personal information is anonymized and people cannot really guess who wrote what and who said what, then I think it should be freely accessible to everyone in that case. But yeah, I would say that in this regard here, linguistics would be kind of harder to make open as opposed to other kinds of sciences that don't involve human beings and their personal information or sensitive information.
+
+Interviewer: There is sometimes a feeling in open science, it's certainly a feeling I have, that open science advocates tend to preach to the choir, as in, speak among themselves and have their own little bubble. But there's a whole group of, in our case, linguists who are just not even aware of open science practices. My question would be, what do you think we can do to reach out to more linguists, to the ones who are not aware or not interested in open science?
+
+Interviewee 20: Well, I would say start them out young. We can have some, you know, a workshop or a symposium or something, starting from bachelor's level or not possible at the master's level, so that you can at least train linguists with this idea in mind that it would be a nice thing to aim for open science. I would say workshops or some courses at the bachelor or master's level, and even at higher levels, let's say PhD or professorship or whatever, we can still host conferences or have talks or regular workshops where people can really raise awareness about these kind of issues. So I would take one of these two things.
+
+Interviewer: That's good. What would you need personally to do more open science, more open research, or more open education for that matter? What would help you personally?
+
+Interviewee 20: Um well to be fair funding I guess because that would really motivate not just me but anyone. Really yes yeah pursue these open sciences. I mean fundamentally I don't object to the thing so I don't really need much motivation. Yeah as you already know but hey I mean if we get more funding for or more encouragement to pursue these kind of things, then I think it would really encourage everyone to do so, not just me personally.
+
+Interviewer: That was my last official question, but is there anything else you wanted to add on the topic of open science in linguistics or in the humanities more broadly?
+
+Interviewee 20: Well, let's see. I mean, I've been saying these things like, oh, journals should be open access, they should be funding, blah, blah. But if you really put these things into practice, then the question becomes, where would this funding come from? I know, for example, here in COUNTRY, the INSTITUTION kind of funds a lot of journals and open science practices and things like that. But I'm not sure if it's the case everywhere else. So, yeah, I mean, it sounds like a nice thing, but I don't know like the practicalities of it. Sorry. I mean, how we could really implement these things. If we're going to have open access journals, then who is going to pay the reviewers? Because that's a lot of work and who would want to do that constantly?
+
+Interviewer: But the reviewers are not paid anyway, right?
+
+Interviewee 20: Really? They're not?
+
+Interviewer: No.
+
+Interviewee 20: Oh, then scratch everything I said. I've been wrong this whole time. I thought they actually got paid.
+
+Interviewer: No.
+
+Interviewee 20: So it's just extra work then. Ah okay, all right, then, well.
+
+Interviewer: We're not paid in any case.
+
+Interviewee 20: Then, why are we paying all this much to journals? And seems like they're taking advantage of the of us, right?
+
+Interviewer: Yeah. So true.
+
+Interviewee 20: Okay.
+
+Interviewer: One thing we haven't spoken about is preprints and postprints. Is that something you've come across? And is that common as far as you can tell in linguistics?
+
+Interviewee 20: I cannot really tell because I haven't yet published anything. I'm going to in the next few months, but I don't have the experience yet.
+
+Interviewer: But when you are looking for papers yourself, you know, the ones that you can't access because of the paywall, have you managed to find preprints, as the versions that the authors submitted, or postprints, that is the author's version without the fancy formatting from the journal, but it's still the paper as it was published in terms of the content?
+
+Interviewee 20: Right, right. For the preprint, I would sometimes I found it but through the author's personal either ResearchGate profile or through personal correspondence. But as far as I can tell, you wouldn't usually find it in a non-shady source if you know what I mean. Yeah, yeah. So but as for post prints, I can't remember ever getting across one or something.
+
+Interviewer: Yeah interesting yeah yeah that's it. I'll stop the recording. Thank you so much.

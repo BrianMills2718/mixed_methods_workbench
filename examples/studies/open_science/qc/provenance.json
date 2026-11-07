@@ -1,0 +1,21 @@
+{
+ "schema_version": "1.0",
+ "record_type": "producer_input_pin",
+ "producer": "qualitative_coding",
+ "repository": "BrianMills2718/qualitative_coding",
+ "grounded_theory": {
+  "path": "public_demo_assets/open_science/grounded_theory_full_corpus.json",
+  "commit": "bcf808802f449f4597d4c53fc7e25c4653e97ec2",
+  "sha256": "538a26465bb91cfe79bb62a2f16b6e0ea8b0017412f8fe1874fef4045ea66e3b"
+ },
+ "project_state": {
+  "path": "public_demo_assets/open_science/project_state.json.gz",
+  "commit": "c488e89c979fdbd3c61781fc878bc5324d1a479f",
+  "sha256": "a16375a135dc15bffce81c6bc3c2c3fadf1c0ec1a74ea195c2ebfdc71039c40f",
+  "extracted": [
+   "corpus.documents (without content)",
+   "segments"
+  ]
+ },
+ "text_normalisation": "line endings: CRLF and CR read as LF before offsets are counted"
+}

@@ -1,0 +1,137 @@
+Interviewer: Yeah, thank you very much again for agreeing to this interview. You have signed the form of consent but, as a reminder, this interview is being recorded and the purpose is to transcribe it. And so the transcription will be done by myself and my student research assistants. So we will have access to the video and audio and we will use a local large language model to help us with the transcription process. Is that okay with you?
+
+Interviewee 12: Sure.
+
+Interviewer: Great. And this project is about open science practices in linguistics specifically. And the first question I would have is, linguistics being a very broad field, where do you situate yourself within linguistics?
+
+Interviewee 12: It's quite easy, because I'm a phonetics, phonology guy, very specifically interested in the sound system. So yeah.
+
+Interviewer: Yeah, brilliant. And we'll start with with you and your personal beliefs and associations. So what do you associate with open science? What are open science practices to you?
+
+Interviewee 12: That's very broad. I think of myself as a keen supporter of open science. I think that it should be a prerequisite of scientific process that everything that can be available to us for a review will be part of what we publish.
+
+Interviewer: Great. And I've said open science, and that's how I introduced the topic, right? But linguistics is traditionally thought of as a humanity. And some people in the humanities prefer to use the term open research rather than open science. Or others prefer open scholarship, which is sometimes understood to be an umbrella term that includes open science slash research and also open education. I was wondering whether you had any thoughts on that, whether you feel that open science is appropriate for linguistics or whether some other term is better. I'll put them in a chat so you can see them.
+
+Interviewee 12: Yeah, so I wasn't aware of this debate, so I can't really form a really good opinion on it so quickly. Usually I don't get myself married with terms, so I don't really mind that much. So if somebody gives me a convincing enough reason to use one over the other, I'm fine with that. I don't have any horse in this race. I think linguistics is kind of unique, especially for somebody doing phonetics and phonology, because we really kind of have like one leg in the more scientific type of world and another one in the more humanities-like type of world. So I feel okay with either personally, but yeah.
+
+Interviewer: Yeah, I'm going to continue using the term open science in the rest of this interview and feel free to use whatever term you prefer. I understand it to be very broad and to also encompass the humanities and even open education. So I see it as a very broad thing. And next, we'd like to turn to your personal experiences of open science. So do you take part in open science practices yourself? And if so, which ones?
+
+Interviewee 12: Yeah, I do, definitely. I think as much as I can. Everything I do, I'm trying to put up in a repository. Well, I'm a big fan of the OSF project, so I'm using that extensively. Everything that I can share is up there. So that includes codes. So, you know, one thing that we did in recent years was actually this bunch of codes that people can use to visualize and quantify prosody, like an acoustic analysis thing. So that is essentially an open toolbox where people can use that and do whatever they want with it. So that's definitely one thing. But then every specific study that I'm involved in has data and codes tailor-made for that data. And even, you know, I have a paper on cognitive science where I published even, in the OSF project, you will even find the PowerPoint presentations of words I used to elicit the recordings, and the recordings themselves, and it's actually a perception experiment. So these are just materials for the perception experiment, even the materials of how to prepare the materials, it's all there. So everything that I can share I think is worth sharing. I also think it's nice for other researchers if they ever want to do something similar, not necessarily replicate, but use that to see how somebody else did something. I think it's so valuable and important. So as far as I can have any control over something, I'll share everything.
+
+Interviewer: What motivates you to engage in these open science practices and where did you learn about them?
+
+Interviewee 12: Oh, okay. So I think the whole idea of academy to me is appealing only if that is the case, right? I mean, it's not a commercial private enterprise. That's the beauty of the academy. It's a humanistic enterprise of collecting and sharing knowledge. So this is, I think, it doesn't need to have any title to be important in my mind. But this thing we call open science, or maybe one of those other alternative names, where did I hear from it? People talk about it all the time now, especially in the context of the replication crisis, I think. But there are many, many actors around. You included, people like PERSON that, you know, when I started in phonetics, he was still working on his PhD. People like PERSON, who is also tightly connected to our department. So people very close to me that work with me, colleagues that I know of are actually very active members of this movement, if one can call it that. And again, so I think for the other people I mentioned, I think it's really like in the context of the replication crisis that they often talk about open science.
+
+Interviewer: And when you say people talk about the replication crisis and are aware and talk about open science practices, who do you mean exactly? Is that like people in phonetics and phonology or is it in linguistics or in science?
+
+Interviewee 12: Who are talking about the replication crisis?
+
+Interviewer: Yeah, who? Like when you were saying everyone talks about open science practices now.
+
+Interviewee 12: Yeah, well, it is a thing. So what do you mean...
+
+Interviewer: Which kind of communities are you referring to when you say, you know, it's spoken about a lot?
+
+Interviewee 12: Hmm. Which kind of communities? Trying to think how to define the small echo chamber that I live inside. I don't know. So, you know, I'm not a very heavy user of social media. The people I follow on social media when I bother going inside are often people who care about these things and then they mention these things. And they publish about these things. So I will often encounter that if I go on social media, for example. There are many offerings around. On the ways, whether it's workshops, summer schools, et cetera, that use that as a motivation. So again, either replication crisis or open science or both, they kind of belong in that same camp. You know, I think it's mainly younger people, but not exclusively, of course, but mainly younger people in our world that really care about it. And some of them really made it their thing. So I mentioned PERSON is he's somebody I knew personally when I was doing my PhD but now I think his influence is is broad enough that I will get to know his his work. He publishes about it and he has projects about it. Um I think yeah. I think also just being a user of OSF, I get bombarded by the Center of Open Science emails. So I also can't escape that when I open my inbox on a daily basis. Yeah. I guess that would cover most of how I encounter it on a daily basis.
+
+Interviewer: Yeah. And I'd like to now move, I mean, we're kind of already thinking about that. So moving beyond your personal experiences and thinking about, first of all, the broad field of linguistics. As far as you can tell, how widespread are open science practices in linguistics? And then you're welcome to think more specifically in the domains that you're most familiar with.
+
+Interviewee 12: So it's incredibly not open. And I think out of laziness more than anything else. I'm always annoyed when I'm reviewing papers that I don't get to have access to the materials. It's just it makes it really difficult, especially when you have to review short abstracts often and stuff like that. The fact that it's not accessible makes your job as somebody who's supposed to evaluate something much harder. And of course, makes me as somebody who cares about this field disappointed that there's like, okay, you just synthesized some voice in a perception experiment. Give it to me. I want to hear what you did. I don't want to just read about it because I cannot evaluate it as good as I would have if I had access to the thing itself. And I wouldn't be inspired to follow suit as a researcher without hearing how amazing you did that. It's it's just disappointing because there's no reason why that person wouldn't share that. There's no reason. Let's imagine in this case that it's a fully synthetic voice. Um I think that we have a huge issue with privacy and the way you started this whole interview was was to bombard me with disclaimers about privacy which you have to. I think that we are really missing the plot here and there's also a huge conflict between privacy and open science that we're kind of ignoring all the time. I think I already lost the plot of your question.
+
+Interviewer: No, you're totally on it. I was asking about the uptake of open science practices in linguistics more broadly, and it sounds like it's not a high uptake. Is it higher in phonetics and phonology than in linguistics more broadly? What's your impression?
+
+Interviewee 12: I really cannot say. I will admit that my narrow landscape is not broad enough to give a good answer here. I don't know. I assume that it's actually a little better, again, because we tend to have data of types that are easy to share and are often expected to be shared. We use code more often and stuff like that but I don't know. I think when I deal with younger people nobody cares and everybody is happy to share. I never met a young person so far that rejected that. And even with, I think, let's say the more seasoned researchers, it's usually not that they're against it, it's just that they're not used to doing it. It's just not something they're used to.
+
+Interviewer: Yeah, habits.
+
+Interviewee 12: Yeah, and they're not incentivized to do it. We just submitted to CONFERENCE where you have to. And I was happy. I was very happy that you have to. So if you're reporting on anything that you did with code, you have to share that code. Cool. Sure. Yeah, I mean, that should be. So I think this also has to come from the publishers and organizers of conferences where they need to demand this from people.
+
+Interviewer: Have you ever demanded it for peer review? Because you were saying you find it frustrating that sometimes you don't have the necessary materials to evaluate.
+
+Interviewee 12: I definitely complained about it in my reviews. I don't think I ever rejected something offhand because it didn't include anything. Well, maybe I should. I don't.
+
+Interviewer: What kind of response did you get when you complained that you didn't have enough to evaluate?
+
+Interviewee 12: Nobody ever answers.
+
+Interviewer: Oh, okay.
+
+Interviewee 12: I mean, so far.
+
+Interviewer: Yeah. It's not like. They then sent you the. It's kind of upon request. Okay, here we go. Here's my code or my data. Okay.
+
+Interviewee 12: It's usually not conditioned. Often that would be for conferences, right? So it's not like there's a lot of back and forth. It's one chance to give a review and you can either justify your inability to give a good review or just give a disclaimer about your good review that the lack of access to the data impedes your ability to. But that is as much as I often would go into that.
+
+Interviewer: Yeah. And I wonder, because we're talking about peer review, it's not on my list of questions, but, just because we're talking about peer review, have you put any thoughts into open peer review? Because that's another open science practice that has been put forward. Do you have any thoughts on that?
+
+Interviewee 12: Yeah, I took part in it before. And it was weird, because I think the, and we have that also in the, so I'm serving as an editor, I was an editorial assistant in PROJECT. And we also encourage people to give us open reviews. But the thing is that this often needs to be a revised version of the review in order to be something that a reader would care about because some parts of a review are very technical and not so interesting, and some parts of the review are being addressed, and so they're not anymore very interesting. Only if you really care about the whole history of something, which it's a bit too much. I don't think it should be very I don't think it has to be a thing. But it's nice if there's a revised version, a public-facing revised version of reviews. That's nice, I think. It probably is useful if you have access to the whole history and everything's open. But then I would assume that way, way more often than not, it will be left untouched, because who cares?
+
+Interviewer: Yeah. Yeah. That's a lot of extra work, maybe.
+
+Interviewee 12: Yeah, or Yeah, but I'm not against a world where all of the stages of the review remain open to the public. Yeah.
+
+Interviewer: And do you sign your reviews? Or have you signed your reviews in the past?
+
+Interviewee 12: No, I prefer not to. I mean, of course, if it's open, then that would be the case. But no, I also like the idea that we try to eliminate biases, right? That's part of the whole idea. So, I mean, there's a reason why it should be double blind or just blind.
+
+Interviewer: Yeah, that's really interesting. You've already started to answer my the next question, which is what could be done to increase the uptake of open science practices in linguistics?
+
+Interviewee 12: Right. So, yeah, as you said, I started answering. So I think if conferences and publishers would make this demand, and that could be a demand, like what PROJECT was demanding made good sense, right? So it was conditional on if you are going to show this and that or make this and that assumption based on this and that, then these things should be also available.
+
+Interviewer: Definitely.
+
+Interviewee 12: And I think so there's another thing with the whole thing with privacy. We have a big problem here and I think we didn't fight this legally so far. Or well enough. Uh one aspect of it is what is the status of data we collect from people especially when it's auditory or visual where it has like biomarkers where people can be identifiable even if you see you don't you don't retain names and everything, but still that data itself is so the extent to which this is dangerous to us is something that I think is overblown. But that's something about social psychology. So I can't battle that. But I think that we're then providing people with a big list of alternatives to protect their very, very dear vocal waveform or something like that. I think we're exaggerating here. So I'm calling my colleagues and we're trying, like me and another friend in phonetics, we're working on a new draft for consent forms for experiments where we're actually suggesting the most liberal version of privacy with the intention of making everything available. So we're trying to push within our department for people to actually adopt these more liberal versions to the extent that unless you're very pressed for subjects, you can tell some subjects that don't want to cooperate with your very liberal consent form, okay, thank you. I mean, if the only way that I can use your data is if I'm the only person who's listening and then nobody else can, then maybe it's not a good data for science, right? Like. Because actually we want that to be available to other people. So I think that's another thing. We need to think of how we And the thing that wasn't thought, what I alluded to before, is that, okay, so we have now a huge, a vast amount of data out there on public platforms like YouTube and podcasts. And there's a big confusion nowadays with respect to how we can actually use and share this data when we're doing scientific research. And because these companies are powerful and they have very strong legal mechanisms and they're very afraid of information scraping from AI companies nowadays. So they have these very forceful mechanisms to scare people off from scraping data. But I think under any doctrine of fair use and best practice, in the context of a scientific research, we should have full access and the ability to even store and share databases of stuff that is already publicly available. So we don't have to go through all of this problematic procedure of guaranteeing the privacy of people that we record. Because we're using stuff that was recorded by other people and is already publicly shared with the world. So I think that actually over there we have a very, very large space that is not very well contested so far because every time I'm suggesting people to scrape lots of data and share that on OSF. Everybody is very afraid and rightfully so. And when they go to their legal advisors in the university, you know, they prefer to err on the side of caution. So no, no, no, don't do that. We have to contest that eventually. I think we have a lot of leeway there and there's tons of material that we can use.
+
+Interviewer: Yeah.
+
+Interviewee 12: And share. And that's I mean, the beauty of it is that then we can share it very easily so we can share exactly the source of what we did, which is also probably more ecologically valid because we like bringing people in the lab is not a great idea.
+
+Interviewer: Yeah.
+
+Interviewee 12: You want to study human behavior.
+
+Interviewer: Yeah, those are really, really good points. And my next question is very much related, which is, I mean, I think it's fair to say open science as a movement, if we want to call it movement, didn't emerge from linguistics, but more from other disciplines like psychology. So are there any specificities of linguistics that need to be taken into consideration when we try and apply and further develop open science practices for our field?
+
+Interviewee 12: I'm not sure I understand the question.
+
+Interviewer: So would you say that open science practices, as they have been promoted by, for instance, psychologists, are fully applicable to linguistics? Or are there some specificities of our field that mean that some adaptation is necessary?
+
+Interviewee 12: I can't think of anything. But I'm not saying that there aren't any. Yeah.
+
+Interviewer: Yeah.
+
+Interviewee 12: I think when it comes to replication crisis, there is, okay, and there's this great paper by Jack Grieve who is answering Timo Röttger. It's a very interesting debate. And I think he has many, many good points where actually we should not expect everything to replicate in linguistic contexts. But that's separate from open practices, right? So I think, yeah, so when it comes to the replication crisis and what we need to expect, I think linguistics is slightly unique. I don't think that for open science practices, that's the case. But again, I can't think of anything.
+
+Interviewer: Yeah. And then I have a question that's related to a personal observation of mine, which is sometimes I have the feeling that open science advocates tend to preach to the converted, like we're organizing workshops, but the people who come are people who already fully convinced and practice these things. And similar with ReproducibiliTea in the HumaniTeas in Cologne, it's great, but I feel like we're not really reaching out to the people who aren't at all involved in these practices yet. And my question would be, is that an observation that you share or not? And how could we reach out to more linguists?
+
+Interviewee 12: I might share the observation, but I will not find this devastating. I think existing in the space is exactly how people know of this. And I think that we are still all babies in terms of doing it, practicing it, so we have a lot to still learn. Even those that are converted still have a lot to learn, me included, definitely. So in both of these respects, I think we still have a lot to teach the converted and each other. And as long as we exist in the academic spaces where we want this to be known, it's already extremely valuable. So yeah, maybe most people who come are those who are already interested, but that's not a problem.
+
+Interviewer: Yeah. You're one of the people who's come to some of the sessions of ReproducibiliTea in the HumaniTeas. And my question would be like, what's your motivation for coming? What do you take from these sessions? But also, what would you like to take away from such meetings?
+
+Interviewee 12: Well, discussing practices or anything else that's related. So I barely made it to three sessions, I think.
+
+Interviewer: I mean, I didn't count. It's always nice to see you, but I didn't count.
+
+Interviewee 12: I enjoyed the biscuits. It was interesting. It's interesting to see. So some of them had, I forgot. So the last one I went to was on GitHub, given by, I forgot his name.
+
+Interviewer: Dennis, was it, who did Git?
+
+Interviewee 12: I think so.
+
+Interviewer: Yeah.
+
+Interviewee 12: Yeah that was. That was to me. That was really about learning some practices. So I'm not an expert but I use git. Um. And there was another one, the first one, I think, where Simon Wehrle was also there, but I remember vividly that we had discussion going on, like it was a very open, it very quickly became something that everybody contributed their opinion. Which was interesting. I like discussions. So I think, yeah, in both cases, I was happy, whether it was about some technicality that is relevant to doing that or about my peer group's ideas on a certain topic in this field. Yeah.
+
+Interviewer: Great. And, you know, in an ideal world with all the resources possible, what would you like to see happening on open science in CITY or more broadly in linguistics? Like what would be something that would help you to do more open science and would help the field to do more open science? I think you might be frozen, actually. Yes. I think we've lost each other. Okay ah you're back.
+
+Interviewee 12: Yeah yeah only now. So the whole like the last almost minute was was gone frozen in time.
+
+Interviewer: Um I don't know what. What's the last bit you heard?
+
+Interviewee 12: I think, let's assume I didn't hear anything.
+
+Interviewer: Okay. I mean, we've reached the end of my interview scheme. So really the last question would be, is there anything else that you'd like to add on open sciences in linguistics or more broadly in the humanities for that matter?
+
+Interviewee 12: Yeah, I guess no. Nothing comes to mind.
+
+Interviewer: In that case, thank you so much. It's been really, really nice to chat to you. I will stop the recording.

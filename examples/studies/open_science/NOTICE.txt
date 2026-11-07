@@ -1,0 +1,12 @@
+Third-party material in this folder
+
+source/ holds, unchanged, the files of "Semi-structured interviews with linguists about
+Open Science" by Elen Le Foll, published on Zenodo on 2025-11-17
+(https://doi.org/10.5281/zenodo.17630137) under the Creative Commons Attribution-ShareAlike
+4.0 International licence (https://creativecommons.org/licenses/by-sa/4.0/). Each file's
+published md5 and its sha256 are in corpus_manifest.json. No file was changed. The page this
+repository builds from them (proposals/open-science-study/index.html) quotes these
+transcripts and the author's coded passages; it is shared under the same licence.
+
+qc/ holds an export of BrianMills2718/qualitative_coding (grounded-theory result, document
+records and segment records), pinned by commit and sha256 in qc/provenance.json.
