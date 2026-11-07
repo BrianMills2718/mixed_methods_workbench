@@ -360,6 +360,14 @@
       "cost_per_run_usd": 4.94,
       "calls_per_run": 2075,
       "evidence": "Every qualitative_coding call on the Open Science corpus recorded in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: 2,075 calls, $4.94 in total, including partial reruns and four grounded-theory school variants, so one clean pass on a corpus of similar size costs at most about that."
+     },
+     {
+      "step": "S7 fresh end-to-end run on the second corpus for the readiness page: S2 plain version, S3 plain call and the causal check (the readiness page itself makes no model call)",
+      "per": "one end-to-end run",
+      "basis": "computed",
+      "evidence": "Sum of this table's figures: S2 plain version $0.0783 (computed) + S3 plain call $0.0137 (computed) + S4 draft-audit prototype $0.0555 (measured upper figure, draft-audit/fomc_v4) = $0.1475 over 2 + 1 + 7 calls; QC's strand is read from its committed export, not rerun. Replaced by the run's own receipt total.",
+      "cost_per_run_usd": 0.1475,
+      "calls_per_run": 10
      }
     ],
     "cheapest_design": "The plain version, which is also the starting design: S2 labels every interviewee turn in two calls (tuning interviews, held-out interviews; about $0.08 per pass) and S3 drafts every row in one call (about $0.014), and no second model in S2 or S3. Per-interview calls (about $0.15 on the tuning interviews), per-turn calls (about $0.40 on the tuning interviews) and per-proposition drafts (at most 6 calls) are stages added only if the plain version shows a gap on the tuning interviews or on the number and passage check; per-turn calls are not the cheapest design. The four language-model controls (about $0.16 once per corpus with the plain version) are kept because the brief requires them. The dummy, word-list count and TF-IDF regression run locally at no model cost; the fresh reviewer is a Claude Code session on the subscription; S1, S5 and S7 call no model. Quality decides, not cost."
@@ -408,9 +416,9 @@
       "status": "holds"
      },
      {
-      "said_on": "2026-09-30",
-      "words": "Backend freeze (an agent's paraphrase in commit a88aac6; Brian's own words for it were not found, per Process Tracing's autopsy)",
-      "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:75; /home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67",
+      "said_on": "2026-11-05",
+      "words": "the full pipeline is frozen. Its stages share no cache, and its test step alone took 27 calls and $0.3554 on FOMC. Do we accept that cost? I recommend accepting it. Large cases now go through the prototype, and the pipeline runs only on small cases as a comparison. (put to Brian as Decision 1; he answered \"i approve those.\"; the earlier 2026-09-30 freeze is known only from an agent's paraphrase, commit a88aac6, per Process Tracing's autopsy :75)",
+      "source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:10-15",
       "applies_to": "Process Tracing's pipeline (pt/), which S4 does not change or run",
       "status": "holds"
      },
@@ -418,11 +426,8 @@
       "said_on": "2026-07-29",
       "words": "overbuilt",
       "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:142",
-      "applies_to": "Process Tracing's pipeline design",
-      "status": "lifted",
-      "lifted_on": "2026-11-05",
-      "lifted_words": "i approve those.",
-      "lifted_source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:10 (ADR 0004: the small draft-audit prototype becomes the answer path, the pipeline stays frozen; S4 uses the prototype and runs no pipeline)"
+      "applies_to": "Process Tracing's pipeline design; honoured because S4 uses the draft-audit prototype and runs no pipeline (ADR 0004 acts on it by freezing the pipeline, it does not lift it)",
+      "status": "holds"
      },
      {
       "said_on": "2026-08-20",
@@ -438,11 +443,18 @@
       "said_on": "2026-09-24",
       "words": "seems like a patch ot an actual fix",
       "source": "/home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:143",
-      "applies_to": "the pipeline's self-correction round cap",
+      "applies_to": "the pipeline's self-correction round cap; honoured because S4 uses the draft-audit prototype and runs no pipeline (ADR 0004 acts on it by freezing the pipeline, it does not lift it)",
+      "status": "holds"
+     },
+     {
+      "said_on": "2026-08-13",
+      "words": "behind the product-integration critical path (the Phase 3 pause, an agent's record of the paused state, commit e37fd80)",
+      "source": "docs/PLANNING_STATUS.md:224; /home/brian/code2/observation-to-action-metamodel/GOAL_FINISH_DECOMPOSITIONS.md:14",
+      "applies_to": "Plan #4 Phase 3, the 14 method decompositions",
       "status": "lifted",
-      "lifted_on": "2026-11-05",
-      "lifted_words": "i approve those.",
-      "lifted_source": "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:10 (ADR 0004: the small draft-audit prototype becomes the answer path, the pipeline stays frozen; S4 uses the prototype and runs no pipeline)"
+      "lifted_on": "2026-10-07",
+      "lifted_words": "i approve.",
+      "lifted_source": "/home/brian/code2/observation-to-action-metamodel/ROADMAP_AGENT_MODEL.md:19 (Brian approved the crosswalk that reads the integrated decompositions; the lift was carried out 2026-10-08, commit 680c4d5)"
      }
     ]
    }

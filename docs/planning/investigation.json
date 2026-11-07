@@ -254,7 +254,7 @@
    "id": "F15",
    "claim": "A second rights-clear corpus with its authors' own coding is identified for the benchmark",
    "evidence": [
-    "docs/plans/008_finish_workbench.md:60"
+    "docs/plans/008_finish_workbench.md:65"
    ],
    "verdict": "unknown",
    "question_id": "Q13",
@@ -302,7 +302,7 @@
    "claim": "QC's 8 grounded-theory categories rest on 8 distinct sets of evidence",
    "evidence": [
     "examples/studies/open_science/qc/grounded_theory.json (S1 branch)",
-    "docs/plans/008_finish_workbench.md:157"
+    "docs/plans/008_finish_workbench.md:162"
    ],
    "verdict": "fails",
    "question_id": "Q15",

@@ -277,8 +277,8 @@
   {
    "id": "qc_pt_handoff",
    "label": "QC's Process Tracing handoff",
-   "kind": "planned",
-   "explain": "Qualitative Coding's export-process-tracing-handoff package: the project's anchored claims (state.claims, with GT_PROPOSITION claims among them) for Process Tracing to test. Plan #8 S4 turns one proposition's handoff into a draft-audit case."
+   "kind": "elsewhere",
+   "explain": "Qualitative Coding's export-process-tracing-handoff package (implemented in qualitative_coding, qc_clean/core/process_tracing_handoff.py:202): the project's anchored claims (state.claims, with GT_PROPOSITION claims among them) for Process Tracing to test. Plan #8 S4 adds an input that turns one proposition's handoff into a draft-audit case."
   }
  ],
  "edges": [

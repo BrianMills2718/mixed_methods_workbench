@@ -51,6 +51,7 @@ Everything is files in git; there is no database.
 | S4 | a second, partial reader for the answer path's export (provisionally `pt_draft_audit_export_v1`), reading `publication_gate.publishable` when present (absent counts as withheld); two made-up test exports, one publishable and one blocked, for the "how the gate behaves" panel; in `process_tracing`, a qualitative-handoff input to the draft-audit prototype and its Q20 export adapter (Q23) | `investigation_run.py` | the causal tab |
 | S5 | Investigation record (general over studies), review decision, reflexivity memo, review log, research bundle manifest | the local study workbench server; on the served page, where no server runs, a pre-filled GitHub issue per review action that `make import-reviews` turns into the same typed files (open question Q20) | a person; the bundle |
 | S6 | Benchmark record (per corpus: agreement, planted failures caught, cost, files changed) | the benchmark builder | the benchmark page |
+| S7 | 1.0 readiness record (one row per "What 1.0 Means" condition and per G1–G6 1.0 condition: slice, criterion, Brian's judgement, evidence link), the end-to-end run receipt, method-profile "runs / does not run" field | the release builder, from acceptance-criteria.json, the review log and the run receipts | the readiness page; the 1.0 tag |
 
 It executes no typed rules: the models validate shapes, and the crosswalk checks verdict records; no rule
 with named roles runs effects (`scripts/crosswalk_phase4.py:144`).
@@ -69,4 +70,6 @@ Today:
 - The DEMO-C1 review packet as JSON (`make assemble-demo-review`).
 
 Planned by Plan #8: the study page per corpus (S1–S4), the local study workbench with review and bundle
-download (S5), the benchmark page (S6); where they are served is open question Q11.
+download (S5), the benchmark page (S6), and the 1.0 readiness page and the method-profile page with what
+the workbench runs and does not run, beside the existing crosswalk page (S7); where they are served is
+open question Q11.

@@ -203,16 +203,16 @@
   },
   {
    "id": "A12",
-   "criterion": "I can see on one page whether the whole workbench is finished: every condition of the roadmap's 1.0 definition (as kept, or changed only by my answers), which slice meets it, whether it is met, where to see it, and one end-to-end run that uses all of it together",
+   "criterion": "I can see on one page whether the whole workbench is finished: every condition of the roadmap's 1.0 definition and of its G1–G6 1.0 gate (as kept, or changed only by my answers), which slice meets it, whether I have judged it met, where to see it, and one end-to-end run that uses all of it together",
    "demonstration": [
     "Open the 1.0 readiness page",
-    "Read each condition, its source (the roadmap's 1.0 definition, or my answer that changed it) and whether it reads 'met' or 'not yet'",
-    "For one 'met' row, open its link and check the evidence it names",
-    "Open the end-to-end run linked at the top: the second corpus taken from frozen corpus through qualitative strand, measurement, joint display, causal check, review and bundle with no code change, every step's trace openable",
+    "Read each condition, its source (the roadmap's 1.0 definition, its G1–G6 1.0 conditions, or my answer that changed it) and whether it reads 'met' or 'not yet'",
+    "For one 'met' row, open its link and check the evidence it names and my recorded 'judged pass'",
+    "Open the end-to-end run linked at the top: the second corpus taken from frozen corpus through qualitative strand, measurement, joint display, the causal check on one of its propositions, review and bundle with no code change, every step's trace openable",
     "For one 'not yet' row (if any), read what is missing"
    ],
-   "expected": "One row for each condition of the roadmap's 1.0 definition, none missing; a condition the plan changed shows the change and the answer of mine that approved it, or 'awaiting your answer'; each row names its slice and acceptance criterion and reads 'met' (blue) or 'not yet' (orange) with the word; every 'met' link opens the evidence; the end-to-end run opens with each step's output and trace; the 1.0 tag exists only when every row reads 'met' and the end-to-end run passed.",
-   "failure_example": "A condition of the roadmap's 1.0 definition is missing from the page or changed without my answer; a row reads 'met' while its link opens nothing or its criterion is still 'not built'; or the end-to-end run needed a code change or stops partway.",
+   "expected": "One row for each of the eight conditions of the roadmap's 1.0 definition and one for each G1–G6 1.0 condition, none missing; a condition the plan changed shows the change and the answer of mine that approved it, or 'awaiting your answer'; each row names its slice and acceptance criterion and reads 'met' (blue) only when that criterion is 'judged pass' in my recorded words, else 'not yet' (orange) with the reason, such as 'awaiting your judgement'; every 'met' link opens the evidence; the end-to-end run opens with each step's output and trace, the causal step reading 'withheld' because Process Tracing's answer path carries no gate; the 1.0 tag exists only when every row reads 'met' and the end-to-end run passed.",
+   "failure_example": "A condition of the roadmap's 1.0 definition or of G1–G6 is missing from the page or changed without my answer; a row reads 'met' while its link opens nothing, its criterion is still 'not built', or an agent marked it built and I have not judged it; or the end-to-end run needed a code change, skips the causal check, or stops partway.",
    "representation": {
     "view": "data-table",
     "router_record": "docs/planning/router/A12.recommendation.json"

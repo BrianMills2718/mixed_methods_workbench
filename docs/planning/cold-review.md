@@ -3,6 +3,25 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 7 (read 58f644a): revise
+
+The reviewer found round 6's B1 fixed (the two made-up test exports match Process Tracing's
+`PublicationGateV2`, and A6 can be judged) and N1 to N3, N5 and N6 fixed. It reproduced the overlap
+figures, the crosswalk counts, `make check` and the S2 and S4 costs. It returned **revise** with two
+blocking findings and notes a to g. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| 1 | A12's end-to-end run includes a causal check that no slice builds on the second corpus; S7 claimed no AI step; "met" did not require Brian's judgement | S6 gains the causal check: S4's route on one second-corpus proposition (QC's handoff must carry it as a `GT_PROPOSITION` claim, added to Q21), costed at the measured upper $0.0555. S7's run is a fresh end-to-end run with a computed cost (about $0.15, new `cost_basis` entry). A row reads "met" only when its criterion is "judged pass" in Brian's recorded words; an agent-built, unjudged criterion reads "not yet: awaiting your judgement". A12's steps, expected result and failure example say so |
+| 2 | The integration condition was labelled "kept" though 1.0 rows can only say "complements" or "silent", so the roadmap's G4 "contradiction disposition" never meets a real disagreement; the readiness page read only the eight bullets, not the G1–G6 gate | The finished table's row now reads "changed: ... verdicts limited to 'complements' or 'silent' in 1.0", with why. Q12 gains part (c) with a recommendation (complements only in 1.0: no second author code qualifies, so a second measured theme would have no human reference), a default, the cost of the other option (about $0.19 per S2 pass, worked out) and answer words "complements is enough" / "need agree or disagree"; Q22 points there. The plan states that S7's readiness page carries both the eight bullets and G1–G6's 1.0 conditions |
+| a | Two Process Tracing stops were not lifted by ADR 0004; the freeze had approved words; the Phase 3 pause was not listed | "overbuilt" and "a patch ot an actual fix" now `holds`, honoured because S4 runs no pipeline. The freeze entry quotes Decision 1 as put to Brian and approved on 2026-11-05. The Phase 3 pause is listed, lifted 2026-10-07 |
+| b | `qc_pt_handoff` is implemented in QC, not planned; missing from the plan's "Relies on"; the `GT_PROPOSITION` citation pointed at a use | Kind `elsewhere` in the graph, glossary and spectrum; added to "Relies on"; cited at `qc_clean/schemas/domain.py:179` |
+| c | SYSTEM_MODEL had no S7 row or S7 pages | S7 row added (readiness record, end-to-end receipt, "runs / does not run" field) and the planned pages list the readiness, method-profile and crosswalk pages |
+| d | The test exports' schema and reader were unnamed | The plan says they use the partial schema (`pt_draft_audit_export_v1` with the optional gate block in `PublicationGateV2`'s shape), read by the reader the real case uses |
+| e, f, g | Coverage classes R3 as process; agent questions settleable now; page links 404 before merge | Unchanged, as answered in rounds 5 and 6: R3 stays mapped to A11; the questions are upkeep outside this plan's slices; the links resolve when this pull request merges |
+
+The reviewer's own report for round 7 is reproduced at the end of this file, ending with its verdict line.
+
 ## Plan #8, round 6 (read 9ad84d1): revise
 
 The reviewer found round 5's S4 route fixed (the draft-audit prototype with a handoff input and Process
@@ -469,5 +488,127 @@ I ran it on the current branch (revision 0782bbf); it exited **1**.
 - **Need anything from human:** No.
 
 Reviewed revision: 9ad84d1a935515f616067d98c77a58aecf2a0084
+
+Verdict: revise
+
+## Plan #8, round 7 reviewer's report (verbatim)
+
+The verdict is **revise**. Round 6's one remaining blocker is fixed: Process Tracing's gate code supports the two made-up test exports, and A6 can now be judged. But two new problems block:
+
+- **The new A12 check promises something no slice builds.** A12 is the "is it finished" check. Its end-to-end run on the second corpus includes a causal check, but no slice runs Process Tracing on that corpus, and S7 still says it makes no model calls.
+- **The plan quietly narrows mixed-methods integration and labels it "kept".** The roadmap's 1.0 gate requires "contradiction disposition". Under the plan, the 1.0 joint display can only ever say "complements" or "silent", so the two strands can never agree or disagree. Brian has not been asked about this.
+
+#### Validator
+
+I ran it on the branch head, 09ff61e. Since the subject revision 58f644a, that commit changed only package files. It **exited 1**, which was expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review, whose recorded verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and the 3 untested stages; the contract makes both WAIT on purpose.
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage:** ok. It found 3 requirements in Brian's words: 2 covered (R1 by A12, R2 by A10) and 1 classed as about process (R3, mapped to A11).
+- **Goal provenance and freshness:** both ok, with 0 commits of work since 58f644a.
+- **Plan checklist** (`plan_checklist.py --check`): matches, 0 differing lines, exit 0.
+
+#### Recorded checks I reran
+
+All match the manifest.
+
+- **Overlap scripts** (`overlap.py` and `overlap2.py` on the S1 checkout, faf5399, clean tree):
+  - 630 interviewee turns, 224 pairs, 11 numbered question codes.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48, and the highest two-way overlap is 0.18.
+  - The two pairs of identical categories (F19) show up as stated.
+- **Crosswalk check** (`crosswalk_phase4.py --check`): 171 steps, 36 groups, 0 errors, exit 0.
+- **`make check`:** exit 0, 41 tests passing (11 + 30).
+- **S4 cost:** Process Tracing's efficiency readout (`README.md:161-163`) gives `fomc_v4` as 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555. That matches the cost entry.
+- **S2 plain-version cost:** 2 × (58,150 × $0.2168 + 18,900 × $1.4057) per million tokens = $0.0783. That matches.
+
+#### Round-6 findings
+
+- **B1 (A6's publishable case): fixed.**
+  - The plan (lines 283-289), A6 (`acceptance-criteria.json:103-106`) and Q23 now say that no committed file carries a publishable gate.
+  - S4 commits two labelled test exports. The gate fields named ("status accepted, integrity verified, `publishable` true") match `PublicationGateV2` in `process_tracing/pt/export.py:597-626`.
+  - Process Tracing's own export says "consumers must treat a missing gate as not publication-ready", which supports showing "withheld" when the gate is absent.
+  - A6 has a step that opens the panel, and a second failure example.
+- **N1 (old route wording): fixed.** Plan lines 45 and 75 and `DOMAIN.md:43` are reworded. The partial schema `pt_draft_audit_export_v1` and its optional fields are named (plan lines 268-272).
+- **N2 (`stops`): fixed.** The three stops are recorded and the freeze's wording is marked as a paraphrase. Two of the new labels are questionable (note a).
+- **N3 (F18): fixed.** It is narrowed and points to Q23.
+- **N4 (coverage record for R3): not fixed in substance.** The judge still classes R3 as process; it is mapped to A11 but still needs no criterion. A12 was added for R1. Still a note (note f).
+- **N5 (QC's handoff missing): fixed.** `qc_pt_handoff` is now in the glossary, graph, spectrum and `relies_on`, and the claims citation `process_tracing_handoff.py:221` is right. Its kind is wrong (note b).
+- **N6 (stale reviewed revision): fixed.** The manifest now gives 9ad84d1.
+- **n5 and n6 (carried):** still notes.
+
+#### Blocking findings
+
+**1. Acceptance and plan: A12's end-to-end run asks for a causal check that no slice builds or costs.**
+
+- **Where:** `acceptance-criteria.json:211` and `:214`; `008_finish_workbench.md:326`, `:337-340` and `:344-352`.
+- **What is wrong:**
+  - A12 step 4 runs "the second corpus … through qualitative strand, measurement, joint display, causal check, review and bundle".
+  - S6 builds only "the whole S1–S3 path" on the second corpus. S4 is one Open Science proposition.
+  - So nothing builds the causal check on the second corpus. It would need QC's handoff with a `GT_PROPOSITION` claim on that corpus, a run of Process Tracing's prototype, and the export adapter.
+  - S7 still reads "Cost: none (no AI step)", and no `cost_basis` entry covers this run.
+  - A12 also never says that "met" requires Brian's "judged pass". Its failure example catches only "not built", so 1.0 could be tagged on criteria an agent marked "built".
+- **Fix:**
+  - Either add S4's route on one second-corpus proposition to S6, with its cost: measured, at most $0.0555, plus QC's precondition under Q21.
+  - Or narrow A12's end-to-end run to the steps S6 runs, and point the causal row at S4's Open Science run.
+  - Change S7's cost line to the run's real calls, or say it reuses S6's receipts.
+  - State that a row reads "met" only when its criterion is "judged pass" in Brian's recorded words.
+- **Weight:** blocking. A12 is the only criterion covering "finish", and as written it cannot pass by following the plan.
+
+**2. Plan and open questions: the integration condition is marked "kept" but is narrowed by an agent, and no question asks Brian.**
+
+- **Where:** `008_finish_workbench.md:46` and `:222-233`; Q22 (`open-questions.json:411`); `ROADMAP.md:83` and `:437`; Q12 (`open-questions.json:201`).
+- **What is wrong:**
+  - The roadmap's 1.0 gate is "G1–G6 meet their 1.0 conditions" (`ROADMAP.md:437`). For G4 that condition is "One observed design, joint display, contradiction disposition, and integration-quality review" (`:83`).
+  - Under Q22's rule, every 1.0 row can only say "complements" or "silent: not measured". So 1.0 can never show the strands agreeing or disagreeing, and never deals with a contradiction.
+  - The plan and ledger never mention "contradiction disposition", and the "finished" table says the condition is "kept".
+  - Q12 already sends two similar narrowings of what 1.0 promises to Brian. This third one was settled by agent argument.
+  - A12's own rule says a changed condition must show Brian's approving answer. Yet S7 and A12 build their rows from the eight "What 1.0 Means" bullets, not from the G1–G6 gate the roadmap's 1.0 section uses.
+- **Fix:**
+  - Mark the row "changed: complements only in 1.0".
+  - Add it to Q12 as part (c), with a recommendation and a default. One option to name: in S2, measure a proposition's condition and outcome, or a salience claim QC makes, so that a row could agree or disagree.
+  - Have the readiness page carry G1–G6's 1.0 conditions too, or state in the plan that the eight bullets replace that gate.
+- **Weight:** blocking. A material question is missing, and it changes what 1.0 claims about the integration, which is the core purpose of a mixed-methods workbench.
+
+#### Notes (do not block)
+
+- **a. `stops` labels** (`planning-package.json:417-425` and `:437-445`).
+  - "overbuilt" and "a patch ot an actual fix" are marked `lifted` by "i approve those." (ADR 0004 line 10).
+  - Those words approve freezing the pipeline and making the prototype the answer path. That acts on "overbuilt" rather than lifting it, and does not address the round cap at all.
+  - **Fix:** mark both `holds`, honoured because S4 runs no pipeline. For the freeze entry, Brian's own approved words exist and could replace the paraphrase: ADR 0004's Decision 1, "the full pipeline is frozen …", answered "i approve those." on 2026-11-05.
+  - Also: `stops.searched` (line 396) found the Phase 3 pause lifted on 2026-10-08, but `found` does not list it.
+- **b. `qc_pt_handoff`'s kind** (`domain.graph.json:278`, `DOMAIN.md:38`).
+  - It is marked "planned", but QC already implements it (`process_tracing_handoff.py:202`), so its kind should be "elsewhere".
+  - The plan's own "Relies on" list (lines 356-362) leaves it out.
+  - `claims.py:33` points at a use of `GT_PROPOSITION`, not where it is defined.
+- **c. System model** (`SYSTEM_MODEL.md:44-53` and `:71-72`): there is no S7 row. The readiness page, the "runs / does not run" field and the crosswalk page are missing from both the planned types and the planned list of pages.
+- **d. S4's test exports** (plan lines 283-289): the plan does not say which schema the two made-up exports use, or which reader opens them. The panel should test the reader the real case uses.
+- **e. Coverage record** (`acceptance-criteria.json:270-276`): R3 is still classed as process (round-6 N4). If A11 were dropped, the coverage check would not notice.
+- **f. Carried n5:** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+- **g. Carried n6:** the branch is on no remote (`origin/plan-008-finish` does not exist). So the page's `/blob/main/` links to Plan #8's files return 404 until merge, and the page has no served address (Q11). The repository is in Brian's own account, so the company-organization rule does not apply.
+
+#### What I was unsure about
+
+- **Weight of blocking finding 2.** The plan states the narrowing openly (line 232), so a careful reader is not misled about what S3 does. I kept it blocking because the plan labels the condition "kept", "contradiction disposition" appears nowhere in the plan or the ledger, and Q12 sets the precedent that narrowing what 1.0 promises is Brian's call.
+- **Whether the A12 fix should widen S6 or narrow A12.** Either is defensible; it is the author's call.
+- **What I could not do:**
+  - No browser tool was available, so I read the page as HTML. The diagrams are drawn on the page by `GraphViewer.mount` from embedded data, and every local link resolves.
+  - Fetching A1's live page needed approval this session lacks. `deploy/` is unchanged since round 6, which matched the live page against the committed copy.
+  - I ran the 41 tests inside `make check`, not the 204-test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 0 failing and 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0.
+  - Overlap scripts: the figures above.
+  - `git diff 9ad84d1 09ff61e -- deploy/ src/ tests/ scripts/ examples/`: empty.
+  - Read directly: Process Tracing's ADR 0004, its Q20, the autopsy (lines 65-80 and 135-150), the efficiency readout (lines 155-170) and `pt/export.py:590-660`; QC's `process_tracing_handoff.py:195-235` and `claims.py:20-45`.
+- **Feedback:** the validator's JSON checklist still labels WAIT lines "failing" (plan lines 411-412). This is a plugin fault, carried from rounds 5 and 6.
+- **Need anything from human:** No.
+
+Reviewed revision: 58f644a7e99565b103940b7c884c3b5cb7ab7a25
 
 Verdict: revise

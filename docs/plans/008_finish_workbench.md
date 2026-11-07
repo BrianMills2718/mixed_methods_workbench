@@ -43,12 +43,17 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 | At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. |
 | At least one computational or quantitative text path | kept, **workbench-owned** | No repository in `~/code2` measures text quantitatively (survey of capabilities.md and repo names, 2026-11-06); QC's quantitative follow-up can only say `conceptual_follow_up_only`. The workbench owns a narrow adapter around established libraries (roadmap 0.5 already says so). |
 | Causal and theory work without category errors | **changed: within-case causal reasoning kept (Process Tracing); theory operationalization after 1.0** | Process Tracing's frozen pipeline takes a QC handoff and writes `pt_export_v2`; its answer path, the draft-audit prototype, does neither yet, so S4 adds a handoff input and a partial export (open question Q23). That answer path carries no publication gate, so in 1.0 no causal conclusion from it is shown as published: the line reads "withheld". Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call with the benchmark change (open question Q12). |
-| One genuine qualitative–quantitative design with joint display and meta-inference | kept: exploratory sequential | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). |
+| One genuine qualitative–quantitative design with joint display and meta-inference | **changed: exploratory sequential, with verdicts limited to "complements" or "silent" in 1.0** | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). Only that one code qualifies, and a prevalence cannot confirm or contradict a when-then proposition (S3, Q22), so in 1.0 no row can show the two strands agreeing or disagreeing. The roadmap's G4 condition names "contradiction disposition" (`ROADMAP.md:83`): S5 records a disposition for every row the number and passage check marks orange, and S6's planted overclaim exercises it, but a real disagreement between strands cannot arise. This narrows what 1.0 promises, so it is Brian's call (open question Q12, part c). |
 | Human review, reflexivity, provenance, reporting, exports | kept | Slice S5; reflexivity is a researcher-positioning memo per study, kept with the review log and the bundle. |
 | An observed benchmark | **changed** | From "multi-domain benchmark with expert review" to "two rights-clear corpora, each with its authors' own human coding as the reference, held-out interviews, and planted failures that must be caught". Whether 1.0 also needs an outside researcher's hour is open question Q12. |
 | Roadmap phases B–E (shared-profile gate, shared extraction action, NYC refactor, QC/PT seam proof) as prerequisites | **cut** | Their premise was a shared capability across methods. The Plan #6 crosswalk adjudicated 36 groups: 29 different capability, 7 shared shell only, 0 same capability (`docs/research/method_decomposition/phase5/adjudication.yaml`). There is nothing shared to build first. Shared code is extracted only after two real slices use the same thing. |
 | NYC Congestion Relief Zone as the stable example | **cut** | Paused by Brian 2026-10-04; he did not knowingly choose it. |
 | Versions 0.2 (OntoCanon/DIGIMON), 0.3 (theory recommendation), 0.6–0.8 (more designs, QCA, method portfolio) | **after 1.0** | Not needed for any 1.0 condition; they are breadth, which the roadmap itself says comes after 1.0. |
+
+The roadmap's 1.0 gate is stated twice: the eight bullets of "What 1.0 Means" (the rows above) and "G1–G6 meet their
+1.0 conditions" (`ROADMAP.md:437`, conditions at `:79-84`). Neither replaces the other: S7's readiness page
+carries both, each G1–G6 condition mapped to the rows above that meet it, and a G condition this plan narrows
+(G3 theory, G4 contradiction disposition, G6 expert review) shows the same open question as its row.
 
 **Example corpus.** "Semi-structured interviews with linguists about Open Science" by Elen Le Foll (Zenodo
 record 17630137, CC BY-SA 4.0, anonymised, participants consented to open publication). It suits a general
@@ -230,7 +235,9 @@ finish).
   reason. A row whose units differ (a turn-level claim against an interview-level figure) blocks
   aggregation and meta-inference, as the brief requires (`:143-144`), and says so in orange. The page
   states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so
-  a row could converge or diverge, is a later slice's choice, not 1.0's.
+  a row could converge or diverge, is not in 1.0 unless Brian answers Q12 (c) "need agree or disagree";
+  then S2 also measures one proposition's condition and outcome, each a labelled theme with its own
+  instrument definition, and that row may converge or diverge.
 - **Build:** for each mapped row, a draft integration verdict and bounded meta-inference through
   `llm_client` (the plain version below), citing passage ids and the measured numbers. A deterministic
   check (the number and passage check) then verifies that every number the draft cites equals the measured
@@ -273,7 +280,7 @@ finish).
   `export-process-tracing-handoff` exports the project's claims (`state.claims`,
   `qualitative_coding/qc_clean/core/process_tracing_handoff.py:221`), so S4 first checks that the Open
   Science project state carries the chosen proposition as an anchored claim of QC's `GT_PROPOSITION` kind
-  (`qc_clean/core/claims.py:33`).
+  (`qc_clean/schemas/domain.py:179`).
 - **Build:** the workbench reads only that export. Its existing reader (`investigation_run.py`) reads
   `comparative_conclusion.public_headline_eligible`; S4 extends it to read `publication_gate.publishable`
   (`process_tracing/pt/export.py`, `PublicationGateV2`) and shows a causal conclusion only when both allow
@@ -283,7 +290,9 @@ finish).
   Process Tracing gate: the investigation-spine fixture
   (`examples/fixtures/investigation_spine/process_tracing_return.json`) is a `pt_theory_test_return_v1`
   record whose gate is blocked, and the PsychosisBank `pt_export_v2` has no gate at all. So S4 commits two
-  small made-up export files, each labelled as test data that supports only a claim about its shape: one
+  small made-up export files in the partial schema (`pt_draft_audit_export_v1`, with the optional
+  `publication_gate` block in `PublicationGateV2`'s shape), read by the same partial reader the real case
+  uses, each labelled as test data that supports only a claim about its shape: one
   with a publishable gate (status accepted, integrity verified, `publishable` true) and one with a blocked
   gate. The causal tab's "how the gate behaves" panel opens both: the publishable one shows its
   conclusion, the blocked one reads "withheld" and why. Unit tests cover these two and the absent gate.
@@ -331,25 +340,36 @@ finish).
   test, not the builder that reads the corpus, lists the files that commit changed (`git diff --name-only`)
   and the page shows "data only" or, in orange, any code path (the test of "not for a specific use case"). If the second corpus's export format needs a new reader, that
   reader is general (named by format, not by corpus) and the page says so.
+- **Causal check on the second corpus:** S4's route run once on one proposition of the second corpus, so
+  the end-to-end run (S7) covers every strand: QC's handoff for that corpus must carry the proposition as a
+  `GT_PROPOSITION` claim (part of Q21's precondition, done in Qualitative Coding's repository), the
+  prototype runs in Process Tracing's repository, and the workbench reads its partial export through S4's
+  reader; with no gate, the conclusion line reads "withheld" as on Open Science.
 - **Trace:** one receipt per run; the benchmark page links each.
 - **Planted failures include an overclaim:** a meta-inference citing a number that is not in the measured
   result, which S3's number check must catch.
 - **Cost (computed):** S2's plain version + S3 on a corpus of similar size from the same figures, about
   $0.10 per run; three repeat runs to show variation, about $0.28, plus the S2 language-model controls once
-  (about $0.16), plus Qualitative Coding's own pass if Q21 needs one. Redone with `llm-cost estimate` on S2's own
+  (about $0.16), plus the causal check (measured upper figure $0.0555, S4), plus Qualitative Coding's own
+  pass if Q21 needs one. Redone with `llm-cost estimate` on S2's own
   task once S2 has run.
 
 ### S7 — 1.0 release
 
 - **Build:** method-profile page states supported and unsupported paths; a 1.0 readiness page, one row per
-  condition in this plan's "finished" table (the eight rows of the 1.0 definition as kept or changed here),
-  each with the slice that meets it, its acceptance criterion, "met" (blue) or "not yet" (orange) read
-  from that criterion's recorded status and checks, and a link that opens the evidence; a changed condition
+  condition in this plan's "finished" table (the eight rows of the 1.0 definition as kept or changed here)
+  and one per G1–G6 1.0 condition (`ROADMAP.md:79-84`), each with the slice that meets it, its acceptance
+  criterion, "met" (blue) or "not yet" (orange) and a link that opens the evidence. A row reads "met" only
+  when its criterion is "judged pass" in Brian's recorded words (the review log, S5); a criterion an agent
+  marked built but Brian has not judged reads "not yet: awaiting your judgement"; a changed condition
   shows Brian's answer that approved the change (open question Q12) or "awaiting your answer"; at the top,
-  one end-to-end run on the second corpus, from frozen corpus to bundle with no code change, each step's
-  trace openable; 1.0 is tagged only when every row reads "met" and that run passed; release notes; version
+  one fresh end-to-end run on the second corpus, from frozen corpus through the qualitative strand,
+  measurement, joint display, the causal check on S6's proposition, review and bundle, with no code change,
+  each step's trace openable; 1.0 is tagged only when every row reads "met" and that run passed; release notes; version
   tag.
-- **Cost:** none (no AI step).
+- **Cost (computed):** the readiness page makes no model call. The fresh end-to-end run repeats S6's
+  per-run steps: S2's plain version and S3, about $0.10, plus the causal check, measured upper figure
+  $0.0555 (S4), about $0.16 in all; QC's strand is read from its committed export, not rerun.
 
 ## Relies on
 
@@ -358,7 +378,7 @@ finish).
 `joint_display`, `meta_inference`, `verification_challenge`, `pt_export`, `publication_gate`,
 `connected_run_receipt`, `investigation_record`, `review_decision`, `research_bundle`, `planted_failure`,
 `benchmark`, `method_profile`, `public_review`, `capability_verdict`, `reflexivity_memo`, `split_manifest`,
-`feasibility_readout`, `route_plan`, `proposition_measure_map`, `integration_check` (see
+`feasibility_readout`, `route_plan`, `proposition_measure_map`, `integration_check`, `qc_pt_handoff` (see
 `docs/planning/DOMAIN.md`).
 
 ## Not in this plan

@@ -18,13 +18,15 @@
   "1.0 condition",
   "slice",
   "acceptance criterion",
-  "status"
+  "status",
+  "G1–G6 condition",
+  "Brian judgement"
  ],
  "relationships": [
   "condition met by slice"
  ],
  "scale": {
-  "items": 8,
+  "items": 14,
   "density": "low"
  },
  "interaction": {

@@ -59,12 +59,12 @@
       "kind": "ruled-out"
     },
     {
-      "pattern": "explorable-simulation",
-      "reason": "has no static form, and the page is static",
+      "pattern": "answer-receipt-card",
+      "reason": "scale 14 exceeds 12 items and candidate does not support aggregation",
       "kind": "ruled-out"
     },
     {
-      "pattern": "staged-explanatory-machine",
+      "pattern": "explorable-simulation",
       "reason": "has no static form, and the page is static",
       "kind": "ruled-out"
     }
@@ -444,6 +444,22 @@
           "shape": "circle"
         },
         "labelled": true
+      },
+      "G1–G6 condition": {
+        "role": "column holding the linked item",
+        "encoding": {
+          "colour": "grey",
+          "shape": "diamond"
+        },
+        "labelled": true
+      },
+      "Brian judgement": {
+        "role": "column holding the linked item",
+        "encoding": {
+          "colour": "grey",
+          "shape": "hexagon"
+        },
+        "labelled": true
       }
     },
     "links": [
@@ -463,8 +479,8 @@
       },
       "maxObjects": 12,
       "minMarginPx": 24,
-      "items": 8,
-      "withinBudget": true,
+      "items": 14,
+      "withinBudget": false,
       "ifOver": "aggregate, filter, or reveal on demand; do not shrink"
     },
     "revealOnClick": {
@@ -485,6 +501,16 @@
       ],
       "status": [
         "its own status fields",
+        "the next step along its links, in and out, opened one step at a time",
+        "its source and when it was recorded"
+      ],
+      "G1–G6 condition": [
+        "its own G1–G6 condition fields",
+        "the next step along its links, in and out, opened one step at a time",
+        "its source and when it was recorded"
+      ],
+      "Brian judgement": [
+        "its own Brian judgement fields",
         "the next step along its links, in and out, opened one step at a time",
         "its source and when it was recorded"
       ]
@@ -620,7 +646,9 @@
         "1.0 condition",
         "slice",
         "acceptance criterion",
-        "status"
+        "status",
+        "G1–G6 condition",
+        "Brian judgement"
       ],
       "relationships": [
         "condition met by slice"
