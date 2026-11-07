@@ -163,9 +163,9 @@ does not relax any of them.
   conclusion only when both allow it.
 - **Trace:** PT's own trace ids recorded in a connected-run receipt (the existing `investigation_run.py`
   shape).
-- **Cost (guess, from a measured total):** PT's `process_tracing.draft_audit.*` tasks total $0.233
-  (`llm-cost cost --group-by task`, 2026-11-06); the number of runs behind it, about 6, is a guess, so about
-  $0.04 per run is a guess. Replaced by the run receipt's own total after S4's first run.
+- **Cost (measured):** one draft-audit pass is five stages; their mean recorded costs per call in
+  llm_client's log (decompose, inference, verify, rivals, test; 2026-11-05 to 06) sum to about $0.03 per
+  run. Replaced by S4's own run receipt total.
 
 ### S5 — Review, provenance and export
 
