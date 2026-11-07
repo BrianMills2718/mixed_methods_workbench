@@ -1,0 +1,47 @@
+{
+ "id": "mmw-A4",
+ "title": "Quantitative strand: one coded theme measured across every interview",
+ "concern": "See which of the author's codes is measured and why (how many of QC's cited turns it holds), its definition, the count per interview and the comparable count from the author's coding, how often each measure agrees with her coding on held-out interviews, then open each disagreement.",
+ "intent": [
+  "inspect",
+  "compare"
+ ],
+ "informationStructure": [
+  "table"
+ ],
+ "tasks": [
+  "compare",
+  "lookup",
+  "inspect"
+ ],
+ "entities": [
+  "interview",
+  "measure",
+  "disagreement"
+ ],
+ "relationships": [],
+ "scale": {
+  "items": 26,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "exploratory",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "id": "mmw-A8",
+ "title": "Benchmark: what works, what fails, what it cost",
+ "concern": "Compare the two corpora: each strand's agreement with the authors' coding, each planted failure and whether it was caught, cost and time per run.",
+ "intent": [
+  "compare",
+  "inspect"
+ ],
+ "informationStructure": [
+  "table"
+ ],
+ "tasks": [
+  "compare",
+  "lookup",
+  "rank"
+ ],
+ "entities": [
+  "corpus",
+  "strand",
+  "planted failure",
+  "run"
+ ],
+ "relationships": [],
+ "scale": {
+  "items": 30,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "read-only",
+  "dynamics": "static"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

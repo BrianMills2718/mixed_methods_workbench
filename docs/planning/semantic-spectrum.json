@@ -110,13 +110,158 @@
   },
   {
    "id": "meta_inference",
-   "kind": "theory",
+   "kind": "planned",
    "aliases": []
   },
   {
    "id": "public_review",
    "kind": "concept",
    "aliases": []
+  },
+  {
+   "id": "study_corpus",
+   "kind": "planned",
+   "aliases": [
+    "corpus"
+   ]
+  },
+  {
+   "id": "qualitative_strand",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "measurement_instrument",
+   "kind": "planned",
+   "aliases": [
+    "instrument"
+   ]
+  },
+  {
+   "id": "joint_display",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "study_definition",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "qc_theory_export",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "qc_pt_handoff",
+   "kind": "elsewhere",
+   "aliases": []
+  },
+  {
+   "id": "author_coding",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "measured_result",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "pt_export",
+   "kind": "concept",
+   "aliases": []
+  },
+  {
+   "id": "investigation_record",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "review_decision",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "research_bundle",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "planted_failure",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "benchmark",
+   "kind": "planned",
+   "aliases": []
+  },
+  {
+   "id": "reflexivity_memo",
+   "kind": "planned",
+   "aliases": [
+    "positioning memo"
+   ]
+  },
+  {
+   "id": "split_manifest",
+   "kind": "planned",
+   "aliases": [
+    "splits"
+   ]
+  },
+  {
+   "id": "feasibility_readout",
+   "kind": "planned",
+   "aliases": [
+    "readout"
+   ]
+  },
+  {
+   "id": "proposition_measure_map",
+   "kind": "planned",
+   "aliases": [
+    "proposition map",
+    "mapping"
+   ]
+  },
+  {
+   "id": "integration_check",
+   "kind": "planned",
+   "aliases": [
+    "number and passage check",
+    "number check"
+   ]
+  },
+  {
+   "id": "independent_case_packet",
+   "kind": "planned",
+   "aliases": [
+    "case packet",
+    "independent case"
+   ]
+  },
+  {
+   "id": "selection_gate",
+   "kind": "planned",
+   "aliases": [
+    "six selection questions"
+   ]
+  },
+  {
+   "id": "pt_partial_export",
+   "kind": "planned",
+   "aliases": [
+    "partial export"
+   ]
+  },
+  {
+   "id": "readiness_record",
+   "kind": "planned",
+   "aliases": [
+    "readiness page"
+   ]
   }
  ],
  "classes": [
@@ -130,7 +275,11 @@
   },
   {
    "id": "theory",
-   "definition": "A mixed-methods idea the docs name that no code computes yet."
+   "definition": "A mixed-methods idea the docs name that no code computes and no current plan builds."
+  },
+  {
+   "id": "planned",
+   "definition": "A concept Plan #8 builds; the slice that builds it is named in the glossary. Not computed yet."
   }
  ],
  "ambiguous": [
@@ -141,6 +290,14 @@
     "method_decomposition"
    ],
    "note": "A research method runs in a producer engine; a method decomposition is the Phase 3 record of one."
+  },
+  {
+   "word": "passage",
+   "means": [
+    "source_segment",
+    "author_coding"
+   ],
+   "note": "A cited passage is a Qualitative Coding segment (one speaker turn, source_segment); an author passage is a span of the authors' own coding (author_coding), any length and overlapping others. S2's unit is the interviewee turn, a source_segment whose speaker is the interviewee."
   }
  ]
 }

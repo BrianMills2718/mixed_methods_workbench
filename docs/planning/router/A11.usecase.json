@@ -1,0 +1,57 @@
+{
+ "id": "mmw-A11",
+ "title": "One investigation record per study",
+ "concern": "Open one study and see, in one place, its question, the evidence it rests on, its analytical plan (which strands run and the integration design), each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
+ "intent": [
+  "understand",
+  "navigate"
+ ],
+ "informationStructure": [
+  "hierarchy",
+  "list"
+ ],
+ "tasks": [
+  "locate",
+  "inspect",
+  "trace"
+ ],
+ "entities": [
+  "study",
+  "question",
+  "evidence",
+  "method run",
+  "finding",
+  "unresolved question",
+  "review decision",
+  "next action"
+ ],
+ "relationships": [
+  "finding rests on evidence",
+  "finding produced by method run",
+  "review decision about finding"
+ ],
+ "scale": {
+  "items": 40,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "exploratory",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

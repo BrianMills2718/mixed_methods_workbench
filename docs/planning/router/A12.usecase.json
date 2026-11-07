@@ -1,0 +1,52 @@
+{
+ "id": "mmw-A12",
+ "title": "1.0 readiness: is the workbench finished",
+ "concern": "Check, condition by condition, whether each part of the 1.0 bar is met, by which slice, and open the evidence for it.",
+ "intent": [
+  "inspect",
+  "decide"
+ ],
+ "informationStructure": [
+  "table"
+ ],
+ "tasks": [
+  "lookup",
+  "inspect",
+  "trace"
+ ],
+ "entities": [
+  "1.0 condition",
+  "slice",
+  "acceptance criterion",
+  "status",
+  "G1–G6 condition",
+  "Brian judgement"
+ ],
+ "relationships": [
+  "condition met by slice"
+ ],
+ "scale": {
+  "items": 14,
+  "density": "low"
+ },
+ "interaction": {
+  "mode": "read-only",
+  "dynamics": "static"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

@@ -46,6 +46,9 @@ test-demo:  ## Run all DEMO-C1 tests
 typecheck-demo:  ## Type-check the DEMO-C1 package strictly
 	@$(PYTHON) -m mypy --strict src/mixed_methods_workbench
 
+type-inventory:  ## Rewrite docs/planning/TYPES.md from the code
+	@$(PYTHON) scripts/type_inventory.py
+
 method-dashboard:  ## Run the local METHOD-DASH-C1 review dashboard
 	@PYTHONPATH=src $(PYTHON) -m mixed_methods_workbench.method_dashboard_server
 

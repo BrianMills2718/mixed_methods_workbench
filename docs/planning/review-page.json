@@ -1,21 +1,25 @@
 {
  "title": "Mixed Methods Workbench",
- "north_star": "Direction: join method engines' outputs where a real study needs more than one method, without taking the methods' logic away from their own repositories (docs/adr/0002_broad_north_star_versioned_thin_slices.md).",
- "thesis": "Methods stay in their own repositories; the workbench reads their exports, keeps claim limits, and joins them only where a study needs it.",
- "disproof": "A real study that needs two producers' exports joined cannot be answered from what the producers export without re-running method logic inside the workbench.",
- "not_for": "Running a method itself, a universal schema or method planner, or publishing an unreviewed causal conclusion.",
+ "north_star": "Brian, 2026-11-06: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The direction: a general mixed-methods workbench in his evidence-to-action product, where each study is one investigation record and every joined claim can be followed to its passage, while each method stays in its own repository.",
+ "thesis": "Integration is the workbench's own value: given only a study definition and the producers' exports (Qualitative Coding's run on each corpus happens in its own repository first, Q21), it can measure one of the corpus authors' own codes, chosen by how much of a qualitative category's evidence it holds, so that the measure agrees with the corpus authors' own coding on held-out interviews, join the two strands into bounded meta-inferences a person reviews, and catch planted faults, without any method being rebuilt here.",
+ "disproof": "On a second rights-clear corpus that differs in subject, team and coding tool, added with data only, the measure agrees with the authors' coding no better than the shuffled-label control, the planted faults pass unnoticed, or adding the corpus needs code written for it, or on the second corpus no author code holds half of any category's cited turns (the construct rule picks none there too, so the measure is chosen by judgment on both corpora), or a joined claim on the joint display cannot be followed to both its passage and its measured number, or Brian rejects most of the meta-inferences in review (S5).",
+ "not_for": "Running a qualitative method inside the workbench, a universal schema or method planner, contacting corpus authors, or publishing an unreviewed causal conclusion.",
  "links": [
+  {
+   "name": "Plan #8: finish the workbench",
+   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/plans/008_finish_workbench.md"
+  },
   {
    "name": "Public PsychosisBank review",
    "href": "https://psychosisbank-review.brianmills2718.workers.dev/"
   },
   {
-   "name": "Next plan: keep shippable",
+   "name": "Plan #7: keep shippable",
    "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/plans/007_keep_shippable.md"
   },
   {
-   "name": "Planning status",
-   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/PLANNING_STATUS.md"
+   "name": "Reading order",
+   "href": "https://github.com/BrianMills2718/mixed_methods_workbench/blob/main/docs/index.md"
   }
  ]
 }

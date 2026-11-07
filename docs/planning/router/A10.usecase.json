@@ -1,0 +1,47 @@
+{
+ "id": "mmw-A10",
+ "title": "A corpus the workbench has never seen, added without code changes",
+ "concern": "Check that a new corpus was added by a study definition file and frozen data alone, and that its study page has every panel.",
+ "intent": [
+  "compare",
+  "inspect"
+ ],
+ "informationStructure": [
+  "table"
+ ],
+ "tasks": [
+  "lookup",
+  "compare"
+ ],
+ "entities": [
+  "corpus",
+  "strand",
+  "planted failure",
+  "run"
+ ],
+ "relationships": [],
+ "scale": {
+  "items": 3,
+  "density": "low"
+ },
+ "interaction": {
+  "mode": "read-only",
+  "dynamics": "static"
+ },
+ "consequence": {
+  "risk": "medium",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "record_type": "goal_sources",
+ "version": 1,
+ "quotes": [
+  {
+   "locator": "docs/planning/open-questions.json:27",
+   "quote": "on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision",
+   "speaker": "Brian",
+   "said_on": "2026-11-06"
+  },
+  {
+   "locator": "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15-17",
+   "quote": "investigation spine",
+   "speaker": "the repository's product map"
+  }
+ ]
+}

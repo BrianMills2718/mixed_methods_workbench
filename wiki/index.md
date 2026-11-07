@@ -14,6 +14,7 @@ Planning scaffold for a mixed-methods research workbench that composes qualitati
 
 ## Read next
 
+- [Reading order and current plan](../docs/index.md) (Plan #8: finish to 1.0, 2026-11-06)
 - [Operating rules](../AGENTS.md)
 - [Project overview](../README.md)
 

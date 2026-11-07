@@ -1,7 +1,18 @@
 # Current Planning Status
 
 Status: canonical current-phase and authorization guide
-Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23; NYC pause added 2026-10-04
+Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note added 2026-09-23; NYC pause added 2026-10-04; Plan #8 finish direction 2026-11-06
+
+## Current phase: finish to 1.0 (Plan #8, 2026-11-06)
+
+Brian, 2026-11-06, answering open question Q1: "on mixed mtheod work bench
+finsih that is not for a specific use case it is part of my broader vision".
+Authorized work is the slice sequence in
+[`plans/008_finish_workbench.md`](plans/008_finish_workbench.md) (S0 Plan #7
+upkeep, S1 governed corpus and qualitative strand, S2 quantitative strand, S3
+joint display and meta-inference, S4 the gated handoff to Process Tracing, S5 review and export, S6
+second corpus and benchmark, S7 release). The sections below are the earlier
+record; where they disagree, Plan #8 controls.
 
 ## NYC lane paused (2026-10-04)
 
@@ -211,7 +222,6 @@ Current work must not:
 Phase 3 completed 2026-10-08: all three lanes were reviewed, corrected and accepted with receipts (`lane_receipts/`), and `P3-INTEGRATE` validated all 14 decompositions (`integration_report.md`, `validation_report.json`, `portfolio_manifest.yaml`; 14 of 14 pass). This establishes 14 source-frozen, structurally valid decompositions only: no collision, adjudication, coverage or reusable-capability claim.
 
 Brian lifted the Phase 3 pause on 2026-10-08 (observation-to-action-metamodel `ROADMAP_AGENT_MODEL.md` row 5a): the pause waited behind the NYC product-integration lane, which he paused on 2026-10-04 (PR #41), and on 2026-10-07 he approved the cross-method crosswalk that reads the integrated 14. The paragraphs below record the paused state as it stood on 2026-08-13.
-
 
 Brian approved the 14-method Phase 3 denominator on 2026-08-13. The exact
 denominator is `phase2b-proposal-0.3` (`P01`–`P13`) plus the separately named,

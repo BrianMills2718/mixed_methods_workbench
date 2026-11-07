@@ -12,9 +12,11 @@ uv sync --all-extras
 make check PYTHON=.venv/bin/python
 ```
 
-Start here:
+Start here: [docs/index.md](docs/index.md) (reading order). Current work is
+[Plan #8, finish to 1.0](docs/plans/008_finish_workbench.md) (Brian,
+2026-11-06). The list below is the earlier reading order.
 
-0. `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md` — current state, findings, and the next-agent brief (2026-09-06)
+0. `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md` — state, findings, and the next-agent brief as of 2026-09-06
 1. `PROJECT.md`
 2. `docs/PLANNING_STATUS.md`
 3. `plan/goals/2026-07-12-sota-or-beyond.md`
@@ -36,9 +38,9 @@ Reference material:
   policy-research methods taxonomy preserved from `rand_ai_analysis`, with
   source lineage and use limits.
 
-No implementation slice, engine integration, or product version is currently
-active beyond the explicitly authorized local `METHOD-DASH-C1` review
-prototype. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1
+Plan #8 slices S0–S7 are authorized (Brian, 2026-11-06). Earlier wording:
+no implementation slice, engine integration, or product version was active
+beyond the explicitly authorized local `METHOD-DASH-C1` review prototype. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1
 proves typed synthetic contract behavior for separate QC, PT, and grounded-
 theory-inspired lanes; it does not prove producer readiness or method validity.
 

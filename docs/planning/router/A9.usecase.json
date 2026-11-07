@@ -1,0 +1,44 @@
+{
+ "id": "mmw-A9",
+ "title": "Method profiles: what the workbench runs and what it does not",
+ "concern": "Look up, for each method profile, whether the 1.0 workbench runs it, and why not when it does not.",
+ "intent": [
+  "inspect"
+ ],
+ "informationStructure": [
+  "table"
+ ],
+ "tasks": [
+  "lookup",
+  "filter"
+ ],
+ "entities": [
+  "method profile",
+  "support status"
+ ],
+ "relationships": [],
+ "scale": {
+  "items": 20,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "read-only",
+  "dynamics": "static"
+ },
+ "consequence": {
+  "risk": "low",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

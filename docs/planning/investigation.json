@@ -8,7 +8,7 @@
    "found": [
     "README.md:7",
     "AGENTS.md:16",
-    "wiki/index.md:22",
+    "wiki/index.md:23",
     "docs/PLANNING_STATUS.md:6",
     "docs/ARCHITECTURE.md:135",
     "docs/plans/006_method_crosswalk.md:1"
@@ -59,6 +59,59 @@
     "deploy/psychosisbank-review/wrangler.jsonc:2",
     "https://psychosisbank-review.brianmills2718.workers.dev/"
    ]
+  },
+  {
+   "where": "docs",
+   "how": "2026-11-06, for Plan #8: read ROADMAP.md ('What 1.0 Means', G1-G6, A-G phases), SYSTEM_GOAL_AND_CAPABILITY_ARCHITECTURE.md, CAPABILITY_ADOPTION_MAP.md, plan 006 and its phase 5 adjudication",
+   "found": [
+    "docs/ROADMAP.md:85",
+    "docs/ROADMAP.md:328",
+    "docs/research/method_decomposition/phase5/adjudication.yaml"
+   ]
+  },
+  {
+   "where": "prior_art",
+   "how": "read ~/code2/workspace/docs/capabilities.md and the status docs of the producer repositories (qualitative_coding, process_tracing, theory-forge, grounded-research) at their current main",
+   "found": [
+    "/home/brian/code2/qualitative_coding/docs/model/DOMAIN.md:48",
+    "/home/brian/code2/process_tracing/pt/export.py:634",
+    "/home/brian/code2/process_tracing/pt/cli.py:72",
+    "/home/brian/code2/theory-forge/docs/ROADMAP.md"
+   ]
+  },
+  {
+   "where": "run_records",
+   "how": "`llm-cost estimate --task qualitative_coding.gt_constant_comparison.application`, `--task qualitative_coding.grounded_theory_verdict`, `llm-cost cost --group-by task` filtered to process_tracing.draft_audit",
+   "found": [
+    "llm-cost estimate: application median $0.0011 p90 $0.0019 (708 calls); grounded_theory_verdict median $0.0038 p90 $0.0111 (55 calls); PT draft_audit total $0.233"
+   ]
+  },
+  {
+   "where": "other",
+   "how": "Zenodo API https://zenodo.org/api/records/17630137 (files, md5, licence) and QC's copy under public_demo_assets/open_science",
+   "found": [
+    "https://zenodo.org/records/17630137",
+    "/home/brian/code2/qualitative_coding/public_demo_assets/open_science/ATTRIBUTION.md"
+   ]
+  },
+  {
+   "where": "prior_art",
+   "how": "read qualitative_coding/docs/METHODS_AND_THEORY.md 'From qualitative theory to theory testing' and portfolio decision 0017; read examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json and investigation_spine.py's IndependentCaseSources",
+   "found": [
+    "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:453",
+    "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27",
+    "examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json",
+    "src/mixed_methods_workbench/investigation_spine.py:79"
+   ]
+  },
+  {
+   "where": "code",
+   "how": "listed every file Qualitative Coding has committed that names an Open Science run id (git ls-files | xargs grep -l 'a67d7d6a\\|e131eb55'), opened each one holding a schema-3 'development' object, and recomputed the construct rule on run e131eb55's file with S1's data",
+   "found": [
+    "/home/brian/code2/qualitative_coding/proposals/qc-gt-review-candidate/expected-view.json",
+    "/home/brian/code2/qualitative_coding/public_demo_assets/grounded_theory_school_readings/a67d7d6a-185b-416f-ad11-c921e15f66a7.json",
+    "/home/brian/code2/qualitative_coding/qc_clean/plugins/api/api_server.py:45"
+   ]
   }
  ],
  "findings": [
@@ -72,7 +125,7 @@
    ],
    "verdict": "fails",
    "question_id": "Q7",
-   "note": "On main 92dc1a5 `uv sync` failed (data_contracts not on PyPI) and mypy --strict failed on llm_client (issue #46). Fixed in b9bf498 and 2c3c13f; now make check exits 0 and pytest reports 202 passed, 1 skipped."
+   "note": "On main 92dc1a5 `uv sync` failed (data_contracts not on PyPI) and mypy --strict failed on llm_client (issue #46). Fixed in b9bf498 and 2c3c13f; now make check exits 0 and pytest reports 204 passed, 1 skipped."
   },
   {
    "id": "F2",
@@ -110,13 +163,13 @@
    "id": "F5",
    "claim": "wiki/index.md routes a reader to the documentation; it says there is no declared roadmap",
    "evidence": [
-    "wiki/index.md:22",
+    "wiki/index.md:23",
     "docs/ROADMAP.md",
     "docs/planning/checks.txt"
    ],
    "verdict": "fails",
    "question_id": "Q3",
-   "note": "docs/ROADMAP.md exists; md_file_cap counts 122 Markdown files (cap 100) and 108 not reachable from wiki/index.md."
+   "note": "docs/ROADMAP.md exists; md_file_cap counts 126 Markdown files (cap 100) and 112 not reachable from wiki/index.md (docs/planning/checks.txt, a9dc199)."
   },
   {
    "id": "F6",
@@ -150,6 +203,192 @@
    "verdict": "fails",
    "question_id": "Q6",
    "note": "The test calls build(), which writes into deploy/; that is how the primary checkout came to hold an uncommitted index.html."
+  },
+  {
+   "id": "F9",
+   "claim": "A shared capability across methods exists to build first (roadmap phases B-E)",
+   "evidence": [
+    "docs/research/method_decomposition/phase5/adjudication.yaml",
+    "docs/plans/006_method_crosswalk.md:48"
+   ],
+   "verdict": "fails",
+   "question_id": "Q1",
+   "note": "36 groups: 29 different capability, 7 shared shell only, 0 same capability. Plan #8 cuts phases B-E."
+  },
+  {
+   "id": "F10",
+   "claim": "Qualitative Coding has a finished grounded-theory result on a rights-clear general corpus the workbench can read",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/public_demo_assets/open_science/ATTRIBUTION.md",
+    "https://zenodo.org/records/17630137",
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:21",
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:32"
+   ],
+   "verdict": "fails",
+   "question_id": "Q26",
+   "note": "QC has a schema-3 theory on 25 rights-clear Open Science interviews that the workbench can read: S1 pins run e131eb55 (Q26), 4 categories, 6 propositions; the 100 distinct passages its theory cites are carried in QC's file with their offsets, and all 100 are the frozen Zenodo text at those offsets once one file's CRLF line endings are normalised (S1 receipt; Q14). But it is not finished: by QC's own measure it rejects 46% of proposed quotes, above the \"wrong if\" line of roughly a quarter (qualitative_coding docs/CURRENT_STATE_AND_ROADMAP.md:21-25 and :32), and it predates QC's disprove test (REVIEW_QUEUE D3); the published run a67d7d6a rejects 11.7% (:34). QC now calls its output a grounded-theory-inspired candidate theory (REVIEW_QUEUE D2). Its published run's theory is not committed as a file; the workbench asked QC to commit it (BrianMills2718/qc issue #205). Corrected by the round-13 cold review (R13-B2). The live decision on this failure is Q12 (d): whether 1.0 may count the pinned run; Q26 records the pin itself."
+  },
+  {
+   "id": "F11",
+   "claim": "Some repository in ~/code2 already measures text quantitatively, so the workbench can consume it",
+   "evidence": [
+    "/home/brian/code2/workspace/docs/capabilities.md"
+   ],
+   "verdict": "fails",
+   "question_id": "Q15",
+   "note": "No such capability; QC's quantitative follow-up only returns conceptual_follow_up_only. The workbench owns the S2 adapter; which category it measures is Q15."
+  },
+  {
+   "id": "F12",
+   "claim": "QC's qualitative path has been validated by an outside researcher",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/docs/model/DOMAIN.md:48",
+    "/home/brian/code2/qualitative_coding/docs/PLAIN_VERSION_CHECK.md:13"
+   ],
+   "verdict": "fails",
+   "question_id": "Q12",
+   "note": "QC's roadmap step 5 is not done. Plan #8 states what \"validated\" rests on instead: QC's own verdict on the pinned run (Q12 d) and Brian's judgement of A3 and A4. Agreement with the corpus author's own coding is shown as evidence, not as a pass: the category share (best 0.47, under the bar, Q15); QC's own comparison where it commits one (for QC's newer run a67d7d6a QC records 605 of 758 located author passages \"touched\" (79.8%) and 454 mostly covered, and a plain one-prompt pass on the same model touching 587 (77.4%); QC calls \"touched\" generous and notes one human coder (qualitative_coding docs/PLAIN_VERSION_CHECK.md:13 and :36, REVIEW_QUEUE.md:68); none committed for e131eb55); and where the cited passages sit (of the pinned theory's 100 cited passages, 100 overlap a passage the author coded and 73 lie wholly inside one; chance gives the same, since she coded 69.6% of the interview text, 397,446 of 571,307 characters, and every interviewee turn at least as long as the median cited passage, 970 characters, overlaps her coding, 135 of 135; S1 build receipt), shown as location, not agreement. QC's figure counts the author's passages that QC's coding touches; the location figure counts QC's cited passages that her coding touches, the opposite direction."
+  },
+  {
+   "id": "F13",
+   "claim": "Process Tracing's answer path can take a QC handoff and give the workbench a gated export",
+   "evidence": [
+    "/home/brian/code2/process_tracing/pt/cli.py:72",
+    "/home/brian/code2/process_tracing/pt/export.py:634",
+    "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79",
+    "/home/brian/code2/process_tracing/docs/planning/open-questions.json:404"
+   ],
+   "verdict": "fails",
+   "note": "Only the frozen pipeline (pt/) accepts --qualitative-handoff and writes pt_export_v2 with a publication gate. The answer path, the draft-audit prototype (ADR 0004), takes no handoff and writes no pt_export_v2 (Process Tracing Q20). S4 adds the handoff input and Q20's partial adapter in process_tracing (Q23) only if Brian names a case with its own records (Q25).",
+   "question_id": "Q23"
+  },
+  {
+   "id": "F14",
+   "claim": "Theory Forge offers a consumer export the workbench could read for 1.0",
+   "evidence": [
+    "/home/brian/code2/theory-forge/docs/ROADMAP.md"
+   ],
+   "verdict": "fails",
+   "question_id": "Q1",
+   "note": "No consumer export; roadmap stale. Moved after 1.0 in Plan #8."
+  },
+  {
+   "id": "F15",
+   "claim": "A second rights-clear corpus with its authors' own coding is identified for the benchmark",
+   "evidence": [
+    "docs/plans/008_finish_workbench.md:66"
+   ],
+   "verdict": "unknown",
+   "question_id": "Q13",
+   "note": "Chosen in S6 under Q19's rule: it must differ in subject, research team and coding tool or export format."
+  },
+  {
+   "id": "F16",
+   "claim": "The repository already decided how the first quantitative-text strand must be validated",
+   "evidence": [
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:18",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:22",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118"
+   ],
+   "verdict": "holds",
+   "question_id": "Q16",
+   "note": "Word-list count baseline mandatory; dummy and TF-IDF baselines; language model a challenger with behavioural tests; feasibility readout first; accuracy alone prohibited. The brief was never approved (status line :4). Plan #8 S2 adopts it condition by condition and names the two it cannot meet (Q16)."
+  },
+  {
+   "id": "F17",
+   "claim": "The workbench owns one general investigation record that keeps a study's question, evidence, runs, findings, reviews and next actions together",
+   "evidence": [
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:66",
+    "src/mixed_methods_workbench/investigation_spine.py:280"
+   ],
+   "verdict": "fails",
+   "question_id": "Q18",
+   "note": "The map makes it the product's centre; the only implementation is hard-coded to the PsychosisBank investigation (investigation_id is a fixed literal)."
+  },
+  {
+   "id": "F18",
+   "claim": "Process Tracing's frozen pipeline's pt_export_v2 carries a publication gate the workbench can require before showing a causal conclusion; the export S4 would read only if Brian names a case (Q25), the answer path's partial export, carries none (Q23)",
+   "evidence": [
+    "/home/brian/code2/process_tracing/pt/export.py:598",
+    "/home/brian/code2/process_tracing/pt/export.py:648",
+    "src/mixed_methods_workbench/investigation_run.py:72",
+    "/home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:79"
+   ],
+   "verdict": "holds",
+   "question_id": "Q23",
+   "note": "PublicationGateV2.publishable exists in PT; the workbench's current pt_export_v2 reader reads only comparative_conclusion.public_headline_eligible, so S4 extends it."
+  },
+  {
+   "id": "F19",
+   "claim": "The pinned theory's grounded-theory categories rest on distinct sets of evidence",
+   "evidence": [
+    "examples/studies/open_science/qc/theory.json (S1 branch)",
+    "docs/plans/008_finish_workbench.md:176"
+   ],
+   "verdict": "holds",
+   "question_id": "Q15",
+   "note": "On run e131eb55, the 4 categories rest on 4 distinct sets of cited turns. On QC's August export, read until round 11, two pairs of categories cited exactly the same two incidents, so its 8 categories rested on 6 sets; the study page states the count for whichever theory is pinned."
+  },
+  {
+   "id": "F20",
+   "claim": "QC's process-tracing handoff can hand Process Tracing one grounded-theory proposition of the Open Science study",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
+    "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
+    "docs/plans/008_finish_workbench.md:284"
+   ],
+   "verdict": "fails",
+   "question_id": "Q24",
+   "note": "The handoff exports state.claims and never reads the grounded-theory export; GT_PROPOSITION claims are built only from state.theoretical_model, and the pinned state has 1,139 claims, none of that kind. Found by the round-8 cold review. The round-8 fix (a case written from the grounded-theory export's interview passages) was itself circular (F21); S4 now builds the gated handoff instead."
+  },
+  {
+   "id": "F21",
+   "claim": "A Process Tracing test of a QC proposition may use the interview passages the proposition was built from",
+   "evidence": [
+    "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27",
+    "/home/brian/code2/portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:50",
+    "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:453",
+    "examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json",
+    "src/mixed_methods_workbench/investigation_spine.py:186"
+   ],
+   "verdict": "fails",
+   "question_id": "Q24",
+   "note": "Brian's decision 0017 and QC's own method rule (owner decision, 2026-09-25) call that test circular and forbid an automatic theory-to-test step; this repository's own P5 input already excludes the QC interviews as evidence and its spine fixes theory_evidence_relationship to 'independent'. Each Open Science proposition's supporting segments span 7 or 8 interviews. Found by the round-9 cold review; S4 now shows the gate and the bounded P5 appraisal, and runs Process Tracing only on a named independent case (Q25)."
+  },
+  {
+   "id": "F22",
+   "claim": "The grounded-theory export Plan #8 reads is Qualitative Coding's current result",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:34",
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:41",
+    "docs/plans/008_finish_workbench.md:43"
+   ],
+   "verdict": "fails",
+   "question_id": "Q26",
+   "note": "QC's status page names run a67d7d6a (2026-11-05) as published and is revising that theory; S1 pins the earlier run e131eb55 because neither newer theory is committed, labels it on the page, and re-pins when QC commits one (Q26). Found by the round-10 cold review; round 11 corrected which file is pinned (F23)."
+  },
+  {
+   "id": "F23",
+   "claim": "Qualitative Coding has committed no Open Science theory newer than its August 2026 export",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/proposals/qc-gt-review-candidate/expected-view.json",
+    "/home/brian/code2/qualitative_coding/docs/REVIEW_QUEUE.md:40"
+   ],
+   "verdict": "fails",
+   "question_id": "Q26",
+   "note": "QC commit 7f5a8af9 (2026-10-09) holds the theory of run e131eb55 (QC's review-candidate file proposals/qc-gt-review-candidate/expected-view.json, QC commit 7f5a8af9, 2026-10-09, sha256 a77661f9...: 4 categories, 6 propositions, 194 passages with offsets); four of QC's tests read it (test_grounded_theory_memo_revision, test_grounded_theory_schools, test_grounded_theory_view, test_gt_verdict_report). Round 10's answer missed it because it searched only public_demo_assets/. Found by the round-11 cold review; S1 now pins it."
+  },
+  {
+   "id": "F24",
+   "claim": "The construct rule picks an author code on the theory S1 pins",
+   "evidence": [
+    "docs/plans/008_finish_workbench.md:159",
+    "examples/studies/open_science/qc/theory.json (S1 branch)"
+   ],
+   "verdict": "fails",
+   "question_id": "Q15",
+   "note": "On run e131eb55 no code of 112 pairs qualifies: the best is 'open data' at 18 of 38 cited turns (0.47, chance 7.9e-9), under the half-share bar. The rule is kept; when it picks no code S2 stops at the feasibility readout and the construct is Brian's call (Q15), labelled on the page."
   }
  ],
  "cost": {
@@ -174,5 +413,5 @@
    "source": "examples/runs/psychosisbank-synthesis-20260923/connected_run_receipt.json:35"
   }
  },
- "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts."
+ "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts. Plan #8 (2026-11-06) added findings F9-F15 and their searches; AI-step costs for Plan #8 are recorded per step in the manifest's plan.cost_basis: S4 and Qualitative Coding's pass are measured from llm_client's log (the call table); S2, S3 and S6 are worked out (computed) from a measured analogue task's token counts (llm-cost estimate) and fitted per-token prices."
 }

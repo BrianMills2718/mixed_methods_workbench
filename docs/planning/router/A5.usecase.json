@@ -1,0 +1,51 @@
+{
+ "id": "mmw-A5",
+ "title": "Joint display: each proposition beside the measured theme",
+ "concern": "For each proposition, see whether it is mapped to the measure or silent, compare a mapped claim with the measured count by interview, read its verdict (a prevalence-only row may only complement) and the bounded meta-inference with its number and passage check.",
+ "intent": [
+  "compare",
+  "decide"
+ ],
+ "informationStructure": [
+  "matrix"
+ ],
+ "tasks": [
+  "compare",
+  "inspect",
+  "trace"
+ ],
+ "entities": [
+  "proposition",
+  "measure",
+  "verdict",
+  "meta-inference"
+ ],
+ "relationships": [
+  "proposition mapped to measure",
+  "meta-inference checked against measured count"
+ ],
+ "scale": {
+  "items": 6,
+  "density": "medium"
+ },
+ "interaction": {
+  "mode": "exploratory",
+  "dynamics": "interactive"
+ },
+ "consequence": {
+  "risk": "high",
+  "reversibility": "reversible"
+ },
+ "stakeholder": "Brian, project owner, non-specialist in the code",
+ "audience": {
+  "expertise": "novice",
+  "frequency": "occasional"
+ },
+ "constraints": {
+  "mobile": true,
+  "accessibility": "baseline",
+  "realtime": false,
+  "provenance": true,
+  "allowAggregation": true
+ }
+}

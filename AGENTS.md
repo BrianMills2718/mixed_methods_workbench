@@ -9,8 +9,9 @@ workbench built in thin, versioned slices. Read
 `docs/CAPABILITY_DEPENDENCY_GRAPH.md`,
 `docs/PRE_IMPLEMENTATION_CHECKLIST.md`,
 `docs/MIXED_METHODS_CAPABILITY_MAP.md`, and
-`docs/PLANNING_STATUS.md` before planning. For current state as of
-2026-09-06, start with `docs/runs/2026-09-06-state-assessment-and-next-agent-brief.md`.
+`docs/PLANNING_STATUS.md` before planning. The reading order is
+[`docs/index.md`](docs/index.md); current work is Plan #8
+(`docs/plans/008_finish_workbench.md`).
 
 > **NYC lane paused — Brian, 2026-10-04.** Do not continue `NYC-MVP-REVIEW-1`
 > or extend the NYC vertical. Brian's personal plan
@@ -69,9 +70,15 @@ infrastructure, or product implementation. `METHOD-DASH-C1/C2`, `MT-D1`,
 `T0-PROV`, and local `DEMO-C1` are completed bounded slices; none closes
 producer readiness or method validity.
 Brian lifted the Phase 3 pause on 2026-10-08 (observation-to-action-metamodel `ROADMAP_AGENT_MODEL.md` row 5a): the pause waited behind the NYC product-integration lane, which he paused on 2026-10-04 (PR #41), and on 2026-10-07 he approved the cross-method crosswalk that reads the integrated 14. `P3-CONTROL` is ready: it reviews lane evidence, issues receipts and advances lane states; integration follows acceptance of all three lanes. Phase 3 completed 2026-10-08: all three lanes were reviewed, corrected and accepted with receipts (`lane_receipts/`), and `P3-INTEGRATE` validated all 14 decompositions (`integration_report.md`, `validation_report.json`, `portfolio_manifest.yaml`; 14 of 14 pass). This establishes 14 source-frozen, structurally valid decompositions only: no collision, adjudication, coverage or reusable-capability claim.
-Do not begin another implementation merely because a roadmap or future slice
-exists, and do not move code from an engine into this repo unless Brian
-explicitly authorizes a named implementation slice.
+**Finish direction — Brian, 2026-11-06** (answering open question Q1): "on
+mixed mtheod work bench finsih that is not for a specific use case it is part of
+my broader vision". This authorizes the slices of
+[`docs/plans/008_finish_workbench.md`](docs/plans/008_finish_workbench.md), in
+order (S0–S7), to 1.0 on a general, rights-clear example study; it supersedes the
+NYC Path A order and the phase B–E prerequisites above. Work outside those slices
+still needs its own plan. Methods stay in their producer repositories: do not
+move a method engine's code into this repository; the quantitative text adapter
+(S2) is workbench-owned because no producer offers one.
 
 ## Operating Rules
 
@@ -104,8 +111,8 @@ explicitly authorizes a named implementation slice.
     qualitative and quantitative strands and produces bounded meta-inferences.
 - Do not flatten process tracing into generic qualitative coding, and do not
   force all qualitative work into process-tracing hypothesis tests.
-- Do not call QC plus PT “mixed methods”; version 0.1 is multi-method
-  qualitative. Version 0.4 is the first planned true mixed-methods slice.
+- Do not call QC plus PT “mixed methods”; that is multi-method qualitative.
+  Plan #8 slices S2–S3 are the first true mixed-methods slice.
 - Producers own strict export schemas. Workbench adapters own permissive,
   compatible consumers. Fail on unsupported major versions.
 - Synthetic fixtures license at most C-grade shape claims.

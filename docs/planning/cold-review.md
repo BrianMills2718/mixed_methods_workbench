@@ -1,4 +1,346 @@
-**Re-review, round 2: Mixed Methods Workbench planning package**
+# Cold reviews of this planning package
+
+The latest review comes first. Each records the revision it read and its verdict; the package manifest's
+`cold_review` field carries the latest.
+
+## Plan #8, round 18 (read 10b9a7b): pass
+
+The reviewer found R17-B1 and notes n-kk to n-mm fixed: the location figure is shown beside its chance rate and
+called location, not agreement, everywhere; "validated" rests on QC's own verdict and Brian's judgement of A3 and
+A4; every gate that reads a producer's verdict ends on that producer's own verdict. It returned **pass** with three
+notes, carried as follows:
+
+| Finding | What it said | Where it goes |
+| --- | --- | --- |
+| n-nn | S1's "chance gives the same" sentence is fixed text, and no chance figure is printed for "wholly inside" | Fixed in S1's pull request: the page prints the wholly-inside baseline too and words the sentence from the figures |
+| n-oo | QC's "wrong if" line also has a researcher clause (QC step 5); the answer words "wait for a finished QC theory" could be read as QC's whole finish line | Carried: the step-5 clause stays with Q12 (a), as plan `:43` says; the report to Brian names this when it puts Q12 (d) to him |
+| n-pp | S6 does not say what a second corpus's pin label shows when QC records no verdict on that run | Carried to S6: the label then reads "Qualitative Coding has recorded no verdict on this run" |
+
+## Plan #8, round 17 (read b6aa623): revise
+
+The reviewer found R16-B1 fixed in structure (plan `:43` and F12 name what "validated" rests on, S1 builds the
+agreement panel, A3 requires it, and QC's figures and caveats are quoted correctly) and n-ff to n-jj fixed. It
+returned **revise** on one blocking finding, with notes n-kk to n-mm. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R17-B1 | "100 of 100 cited passages lie inside a passage the author coded" counts any overlap (73 lie wholly inside one), and it is the chance rate: she coded 69.6% of the text and every interviewee turn as long as the median cited passage (970 characters) overlaps her coding (135 of 135). Plan `:43` and Q12 (a) still offered it to Brian as a level of agreement | S1 (commit 43b57dc) counts overlap and containment separately, prints the chance rate beside them under "Where the evidence sits (location, not agreement)", and its test asserts both. Plan `:43`, F12, Q12 (a), A3, A8, S6 and "Done when" now say "validated" rests on QC's own verdict and Brian's judgement of A3 and A4; agreement is shown as evidence, stated as measured: the category share (best 0.47, under the bar), QC's own comparison where committed, and passage location beside its chance rate as location, not agreement. Q12 (a)'s recommendation and default no longer claim agreement as a pass. A3's failure example adds "the overlap figure shown without its chance rate" |
+| n-kk | A3's demonstration never read the panel or the label's reason | A3 adds "Read the panel 'Agreement with the author's coding' and the reason under the pin's label" |
+| n-ll | QC's Human Comparison tab computes its measure on request, so "has recorded no comparison" holds only for committed files | Every place says "QC has committed no comparison", and plan `:43` names the tab |
+| n-mm | QC's figure and the location figure count in opposite directions | Plan `:43`, F12 and S1's note name each direction |
+
+## Plan #8, round 16 (read 0ae7d1b): revise
+
+The reviewer found R15-B1, n-cc, n-dd and n-ee fixed and the new wait rule holding for the next expected
+pin (the 11.7% run reads "not yet" while QC says the rate alone "does not settle it"). It returned
+**revise** on one blocking finding, with notes n-ff to n-jj. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R16-B1 | Plan `:43` said "validated" means agreement with the author's own coding, but no slice measured that agreement for the qualitative strand and no criterion would fail without it; QC's own figure (79.8% of 758 author passages "touched" on a67d7d6a, against 77.4% for a plain pass) was not cited | Plan `:43` and F12 now say what "validated" rests on, each with its figure: QC's own verdict (Q12 d); agreement with the author's coding at passage level (100 of 100 cited passages lie inside an author-coded passage, S1 receipt) and category level (best 0.47, S2's construct table, Q15), beside QC's own comparison where QC records one (for e131eb55 none; for a67d7d6a the 79.8% with QC's caveats); and Brian's judgement of A3. The 1.0 row maps to A3, A4 and Q12 (d). S1 builds the panel "Agreement with the author's coding" (S1 commit 9227dbe, with a test). A3's expected result and failure example require it; S6, A8 and "Done when" carry each strand's agreement; Q12 (a) gives the figures |
+| n-ff | "Does not yet call its pinned theory finished" mixed QC's tool finish with its coding test, and the test's parts may be rewritten by QC | The row reads "has not yet recorded its pinned theory (run e131eb55) as passing its own coding test", and the wait ends on that test "as that test then reads", with today's parts "done and recorded by QC as passing" |
+| n-gg | The rule for showing QC's disprove verdicts lived only in Q26 | One sentence in S1 and S3; A3 and A5 require the labels |
+| n-hh | QC calls e131eb55 "the published example" and a67d7d6a "the published run" | The label reads "not its newest run (a67d7d6a)"; plan `:43` and the S1 label note QC's two uses of "published" |
+| n-ii | S1's label paraphrased QC | S1's label quotes QC's lines with their sources (S1 commit 9227dbe); A3 asks for QC's current verdict on whichever run is pinned |
+| n-jj | `readiness_record` cited S7's cost line | It cites S7's build line |
+
+## Plan #8, round 15 (read 3d8f599): revise
+
+The reviewer found R14-B1 fixed for the current pin and notes n-v, n-w, n-x, n-z (in part), n-aa and n-bb
+fixed, reproduced QC's spend ($5.0119 over 2,077 paid calls) and matched QC's quantitative design file to
+the pinned theory's hash. It returned **revise** on one blocking finding, with notes n-cc to n-ee and two
+missed questions. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R15-B1 | The rule ending the Q12 (d) wait was the rejected-quote share alone, but QC's own pages say "a lower rejection rate alone does not pass" (`CURRENT_STATE_AND_ROADMAP.md:24-25`, `EVALUATION_HARNESS.md:181-182`), and the 11.7% run issue #205 asks for is exactly that case | The row now follows QC's own verdict, not the number: it reads "not yet: Qualitative Coding does not yet call its pinned theory finished", quoting QC's current words and source line about whichever run is pinned, until QC's own pages record that run as passing its "wrong if" test (rejected share under the line and its section-8 reading of accepted quotes done). Plan `:43`, S7, Q12 (d)'s question, recommendation and default, A3 and A12 changed; A12 gains the failure example of the 11.7% run reading "met". The answer words stay "wait for a finished QC theory" / "accept the October run": "finished" now means QC's own finish verdict |
+| n-cc | Q12's `touches` left out what part (d) governs | Q12 touches `qc_theory_export`, `qualitative_strand` and `readiness_record`; the open-questions map gains those edges (and the `readiness_record` node) |
+| n-dd | Q15's `resolves_with` still said "the same code leads on both theories" | It says "weak corroboration only" |
+| n-ee | F10 pointed only at the resolved Q26 | F10's note names Q12 (d) as the live decision |
+| Missed question 1 | What ends the wait in Q12 (d)? | R15-B1's fix |
+| Missed question 2 | How are QC's disprove verdicts shown after the pin moves? | Q26: the page shows each verdict in QC's words, labelled "QC's own test, a model's reading" with QC's retest note (`CURRENT_STATE_AND_ROADMAP.md:58-62`); S3 may show "complements" beside a proposition QC's test contradicted only with that label |
+
+## Plan #8, round 14 (read a58162a): revise
+
+The reviewer found both round-13 blocking findings and notes n-s to n-u fixed, reproduced the 46% from
+the pin itself (288 rejected against 330 accepted) and confirmed QC issue #205's text. It returned
+**revise** on one blocking finding, with notes n-v to n-bb and two missed questions. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R14-B1 | The plan states QC's own verdict on the pinned run but never says whether 1.0 may count that run as its "validated qualitative path"; A3 would pass a page without the verdict | Q12 gains part (d), Brian's: may the 1.0 qualitative-path row read "met" on a run QC calls unfinished? Recommended and default: wait; the row reads "not yet: Qualitative Coding's pinned theory is unfinished by its own measure" until QC commits a theory under its own line (issue #205); builds do not wait, only the tag. Plan `:43`, S7 and A12 carry the rule; A3's expected result and failure example require QC's verdict in the label |
+| n-v | Six concept nodes and Q23 in the open-questions map carried older definitions | Copied from the domain graph and the ledger |
+| n-w | F13 and F18 described S4's adapter and partial export as built unconditionally | Both say "only if Brian names a case (Q25)" |
+| n-x | The study page called QC's output "grounded theory"; QC's decision D2 calls it a "grounded-theory-inspired candidate theory" | The S1 page uses QC's term (S1 commit 1020267); planning files keep "grounded-theory export" for the file type |
+| n-y | R3 ("part of my broader vision") is stored as a process requirement | Kept: the coverage mapping still ties R3 to A11, and re-judging it would change only the label |
+| n-z | Q15's recommendation leaned on the August export | Q15 and plan S2 call it weak corroboration only |
+| n-aa | QC's spend window had no end time | Pinned: 2026-11-05 00:00 to 2026-11-07 00:00 UTC, read 2026-11-07 04:50 UTC, 2,077 paid calls, $5.01 (plan S6, Q12, Q21, both manifest entries) |
+| n-bb | The page's plan copy showed an older package revision | The page is rebuilt after the checklist rewrite |
+| Missed question 2 | Does a pin move void Brian's Q15 pick and S5 decisions on old rows? | Q15's default and Q26: Q15 is asked again whatever the new table shows, and S5 decisions on old-pin rows are marked "made on the earlier pin" and judged again |
+| Missed question 3 | QC's own quantitative design for the pinned run says `conceptual_follow_up_only` | Plan's 1.0 quantitative row and Q26 cite the file (QC commit a278264d) and say how S2 stays inside its limits |
+
+## Plan #8, round 13 (read d7ec806): revise
+
+The reviewer found both round-12 blocking findings and notes n-l to n-q fixed, confirmed the category
+each pinned proposition names and P5's input, and swept every claim that names the pinned theory. It
+returned **revise** on two blocking findings, with notes n-s to n-u. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R13-B1 | Plan `:46` and Q12(c) still said one author code qualifies as a measure; on the pinned theory none does | Both now say no code passes the rule on the pinned theory and the measured code is Brian's own pick below the bar (Q15, F24) |
+| R13-B2 | F10 called the pinned run a finished grounded-theory result; by QC's own pages it rejects 46% of proposed quotes (above its "wrong if" line of roughly a quarter) and predates its disprove test | F10 now fails, tied to Q26. Q26, the 1.0 qualitative-path row and S1's page label (S1 commit 871983e, with a test) state QC's figures (46% against the published run's 11.7%). The workbench asked QC to commit its current theory file: BrianMills2718/qc issue #205, cited in Q26 and the label |
+| n-s | A5 did not ask for the below-bar label on mapped rows | A5's expected result and failure example now do |
+| n-t | Q24, the system model's S4 row and the `pt_export` glossary row said "the bounded P5 appraisal" without the earlier-theory label | Labelled |
+| n-u | S4's conditional route named only ADR 0004's prototype; ADR 0005 sends a case above one call's window through evidence cards | S4 names Process Tracing's answer path for the case's size (ADR 0004, or ADR 0005 above the window) |
+
+## Plan #8, round 12 (read e75a424): revise
+
+The reviewer found R11-B1 fixed (S1's pin is byte-identical to QC's committed e131eb55 file, the
+construct table reproduces, and QC has committed no newer theory), the unit-of-analysis answer sound and
+notes n-i to n-k fixed. It returned **revise** on two blocking findings, both consequences of the pin
+move that had not been carried through, with notes n-l to n-r. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R12-B1 | A construct Brian picks below the bar has no qualifying category, so S3's join maps no proposition; "open data" has two rows (0.47 and 0.40) and the number of joined rows (0, 4 or 5) depended on which; A4 kept August counts and did not ask for the label | Brian picks a table row (a code for one category); the propositions naming that category are mapped and labelled "chosen by Brian below the rule's half-share bar" with the row's share. Plan S3, Q22 and `proposition_measure_map` say so. Q15 now recommends "open data" for "Conditional, usable, and situated traceability" (maps propositions 1, 2, 5 and 6), answer words "use open data for traceability" / "pick another row: <code> for <category>" / "no construct". A4 reads its counts from the pin (38 cited turns, 18 marked) and requires the label |
+| R12-B2 | The causal tab's P5 comes from an earlier QC theory (revision d921baaf, version p5-v1), not the pinned theory, whose own P5 is a different claim on the S1 page | S4, the slice table, the 1.0 row, A6 and Q25 name P5's theory version, show its statement and label it "proposition P5 of an earlier Qualitative Coding theory, not this page's P5", naming the closest pinned claim (P4); the case packet may carry its own theory pin (revision, version id, sha256); A6 adds that failure example |
+| n-l, n-m, n-n, n-o | Q22's category count, Q14's passage resolution, F23's test count, Q12's citation | 4 categories; Q14 says the 100 cited passages resolve through the 194 the pin carries; four QC tests; `:471` |
+| n-p | The disproof did not list "no author code holds half of a category's cited turns on the second corpus" | Added |
+| n-q | The pin record was read as a raw dict, was missing from the system model, and named QC's repository wrongly | S1 commit 7f07c52 types it (`ProducerInputPin`, unknown fields refused, new test), the freeze script validates it, the repository reads `BrianMills2718/qc`; SYSTEM_MODEL's S1 row lists it |
+| Missed question 3 | Why not save QC's published a67d7d6a theory through its saved-view route | Q26 now states the reason: QC revised that theory twice on 2026-11-06, a live read would pin a theory QC has not released, and the workbench reads producers' committed results |
+| n-r | QC's own pages disagree on which run is current | No change: Q26 records both |
+
+## Plan #8, round 11 (read 7d29e71): revise
+
+The reviewer found R10-B2 and notes n-c to n-h fixed, and reran the overlap scripts, `make check` and
+the cost figures. It returned **revise** on one blocking finding: the round-10 answer kept Qualitative
+Coding's August export on a false premise, that QC had committed no newer theory. What changed in
+answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R11-B1 | QC committed run `e131eb55`'s full theory on 2026-10-09 (`proposals/qc-gt-review-candidate/expected-view.json`); on it the construct rule picks no code (best "open data", 0.47) | S1 now pins that file byte for byte and resolves the theory's 100 cited passages through the passages it carries (all 100 match the frozen text); the page labels it "Qualitative Coding's October 2026 theory (run e131eb55), not its published run". Q26, F22 and plan `:43` and `:97` say so; new findings F23 and F24 (both fail). The construct rule is kept, not loosened; when it picks no code S2 stops at the feasibility readout and the construct is Brian's call (Q15, now recommending "open data" labelled "below the rule's half-share bar"); "no construct" marks 1.0's quantitative condition unmet. Plan S2's figures, Q12, F10, F19 and A3/A5 are recomputed on the pinned theory |
+| Missed question 3 | Does S2's unit move with the pin? | No: the turns are QC's segmentation of the frozen files and a theory's passages map onto them by offsets (plan S2 "Unit of analysis") |
+| n-i | A3 and A5 fixed counts and A3 did not ask for the label | A3 asks for the label and counts from the pin; A5 counts the pinned theory's rows |
+| n-j | Q12(c)'s conditional AI steps had no cost entries | Three entries added: QC's subset rerun ($4.94 upper, measured), the three-label pass ($0.1846) and two definition calls ($0.0086) |
+| n-k | METHODS_AND_THEORY citation one line off | Now `:471-473` |
+
+Round 10's summary below says QC's only committed schema-3 theory was the August export; that was wrong
+(F23).
+
+## Plan #8, round 10 (read ccb5737): revise
+
+The reviewer found both round-9 blocking findings and notes n-a and n-b fixed, redid all ten computed
+cost entries, the overlap figures and `make check`, and checked S4 against decision 0017, Qualitative
+Coding's rule and the P5 run's own files. Reading the method owners' current records, it returned
+**revise** on two blocking findings, with notes n-c to n-h. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R10-B1 | S1 pins Qualitative Coding's August 2026 theory export; QC's status page names a newer run (`a67d7d6a`) and is revising that theory; the package never said which it uses | New resolved agent question Q26 and finding F22 (fails): QC has committed no export of the newer or revised theory, so S1 keeps the August pin, the study page names and labels it "not its current run", and the pin moves (with the overlap figures, Q15's construct and F19 recomputed) when QC commits the revised export. Plan's qualitative-path row, S1's build and Q15 say so |
+| R10-B2 | Q12(c)'s "need agree or disagree" option measured a proposition on the interviews that produced it, a same-corpus test, without telling Brian | Q12(c) and S3 now say such a row must be measured on interviews held out from QC's theory run (QC reruns on a subset in its own repository, measured upper figure $4.94, plus about $0.19 per S2 pass) |
+| n-c | The P5 panel sat under "not tested" without saying how its case was chosen | The panel and A6 state three things: chosen by an analyst's scan, six questions never answered by a person, and decision 0017's "does not satisfy the independence condition on its own" |
+| n-d | The finished table gave the wrong reason P5 is withheld | It now names Process Tracing's own checks; S4 names both the failed label-invariance check and the final claim review's block |
+| n-e | Two pages to cite in the stop search | The v16 synthesis pause is cited in Q25 and in `stops.searched`, with QC's "workbench sequence" line read as the NYC pause |
+| n-f | The plan called QC's outreach parked | It now says QC drafts its review request after the theory revision and sends nothing without Brian approving the text; this plan sends nothing |
+| n-g | The integration row did not say the interviews are not held out from the theory | Said in the row, and the readiness page says it |
+| n-h | The manifest's reviewed revision was stale | Updated to the revision each round read |
+| n8 to n11 | Carried notes and the plugin's WAIT labelling | Unchanged, as answered in rounds 5 to 7 |
+
+The reviewer's own report for round 10 is reproduced at the end of this file, ending with its verdict line.
+
+## Plan #8, round 9 (read 861d1e3): revise
+
+The reviewer confirmed round 8's facts (QC's handoff carries no proposition; the grounded-theory export
+does) and notes n1 to n7 fixed, and reproduced the overlap figures, the crosswalk counts, `make check` and
+the S4 cost. It then opened the method owners' rules and returned **revise** on two blocking findings, with
+notes n-a and n-b. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | The round-8 proposition case tested a proposition on the interview passages it was built from, which Brian's decision 0017 and QC's own method rule (owner decision, 2026-09-25) call circular; they also forbid an automatic theory-to-test step and any end-to-end page presenting a same-corpus test as verification | S4 becomes "Causal tab: the gated handoff": the six method-selection questions answered by a person for a named independent case (`selection_gate`), an `independent_case_packet` generalising the P5 input and `IndependentCaseSources` that refuses the study's own interviews, the existing bounded P5 appraisal on PsychosisBank's and TalkBank's own records with its conclusion withheld, and the "how the gate behaves" panel. A Process Tracing run happens only if Brian names a case with its own records (new Brian question Q25, recommended "gated handoff is enough"). Q24 rewritten (route (a) rejected as circular), Q21 drops the causal precondition, Q23 applies only under Q25; `proposition_case` removed, `pt_partial_export` split out (planned, conditional); S6 and S7's causal step reads "no independent case named: not tested"; A6 and A12 rewritten (A12 now fails on a same-corpus test shown as verification); S7's run costs about $0.092 over 3 calls; finding F21 (fails) |
+| B2 | `stops.searched` missed decision 0017, which holds a stop on this work | Decision 0017 added to `stops.found` as `holds`, honoured by the gated handoff; QC's methods document and the portfolio decisions added to `stops.searched` |
+| n-a | The plan checklist was stale | Rewritten last, after every package edit |
+| n-b | `pt_export` folded in the planned partial export | Split out as planned concept `pt_partial_export` |
+| n8 to n11 | Carried notes and the plugin's WAIT labelling | Unchanged, as answered in rounds 5 to 7 |
+
+The reviewer's own report for round 9 is reproduced at the end of this file, ending with its verdict line.
+
+## Plan #8, round 8 (read 9dd6009): revise
+
+The reviewer found both round-7 blocking findings and notes a to d fixed, and reproduced the overlap
+figures, the crosswalk counts, `make check`, the S4, S7 and Q12(c) costs and the stop search. It opened
+Qualitative Coding's own code and its pinned Open Science state, and returned **revise** on one blocking
+finding, with notes n1 to n11. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | QC's process-tracing handoff exports `state.claims` and never reads the grounded-theory export; QC builds `GT_PROPOSITION` claims only from a theoretical model the pinned state lacks (1,139 claims, none of that kind), so S4's causal route could not start as written | Option (a): the workbench writes a proposition case (the proposition, its supporting segment ids and texts, with the export's commit and sha256, provisionally `mmw_proposition_case_v1`) from the grounded-theory export S1 already pins, and Process Tracing's new input reads it; QC needs no change. Recorded as resolved agent question Q24 and investigation finding F20 (fails). Plan S4, S6, the finished table, `qc_pt_handoff`'s definition, Q21's precondition and the system model's S4 row now say so; `proposition_case` is a planned concept and `qc_pt_handoff` leaves "Relies on" |
+| n1 | `qc_theory_export` read as planned though QC's export exists | Its definition now says the export exists in QC and only the workbench's reader is planned |
+| n2 | S7's readiness record was in neither the domain graph nor "Relies on" | Added as planned concept `readiness_record` |
+| n3 | S5 did not name the disposition of orange rows or G5's roles | S5's build now records a disposition for every orange row and the reviewer's role in every review entry |
+| n4 | S6's cost entry left out the causal check | Its evidence now adds S4's measured upper figure, $0.0555 per run |
+| n5 | The causal tab's plain-version comparison was not cited | S4 cites Process Tracing's own comparison (ADR 0004 :61-66: 7 and 7 against a plain-draft mean of 6.17, under its noise line); the workbench adds no stage |
+| n6 | The Phase 3 lift was inferred from the crosswalk approval | The stop entry says so, and that Phase 3 is complete |
+| n7 | The disproof tested no integration observation | The disproof now also fails if a joined claim cannot be followed to both its passage and its number, or Brian rejects most meta-inferences in review |
+| n8 to n11 | Carried notes and the plugin's WAIT labelling | Unchanged, as answered in rounds 5 to 7 |
+
+The reviewer's own report for round 8 is reproduced at the end of this file, ending with its verdict line.
+
+## Plan #8, round 7 (read 58f644a): revise
+
+The reviewer found round 6's B1 fixed (the two made-up test exports match Process Tracing's
+`PublicationGateV2`, and A6 can be judged) and N1 to N3, N5 and N6 fixed. It reproduced the overlap
+figures, the crosswalk counts, `make check` and the S2 and S4 costs. It returned **revise** with two
+blocking findings and notes a to g. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| 1 | A12's end-to-end run includes a causal check that no slice builds on the second corpus; S7 claimed no AI step; "met" did not require Brian's judgement | S6 gains the causal check: S4's route on one second-corpus proposition (QC's handoff must carry it as a `GT_PROPOSITION` claim, added to Q21), costed at the measured upper $0.0555. S7's run is a fresh end-to-end run with a computed cost (about $0.15, new `cost_basis` entry). A row reads "met" only when its criterion is "judged pass" in Brian's recorded words; an agent-built, unjudged criterion reads "not yet: awaiting your judgement". A12's steps, expected result and failure example say so |
+| 2 | The integration condition was labelled "kept" though 1.0 rows can only say "complements" or "silent", so the roadmap's G4 "contradiction disposition" never meets a real disagreement; the readiness page read only the eight bullets, not the G1–G6 gate | The finished table's row now reads "changed: ... verdicts limited to 'complements' or 'silent' in 1.0", with why. Q12 gains part (c) with a recommendation (complements only in 1.0: no second author code qualifies, so a second measured theme would have no human reference), a default, the cost of the other option (about $0.19 per S2 pass, worked out) and answer words "complements is enough" / "need agree or disagree"; Q22 points there. The plan states that S7's readiness page carries both the eight bullets and G1–G6's 1.0 conditions |
+| a | Two Process Tracing stops were not lifted by ADR 0004; the freeze had approved words; the Phase 3 pause was not listed | "overbuilt" and "a patch ot an actual fix" now `holds`, honoured because S4 runs no pipeline. The freeze entry quotes Decision 1 as put to Brian and approved on 2026-11-05. The Phase 3 pause is listed, lifted 2026-10-07 |
+| b | `qc_pt_handoff` is implemented in QC, not planned; missing from the plan's "Relies on"; the `GT_PROPOSITION` citation pointed at a use | Kind `elsewhere` in the graph, glossary and spectrum; added to "Relies on"; cited at `qc_clean/schemas/domain.py:179` |
+| c | SYSTEM_MODEL had no S7 row or S7 pages | S7 row added (readiness record, end-to-end receipt, "runs / does not run" field) and the planned pages list the readiness, method-profile and crosswalk pages |
+| d | The test exports' schema and reader were unnamed | The plan says they use the partial schema (`pt_draft_audit_export_v1` with the optional gate block in `PublicationGateV2`'s shape), read by the reader the real case uses |
+| e, f, g | Coverage classes R3 as process; agent questions settleable now; page links 404 before merge | Unchanged, as answered in rounds 5 and 6: R3 stays mapped to A11; the questions are upkeep outside this plan's slices; the links resolve when this pull request merges |
+
+The reviewer's own report for round 7 is reproduced near the end of this file, before round 8's.
+
+## Plan #8, round 6 (read 9ad84d1): revise
+
+The reviewer found round 5's S4 route fixed (the draft-audit prototype with a handoff input and Process
+Tracing's Q20 adapter, F13 now "fails", the measured $0.0555 cost, the freeze in `stops`) and notes n1 to
+n4 fixed. It reproduced the overlap figures, the crosswalk counts, `make check` and every computed cost. It
+returned **revise** on one remaining part of B1, with notes N1 to N6. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 (rest) | The fixture cited for A6's publishable case is a `pt_theory_test_return_v1` record with a blocked gate and no `publishable` field; no committed file shows a conclusion, so half of A6 could not be judged | Claim corrected in the plan's S4 build, A6 and Q23. S4 now commits two made-up test exports, labelled as test data (one publishable, one blocked), shown in a "how the gate behaves" panel; A6 gains a step that opens it and a second failure example ("the publishable test export still reads 'withheld'") |
+| N1 | Plan lines 45 and 75 and the `pt_export` glossary entry described the old route; the adapter's schema was unnamed | Reworded; the plan says no 1.0 causal conclusion from the answer path shows as published; the adapter's schema is named (provisionally `pt_draft_audit_export_v1`) with a second, partial reader whose gate and conclusion fields are optional |
+| N2 | `stops` missed Process Tracing's earlier stop signals; the freeze's words were an agent's paraphrase | Added "overbuilt" (2026-07-29), "archive ... start over" (2026-08-20) and "a patch ot an actual fix" (2026-09-24), each `lifted` with its reason; the freeze entry now says its words are a paraphrase |
+| N3 | F18 held only for the frozen pipeline's export | Narrowed, and pointed to Q23 |
+| N4 | The coverage record called "part of my broader vision" a process requirement | Re-judged with `--force`: the judge still classes it as process but now maps it to A11. The re-judge also found "finish" only partly covered (no criterion checked the whole bar), so acceptance A12 was added to S7: a 1.0 readiness page, one row per condition of the roadmap's 1.0 definition with its source, slice, status and evidence link, plus one end-to-end run on the second corpus; verdict covered |
+| N5 | QC's Process Tracing handoff was missing from the domain model | Added as `qc_pt_handoff` (glossary, graph, spectrum, `relies_on`); S4 first checks the proposition is an anchored `GT_PROPOSITION` claim |
+| N6, n5, n6 | Stale reviewed revision; agent questions settleable now; page links 404 before merge | N6 is replaced by this round's record. n5 and n6 stand as answered in round 5 |
+
+## Plan #8, round 5 (read c79e70b): revise
+
+The reviewer found round 4's F1, F2 and V fixed, and notes n1 to n7, n9 and n10 fixed. It reproduced the
+overlap figures, the fitted prices and the crosswalk counts. It returned **revise** with one blocking
+finding (B1) and notes n1 to n6. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | S4 named a Process Tracing route (draft-audit → `pt_export_v2`) that, by Process Tracing's own ADR 0004 and its Q20, writes no such export; F13 held only by citing the frozen pipeline; the cost left out the merge step; A6 needed a gate field the route never writes; `stops.searched` did not look at Process Tracing | New question Q23 (agent, resolved by argument): S4 adds, in `process_tracing`, a qualitative-handoff input to the draft-audit prototype and the partial export adapter Process Tracing's Q20 recommends; no `pt/` work and the frozen pipeline is not run. The workbench treats an absent gate as withheld, and tests the publishable branch with the committed fixture that carries a gate. S4's cost is now the measured full prototype run, $0.0555 over 7 calls (fomc_v4). F13's verdict is now "fails" with Q23; SYSTEM_MODEL's S4 row and A6's expected result say the same; `stops.searched` and `stops.found` add the `pt/` freeze (2026-09-30) and ADR 0004 |
+| n1 | Stale "convergence / complementarity / divergence" wording; A5 said "read whether they agree"; the goal said "a qualitative category" | The slice table, DOMAIN.md, the `joint_display` node and the questions map say "complements" or "silent: not measured" in 1.0; A5 reads "see which ones the measure speaks to and how"; the review page's goal says S2 measures one of the authors' own codes |
+| n2 | LiteLLM does list a price for gpt-5.6-luna | Each cost entry now cites LiteLLM's list price ($0.20 input, $1.20 output per million tokens) beside the fit, which is higher, so the figures are conservative |
+| n3 | Two pairs of QC categories cite exactly the same turns: 8 categories rest on 6 distinct evidence sets | Confirmed from S1's data; new finding F19, and plan S2 has the study page say so. "Open data"'s two categories are distinct, so the construct choice is unaffected |
+| n4 | Who drafts the instrument's definition was unnamed | One llm_client call (`mixed_methods_workbench.open_science.define`), traced, read and edited by the building agent, versioned in the split manifest; costed at about $0.004 in plan S2 and the manifest |
+| n5 | Agent-owned Q2, Q3, Q4, Q10 and Q21 could be settled now | Kept open, not settled in this round: Q2–Q4 and Q10 are upkeep fixes outside this plan's slices (a missing `.agentic/repo.yaml`, the wiki cap, the architecture pointer, a label on the paused NYC lane), each with its fix written in the question; Q21 waits on S6's corpus choice (Q19) |
+| n6 | The page's GitHub links 404 until the branch is merged | Unchanged by design; they resolve once this pull request merges |
+
+The reviewer's own report for round 5 is reproduced at the end of this file, ending with its verdict line.
+
+## Plan #8, round 4 (read bdf06d7): revise
+
+The reviewer found B1 and B3 fixed, B2 and B4 fixed only in part, and returned **revise** with three
+blocking findings (F1, F2, V) and notes n1 to n10. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| F1 | The S2 "plain" version was 25 per-interview calls, not the same model given the whole source in one or two calls; per-turn S2 calls and per-proposition S3 drafts were built first | Plan S2 and S3 and the manifest: the plain version is the starting design. S2 labels every interviewee turn of one split in one call (two calls: tuning, held-out; about 58,000 input and 19,000 output tokens each, inside gpt-5.6-luna's 922,000 input and 128,000 output limits from LiteLLM's model information), about $0.08 per pass. Per-interview and per-turn calls, and S3's per-proposition drafts, are stages added only if the plain version shows a gap; `cheapest_design` no longer calls per-turn the cheapest |
+| F2 | A prevalence cannot confirm or contradict QC's conditional propositions, yet a row could say "converges" or "diverges"; the co-occurrence branch had nothing to compare | Q22, plan S3 and A5: a row matched by prevalence alone may only say "complements", and the number and passage check refuses any other verdict; the co-occurrence branch is dropped; A5's failure example is a prevalence-only row marked "converges" |
+| V | The validator's record showed the plain-version and stage-effects checks failing | Those two lines show `WAIT`, not a failure: the package contract makes `plain_baseline.kind: planned` and each `stage_effects` entry with status `untested` show `WAIT` until the comparison runs, "even after the field is due, never a pass". They stay `WAIT` until S2 and S3 run their plain versions; the validator still exits 0 with them pending |
+| n1 | Edge e38 (a second model challenges each meta-inference) remained; the number and passage check and the proposition-to-measure map were not concepts | e38 dropped; `proposition_measure_map` and `integration_check` added to the domain graph, DOMAIN.md, the spectrum file and `relies_on`; the planted overclaim added to `planted_failure` |
+| n2 | QC marks only its cited turns, so a two-way overlap floor of 0.3 might be unreachable; compute the table now | Computed from S1's data over 8 categories × 28 codes: the highest two-way overlap is 0.18, so the floor could never be met. The construct is redesigned (Q15, plan S2): S2 measures one of the author's codes, so the measure and its reference name the same construct, chosen as the code holding at least half of a QC category's cited turns with a chance test below 0.001. Only "open data" qualifies (14 of 22 and 14 of 21 cited turns of two categories; chance 3e-9 and 1e-9); it marks 72 turns in 23 of 25 interviews |
+| n3 | S2's table left out brief :110 and :118-121 | Two rows added: error costs and Brian as accountable reviewer; a count over the complete corpus has measurement error only, so its interval is the instrument's held-out error resampled by interview, while agreement keeps its by-interview interval |
+| n4 | PLANNING_STATUS.md:208-218 forbids rerunning QC or PT "merely to populate the Workbench" | Plan "Not in this plan" and `stops.searched`: the limit was written by an agent under Brian's approval of the 2026-08-13 assessment; its rerun limit still holds as written (S4 and S6 run producers in their own repositories to test a 1.0 condition, never to fill the page); its limit on authorising implementation is superseded by Brian's 2026-11-06 direction |
+| n5 | Router records A5, A7 and A11 predated later changes | A4, A5, A7 and A11 use cases updated and rerun through the Representation Router; each still recommends the view its entry names |
+| n6 | Stale citations (Q19 to S4; investigation.json said S3 is measured) | Every plan citation in the package remapped to the edited plan; Q19 cites S6; the investigation note says S3 is computed |
+| n7 | The GitHub-issue review route and `make import-reviews` missing from the system model and context diagram | Added to SYSTEM_MODEL.md's S5 row and as a `github_issues` source in the context graph |
+| n8 | The page does not show the cost table, plain-version record, stage effects or stops | Not fixed here: the shared review-page builder does not render those fields; the plan text and the checklist carry them |
+| n9 | A4 and A10 wording was technical | Reworded in plain terms |
+| n10 | The fresh reviewer is a model step mentioned only in prose | It is a Claude Code session on the subscription, named in the S2 controls step's evidence and in `cheapest_design` |
+
+The reviewer's own report for round 4 is reproduced at the end of this file, ending with its verdict line.
+
+## Plan #8, round 3 (read 3957779): revise
+
+The reviewer confirmed all five round-2 findings fixed and returned **revise** with four new blocking
+findings (B1 to B4) and notes N1 to N11. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | S2's construct match was a one-way share against a different codebook, with no minimum, so broad numbered interview-question codes could win | Plan S2 and Q15: the match is two-way (turns both mark ÷ turns either marks, over the 630 interviewee turns); the author's 11 numbered interview-question codes are left out by their label format and listed; a minimum overlap (0.3 unless the readout gives a reason) is preregistered from the feasibility readout, else the next category, else S2 stops; the brief's :111 row and A4 name the different codebook |
+| B2 | No question said which proposition the single measure speaks to; mismatched units must block aggregation | New Q22 (resolved by a written rule): each proposition maps to the measure (prevalence or co-occurrence by interview) or to "silent: not measured"; differing units block aggregation (brief :143-144); A5 states how many rows are comparable |
+| B3 | The product map names eight parts; the analytical plan was dropped | The analytical plan added to A11 ("eight parts"), `investigation_record` (glossary and graph, with an edge to `route_plan`), plan S5, the vision paragraph, the S5 slice row and Q18 |
+| B4 | No `plain_baseline`, `stage_effects` or `stops`; S3's challenger had no shown effect | Manifest adds all three (plain baseline planned for S2 and S3; two untested stages; stops: the NYC pause holds). S3's second-model challenger is dropped: a deterministic check verifies every cited number and passage id, S6 plants an overclaimed meta-inference for it to catch, and S3 is 6 calls (computed, $0.014) plus one plain-version call |
+
+Notes: N1, the plan checklist moved to the end of the plan, so every citation into the plan is back at
+the line it was set against and later checklist rewrites cannot shift them; N2, the four language-model
+controls are a computed step ($1.58 once per corpus) and the fresh reviewer is a Claude Code session; N3,
+S3 relabelled computed with fitted gpt-6-luna prices, the $0.0038 measured median kept as the upper
+figure; N4, brief rows :25 (overridden by "not for a specific use case"), :83-85, :102-103, :113 and :114
+added to S2's table; N5, Q16 records the task/owner pattern as an agent working default; N6, coverage
+rerun after B3; N7, the instrument is applied to every interviewee turn; N8, links resolve once merged; N9,
+the test command reads `PYTHONPATH=src:.`; N10, A4 prints the chance level beside the shuffled-label row;
+N11, `split_manifest` and `feasibility_readout` are planned domain concepts and in relies_on.
+
+## Plan #8, round 2 (read 47475ef): revise
+
+The reviewer returned **revise** with five blocking findings and notes a to q. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| 1 | S2 did not keep every condition of the quantitative-strand brief, and Q16 called the unapproved brief "reviewed" | Plan S2 now has a table of every brief condition with its line and how S2 meets it; two are named as not met with reasons (no fine-tuned encoder; no independent adjudicated pilot); the language model's behavioural and compliance controls and the held-out trace check are added; Q16 rewritten (brief never approved, adopted condition by condition); the construct is Brian's call again (Q15, with a default) |
+| 2 | Q18 showed only half the product map; R3 uncovered | Q18 gives both readings (map sections 1 and 3 against 5, 7 and 9) with a third answer, "policy flagship"; the plan says Open Science is the method proof, not the flagship; A11 and the outcome tie the record to the evidence-to-action vision; coverage rerun: verdict covered, R3 judged a statement about the planning process |
+| 3 | A7 needed a server that Q11's static hosting does not give; reflexivity memo had no criterion | New Q20 (resolved): served-page actions open pre-filled GitHub issues and `make import-reviews` imports them; A7 adds the memo, the import state and the page's own hash check (mismatch in orange) |
+| 4 | S6 needs Qualitative Coding to run on corpus 2; no question or cost | New Q21 (open, agent); S6 schedules it; measured cost $4.94 over 2,075 calls added to the cost basis; the thesis says QC runs in its own repository |
+| 5 | Q14 answered by the S1 receipt but still open | Q14 resolved with the receipt's counts; plan S1 says the author's passages are located by their words (12 of 837 stated offsets match) and lists the 36 that differ and 7 not found |
+
+Notes: a, theory operationalization added to Q12; b, the overlap match defined (Q15, plan S2); c,
+`capability_verdict` and `reflexivity_memo` in relies_on; d, `reflexivity_memo` is a planned domain
+concept; e, `workbench_view` says it reads the synthetic DEMO-C1 shape; f, `pt_export` cites
+`investigation_run.py:101`; g, S4 generalises the PsychosisBank receipt and keeps it byte-identical; h,
+`scripts/type_inventory.py` now keys classes by module and resolves imports; i, per-interview cost stated
+as about $0.28 against $0.79, S3 measured per call ($0.05), S2 feasibility tokens counted from QC's segments;
+j, counts 204 and the cost note reworded; k, round-1 notes listed below; l, the review page has no served
+URL until Q11 is answered, and its GitHub links resolve once this branch merges; m, the duplicate
+`adr-2026` ids come from the shared builder (date-named decision files), filed as
+BrianMills2718/company-planning#264; n, disproof reads "agrees no better than", and the thesis now claims
+the measure's agreement, which A4 tests; o, A7 hash check on the page, A9 links the slice and test, A10's
+"data only" computed by a test from `git diff`; p, context diagram: Cybernetic Influence added and the
+case slices connected; q, F10 says 90 cited passages.
+
+Round-1 notes not listed before: N5, planned concepts have their own "Planned (Plan #8)" kind and "passage"
+is in the spectrum's ambiguous list; N12, the standing publish rule does not settle Q11 because serving
+from hive.brianmills.dev needs a change to another repository and Brian's direction limits deploys to the
+existing Worker, so Q11 stays his; N13, see note l.
+
+## Plan #8, round 1 (read a295230): revise
+
+The reviewer (`company-planning:planning-compliance-reviewer`, run cold with `claude -p`) returned
+**revise** with ten blocking findings and thirteen notes. What changed in a95a519 in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | S2 dropped the repository's quantitative-strand brief (word-list count baseline, dummy and TF-IDF baselines, language model as challenger, feasibility readout, prevalence error) | S2 rewritten to keep every condition; Q16 resolved by argument |
+| B2 | "Disagreements" undefined; re-judging only misses inflates agreement | No second model in S2; if added later, the cases are chosen without the author's codes (Q16) |
+| B3 | Unit of analysis and the 650 count unsourced; author passages vary and overlap | Unit = interviewee turn, 630 counted; author passages mapped by overlap (Q17) |
+| B4 | "Part of my broader vision" had no criterion | Read from the evidence-to-action map: one investigation record per study (Q18, Brian's call with that default); acceptance A11; S5 builds it |
+| B5 | Domain definitions did not match code; relies_on missed concepts | evidence_anchor, producer_export, publication_gate redefined; ten concepts added; planned concepts have their own kind |
+| B6 | System model listed no types | Generated type inventory (195 classes, stale-check test); planned types per slice; context diagram shows the inside |
+| B7 | A3, A7, A10 needed a command line or a git commit | Each opens an address (Q11 decides where); the benchmark page states the files each corpus changed |
+| B8 | The package carried an older review's pass | This record; manifest verdict set to revise until the next round passes |
+| B9 | No cheapest-design comparison | Per-interview calls measured against per-turn calls on tuning interviews; quality decides |
+| B10 | Second corpus had no difference rule | Must differ in subject, team and coding tool or export format (Q19) |
+
+Notes: costs relabelled computed or guess (N6); A2 scheduled in S7 (N7); A4 shows tuned and tested
+interviews and a shuffled-label control (N8); goal fields rewritten as direction, claim and disproof (N9);
+the "five changes" count corrected and reflexivity kept in S5 (N10); Q7 count 203 (N11); citations fixed
+(N1, N3, N4); the generator gap behind the hand-added wiki line filed as BrianMills2718/project-meta#2716 (N2).
+
+## Earlier: Plan #7 package, round 2 (read 794be795): pass
 
 The package now passes. Both blocking findings from round 1 are fixed, and nothing new would change a reader's conclusion. A few small notes remain.
 
@@ -36,5 +378,1856 @@ The package now passes. Both blocking findings from round 1 are fixed, and nothi
 - I did not render the page in a browser this round. I checked the page source for each new item instead: `public_review`, Q9, Q10, `tmp_path`, "blanket-approved", "hash comparison", "Independent challenge", "synthetic mirror" and the new north star are all present.
 
 Reviewed revision: 794be795fc69eb2a813300280539180266920d0a
+
+Verdict: pass
+
+## Plan #8, round 4 reviewer's report (verbatim)
+
+I've finished the round 4 review, and the verdict is **revise**. Of round 3's four blocking findings, two are fixed. The other two were answered in a way that is only partly right, so they stay blocking. One more thing blocks too: the validator's own record shows two checks failing on the plan's plain-version comparison.
+
+Two limits on this review. First, this session could not read the plugin's contract or validator, or run any Python, so I could not rerun the validator or any recorded check. I reproduced counts by hand instead (below). Second, I did not render the page in a browser.
+
+### Validator
+
+I could not run it. Its last recorded result is the checklist it writes into the plan (`008_finish_workbench.md:308-348`, revision `bdf06d7310b1`): "not compliant", exit status not shown.
+
+- **Parts:** 9 of 10 ok; the cold review part fails, and this report supplies it.
+- **Substance:** 9 of 13 ok. Two of the four failures are the cold review's and clear with this report. The other two will not clear on their own: "plan compares its AI answer path with the plain version" and "plan shows what each stage adds over the plain version".
+- **Other lines:** the 3 tier checks, initiative, goal coverage, goal provenance and freshness are all ok.
+
+### Checks
+
+No recorded command could be rerun here. What I reproduced by hand:
+
+- `grep "^class "` over `src` and `scripts` finds 195 classes, matching `TYPES.md:7`.
+- The S1 receipt (`s1-open-science-study`, `examples/studies/open_science/build_receipt.json`) matches Q14, Q17 and F10: 28 of 28 md5 matches, 1,277 of 1,277 segments, 90 of 90 cited passages, and the author's passages located as 681 exact, 113 whitespace-only, 36 text differs, 7 not found, with 12 stated offsets correct.
+- QC's export says 630 interviewee units, 8 categories and 6 propositions.
+- The author's CSV has exactly 11 numbered interview-question codes.
+
+### Round 3 findings
+
+- **B1** (two-way construct match): **fixed**. Plan :136-148, Q15, the brief's :111 row and A4 all carry it.
+- **B2** (which proposition the measure speaks to): **fix wrong in part**, stays blocking (F2 below).
+- **B3** (analytical plan in the record): **fixed** in A11, the graph (e150), S5, the vision paragraph and Q18. Router record A11 is stale (note n5).
+- **B4** (plain version, stage effects, stops; S3 challenger dropped): **fix wrong in part**, stays blocking (F1 below). The challenger is gone from the plan, but the domain graph still shows it (note n1).
+- **N1–N7, N9–N11:** fixed. **N8** (GitHub links resolve once merged) is not fixed, by choice: the plan is still not on `origin/main` and the branch is not on GitHub (note n8).
+
+### Blocking findings
+
+- **F1. Plan / plain version.** `planning-package.json:330-350`, plan `:184-191` and `:211-214`.
+  - The S2 "plain" comparison is 25 calls, one per interview. Brian's rule says the plain version is the same model given the whole source in one or two calls.
+  - The whole corpus is 108,452 tokens (plan :187), so it fits in one window; nothing in the package rules that version out.
+  - The design also builds the staged versions first: one call per turn in S2, one per proposition in S3. Both stages are marked "untested", and the validator fails both checks.
+  - **Fix:** make the plain version the starting design in S2 and S3. For S2 that is one or two calls over the whole corpus; split the calls tuning/held-out, and state the model's output limit, since 630 labels × 268 ≈ 169k output tokens. If that limit really forces more calls, record the proof from construction and per-interview calls become the plain version. List per-turn and per-proposition calls as stages added only after the plain version shows a gap. Reword `cheapest_design`: per-turn is not the cheapest (about $0.31 even with a cached prefix, against about $0.28 per interview). Then rerun the validator.
+- **F2. Open questions / S3 join (Q22).** `open-questions.json:415`, plan `:195-203`.
+  - All six of QC's propositions are conditionals that each name 2–3 categories (export `grounded_theory.json:3218-3345`). The prevalence of one category cannot confirm or contradict "when X, then Y".
+  - Yet the rule lets such a row carry "converges" or "diverges", and the number-and-passage check would not catch that.
+  - The "co-occurrence with another category" branch has nothing to compare against: S2 labels one category, and QC's segments carry no category codes.
+  - **Fix:**
+    - A row matched by prevalence alone may only say "complements", and the check refuses any other verdict.
+    - Either have S2 measure both categories of one chosen proposition (cost computed), or drop the co-occurrence branch.
+    - Add "a prevalence-only row marked converges" to A5's failure example.
+- **V. Validator.** `008_finish_workbench.md:335-336`: the two plain-version and stage-effects checks fail. A failing validator is a revise finding. F1's fix should clear it; if the validator rejects every not-yet-run comparison by design, record that reason in the package.
+
+### Notes (do not block)
+
+- **n1.** Domain model `domain.graph.json:489-494`: edge e38 still says a second model challenges each meta-inference. The S3 number-and-passage check and the proposition-to-measure mapping (planned types in `SYSTEM_MODEL.md:50`) are not concepts and not in `relies_on`. `DOMAIN.md:47` leaves out the planted overclaim. **Fix:** drop e38, add the check as a planned concept.
+- **n2.** Q15 / S2 (plan :139-146):
+  - QC's side of the overlap is only its cited examples: 8 incidents, 88 turns, about 22 per category. Its two-incident categories mark at most about 22 turns, while the author's broad codes are large ("open data" 81 passages, "open/closed access publishing" 57).
+  - So a two-way overlap is capped at roughly 22 divided by the author code's turns, and a real match to a broad code can fall below 0.3.
+  - The S1 data can produce the 8 × 28 overlap table now, settling whether the 0.3 floor is reachable before S2 is built around it.
+- **n3.** S2's table of brief conditions leaves out brief `:110` (error costs, accountable reviewer) and `:118-121`. The second says the count over a complete corpus has measurement error but no sampling error. It does not fit cleanly with the plan's by-interview interval on prevalence.
+- **n4.** Stops: `PLANNING_STATUS.md:208-218` (2026-08-13) says work "must not rerun QC, Process Tracing ... merely to populate the Workbench". S4 and S6/Q21 do that. `stops.searched` read the file but did not record whether Brian's 2026-11-06 direction lifts this. I'm unsure it still applies; its section is headed "Completed Phase".
+- **n5.** Acceptance router inputs predate later changes: `router/A11.usecase.json:18-27` has no analytical plan, A7 has no memo, A5 has no comparable count. Each still chose the view named in its entry. Rerun them.
+- **n6.** Stale citations: Q19 evidence cites plan ":232", which is now S4 (should be :265-266). `investigation.json:319` still says S3 is measured; it is now computed.
+- **n7.** The context diagram and `SYSTEM_MODEL.md:52` leave out the GitHub-issue review route and `make import-reviews` (Q20).
+- **n8.** Page:
+  - The diagrams are drawn on the page and every part is shown.
+  - The page does not show the manifest's cost table, plain-version record, stage effects or stops; only the plan text and the checklist carry them.
+  - The page is not served anywhere (Q11), and its Plan #8 GitHub links 404 until the branch is pushed and merged. The repository is personal, so the company-organization rule does not apply.
+- **n9.** Acceptance wording: A4's expected result (`:69`) uses "per-class agreement", "prevalence error" and "shows its null", and A10's (`:176`) names `git diff --name-only`. The orange failure flags are judgeable by a non-expert; the wording could be plainer.
+- **n10.** Cost basis `:256`: the fresh reviewer (a Claude Code session) is a model step mentioned only in prose. Q21 is nearly settled by the plan's own S6 text (`:259-261`). S4's measured $0.03 and QC's $4.94 could not be checked against llm_client's log here.
+
+### Judgments I was unsure about
+
+- Whether F1 and F2 are blocking rather than notes. The cost at stake is cents; the joint display's validity and Brian's plain-version rule are what tipped them.
+- Why the validator fails the two checks; I couldn't read it.
+- Whether n4's 2026-08-13 constraint still holds.
+- The output limit of gpt-5.6-luna, which decides whether two calls suffice for F1.
+
+---
+
+- **Verification:** every count above came from `grep`, `git show` and file reads at a251ee2; the validator, `pytest` and the crosswalk check were denied by this session's permissions.
+- **Feedback:** the cold reviewer ran without permission to read the plugin or run Python, so required steps 1–2 could not be done. Grant read and run access to the plugin path and `.venv/bin/python` for review sessions.
+- **Need anything from human:** No.
+
+Reviewed revision: bdf06d7310b1df76dd35c1334a02eec53ccd160a
+
+Verdict: revise
+
+## Plan #8, round 5 reviewer's report (verbatim)
+
+I've finished the round-5 review. The verdict is **revise**, because of one new blocking finding.
+
+All three of round 4's blocking findings (F1, F2, V) are fixed, and so are nine of its ten notes. The new problem is in slice S4. The plan says it will take Process Tracing's results from a route that, according to Process Tracing's own records, does not produce the file the workbench reads.
+
+#### Validator
+
+I ran it at revision `2092693` and it exited 1.
+
+- **Parts:** 9 of 10 are ok. The only failure is the cold review, whose recorded verdict is still `revise`.
+- **Substance checks:** 10 of 12 are ok, none fail, and 2 show WAIT. The two WAIT lines are the plain-version comparison (still planned) and the three untested extra stages. The contract makes those WAIT by design.
+- **Other lines:** initiative and spectrum tiers are 4 of 4. Goal coverage (3 requirements), goal provenance and freshness all pass. Freshness counts 1 commit of work since the package revision.
+- **Odd output:** the validator's JSON output labels those two WAIT lines as "failing". The plan's generated checklist copies that word at lines 369-370, and `plan_checklist.py --check` says it matches, exit 0. This is a fault in the plugin, not the package.
+
+#### Recorded checks rerun
+
+- **Crosswalk check:** `scripts/crosswalk_phase4.py --check` gave 171 steps, 36 groups, 0 errors, exit 0. That matches the manifest, and the tree stayed clean.
+- **Overlap scripts:** `overlap.py` and `overlap2.py` on the S1 branch (`faf5399`) reproduce every figure the package quotes:
+  - 630 interviewee turns, 224 code-and-category pairs, and 11 numbered interview-question codes left out.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 turns (0.67, chance 1.2e-9).
+  - The next-best share is 0.48, and the highest two-way overlap is 0.18.
+  - "Open data" marks 72 turns in 23 of the 25 interviews (I counted this separately).
+- **Prices and token counts:** refitting the call log gives exactly what the package uses:
+  - 708 calls priced at $0.2168 input and $1.4057 output per million tokens, with medians of 4,052 input and 268 output tokens.
+  - $0.1354 and $0.2895 per million for gpt-6-luna, with medians of 15,196 and 807 across 55 calls.
+  - The S2 figure recomputes to $0.0783.
+- **Measured costs:** the five S4 stage averages sum to $0.030. Qualitative Coding's calls over 5-6 November now total 2,088 calls and $5.01, against the recorded 2,075 and $4.94; the gap is later calls, under 2%.
+- **Not rerun:** this session was not allowed to run the full test suite.
+
+#### Round 4 findings
+
+- **F1 (plain version first): fixed.**
+  - S2 now labels every turn in two calls (tuning interviews, then held-out interviews), at plan lines 186-198.
+  - S3 drafts every row in one call, at lines 235-239.
+  - Per-interview calls, per-turn calls and per-proposition drafts are now stages added only if the plain version shows a gap.
+  - The 922,000-token input and 128,000-token output limits are confirmed in LiteLLM's model data.
+- **F2 (what a prevalence can say about a when-then claim): fixed.**
+  - A row matched by prevalence alone may only say "complements", in Q22 and plan lines 215-226.
+  - A5's failure example is a prevalence-only row marked "converges".
+  - The co-occurrence branch is gone.
+  - With "open data", 3 of the 6 rows are mapped (propositions P2, P4 and P5).
+- **V (validator showed the two checks failing): fixed.** The text output shows WAIT, and `cold-review.md` records why.
+- **Notes n1 to n7, n9 and n10: fixed.**
+  - The challenge edge e38 is gone, and the two new concepts are in the domain graph.
+  - The brief's lines :110 and :118-121 now have rows (plan lines 121 and 125).
+  - The `PLANNING_STATUS.md:208-218` limits are quoted and handled.
+  - The A4, A5, A7 and A11 router records each choose the view their entry names.
+  - Q19 now cites :292, and the investigation file says S3 is computed.
+  - The context graph has a `github_issues` node.
+- **Note n8 (page links): not fixed, by choice.** It stays a note.
+
+#### Blocking finding
+
+**B1. S4: the Process Tracing route it names does not produce the export the workbench reads. Where:** plan lines 251-255 and 260-262; `planning-package.json:313-320`; `investigation.json:231-238` (F13); `SYSTEM_MODEL.md:51`; `acceptance-criteria.json:97-112` (A6).
+
+- **What is wrong:** S4 runs "QC handoff → PT draft-audit route → `pt_export_v2`" and prices the draft-audit route. Process Tracing's own records say otherwise:
+  - Its accepted ADR 0004, which Brian approved on 2026-11-05 ("i approve those."), says the draft-audit prototype "writes no `pt_export_v2.json` for `mixed_methods_workbench` (Q20)" (`process_tracing/docs/adr/0004_…md:79`).
+  - Its open question Q20 (`process_tracing/docs/planning/open-questions.json:404-412`) proposes only a small adapter that is "never a full V2 claim" and marks the missing fields absent.
+  - The prototype folder has no qualitative-handoff input at all (no match for `qualitative_handoff` under `proposals/pt-draft-audit`).
+  - The pipeline that does accept the handoff and write the gated export (`pt/cli.py:72`, `pt/export.py:634`) "stays frozen" and is kept as the comparison (ADR 0004:67-70). On its last two hard cases it stopped without an answer, after 122 calls and $0.94 on one of them.
+- **Why it blocks:**
+  - Investigation finding F13 says "holds" only because it cites the frozen pipeline.
+  - The $0.03 cost leaves out the merge step: Process Tracing records $0.0555 over 7 calls per run.
+  - A6's gate test needs a `publication_gate.publishable` field that the named route never writes.
+  - No question in this package's ledger raises any of this.
+  - `stops.searched` (`planning-package.json:376-381`) looked only for stops on the workbench, not on the Process Tracing work S4 runs.
+- **Fix:**
+  - Add a ledger question citing Process Tracing's ADR 0004 and its Q20. It should choose between (a) adding the Q20 adapter in Process Tracing, plus a handoff input, as costed producer work, with the gate shown as "withheld" when the field is absent, or (b) running the frozen pipeline on a small case as the "full provenance chain" reference that ADR 0004 allows.
+  - Correct S4's route and cost, F13's verdict, the system model's S4 row and A6.
+  - Extend `stops.searched` to Process Tracing's freeze and its 2026-11-05 decision.
+  - **Weight:** blocking.
+
+#### Notes (do not block)
+
+- **n1. Stale wording after the design change.**
+  - Plan line 74 (the S3 row of the slice table), `DOMAIN.md:35` and the `joint_display` node still offer "convergence / complementarity / divergence" verdicts.
+  - A5's criterion says "read whether they agree", but no row can now say that.
+  - The goal statement (`review-page.json`) says S2 measures "a qualitative category"; it now measures one of the author's codes.
+  - **Fix:** reword all four to "complements or silent in 1.0" and "one of the authors' codes".
+- **n2. Wrong claim about LiteLLM.** The cost evidence (`planning-package.json:224,241,258,275`) says LiteLLM "carries no price" for gpt-5.6-luna. llm_client's copy of LiteLLM lists $0.20 input and $1.20 output per million tokens (its price file, lines 33826/33839 and 65989-65990). The fitted prices are higher, so the figures are conservative. **Fix:** cite the list price beside the fit.
+- **n3. A question the ledger misses about the qualitative side.** Two pairs of QC's categories cite exactly the same turns: "Traceable…" with "Corrective…", and "Terminological…" with "Attributed reuse…". So QC's 8 categories rest on only 6 distinct sets of evidence. A3 will show 8. "Open data"'s two categories are distinct, so S2 and S3 are not affected. **Fix:** add a finding or question so the study page says so.
+- **n4. Unnamed step.** Plan line 122 does not say who drafts the instrument's definition from the author's passages. If a model drafts it, that call belongs in the cost table.
+- **n5. Agent-owned questions still open.** Q2, Q3, Q4, Q10 and Q21 could be settled now by checking (an old pattern).
+- **n6. Page links (carried from n8).** The branch is on no remote (`git branch -r --contains 2092693` is empty), so the page's `/blob/main/` links to the plan return 404 until it is pushed and merged. The repository belongs to Brian's own account, so the company-organization rule does not apply.
+
+#### What I was unsure about
+
+- **Whether B1 should block.** S4 is a later slice. But the package's claim that S4's route works is wrong, and it changes S4's design, its cost and how A6 is judged, so I counted it as blocking.
+- **Whether running the frozen pipeline would break a standing stop.** ADR 0004 keeps the pipeline as "the reference where a reader must step through a full provenance chain", which may allow option (b).
+- **Two limits on this review.** I did not render the page because no browser tool was available. I also could not run the test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1, with the counts above.
+  - `plan_checklist.py --check`: exit 0.
+  - Crosswalk check: exit 0, 171/36/0.
+  - Overlap scripts and an open-data spread check: figures as above.
+  - Price refit from a read-only query of `llm_observability.db`: matches.
+  - The Process Tracing ADR, ledger and autopsy were read directly.
+- **Feedback:** The validator's `--json` checklist labels planned or untested lines "failing" while its text output prints WAIT, so plans carry "failing" lines for a state the contract defines as pending. The fix belongs in `validate_planning_package.py`. This session also could not run the test suite (it needed approval) or list folders in sibling repositories.
+- **Need anything from human:** No.
+
+Reviewed revision: c79e70bc7704557221b028ebf168f910b843c68e
+
+Verdict: revise
+
+## Plan #8, round 6 reviewer's report (verbatim)
+
+The verdict is **revise**. One blocking problem is left, and it is the part of the round-5 fix that changed acceptance check A6. That fix leans on a test file that does not exist in the form the plan describes. The rest of the round-5 fix holds, and so do the overlap figures, the crosswalk counts and the S4 cost.
+
+#### Validator
+
+I ran it on the current branch (revision 0782bbf); it exited **1**.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review, whose recorded verdict is still `revise`. That was expected.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and the 3 untested extra stages; the contract makes both WAIT on purpose.
+- **Other lines:** initiative and spectrum tiers 4 of 4. Goal coverage passes (2 requirements covered, 1 marked as being about process). Goal provenance passes. Freshness passes, counting 1 commit of work since 9ad84d1.
+- **Plan checklist:** `plan_checklist.py --check` matches, 0 differing lines, exit 0.
+
+#### Recorded checks I reran
+
+- **Overlap scripts** (`overlap.py` and `overlap2.py` on the S1 branch at faf5399): every figure matches the package. There are 630 interviewee turns, 224 pairs of a QC category and an author code, and 11 numbered question codes. "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48 and the highest two-way overlap is 0.18. The two pairs of QC categories that cite identical turns show up as stated.
+- **Crosswalk check:** 171 steps, 36 groups, 0 errors, exit 0. Matches the manifest, and the tree stayed clean.
+- **`make check`:** exit 0, with 41 pytest tests passing (11 + 30). Matches the manifest.
+- **S4 cost:** Process Tracing's efficiency readout (lines 161-163) gives `fomc_v4` as 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555, with no audits. That matches the cost entry and the default setup ADR 0004 chose.
+- **Computed costs:** the S2 plain version ($0.0783), the definition call ($0.0043) and the S3 plain version ($0.0137) all recompute.
+- **A1 (marked built):** the live page returned 200. Its `index.html` hash (eae2c256…) equals the committed `deploy/psychosisbank-review/public/index.html`. It contains the "Independent challenge" section, "withheld" and "Controlled access", so the demonstration can be followed there.
+
+#### Round-5 findings
+
+- **B1 (S4's Process Tracing route): partly fixed; the A6 part is fixed wrongly, so B1 stays blocking.**
+  - **Fixed:** S4 now names the draft-audit prototype plus a handoff input and the export adapter that Process Tracing's own Q20 recommends. That matches ADR 0004 (line 79: the prototype "writes no `pt_export_v2.json`"; line 67: `pt/` stays frozen) and Q20 (open-questions.json, line 410: "never a full V2 claim").
+  - **Also fixed:** finding F13 now says "fails" and points to Q23. The S4 row in SYSTEM_MODEL.md (line 51) is corrected, the cost is the measured $0.0555, and `stops` now records the freeze.
+  - **Fixed wrongly:** the claim that "the publishable branch is tested with the committed fixture that carries a gate" (detail under the blocking finding below).
+- **n1 (stale verdict wording): fixed.** No "convergence / complementarity / divergence" wording is left. A5 reads "which ones the measure speaks to and how". The goal fields name "one of the corpus authors' own codes".
+- **n2 (LiteLLM price): fixed.** The list price ($0.20 input, $1.20 output per million tokens) is cited beside the higher fitted price.
+- **n3 (QC categories citing the same turns): fixed.** Finding F19 and plan lines 157-161 cover it, and my overlap run confirms it.
+- **n4 (who drafts the instrument's definition): fixed.** One traced llm_client call, costed at $0.0043 in the plan (line 212) and the manifest.
+- **n5 (agent questions that could be settled now): not fixed, by choice.** Still a note.
+- **n6 (page links): not fixed, by design.** Still a note: the branch is still on no remote.
+
+#### Blocking finding
+
+- **B1 (remaining part): acceptance and plan.** Where: `docs/plans/008_finish_workbench.md:272-274`, `docs/planning/acceptance-criteria.json:104` (A6 expected result) and `docs/planning/open-questions.json:436` (Q23 `resolves_with`).
+  - **What is wrong:** the fixture cited for the "publishable" case, `examples/fixtures/investigation_spine/process_tracing_return.json`, does not support that claim:
+    - It is a `pt_theory_test_return_v1` record, not a `pt_export_v2`.
+    - Its gate says `"status": "blocked"` and `"public_conclusion_status": "withheld_pending_repair"`, which is the withheld case.
+    - It has no `publishable` field at all.
+    - The only real `pt_export_v2` in the repository (`examples/runs/psychosisbank-synthesis-20260923/pt-generated/pt_export_v2.json`) has no `publication_gate` either, and its `public_headline_eligible` is false.
+  - **Why it matters:** no committed file exercises the "conclusion shows" case. A6's demonstration has no step that reaches one. On the only real case, the Open Science proposition, a working page and a broken page that never shows any conclusion both read "withheld". So Brian cannot judge the half of A6 that says "unless the gate allows it".
+  - **Fix:**
+    - Correct the claim in all three places.
+    - Then do one of two things:
+      - (i) Commit a small `pt_export_v2` test file with a publishable gate (status accepted, integrity verified, `publishable` true), and one with a blocked gate. Label them as made-up test data, which supports only a claim about their shape. Show both in a "how the gate behaves" panel on the Causal tab, with an A6 step that opens it.
+      - (ii) Run the frozen pipeline once on the same small one-interview case. ADR 0004 (lines 67-69) keeps it "as the reference where a reader must step through a full provenance chain (… report and workbench)", so this gives a real gated export.
+    - Add a second failure example: "the publishable example still reads 'withheld'".
+  - **Weight:** blocking.
+
+#### Notes (do not block)
+
+- **N1 (plan wording).** `008_finish_workbench.md:45`, `:75` and `DOMAIN.md:42` still describe the old route:
+  - Line 45 says "PT's `pt_export_v2` already takes a QC handoff". Only the frozen pipeline's command does.
+  - Line 75 says "QC handoff → PT `pt_export_v2` … publication gate respected".
+  - DOMAIN.md:42 still says the export's own `publication_gate.publishable` field is read from S4, but S4's export will carry no gate.
+  - Also missing: in 1.0, no causal conclusion from Process Tracing's answer path is ever shown, because that path carries no gate.
+  - Also unnamed: the schema the adapter's partial export declares. Process Tracing's Q20 says "never a full V2 claim", yet `ProcessTracingExport` (`investigation_run.py:101-113`) requires `schema_version` to be "pt_export_v2" and a full set of required sections.
+  - **Fix:** reword lines 45 and 75 and the glossary entry, and name the adapter's schema and which reader fields become optional. Weight: note.
+- **N2 (`stops`).** `planning-package.json:398` and `:410`:
+  - The search line says Process Tracing's stops were read, but the stops its autopsy lists are not recorded: "overbuilt" (2026-07-29), "archive … start over" (2026-08-20) and "a patch, not an actual fix" (2026-09-24). See `process_tracing/docs/analysis/autopsy_20261106.md:142-143`.
+  - None of them holds against S4's work on the prototype. Brian's 2026-09-24 decision to archive the restart and his 2026-11-05 "i approve those." lift them, so they should be recorded as `lifted`.
+  - The freeze entry's `words`, "pt/ stays frozen (Brian, 2026-09-30)", is the ADR's paraphrase. The autopsy (line 75) says Brian's own words for the freeze were not found.
+  - Weight: note.
+- **N3 (investigation).** `investigation.json:288`: F18 says "holds" and points to Q1. That is true of the frozen pipeline's schema, not of the export S4 will read. **Fix:** narrow the claim and point it to Q23. Weight: note.
+- **N4 (acceptance coverage record).** `acceptance-criteria.json:251-254`: the stored record calls "part of broader vision" a process requirement and leaves it uncovered.
+  - I split Brian's words myself into three requirements:
+    - "finish" is covered by A2-A9;
+    - "not for a specific use case" is covered by A10 and A3;
+    - "part of my broader vision" is covered by A11, and the outcome line keeps it.
+  - So nothing is lost today. But if A11 were later dropped, no coverage check would notice. **Fix:** re-judge once with `--force` so the third requirement becomes a constraint mapped to A11. Weight: note.
+- **N5 (domain model).** S4 builds an input for QC's `export-process-tracing-handoff` package (`qc/qc_clean/core/process_tracing_handoff.py:202`, which exports `state.claims`). That concept is in neither the domain graph nor `relies_on`. S4 should also confirm that the Open Science project state carries the chosen proposition as an anchored claim (QC has a `GT_PROPOSITION` claim kind). Weight: note.
+- **N6 (cold-review record).** `planning-package.json:430` and the page still give bdf06d7 (round 4) as the reviewed revision, though round 5 read c79e70b. This round replaces it. Weight: note.
+- **n5 (carried, ledger).** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now. Weight: note.
+- **n6 (carried, page).** `git branch -r --contains 9ad84d1` is empty, so the page's `/blob/main/` links return 404 until the branch is pushed and merged. The repository is in Brian's own account, so the company-organization rule does not apply. Weight: note.
+
+#### What I was unsure about
+
+- **Whether the A6 problem should block.** It is narrow and S4 is a later slice. But it is a false claim inside a blocking fix, and it leaves half of a user outcome impossible for Brian to judge, so I kept it blocking.
+- **Whether option (b) is the better route.** Running the frozen pipeline once on the small one-interview case changes no `pt/` code, ADR 0004 names the workbench as a reason to keep it, and it would give A6 a real gate. Choosing between (a) and (b) is the agent's technical call; Q23's reasoning for (a) is defensible.
+- **What I could not do.** No browser tool was available (Playwright is not installed), so the page was read as HTML, not rendered. I ran the 41 tests inside `make check`, not the full 204-test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0.
+  - Overlap scripts: figures as above.
+  - Fixture and real-export gate fields: read directly.
+  - Process Tracing's ADR 0004, its Q20, the efficiency readout lines 161-163 and the autopsy: read directly.
+  - A1's live page: fetched; its hash equals the committed copy.
+- **Feedback:** the validator's JSON checklist labels the pending lines "failing" (plan lines 389-390) while its text output prints WAIT. This is a plugin fault, carried from round 5.
+- **Need anything from human:** No.
+
+Reviewed revision: 9ad84d1a935515f616067d98c77a58aecf2a0084
+
+Verdict: revise
+
+## Plan #8, round 7 reviewer's report (verbatim)
+
+The verdict is **revise**. Round 6's one remaining blocker is fixed: Process Tracing's gate code supports the two made-up test exports, and A6 can now be judged. But two new problems block:
+
+- **The new A12 check promises something no slice builds.** A12 is the "is it finished" check. Its end-to-end run on the second corpus includes a causal check, but no slice runs Process Tracing on that corpus, and S7 still says it makes no model calls.
+- **The plan quietly narrows mixed-methods integration and labels it "kept".** The roadmap's 1.0 gate requires "contradiction disposition". Under the plan, the 1.0 joint display can only ever say "complements" or "silent", so the two strands can never agree or disagree. Brian has not been asked about this.
+
+#### Validator
+
+I ran it on the branch head, 09ff61e. Since the subject revision 58f644a, that commit changed only package files. It **exited 1**, which was expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review, whose recorded verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and the 3 untested stages; the contract makes both WAIT on purpose.
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage:** ok. It found 3 requirements in Brian's words: 2 covered (R1 by A12, R2 by A10) and 1 classed as about process (R3, mapped to A11).
+- **Goal provenance and freshness:** both ok, with 0 commits of work since 58f644a.
+- **Plan checklist** (`plan_checklist.py --check`): matches, 0 differing lines, exit 0.
+
+#### Recorded checks I reran
+
+All match the manifest.
+
+- **Overlap scripts** (`overlap.py` and `overlap2.py` on the S1 checkout, faf5399, clean tree):
+  - 630 interviewee turns, 224 pairs, 11 numbered question codes.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48, and the highest two-way overlap is 0.18.
+  - The two pairs of identical categories (F19) show up as stated.
+- **Crosswalk check** (`crosswalk_phase4.py --check`): 171 steps, 36 groups, 0 errors, exit 0.
+- **`make check`:** exit 0, 41 tests passing (11 + 30).
+- **S4 cost:** Process Tracing's efficiency readout (`README.md:161-163`) gives `fomc_v4` as 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555. That matches the cost entry.
+- **S2 plain-version cost:** 2 × (58,150 × $0.2168 + 18,900 × $1.4057) per million tokens = $0.0783. That matches.
+
+#### Round-6 findings
+
+- **B1 (A6's publishable case): fixed.**
+  - The plan (lines 283-289), A6 (`acceptance-criteria.json:103-106`) and Q23 now say that no committed file carries a publishable gate.
+  - S4 commits two labelled test exports. The gate fields named ("status accepted, integrity verified, `publishable` true") match `PublicationGateV2` in `process_tracing/pt/export.py:597-626`.
+  - Process Tracing's own export says "consumers must treat a missing gate as not publication-ready", which supports showing "withheld" when the gate is absent.
+  - A6 has a step that opens the panel, and a second failure example.
+- **N1 (old route wording): fixed.** Plan lines 45 and 75 and `DOMAIN.md:43` are reworded. The partial schema `pt_draft_audit_export_v1` and its optional fields are named (plan lines 268-272).
+- **N2 (`stops`): fixed.** The three stops are recorded and the freeze's wording is marked as a paraphrase. Two of the new labels are questionable (note a).
+- **N3 (F18): fixed.** It is narrowed and points to Q23.
+- **N4 (coverage record for R3): not fixed in substance.** The judge still classes R3 as process; it is mapped to A11 but still needs no criterion. A12 was added for R1. Still a note (note f).
+- **N5 (QC's handoff missing): fixed.** `qc_pt_handoff` is now in the glossary, graph, spectrum and `relies_on`, and the claims citation `process_tracing_handoff.py:221` is right. Its kind is wrong (note b).
+- **N6 (stale reviewed revision): fixed.** The manifest now gives 9ad84d1.
+- **n5 and n6 (carried):** still notes.
+
+#### Blocking findings
+
+**1. Acceptance and plan: A12's end-to-end run asks for a causal check that no slice builds or costs.**
+
+- **Where:** `acceptance-criteria.json:211` and `:214`; `008_finish_workbench.md:326`, `:337-340` and `:344-352`.
+- **What is wrong:**
+  - A12 step 4 runs "the second corpus … through qualitative strand, measurement, joint display, causal check, review and bundle".
+  - S6 builds only "the whole S1–S3 path" on the second corpus. S4 is one Open Science proposition.
+  - So nothing builds the causal check on the second corpus. It would need QC's handoff with a `GT_PROPOSITION` claim on that corpus, a run of Process Tracing's prototype, and the export adapter.
+  - S7 still reads "Cost: none (no AI step)", and no `cost_basis` entry covers this run.
+  - A12 also never says that "met" requires Brian's "judged pass". Its failure example catches only "not built", so 1.0 could be tagged on criteria an agent marked "built".
+- **Fix:**
+  - Either add S4's route on one second-corpus proposition to S6, with its cost: measured, at most $0.0555, plus QC's precondition under Q21.
+  - Or narrow A12's end-to-end run to the steps S6 runs, and point the causal row at S4's Open Science run.
+  - Change S7's cost line to the run's real calls, or say it reuses S6's receipts.
+  - State that a row reads "met" only when its criterion is "judged pass" in Brian's recorded words.
+- **Weight:** blocking. A12 is the only criterion covering "finish", and as written it cannot pass by following the plan.
+
+**2. Plan and open questions: the integration condition is marked "kept" but is narrowed by an agent, and no question asks Brian.**
+
+- **Where:** `008_finish_workbench.md:46` and `:222-233`; Q22 (`open-questions.json:411`); `ROADMAP.md:83` and `:437`; Q12 (`open-questions.json:201`).
+- **What is wrong:**
+  - The roadmap's 1.0 gate is "G1–G6 meet their 1.0 conditions" (`ROADMAP.md:437`). For G4 that condition is "One observed design, joint display, contradiction disposition, and integration-quality review" (`:83`).
+  - Under Q22's rule, every 1.0 row can only say "complements" or "silent: not measured". So 1.0 can never show the strands agreeing or disagreeing, and never deals with a contradiction.
+  - The plan and ledger never mention "contradiction disposition", and the "finished" table says the condition is "kept".
+  - Q12 already sends two similar narrowings of what 1.0 promises to Brian. This third one was settled by agent argument.
+  - A12's own rule says a changed condition must show Brian's approving answer. Yet S7 and A12 build their rows from the eight "What 1.0 Means" bullets, not from the G1–G6 gate the roadmap's 1.0 section uses.
+- **Fix:**
+  - Mark the row "changed: complements only in 1.0".
+  - Add it to Q12 as part (c), with a recommendation and a default. One option to name: in S2, measure a proposition's condition and outcome, or a salience claim QC makes, so that a row could agree or disagree.
+  - Have the readiness page carry G1–G6's 1.0 conditions too, or state in the plan that the eight bullets replace that gate.
+- **Weight:** blocking. A material question is missing, and it changes what 1.0 claims about the integration, which is the core purpose of a mixed-methods workbench.
+
+#### Notes (do not block)
+
+- **a. `stops` labels** (`planning-package.json:417-425` and `:437-445`).
+  - "overbuilt" and "a patch ot an actual fix" are marked `lifted` by "i approve those." (ADR 0004 line 10).
+  - Those words approve freezing the pipeline and making the prototype the answer path. That acts on "overbuilt" rather than lifting it, and does not address the round cap at all.
+  - **Fix:** mark both `holds`, honoured because S4 runs no pipeline. For the freeze entry, Brian's own approved words exist and could replace the paraphrase: ADR 0004's Decision 1, "the full pipeline is frozen …", answered "i approve those." on 2026-11-05.
+  - Also: `stops.searched` (line 396) found the Phase 3 pause lifted on 2026-10-08, but `found` does not list it.
+- **b. `qc_pt_handoff`'s kind** (`domain.graph.json:278`, `DOMAIN.md:38`).
+  - It is marked "planned", but QC already implements it (`process_tracing_handoff.py:202`), so its kind should be "elsewhere".
+  - The plan's own "Relies on" list (lines 356-362) leaves it out.
+  - `claims.py:33` points at a use of `GT_PROPOSITION`, not where it is defined.
+- **c. System model** (`SYSTEM_MODEL.md:44-53` and `:71-72`): there is no S7 row. The readiness page, the "runs / does not run" field and the crosswalk page are missing from both the planned types and the planned list of pages.
+- **d. S4's test exports** (plan lines 283-289): the plan does not say which schema the two made-up exports use, or which reader opens them. The panel should test the reader the real case uses.
+- **e. Coverage record** (`acceptance-criteria.json:270-276`): R3 is still classed as process (round-6 N4). If A11 were dropped, the coverage check would not notice.
+- **f. Carried n5:** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+- **g. Carried n6:** the branch is on no remote (`origin/plan-008-finish` does not exist). So the page's `/blob/main/` links to Plan #8's files return 404 until merge, and the page has no served address (Q11). The repository is in Brian's own account, so the company-organization rule does not apply.
+
+#### What I was unsure about
+
+- **Weight of blocking finding 2.** The plan states the narrowing openly (line 232), so a careful reader is not misled about what S3 does. I kept it blocking because the plan labels the condition "kept", "contradiction disposition" appears nowhere in the plan or the ledger, and Q12 sets the precedent that narrowing what 1.0 promises is Brian's call.
+- **Whether the A12 fix should widen S6 or narrow A12.** Either is defensible; it is the author's call.
+- **What I could not do:**
+  - No browser tool was available, so I read the page as HTML. The diagrams are drawn on the page by `GraphViewer.mount` from embedded data, and every local link resolves.
+  - Fetching A1's live page needed approval this session lacks. `deploy/` is unchanged since round 6, which matched the live page against the committed copy.
+  - I ran the 41 tests inside `make check`, not the 204-test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 0 failing and 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0.
+  - Overlap scripts: the figures above.
+  - `git diff 9ad84d1 09ff61e -- deploy/ src/ tests/ scripts/ examples/`: empty.
+  - Read directly: Process Tracing's ADR 0004, its Q20, the autopsy (lines 65-80 and 135-150), the efficiency readout (lines 155-170) and `pt/export.py:590-660`; QC's `process_tracing_handoff.py:195-235` and `claims.py:20-45`.
+- **Feedback:** the validator's JSON checklist still labels WAIT lines "failing" (plan lines 411-412). This is a plugin fault, carried from rounds 5 and 6.
+- **Need anything from human:** No.
+
+Reviewed revision: 58f644a7e99565b103940b7c884c3b5cb7ab7a25
+
+Verdict: revise
+
+## Plan #8, round 8 reviewer's report (verbatim)
+
+**Round 8 cold review: revise.** Both round-7 blocking findings are fixed. One new problem blocks, and the round-7 fix for A12 now leans on it: the causal check in S4 and S6 needs Qualitative Coding's handoff to Process Tracing to carry a proposition, and QC's own code and its pinned Open Science data show it carries none.
+
+#### Validator
+
+I ran it on the branch head, 2757565. Since the subject revision 9dd6009, that commit changed only package files. It **exited 1**, which was expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review, whose recorded verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and the 3 untested stages; the contract makes both WAIT on purpose.
+- **Other figures:**
+  - Cost basis: 13 AI steps, 3 measured and 10 computed.
+  - Stops: 6 found, 4 hold and 2 lifted.
+  - Citations: 79 checked.
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage:** ok. It found 3 requirements in Brian's words: R1 is covered by A12 and A9, R2 by A10, and R3 is classed as about process (mapped to A11).
+- **Goal provenance and freshness:** both ok.
+- **Plan checklist** (`plan_checklist.py --check`): matches, 0 differing lines, exit 0.
+
+#### Recorded checks I reran
+
+All match the manifest.
+
+- **Overlap scripts** (`overlap.py` and `overlap2.py` on the S1 checkout, faf5399, clean tree):
+  - 630 interviewee turns, 224 pairs, 11 numbered question codes.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48, and the highest two-way overlap is 0.18.
+- **Crosswalk check:** 171 steps, 36 groups, 0 errors, exit 0.
+- **`make check`:** exit 0, 41 tests passing (11 + 30).
+- **S4 cost:** Process Tracing's efficiency readout (`README.md:161-163`) gives 7 calls, 352,770 input tokens (277,101 cached), 26,828 output, $0.0555. That matches.
+- **S7 cost:** $0.0783 + $0.0137 + $0.0555 = $0.1475 over 10 calls, which matches "about $0.15".
+- **Q12(c)'s cost:** 2 × (58,150 × $0.2168 + 56,700 × $1.4057) per million tokens, plus 2 × $0.0043, is $0.193. That matches "about $0.19".
+- **Stop search:** `git log -i --grep 'pause|archive|overbuilt|start over'` finds the NYC pause (91a69a5) and the Phase 3 pause (e37fd80) and its lift (680c4d5). It found no stop the manifest missed.
+
+#### Round-7 findings
+
+- **1. A12's causal check had no slice: fixed as asked.**
+  - S6 now runs S4's route on one second-corpus proposition (plan `:343-347`).
+  - S7's run is costed, with three `cost_basis` entries.
+  - A row reads "met" only when its criterion is "judged pass" in Brian's recorded words (plan `:362-364`; A12's expected result and failure example).
+  - However, the route it adds depends on the same QC precondition as S4, which fails (new finding B1).
+- **2. Integration narrowed but labelled "kept": fixed.**
+  - The row now reads "changed: … 'complements' or 'silent' in 1.0" (plan `:46`) and cites G4's "contradiction disposition" (`ROADMAP.md:83`).
+  - Q12 has a part (c) with a recommendation, a default, the worked-out cost of the other option and answer words. Q22 points there.
+  - S7 and A12 now carry both the eight bullets and the G1–G6 1.0 conditions (plan `:53-56`, `:359-361`; `ROADMAP.md:79-84`, `:437`).
+- **a. `stops` labels: fixed.**
+  - "overbuilt" and "a patch ot an actual fix" are now `holds`.
+  - The freeze entry quotes Decision 1, matching ADR 0004 lines 10-15.
+  - The Phase 3 pause is listed (see note n6).
+- **b. `qc_pt_handoff`: fixed in kind, citation and "Relies on".** `domain.py:179` is where the claim kind is defined. Its definition is now wrong (B1).
+- **c. System model had no S7 row: fixed** (`SYSTEM_MODEL.md:54`, `:73-74`).
+- **d. Test exports' schema and reader unnamed: fixed** (plan `:293-295`).
+- **e, f, g: not fixed, by choice.** They remain notes n8 to n10.
+
+#### Blocking finding
+
+**B1. Plan, domain model and open questions: QC's handoff to Process Tracing carries no proposition, so S4's causal route cannot start as written.**
+
+- **Where:**
+  - `docs/plans/008_finish_workbench.md:270-271` and `:280-283` (S4)
+  - `:343-347` (S6)
+  - `docs/planning/DOMAIN.md:38` (`qc_pt_handoff`)
+  - Q21's `resolves_with`
+- **What is wrong:**
+  - The plan says that QC's `export-process-tracing-handoff` output for the chosen proposition becomes a draft-audit case. It also says that S4 "first checks" that the Open Science project state carries the proposition as an anchored claim of QC's `GT_PROPOSITION` kind.
+  - QC's code already answers that check, and the answer is no:
+    - `qc_clean/core/claims.py:999-1013` builds that kind of claim as an "unanchored grounded-theory proposition-like claim".
+    - It is called only from `claims_for_gt_theory` (`:433-461`), which reads `state.theoretical_model`.
+  - The pinned Open Science state (`public_demo_assets/open_science/project_state.json.gz`, sha256 a16375a1…, matching S1's pin) has 1,139 claims, none of them of the proposition kind, and no `theoretical_model`.
+  - The six propositions and their supporting segment ids exist only in the grounded-theory export (`proposal.propositions[].supporting_source_unit_ids`). `process_tracing_handoff.py` never reads that export: the words "proposition", "theor" and "grounded" do not appear in it.
+  - So the handoff would hand Process Tracing no proposition at all. That breaks S4, A6, S6's causal check and the causal step of A12's end-to-end run.
+  - The investigation never checked the QC side of this route; F13 looks only at Process Tracing.
+- **Fix:**
+  - Record an agent question, resolved by this reading.
+  - Choose one of:
+    - (a) S4's handoff input reads the chosen proposition and its supporting segments from the grounded-theory export S1 already pins. Name that reader and its schema; QC needs no change.
+    - (b) QC adds anchored proposition claims to `state.claims`, done in QC's repository under its own rules and with its cost.
+  - Correct the `qc_pt_handoff` definition and Q21's precondition to match.
+- **Weight:** blocking. A reader would conclude S4 is ready to build, but the only causal route in 1.0 cannot start as written.
+
+#### Notes (do not block)
+
+- **n1. Domain model** (`DOMAIN.md:37`): `qc_theory_export` is marked planned, but QC's export already exists; only the workbench's reader of it is planned. This is the same issue round-7 note b found for the handoff. **Fix:** mark it "elsewhere", or say that only the reader is planned.
+- **n2. "Relies on" and domain graph:** S7's 1.0 readiness record (`SYSTEM_MODEL.md:54`) is something the plan creates, but it is in neither the domain graph nor `relies_on`. **Fix:** add a planned concept for it.
+- **n3. Plan `:46` against S5 `:310-323`:**
+  - Line 46 says S5 "records a disposition for every row the number and passage check marks orange", but S5's build text says only "accept, reject or annotate each meta-inference".
+  - G5's "roles" (`ROADMAP.md:84`) is not named in any slice.
+  - **Fix:** one clause in S5 for each.
+- **n4. Cost basis:** S6's own causal-check run and its S3 call have no entries of their own. The S4 and S3 "per run" entries cover them, but the S6 entry's evidence leaves out the $0.0555 that plan `:353` adds.
+- **n5. Plain version:** the causal tab shows Process Tracing's prototype output, but `plain_baseline` covers only S2 and S3. Process Tracing's own records show the prototype beat a plain draft by 0.83, under its 1-point noise line (ADR 0004 `:61-66`). **Fix:** cite that comparison, or say the answer path is Process Tracing's.
+- **n6. `stops`, the Phase 3 entry:**
+  - Its `words` are an agent's record of the pause, not Brian's words.
+  - The lift words "i approve." (`ROADMAP_AGENT_MODEL.md:19`) approved the crosswalk. The lift itself was inferred from that approval (row 5a, and `GOAL_FINISH_DECOMPOSITIONS.md:14-16`).
+  - It has no effect on this plan, because Phase 3 is complete.
+- **n7. Goal fields:**
+  - The thesis's headline, "Integration is the workbench's own value", is not tested by any observation in the disproof. The disproof tests only measurement agreement, planted faults and code changes.
+  - **Fix:** add one integration observation to the disproof, or narrow the thesis.
+- **n8. Carried e:** the coverage record classes R3 as process.
+- **n9. Carried f:** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now. Q21 could be answered today by listing QC's run records.
+- **n10. Carried g:**
+  - The branch is not on the remote, so the page's 147 `/blob/main/` links return 404 until this pull request merges.
+  - The page has no served address (Q11).
+  - The repository is in Brian's own account, so the company-organization rule does not apply. Every local link on the page resolves.
+- **n11. Plugin fault:** the plan checklist labels the WAIT lines "failing" (plan `:431-432`). This is carried from earlier rounds.
+
+#### Checked and found sound
+
+- **Domain model:**
+  - The eight implemented locations I opened (`models.py:268` and `:438`, `investigation_spine.py:127`, `:160` and `:278`, `investigation_run.py:101` and `:124`, `method_dashboard.py:190`) are the classes named.
+  - `executes_typed_rules: false` holds: the guarded-decision module calls a policy function passed in, and evaluates no rules itself.
+- **Router records:** A6, A11 and A12 choose the views their entries name.
+- **No code changed since round 7:** `git diff 58f644a HEAD -- deploy/ src/ tests/ scripts/ examples/` is empty.
+- **Review page:**
+  - It draws all three diagrams on the page (`GraphViewer.mount`).
+  - It carries round 7's changes: Q12(c), "awaiting your judgement", and the causal check on the second corpus.
+- **Goal fields:** the north star, disproof and outcome fit their definitions.
+
+#### Judgments I was unsure about
+
+- **B1's weight.** Option (a) is a small redesign, so it could look like a note. I kept it blocking because the plan states a precondition the pinned data already contradicts, on the only causal route in 1.0.
+- **Q12(c)'s recommendation.** It says a second measured theme would have no human reference. The argument holds for any category other than the one "open data" already qualifies for. I did not test other options, such as co-occurrence of two author codes by interview; it is Brian's call.
+- **What I could not do:**
+  - No browser tool was available, so I read the page as HTML.
+  - I did not fetch A1's live page.
+  - I ran the 41 tests inside `make check`, not the 204-test suite.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 0 failing and 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0.
+  - Overlap scripts: the figures above.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0.
+  - QC state read with `python3 -I` after a sha256 check: 1,139 claims, 0 of the proposition kind.
+- **Feedback:** the investigation part records no check of the producer's own export path, so a route that is broken on QC's side passed seven rounds of review. The reviewer contract could ask the reviewer to open the producer data a route depends on, not only its documentation.
+- **Need anything from human:** No.
+
+Reviewed revision: 9dd600945f7dbbdcf3803486ff1d14981331c5f8
+
+Verdict: revise
+
+## Plan #8, round 9 reviewer's report (verbatim)
+
+**Round 9 cold review: revise.** The round-8 fix gets the facts right: Qualitative Coding's handoff carries no proposition, and the pinned grounded-theory export does. But the route it chose for S4 tests a proposition against the same interview passages it was built from. Brian ruled that out on 2026-09-25: it is recorded in an accepted portfolio decision and in Qualitative Coding's own methods document, and this repository's own earlier Process Tracing run followed that rule. That one problem blocks. Everything else reproduces.
+
+#### Validator
+
+I ran it on the branch head, 7728976. Since the subject revision 861d1e3, that commit changed only package files. It **exited 1**, as expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review (verdict `revise`).
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT). The two pending lines are the planned plain-version comparison and 3 untested stages; the contract makes both WAIT on purpose.
+- **Other figures:** 83 citations checked; 13 AI steps (3 measured, 10 computed); 6 stops found (4 hold, 2 lifted).
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage, provenance and freshness:** all ok. Coverage found 3 requirements: R1 is covered by A12 and A9, R2 by A10, and R3 is classed as about process.
+- **Plan checklist** (`plan_checklist.py --check`): **exit 1, 2 lines differ.** The checklist says "project layer … failing", but the validator now says ok. The checklist was written before the package commit added edge e163. This is note n-a.
+
+#### Recorded checks I reran
+
+All match the manifest.
+
+- **Overlap scripts** (S1 worktree; its head is now 735a75a, rebased, with the same `src/`, `examples/`, `scripts/` and `tests/` as faf5399):
+  - 630 turns, 224 pairs, 11 numbered codes.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9). The next-best share is 0.48 and the highest two-way overlap is 0.18.
+- **Crosswalk check:** 171 steps, 36 groups, 0 errors, exit 0.
+- **`make check`:** exit 0, 41 tests passing (11 + 30).
+- **S4 cost:** Process Tracing's efficiency readout (`README.md:161-163`) gives 7 calls, 352,770 input tokens (277,101 cached), 26,828 output and $0.0555. That matches.
+
+#### Round-8 findings
+
+- **B1 (no proposition in QC's handoff): fix wrong, so it stays blocking.**
+  - The facts in Q24 hold. `process_tracing_handoff.py` reads only `state.claims` (`:221`, `:298`), and `claims.py:433-461` and `:999-1013` say what Q24 says.
+  - The pinned state (sha256 a16375a1…) has 1,139 claims, none of the proposition kind, and no theoretical model.
+  - The grounded-theory export (sha256 538a2646…, byte-identical to QC's file) has 6 propositions with 8 or 9 supporting segment ids each, all of which resolve.
+  - But the case the fix writes is exactly the circular test described in new finding B1 below. The round-8 reviewer suggested this option, so the error started in the review.
+- **n1 to n7: fixed.**
+  - n1: `DOMAIN.md:37` now says only the reader is planned.
+  - n2: `readiness_record` is in the graph and in "Relies on".
+  - n3: plan `:332-335` names the dispositions and roles.
+  - n4: S6's cost entry names the $0.0555.
+  - n5: plan `:313-315` cites ADR 0004, and ADR 0004 `:61-66` says what it is cited for.
+  - n6: the Phase 3 stop entry says the lift was inferred.
+  - n7: the disproof now includes an integration observation.
+- **n8 to n11: not fixed, by choice.** They remain notes.
+
+#### Blocking findings
+
+**B1. Plan, Q24, domain model and acceptance: S4 tests a proposition against the same interviews that produced it, which Brian ruled out.**
+
+- **Where:**
+  - plan `:80` and `:280-289` (S4)
+  - `:355-359` (S6)
+  - `:378-380` (S7)
+  - Q24 in `open-questions.json`
+  - `DOMAIN.md:39` (`proposition_case`)
+  - acceptance A6 and A12
+- **What is wrong:**
+  - The proposition case is one proposition's text and its supporting segments: the interview passages the theory was built from. Each proposition's segments come from 7 or 8 interviews. That contradicts the slice table's "one proposition in one interview" (plan `:80`).
+  - Qualitative Coding's methods document says a process-tracing test of a QC theory "must draw on case evidence that the theory was not built from … Testing a theory against the same interviews that produced it is circular and is not a test". It adds that a person answers the six method-selection questions for a named case, and that no automatic theory-to-test step will be built (`qualitative_coding/docs/METHODS_AND_THEORY.md:453-463`, labelled "owner decision, 2026-09-25", commit d8134a7b).
+  - Portfolio decision 0017 (`portfolio/wiki/decisions/0017-two-tools-one-gated-handoff.md:27-35`, `:50`, status accepted) says the same. It also says: "No 'end-to-end' page may present a same-corpus test as verification."
+  - Even so, S4 builds an automatic proposition-to-Process-Tracing step from the theory export. S6 runs it again on the second corpus, and A12 fails the end-to-end run if it "skips the causal check".
+  - This repository already has the honest route:
+    - `examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json` is a typed proposition input (`qc-p5-process-tracing-input/1`). Its allowed use is "bounded_independent_case_process_appraisal" and it excludes "The QC interviews are not evidence in this case appraisal."
+    - `investigation_spine.py` already reads that route: `IndependentCaseSources` at `:79` and `theory_evidence_relationship: Literal["independent"]` at `:186`.
+    - QC's `p5_theory_test_return_v1.json` holds the completed test of proposition P5 on PsychosisBank's own sources.
+  - The plan, the investigation and the domain model never cite any of this.
+- **Fix:**
+  - Reopen Q24, or add a question resolved by this prior art: 1.0's causal check tests a proposition only on an independent case's own records. Recommended route:
+    - generalise the existing P5 input and its `IndependentCaseSources` packet, rather than a new `mmw_proposition_case_v1` of interview passages;
+    - run it through Process Tracing's answer path;
+    - have a person answer the six selection questions for the named case.
+  - S6 and S7 run the causal step only when that corpus has such a case. Otherwise the step reads "no independent case: not tested", and A12's failure example stops requiring it. Overriding the independence rule instead is Brian's call.
+  - Correct plan `:80`, the `proposition_case` definition, and A6's and A12's expected results.
+  - Add the independent case packet to the domain model and to "Relies on" (it is implemented at `investigation_spine.py:79`), and add an investigation finding with verdict "fails".
+- **Weight:** blocking. A reader would conclude S4 is a valid causal test ready to build, but Brian's recorded decision and QC's method rules say it is not a test.
+
+**B2. Stops: `stops.searched` missed decision 0017, and the plan goes against it.**
+
+- **Where:** the manifest's `parts.plan.stops`.
+- **What is wrong:**
+  - The search covered this repository, Process Tracing and `brian-positions`, but not Qualitative Coding's methods document or the portfolio decisions.
+  - Decision 0017 holds a stop on exactly this work: "The synthesis demonstration is built only when a real case exists with both an interview corpus and an independent record". Its "Why" quotes Brian: "just kind of mashing this together just to do it".
+  - S6 and S7's end-to-end run is that synthesis demonstration, on corpora with no independent record.
+- **Fix:**
+  - Add the decision to `stops.found` with status `holds`.
+  - Add QC's methods document and `portfolio/wiki/decisions` to `stops.searched`.
+  - Make the plan honour it, through B1's fix.
+- **Weight:** blocking. A stop that holds is being resumed.
+
+**Questions the ledger misses** (both are part of B1):
+
+1. May a causal check use the interviews that built the theory?
+2. Which named case, with its own records, does 1.0's causal check use, and who answers the six selection questions?
+
+#### Notes (do not block)
+
+- **n-a. Plan checklist** (plan `:440`): it is stale; `plan_checklist.py --check` exits 1. **Fix:** rewrite it last.
+- **n-b. Domain model** (`DOMAIN.md:44`): `pt_export` is marked implemented, but the partial export and the partial reader that S4 builds are folded into its definition. **Fix:** split out a planned concept for them.
+- **n8, carried:** the coverage record classes R3 as process.
+- **n9, carried:** Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+- **n10, carried:**
+  - The branch is not on the remote, so the page's 148 `/blob/main/` links return 404 until merge.
+  - There is no served address yet (Q11).
+  - The 33 local links resolve. The repository is in Brian's own account, so the company-organization rule does not apply.
+- **n11, carried:** the plugin's checklist labels WAIT lines "failing".
+
+#### Checked and found sound
+
+- The overlap, cost and crosswalk figures above.
+- The S4 measured cost.
+- The goal fields against the planning layer.
+- The review page draws all three diagrams (`GraphViewer.mount`) and shows Q24.
+- The S4 row of `SYSTEM_MODEL.md:51` matches the plan.
+- My own reading of Brian's words gives the same three requirements as the coverage record, each with a covering criterion.
+
+#### Judgments I was unsure about
+
+- **Whether decision 0017 binds the workbench.** It is filed as a portfolio decision. I judged that it binds because QC's methods document states the same rule as the method owner's, and this repository's AGENTS.md says to keep each method's own claim limits.
+- **Whether showing "withheld" saves the route.** I judged that it does not: 0017 forbids building the automatic step itself, and A12 requires the step to run.
+- **What I could not do:**
+  - No browser tool was available, so I read the page as HTML.
+  - I did not fetch A1's live page.
+  - I did not run the 204-test suite, because the session needed approval for it.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10, substance 10/12 ok with 0 failing and 2 pending, tiers 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 1, 2 lines differ.
+  - Overlap scripts: the figures above.
+  - Crosswalk check: exit 0 (171 / 36 / 0).
+  - `make check`: exit 0, 41 tests.
+  - QC state read with `python3 -I`: 1,139 claims, 0 of the proposition kind.
+  - Proposition segments: 6 of 6 resolve; each proposition spans 7 or 8 interviews.
+- **Feedback:** two rounds in a row, the review checked a producer's data but not its method rules. The reviewer contract could also ask the reviewer to open the method owner's rules for any cross-method route.
+- **Need anything from human:** No. B1's fix only needs Brian if the plan wants to override his 0017 decision.
+
+Reviewed revision: 861d1e3d432163cd094ab85b286fc45701bc0cf4
+
+Verdict: revise
+
+## Plan #8, round 10 reviewer's report (verbatim)
+
+**Round 10 cold review: revise.** Both round-9 blocking findings are fixed. S4 is now the gated handoff that Brian's decision 0017 and Qualitative Coding's own rule describe, and every check I reran matches the manifest. Two new problems block, both from reading the method owners' records directly:
+
+1. **The theory the workbench reads is out of date.** Plan #8 pins Qualitative Coding's August 2026 theory export. Qualitative Coding's own status page names a newer 25-interview run as its result, and says it is revising that theory now. The package never says which one it uses or why.
+2. **One option offered to Brian crosses the owners' rules.** Option (c) of Q12 would let a row agree or disagree on the same interviews the theory was built from. Qualitative Coding's rule and decision 0017 forbid presenting that as a check. Q12 doesn't tell Brian this.
+
+#### Validator
+
+I ran it on branch head 01608bd. After the subject revision ccb5737, that commit changed only the plan's checklist. It **exited 1**, as expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review (verdict `revise`).
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT, by the contract's design):
+  - the plain-version comparison is still `planned`;
+  - 3 added stages are untested.
+- **Other figures:**
+  - 89 citations checked;
+  - 12 AI steps (2 measured, 10 computed);
+  - 7 stops found (5 hold, 2 lifted).
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage, goal provenance and freshness:** all ok. Coverage found 3 requirements: 2 covered and 1 classed as about process. Freshness counts 1 commit of work since the subject revision, the checklist rewrite.
+- **Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 lines differ.
+
+#### Recorded checks I reran
+
+- **Overlap scripts** (run in the S1 worktree, at 735a75a), matching plan `:153-160`:
+  - 630 interviewee turns and 224 pairs;
+  - the author's "open data" code marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9);
+  - the next-best share is 0.48 and the highest two-way overlap is 0.18.
+- **`make check`:** exit 0, with 11 and 30 tests passing and the type check clean.
+- **Cost basis:** I redid all 10 computed entries and each matches its figure. S7 comes to $0.092 over 3 calls. S4's $0.0555 over 7 calls matches Process Tracing's `efficiency_20261105/README.md:161-163`.
+- **Not rerun:** the crosswalk check. Nothing it reads has changed since round 9 reproduced it.
+
+#### Round-9 findings
+
+- **B1 (S4 tested a proposition on its own interviews): fixed.**
+  - What the package now says:
+    - plan `:80`, `:263-320`, `:360-364` and `:383-391`;
+    - Q24 is resolved from decision 0017 and Qualitative Coding's rule;
+    - A6 and A12 are rewritten;
+    - finding F21 is added;
+    - the proposition-case concept is removed.
+  - What I checked against the sources:
+    - **P5 text:** the proposition in `qc_theory_input.json` is word for word the fifth proposition of the pinned export.
+    - **Workbench readers:** `IndependentCaseSources` is at `investigation_spine.py:79`, and `Literal["independent"]` is at `:186`. `ProcessTracingExport` is at `investigation_run.py:101-113`.
+    - **P5 export:** in `pt_export_v2.json`, `public_headline_eligible` is false.
+    - **Process Tracing's gate:** `PublicationGateV2.publishable` is at `pt/export.py:598-627`.
+    - **Process Tracing's other citations:** its Q20 and ADR 0004 `:61-66` say what the plan cites them for.
+- **B2 (stops search missed decision 0017): fixed.** Decision 0017 is listed as a stop that holds. Qualitative Coding's methods document and the portfolio decisions are now among the places searched. My own spot-check found two more pages to cite; neither is a missed stop (note n-e).
+- **n-a and n-b: fixed.** The checklist now passes, and `pt_partial_export` is its own planned concept, "a partial form of" `pt_export`.
+- **n8 to n11: not fixed, by choice.** They remain notes.
+
+#### Blocking findings
+
+**R10-B1. Open questions, plan and investigation: the qualitative strand pins Qualitative Coding's August theory, not its current result, and the package never says so.**
+
+- **Where:**
+  - plan `:43`, `:61-62`, `:91-92`;
+  - the construct figures at `:153-166`;
+  - finding F19;
+  - Q15 (`open-questions.json:264`) and Q22 (`:418`);
+  - the S1 pin, `mmw-s1/examples/studies/open_science/qc/provenance.json:8`.
+- **What is wrong:**
+  - **What is pinned:** `public_demo_assets/open_science/grounded_theory_full_corpus.json`, at Qualitative Coding commit bcf80880 (2026-08-04). Its run is `plan345/method-review1c/expansion-4`, with 8 categories and 6 propositions.
+  - **What the owner calls current:**
+    - Qualitative Coding's status page names run a67d7d6a (2026-11-05) as the published 25-interview run, with four propositions tested by its disprove step: one contradicted, one where a rival fits as well, two that hold with limits (`qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:34`).
+    - The same page says that theory is being revised now (`:41-47`).
+    - The October run e131eb55 had six propositions across four categories (`HISTORICAL_EVIDENCE_LEDGER.md:219`).
+    - No current Qualitative Coding status document names the August file as its result.
+  - **What depends on the pin:**
+    - the "open data" construct choice and every overlap figure, which feed Brian's Q15;
+    - S3's six joint-display rows;
+    - F19;
+    - the claim that 1.0's validated qualitative path is "consumed, not rebuilt".
+  - **What the package says:** no question, finding or plan line mentions which Qualitative Coding run is pinned or why.
+- **Fix:**
+  - Add an agent question, settled by reading Qualitative Coding's records: which Qualitative Coding result S1 pins.
+  - Either pin the current run's export (Qualitative Coding writes it, in its own repository) and recompute `:153-166`, F19, Q15 and Q22; or keep the August pin with a stated reason, and label it on the study page as "Qualitative Coding's August 2026 theory, not its current run".
+  - Add an investigation finding.
+- **Weight:** blocking. A reader would believe the joint display shows Qualitative Coding's current grounded theory, and Brian's construct decision rests on figures from a version the owner has moved past.
+
+**R10-B2. Open questions and plan: Q12(c)'s "need agree or disagree" option is a same-corpus test, which the owners' rules forbid presenting as a check. Q12 omits this.**
+
+- **Where:** plan `:236-240`; Q12(c) at `open-questions.json:201-211`.
+- **What is wrong:**
+  - Under that option, S2 measures one proposition's condition and outcome across the same interviews Qualitative Coding built the proposition from, and the row may then say "converges" or "diverges".
+  - **Qualitative Coding's rules:**
+    - The same material is "never counted as independent confirmation" (`METHODS_AND_THEORY.md:471-472`).
+    - A quantitative design needs separate decisions about sampling and inferential warrant, and "code or quotation counts are not automatically validated indicators" (`:485-500`).
+    - The existing interviews "motivate both designs but complete neither test" (`:536-542`).
+  - **Decision 0017:** "No 'end-to-end' page may present a same-corpus test as verification" (`:50`). A12's end-to-end run is on the second corpus, whose theory Qualitative Coding would also build from that corpus's own interviews (Q21).
+  - **What Brian is told:** the option costs $0.19, and its new labels have no human reference. Nothing says it crosses his own rule.
+- **Fix:**
+  - In Q12(c) and plan `:236-240`, say that a row able to agree or disagree needs the condition and outcome measured on interviews the proposition was not built from. Here that means interviews withheld from Qualitative Coding's theory run, scored only by the measure, or Brian overriding his rule.
+  - Re-cost the option on that basis, or drop it.
+- **Weight:** blocking. It misstates an option in a decision the package puts to Brian. The recommendation already says "complements only", so this is the less certain of the two (see below).
+
+#### Questions the ledger misses
+
+1. Which Qualitative Coding run is the qualitative strand? (R10-B1)
+2. May a joint-display row agree or disagree on the interviews the proposition came from? (R10-B2)
+3. Did the P5 appraisal pass the gate S4 builds? (note n-c)
+
+#### Notes (do not block)
+
+- **n-c. Causal tab** (A6, plan `:283-292`): the tab reads "no independent case named: not tested" directly above an appraisal of P5 on a named case, PsychosisBank.
+  - That case was chosen by an analyst's scan of public sources (`qc_theory_input.json`, `selection_disclosure`).
+  - Its six selection questions were never answered by a person.
+  - Decision 0017 `:48-49` says this example "does not satisfy the independence condition on its own".
+  - **Fix:** say all three on the P5 panel.
+- **n-d. Plan `:45`** gives the wrong reason the P5 conclusion is withheld. The export's own reason is a failed label-invariance check (`comparative_conclusion.public_headline_reason`). Process Tracing's final claim review then blocked publication (`connected_run_receipt.json`, `publication_block_reason`). Plan `:290-292` is right.
+- **n-e. Stops search:** two pages to cite, neither a missed stop in substance.
+  - Qualitative Coding's status page lists "the workbench sequence (portfolio decision 0017)" as paused (`CURRENT_STATE_AND_ROADMAP.md:79`). Before the 2026-11-05 rewrite (`9008d5bc^`, `:172`) the line read "the Workbench NYC sequence", so it means the NYC pause already recorded.
+  - Brian's 2026-09-24 pause of the synthesis goal (`portfolio/wiki/plans/v16-two-pillar-portfolio.md:151-166`), with its resume event, should be cited in Q25.
+- **n-f. Plan `:64-65`** says Qualitative Coding's outreach to the corpus author is parked. Its status page `:48-49` lists it as in progress (drafted after the theory revision; nothing is sent without Brian's approval).
+- **n-g. 1.0 table row `:46`:** the roadmap's exploratory sequential design validates the instrument "on a held-out text set" (`ROADMAP.md:328-331`). Here the interviews are held out from tuning the instrument, but not from building the theory. S2's known limit (`:188-192`) says so; the 1.0 row and the readiness page should too.
+- **n-h. Manifest:** `cold_review.reviewed_revision` still reads 9dd6009. Round 9 read 861d1e3.
+- **n8 to n11, carried:**
+  - n8: the coverage record classes R3 as about process.
+  - n9: Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+  - n10: branch `plan-008-finish` is not on the remote (it tracks origin/main, 27 commits ahead), so the review page's `/blob/main/` links fail until merge, and there is no served address yet (Q11). The repository is in Brian's own account, so the company-organization rule does not apply.
+  - n11: the plugin's checklist labels WAIT lines "failing".
+
+#### Checked and found sound
+
+- **Routes to Process Tracing:**
+  - S4 builds the gate and runs Process Tracing only if Brian names a case (Q25).
+  - The conditional route follows Process Tracing's own rules: its Q20 adapter, no change to its frozen pipeline, ADR 0004.
+  - S6's Qualitative Coding run happens in Qualitative Coding's own repository.
+- **Joint display:** S3's default "complements" verdict stays within Qualitative Coding's allowance for describing how common something is within the examined corpus (`METHODS_AND_THEORY.md:70-73`).
+- **Router records:** A6 chose argument-page and A12 chose data-table, matching their entries.
+- **Models:**
+  - The new concepts and their relations are in the domain graph.
+  - The system model's S4 row matches the plan.
+- **Review page:** it draws all diagrams on the page (`GraphViewer.mount`), shows the rewritten S4, Q25 and F21, and its relative links resolve.
+- **Goal fields:** north star, thesis and disproof fit the planning layer's definitions.
+- **Coverage:** my own reading of Brian's words gives the same three requirements as the stored record, each with a covering criterion.
+
+#### Judgments I was unsure about
+
+- **R10-B2's weight.** It is a conditional option, and the recommendation already argues against it. I made it blocking because it misstates a decision put to Brian, by the same test as round 9's B1.
+- **R10-B1: what Qualitative Coding treats as its export for other tools.** Its records disagree with each other. The status page `:34` calls a67d7d6a published. Its review queue `:29` says not yet, and `:40` still calls e131eb55 current. None names the August file either way.
+- **n-e: how to read "workbench sequence".** I read it as the NYC sequence, from its pre-rewrite wording.
+- **What I could not do:** no browser tool was available, so I read the page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10; substance 10/12 ok with 0 failing and 2 pending; initiative and spectrum 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0, 0 lines differ.
+  - Overlap scripts: the figures above.
+  - `make check`: exit 0, 41 tests.
+  - P5 text compared with the pinned export: identical.
+  - `sha256sum` of Qualitative Coding's current file equals the pin (538a2646…, last changed at bcf80880, 2026-08-04).
+- **Feedback:** for a third round running, the issue was the producer's current state, not its data. The reviewer contract could ask the reviewer to check that each consumed export is the producer's current result according to its status page.
+- **Need anything from human:** No. Both fixes are agent work. Brian is needed only if the plan chooses to override his decision 0017.
+
+Reviewed revision: ccb57377e74068f1f49fffb1b09415fd4d03ac5e
+
+Verdict: revise
+
+## Plan #8, round 11 reviewer's report (verbatim)
+
+I found one blocking problem, so this round is **revise**. Round 10's second blocking finding (the Q12(c) option) is fixed, and so are notes n-c to n-h. The fix for its first one rests on a wrong fact. The package keeps Qualitative Coding's August theory because, it says, Qualitative Coding has committed no newer theory file. It has: the full theory of its October run `e131eb55`, a later run than the August pin. Run on that theory with the plan's own rule, the quantitative strand would stop.
+
+#### Validator and plan checklist
+
+- **Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, on branch head 60c33a7): **exit 1**, as expected.
+  - Parts: 9 of 10 ok. Only the cold review fails (verdict `revise`).
+  - Substance checks: 10 of 12 ok, 0 failing, 2 pending. The pending two are WAIT by the contract's design: the plain-version comparison is still `planned`, and 3 added stages are untested.
+  - Other figures: 96 citations checked; 12 AI steps (2 measured, 10 computed); 7 stops found (5 hold, 2 lifted).
+  - Initiative and spectrum checks: 4 of 4 ok.
+  - Goal coverage, goal provenance and freshness: all ok. Freshness counts 1 commit of work since the subject revision (the checklist rewrite).
+- **Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 lines differ.
+
+#### Recorded checks I reran
+
+- **Overlap scripts** (run in `mmw-s1` at 735a75a): they match the plan's figures (`:157-165`) and Q15 exactly.
+  - 630 interviewee turns and 224 pairs.
+  - "Open data" marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9).
+  - The next-best share is 0.48 and the highest two-way overlap is 0.18.
+  - The two duplicate category pairs behind finding F19 are visible in the output.
+- **`make check PYTHON=.venv/bin/python`:** exit 0, with 11 and 30 tests passing and the type check clean.
+- **Cost figures:** S2 ($0.0783), S3 ($0.0137) and Q12(c)'s new $0.19 all recompute from their token counts and prices.
+
+#### Round-10 findings
+
+- **R10-B1 (pinned an outdated Qualitative Coding theory): fix wrong. Stays blocking** as R11-B1 below. The label and Q26 were added as asked, but the stated reason for keeping the August pin is false.
+- **R10-B2 (Q12(c) was a same-corpus test): fixed.** Q12 at `open-questions.json:203` and `:209`, and plan `:241-249`, now say an agree-or-disagree row must be measured on interviews held out from Qualitative Coding's theory run. That squares with `METHODS_AND_THEORY.md:471-473` and decision 0017 `:30` and `:50`. The new $0.19 figure recomputes.
+- **n-c: fixed.** The P5 panel now carries three statements, and each matches its file:
+  - the analyst's-scan disclosure in `qc_theory_input.json`;
+  - the six selection questions never answered by a person;
+  - decision 0017 `:48-49`.
+- **n-d: fixed.** The withheld reason is right: `public_headline_eligible` is false with the label-invariance reason, and the receipt's `publication_block_reason` is cited.
+- **n-e: fixed.**
+  - The v16 synthesis pause at `:151-166` says what Q25 claims.
+  - Qualitative Coding's "workbench sequence" line read "the Workbench NYC sequence" before its rewrite (`9008d5bc^:172`), so it means the NYC pause already recorded.
+- **n-f: fixed.** Plan `:64-66` matches Qualitative Coding's status page `:48-49`.
+- **n-g: fixed.** Plan `:46` now says the interviews are held out from tuning the instrument, not from building the theory.
+- **n-h: fixed.** The manifest's reviewed revision reads ccb5737.
+- **n8 to n11: not fixed, by choice.** They remain notes.
+
+#### Blocking finding
+
+**R11-B1. Plan, open questions, investigation: there is a newer committed Qualitative Coding theory, and on it the plan's construct rule picks no code.**
+
+- **Where:**
+  - plan `:43` ("the only one QC has committed as a file") and `:97-100`;
+  - Q26 at `open-questions.json:519` ("its only committed schema-3 export is the August file");
+  - finding F22;
+  - the round-10 summary at `cold-review.md:15`.
+- **What is wrong:**
+  - **The newer file exists.** Qualitative Coding commit 7f5a8af9 (2026-10-09) holds `proposals/qc-gt-review-candidate/expected-view.json` (sha256 a77661f9…), for run `e131eb55`. Its `development` object has the same schema-3 keys as the August export (`proposal`, `appraisal`, `category_adequacy`, `iteration_history` and the rest). It holds:
+    - 4 categories and 6 propositions;
+    - 330 quotes, all fit-checked;
+    - 194 cited passages, each with document, speaker, character offsets and text.
+  - **Qualitative Coding treats it as live.** Three of its own tests read the file. Its review queue (`REVIEW_QUEUE.md:40`) calls e131eb55 current, and its ledger records the file (`HISTORICAL_EVIDENCE_LEDGER.md:156`).
+  - **The August pin is far behind.** It predates Qualitative Coding's coding-quality step (inclusion rules, fit checks, speakers, shipped 2026-10-05). It is not even among the three runs Qualitative Coding's review queue says were each called the proof run.
+  - **The pin decides whether S2 runs.** I applied the plan's own rule to e131eb55, using the same author coding and the same 630 turns. Each of its 194 passages was located in the frozen text (0 missed) and mapped to the turns it overlaps. Result over 4 categories × 28 codes (112 pairs): **no code qualifies**.
+    - The best is "open data", at 18 of 38 cited turns (0.47, chance 7.9e-9), under the 0.5 bar.
+    - The next is 16 of 40 (0.40).
+    - Under plan `:156-157`, "if none does, S2 stops and says so."
+  - **Consequences:**
+    - The package's reason for keeping the August pin does not hold.
+    - The overlap figures behind Brian's Q15 default rest on the one theory where the rule succeeds.
+    - Q26 says S2 "recomputes" the figures when the pin moves, but nothing says what 1.0 does if no code then qualifies.
+    - The label "(run expansion-4)" is ambiguous: e131eb55's own run id also ends in `/expansion-4`.
+- **What would fix it:**
+  - Correct plan `:43`, Q26, F22 and the round-10 summary to name the committed e131eb55 theory.
+  - Then either pin it and redo `:147-170`, Q15, F19 and the A3/A5 counts; or state a reason that holds for keeping August (for example, which records S2's turn unit needs that e131eb55 lacks).
+  - Add the question below on what happens when the rule picks no code, with a route (relax the rule with a stated reason, a fallback construct, or the 1.0 quantitative condition marked unmet and put to Brian).
+  - Label the pin by full run id and commit.
+- **Weight:** blocking. A reader would conclude no newer theory can be read, which is false. Brian's construct decision (Q15) and whether S2 runs at all depend on which theory is pinned.
+
+#### Questions the ledger misses
+
+1. Why not pin Qualitative Coding's committed e131eb55 theory? (R11-B1)
+2. What does 1.0 do if the construct rule selects no code? This already happens on e131eb55, and could on the revised theory or the second corpus. The thesis's disproof does not list this outcome. (Blocking, with R11-B1.)
+3. If the pin moves to a run segmented differently, does S2's unit ("interviewee turn, as Qualitative Coding segmented it") and its 630-turn denominator move too? (note)
+
+#### Notes (do not block)
+
+- **n-i. Acceptance A3** (`acceptance-criteria.json:50`):
+  - A3 fixes "8 categories and 6 propositions", and A5 fixes "six" rows. Both would be wrong after a pin move.
+  - A3 does not ask for the "not its current run" label, so a page without it would pass.
+  - Fix: read the counts from the pin, and put the label in A3's expected result.
+- **n-j. Cost basis:** it omits Q12(c)'s conditional AI steps, while S4's conditional step is listed. Those steps are Qualitative Coding's subset rerun (up to $4.94), two definition calls, and the condition-and-outcome labelling (about $0.19 per pass). The figures are in Q12's text, so Brian's decision has them.
+- **n-k. Citation:** plan `:245` cites `METHODS_AND_THEORY.md:470-472`; the sentence is at `:471-473`. It still supports the claim.
+- **n8 to n11, carried:**
+  - n8: the coverage record classes R3 as about process.
+  - n9: Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+  - n10: branch `plan-008-finish` is 30 commits ahead of origin/main, which lacks the plan, so the page's `/blob/main/` plan link returns 404 on GitHub until merge. There is no served address yet (Q11). The repository is in Brian's own account, so the company-organization rule does not apply.
+  - n11: the plugin's checklist labels WAIT lines "failing".
+
+#### Checked and found sound
+
+- **S4 and Process Tracing's rules:** S4 follows decision 0017 and Qualitative Coding's independence rule (`:453-463`).
+  - Process Tracing's answer path is still the prototype. ADR 0004 `:61-70` keeps the pipeline as the provenance reference, and its proposed Plan 064 extends the prototype rather than replacing it.
+  - Its Q20 recommends exactly the partial adapter S4 names, and says consumers keep using pipeline exports. So showing the P5 pipeline export does not read a result Process Tracing has moved past.
+- **Earlier runs:** the Brumaire runs in `examples/runs/` were rejected before any Process Tracing run, so P5 is still the only existing bounded appraisal.
+- **Joint display:** "complements" stays within Qualitative Coding's allowance for prevalence within the examined corpus (`METHODS_AND_THEORY.md:70-74`).
+- **Code citations:** `IndependentCaseSources` (`investigation_spine.py:79`), `Literal["independent"]` (`:186`), `ProcessTracingExport` (`investigation_run.py:101-113`), `PublicationGate` (`:160`) and `RoutePlan` (`method_dashboard.py:190`) are where the package says.
+- **Router records:** A1, A2, A3, A10, A11 and A12 chose the views their entries name.
+- **Review page:**
+  - It matches the manifest: revision 7d29e713d611; 11 open questions, 5 Brian's and 6 the agent's.
+  - It draws its diagrams on the page with `GraphViewer.mount`.
+  - It shows Q26, F22 and the round-10 changes.
+- **Coverage:** my own reading of Brian's words gives the same three requirements as the stored record (finish → A12; not for one use case → A10; broader vision → A11), and the outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **The 0.47 figure.** My e131eb55 recomputation maps that run's cited passages onto the August turn segmentation. S1 could map them differently, and 0.47 is close to the bar. The finding does not depend on the exact figure: the stated reason is false whatever S2 would compute.
+- **Whether `expected-view.json` counts as an "export" for other tools.** It sits in Qualitative Coding's `proposals/` folder, not `public_demo_assets/`. It holds the same schema-3 object plus the passages with offsets, so not using it needs a stated reason.
+- **Which run Qualitative Coding treats as current.** Its own records disagree (status page `:34` against review queue `:40`). Either way, both runs are newer than August.
+- **What I could not do:** no browser tool was available, so I read the page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 pending).
+  - `plan_checklist.py --check`: exit 0.
+  - `overlap.py` and `overlap2.py`: the figures above.
+  - `make check`: exit 0.
+  - e131eb55 recomputation: 0 of 112 pairs qualify; best 0.47.
+  - P5 files: all three statements and both withheld reasons confirmed.
+  - `sha256sum` of `expected-view.json`: a77661f9…, last changed at 7f5a8af9.
+- **Feedback:** a fourth round turned on a producer result the package said did not exist. A reviewer contract line could ask authors to list every committed file in the producer that holds the same schema, not only its `public_demo_assets/`.
+- **Need anything from human:** No. The fix is agent work.
+
+Reviewed revision: 7d29e713d6110bb23f407ce02194813e628fcc45
+
+Verdict: revise
+
+## Plan #8, round 12 reviewer's report (verbatim)
+
+#### Cold review, round 12: Plan #8 package (mixed_methods_workbench, branch plan-008-finish)
+
+The verdict is **revise**, on two new blocking findings. Round 11's blocking finding is fixed:
+
+- S1's pinned theory is byte-identical to Qualitative Coding's (QC's) committed e131eb55 file.
+- Its construct table reproduces exactly.
+- QC really has committed no newer theory.
+
+The fix moved the pin, though, without carrying two of its consequences through the plan:
+
+- **Construct below the bar:** Brian's new option to pick a construct below the bar has no way into S3. As S3's rule is written, no proposition would be joined to the measure.
+- **P5:** the causal tab's "proposition P5" comes from an older QC theory. The S1 study page already labels a different claim "P5".
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head ad1df4e): **exit 1**, as expected.
+
+- Parts: 9 of 10 ok. Only the cold review fails, because its verdict is `revise`.
+- Substance checks: 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are by the contract's design: the plain baseline is still `planned`, and 3 stages are untested.
+- Other figures: 97 citations checked; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- Initiative and spectrum-tier checks: 4 of 4 ok.
+- Coverage ok: of 3 requirements, 2 are covered and 1 is about the planning process.
+- Goal provenance ok.
+- Freshness ok, with 1 commit of work since the subject revision (ad1df4e, the checklist rewrite).
+
+**Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at fc0f3b7) | 630 interviewee turns, 4 categories, 28 codes (11 numbered codes left out), 112 pairs, **0 qualify**. Best: "open data" 18/38 (0.47, chance 7.9e-9). Next: 16/40 (0.40, 1.2e-6), then "(lack of) incentives/motivation" 11/40 (0.28). Highest two-way overlap 0.204. All 194 carried passages sit exactly at their offsets | Matches plan :160-177, Q15 and F24 |
+| Pin hashes | sha256 a77661f9… is the same for S1's `qc/theory.json`, QC's working file and `git show 7f5a8af9:` of that file | Matches provenance.json |
+| Cited passages | 71 passages cited through categories, plus the propositions' passages, make 100 (S1's test asserts 100 cited and 194 carried). The four categories rest on 38, 35, 40 and 43 turns | F10 and F19 hold |
+| S1 tests (`pytest tests/test_study_workbench.py`) | 12 passed | — |
+| Computed costs | Every computed entry recomputes, including the new $0.1846 and $0.0086 | Match |
+| Measured $4.94 | llm_client's log (opened read-only) now shows 2,088 calls and $5.01 for `qualitative_coding*` tasks on 2026-11-05 to 06. The 13 extra calls ran after the figure was taken | Matches |
+| Stop search | `git log --all -i -E --grep 'pause\|archive\|overbuilt\|start over\|stop'` finds the NYC pause (91a69a5) and the Phase 3 pause and its lift (e37fd80, 680c4d5) | Both are recorded; no stop missed |
+
+#### Round 11 findings
+
+- **R11-B1: fixed, as to its claims.**
+  - QC's only committed a67d7d6a file (`public_demo_assets/grounded_theory_school_readings/a67d7d6a-….json`, last changed 8546fb47 on 2026-11-06) holds eight school readings and their comparison. It has no categories with cited passages, so "committed neither" is true.
+  - Q26, F22–F24 and plan :43, :97-101 and :160-177 are correct.
+  - The new route still has two gaps: R12-B1 and R12-B2 below.
+- **Missed question 3 (does S2's unit move with the pin): answered, and the answer holds.**
+  - The e131eb55 passages are not QC's July segments: 0 of 194 ids are shared.
+  - Even so, all 194 sit at their offsets in the frozen text, so they map onto the 630 turns.
+- **n-i: fixed for A3 and A5.** A4 was missed; it is part of R12-B1.
+- **n-j: fixed.** The three Q12(c) cost entries recompute.
+- **n-k: fixed in the plan** (:252). Q12's source list still says :470 (note n-o).
+- **n8–n11: not fixed, by choice.** They stay notes.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R12-B1 | plan S3, open questions, domain model, acceptance | plan :241-242; Q22 `open-questions.json:424`; `DOMAIN.md:54`; Q15 `:285-287`; A4 `acceptance-criteria.json:69` | Brian's below-bar construct choice has no category to join to, so S3's rule as written joins 0 of 6 propositions. A4 still shows August counts and does not ask for the below-bar label | Name the table row (code and category) Brian picks, and say its propositions are joined with the label. Update A4 | **blocking** |
+| R12-B2 | plan S4, acceptance A6, Q25 | plan :45, :288-289, :301-311; A6 `:102-106`; Q25 `:491-498` | The "Open Science proposition P5" on the causal tab comes from an older QC theory (d921baaf, version p5-v1). The pinned theory's "P5." on the S1 page is a different claim | Say where P5 comes from, show its text, label the collision, and give the case packet its own theory pin | **blocking** |
+| n-l | open questions | `open-questions.json:427` | Q22's evidence says "6 propositions over 8 categories" (the August figure); the pin has 4 categories | Say 4 | note |
+| n-m | open questions | `open-questions.json:263` | Q14's evidence says "including the 90 passages its theory cites", which describes the August export. e131eb55's 100 passages are resolved through the passages the pin carries | Add one line | note |
+| n-n | investigation | `investigation.json:377` | F23 says three of QC's tests read the pinned file; four do (`test_grounded_theory_memo_revision`, `_schools`, `_view`, `test_gt_verdict_report`) | Say four | note |
+| n-o | open questions | Q12 `sources` | Cites `METHODS_AND_THEORY.md:470`; the sentence is at :471-473 | Correct the line | note |
+| n-p | goal fields | `review-page.json` (`disproof`) | The disproof does not list "on the second corpus no author code holds half of a category's cited turns", which bears on the thesis's "chosen by how much of a category's evidence it holds" | Add it, or say why not | note |
+| n-q | system model (S1 branch) | mmw-s1 `study_workbench.py:267-275`, `:526-535`; `qc/provenance.json` | The pin record (`producer_input_pin`) is read as a raw dict, against AGENTS.md's "no raw dict … at durable boundaries". It is missing from SYSTEM_MODEL.md's S1 row. Its `repository` says `BrianMills2718/qualitative_coding`, but QC's remote is `BrianMills2718/qc` | Type it, list it, correct the name | note |
+| n-r | open questions | Q26 | QC's own pages disagree: CURRENT_STATE `:34` says "the published run is a67d7d6a", while REVIEW_QUEUE `:28-29` says "not yet published" and `:40` says "e131eb55 is current". Q26 records both, but the page label takes the status page's side | None needed; optionally word the label neutrally | note |
+| n8–n11 | carried | — | Unchanged since round 5 | — | note |
+
+##### R12-B1: a construct Brian picks below the bar has no category, so S3 joins no row
+
+**What is wrong:**
+
+- **S3's rule:** a proposition is joined to the measure only if "it names a QC category the measured code qualified for" (plan :241-242; Q22 :424; glossary `proposition_measure_map`, DOMAIN.md:54). On the pinned theory no code qualifies.
+- **Effect under the recommended answer:** if Brian answers Q15 with "use open data" (below the bar), the rule as written joins none of the six propositions. S3 then drafts no meta-inference, so the integration condition and A5 cannot be met.
+- **Q15 asks for a code, not a category.** "Open data" has two rows in the table:
+  - 0.47 for "Conditional, usable, and situated traceability", which pinned propositions 1, 2, 5 and 6 name;
+  - 0.40 for "Academic-capital, legal, and infrastructural negotiation", which propositions 1 and 4 name.
+- So 0, 4 or 5 of the 6 rows end up joined, depending on how the rule is read. Brian's Q15 decision does not show him which.
+- **A4 (`acceptance-criteria.json:69`):**
+  - It still gives the August counts ("QC cites 22 turns; the code marks 14 of them"), from a theory the plan says it no longer reads.
+  - It does not require the "chosen by Brian below the rule's half-share bar (0.47)" label. Q15 relies on that label "so no reader takes it for a rule pick".
+  - A build that presented a rule pick with August counts would therefore pass A4.
+
+**What would fix it:**
+
+- In S3, Q22 and `proposition_measure_map`, say that a construct Brian picks below the bar is joined to the category of the table row he picks, and that those rows carry the below-bar label.
+- Make Q15's recommendation and answer words name that row, for example "use open data for traceability", which joins rows 1, 2, 5 and 6.
+- Change A4's example to the pin's counts (QC cites 38 turns; the code marks 18) and require the label in its expected result.
+
+**Weight:** blocking. It decides whether S3 produces any row, and what Brian's Q15 answer leads to.
+
+##### R12-B2: the causal tab's P5 is not the study page's P5
+
+**What is wrong:**
+
+- **Where P5 comes from:** S4 and A6 show "Open Science proposition P5" on the study page's causal tab. That proposition comes from QC revision d921baaf (route `/public/example/data/theory-model`, version `p5-v1`; see `examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json`).
+- **Its text:** "Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness."
+- **It is not one of the pinned theory's six propositions.**
+- **The collision on the page:**
+  - The S1 study page already numbers the pinned propositions "P1."–"P6." (mmw-s1 `src/mixed_methods_workbench/static/study_workbench.html:175`).
+  - Its "P5." is a different claim: "Accountable openness in linguistics must accommodate exploratory and qualitative reasoning…".
+  - The closest pinned claim is P4.
+  - A reader on the same page would take the appraisal as a test of the pinned P5.
+- **The packet rule:** the plan's packet takes "the proposition (by id, from the pinned grounded-theory export)" (:288-289), so it would refuse the very P5 input it says it generalises.
+- **Nothing says it:** the plan, A6 and Q25 never say the appraised proposition comes from an earlier QC theory version.
+
+**What would fix it:**
+
+- In S4, A6 and Q25, say that P5 comes from QC's earlier public example (d921baaf, `p5-v1`). Show its statement and label it, for example "proposition P5 of an earlier QC theory, not this page's P5", optionally naming the closest pinned proposition.
+- Let a case packet carry its own theory pin (commit and sha256) when its proposition is not from the study's pin.
+- Add a failure example to A6: the causal tab's P5 reads as the study page's P5.
+
+**Weight:** blocking. It gives a wrong reading of which claim was appraised, on the page Brian uses to judge A6 and to answer Q25.
+
+#### Questions the ledger misses
+
+1. Which QC category does a construct Brian picks below the bar speak to in S3? (R12-B1)
+2. Which theory version is P5 from, and how is it labelled beside the pinned propositions? (R12-B2)
+3. Why not save QC's published a67d7d6a theory through QC's documented route and pin it by sha256, instead of waiting for QC to commit a file? (Note.)
+   - That route is `/projects/{id}/analysis/grounded-theory`, the saved view QC's own quantitative-design script takes as input (`METHODS_AND_THEORY.md:517-519`).
+   - A good reason exists: QC revised that theory twice on 2026-11-06, so a live read would keep moving, and a committed file is the producer's own release. But the ledger does not state that reason.
+
+#### Checked and found sound
+
+- **QC's rules:**
+  - S4 keeps QC's independence condition (`METHODS_AND_THEORY.md:453-463`) and its anti-circularity rule (:465-474).
+  - Q12(c)'s held-out requirement matches :471-473 and decision 0017 :50.
+  - S2 measures prevalence with an instrument checked against the author's coding on held-out interviews. That is not "code counts as validated indicators" (:498-500).
+- **Decision 0017**, read in full, matches the stop entry, Q24 and Q25. QC's paused "workbench sequence" (CURRENT_STATE :79) is the NYC sequence, as round 11 traced.
+- **Process Tracing:**
+  - ADR 0004 :61-70 says the prototype is the answer path and keeps the pipeline as the reference, including for the workbench.
+  - The efficiency README :161-163 says what S4 cites: $0.0555 over 7 calls, with 277,101 of 352,770 input tokens cached.
+  - So showing P5's pipeline export does not read a Process Tracing result that Process Tracing has moved past.
+- **Plan figures:** :171-177 (35–43 cited turns per category, highest two-way overlap 0.20, four distinct sets) match the data.
+- **Review page:**
+  - It shows revision e75a424f0fb0 and draws its diagrams on the page (`GraphViewer.mount` on the index, review and diagram pages).
+  - It shows Q26, A3, A5 and Q15's new figures.
+  - The repository is in Brian's own account, so the company-organization rule does not apply. The `/blob/main/` links return 404 until the branch merges (n10).
+- **Coverage:** my own reading of Brian's words gives the same three requirements: finish → A12; not for one use case → A10; broader vision → A11. The outcome line keeps all three.
+- **Goal fields:** the north star is a direction, the thesis can be wrong, and the disproof lists single observations.
+
+#### Judgments I was unsure about
+
+- **R12-B2's weight.** The causal tab is not built yet. QC's own review queue (:71) still names "proposition P5" as a live question, so QC may not regard it as superseded. The label collision on the page holds either way.
+- **R12-B1.** Someone building S3 might treat Brian's pick as qualifying the table row he chose. Even so, the plan does not say which of "open data"'s two rows, and the number of joined rows (0, 4 or 5) depends on it.
+- **No browser tool was available,** so I read the review page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT).
+  - `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify; best 0.47.
+  - `sha256sum` of the pin and `git show 7f5a8af9:` agree (a77661f9…).
+  - S1 tests: 12 passed.
+  - Cost entries recompute; the log query for the measured figure gives 2,088 calls and $5.01.
+  - `git log --grep` stop search: no stop missed.
+- **Feedback:** each pin move needs a downstream sweep. Every claim that names a theory's ids, counts or proposition labels (the S3 join, the acceptance examples, S4's P5) should be re-read whenever the pin changes, not only the figures the reviewer named.
+- **Need anything from human:** No. Both fixes are agent work.
+
+Reviewed revision: e75a424f0fb08486309f94cbe646c61765f37511
+
+Verdict: revise
+
+## Plan #8, round 13 reviewer's report (verbatim)
+
+#### Cold review, round 13: Plan #8 package (mixed_methods_workbench, branch plan-008-finish)
+
+The verdict is **revise**, on two new blocking findings. Both round-12 blocking findings are fixed, and the data supports each fix.
+
+The sweep found two claims that are wrong about the pinned theory (Qualitative Coding's, or QC's, run e131eb55):
+
+- **One code "qualifies":** Q12(c) and the plan's 1.0 table still say one author code qualifies as a measure. On the pinned theory none does.
+- **"Finished" result:** finding F10 calls the pinned run a finished grounded-theory result. QC's own current pages say it is not finished.
+
+Both are small text fixes.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head f5b38d1): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails, because its verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain baseline is still `planned`, and 3 stages are untested.
+- **Other figures:** 98 citations checked; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- **Initiative and spectrum-tier checks:** 4 of 4 ok.
+- **Coverage:** ok. Of 3 requirements, 2 are covered and 1 is about the planning process.
+- **Goal provenance:** ok.
+- **Freshness:** ok, with 1 commit of work since the subject revision.
+
+**Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 7f07c52) | 630 turns, 4 categories, 28 codes (11 numbered codes left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204. All 194 carried passages sit at their offsets | Matches plan :160-177, Q15, F24 and A4 |
+| Pin hash | sha256 a77661f9… is the same for S1's `qc/theory.json` and QC's `expected-view.json`. That file last changed at 7f5a8af9 (2026-10-09). QC has committed no new theory since round 12 (the last asset commit is 8546fb47) | Matches Q26 |
+| Which categories each pinned proposition names (`category_indexes`, counted from 1) | P1 [1,3], P2 [1,2], P3 [2,4], P4 [2,3], P5 [1,4], P6 [1,2,4]. "Conditional, usable, and situated traceability" (category 1) → P1, P2, P5, P6. "Academic-capital…" (category 3) → P1, P4 | Matches S3 :245-246 and Q15 |
+| P5 input (`qc_theory_input.json`) | Revision d921baaf…, `proposition_version_id` p5-v1, `proposition_sha256` 7dc4da5a…. Its statement is the "individualized … minimum-compliance disclosure" claim. The closest pinned claim is P4; the pinned P5 is a different claim | Matches S4 :306-310, A6 and Q25 |
+| S1 tests (`pytest tests/test_study_workbench.py`) | 13 passed (round 12's 12, plus the new pin-record test) | — |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| `validate_project_navigation.py .` | 0 findings, 2 delegated | Matches the manifest |
+
+#### Round-12 findings
+
+- **R12-B1: fixed.**
+  - S3 (:242-246), Q22, Q15 and the domain glossary entry now say Brian picks one table row: a code for one QC category.
+  - The recommended row, "open data" for traceability, maps propositions 1, 2, 5 and 6. The data confirms this.
+  - A4 now shows the pin's counts (38 cited turns, 18 marked) and requires the below-the-bar label.
+- **R12-B2: fixed.**
+  - S4, the slice table, the 1.0 row, A6 and Q25 now name P5's theory as revision d921baaf, version p5-v1, and show its statement.
+  - They label it "not this page's P5" and name P4 as the closest pinned claim.
+  - The case packet may carry its own theory pin, and the P5 input really does carry revision, version and sha256.
+- **n-l to n-q: fixed.** Q22 says 4 categories. Q14 has its line about the passages. F23 says four QC tests. Q12 cites `:471`. The disproof gains the second-corpus case. The pin record is now typed as `ProducerInputPin` (unknown fields refused, `BrianMills2718/qc`) and appears in the system model's S1 row.
+- **Missed question 3: answered.** Q26's reason for not reading QC's live view (QC revised that theory twice on 2026-11-06) holds.
+- **n-r and n8–n11:** unchanged by choice. They stay notes.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R13-B1 | plan, open questions, review page | plan `:46` ("Only that one code qualifies"); Q12(c) `open-questions.json:203` ("only one of the author's 39 codes qualifies as a measure of a QC category"); shown at `review.html:54`, `open-questions.html:53`, `diagram-open-questions.html:46` | August-era text that the round-11 pin change never reached. On the pinned theory, 0 of 112 pairs qualify. The measure now rests on Brian's own pick below the bar (Q15, F24). Q12(c)'s own recommendation, in the same entry, says no code holds half. So the question Brian answers contradicts itself. The 1.0 table row, which S7's readiness page carries, misstates how the quantitative condition is met | Say that no code qualifies under the rule on the pinned theory, and that the measured code is Brian's below-bar pick (Q15). Then rebuild the page | **blocking** |
+| R13-B2 | investigation, open questions, plan | `investigation.json` F10 (verdict `holds`); Q26; plan `:43` | F10 says QC "has a finished grounded-theory result". QC's own current pages say the pinned run is not finished (detail below). Q26 drops the August export because it "predates QC's coding-quality step", yet does not say that the pinned run fails that step's own test. The roadmap's G2 asks for "one validated path". This is the route that reads a producer result its owner has moved past, without saying why the owner moved | Change F10's verdict to `fails`, tied to Q26. State QC's two figures in Q26, the 1.0 row and the page label's reason. File an issue in BrianMills2718/qc asking QC to commit its current theory file, and cite it in Q26, rather than waiting | **blocking** |
+| n-s | acceptance | A5 `acceptance-criteria.json` | S3 (:244) and Q15 put "chosen by Brian below the rule's half-share bar" on every mapped row. A5 does not ask for it, so a joint display without the label would pass A5 (A4 covers it only on the readout) | Add the label to A5's expected result and its failure example | note |
+| n-t | open questions, system model, domain model | Q24 `open-questions.json:467`; `SYSTEM_MODEL.md:51`; the domain glossary's `pt_export` row | These still say "the bounded P5 appraisal" without "of an earlier QC theory". The plan, Q25 and A6 carry the label | Add the label | note |
+| n-u | plan S4 | plan `:328-334` | Process Tracing's ADR 0005 (accepted 2026-11-06) sends a case whose records exceed one model call through its evidence-card path. S4's conditional route names only ADR 0004's prototype. This matters only if Q25 names a large case | Say "PT's answer path for the case's size (ADR 0004, or ADR 0005 above the window)" | note |
+| n-r, n8–n11, n10 | carried | — | Unchanged since earlier rounds. The `/blob/main/` links still return 404 until the branch merges | — | note |
+
+##### R13-B2 in detail
+
+QC's own pages say these things about the pinned run, e131eb55:
+
+- **It fails QC's own coding bar.** QC's finish line says it is wrong if "the misfit count stays above roughly a quarter of applications" (`CURRENT_STATE_AND_ROADMAP.md:21-25`). The status page then says "the published example rejects 46% of proposed quotes" (:32). That example is e131eb55: the evidence ledger (:165) and the review queue (:28, :40) both say so. The pin's own counts agree: 288 rejected against 330 accepted, which is 46.6%. The newer run, a67d7d6a, rejects 11.7%.
+- **It predates the disprove test** that QC's finish requirement now asks for (review queue D3). S1's page reason says this; F10 and Q26 do not.
+- **QC no longer calls its output a finished theory.** It calls it a "grounded-theory-inspired candidate theory" (review queue D2).
+
+#### Questions the ledger misses
+
+1. Does the pinned run meet QC's own coding-quality bar, and should the study page and the 1.0 row say so? (R13-B2)
+2. Should the workbench ask QC to commit its current theory file, instead of waiting for the pin to move? (R13-B2)
+3. If Brian names a case for Q25 whose records exceed one model call, which Process Tracing path reads it? (n-u)
+
+#### Checked and found sound
+
+- **Sweep against the pin.** These all agree with the pin, except plan :46 and Q12(c) (R13-B1):
+  - plan :43, :45, :81, :141-177, :238-253 and :285-347;
+  - Q14, Q15, Q22, Q25 and Q26;
+  - F19 and F22-F24;
+  - A3-A6;
+  - the domain glossary rows `qc_theory_export`, `independent_case_packet` and `proposition_measure_map`;
+  - the system model's S1 row.
+- **The method owners' rules:**
+  - S4 keeps QC's independence condition and anti-circularity rule (`METHODS_AND_THEORY.md:453-474`).
+  - S2 and S3 make the separate decisions QC's quantitative-projection rule lists (:485-500): construct, unit, aggregation, measurement validity and descriptive warrant.
+  - Decision 0017 (:27-58), read in full, matches.
+  - ADR 0004 (:61-80) and the efficiency README (:161-163) match S4 and Q23.
+  - QC's new plain-first decision (D8, Brian 2026-11-07) changes QC's own coding pipeline. Q26's repin rule already covers a theory from that pipeline.
+- **Review page:**
+  - It shows the subject revision d7ec806fe594 and draws its diagrams on the page (`GraphViewer.mount` on every page).
+  - It carries the round-12 wording.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+- **Coverage:** my own split of Brian's words gives the same three requirements: finish → A12, not for one use case → A10, broader vision → A11. The outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **R13-B2's weight.** The plan does label the pin "not its published run", and S1's page reason says it "predates its disprove test". So a reader is partly warned. I made it blocking for two reasons:
+  - F10's `holds` verdict and Q26's reasoning say something about the pinned run's standing that QC's own pages contradict.
+  - That standing bears on the roadmap's G2, "one validated path".
+- **R13-B1's weight.** The case for "complements only" holds either way. But the false premise sits inside a question Brian answers, and in the 1.0 table the readiness page will show.
+- **No browser tool was available,** so I read the review page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT).
+  - `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify; best 0.47.
+  - `sha256sum`: the pin and QC's file agree (a77661f9…).
+  - S1 tests: 13 passed.
+  - Crosswalk check: exit 0, 171/36/0.
+  - Navigation check: 0 findings.
+  - QC `git log` on `public_demo_assets/` and `proposals/` since 2026-11-04: no new theory file.
+- **Feedback:** a pin sweep has to cover the producer's own verdict on the pinned run (its status page's quality figures), not only the ids, counts and labels.
+- **Need anything from human:** No. Both fixes are agent work.
+
+Reviewed revision: d7ec806fe59442367008c1e1895cbb7bc17878bc
+
+Verdict: revise
+
+## Plan #8, round 14 reviewer's report (verbatim)
+
+The verdict is **revise**, on one new blocking finding.
+
+Both round-13 blocking findings are fixed, and their sources say what the fixes claim. The downstream sweep found that the fix for R13-B2 stated QC's verdict but did not carry it through to what 1.0 claims.
+
+Qualitative Coding's (QC's) own pages say the pinned run, e131eb55, is not finished. The plan now says so too, but it never says whether 1.0 may count that run as its "validated qualitative path". As written, the 1.0 readiness page could mark that condition "met" on a run its owner calls unfinished. No open question asks Brian about it.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head 0d5f38f): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails, because its verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain baseline is `planned`, and 3 stages are untested.
+- **Other figures:** 100 citations checked; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- **Initiative and spectrum-tier checks:** 4 of 4 ok.
+- **Coverage:** ok, 3 requirements: 2 covered, 1 counted as a process requirement.
+- **Goal provenance:** ok.
+- **Freshness:** ok, 1 commit of work since a58162a (0d5f38f, the checklist rewrite).
+
+**Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 871983e) | 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204. All 194 passages sit at their offsets | Matches plan :160-177, Q15, F24, A4 |
+| Pin hash | sha256 a77661f9… is the same for S1's `qc/theory.json` and QC's `expected-view.json`. QC's only asset commits since 2026-11-01 change the a67d7d6a school-readings file, which holds readings and a comparison, not the theory | Matches Q26, F23 |
+| QC's verdict, from the pin itself | 330 quotes accepted; 288 rejected (246 fail the inclusion question, 41 not word for word, 1 unknown code). That is **46.6%** | Matches F10, Q26, plan :43 and the S1 label |
+| Categories each pinned proposition names; the P5 input | P1 [1,3], P2 [1,2], P3 [2,4], P4 [2,3], P5 [1,4], P6 [1,2,4]. Category 1 maps to P1, P2, P5, P6; category 3 to P1, P4. The P5 input is revision d921baaf, version p5-v1, and its "minimum-compliance disclosure" claim is closest to pinned P4 | Matches S3, Q15, S4, A6 |
+| `make check PYTHON=.venv/bin/python` | exit 0; pytest 11 + 30 = 41 passed; mypy: no issues | Matches the manifest |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| S1 tests (`tests/test_study_workbench.py`) | 13 passed, including the new 46% assertion | — |
+| QC spend, read-only from `llm_observability.db` (projects `qc` and `qualitative_coding`, 2026-11-05 to 06 UTC) | 2,384 calls, $5.01 | Package says $4.94 over 2,075 calls (note n-aa) |
+| Cost figures recomputed | S2 plain: 2 × (58,150 × $0.2168 + 18,900 × $1.4057) per million = $0.0783. S3: $0.0137. S4's $0.0555 matches PT's efficiency README :161-163 | Match |
+
+#### Round-13 findings
+
+- **R13-B1: fixed.**
+  - Plan :46 and Q12(c) now say no code passes the rule on the pinned theory, and the measured code is Brian's own pick below the bar.
+  - The open-questions map's Q12 node carries the same wording.
+  - On the review page, the old phrases survive only inside the quoted round-13 report.
+- **R13-B2: fixed, as asked.**
+  - F10 now fails and points to Q26.
+  - Q26 and plan :43 state QC's figures, and they match QC's pages: the "wrong if" line at `CURRENT_STATE_AND_ROADMAP.md:21-25`, the 46% at :32, the 11.7% at :34, and review-queue decisions D2 and D3.
+  - QC issue #205 is open, and its text matches Q26.
+  - The S1 label (commit 871983e) states the 46% figure, and a test asserts it.
+  - What 1.0 then claims is not carried through: R14-B1 below.
+- **n-s: fixed.** A5's expected result and failure example both ask for the below-bar label.
+- **n-t: fixed where it was named.** Q24, the system model's S4 row, DOMAIN.md and the domain graph's `pt_export` node all carry the label. The open-questions map's copy of `pt_export` does not (n-v).
+- **n-u: fixed.** S4 (:328-330) names ADR 0005, which reads "accepted for building (Brian said go, 2026-11-06)".
+- **n-r and n8–n11: carried.** The `/blob/main/` links still return 404 until the branch merges.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R14-B1 | plan, open questions, acceptance | plan `:43` (row "At least one validated qualitative path: kept, consumed"); S7 `:404-415`; Q12 and Q26; A3 `acceptance-criteria.json:50` | The plan now says the pinned run fails QC's own "wrong if" line (46% rejected, against a line of roughly a quarter). It never says what the 1.0 qualitative-path row needs while the pin stays on that run. Nothing makes 1.0 wait for QC's newer theory, and no question asks Brian whether 1.0 may claim a "validated qualitative path" on it. S7 marks a row "met" when its criterion is judged pass. The nearest criterion, A3, checks passage tracing and the label's title, not QC's verdict: a page that dropped the 46% would still pass A3. The roadmap's G2 asks for "one validated path" | Add Q12(d), or a default in Q26: while the pinned run is above QC's own "wrong if" line, the row reads "not yet: Qualitative Coding's pinned theory is unfinished by its own measure" unless Brian accepts it in his words. Recommend waiting for the theory requested in issue #205. Add QC's verdict to A3's expected result, plus a failure example where the label lacks it | **blocking** (a missing material question about a decision the package feeds: the 1.0 tag) |
+| n-v | diagrams, review page | `open-questions.graph.json:442`, `:424`, `:394`; shown on `open-questions.html` and `diagram-open-questions.html` | 6 of the 29 concept nodes in the open-questions map carry older definitions than the domain graph. `pt_export` says "Plan #8 S4 reads instead the answer path's partial export … through a second, partial reader", which contradicts S4: that export is read only if Brian names a case (Q25). `proposition_measure_map` lacks Brian's below-bar pick | Copy (or generate) the concept nodes' definitions from `domain.graph.json`, then rebuild the page | note |
+| n-w | investigation | `investigation.json:261` (F13), `:310` (F18) | F13 says S4 "adds the handoff input and Q20's partial adapter in process_tracing". F18 calls the partial export "the export S4 reads". Both happen only if Brian names a case (plan :328-335, Q23) | Add "only if Brian names a case (Q25)" | note |
+| n-x | plan, domain glossary, S1 page | mmw-s1 `static/study_workbench.html:96` ("Qualitative Coding's grounded theory"); plan :43, :61-62; DOMAIN.md `qc_theory_export` | QC's decision D2 (`REVIEW_QUEUE.md:18`) calls its output a "grounded-theory-inspired candidate theory", keeping "grounded theory" for the method, because the term can overclaim (QC-PORT-003). The study page still calls the output "grounded theory" | Use QC's term on the page. Planning files may keep "grounded-theory export" for the file type | note |
+| n-y | acceptance coverage | `acceptance-criteria.json:275` | R3, "part of my broader vision", is stored as a process requirement. It is a constraint on the outcome. A11 covers it today, but as a process requirement the check would not fail if A11 were dropped | Re-judge it once with `--force`, or record why "process" fits | note |
+| n-z | open questions, plan | Q15 recommendation; plan :170-171 | The recommendation leans on the August export ("qualified on QC's earlier theory, so it speaks to QC's theory on both"). The plan itself sets that export aside because it predates QC's coding-quality step | Say the August run is weak corroboration, or drop it | note |
+| n-aa | cost basis | S6 and Q12(c) entries in the manifest | "$4.94 over 2,075 calls, 2026-11-05 to 06" names no end time. The same log now gives 2,384 calls and $5.01 for those days | Pin the window's end time | note |
+| n-bb | review page | `review.html` (embedded plan text) | The page's copy of the plan shows "Package revision: d7ec806fe594". It was built at d24240b, before 0d5f38f rewrote the checklist. It self-corrects on the next rebuild | Rebuild the page last | note |
+| n-r, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. May 1.0's qualitative-path condition be met on a run QC calls unfinished, or does 1.0 wait for QC's newer theory? (R14-B1)
+2. When the pin moves after S2–S5 are built, does the move void Brian's Q15 pick and any S5 review decisions on rows built from the old theory? The default re-asks Q15 only "if another row then leads the table".
+3. QC has committed its own quantitative design for the pinned theory (`public_demo_assets/grounded_theory_quantitative_designs/e131eb55-….json`). Its verdict is `conceptual_follow_up_only`, and it says coding counts "cannot establish validated measurement, population prevalence…". S2 already argues past this: it validates against human coding and makes no claim beyond the 25 interviews. The package should cite the file rather than only the generic verdict.
+
+#### Checked and found sound
+
+- **Method owners' rules:**
+  - S4 keeps QC's independence condition and anti-circularity rule (`METHODS_AND_THEORY.md:453-474`).
+  - S2 and S3 make the separate decisions the quantitative-projection rule asks for (:485-500).
+  - Decision 0017 (:27-58) matches S4, S6, S7 and A12.
+  - ADR 0004 (:55-80) and ADR 0005 match S4.
+  - QC's D8 (plain-first coding) is covered by Q26's repin rule.
+- **Stops:**
+  - My `git log` search finds the NYC pause (91a69a5) and the Phase 3 lift (680c4d5), as recorded.
+  - QC's "workbench sequence" pause read "Workbench NYC sequence" before its rewrite (9008d5bc^), as the package says.
+- **Router records:** all 12 chose the view named in their entry.
+- **Coverage, split myself:**
+  - "finish" → A12.
+  - "not for a specific use case" → A10 and A12.
+  - "part of my broader vision" → A11.
+  - The outcome line keeps all three.
+- **Implemented concepts, three sampled:**
+  - `PublicationGate`: line 158, cited :160.
+  - `ProcessTracingExport`: line 101.
+  - `RoutePlan`: line 189, cited :190.
+  - All are within a few lines of the citation.
+- **System model:** its S1 row lists `ProducerInputPin`.
+- **Review page:**
+  - It shows subject revision a58162af9d34 and draws all three diagrams on the page (`GraphViewer.mount`).
+  - It shows all nine sections.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+
+#### Judgments I was unsure about
+
+- **R14-B1's weight.** Brian judges every readiness row himself, and the S1 page shows the 46% today, so he would likely see it. I made it blocking for two reasons: no rule or question governs the row, and A3 would pass a page without the figure. If QC is expected to commit its theory before S7, a one-line default in Q26 is enough.
+- **n-v's weight.** It is a wrong claim, but only in the node details of one diagram, and the plan, the domain map and the glossary all contradict it.
+- **n-x.** I am not sure QC's naming decision binds a consumer's page.
+- **Limits of this review.**
+  - No browser tool was available, so I read the pages as HTML.
+  - The full `pytest` run needed an approval I did not have, so the manifest's 204-test result is not reproduced. `make check` ran its 41 tests.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT). `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify. Pin sha256 equal. Rejected share 288/618 = 46.6%.
+  - `make check`: exit 0 (41 passed). Crosswalk check: exit 0, 171/36/0. S1 tests: 13 passed.
+  - `gh issue view 205`: open, text matches Q26.
+  - Log query: 2,384 calls, $5.01.
+- **Feedback:** a sweep after a "state the owner's verdict" fix also has to ask what each gate that consumes that result now requires, not only whether the verdict is printed.
+- **Need anything from human:** No. R14-B1's fix is agent work: add the question and default, and extend A3.
+
+Reviewed revision: a58162af9d347ce0a6cdaeb70693ca02f19b96de
+
+Verdict: revise
+
+## Plan #8, round 15 reviewer's report (verbatim)
+
+**Verdict: revise.** One blocking finding, R15-B1. It is the part of R14-B1 the fix did not carry through.
+
+The fix handles the current pinned run correctly. Q12 now has a part (d), the plan's 1.0 table and S7 say the qualitative-path row reads "not yet" while the pin is above Qualitative Coding's (QC's) "wrong if" line, and A3 requires QC's verdict in the page label. The problem is the rule for when that wait ends. The plan takes QC's "wrong if" line to be the rejected-quote share alone (roughly a quarter). QC's own pages say a lower share alone does not pass. The run QC is expected to commit next (a67d7d6a, which issue #205 asks for) is exactly that case: 11.7% rejected, and QC itself says that does not settle it yet.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head f2c18ba): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails (verdict `revise`).
+- **Substance:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are by the contract's design: the plain baseline is `planned`, and 3 stages are `untested`.
+- **Other figures:** 104 file citations checked. 15 AI steps (3 measured, 12 computed). 7 stops (5 hold, 2 lifted).
+- **Initiative and spectrum tiers:** 4 of 4 ok.
+- **Coverage:** ok. 3 requirements: 2 covered, 1 counted as a process requirement.
+- **Goal provenance:** ok.
+- **Freshness:** ok, 1 commit of work since 3d8f599.
+
+**Plan checklist** (`plan_checklist.py --check`): exit 0, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 1020267) | 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204. All 194 passages sit at their offsets | Matches plan :160-177, Q15, A4 |
+| Pin hash | sha256 a77661f9… for both S1's `qc/theory.json` and QC's `expected-view.json`. That QC file has only ever changed at 7f5a8af9 | Matches Q26 |
+| QC's committed Open Science files (`public_demo_assets/`, `proposals/`) | Every theory file under `open_science/` predates September. Since then QC has committed only a278264d (the e131eb55 quantitative design) and the a67d7d6a school readings. Still no newer theory | Matches Q26 and F23 |
+| QC's quantitative design file against the pin | Its `source_development_sha256` (5d71b9c1…) equals the pin's hash under QC's own `grounded_theory_development_sha256`. The design is of exactly the pinned theory version | Round-14 missed question 3 is fixed with the right file |
+| QC spend, read-only from `llm_observability.db` (projects `qc` and `qualitative_coding`, 2026-11-05 00:00 to 2026-11-07 00:00) | 3,164 rows, 2,077 paid calls, $5.0119 | Matches S6, Q12(c), Q21 and both manifest entries (n-aa fixed) |
+| `make check PYTHON=.venv/bin/python` | exit 0; pytest 11 + 30 = 41 passed; mypy: no issues | Matches the manifest |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| `gh issue view 205 -R BrianMills2718/qc` | Open, no comments; its text matches Q26 and the S1 label | — |
+| `git log -i -E --grep 'pause\|archive\|overbuilt\|start over'` | Finds the NYC pause (91a69a5) and the Phase 3 lift (680c4d5), as `stops` records | — |
+
+#### Round-14 findings
+
+- **R14-B1: partly fixed; the rest is R15-B1, still blocking.**
+  - Fixed for the current pin, in Q12(d), plan :43, S7 :411-412, A3's expected result and failure example, and A12's expected result.
+  - The S1 label states the 46% (`study.json` `pin_label.reason`, rendered on the page).
+  - What still fails is the rule for when the row may read "met" (R15-B1 below).
+- **n-v: fixed.** All 29 concept nodes in the open-questions map now match the domain graph (0 differ).
+- **n-w: fixed.** F13 and F18 say "only if Brian names a case (Q25)".
+- **n-x: fixed.** The S1 page (`study_workbench.html:96`) now reads "grounded-theory-inspired candidate theory (its own term)".
+- **n-y: not changed, reason recorded.** Carried as a note.
+- **n-z: partly fixed.** The recommendation and plan :170-171 now say "weak corroboration only". Q15's `resolves_with` still says "so the same code leads on both theories" (n-dd).
+- **n-aa: fixed.** The window is pinned, and its figure reproduces.
+- **n-bb: fixed.** `review.html` shows package revision 3d8f5999da6c.
+- **Missed questions 2 and 3: fixed.** Q15's default and Q26 now cover a pin move, and plan :44 cites QC's design file.
+- **n-r and n8–n11: carried.** The `/blob/main/` links still return 404 until the branch merges.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R15-B1 | plan, open questions, acceptance | plan :43 and S7 :411-412; `open-questions.json:203-211` (Q12(d)'s question, recommendation, default and answer words); `acceptance-criteria.json:214` (A12 expected); A3's expected label (:50) | **What the plan says:** the qualitative-path row reads "not yet" only "while the pin is above that line", where "that line" is a rejected-quote share of roughly a quarter. The default is "the 1.0 tag waits for a QC theory under its own 'wrong if' line". **What QC's sources say:** the plan cites QC's line at `CURRENT_STATE_AND_ROADMAP.md:21-25`, which itself says "A lower rejection rate alone does not pass: see Evaluation section 8". `EVALUATION_HARNESS.md:181-182` says "A lower rejection rate alone … cannot satisfy completion". `REVIEW_QUEUE.md:27-31` says the 11.7% run "does not settle it" and the reading against the rules is "under way". **Why it matters:** the theory issue #205 asks QC to commit is that 11.7% run. Once it is pinned, the plan's rule lifts the "unfinished" reason while QC still calls the run unsettled. Brian's answer "wait for a finished QC theory" would then be carried out as "wait for a number QC says is not enough". A3's expected label is also fixed to the e131eb55 wording, so it says nothing about a later pin | Make the row's reason follow QC's own verdict, not the number. It reads "not yet: Qualitative Coding does not yet call its pinned theory finished", quoting QC's current words and source line, until QC's own pages record the pinned run as passing its "wrong if" test: the rejected share under the line and its Evaluation §8 reading of accepted quotes against their rules done. The outside-researcher step (QC step 5) stays with Q12(a). Change plan :43, S7, Q12(d)'s default and answer words, and A12 the same way. Add an A12 failure example: the pin moves to the 11.7% run while QC's page still says the rate alone does not settle it, and the row reads "met". Make A3 require QC's current verdict on whichever run is pinned | **blocking**: a wrong reading of a cited source that changes when the 1.0 tag may be cut, which is the decision Q12(d) feeds |
+| n-cc | open questions, diagrams | `open-questions.json:201` (Q12 `touches`) | Q12 now governs the qualitative-path row, but its `touches` (`integration_check`, `joint_display`, `measurement_instrument`, `meta_inference`) leave out `qc_theory_export`, `qualitative_strand` and `readiness_record`. The open-questions map does not link part (d) to what it governs | Add those three, then rebuild the map and page | note |
+| n-dd | open questions | `open-questions.json:273` (Q15 `resolves_with`) | It still says "so the same code leads on both theories". That is the August-export reasoning n-z asked to weaken | Say "weak corroboration only", as the recommendation now does | note |
+| n-ee | investigation | `investigation.json:219` (F10) | F10 fails and points only at Q26, which is resolved. The live decision on that failure is Q12(d) | Point F10 at Q12 as well | note |
+| n-y, n-r, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. **What ends the wait in Q12(d)?** QC's rejected-quote share alone, or QC's own statement that the run passes its finish line? This is R15-B1.
+2. **How are QC's disprove verdicts shown after the pin moves?** The run issue #205 asks for carries QC's own verdicts: one proposition contradicted and one where a rival explanation fits as well (`CURRENT_STATE_AND_ROADMAP.md:34`). QC also says three of four verdicts changed when retested (:59-63). Does the study page show these verdicts, with what label? And may S3 put a "complements" row beside a proposition QC's own test contradicted? Q26's re-pin rule recomputes figures, not how verdicts are shown. Weight: note, because it arises only after the pin moves.
+
+#### Checked and found sound
+
+- **Pinned theory, swept everywhere it is named:**
+  - Category names match the pin.
+  - P4 is the "minimum-compliance" claim, as the plan says.
+  - The P5 input is revision d921baaf, version `p5-v1`, with the `selection_disclosure` and `allowed_use` the plan quotes.
+- **QC's verdict:** every figure the package and the S1 page give (46%, 11.7%, "predates the disprove test") agrees with `CURRENT_STATE_AND_ROADMAP.md:32-34` and `REVIEW_QUEUE.md:19, 27-31`.
+- **Method owners' rules:**
+  - S4 keeps QC's independence condition and anti-circularity rule (`METHODS_AND_THEORY.md:453-474`).
+  - S2's claims stay inside QC's design file's prohibited inference (:40) and `METHODS_AND_THEORY.md:498`. It validates against human coding and claims nothing beyond the 25 interviews.
+  - S4, S6 and S7 match decision 0017 (:27-58).
+  - S4 matches ADR 0004 (:8-16 and :58-68) and the efficiency README (:161-163, $0.0555 over 7 calls).
+  - QC's "workbench sequence" pause is recorded in `stops.searched` with its NYC history.
+- **Domain model, implemented concepts:** four sampled (`evidence_anchor`, `cross_method_link`, `quantitative_audit`, `public_review`). Each citation is within one or two lines of its class.
+- **System model:** its S1 row lists `StudyDefinition`, `CorpusManifest` and `ProducerInputPin`.
+- **Review page:**
+  - All three diagrams are drawn on the page (`GraphViewer.mount` on each).
+  - Q12(d) and "accept the October run" appear on it.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+- **Coverage, split myself:**
+  - "finish" → A12.
+  - "not for a specific use case" → A10 and A12.
+  - "part of my broader vision" → A11.
+  - The outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **R15-B1's weight.** Two things argue against blocking. Brian judges every readiness row himself. And QC may update its pages when it commits the newer theory. I made it blocking for two reasons:
+  - the plan's rule misreads the very lines it cites;
+  - the next expected pin (the run issue #205 asks for) triggers it.
+
+  The round-14 wording I was asked to check suggested this same "above the line" test, so this is partly a flaw in that suggestion, not the author's.
+- **Process Tracing's pipeline export.** The causal tab shows the 2026-09-23 export from Process Tracing's frozen pipeline. ADR 0004 keeps the pipeline as the comparison on small cases, not as a disowned result, and the conclusion is withheld anyway. So I did not treat it like QC's unfinished run.
+- **Limits of this review.**
+  - No browser tool was available, so I read the pages as HTML.
+  - I did not rerun the 204-test `pytest` suite; `make check` ran its 41 tests.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT). `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify. Pin sha256 equal. QC's own development hash equals the design file's (5d71b9c1…).
+  - `make check`: exit 0 (41 passed). Crosswalk check: exit 0, 171/36/0.
+  - Log query: 2,077 paid calls, $5.0119.
+  - `gh issue view 205`: open.
+- **Feedback:** when a fix makes a gate wait on a producer's verdict, the wait should end on the producer's own verdict, not on one number from its rule. Check the producer's "a lower X alone does not pass" clauses.
+- **Need anything from human:** No. R15-B1 and the notes are agent work.
+
+Reviewed revision: 3d8f5999da6c3be326fc684913f57f635101fc30
+
+Verdict: revise
+
+## Plan #8, round 16 reviewer's report (verbatim)
+
+**Verdict: revise.** R15-B1 is fixed. One new blocking finding, R16-B1:
+
+- Plan line 43 says "validated" means the qualitative path agrees with the corpus author's own coding.
+- No slice measures that agreement for the qualitative strand, and no acceptance criterion would fail without it.
+- The 1.0 qualitative-path row would therefore read "met" on nothing it claims to rest on.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails (verdict `revise`).
+- **Substance:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are by the contract's design: the plain baseline is `planned` (2 cases), and 3 stages are `untested`.
+- **Other figures:**
+  - 107 file citations checked.
+  - 15 AI steps: 3 measured, 12 computed.
+  - 7 stops: 5 hold, 2 lifted.
+- **Initiative and spectrum tiers:** 4 of 4 ok.
+- **Coverage:** ok. 3 requirements: 2 covered, 1 counted as a process requirement.
+- **Goal provenance:** ok.
+- **Freshness:** ok, 1 commit of work, 0.0 days old.
+
+**Plan checklist** (`plan_checklist.py --check`): exit 0, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 1020267) | 194 cited units, all exact at their offsets. 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204 | Matches plan lines 160-177, Q15 and F24 |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| `make check PYTHON=.venv/bin/python` | exit 0: 41 controls, 11 + 30 tests passed, mypy clean | Matches the manifest. I was not allowed to run the full 204-test pytest |
+| `gh issue view 205 -R BrianMills2718/qc` | Open, 0 comments. It asks for "the revision of the a67d7d6a theory" once that revision settles | Matches plan line 43 and Q26 |
+| `git log --all -i -E --grep 'pause\|archive\|overbuilt\|start over\|stop'` | NYC pause (91a69a5); Phase 3 pause (e37fd80) and its lift (680c4d5) | No stop missed |
+| QC's commits since 2026-11-05 under `public_demo_assets/` and `proposals/` | Only school readings of a67d7d6a and review-page files. No newer theory file | Q26 and F23 still hold |
+
+#### Round-15 findings
+
+- **R15-B1: fixed.** The wait now ends on QC's own recorded verdict, not on the rejected share alone.
+  - The same rule appears in plan line 43, S7 (lines 411-413), Q12 (d)'s question, recommendation and default, A12's expected result and its new failure example (the 11.7% run reading "met"), A3, and five places on the review page.
+  - The rule holds for the next expected pin: the a67d7d6a revision reads "not yet" while QC says the rate alone "does not settle it".
+  - Every quote matches QC's words exactly: `CURRENT_STATE_AND_ROADMAP.md:24-25` and `:32`, `EVALUATION_HARNESS.md:181-182`, `REVIEW_QUEUE.md:30`.
+  - Small wording leftovers are note n-ff.
+- **n-cc: fixed.** Q12 touches `qc_theory_export`, `qualitative_strand` and `readiness_record`, and the open-questions map has those edges.
+- **n-dd: fixed.** Q15's `resolves_with` says "weak corroboration only".
+- **n-ee: fixed in F10's note.** Its `question_id` stays Q26, which is acceptable.
+- **Missed question 2: partly fixed.** The rule for showing QC's disprove verdicts is in the resolved Q26 only, not in the plan's S1 or S3 text or in A3 or A5 (n-gg).
+- **n-y, n-r, n8–n11: carried** (n-r: the `/blob/main/` links still 404, because the branch is not on any remote yet).
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R16-B1 | plan, acceptance, open questions | plan :43; `investigation.json:242` (F12); `acceptance-criteria.json:134` (A8) and :42 (A3); plan :452-454 (Done when); `open-questions.json:201` (Q12 (a)) | Plan :43 (and F12) say "validated" means agreement with the corpus author's own coding. No slice defines or computes that agreement for QC's strand: S1 only shows author codes beside each cited passage; S6 and A8 show "agreement with the authors' coding" per strand, with no measure, reference set or pass level for the qualitative one. A3, the S1 criterion, never tests agreement. The outcome line and "Done when" promise agreement only for the quantitative strand. QC has already measured this itself: 79.8% of 758 author passages "touched" on a67d7d6a (`PLAIN_VERSION_CHECK.md:13`, `:36`). QC calls "touched" generous (`REVIEW_QUEUE.md:68`), and a one-prompt plain pass on the same model reaches 77.4%. The package cites none of this. Q12 (a) asks Brian whether "agreement with the corpus authors' own published coding" is enough for 1.0, without saying what that agreement is or how it is measured | Either define the qualitative agreement measure and show it, or rewrite plan :43 and F12 to say what "validated" actually rests on (QC's verdict plus Brian's judgement). To define it: S1's receipt already counts `cited_passages_with_an_author_code`; quote QC's own human comparison for the pinned run beside it, with QC's caveats (one coder, "touched" is generous, the plain-pass figure). Name the criterion S7's qualitative-path row maps to, and give that criterion an expected result and failure example that show the figure. Give Q12 (a) the figure | **blocking**: a claim about what a 1.0 condition rests on that no slice delivers, feeding Brian's Q12 (a) decision |
+| n-ff | plan, open questions | plan :43 and :411-412; Q12 (d) | Three small wording gaps in the new rule. (1) "QC does not yet call its pinned theory finished": QC uses "finish" for the tool, and its finish includes step 5, which this rule hands to Q12 (a). (2) "section 8 reading … done": done is not passed (the main clause says "passing", so the meaning holds). (3) The parenthetical lists the test's current parts; QC's `PLAIN_VERSION_CHECK.md:21` now calls the rejection rate its pipeline's own check, so QC may rewrite that test | Say "has not yet recorded its pinned theory as passing its own coding test, as that test then reads", and "reading done and recorded by QC as passing" | note |
+| n-gg | plan, acceptance | plan S1 :99-101, S3 :238-260; A3, A5 | The rule for showing QC's disprove verdicts after the pin moves is recorded only in the resolved Q26 | Carry one sentence into S1 and S3, and into the expected results of A3 and A5 | note |
+| n-hh | plan, acceptance | plan :43, S7 :411; A12 | The readiness row quotes QC's "the published example rejects 46%" for e131eb55, while S1's page calls that same run "not its published run". QC's own pages disagree: `:32` and `REVIEW_QUEUE:28` call e131eb55 the published example; `:34` calls a67d7d6a the published run; `REVIEW_QUEUE:29` calls the 11.7% run "not yet published" | Name the run in the row, and note QC's two uses of "published" | note |
+| n-ii | acceptance, S1 | `acceptance-criteria.json:42` (A3); mmw-s1 `study.json:41` | A3 still fixes the label text to e131eb55. S1's built label paraphrases ("By Qualitative Coding's own measure that run is not finished") instead of quoting QC with its source line, as A3 now asks | Have S1 quote QC's line and source; write A3's label as a pattern | note |
+| n-jj | domain model | `DOMAIN.md:48` | `readiness_record` cites plan :420, which is S7's cost line; the build is at :404-418 | Cite :404 | note |
+| n-y, n-r, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. **How is the qualitative strand's agreement with the authors' coding measured, and which criterion shows it?** This is R16-B1. It matters doubly because QC's own figure equals a plain prompt's.
+
+#### Checked and found sound
+
+- **The pinned theory and QC's verdict on it agree wherever they are named:**
+  - plan lines 43 and 99-101, Q12, Q26, F10, F23 and F24;
+  - the S1 label;
+  - A12 and the review page.
+- **Gates that read a producer's verdict:**
+  - S4 shows a causal conclusion only on Process Tracing's (PT's) own `publishable`, `public_headline_eligible` and `publication_block_reason` fields, and picks PT's answer path by case size under its ADR 0004 or ADR 0005.
+  - S2 stays inside QC's `conceptual_follow_up_only` design.
+  - The Q12 (d) wait now ends on QC's recorded verdict.
+  - No gate ends on one number from a producer's rule.
+- **The method owners' rules match what the plan cites:**
+  - QC's `METHODS_AND_THEORY.md:453-500`;
+  - portfolio decision 0017 (:25-58);
+  - PT ADR 0004 (:8-16, :58-79), including the 7 vs 6.17 scores under the 1-point line;
+  - the efficiency README (:161-163: $0.0555, 7 calls, 277,101 cached tokens);
+  - `ROADMAP.md:60-66`, `:77-84` and `:435-438`.
+- **Domain model:** I sampled 6 implemented locations (`pt_export`, `connected_run_receipt`, `method_profile`, `capability_verdict`, `verification_challenge`, and `IndependentCaseSources` with :186). Each is the named class or function.
+- **Router records:** those for A3, A11 and A12 chose the named view.
+- **Coverage, split myself:**
+  - "finish" → A12.
+  - "not for a specific use case" → A10 and A12.
+  - "part of my broader vision" → A11.
+  - The outcome line keeps all three.
+- **Review page:**
+  - All three diagrams are drawn on it (`GraphViewer`).
+  - It shows package revision 0ae7d1b071f8.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+
+#### Judgments I was unsure about
+
+- **R16-B1's weight.** Fifteen rounds did not raise it, and S6 could design the measure later. I made it blocking because:
+  - plan :43 states what a 1.0 condition means, and nothing would fail if that meaning were never delivered;
+  - Q12 (a) asks Brian to accept that measure as enough without seeing it.
+- **n-ff.** I read the main clause ("QC's own pages record … as passing") as QC's own verdict, and the parenthetical as explanation, so I did not block on it.
+- **Limits of this review.**
+  - No browser tool, so I read the pages as HTML.
+  - Full pytest was not permitted.
+  - I could not read `plan-repos.conf`, which bears on Q11, because it is outside the allowed folders.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12, 0 failing, 2 WAIT). Checklist: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify; figures as above.
+  - Crosswalk check: exit 0, 171 steps, 36 groups, 0 errors.
+  - `make check`: exit 0, 41 tests passed.
+  - Issue #205: open. Stop grep: no stop missed.
+- **Feedback:** when a plan defines a condition ("validated means agreement with X"), check that some slice measures X and some criterion would fail without it, not only that the words are consistent.
+- **Need anything from human:** No. R16-B1 and the notes are agent work.
+
+Reviewed revision: 0ae7d1b071f8cb41aded9f9ea72e53833ec56ee3
+
+Verdict: revise
+
+## Plan #8, round 17 reviewer's report (verbatim)
+
+#### Cold review, round 17: Plan #8 package (mixed_methods_workbench, branch plan-008-finish)
+
+**Verdict: revise.** The R16-B1 fix holds together structurally. Plan :43 and finding F12 now say what "validated" rests on, S1 builds the agreement panel, A3 requires it, and S6, A8 and "Done when" carry it per strand. All of QC's figures and caveats are quoted correctly. But the new passage-level figure is the problem. "100 of 100 cited passages lie inside a passage the author coded" misdescribes what S1 computes, and it is exactly what chance gives on this corpus. It is presented to Brian as one of the two levels of agreement he is asked to accept in Q12 (a). That is one blocking finding, R17-B1.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails (verdict `revise`).
+- **Substance:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain baseline is `planned` with 2 cases, and 3 stages are `untested`.
+- **Other figures:** 109 file citations; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- **Other checks:** initiative and tiers 4 of 4. Coverage ok (3 requirements: 2 covered, 1 process). Goal provenance ok. Freshness ok (1 commit of work, 0.0 days).
+
+**Plan checklist** (`plan_checklist.py --check`): exit 0, 0 differing lines. The review page shows package revision b6aa62302ba3, which matches the manifest.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 9227dbe) | 194 units, all exact at their offsets. 630 turns, 4 categories, 28 codes (11 numbered left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204 | Matches plan :159-173, Q15 and F24 |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches |
+| `durable_docs_check.py --arc42` | exit 2: `.agentic/repo.yaml` not found | Matches (1 finding, tracked by Q2) |
+| `make check PYTHON=.venv/bin/python` | exit 0: 41 controls, 11 + 30 tests, mypy clean | Matches (`pytest_passed` 41). Full pytest not run |
+| My own check: is each cited passage inside an author passage, and what does chance give? (S1's builder, run inline) | 100 of 100 overlap an author passage, but **73** lie inside one. Each is at least 87% covered by her passages together. Her passages cover **69.6%** of the corpus text (397,446 of 571,307 characters). Interviewee turns of 970+ characters (the cited median) overlapping one: **135 of 135**; of 500+ characters: **270 of 273**. Random spans of the cited lengths: **96.5%** | Contradicts the claim's wording and its weight (R17-B1) |
+| `git log --all --grep` for stop words | NYC pause (91a69a5); Phase 3 pause (e37fd80) and its lift (680c4d5) | No stop missed |
+| QC commits since 2026-11-05 under `public_demo_assets/` and `proposals/` | School readings, compare, disprove and a Human Comparison tab (#168). No newer theory file | Q26 and F23 still hold |
+
+#### Round-16 findings
+
+- **R16-B1: fixed in structure; one figure is wrong, carried as R17-B1 (blocking).**
+  - Plan :43 and F12 name three things "validated" rests on, and the 1.0 row maps to A3, A4 and Q12 (d).
+  - S1 builds the panel and its test. A3's expected result and failure example require it. S6 (:83), A8, "Done when" (:452) and Q12 (a) carry it.
+  - QC's figures match its pages:
+    - `PLAIN_VERSION_CHECK.md:13`: 587 (77.4%) against 605 (79.8%).
+    - `:36`: 605 touched, 454 mostly covered.
+    - `REVIEW_QUEUE.md:68`: "touched" is generous, one coder.
+    - `CURRENT_STATE_AND_ROADMAP.md:66-67`: "a comparison, not a reliability ceiling".
+  - "QC has recorded no comparison … for this run" holds for QC's committed files (see note n-ll).
+  - The passage-level figure is the remaining fault.
+- **n-ff: fixed.** Plan :43, S7 :410-411, Q12 (d)'s recommendation and default, and A12 now read "has not yet recorded … as passing its own coding test … as that test then reads (today … done and recorded by QC as passing)".
+- **n-gg: fixed.** The sentence is in S1 :100 and S3 :259. A5 has the "contradicted" label; A3 has the verdict label. A3 leaves out "verdicts changed on retest", which is trivial.
+- **n-hh: fixed.** The label reads "not its newest run (a67d7d6a)", and :43 records QC's two uses of "published" (`:32`, `:34`, `REVIEW_QUEUE.md:29`).
+- **n-ii: fixed.** S1's `study.json:41` quotes QC at :32, :22-23, :34 and :24-25 with its lines. A3 asks for QC's current verdict on whichever run is pinned.
+- **n-jj: fixed.** `readiness_record` cites :403.
+- **n-r: carried.** No remote branch contains b6aa623, so the page's 68 `/blob/main/` links still 404 until merge.
+- **n-y, n8–n11: carried** as round 16 listed them. I did not reopen them.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R17-B1 | plan, open questions, acceptance, investigation, S1 | plan :43 and :100; `open-questions.json` Q12 (a); `acceptance-criteria.json` A3 expected; `investigation.json` F12; mmw-s1 `study_workbench.py:524-537` and `:583`, `proposals/open-science-study/index.html:128-129`, `tests/test_study_workbench.py:98` | **(1) The wording is wrong.** The code counts any overlap (`a.start < p.end and p.start < a.end`) but names it `cited_passages_inside_an_author_coded_passage`. The page, plan, Q12, A3 and F12 all say "lie inside"; 73 of 100 do. **(2) The figure is the chance rate.** The author coded 70% of the text, and every interviewee turn as long as the median cited passage overlaps her coding (135 of 135). So "100 of 100" cannot tell QC's evidence from any long turn; it says nothing about agreement. **(3) It feeds a decision.** Plan :43 lists it as one of the two levels "validated" rests on. Q12 (a) puts it first when asking Brian whether agreement with the author's coding is enough for 1.0. Without it, the workbench's only agreement measure is the category share, best 0.47, which is under the plan's own bar. That changes what Q12 (a)'s recommendation ("1.0 claims agreement with the authors' coding") would claim. **(4)** The S1 test asserts the mislabelled count, a self-check that passes on the wrong name | Say "overlap" (or count containment: 73 of 100). Wherever the figure appears (S1 page, plan :43, Q12 (a), F12, A3, A8), print the chance rate beside it, for example "every interviewee turn of 970+ characters overlaps a passage she coded (135 of 135); she coded 70% of the text". Say this level shows location, not agreement, or drop it as an agreement level. Reword Q12 (a) and its recommendation so the agreement put to Brian is the category share plus QC's own 79.8% beside the 77.4% plain pass. Add to A3's failure example: "the overlap figure shown without its chance rate". Rename the key and fix the test | **blocking**: a wrong claim about what the 1.0 condition rests on, fed to Brian's Q12 (a) decision |
+| n-kk | acceptance | A3 `demonstration` | No step reads the agreement panel or the pin label's reason, though the expected result depends on both | Add "Read the panel 'Agreement with the author's coding' and the label's reason" | note |
+| n-ll | S1, plan | mmw-s1 `study.json:47-51`; plan :43 | QC's Human Comparison tab (#168) computes QC's measure "from the saved project on each request" for any Open Science project. "Has recorded no comparison" is true of committed files only | Say "has committed no comparison", or ask for the e131eb55 figure in issue #205 | note |
+| n-mm | plan, S1 | plan :43; `study.json:50` | QC's figure is the share of the author's passages that QC's applications touch. The workbench's is the share of QC's cited passages that her codes touch. These run in opposite directions, and the page shows them side by side without saying so | Add one clause naming each direction | note |
+| n-r, n-y, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+1. **Does the passage-level figure differ from what any passage of the same length would score?** No: 135 of 135 long turns overlap her coding. This is R17-B1.
+
+#### Checked and found sound
+
+- **One story everywhere.** Plan :43, S1, S3, S6, S7, "Done when", Q12 (a) and (d), Q15, Q26, A3, A4, A5, A8, A12, F10, F12 and the review page all agree with each other and with QC's current pages on:
+  - the pin (e131eb55);
+  - QC's verdict on it: 46% rejected, against the "wrong if" line of roughly a quarter (`CURRENT_STATE_AND_ROADMAP.md:21-25`, `:32`), and it predates the disprove test (`:34`, `REVIEW_QUEUE` D3);
+  - the a67d7d6a figures;
+  - the "met" condition: A3 and A4 judged pass in Brian's words, plus Q12 (d).
+- **Gates that read a producer's verdict all end on that producer's own verdict:**
+  - The qualitative-path row waits on QC's recorded pass "as that test then reads", not on the rejected share. QC's own rule says so: "A lower rejection rate alone … cannot satisfy completion" (`EVALUATION_HARNESS.md:181-182`, also `REVIEW_QUEUE.md:27-31`). A12's failure example covers the 11.7% case.
+  - S3's label quotes QC's disprove verdict in QC's words.
+  - S4 shows a conclusion only when Process Tracing's own fields allow it (`publishable`, `public_headline_eligible`, `publication_block_reason`), and picks its answer path by Process Tracing's own rules (ADR 0004 at :61-66; ADR 0005, "Archives Above the Window Are Read as Cards").
+  - S2 stays inside QC's `conceptual_follow_up_only`.
+- **The method owners' rules match what the plan cites:** decision 0017 (:33-35, :50) and QC's `METHODS_AND_THEORY.md:453-463` and `:471-473`.
+- **Domain model:** I sampled `workbench_view`, `publication_gate`, `connected_run_receipt` and `route_plan`; each is the named class. S1's types are dashed, correctly, since they are not on this branch.
+- **Router records** for A3, A4 and A8 chose the named view.
+- **Cost:** the S2 plain-version figure ($0.0783) recomputes within 1%.
+
+#### Judgments I was unsure about
+
+- **R17-B1's weight.** The plan does say the figure is "overlap of passages, not of meaning", and the round-16 reviewer suggested this very figure. I made it blocking because Q12 (a) asks Brian to accept "agreement" partly on a number that chance alone produces.
+- **n-ll.** I could not open QC's live site to see whether it already shows a figure for e131eb55.
+- **Limits of this review.** No browser render (I read the HTML). Full pytest was not run. Writing scratch files was refused, so my checks ran inline.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12, 0 failing, 2 WAIT). Checklist: exit 0.
+  - `overlap_e131.py`: 0 of 112 qualify.
+  - Crosswalk check: exit 0. Durable docs: exit 2 (tracked by Q2). `make check`: exit 0.
+  - Containment and chance check: 73 of 100 inside one passage; long turns 135 of 135; random spans 96.5%.
+- **Feedback:** when a package reports an overlap figure as agreement, compute what a passage chosen without the method would score before accepting it.
+- **Need anything from human:** No. R17-B1 and the notes are agent work.
+
+Reviewed revision: b6aa62302ba327d276416597edbedc8bcb09406b
+
+Verdict: revise
+
+## Plan #8, round 18 reviewer's report (verbatim)
+
+**Verdict: pass.** Round 17's one blocking finding, R17-B1, is fixed. The location figure is no longer called agreement anywhere, and S1 builds and tests what the plan says. The three new findings are all notes.
+
+#### Validator and checklist
+
+- **Validator:** exit 1. The only failing part is the cold review, whose verdict is still round 17's `revise`.
+  - Parts: 9 of 10 ok.
+  - Substance: 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain-version comparison is `planned` (2 cases) and 3 stages are `untested`.
+  - Other counts: 109 file citations, 15 AI steps (3 measured, 12 computed), 7 stops (5 hold, 2 lifted).
+  - Initiative and tiers: 4 of 4. Coverage, goal provenance and freshness are ok (1 commit of work since the subject revision: the checklist rewrite).
+- **Plan checklist** (`plan_checklist.py --check`): exit 0, 0 lines differ.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 43b57dc) | 194 cited passages, all exact at their offsets; 630 interviewee turns; 112 pairs, 0 qualify. Best shares 0.47 (18 of 38), 0.40, 0.28. Highest two-way overlap 0.204 | Matches plan :159-173, Q15 and F24 |
+| S1 build receipt, plus my own run of S1's builder | 100 of 100 cited passages overlap the author's coding and 73 lie wholly inside one passage. She coded 397,446 of 571,307 characters (69.6%). Median cited passage is 970 characters; 135 of 135 interviewee turns at least that long overlap her coding | Matches plan :43, Q12 (a), A3 and F12 |
+| My own check: what does chance give for "wholly inside"? | 89 of 135 long turns, and 79.2% of 20,000 random spans of the cited lengths, lie wholly inside one passage, against 73 of 100 cited | "Chance gives the same" holds for containment too, though no figure is printed for it (n-nn) |
+| `md_file_cap.py` | exit 1: 126 files against a cap of 100, 112 unreachable | Matches (tracked by Q3) |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches |
+| `make check PYTHON=.venv/bin/python` | 11 + 30 tests passed, mypy clean. I piped the output to `tail`, so the exit code was not captured | Matches `pytest_passed` 41. The full 204-test run needed an approval this session lacks |
+| Class sweep | 184 classes in `src/`; 0 missing from TYPES.md or SYSTEM_MODEL.md | System model covers every type |
+| `git log --all --grep` for stop words | NYC pause (91a69a5); Phase 3 pause (e37fd80) and its lift (680c4d5) | No stop missed |
+| `gh issue view 205 --repo BrianMills2718/qc` | Open, 0 comments | Q26 and F23 still hold. QC has committed no newer theory; the a67d7d6a file in `public_demo_assets/` holds school readings, not the theory |
+
+#### Round-17 findings
+
+- **R17-B1: fixed.**
+  - **Code:** S1 now counts overlap and wholly-inside separately (`study_workbench.py:562-575`). It computes the chance rate (`_location_baseline`, :309-344) and labels the result "location, not agreement" (:633). The test asserts each figure (`test_study_workbench.py:94-110`).
+  - **Page:** it heads the panel "Where the evidence sits (location, not agreement)" and says "So this figure cannot show agreement".
+  - **Package:** plan :43, :100, :83 (S6) and :452 (Done when) carry the same wording, as do Q12 (a) and its recommendation and default, A3, A8, F12 and the review page.
+  - **What "validated" rests on:** QC's own verdict (Q12 d) and Brian's judgement of A3 and A4. Agreement is shown as evidence only.
+  - **QC's figures match its current pages:**
+    - `PLAIN_VERSION_CHECK.md:13`: 587 (77.4%) for the plain pass against 605 (79.8%).
+    - `:36`: 605 touched, 454 mostly covered.
+    - `REVIEW_QUEUE.md:68`: "touched" is generous, and there is one coder.
+    - `CURRENT_STATE_AND_ROADMAP.md:21-25`, `:32`, `:34`, `:66-67` and `EVALUATION_HARNESS.md:181-182`.
+- **n-kk: fixed.** A3's demonstration step 5 reads the agreement panel and the reason under the pin's label.
+- **n-ll: fixed.** Every place now says "QC has committed no comparison", and plan :43 names the Human Comparison tab.
+- **n-mm: fixed.** Plan :43, F12 and S1's `newer_run_note` each name the direction they count in.
+- **n-r: carried.** No remote branch contains 10b9a7b or 7cfe3e2, so the page's `/blob/main/` links return 404 until the branch merges.
+- **n-y and n8–n11: carried** as earlier rounds listed them.
+
+#### Do the gates that read a producer's verdict end on that verdict?
+
+| Gate | What it ends on | Sound? |
+| --- | --- | --- |
+| The 1.0 qualitative-path row (plan :43, S7 :410-412, Q12 d, A12) | QC's own recorded pass "as that test then reads". The rejected share alone never ends it, which follows QC's own rule (`EVALUATION_HARNESS.md:181-182`, `REVIEW_QUEUE.md:27-31`). A12's failure example covers the 11.7% run | Yes |
+| S1's pin label | QC's current words and source line | Yes |
+| S3's label beside a contradicted proposition | QC's own disprove verdict, in QC's words | Yes |
+| S4's causal conclusion | Process Tracing's own fields: `publishable`, `public_headline_eligible`, `publication_block_reason` | Yes |
+| S4's answer path | Process Tracing's ADR 0004 (:61-66) and ADR 0005 | Yes |
+| S2's scope | QC's `conceptual_follow_up_only` | Yes |
+
+QC's newest change does not alter this. On 2026-11-07 Brian approved QC's "plain first" coding (D8) and "keep disprove" (D9) (`REVIEW_QUEUE.md:24-25`). The pin moves only when QC commits a new theory file, and Q15 is asked again then.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| n-nn | S1, plan | mmw-s1 `study_workbench.html:131-134`; plan :100 | "Chance gives the same … So this figure cannot show agreement" is fixed text, not computed. It is true for e131eb55, including for wholly-inside (my check above). But it will stay on the page whatever the figures show after the pin moves, and no chance figure is printed for wholly-inside | Print the wholly-inside baseline too. Make the sentence depend on the figures, or have the pin-move test S2 runs first fail when the cited figures leave the chance range | note |
+| n-oo | plan, open questions, acceptance | plan :43, :411; Q12 (d) question and answer words; A12 expected | QC's "wrong if" line has two clauses: a qualitative researcher's judgement, and the misfit share above about a quarter (`CURRENT_STATE_AND_ROADMAP.md:21-25`). The plan's "today:" summary of the test names only the misfit share and the section-8 reading. It sends the researcher clause to Q12 (a) as QC's step 5. That follows QC's own step-1 row (:32), and Q12 (d) defines "finished" in its own sentence. Still, the answer words "wait for a finished QC theory" could be read as QC's whole finish line, which needs step 5 ("Model comparisons do not substitute", :36) | Add one clause: the line's researcher clause is QC's step 5, and the row waits on it only if Brian answers Q12 (a) "need a researcher". Consider "wait for QC's recorded coding-test pass" as the answer words | note |
+| n-pp | plan, acceptance | plan S6 :379-386; A10 | QC's verdict pages cover Open Science only. Nothing says what the second corpus's pin label shows when QC's pages record no verdict on that run. A3's failure example ("drops QC's own verdict, so the theory reads as finished") would then fit that page | S6 states that the label reads "Qualitative Coding has recorded no verdict on this run" in that case | note |
+| n-r, n-y, n8–n11 | carried | — | Unchanged | — | note |
+
+#### Questions the ledger misses
+
+None that would change a decision. QC's own "touched" figure has no chance rate either. But the plan shows it only as QC's comparison, with QC's caveats, beside the plain pass (77.4%), which serves as its baseline. No 1.0 claim rests on it.
+
+#### Checked and found sound
+
+- **One story everywhere.** Plan :43, S1, S2, S3, S6, S7, Done when, Q12, Q15, Q26, A3, A4, A5, A8, A12, F10, F12 and the review page agree with each other, with QC's current pages and with S1 at 43b57dc on:
+  - the pin, e131eb55;
+  - QC's verdict on it: 46% rejected, against a "wrong if" line of roughly a quarter, and it predates the disprove test;
+  - QC's a67d7d6a figures and the direction they count in;
+  - the location figure, shown beside its chance rate;
+  - the category share, best 0.47;
+  - the condition for "met".
+- **Method owners' rules.** Decision 0017 (:27-35, :50) and QC's `METHODS_AND_THEORY.md:453-463` and `:471-473` say what the plan cites them for. Process Tracing's $0.0555 (7 calls, 277,101 of 352,770 input tokens cached) matches `efficiency_20261105/README.md:161-163`.
+- **Domain model.** Sampled `workbench_view` (`models.py:438`), `source_segment` (:98) and `evidence_anchor` (`investigation_spine.py:127`): each points at the named class. The S1 concepts are dashed, correctly, since they are not on this branch.
+- **Router records.** A3, A8 and A12 chose the views their entries name.
+- **Review page.** It shows revision 10b9a7bd3ac4 and all 26 questions, and draws every diagram on the page from embedded data.
+- **Goal fields.** North star, thesis and disproof fit the planning layer's definitions.
+- **Coverage.** My own split of Brian's words gives three requirements: finish → A12; not for one use case → A10 (and A3); part of his broader vision → A11. The outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **n-oo's weight.** If Brian answers (a) "author coding is enough" and (d) "wait", the row could read "met" while QC itself says its output's main disproof (the researcher's hour) is untested. I kept it a note because plan :43, Q12 (a) and S7 all say step 5 is not done, and Q12 (d) defines what it means by "finished".
+- **What I could not do.**
+  - No browser tool was available, so I read the pages as HTML.
+  - I did not run the full 204-test suite; `make check` ran its 41 tests.
+  - Writing scratch files was refused, so my containment check ran inline.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12, 0 failing, 2 WAIT). Checklist: exit 0.
+  - `overlap_e131.py`: 0 of 112 qualify, best share 0.47.
+  - Builder recomputation: 100 / 73 / 69.6% / 135 of 135. Containment chance: 89 of 135, 79.2%.
+  - Wiki cap: exit 1 (126, 112). Crosswalk: exit 0. `make check`: 41 tests and mypy clean, exit code not captured. Class sweep: 184 classes, 0 missing.
+- **Feedback:** where a page prints a sentence judging a figure against chance ("chance gives the same"), compute that sentence from the figures, so a moved pin cannot leave a true-looking claim behind.
+- **Need anything from human:** No. The three notes are agent work.
+
+Reviewed revision: 10b9a7bd3ac41bea61ecdc02acb811cb26ec9c4f
 
 Verdict: pass
