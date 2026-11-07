@@ -43,9 +43,29 @@ def _kind(node: ast.ClassDef) -> str:
     return "record" if names else "class"
 
 
+def _module_path(dotted: str, rel: str, level: int) -> str | None:
+    """Map an import's module to a repository path, or None when it is outside the repository."""
+    if level:
+        base = Path(rel).parent
+        for _ in range(level - 1):
+            base = base.parent
+        parts = [p for p in dotted.split(".") if p] if dotted else []
+        candidate = base.joinpath(*parts)
+    else:
+        if not dotted.startswith("mixed_methods_workbench"):
+            return None
+        candidate = Path("src").joinpath(*dotted.split("."))
+    for option in (candidate.with_suffix(".py"), candidate / "__init__.py"):
+        if (REPO / option).exists():
+            return str(option)
+    return None
+
+
 def build() -> str:
     modules = _modules()
-    defined: dict[str, list[tuple[str, int, str]]] = defaultdict(list)
+    # Classes are keyed by (module, name): two modules may define classes with the same name.
+    defined: dict[tuple[str, str], tuple[int, str]] = {}
+    by_name: dict[str, list[str]] = defaultdict(list)
     trees: dict[str, ast.Module] = {}
     for path in modules:
         rel = str(path.relative_to(REPO))
@@ -53,38 +73,68 @@ def build() -> str:
         trees[rel] = tree
         for node in ast.walk(tree):
             if isinstance(node, ast.ClassDef):
-                defined[node.name].append((rel, node.lineno, _kind(node)))
-    built: dict[str, set[str]] = defaultdict(set)
-    read: dict[str, set[str]] = defaultdict(set)
+                defined[(rel, node.name)] = (node.lineno, _kind(node))
+                by_name[node.name].append(rel)
+
+    def resolve(name: str, rel: str, imports: dict[str, tuple[str, str]]) -> tuple[str, str] | None:
+        if (rel, name) in defined:
+            return (rel, name)
+        if name in imports:
+            target = imports[name]
+            return target if target in defined else None
+        homes = by_name.get(name, [])
+        return (homes[0], name) if len(homes) == 1 else None
+
+    built: dict[tuple[str, str], set[str]] = defaultdict(set)
+    read: dict[tuple[str, str], set[str]] = defaultdict(set)
     for rel, tree in trees.items():
+        imports: dict[str, tuple[str, str]] = {}
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                home = _module_path(node.module or "", rel, node.level)
+                if home is None:
+                    continue
+                for alias in node.names:
+                    imports[alias.asname or alias.name] = (home, alias.name)
         for node in ast.walk(tree):
             if isinstance(node, ast.Call):
                 func = node.func
-                if isinstance(func, ast.Name) and func.id in defined:
-                    built[func.id].add(rel)
-                elif isinstance(func, ast.Attribute) and isinstance(func.value, ast.Name) and func.value.id in defined:
+                if isinstance(func, ast.Name) and func.id in by_name:
+                    key = resolve(func.id, rel, imports)
+                    if key:
+                        built[key].add(rel)
+                elif isinstance(func, ast.Attribute) and isinstance(func.value, ast.Name) and func.value.id in by_name:
                     if func.attr in {"model_validate", "model_validate_json", "model_construct", "from_dict"}:
-                        built[func.value.id].add(rel)
-            if isinstance(node, ast.Name) and node.id in defined:
-                read[node.id].add(rel)
-            elif isinstance(node, ast.Constant) and isinstance(node.value, str) and node.value in defined:
-                read[node.value].add(rel)
+                        key = resolve(func.value.id, rel, imports)
+                        if key:
+                            built[key].add(rel)
+            if isinstance(node, ast.Name) and node.id in by_name:
+                key = resolve(node.id, rel, imports)
+                if key:
+                    read[key].add(rel)
+            elif isinstance(node, ast.Constant) and isinstance(node.value, str) and node.value in by_name:
+                key = resolve(node.value, rel, imports)
+                if key:
+                    read[key].add(rel)
     rows = []
-    for name in sorted(defined, key=lambda n: (defined[n][0][0], defined[n][0][1])):
-        for rel, line, kind in defined[name]:
-            b = sorted(built[name])
-            r = sorted(read[name] - built[name] - {rel}) if len(defined[name]) == 1 else []
-            rows.append(
-                f"| `{name}` | {kind} | `{rel}:{line}` | {', '.join(f'`{m}`' for m in b) or 'not called directly (built inside a parent record or a base class)'} | "
-                f"{', '.join(f'`{m}`' for m in r) or ('its own module only' if len(defined[name]) == 1 else 'same name defined in several modules')} |"
-            )
+    for key in sorted(defined, key=lambda k: (k[0], defined[k][0])):
+        rel, name = key
+        line, kind = defined[key]
+        b = sorted(built[key])
+        r = sorted(read[key] - built[key] - {rel})
+        rows.append(
+            f"| `{name}` | {kind} | `{rel}:{line}` | {', '.join(f'`{m}`' for m in b) or 'not called directly (built inside a parent record or a base class)'} | "
+            f"{', '.join(f'`{m}`' for m in r) or 'its own module only'} |"
+        )
     header = (
         "# Type inventory\n\n"
         "Generated by `scripts/type_inventory.py` from the code under `src/` and `scripts/`; do not edit by hand\n"
         "(`make type-inventory` rewrites it, `pytest` fails when it is stale). The system model,\n"
         "[SYSTEM_MODEL.md](SYSTEM_MODEL.md), says what each module does and which types Plan #8 adds.\n\n"
         f"{len(rows)} classes. \"Built in\" is every module that calls the class or its `model_validate`; \"read in\" is every\n"
-        "other module that names it. Kinds: record (a Pydantic model or other typed class), enum, error, dataclass.\n\n"
+        "other module that names it. A name is resolved to the class in the same module, else the one it is imported\n"
+        "from, else the only class with that name; a name defined in several modules and not imported is not counted.\n"
+        "Kinds: record (a Pydantic model or other typed class), enum, error, dataclass.\n\n"
         "| Type | Kind | Defined at | Built in | Read in |\n| --- | --- | --- | --- | --- |\n"
     )
     return header + "\n".join(rows) + "\n"

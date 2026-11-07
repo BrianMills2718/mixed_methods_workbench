@@ -15,14 +15,20 @@ So the workbench is finished to its 1.0, as a general tool in his broader eviden
 the back end of one study. A study is still needed to prove each slice works on real text; it is an
 example, not the product's purpose.
 
-**Broader vision, read from the repository** (open question Q18; Brian can overrule). The repository's
-own product map, `docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md` (section 1), defines the workbench's
-place in that vision: one workbench-owned investigation record that keeps the question, evidence, method
-runs, findings, unresolved questions, reviews and next actions together, while each method stays in its
-own repository; the same map names "separate destinations rather than one evolving study" as the defect
-(section 3). So every slice below adds to one study record per corpus, built from a study definition file,
-not a new page per feature; and S5 makes that record the general form of the existing PsychosisBank
-investigation record (`investigation_spine.py`, today hard-coded to one investigation).
+**Broader vision, read from the repository** (open question Q18; Brian decides between two readings). The
+repository's own product map, `docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md`, supports two readings.
+Section 1 defines the workbench's place: one workbench-owned investigation record that keeps the question,
+evidence, method runs, findings, unresolved questions, reviews and next actions together, while each
+method stays in its own repository; section 3 names "separate destinations rather than one evolving study"
+as the defect. Sections 5, 7 and 9 go further: the product runs from a policy question to a reviewed
+recommendation, Open Science is "too weak to organize the general policy-analysis product", and the next
+step is a completed public policy decision case. This plan follows the first reading, which fits "not for
+a specific use case": every slice adds to one study record per corpus, built from a study definition file,
+not a new page per feature, and S5 makes that record the general form of the existing PsychosisBank
+investigation record (`investigation_spine.py`, today hard-coded to one investigation). Open Science is
+used to prove the methods on real text, not as the policy flagship. If Brian picks the second reading, S6's
+second study becomes a completed public policy decision and the record runs to a reviewed recommendation
+(Q18 says what that costs).
 
 ## What "finished" means here
 
@@ -36,8 +42,8 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 | Method profiles that keep each tradition's validity rules | kept, reusing the method dashboard | `method_dashboard.py` already routes questions to method profiles; S7 marks which profiles the workbench actually runs. |
 | At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. |
 | At least one computational or quantitative text path | kept, **workbench-owned** | No repository in `~/code2` measures text quantitatively (survey of capabilities.md and repo names, 2026-11-06); QC's quantitative follow-up can only say `conceptual_follow_up_only`. The workbench owns a narrow adapter around established libraries (roadmap 0.5 already says so). |
-| Causal and theory work without category errors | **changed: within-case causal reasoning kept (Process Tracing); theory operationalization after 1.0** | PT's `pt_export_v2` already takes a QC handoff. Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. |
-| One genuine qualitative–quantitative design with joint display and meta-inference | kept: exploratory sequential | The roadmap's recommended first design; a QC category becomes the measurement instrument under every condition of the repository's quantitative-strand brief (S2, open question Q16). |
+| Causal and theory work without category errors | **changed: within-case causal reasoning kept (Process Tracing); theory operationalization after 1.0** | PT's `pt_export_v2` already takes a QC handoff. Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call with the benchmark change (open question Q12). |
+| One genuine qualitative–quantitative design with joint display and meta-inference | kept: exploratory sequential | The roadmap's recommended first design; a QC category becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). |
 | Human review, reflexivity, provenance, reporting, exports | kept | Slice S5; reflexivity is a researcher-positioning memo per study, kept with the review log and the bundle. |
 | An observed benchmark | **changed** | From "multi-domain benchmark with expert review" to "two rights-clear corpora, each with its authors' own human coding as the reference, held-out interviews, and planted failures that must be caught". Whether 1.0 also needs an outside researcher's hour is open question Q12. |
 | Roadmap phases B–E (shared-profile gate, shared extraction action, NYC refactor, QC/PT seam proof) as prerequisites | **cut** | Their premise was a shared capability across methods. The Plan #6 crosswalk adjudicated 36 groups: 29 different capability, 7 shared shell only, 0 same capability (`docs/research/method_decomposition/phase5/adjudication.yaml`). There is nothing shared to build first. Shared code is extracted only after two real slices use the same thing. |
@@ -48,7 +54,9 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 record 17630137, CC BY-SA 4.0, anonymised, participants consented to open publication). It suits a general
 tool: 26 interview transcripts on a non-policy topic, the author's own coding of 837 passages under 39
 codes, exported from OpenQDA (a human reference for every strand), and Qualitative Coding's grounded-theory
-result on 25 of the interviews already exists. Nothing is sent to the author (Qualitative Coding's outreach
+result on 25 of the interviews already exists. The product map keeps it for exactly this (a real QC
+round trip) and warns against using it as the policy-analysis flagship (section 7); here it is a method
+proof, not the flagship (Q18). Nothing is sent to the author (Qualitative Coding's outreach
 to her is parked). A second corpus for the benchmark is chosen by the agent in S6 under the same rules
 (open licence, consent, the authors' own coding published) and must differ from the first in subject, in
 research team and in the coding tool or export format (open question Q19).
@@ -77,7 +85,10 @@ Each slice ends with something a person can open and try. Every slice: tests fir
   against the record's md5, and writes the texts and a typed `CorpusManifest` (DOI, licence, consent
   statement, per-file sha256, retrieval date) under `examples/studies/open_science/`. A permissive consumer view of QC's
   grounded-theory package (schema 3, pinned by QC commit and sha256) and of QC's segments; each segment's
-  offsets are checked against the frozen text. The author's coded passages are checked the same way.
+  offsets are checked against the frozen text (after the recorded CRLF-to-LF normalisation). The author's
+  OpenQDA offsets do not point at the published text (12 of 837 match), so her passages are located by
+  their own words: exact, whitespace-only difference, text differs, or not found, each counted, and the
+  ones whose text differs or is not found listed on the page (open question Q14).
   `src/mixed_methods_workbench/study_workbench.py` builds the payload; a static page renders it.
 - **Checks:** md5 of every file equals Zenodo's; every QC segment the theory cites resolves and its text
   equals the frozen source at its offsets (counted, mismatches listed, never silently dropped); an
@@ -88,9 +99,27 @@ Each slice ends with something a person can open and try. Every slice: tests fir
 
 ### S2 — Quantitative strand
 
-S2 follows every condition of the repository's quantitative-strand brief
-(`docs/decisions/2026-07-12-first-quantitative-text-strand.md`), adopted in open question Q16; the plan
-does not relax any of them.
+S2 takes its method from the repository's quantitative-strand brief
+(`docs/decisions/2026-07-12-first-quantitative-text-strand.md`). The brief was never approved (its status
+line reads "decision required; documentation only"); open question Q16 adopts its conditions as S2's
+method, and the table below says how each is met or, where it is not, why. The brief's two calls for
+Brian are kept as his: the exact construct (Q15) and authorising the slice (his 2026-11-06 direction to
+finish).
+
+| Brief condition (line) | In S2 |
+| --- | --- |
+| Word-list count baseline mandatory; always-majority and TF-IDF baselines (`:18`, `:113`) | kept |
+| Strongest eligible contextual incumbent (`:113`) | the codebook-prompted language model is the contextual comparator; **no fine-tuned encoder**, because 25 interviews give too few groups for a grouped held-out fine-tune |
+| Language model is a challenger with behavioural and compliance tests (`:22-23`, `:136-137`, `:146-148`) | kept: label-free checks before any labelled evaluation (same answer when the turn is repeated, and when the instrument's order of examples changes), then a swapped-label control (another category's definition under this category's name), a codebook ablation (the instrument's rule removed) and an invented-label check (an answer outside yes/no is refused and counted) |
+| Topic or embedding output not the first measure (`:21-22`) | kept; no topic model is run, so the topic-stability controls (`:140-142`) do not arise |
+| Feasibility readout before choosing the instrument (`:87-99`) | kept |
+| Independently coded pilot and sealed set, with adjudication (`:111`) | **not met**: the human reference is the author's existing single-coder coding; the page says "one coder, no adjudication" beside every agreement figure |
+| Immutable splits; nothing tuned sees sealed data (`:112`, `:126-129`) | kept: the split manifest fixes tuning and held-out interviews first; the receipt records which interviews each fitting step (word list, TF-IDF vocabulary, prompt edits) saw, and a check fails if any held-out interview appears there |
+| Per-class metrics, prevalence error, calibration, grouped uncertainty; accuracy alone prohibited; no turn-level intervals (`:114`, `:118-121`) | kept |
+| Dictionary polysemy, negation, quotation and attribution reach their error readouts (`:130-131`) | kept: the word list's false positives and false negatives on tuning interviews are listed with their words, so these errors can be read |
+| Off-construct proxy, rare-case erasure, grouped shortcuts (`:132-135`) | kept as per-class recall and prevalence error by interview; there is one source, so source ablation does not arise |
+| Ordinal label shuffling (`:138-139`) | does not arise: the label is yes or no |
+| Fresh reviewer can reject promotion (`:116`) | kept: a fresh agent session reads raw turns, splits, errors and traces before the result is called measured; Brian can reject it on the page |
 
 - **Unit of analysis** (open question Q17): one interviewee turn, as Qualitative Coding segmented it (630
   interviewee turns in the 25 analysed interviews; interviewer turns are not measured). A turn is a
@@ -99,8 +128,12 @@ does not relax any of them.
   passages that fall only on interviewer turns are counted and listed, not dropped. The interview, not the
   turn, is the independent group: splits, intervals and the prevalence estimate are by interview, and no
   turn-level confidence interval is reported.
-- **Construct** (open question Q15): the QC category with the most supporting passages that also has a
-  matching author code, picked by that written rule and shown on the page with the rule.
+- **Construct** (open question Q15, Brian's call with a default): the QC category with the most supporting
+  passages that also has a matching author code, picked by that written rule and shown on the page with
+  the rule. A category matches an author code by passage overlap, not by name: for each of the author's 39
+  codes, the share of the category's cited passages that her passages with that code overlap in the frozen
+  text; the code with the highest share is its match, and the page shows the share, so a partial match
+  reads as "matches 9 of 14 passages", never as a clean match.
 - **Feasibility readout first:** before any instrument is chosen, the page shows the construct, unit,
   frame, intended and prohibited uses, its prevalence among the turns, how many interviews carry positive
   cases, whether it is lexical or contextual, and the disagreement locations in the author's own coding.
@@ -117,7 +150,8 @@ does not relax any of them.
   shown), calibration where a measure gives probabilities, a bootstrap interval by interview, and which
   interviews tuned and which tested each figure. Negative controls: shuffled labels must fall to chance,
   the dummy must show its null, and a split that puts one interview on both sides must fail the split
-  check.
+  check, and a held-out interview found in any fitting step's inputs must fail the trace check. The
+  language model's behavioural and compliance controls are in the table above.
 - **No second model in S2.** A second model is added only after the traces show a gap it would close, and
   then the cases it re-judges are chosen without the author's codes (for example, where the language model
   and the regression disagree); the author's coding never selects or changes a prediction.
@@ -134,12 +168,13 @@ does not relax any of them.
   calls (input $0.2168, output $1.4057 per million tokens). About $0.79 per full pass, counting no cache
   discount. The dictionary, dummy and regression run locally at no model cost.
 - **Cheapest design that still does the job:** one call per turn with the instrument as a cached prefix.
-  The alternative, one call per interview labelling all its turns at once, needs about a tenth of the
-  input tokens (about 10,500 per interview by the reviewer's estimate of 300 tokens per turn, against
-  4,052 per turn) but the same output, so it is not much cheaper (about $0.15 for the 13 tuning
-  interviews, computed in the package). It is run on the tuning interviews in the feasibility readout and
-  adopted if its agreement is no worse; per-turn calls are the default because labels from one long call
-  can influence one another and long-context labelling can lose accuracy. Quality decides, not cost.
+  The alternative, one call per interview labelling all its turns at once, costs about a third as much:
+  about $0.28 per pass against $0.79 (25 calls; the instrument once per interview plus the whole
+  interview, 108,452 tokens for all 1,277 turns, interviewee turns averaging 128 tokens, counted with the
+  o200k tokenizer from QC's segments; the same output tokens). It is run on the tuning interviews in the
+  feasibility readout (about $0.15) and adopted if its agreement is no worse; per-turn calls are the
+  default because labels from one long call can influence one another and long-context labelling can
+  lose accuracy. Quality decides, not cost: both are under a dollar per pass.
 
 ### S3 — Joint display and meta-inference
 
@@ -149,10 +184,10 @@ does not relax any of them.
   "pending review" until S5's review.
 - **Trace:** task `mixed_methods_workbench.open_science.integrate`; receipt as in S2. The agent reads every
   draft and challenge in full.
-- **Cost (computed):** 6 propositions × 2 calls at the token counts of QC's
-  `qualitative_coding.grounded_theory_verdict` (median 15,196 input and 807 output tokens; `llm-cost
-  estimate`, 55 calls; median $0.0038, p90 $0.0111 per call), priced at gpt-6-luna's rates fitted to its
-  32 recorded calls. About $0.03 per run; redone from S3's receipt.
+- **Cost (measured per call):** 6 propositions × 2 calls at the measured cost of the closest task, QC's
+  `qualitative_coding.grounded_theory_verdict` (`llm-cost estimate`, 55 calls: median $0.0038, p90
+  $0.0111 per call; median 15,196 input and 807 output tokens). About $0.05 per run, $0.13 if every call
+  costs the p90; redone from S3's receipt.
 
 ### S4 — Process Tracing on one proposition
 
@@ -161,8 +196,10 @@ does not relax any of them.
   `comparative_conclusion.public_headline_eligible`; S4 extends it to read PT's
   `publication_gate.publishable` (`process_tracing/pt/export.py`, `PublicationGateV2`) and shows a causal
   conclusion only when both allow it.
-- **Trace:** PT's own trace ids recorded in a connected-run receipt (the existing `investigation_run.py`
-  shape).
+- **Trace:** PT's own trace ids recorded in a connected-run receipt. The existing receipt
+  (`investigation_run.py`) is fixed to the PsychosisBank run (its ids and paths are constants), so S4
+  generalises it to take the study, the proposition and the export paths from the study definition, and
+  the PsychosisBank receipt must still build byte-identical.
 - **Cost (measured):** one draft-audit pass is five stages; their mean recorded costs per call in
   llm_client's log (decompose, inference, verify, rivals, test; 2026-11-05 to 06) sum to about $0.03 per
   run. Replaced by S4's own run receipt total.
@@ -173,25 +210,35 @@ does not relax any of them.
   evidence, method runs, findings, unresolved questions, reviews and next actions of one study, read from the
   study definition; `investigation_spine.py`'s PsychosisBank investigation is rebuilt as one instance of it
   and its public page must still pass `tests/test_psychosisbank_public_review.py`. A local server in the
-  `method_dashboard_server.py` pattern; review decisions and the reflexivity memo written to typed JSON files
-  in the study folder and committed; the bundle is a zip of committed files plus a manifest of hashes. QDPX
+  `method_dashboard_server.py` pattern writes review decisions and the reflexivity memo to typed JSON files
+  in the study folder, committed. On the served page, where no server runs (open question Q20), each
+  accept, reject, annotation or memo opens a pre-filled GitHub issue in this repository that Brian submits
+  from his phone; `make import-reviews` turns labelled issues into the same typed files, and the page shows
+  "recorded, waiting to be imported" until the next build. The bundle is a zip of committed files plus a
+  manifest of hashes; the page itself recomputes each file's hash and shows any mismatch in orange. QDPX
   exchange is reused from QC's export, not rebuilt.
 - **Trace:** each review action appended to one review log per day; the bundle's manifest lists every trace.
 - **Cost:** none (no AI step).
 
 ### S6 — Second corpus and benchmark
 
+- **Qualitative Coding runs first** (open question Q21): S1 reads QC's existing export, and that export
+  exists only for Open Science. Either S6 picks a corpus QC has already analysed, or QC runs its
+  grounded-theory pipeline on the second corpus in its own repository before S6 starts; the workbench never
+  runs it. Cost (measured): every `qualitative_coding` call on the Open Science corpus from 2026-11-05 to
+  06 totals $4.94 over 2,075 calls (llm_client's log), including partial reruns and four grounded-theory
+  school variants, so one pass on a corpus of similar size costs at most about that.
 - **Build:** the whole S1–S3 path on a second rights-clear corpus with its authors' coding, differing from
   the first in subject, research team and coding tool or export format (Q19); planted failures (a quote
   altered by one word, a passage from the wrong interview, a swapped label, a fabricated segment id) that
-  the checks must catch. The second corpus is added by one study definition file plus its frozen data; the
-  benchmark builder lists the files that commit changed and shows "data only" or, in orange, any code path
-  (the test of "not for a specific use case"). If the second corpus's export format needs a new reader, that
+  the checks must catch. The second corpus is added by one study definition file plus its frozen data; a
+  test, not the builder that reads the corpus, lists the files that commit changed (`git diff --name-only`)
+  and the page shows "data only" or, in orange, any code path (the test of "not for a specific use case"). If the second corpus's export format needs a new reader, that
   reader is general (named by format, not by corpus) and the page says so.
 - **Trace:** one receipt per run; the benchmark page links each.
-- **Cost (computed):** S2 + S3 on a corpus of similar size from the same figures, about $0.82 per run;
-  three repeat runs to show variation, about $2.46. Redone with `llm-cost estimate` on S2's own task once
-  S2 has run.
+- **Cost (computed):** S2 + S3 on a corpus of similar size from the same figures, about $0.84 per run;
+  three repeat runs to show variation, about $2.52, plus Qualitative Coding's own pass if Q21 needs one.
+  Redone with `llm-cost estimate` on S2's own task once S2 has run.
 
 ### S7 — 1.0 release
 
@@ -204,7 +251,7 @@ does not relax any of them.
 `evidence_anchor`, `author_coding`, `workbench_view`, `measurement_instrument`, `measured_result`,
 `joint_display`, `meta_inference`, `verification_challenge`, `pt_export`, `publication_gate`,
 `connected_run_receipt`, `investigation_record`, `review_decision`, `research_bundle`, `planted_failure`,
-`benchmark`, `method_profile`, `public_review` (see `docs/planning/DOMAIN.md`).
+`benchmark`, `method_profile`, `public_review`, `capability_verdict`, `reflexivity_memo` (see `docs/planning/DOMAIN.md`).
 
 ## Not in this plan
 
