@@ -264,7 +264,7 @@
    "id": "F15",
    "claim": "A second rights-clear corpus with its authors' own coding is identified for the benchmark",
    "evidence": [
-    "docs/plans/008_finish_workbench.md:65"
+    "docs/plans/008_finish_workbench.md:66"
    ],
    "verdict": "unknown",
    "question_id": "Q13",
@@ -312,7 +312,7 @@
    "claim": "QC's 8 grounded-theory categories rest on 8 distinct sets of evidence",
    "evidence": [
     "examples/studies/open_science/qc/grounded_theory.json (S1 branch)",
-    "docs/plans/008_finish_workbench.md:162"
+    "docs/plans/008_finish_workbench.md:166"
    ],
    "verdict": "fails",
    "question_id": "Q15",
@@ -324,7 +324,7 @@
    "evidence": [
     "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
     "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
-    "docs/plans/008_finish_workbench.md:265"
+    "docs/plans/008_finish_workbench.md:274"
    ],
    "verdict": "fails",
    "question_id": "Q24",
@@ -343,6 +343,18 @@
    "verdict": "fails",
    "question_id": "Q24",
    "note": "Brian's decision 0017 and QC's own method rule (owner decision, 2026-09-25) call that test circular and forbid an automatic theory-to-test step; this repository's own P5 input already excludes the QC interviews as evidence and its spine fixes theory_evidence_relationship to 'independent'. Each Open Science proposition's supporting segments span 7 or 8 interviews. Found by the round-9 cold review; S4 now shows the gate and the bounded P5 appraisal, and runs Process Tracing only on a named independent case (Q25)."
+  },
+  {
+   "id": "F22",
+   "claim": "The grounded-theory export Plan #8 reads is Qualitative Coding's current result",
+   "evidence": [
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:34",
+    "/home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:41",
+    "docs/plans/008_finish_workbench.md:43"
+   ],
+   "verdict": "fails",
+   "question_id": "Q26",
+   "note": "The pinned file is QC's August 2026 export (run expansion-4, commit bcf80880); QC's status page names run a67d7d6a (2026-11-05) as published and is revising that theory, but has committed no export of either. Found by the round-10 cold review; S1 keeps the pin with a label and re-pins when QC commits the revised export (Q26)."
   }
  ],
  "cost": {

@@ -3,6 +3,27 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 10 (read ccb5737): revise
+
+The reviewer found both round-9 blocking findings and notes n-a and n-b fixed, redid all ten computed
+cost entries, the overlap figures and `make check`, and checked S4 against decision 0017, Qualitative
+Coding's rule and the P5 run's own files. Reading the method owners' current records, it returned
+**revise** on two blocking findings, with notes n-c to n-h. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R10-B1 | S1 pins Qualitative Coding's August 2026 theory export; QC's status page names a newer run (`a67d7d6a`) and is revising that theory; the package never said which it uses | New resolved agent question Q26 and finding F22 (fails): QC has committed no export of the newer or revised theory, so S1 keeps the August pin, the study page names and labels it "not its current run", and the pin moves (with the overlap figures, Q15's construct and F19 recomputed) when QC commits the revised export. Plan's qualitative-path row, S1's build and Q15 say so |
+| R10-B2 | Q12(c)'s "need agree or disagree" option measured a proposition on the interviews that produced it, a same-corpus test, without telling Brian | Q12(c) and S3 now say such a row must be measured on interviews held out from QC's theory run (QC reruns on a subset in its own repository, measured upper figure $4.94, plus about $0.19 per S2 pass) |
+| n-c | The P5 panel sat under "not tested" without saying how its case was chosen | The panel and A6 state three things: chosen by an analyst's scan, six questions never answered by a person, and decision 0017's "does not satisfy the independence condition on its own" |
+| n-d | The finished table gave the wrong reason P5 is withheld | It now names Process Tracing's own checks; S4 names both the failed label-invariance check and the final claim review's block |
+| n-e | Two pages to cite in the stop search | The v16 synthesis pause is cited in Q25 and in `stops.searched`, with QC's "workbench sequence" line read as the NYC pause |
+| n-f | The plan called QC's outreach parked | It now says QC drafts its review request after the theory revision and sends nothing without Brian approving the text; this plan sends nothing |
+| n-g | The integration row did not say the interviews are not held out from the theory | Said in the row, and the readiness page says it |
+| n-h | The manifest's reviewed revision was stale | Updated to the revision each round read |
+| n8 to n11 | Carried notes and the plugin's WAIT labelling | Unchanged, as answered in rounds 5 to 7 |
+
+The reviewer's own report for round 10 is reproduced at the end of this file, ending with its verdict line.
+
 ## Plan #8, round 9 (read 861d1e3): revise
 
 The reviewer confirmed round 8's facts (QC's handoff carries no proposition; the grounded-theory export
@@ -928,5 +949,166 @@ All match the manifest.
 - **Need anything from human:** No. B1's fix only needs Brian if the plan wants to override his 0017 decision.
 
 Reviewed revision: 861d1e3d432163cd094ab85b286fc45701bc0cf4
+
+Verdict: revise
+
+## Plan #8, round 10 reviewer's report (verbatim)
+
+**Round 10 cold review: revise.** Both round-9 blocking findings are fixed. S4 is now the gated handoff that Brian's decision 0017 and Qualitative Coding's own rule describe, and every check I reran matches the manifest. Two new problems block, both from reading the method owners' records directly:
+
+1. **The theory the workbench reads is out of date.** Plan #8 pins Qualitative Coding's August 2026 theory export. Qualitative Coding's own status page names a newer 25-interview run as its result, and says it is revising that theory now. The package never says which one it uses or why.
+2. **One option offered to Brian crosses the owners' rules.** Option (c) of Q12 would let a row agree or disagree on the same interviews the theory was built from. Qualitative Coding's rule and decision 0017 forbid presenting that as a check. Q12 doesn't tell Brian this.
+
+#### Validator
+
+I ran it on branch head 01608bd. After the subject revision ccb5737, that commit changed only the plan's checklist. It **exited 1**, as expected.
+
+- **Parts:** 9 of 10 ok. The only failure is the cold review (verdict `revise`).
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 pending (WAIT, by the contract's design):
+  - the plain-version comparison is still `planned`;
+  - 3 added stages are untested.
+- **Other figures:**
+  - 89 citations checked;
+  - 12 AI steps (2 measured, 10 computed);
+  - 7 stops found (5 hold, 2 lifted).
+- **Initiative and spectrum checks:** 4 of 4 ok.
+- **Goal coverage, goal provenance and freshness:** all ok. Coverage found 3 requirements: 2 covered and 1 classed as about process. Freshness counts 1 commit of work since the subject revision, the checklist rewrite.
+- **Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 lines differ.
+
+#### Recorded checks I reran
+
+- **Overlap scripts** (run in the S1 worktree, at 735a75a), matching plan `:153-160`:
+  - 630 interviewee turns and 224 pairs;
+  - the author's "open data" code marks 14 of 22 turns (0.64, chance 3.0e-9) and 14 of 21 (0.67, chance 1.2e-9);
+  - the next-best share is 0.48 and the highest two-way overlap is 0.18.
+- **`make check`:** exit 0, with 11 and 30 tests passing and the type check clean.
+- **Cost basis:** I redid all 10 computed entries and each matches its figure. S7 comes to $0.092 over 3 calls. S4's $0.0555 over 7 calls matches Process Tracing's `efficiency_20261105/README.md:161-163`.
+- **Not rerun:** the crosswalk check. Nothing it reads has changed since round 9 reproduced it.
+
+#### Round-9 findings
+
+- **B1 (S4 tested a proposition on its own interviews): fixed.**
+  - What the package now says:
+    - plan `:80`, `:263-320`, `:360-364` and `:383-391`;
+    - Q24 is resolved from decision 0017 and Qualitative Coding's rule;
+    - A6 and A12 are rewritten;
+    - finding F21 is added;
+    - the proposition-case concept is removed.
+  - What I checked against the sources:
+    - **P5 text:** the proposition in `qc_theory_input.json` is word for word the fifth proposition of the pinned export.
+    - **Workbench readers:** `IndependentCaseSources` is at `investigation_spine.py:79`, and `Literal["independent"]` is at `:186`. `ProcessTracingExport` is at `investigation_run.py:101-113`.
+    - **P5 export:** in `pt_export_v2.json`, `public_headline_eligible` is false.
+    - **Process Tracing's gate:** `PublicationGateV2.publishable` is at `pt/export.py:598-627`.
+    - **Process Tracing's other citations:** its Q20 and ADR 0004 `:61-66` say what the plan cites them for.
+- **B2 (stops search missed decision 0017): fixed.** Decision 0017 is listed as a stop that holds. Qualitative Coding's methods document and the portfolio decisions are now among the places searched. My own spot-check found two more pages to cite; neither is a missed stop (note n-e).
+- **n-a and n-b: fixed.** The checklist now passes, and `pt_partial_export` is its own planned concept, "a partial form of" `pt_export`.
+- **n8 to n11: not fixed, by choice.** They remain notes.
+
+#### Blocking findings
+
+**R10-B1. Open questions, plan and investigation: the qualitative strand pins Qualitative Coding's August theory, not its current result, and the package never says so.**
+
+- **Where:**
+  - plan `:43`, `:61-62`, `:91-92`;
+  - the construct figures at `:153-166`;
+  - finding F19;
+  - Q15 (`open-questions.json:264`) and Q22 (`:418`);
+  - the S1 pin, `mmw-s1/examples/studies/open_science/qc/provenance.json:8`.
+- **What is wrong:**
+  - **What is pinned:** `public_demo_assets/open_science/grounded_theory_full_corpus.json`, at Qualitative Coding commit bcf80880 (2026-08-04). Its run is `plan345/method-review1c/expansion-4`, with 8 categories and 6 propositions.
+  - **What the owner calls current:**
+    - Qualitative Coding's status page names run a67d7d6a (2026-11-05) as the published 25-interview run, with four propositions tested by its disprove step: one contradicted, one where a rival fits as well, two that hold with limits (`qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:34`).
+    - The same page says that theory is being revised now (`:41-47`).
+    - The October run e131eb55 had six propositions across four categories (`HISTORICAL_EVIDENCE_LEDGER.md:219`).
+    - No current Qualitative Coding status document names the August file as its result.
+  - **What depends on the pin:**
+    - the "open data" construct choice and every overlap figure, which feed Brian's Q15;
+    - S3's six joint-display rows;
+    - F19;
+    - the claim that 1.0's validated qualitative path is "consumed, not rebuilt".
+  - **What the package says:** no question, finding or plan line mentions which Qualitative Coding run is pinned or why.
+- **Fix:**
+  - Add an agent question, settled by reading Qualitative Coding's records: which Qualitative Coding result S1 pins.
+  - Either pin the current run's export (Qualitative Coding writes it, in its own repository) and recompute `:153-166`, F19, Q15 and Q22; or keep the August pin with a stated reason, and label it on the study page as "Qualitative Coding's August 2026 theory, not its current run".
+  - Add an investigation finding.
+- **Weight:** blocking. A reader would believe the joint display shows Qualitative Coding's current grounded theory, and Brian's construct decision rests on figures from a version the owner has moved past.
+
+**R10-B2. Open questions and plan: Q12(c)'s "need agree or disagree" option is a same-corpus test, which the owners' rules forbid presenting as a check. Q12 omits this.**
+
+- **Where:** plan `:236-240`; Q12(c) at `open-questions.json:201-211`.
+- **What is wrong:**
+  - Under that option, S2 measures one proposition's condition and outcome across the same interviews Qualitative Coding built the proposition from, and the row may then say "converges" or "diverges".
+  - **Qualitative Coding's rules:**
+    - The same material is "never counted as independent confirmation" (`METHODS_AND_THEORY.md:471-472`).
+    - A quantitative design needs separate decisions about sampling and inferential warrant, and "code or quotation counts are not automatically validated indicators" (`:485-500`).
+    - The existing interviews "motivate both designs but complete neither test" (`:536-542`).
+  - **Decision 0017:** "No 'end-to-end' page may present a same-corpus test as verification" (`:50`). A12's end-to-end run is on the second corpus, whose theory Qualitative Coding would also build from that corpus's own interviews (Q21).
+  - **What Brian is told:** the option costs $0.19, and its new labels have no human reference. Nothing says it crosses his own rule.
+- **Fix:**
+  - In Q12(c) and plan `:236-240`, say that a row able to agree or disagree needs the condition and outcome measured on interviews the proposition was not built from. Here that means interviews withheld from Qualitative Coding's theory run, scored only by the measure, or Brian overriding his rule.
+  - Re-cost the option on that basis, or drop it.
+- **Weight:** blocking. It misstates an option in a decision the package puts to Brian. The recommendation already says "complements only", so this is the less certain of the two (see below).
+
+#### Questions the ledger misses
+
+1. Which Qualitative Coding run is the qualitative strand? (R10-B1)
+2. May a joint-display row agree or disagree on the interviews the proposition came from? (R10-B2)
+3. Did the P5 appraisal pass the gate S4 builds? (note n-c)
+
+#### Notes (do not block)
+
+- **n-c. Causal tab** (A6, plan `:283-292`): the tab reads "no independent case named: not tested" directly above an appraisal of P5 on a named case, PsychosisBank.
+  - That case was chosen by an analyst's scan of public sources (`qc_theory_input.json`, `selection_disclosure`).
+  - Its six selection questions were never answered by a person.
+  - Decision 0017 `:48-49` says this example "does not satisfy the independence condition on its own".
+  - **Fix:** say all three on the P5 panel.
+- **n-d. Plan `:45`** gives the wrong reason the P5 conclusion is withheld. The export's own reason is a failed label-invariance check (`comparative_conclusion.public_headline_reason`). Process Tracing's final claim review then blocked publication (`connected_run_receipt.json`, `publication_block_reason`). Plan `:290-292` is right.
+- **n-e. Stops search:** two pages to cite, neither a missed stop in substance.
+  - Qualitative Coding's status page lists "the workbench sequence (portfolio decision 0017)" as paused (`CURRENT_STATE_AND_ROADMAP.md:79`). Before the 2026-11-05 rewrite (`9008d5bc^`, `:172`) the line read "the Workbench NYC sequence", so it means the NYC pause already recorded.
+  - Brian's 2026-09-24 pause of the synthesis goal (`portfolio/wiki/plans/v16-two-pillar-portfolio.md:151-166`), with its resume event, should be cited in Q25.
+- **n-f. Plan `:64-65`** says Qualitative Coding's outreach to the corpus author is parked. Its status page `:48-49` lists it as in progress (drafted after the theory revision; nothing is sent without Brian's approval).
+- **n-g. 1.0 table row `:46`:** the roadmap's exploratory sequential design validates the instrument "on a held-out text set" (`ROADMAP.md:328-331`). Here the interviews are held out from tuning the instrument, but not from building the theory. S2's known limit (`:188-192`) says so; the 1.0 row and the readiness page should too.
+- **n-h. Manifest:** `cold_review.reviewed_revision` still reads 9dd6009. Round 9 read 861d1e3.
+- **n8 to n11, carried:**
+  - n8: the coverage record classes R3 as about process.
+  - n9: Q2, Q3, Q4, Q10 and Q21 are agent questions that could be settled by checking now.
+  - n10: branch `plan-008-finish` is not on the remote (it tracks origin/main, 27 commits ahead), so the review page's `/blob/main/` links fail until merge, and there is no served address yet (Q11). The repository is in Brian's own account, so the company-organization rule does not apply.
+  - n11: the plugin's checklist labels WAIT lines "failing".
+
+#### Checked and found sound
+
+- **Routes to Process Tracing:**
+  - S4 builds the gate and runs Process Tracing only if Brian names a case (Q25).
+  - The conditional route follows Process Tracing's own rules: its Q20 adapter, no change to its frozen pipeline, ADR 0004.
+  - S6's Qualitative Coding run happens in Qualitative Coding's own repository.
+- **Joint display:** S3's default "complements" verdict stays within Qualitative Coding's allowance for describing how common something is within the examined corpus (`METHODS_AND_THEORY.md:70-73`).
+- **Router records:** A6 chose argument-page and A12 chose data-table, matching their entries.
+- **Models:**
+  - The new concepts and their relations are in the domain graph.
+  - The system model's S4 row matches the plan.
+- **Review page:** it draws all diagrams on the page (`GraphViewer.mount`), shows the rewritten S4, Q25 and F21, and its relative links resolve.
+- **Goal fields:** north star, thesis and disproof fit the planning layer's definitions.
+- **Coverage:** my own reading of Brian's words gives the same three requirements as the stored record, each with a covering criterion.
+
+#### Judgments I was unsure about
+
+- **R10-B2's weight.** It is a conditional option, and the recommendation already argues against it. I made it blocking because it misstates a decision put to Brian, by the same test as round 9's B1.
+- **R10-B1: what Qualitative Coding treats as its export for other tools.** Its records disagree with each other. The status page `:34` calls a67d7d6a published. Its review queue `:29` says not yet, and `:40` still calls e131eb55 current. None names the August file either way.
+- **n-e: how to read "workbench sequence".** I read it as the NYC sequence, from its pre-rewrite wording.
+- **What I could not do:** no browser tool was available, so I read the page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1. Parts 9/10; substance 10/12 ok with 0 failing and 2 pending; initiative and spectrum 4/4; coverage, provenance and freshness ok.
+  - `plan_checklist.py --check`: exit 0, 0 lines differ.
+  - Overlap scripts: the figures above.
+  - `make check`: exit 0, 41 tests.
+  - P5 text compared with the pinned export: identical.
+  - `sha256sum` of Qualitative Coding's current file equals the pin (538a2646…, last changed at bcf80880, 2026-08-04).
+- **Feedback:** for a third round running, the issue was the producer's current state, not its data. The reviewer contract could ask the reviewer to check that each consumed export is the producer's current result according to its status page.
+- **Need anything from human:** No. Both fixes are agent work. Brian is needed only if the plan chooses to override his decision 0017.
+
+Reviewed revision: ccb57377e74068f1f49fffb1b09415fd4d03ac5e
 
 Verdict: revise

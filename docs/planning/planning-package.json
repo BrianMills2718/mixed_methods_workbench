@@ -436,7 +436,8 @@
      "Process Tracing's own stops: its pt/ freeze (Brian, 2026-09-30) and ADR 0004 (approved by Brian 2026-11-05: the draft-audit prototype is the answer path, the pipeline stays frozen), read in /home/brian/code2/process_tracing/docs/adr/0004_prototype_is_the_answer_path_pipeline_cost_accepted.md:67-79 and its open-questions.json Q20; S4 honours both (no pt/ work, prototype route, Q23)",
      "Process Tracing's autopsy of its stop signals, /home/brian/code2/process_tracing/docs/analysis/autopsy_20261106.md:73-75 and :142-143",
      "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:425-463 (QC's method rules for theory testing, 'Independence condition (owner decision, 2026-09-25)')",
-     "/home/brian/code2/portfolio/wiki/decisions/ (portfolio decisions; 0017 holds a stop on this work)"
+     "/home/brian/code2/portfolio/wiki/decisions/ (portfolio decisions; 0017 holds a stop on this work)",
+     "/home/brian/code2/portfolio/wiki/plans/v16-two-pillar-portfolio.md:151-166 (Brian's 2026-09-24 pause of the portfolio synthesis goal, recorded by an agent; resume event Process Tracing Plan 047; same effect as decision 0017, cited in Q25) and /home/brian/code2/qualitative_coding/docs/CURRENT_STATE_AND_ROADMAP.md:79 (QC's 'workbench sequence (portfolio decision 0017)' pause, which read 'the Workbench NYC sequence' before QC's 2026-11-05 rewrite, so the NYC pause already listed)"
     ],
     "found": [
      {
@@ -509,7 +510,7 @@
    "status": "present",
    "path": "docs/planning/cold-review.md",
    "verdict": "revise",
-   "reviewed_revision": "9dd600945f7dbbdcf3803486ff1d14981331c5f8"
+   "reviewed_revision": "ccb57377e74068f1f49fffb1b09415fd4d03ac5e"
   }
  },
  "full_method": true,

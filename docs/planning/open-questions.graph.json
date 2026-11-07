@@ -214,7 +214,7 @@
    "id": "Q12",
    "label": "Q12: What 1.0 promises: outside researcher, theory operationalization",
    "kind": "question_brian",
-   "explain": "Two narrowings of the roadmap's 1.0 that only Brian can accept. (a) Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim? (b) The roadmap's 1.0 includes theory operationalization (ROADMAP.md:65); Plan #8 keeps within-case causal reasoning (Process Tracing) and moves theory operationalization (Theory Forge, which has no consumer export) to after 1.0. Is that acceptable?"
+   "explain": "Three narrowings of the roadmap's 1.0 that only Brian can accept. (a) Should the 1.0 benchmark include an hour of review by an outside qualitative or mixed-methods researcher, or is agreement with the corpus authors' own published coding enough for the 1.0 claim? (b) The roadmap's 1.0 includes theory operationalization (ROADMAP.md:65); Plan #8 keeps within-case causal reasoning (Process Tracing) and moves theory operationalization (Theory Forge, which has no consumer export) to after 1.0. Is that acceptable? (c) The roadmap's G4 1.0 condition names \"contradiction disposition\" (ROADMAP.md:83). In Plan #8 only one of the author's 39 codes qualifies as a measure of a QC category, and a prevalence cannot confirm or contradict a when-then proposition, so every 1.0 joint-display row says \"complements\" or \"silent: not measured\": 1.0 never shows the two strands agreeing or disagreeing, and contradiction disposition is built and exercised only by planted failures. Is a complements-only 1.0 acceptable, or must one row be able to agree or disagree? A row that agrees or disagrees tests the proposition, so under your decision 0017 and Qualitative Coding's rule it must be measured on interviews the proposition was not built from, not on the interviews that produced it."
   },
   {
    "id": "d_Q12",
@@ -497,6 +497,18 @@
    "label": "whether S4 runs Process Tracing on a named case",
    "kind": "decision",
    "explain": "whether S4 builds the independent-case input and export adapter in Process Tracing and runs it; the causal step of S6 and of A12's end-to-end run"
+  },
+  {
+   "id": "Q26",
+   "label": "Q26: Which Qualitative Coding result S1 pins",
+   "kind": "question_agent_resolved",
+   "explain": "S1 pins Qualitative Coding's August 2026 grounded-theory export (public_demo_assets/open_science/grounded_theory_full_corpus.json, run plan345/method-review1c/expansion-4, QC commit bcf80880, 8 categories, 6 propositions). QC's status page names a newer 25-interview run, a67d7d6a (2026-11-05), as its published run and says it is revising that theory now. Which result is the workbench's qualitative strand?"
+  },
+  {
+   "id": "d_Q26",
+   "label": "S1's pin and label, Q15's figures, S3's rows",
+   "kind": "decision",
+   "explain": "S1's pin and label, the overlap figures behind Q15, S3's joint-display rows and finding F19"
   }
  ],
  "edges": [
@@ -972,6 +984,30 @@
    "id": "tQ25_pt_export",
    "source": "Q25",
    "target": "pt_export",
+   "label": "touches"
+  },
+  {
+   "id": "bQ26",
+   "source": "Q26",
+   "target": "d_Q26",
+   "label": "blocks"
+  },
+  {
+   "id": "tQ26_qc_theory_export",
+   "source": "Q26",
+   "target": "qc_theory_export",
+   "label": "touches"
+  },
+  {
+   "id": "tQ26_qualitative_strand",
+   "source": "Q26",
+   "target": "qualitative_strand",
+   "label": "touches"
+  },
+  {
+   "id": "tQ26_measurement_instrument",
+   "source": "Q26",
+   "target": "measurement_instrument",
    "label": "touches"
   }
  ]

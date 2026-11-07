@@ -40,10 +40,10 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 | --- | --- | --- |
 | Governed study and corpus foundation | kept | Slice S1. |
 | Method profiles that keep each tradition's validity rules | kept, reusing the method dashboard | `method_dashboard.py` already routes questions to method profiles; S7 marks which profiles the workbench actually runs. |
-| At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. |
+| At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. The export read is Qualitative Coding's August 2026 grounded-theory export (run `plan345/method-review1c/expansion-4`, QC commit bcf80880: 8 categories, 6 propositions), the only one QC has committed as a file; QC's status page names a newer 25-interview run (`a67d7d6a`, 2026-11-05) and is revising that theory now, so the study page labels the pin and S1's pin moves when QC commits the revised export (Q26). |
 | At least one computational or quantitative text path | kept, **workbench-owned** | No repository in `~/code2` measures text quantitatively (survey of capabilities.md and repo names, 2026-11-06); QC's quantitative follow-up can only say `conceptual_follow_up_only`. The workbench owns a narrow adapter around established libraries (roadmap 0.5 already says so). |
-| Causal and theory work without category errors | **changed: within-case causal reasoning kept as Process Tracing's gated handoff, with no causal test in 1.0 unless Brian names a case (Q25); theory operationalization after 1.0** | Brian's decision 0017 (2026-09-25) and Qualitative Coding's own method rule (`qualitative_coding/docs/METHODS_AND_THEORY.md:453-463`) allow a process-tracing test of a grounded-theory proposition only on case evidence the theory was not built from (decision records, timelines, correspondence for one named case), with the six method-selection questions answered by a person for that case; no automatic theory-to-test step is built, and no page may present a same-corpus test as verification. Neither corpus in this plan has such a record. So S4 builds the gate, not a test: the causal tab shows the six questions and whether they are answered, the one existing bounded appraisal (Open Science proposition P5 on PsychosisBank's and TalkBank's own public records, 2026-09-23, conclusion withheld because the case's decision record was unavailable), and how the publication gate behaves. A real causal run happens only if Brian names a case with its own records (Q25). Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call (Q12 and Q25). |
-| One genuine qualitative–quantitative design with joint display and meta-inference | **changed: exploratory sequential, with verdicts limited to "complements" or "silent" in 1.0** | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). Only that one code qualifies, and a prevalence cannot confirm or contradict a when-then proposition (S3, Q22), so in 1.0 no row can show the two strands agreeing or disagreeing. The roadmap's G4 condition names "contradiction disposition" (`ROADMAP.md:83`): S5 records a disposition for every row the number and passage check marks orange, and S6's planted overclaim exercises it, but a real disagreement between strands cannot arise. This narrows what 1.0 promises, so it is Brian's call (open question Q12, part c). |
+| Causal and theory work without category errors | **changed: within-case causal reasoning kept as Process Tracing's gated handoff, with no causal test in 1.0 unless Brian names a case (Q25); theory operationalization after 1.0** | Brian's decision 0017 (2026-09-25) and Qualitative Coding's own method rule (`qualitative_coding/docs/METHODS_AND_THEORY.md:453-463`) allow a process-tracing test of a grounded-theory proposition only on case evidence the theory was not built from (decision records, timelines, correspondence for one named case), with the six method-selection questions answered by a person for that case; no automatic theory-to-test step is built, and no page may present a same-corpus test as verification. Neither corpus in this plan has such a record. So S4 builds the gate, not a test: the causal tab shows the six questions and whether they are answered, the one existing bounded appraisal (Open Science proposition P5 on PsychosisBank's and TalkBank's own public records, 2026-09-23: a case chosen by an analyst's scan of public sources, its six questions never answered by a person, its conclusion withheld by Process Tracing's own checks, and by decision 0017 not enough on its own because the case's decision record was unavailable), and how the publication gate behaves. A real causal run happens only if Brian names a case with its own records (Q25). Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call (Q12 and Q25). |
+| One genuine qualitative–quantitative design with joint display and meta-inference | **changed: exploratory sequential, with verdicts limited to "complements" or "silent" in 1.0** | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). Only that one code qualifies, and a prevalence cannot confirm or contradict a when-then proposition (S3, Q22), so in 1.0 no row can show the two strands agreeing or disagreeing. The roadmap's G4 condition names "contradiction disposition" (`ROADMAP.md:83`): S5 records a disposition for every row the number and passage check marks orange, and S6's planted overclaim exercises it, but a real disagreement between strands cannot arise. This narrows what 1.0 promises, so it is Brian's call (open question Q12, part c). The interviews are held out from tuning the instrument, not from building the theory (S2's known limit), so a "complements" row describes the examined corpus only, and the readiness page says so. |
 | Human review, reflexivity, provenance, reporting, exports | kept | Slice S5; reflexivity is a researcher-positioning memo per study, kept with the review log and the bundle. |
 | An observed benchmark | **changed** | From "multi-domain benchmark with expert review" to "two rights-clear corpora, each with its authors' own human coding as the reference, held-out interviews, and planted failures that must be caught". Whether 1.0 also needs an outside researcher's hour is open question Q12. |
 | Roadmap phases B–E (shared-profile gate, shared extraction action, NYC refactor, QC/PT seam proof) as prerequisites | **cut** | Their premise was a shared capability across methods. The Plan #6 crosswalk adjudicated 36 groups: 29 different capability, 7 shared shell only, 0 same capability (`docs/research/method_decomposition/phase5/adjudication.yaml`). There is nothing shared to build first. Shared code is extracted only after two real slices use the same thing. |
@@ -61,8 +61,9 @@ tool: 26 interview transcripts on a non-policy topic, the author's own coding of
 codes, exported from OpenQDA (a human reference for every strand), and Qualitative Coding's grounded-theory
 result on 25 of the interviews already exists. The product map keeps it for exactly this (a real QC
 round trip) and warns against using it as the policy-analysis flagship (section 7); here it is a method
-proof, not the flagship (Q18). Nothing is sent to the author (Qualitative Coding's outreach
-to her is parked). A second corpus for the benchmark is chosen by the agent in S6 under the same rules
+proof, not the flagship (Q18). This plan sends nothing to the author (Qualitative Coding's own review
+request to her is drafted only after its theory revision, and nothing is sent without Brian approving the
+exact text). A second corpus for the benchmark is chosen by the agent in S6 under the same rules
 (open licence, consent, the authors' own coding published) and must differ from the first in subject, in
 research team and in the coding tool or export format (open question Q19).
 
@@ -93,7 +94,10 @@ Each slice ends with something a person can open and try. Every slice: tests fir
   offsets are checked against the frozen text (after the recorded CRLF-to-LF normalisation). The author's
   OpenQDA offsets do not point at the published text (12 of 837 match), so her passages are located by
   their own words: exact, whitespace-only difference, text differs, or not found, each counted, and the
-  ones whose text differs or is not found listed on the page (open question Q14).
+  ones whose text differs or is not found listed on the page (open question Q14). The page names the
+  pinned Qualitative Coding run and labels it "Qualitative Coding's August 2026 theory (run expansion-4),
+  not its current run" until QC commits its revised export; then the pin moves, and S2's first test
+  recomputes the overlap figures below on it (Q26).
   `src/mixed_methods_workbench/study_workbench.py` builds the payload; a static page renders it.
 - **Checks:** md5 of every file equals Zenodo's; every QC segment the theory cites resolves and its text
   equals the frozen source at its offsets (counted, mismatches listed, never silently dropped); an
@@ -235,9 +239,14 @@ finish).
   reason. A row whose units differ (a turn-level claim against an interview-level figure) blocks
   aggregation and meta-inference, as the brief requires (`:143-144`), and says so in orange. The page
   states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so
-  a row could converge or diverge, is not in 1.0 unless Brian answers Q12 (c) "need agree or disagree";
-  then S2 also measures one proposition's condition and outcome, each a labelled theme with its own
-  instrument definition, and that row may converge or diverge.
+  a row could converge or diverge, is not in 1.0 unless Brian answers Q12 (c) "need agree or disagree".
+  Such a row tests the proposition, so it must be measured on interviews the proposition was not built
+  from: Qualitative Coding never counts the same material as independent confirmation
+  (`qualitative_coding/docs/METHODS_AND_THEORY.md:470-472`) and decision 0017 forbids presenting a
+  same-corpus test as verification. Under that answer QC reruns its theory on a subset of the interviews
+  in its own repository, and S2 measures one proposition's condition and outcome, each a labelled theme
+  with its own instrument definition, only on the interviews held out from that run; that row may then
+  converge or diverge.
 - **Build:** for each mapped row, a draft integration verdict and bounded meta-inference through
   `llm_client` (the plain version below), citing passage ids and the measured numbers. A deterministic
   check (the number and passage check) then verifies that every number the draft cites equals the measured
@@ -286,10 +295,13 @@ finish).
   proposition P5 tested on PsychosisBank's and TalkBank's own public records (the 2026-09-23 run, its
   `pt_export_v2` at `examples/runs/psychosisbank-synthesis-20260923/pt-generated/pt_export_v2.json`, read
   by the existing reader `ProcessTracingExport`, `investigation_run.py:101-113`), its hypotheses, tests and
-  verdicts in their own panel apart from any prevalence, labelled "bounded: the case's own decision record
-  was unavailable" (decision 0017's honest result: the interviews motivate a process-tracing design but
+  verdicts in their own panel apart from any prevalence, labelled "bounded" with three statements: the case was chosen by an analyst's scan of
+  public sources (`qc_theory_input.json`, `selection_disclosure`), its six selection questions were never
+  answered by a person, and decision 0017 says it "does not satisfy the independence condition on its
+  own" because the case's own decision record was unavailable (decision 0017's honest result: the interviews motivate a process-tracing design but
   cannot complete it), and its conclusion line reading "withheld" with the export's own reason
-  (`comparative_conclusion.public_headline_eligible` false); (3) the "how the gate behaves" panel. The
+  (`comparative_conclusion.public_headline_eligible` false, a failed label-invariance check) and
+  Process Tracing's final claim review's block (`connected_run_receipt.json`, `publication_block_reason`); (3) the "how the gate behaves" panel. The
   reader is extended to read `publication_gate.publishable` (`process_tracing/pt/export.py`,
   `PublicationGateV2`) when present and shows a causal conclusion only when every gate present allows it.
   No committed file carries a publishable Process Tracing gate, so S4 commits two small made-up exports in
