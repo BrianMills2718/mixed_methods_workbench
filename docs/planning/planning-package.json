@@ -150,7 +150,8 @@
     "capability_verdict": "scripts/crosswalk_phase4.py:144",
     "guarded_decision": "src/mixed_methods_workbench/guarded_decision/models.py:175",
     "quantitative_audit": "src/mixed_methods_workbench/nyc_crz_quantitative.py:193",
-    "public_review": "src/mixed_methods_workbench/investigation_spine.py:278"
+    "public_review": "src/mixed_methods_workbench/investigation_spine.py:278",
+    "pt_export": "src/mixed_methods_workbench/investigation_run.py:100"
    }
   },
   "diagrams": {
@@ -174,60 +175,73 @@
    "status": "present",
    "path": "docs/plans/008_finish_workbench.md",
    "relies_on": [
+    "study_definition",
     "study_corpus",
+    "qc_theory_export",
     "qualitative_strand",
     "source_segment",
     "evidence_anchor",
-    "producer_export",
+    "author_coding",
     "workbench_view",
     "measurement_instrument",
+    "measured_result",
     "joint_display",
     "meta_inference",
+    "verification_challenge",
+    "pt_export",
     "publication_gate",
+    "connected_run_receipt",
+    "investigation_record",
+    "review_decision",
+    "research_bundle",
+    "planted_failure",
+    "benchmark",
+    "method_profile",
     "public_review"
    ],
    "cost_basis": {
     "steps": [
      {
-      "step": "S2 measure: apply the instrument to each interviewee passage (mixed_methods_workbench.open_science.measure)",
-      "cost_per_run_usd": 0.72,
+      "step": "S2 measure: the language-model challenger applies the instrument to each interviewee turn (mixed_methods_workbench.open_science.measure)",
+      "cost_per_run_usd": 0.69,
       "per": "full pass over the corpus",
-      "calls_per_run": 650,
-      "basis": "measured",
-      "evidence": "llm-cost estimate --task qualitative_coding.gt_constant_comparison.application (median $0.0011, p90 $0.0019 per call, 708 calls, 2026-11-05): the same job, one inclusion rule applied to one passage; 650 calls x $0.0011"
+      "calls_per_run": 630,
+      "basis": "computed",
+      "evidence": "630 interviewee turns (counted from QC's segments, Q17) x 1 call x $0.0011, the measured median per call of the closest existing task, llm-cost estimate --task qualitative_coding.gt_constant_comparison.application (one inclusion rule applied to one passage; 4,052 input tokens, 0% cached; p90 $0.0019; 708 calls, 2026-11-05). p90 total $1.20."
      },
      {
-      "step": "S2 second model on disagreements only",
-      "cost_per_run_usd": 0.3,
-      "per": "full pass",
-      "basis": "guess",
-      "evidence": "Upper bound: the disagreement count is unknown until S2 runs; replaced by llm-cost estimate on the S2 task after its first run"
+      "step": "S2 feasibility comparison: one call per interview labelling all its turns, on the tuning interviews only",
+      "cost_per_run_usd": 0.04,
+      "per": "comparison on about 13 tuning interviews",
+      "calls_per_run": 13,
+      "basis": "computed",
+      "evidence": "13 calls x about 10.5k input tokens (25 turns x about 300 tokens plus a 3k instrument; the reviewer's estimate, not measured) at the measured task's price per input token ($0.0011 per 4,052 tokens, so about $0.0029 per call): about $0.04. Run once, to decide per-turn versus per-interview by agreement."
      },
      {
       "step": "S3 integrate: draft verdict and meta-inference, then a second model's challenge (mixed_methods_workbench.open_science.integrate)",
       "cost_per_run_usd": 0.046,
       "per": "run over 6 propositions",
       "calls_per_run": 12,
-      "basis": "measured",
-      "evidence": "llm-cost estimate --task qualitative_coding.grounded_theory_verdict (median $0.0038, p90 $0.0111 per call, 55 calls): a verdict over a category's passages; 12 calls x $0.0038"
+      "basis": "computed",
+      "evidence": "12 calls x $0.0038, the measured median per call of llm-cost estimate --task qualitative_coding.grounded_theory_verdict (a verdict over a category's passages; 15,196 input tokens; p90 $0.0111; 55 calls)."
      },
      {
       "step": "S4 Process Tracing draft-audit on one proposition",
       "cost_per_run_usd": 0.04,
       "per": "run",
-      "basis": "measured",
-      "evidence": "llm-cost cost --group-by task, 2026-11-06: process_tracing.draft_audit.* total $0.233 over about 6 runs"
+      "basis": "guess",
+      "evidence": "llm-cost cost --group-by task, 2026-11-06: process_tracing.draft_audit.* total $0.233 (measured); the divisor, about 6 runs, is a guess. Replaced by S4's own run receipt total."
      },
      {
       "step": "S6 rerun of S2 + S3 on the second corpus",
-      "cost_per_run_usd": 0.77,
+      "cost_per_run_usd": 0.74,
       "per": "run",
-      "calls_per_run": 662,
-      "basis": "measured",
-      "evidence": "Sum of the two measured per-call figures above: 650 x $0.0011 + 12 x $0.0038; three runs about $2.31"
+      "calls_per_run": 642,
+      "basis": "computed",
+      "evidence": "630 x $0.0011 + 12 x $0.0038 from the measured per-call figures above, assuming a corpus of similar size; three runs about $2.21. Redone with llm-cost estimate on S2's own task after S2 runs."
      }
     ],
-    "cheapest_design": "One full pass with one model plus a second model only on disagreements, not two full passes; the embedding classifier runs locally at no model cost; S1, S5 and S7 call no model. Quality is not traded: every passage is judged once, every disagreement twice."
+    "cheapest_design": "One call per interviewee turn with the instrument as a cached prefix, and no second model until traces show a gap; the per-interview alternative (one call labels all of an interview's turns) is measured on the tuning interviews and adopted if its agreement is no worse. The dummy, word-list count and TF-IDF regression run locally at no model cost; S1, S5 and S7 call no model. Quality decides between the two, not cost: both are under a dollar per pass."
    }
   },
   "acceptance": {

@@ -13,7 +13,12 @@
   "theory": {
    "label": "Method only",
    "dashed": true,
-   "explain": "A mixed-methods idea the docs name that no code computes yet."
+   "explain": "A mixed-methods idea the docs name that no code computes and no current plan builds."
+  },
+  "planned": {
+   "label": "Planned (Plan #8)",
+   "dashed": true,
+   "explain": "A concept Plan #8 builds; the slice that builds it is named in the glossary. Not computed yet."
   }
  },
  "nodes": [
@@ -27,7 +32,7 @@
    "id": "producer_export",
    "label": "Method export",
    "kind": "concept",
-   "explain": "A producer's strict, versioned export shape (QC, PT or GT-inspired); in this repository it is a synthetic mirror used by the DEMO-C1 fixtures, not the producers' own schema."
+   "explain": "The synthetic mirror of producer export shapes used by the DEMO-C1 fixtures, not any producer's own schema. The real exports Plan #8 reads are separate concepts: Qualitative Coding's grounded-theory export and Process Tracing's pt_export_v2."
   },
   {
    "id": "workbench_view",
@@ -57,13 +62,13 @@
    "id": "evidence_anchor",
    "label": "Evidence anchor",
    "kind": "concept",
-   "explain": "A pointer from a finding to the exact source text that backs it."
+   "explain": "A pointer from a finding to the evidence and source it rests on, by id (evidence_id, source_id); it stores no text span. Anchoring a passage to an exact span of the frozen text is new work in Plan #8 slice S1."
   },
   {
    "id": "publication_gate",
    "label": "Publication gate",
    "kind": "concept",
-   "explain": "The rule that withholds a causal conclusion from publication until a researcher has reviewed it."
+   "explain": "The investigation spine's gate on a Process Tracing return: status accepted or blocked, and a blocked gate withholds the public conclusion while any claim failed review. It does not record that a researcher reviewed the conclusion. PT's own pt_export_v2 gate is a separate field (pt_export)."
   },
   {
    "id": "connected_run_receipt",
@@ -146,8 +151,8 @@
   {
    "id": "meta_inference",
    "label": "Meta-inference",
-   "kind": "theory",
-   "explain": "A bounded conclusion drawn by intentionally joining qualitative and quantitative strands; planned for version 0.4, not computed."
+   "kind": "planned",
+   "explain": "A bounded conclusion drawn by intentionally joining qualitative and quantitative strands."
   },
   {
    "id": "public_review",
@@ -158,26 +163,86 @@
   {
    "id": "study_corpus",
    "label": "Study corpus",
-   "kind": "theory",
-   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date. Planned in Plan #8, not built yet."
+   "kind": "planned",
+   "explain": "A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date."
   },
   {
    "id": "qualitative_strand",
    "label": "Qualitative strand",
-   "kind": "theory",
-   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages. Planned in Plan #8, not built yet."
+   "kind": "planned",
+   "explain": "A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages."
   },
   {
    "id": "measurement_instrument",
    "label": "Measurement instrument",
-   "kind": "theory",
-   "explain": "A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding. Planned in Plan #8, not built yet."
+   "kind": "planned",
+   "explain": "A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding."
   },
   {
    "id": "joint_display",
    "label": "Joint display",
-   "kind": "theory",
-   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict. Planned in Plan #8, not built yet."
+   "kind": "planned",
+   "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict."
+  },
+  {
+   "id": "study_definition",
+   "label": "Study definition",
+   "kind": "planned",
+   "explain": "One file per study naming its source record, file pattern, the authors' coding columns and the producer export paths; adding a study adds this file and frozen data, never code. Plan #8 S1."
+  },
+  {
+   "id": "qc_theory_export",
+   "label": "Qualitative Coding theory export",
+   "kind": "planned",
+   "explain": "Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. Read in Plan #8 S1."
+  },
+  {
+   "id": "author_coding",
+   "label": "Authors' reference coding",
+   "kind": "planned",
+   "explain": "The corpus authors' own published coding (here 837 passages under 39 codes exported from OpenQDA), located in the frozen text by their words and used as the human reference for every strand. Plan #8 S1."
+  },
+  {
+   "id": "measured_result",
+   "label": "Measured result",
+   "kind": "planned",
+   "explain": "One measure's labels per unit, its per-class agreement and prevalence error on named held-out interviews, its interval by interview and its controls. Plan #8 S2."
+  },
+  {
+   "id": "pt_export",
+   "label": "Process Tracing export (pt_export_v2)",
+   "kind": "concept",
+   "explain": "Process Tracing's versioned export, read here by ProcessTracingExport; its own publication_gate.publishable field is read from Plan #8 S4."
+  },
+  {
+   "id": "investigation_record",
+   "label": "Investigation record",
+   "kind": "planned",
+   "explain": "One study's question, evidence, method runs, findings, unresolved questions, reviews and next actions kept together (the evidence-to-action map's investigation spine), general over studies. Plan #8 S5; today only the PsychosisBank investigation, hard-coded."
+  },
+  {
+   "id": "review_decision",
+   "label": "Review decision",
+   "kind": "planned",
+   "explain": "A person's accept, reject or annotation of one meta-inference, saved with time and reviewer, appended to the review log. Plan #8 S5."
+  },
+  {
+   "id": "research_bundle",
+   "label": "Research bundle",
+   "kind": "planned",
+   "explain": "One download of a study: corpus manifest, strand exports, joint display, review decisions, reflexivity memo, traces and a reporting checklist, each listed with its hash. Plan #8 S5."
+  },
+  {
+   "id": "planted_failure",
+   "label": "Planted failure",
+   "kind": "planned",
+   "explain": "A deliberate fault (an altered quote, a wrong-interview passage, a swapped label, a fabricated id) the checks must catch. Plan #8 S1 and S6."
+  },
+  {
+   "id": "benchmark",
+   "label": "Benchmark",
+   "kind": "planned",
+   "explain": "The page comparing both corpora: each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and the files each corpus's addition changed. Plan #8 S6."
   }
  ],
  "edges": [
@@ -354,6 +419,120 @@
    "source": "meta_inference",
    "target": "joint_display",
    "label": "is drawn from"
+  },
+  {
+   "id": "e30",
+   "source": "study_definition",
+   "target": "study_corpus",
+   "label": "defines"
+  },
+  {
+   "id": "e31",
+   "source": "study_corpus",
+   "target": "author_coding",
+   "label": "is the source of"
+  },
+  {
+   "id": "e32",
+   "source": "qc_theory_export",
+   "target": "qualitative_strand",
+   "label": "is read as"
+  },
+  {
+   "id": "e33",
+   "source": "producer_engine",
+   "target": "qc_theory_export",
+   "label": "emits"
+  },
+  {
+   "id": "e34",
+   "source": "producer_engine",
+   "target": "pt_export",
+   "label": "emits"
+  },
+  {
+   "id": "e35",
+   "source": "author_coding",
+   "target": "measured_result",
+   "label": "is the reference for"
+  },
+  {
+   "id": "e36",
+   "source": "measurement_instrument",
+   "target": "measured_result",
+   "label": "produces"
+  },
+  {
+   "id": "e37",
+   "source": "measured_result",
+   "target": "joint_display",
+   "label": "feeds"
+  },
+  {
+   "id": "e38",
+   "source": "verification_challenge",
+   "target": "meta_inference",
+   "label": "challenges"
+  },
+  {
+   "id": "e39",
+   "source": "pt_export",
+   "target": "publication_gate",
+   "label": "is held by"
+  },
+  {
+   "id": "e40",
+   "source": "connected_run_receipt",
+   "target": "pt_export",
+   "label": "records"
+  },
+  {
+   "id": "e41",
+   "source": "investigation_record",
+   "target": "joint_display",
+   "label": "keeps"
+  },
+  {
+   "id": "e42",
+   "source": "investigation_record",
+   "target": "review_decision",
+   "label": "keeps"
+  },
+  {
+   "id": "e43",
+   "source": "review_decision",
+   "target": "meta_inference",
+   "label": "is about"
+  },
+  {
+   "id": "e44",
+   "source": "research_bundle",
+   "target": "investigation_record",
+   "label": "packages"
+  },
+  {
+   "id": "e45",
+   "source": "planted_failure",
+   "target": "benchmark",
+   "label": "is caught in"
+  },
+  {
+   "id": "e46",
+   "source": "benchmark",
+   "target": "study_corpus",
+   "label": "compares"
+  },
+  {
+   "id": "e47",
+   "source": "method_profile",
+   "target": "investigation_record",
+   "label": "states what runs in"
+  },
+  {
+   "id": "e48",
+   "source": "public_review",
+   "target": "investigation_record",
+   "label": "is one instance of"
   }
  ]
 }

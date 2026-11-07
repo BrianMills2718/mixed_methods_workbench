@@ -1,7 +1,7 @@
 {
  "schema_version": "1.0",
  "record_type": "acceptance_criteria",
- "outcome": "The Mixed Methods Workbench is finished to 1.0 as a general tool in Brian's broader vision, not for one use case: on two rights-clear interview corpora a person can open a study page, follow every qualitative claim to its passage, see a quantitative strand measured and checked against the authors' own coding, read a joint display with bounded meta-inferences and a gated causal check, review and export everything with full traces, and read on a benchmark page what works, what fails and what it cost. The public PsychosisBank review stays served from committed files.",
+ "outcome": "The Mixed Methods Workbench is finished to 1.0 as a general tool in Brian's broader vision, not for one use case: each study is one investigation record, as the repository's evidence-to-action product map describes, and on two rights-clear interview corpora a person can open that record, follow every qualitative claim to its passage, see a quantitative strand measured and checked against the authors' own coding, read a joint display with bounded meta-inferences and a gated causal check, review and export everything with full traces, and read on a benchmark page what works, what fails and what it cost. The public PsychosisBank review stays served from committed files.",
  "entries": [
   {
    "id": "A1",
@@ -25,7 +25,7 @@
    "id": "A2",
    "criterion": "I can see which method steps the crosswalk found shared across methods, and why",
    "demonstration": [
-    "Open the crosswalk page (planned: a table rendered from docs/research/method_decomposition/phase5/adjudication.yaml; until then the file on GitHub)",
+    "Open the crosswalk page (built in slice S7, a table rendered from docs/research/method_decomposition/phase5/adjudication.yaml; until then the file on GitHub)",
     "Read the table of groups, one row per group of steps from two or more methods",
     "Open one row's justification"
    ],
@@ -42,7 +42,7 @@
    "id": "A3",
    "criterion": "I can open the study page for a general example corpus and follow each qualitative claim back to the interview passage it rests on, and see the corpus is frozen with its licence",
    "demonstration": [
-    "Open proposals/open-science-study/index.html (committed; served locally with `make study-page`)",
+    "Open the study page's address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots)",
     "Read the corpus panel: 26 interviews, licence CC BY-SA 4.0, each file's hash status",
     "Click a category, then one of its supporting passages",
     "Read the passage in its interview, with its speaker and the author's own codes for that span"
@@ -60,13 +60,14 @@
    "id": "A4",
    "criterion": "I can see one category measured across every interview, and how well that measure agrees with the author's own coding on interviews it was not tuned on",
    "demonstration": [
-    "Open the study page's Measurement tab",
-    "Read the instrument: the rule and its included and excluded examples",
-    "Read the per-interview measure and the agreement figure with its interval",
-    "Click a disagreement and read the passage, the model's quoted reason and the author's code"
+    "Open the study page's Measurement tab (the study page's address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots))",
+    "Read the feasibility readout and the instrument: the rule and its included and excluded examples",
+    "Read the table of measures: always-majority, word-list count, TF-IDF regression and the language model, each with per-class agreement, prevalence error and its interval by interview",
+    "Read which interviews tuned each measure and which tested it, and the shuffled-label control row",
+    "Click a disagreement and read the turn, the model's quoted reason and the author's code"
    ],
-   "expected": "Agreement is shown with a bootstrap interval by interview and the count of held-out interviews; every disagreement is listed and opens its passage and its model trace.",
-   "failure_example": "Agreement computed on the same interviews used to tune the rule: the page must say 'held out: 0' and refuse to show a figure.",
+   "expected": "Every figure names its held-out interviews, none of which tuned it; the shuffled-label control sits near chance and the always-majority row shows its null; prevalence error is shown beside agreement (never accuracy alone); every disagreement opens its turn and its model trace.",
+   "failure_example": "A build that let tuning see the held-out interviews: the page shows an interview on both the tuned and tested lists in orange and refuses the figure; or the shuffled-label control scores well above chance, shown in orange, which means the measure is reading something other than the construct.",
    "representation": {
     "view": "data-table",
     "router_record": "docs/planning/router/A4.recommendation.json"
@@ -112,7 +113,7 @@
    "id": "A7",
    "criterion": "I can accept, reject or annotate each meta-inference, see it saved, and download one bundle with every trace",
    "demonstration": [
-    "Run `make study-workbench` and open the local address it prints",
+    "Open the study workbench (the study workbench's address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots))",
     "Accept one meta-inference and reject another with a note",
     "Reload the page",
     "Click 'Download bundle' and open its manifest"
@@ -166,14 +167,32 @@
    "criterion": "I can point the workbench at a corpus it has never seen and get the same study page, without anyone changing its code",
    "demonstration": [
     "Open the benchmark page's 'corpora' list and the second corpus's study page",
-    "Open the second corpus's study definition file (the only file added for it)",
-    "Read the commit that added the corpus: it changes no file under src/"
+    "Read, for each corpus, the line 'files changed to add this corpus'",
+    "Open the second corpus's study definition file (the only file added for it) from its link"
    ],
-   "expected": "The second corpus's study page has the same panels as the first; it was added by one study definition file plus frozen data; the page states which corpus fields were required and which were optional.",
-   "failure_example": "A corpus name, file layout or code list written into the workbench's code: the commit adding the second corpus touches src/, and the benchmark page shows that commit in orange.",
+   "expected": "The second corpus's study page has the same panels as the first; its line reads 'data only' in blue (one study definition file plus frozen data); the page states which corpus fields were required and which were optional, and on what the second corpus differs from the first.",
+   "failure_example": "A corpus name, file layout or code list written into the workbench's code: the 'files changed' line lists a code path in orange instead of 'data only'.",
    "representation": {
     "view": "data-table",
     "router_record": "docs/planning/router/A10.recommendation.json"
+   },
+   "entrypoint": "planned",
+   "status": "not built"
+  },
+  {
+   "id": "A11",
+   "criterion": "Each study is one record I can open that keeps its question, evidence, method runs, findings, unresolved questions, reviews and next actions together, and the PsychosisBank investigation is one of them, not a separate destination",
+   "demonstration": [
+    "Open the workbench's study list (its address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots))",
+    "Open the Open Science study, then the PsychosisBank investigation",
+    "In each, read the question, then follow one finding to its evidence, the method run that produced it and its review decision",
+    "Read the unresolved questions and next actions"
+   ],
+   "expected": "Both studies open in the same record layout with the same seven parts; each finding links its evidence, its run receipt and its review state; the PsychosisBank public page still shows the same content.",
+   "failure_example": "The PsychosisBank investigation still opens as its own one-off page with a different layout, or a finding shows no run or review link: the record is not general.",
+   "representation": {
+    "view": "schema-explorer",
+    "router_record": "docs/planning/router/A11.recommendation.json"
    },
    "entrypoint": "planned",
    "status": "not built"
@@ -189,24 +208,25 @@
  ],
  "coverage": {
   "model": "claude-code/sonnet",
-  "judged_at": "2026-11-06T19:32:38-0500",
+  "judged_at": "2026-11-06T19:53:17-0500",
   "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
-  "criteria_sha256": "8c5ec7d2c4dd4da4d93b79f6596f198d1c12cdc7239b378c20c6d3c0da7d9ab2",
-  "outcome_sha256": "02446b3a799ffa6538ac193c52ec9cec7b207122f5b63da2ca4eaf10a3ea776d",
+  "criteria_sha256": "74214355d1e1b98c323287a45dc01c544ca564922834c91b0d2d17f4b23563d6",
+  "outcome_sha256": "d76e82bd82271b94640b93f9922958ebc1740faaf7ed23a26309345357dbdb92",
   "criteria_judged": {
    "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
-   "A2": "1c9bf559d2b6462c632f8915da35f11112c10f32394ebb8a7aa4e70509d204ff",
-   "A3": "677a95b37bce8f8fcd6b3c8917804567e9276b22cedbcbe95c329ac1a5681b11",
-   "A4": "926f227b236ce9ead6f2adb3a297b346e7f91e4bcc5a416ba1a22135a9331fae",
+   "A2": "d460c58369d08b270e9cc52cca2ccab248f9e07938b1814590016b67eabd4bd6",
+   "A3": "a5c98a3dbc08c6f63150ae182e393dbca0c4a54d00fbb266e60a9df1c98fe26b",
+   "A4": "991e76b61deb132024c3860bafd0bf5b4ebc73e828ac315d2f00fa17cbade772",
    "A5": "da6f2de9556587a7d6b69d83fa0ae5e72ab7580fcca18845d5a6accaf1d851ec",
    "A6": "d1889f56f60109ac3de05579d4de0a3e264e23166950397bc8734371b992fb5a",
-   "A7": "493f730dec2222dc9b2751d405317acb1eec68f177085f8587fb6114823ccdf5",
+   "A7": "d2658c9ecbdc6ac0f9ae4d6e724508fcddee7392507097b329f1fc63fd25d842",
    "A8": "b109a30047eb40383493517a6c0094e5c6008dab07d6891094675c781735960d",
    "A9": "456278786bbe58c8bb8375c3937ea509d6d8e542d182e3c29d9f2bb727d95a8a",
-   "A10": "6a739d31054a535ece27f7a5f8dfb9eba76a87bc5096e550b6393bea777cbbb1"
+   "A10": "25d447717f83ecaa0668e5460b51e639564d2bac6ff8a9fff94986ced59b27b7",
+   "A11": "fb66f1d5335651e3fc0e726ab8ab4ee8aeb09c39e2917f3544594adf4e092dfb"
   },
   "deferrals_judged": [],
-  "trace_id": "planning-compliance/goal-coverage/20261106T193132-13989ac2",
+  "trace_id": "planning-compliance/goal-coverage/20261106T195204-afc075e0",
   "cost_usd": 0.0,
   "requirements": [
    {
@@ -244,37 +264,39 @@
      "A7",
      "A8",
      "A9",
-     "A10"
+     "A10",
+     "A11"
     ],
-    "coverage_reason": "All ten criteria test a distinct deliverable strand of the workbench; leaving any strand unbuilt fails the criterion that covers it, so together they would fail if the workbench were not finished.",
+    "coverage_reason": "All eleven criteria test distinct capabilities of the workbench; together they define what 'finished' means and each would fail if the corresponding capability were absent.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome says 'finished to 1.0' and enumerates every deliverable strand, keeping the requirement in full."
+    "outcome_reason": "The OUTCOME line says 'is finished to 1.0' and enumerates the capabilities that constitute being finished."
    },
    {
     "requirement_id": "R2",
     "covered_by": [
      "A8",
-     "A10"
+     "A10",
+     "A11"
     ],
-    "coverage_reason": "A10 requires the workbench to accept a never-seen corpus with no code changes — it fails if the tool is hard-coded to one use case; A8 requires correct results on two distinct corpora, failing if only one is wired in.",
+    "coverage_reason": "A10 requires the workbench to accept a new corpus without any code changes ('data only'); A8 requires measures on two different corpora on the benchmark page; A11 requires both studies to open in the same seven-part layout — all three would fail if the workbench were hardcoded for one use case.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "Non-outcome kind; in_outcome is true by convention."
+    "outcome_reason": "The OUTCOME line says 'as a general tool in Brian's broader vision, not for one use case', keeping the constraint."
    },
    {
     "requirement_id": "R3",
     "covered_by": [],
-    "coverage_reason": "No working interface can demonstrate that a tool is part of a person's broader vision; this is a planning-context statement, not a property of the delivered product.",
+    "coverage_reason": "No running interface can demonstrate that work belongs to a broader vision; this is a statement of intent, not a testable property of the delivered system.",
     "extent": "none",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "Non-outcome kind; in_outcome is true by convention."
+    "outcome_reason": "The OUTCOME line repeats 'in Brian's broader vision' but that phrase is decorative — no criterion tests it."
    }
   ],
   "trace": "coverage-trace.json"

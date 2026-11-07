@@ -2,18 +2,18 @@
 
 The concepts this repository is about, what each means and where it is defined. The graph is
 [domain.graph.json](domain.graph.json). Dashed concepts are not implemented here: producers run in
-their own repositories, meta-inference is named by the method but not computed, and the Plan #8 concepts (study corpus, qualitative strand, measurement instrument, joint display) are planned, not built.
+their own repositories, and the Plan #8 concepts are planned, each with the slice that builds it.
 
 | Concept (node id) | Meaning | Status | Source |
 | --- | --- | --- | --- |
-| Method engine (producer) (`producer_engine`) | A method repository (qualitative_coding, process_tracing) that runs its own method and owns its strict export schema. | in producer repositories | `AGENTS.md:81` |
-| Method export (`producer_export`) | A producer's strict, versioned export shape (QC, PT or GT-inspired); in this repository it is a synthetic mirror used by the DEMO-C1 fixtures, not the producers' own schema. | implemented | `src/mixed_methods_workbench/models.py:268` |
+| Method engine (producer) (`producer_engine`) | A method repository (qualitative_coding, process_tracing) that runs its own method and owns its strict export schema. | in producer repositories | `AGENTS.md:88` |
+| Method export (`producer_export`) | The synthetic mirror of producer export shapes used by the DEMO-C1 fixtures, not any producer's own schema. The real exports Plan #8 reads are separate concepts: Qualitative Coding's grounded-theory export and Process Tracing's pt_export_v2. | implemented | `src/mixed_methods_workbench/models.py:268` |
 | Workbench consumer view (`workbench_view`) | The workbench's permissive, compatible reading of a producer export; it fails on an unsupported major version. | implemented | `src/mixed_methods_workbench/models.py:438` |
 | Source segment (`source_segment`) | An exact span of a source document that evidence points to. | implemented | `src/mixed_methods_workbench/models.py:98` |
 | Cross-method link (`cross_method_link`) | A typed link between objects from two methods' exports. | implemented | `src/mixed_methods_workbench/models.py:505` |
 | Review packet (`review_packet`) | What a reviewer reads: the assembled exports, links and claim limits for one demonstration. | implemented | `src/mixed_methods_workbench/models.py:523` |
-| Evidence anchor (`evidence_anchor`) | A pointer from a finding to the exact source text that backs it. | implemented | `src/mixed_methods_workbench/investigation_spine.py:127` |
-| Publication gate (`publication_gate`) | The rule that withholds a causal conclusion from publication until a researcher has reviewed it. | implemented | `src/mixed_methods_workbench/investigation_spine.py:160` |
+| Evidence anchor (`evidence_anchor`) | A pointer from a finding to the evidence and source it rests on, by id (evidence_id, source_id); it stores no text span. Anchoring a passage to an exact span of the frozen text is new work in Plan #8 slice S1. | implemented | `src/mixed_methods_workbench/investigation_spine.py:127` |
+| Publication gate (`publication_gate`) | The investigation spine's gate on a Process Tracing return: status accepted or blocked, and a blocked gate withholds the public conclusion while any claim failed review. It does not record that a researcher reviewed the conclusion. PT's own pt_export_v2 gate is a separate field (pt_export). | implemented | `src/mixed_methods_workbench/investigation_spine.py:160` |
 | Connected run receipt (`connected_run_receipt`) | The record of one run across producers: inputs, attempts, where it stopped and the trace ids. | implemented | `src/mixed_methods_workbench/investigation_run.py:124` |
 | Independent challenge (`verification_challenge`) | A second model's advisory challenge to one finding, with the excerpts it saw. | implemented | `src/mixed_methods_workbench/investigation_verification.py:42` |
 | Method profile (`method_profile`) | A method's description for question-first routing on the method dashboard. | implemented | `src/mixed_methods_workbench/method_dashboard.py:118` |
@@ -27,12 +27,25 @@ their own repositories, meta-inference is named by the method but not computed, 
 | Capability verdict (`capability_verdict`) | The section-10 verdict on a collision group: same_capability, shared_shell or different_capability, with its justification. | implemented | `scripts/crosswalk_phase4.py:144` |
 | Guarded decision (`guarded_decision`) | A decision request checked against bound artifacts, evidence and policy before it returns an outcome. | implemented | `src/mixed_methods_workbench/guarded_decision/models.py:175` |
 | Quantitative audit (`quantitative_audit`) | The NYC bounded quantitative comparison: frozen query, drift replay and predicted-versus-observed audit. | implemented | `src/mixed_methods_workbench/nyc_crz_quantitative.py:193` |
-| Meta-inference (`meta_inference`) | A bounded conclusion drawn by intentionally joining qualitative and quantitative strands; planned for version 0.4, not computed. | docs only | `AGENTS.md:104` |
-| Public review artifact (`public_review`) | The investigation-spine payload and page that `scripts/build_psychosisbank_public_review.py:16` copies into `deploy/` and the Cloudflare Worker serves. | implemented | `src/mixed_methods_workbench/investigation_spine.py:278` |
+| Meta-inference (`meta_inference`) | A bounded conclusion drawn by intentionally joining qualitative and quantitative strands. | planned (Plan #8) | `AGENTS.md:111` |
+| Public review artifact (`public_review`) | The investigation-spine payload and page that scripts/build_psychosisbank_public_review.py copies into deploy/ and the Cloudflare Worker serves. | implemented | `src/mixed_methods_workbench/investigation_spine.py:278` |
 | Study corpus (`study_corpus`) | A set of source documents frozen for one study: each file's hash checked against its published source, with its licence, consent and retrieval date. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:64` |
-| Qualitative strand (`qualitative_strand`) | A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:53` |
-| Measurement instrument (`measurement_instrument`) | A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:79` |
-| Joint display (`joint_display`) | One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:55` |
+| Qualitative strand (`qualitative_strand`) | A producer's qualitative result (QC's grounded-theory categories and propositions) read into the study, every claim tied to its passages. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:64` |
+| Measurement instrument (`measurement_instrument`) | A qualitative category turned into a rule applied to every passage, with included and excluded examples, so it can be counted and checked against human coding. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:65` |
+| Joint display (`joint_display`) | One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:66` |
+| Study definition (`study_definition`) | One file per study naming its source record, file pattern, the authors' coding columns and the producer export paths; adding a study adds this file and frozen data, never code. Plan #8 S1. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:74` |
+| Qualitative Coding theory export (`qc_theory_export`) | Qualitative Coding's grounded-theory result (schema major 3: categories, propositions, the segment ids each rests on) with its segment records, pinned by commit and sha256. Read in Plan #8 S1. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:79` |
+| Authors' reference coding (`author_coding`) | The corpus authors' own published coding (here 837 passages under 39 codes exported from OpenQDA), located in the frozen text by their words and used as the human reference for every strand. Plan #8 S1. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:47` |
+| Measured result (`measured_result`) | One measure's labels per unit, its per-class agreement and prevalence error on named held-out interviews, its interval by interview and its controls. Plan #8 S2. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:116` |
+| Process Tracing export (pt_export_v2) (`pt_export`) | Process Tracing's versioned export, read here by ProcessTracingExport; its own publication_gate.publishable field is read from Plan #8 S4. | implemented | `src/mixed_methods_workbench/investigation_run.py:100` |
+| Investigation record (`investigation_record`) | One study's question, evidence, method runs, findings, unresolved questions, reviews and next actions kept together (the evidence-to-action map's investigation spine), general over studies. Plan #8 S5; today only the PsychosisBank investigation, hard-coded. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:68` |
+| Review decision (`review_decision`) | A person's accept, reject or annotation of one meta-inference, saved with time and reviewer, appended to the review log. Plan #8 S5. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:68` |
+| Research bundle (`research_bundle`) | One download of a study: corpus manifest, strand exports, joint display, review decisions, reflexivity memo, traces and a reporting checklist, each listed with its hash. Plan #8 S5. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:68` |
+| Planted failure (`planted_failure`) | A deliberate fault (an altered quote, a wrong-interview passage, a swapped label, a fabricated id) the checks must catch. Plan #8 S1 and S6. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:69` |
+| Benchmark (`benchmark`) | The page comparing both corpora: each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and the files each corpus's addition changed. Plan #8 S6. | planned (Plan #8) | `docs/plans/008_finish_workbench.md:69` |
 
 "Method" is ambiguous here: a research method (qualitative coding, process tracing) or a method
 decomposition record. The decomposition is always called a decomposition.
+
+"Passage" is ambiguous too: a cited passage is a Qualitative Coding segment (one speaker turn); an author passage is a span of
+the authors' own coding, any length, often overlapping others. Plan #8 S2 measures interviewee turns.

@@ -8,7 +8,7 @@
    "found": [
     "README.md:7",
     "AGENTS.md:16",
-    "wiki/index.md:22",
+    "wiki/index.md:23",
     "docs/PLANNING_STATUS.md:6",
     "docs/ARCHITECTURE.md:135",
     "docs/plans/006_method_crosswalk.md:1"
@@ -144,7 +144,7 @@
    "id": "F5",
    "claim": "wiki/index.md routes a reader to the documentation; it says there is no declared roadmap",
    "evidence": [
-    "wiki/index.md:22",
+    "wiki/index.md:23",
     "docs/ROADMAP.md",
     "docs/planning/checks.txt"
    ],
@@ -251,11 +251,47 @@
    "id": "F15",
    "claim": "A second rights-clear corpus with its authors' own coding is identified for the benchmark",
    "evidence": [
-    "docs/plans/008_finish_workbench.md:42"
+    "docs/plans/008_finish_workbench.md:53"
    ],
    "verdict": "unknown",
    "question_id": "Q13",
-   "note": "Chosen in S6."
+   "note": "Chosen in S6 under Q19's rule: it must differ in subject, research team and coding tool or export format."
+  },
+  {
+   "id": "F16",
+   "claim": "The repository already decided how the first quantitative-text strand must be validated",
+   "evidence": [
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:18",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:22",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118"
+   ],
+   "verdict": "holds",
+   "question_id": "Q16",
+   "note": "Word-list count baseline mandatory; dummy and TF-IDF baselines; language model a challenger; feasibility readout first; accuracy alone prohibited. Plan #8 S2 adopts all of it."
+  },
+  {
+   "id": "F17",
+   "claim": "The workbench owns one general investigation record that keeps a study's question, evidence, runs, findings, reviews and next actions together",
+   "evidence": [
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:66",
+    "src/mixed_methods_workbench/investigation_spine.py:280"
+   ],
+   "verdict": "fails",
+   "question_id": "Q18",
+   "note": "The map makes it the product's centre; the only implementation is hard-coded to the PsychosisBank investigation (investigation_id is a fixed literal)."
+  },
+  {
+   "id": "F18",
+   "claim": "Process Tracing's pt_export_v2 carries a publication gate the workbench can require before showing a causal conclusion",
+   "evidence": [
+    "/home/brian/code2/process_tracing/pt/export.py:598",
+    "/home/brian/code2/process_tracing/pt/export.py:648",
+    "src/mixed_methods_workbench/investigation_run.py:72"
+   ],
+   "verdict": "holds",
+   "question_id": "Q1",
+   "note": "PublicationGateV2.publishable exists in PT; the workbench's current pt_export_v2 reader reads only comparative_conclusion.public_headline_eligible, so S4 extends it."
   }
  ],
  "cost": {

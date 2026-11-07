@@ -1,8 +1,8 @@
 {
  "title": "Mixed Methods Workbench",
- "north_star": "Brian, 2026-11-06: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". Finish the workbench to 1.0 as a general tool: a governed corpus, a qualitative strand read from Qualitative Coding, a quantitative strand checked against human coding, a joint display with bounded meta-inference, a gated causal check, review and export, proven on two rights-clear corpora (docs/plans/008_finish_workbench.md).",
- "thesis": "Methods stay in their own repositories; the workbench freezes the corpus, reads each method's export, owns the narrow quantitative adapter no repository has, and joins the strands with every claim traceable to its passage.",
- "disproof": "On a second rights-clear corpus added without code changes, the quantitative strand fails to agree with the authors' coding beyond chance, or the planted failures pass the checks unnoticed.",
+ "north_star": "Brian, 2026-11-06: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The direction: a general mixed-methods workbench in his evidence-to-action product, where each study is one investigation record and every joined claim can be followed to its passage, while each method stays in its own repository.",
+ "thesis": "Integration is the workbench's own value: given only a study definition and the producers' exports, it can join a qualitative and a quantitative strand into bounded meta-inferences that agree with the corpus authors' own coding where they should, and that catch planted faults, without any method being rebuilt here.",
+ "disproof": "On a second rights-clear corpus that differs in subject, team and coding tool, added with data only, the joined strands disagree with the authors' coding no better than the shuffled-label control, the planted faults pass unnoticed, or adding the corpus needs code written for it.",
  "not_for": "Running a qualitative method inside the workbench, a universal schema or method planner, contacting corpus authors, or publishing an unreviewed causal conclusion.",
  "links": [
   {

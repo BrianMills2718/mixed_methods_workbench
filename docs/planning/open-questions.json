@@ -42,15 +42,16 @@
   {
    "id": "Q3",
    "short": "Wiki over cap and unreachable",
-   "question": "122 Markdown files exceed the 100 cap and 108 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
+   "question": "128 tracked Markdown files exceed the 100 cap and most are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
    "blocks": "wiki compliance for this repository",
-   "resolves_with": "Argument from reading: wiki/index.md is generated (wiki/index.md:24), so declare the native documents (with Q2's .agentic/repo.yaml) and rerun project-meta's generate_wiki_routing_stub.py rather than hand-editing it; declare a cap exception for the frozen research records under docs/research.",
+   "resolves_with": "Argument from reading: wiki/index.md is generated (wiki/index.md:25 says not to hand-edit it), and its generator (project-meta scripts/generate_wiki_routing_stub.py, NATIVE_SURFACES) knows docs/ROADMAP.md but not docs/index.md, the code2 reading-order entry. Root-cause fix: add docs/index.md to the generator's native surfaces and rerun it (filed as BrianMills2718/project-meta#2716); until then the one hand-added 'Read next' line (wiki/index.md:17) is the declared workaround. Declare a cap exception for the frozen research records under docs/research.",
    "owner": "agent",
    "status": "open",
    "sources": [
     "docs/planning/checks.txt:15",
-    "wiki/index.md:22",
-    "wiki/index.md:24"
+    "wiki/index.md:17",
+    "wiki/index.md:23",
+    "wiki/index.md:25"
    ],
    "touches": [
     "method_decomposition"
@@ -83,7 +84,7 @@
    "status": "resolved",
    "sources": [
     "deploy/psychosisbank-review/wrangler.jsonc:2",
-    "docs/plans/007_keep_shippable.md:21"
+    "docs/plans/007_keep_shippable.md:18"
    ],
    "touches": [
     "public_review",
@@ -116,7 +117,7 @@
    "resolves_with": "Running it: uv sync --all-extras and make check.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "b9bf498 resolves data_contracts from the local checkout and adds a mypy override for llm_client (issue #46); docs/planning/checks.txt: make check exit 0, pytest 202 passed, 1 skipped.",
+   "evidence": "b9bf498 resolves data_contracts from the local checkout and adds a mypy override for llm_client (issue #46); docs/planning/checks.txt: make check exit 0, pytest 203 passed, 1 skipped.",
    "sources": [
     "Makefile:47",
     "README.md:7"
@@ -188,7 +189,7 @@
    "default": "Both pages stay committed and local; each slice report carries screenshots and the GitHub path.",
    "answer_words": "\"hive yes\" / \"worker\" / \"local only\"",
    "sources": [
-    "docs/plans/008_finish_workbench.md:150",
+    "docs/plans/008_finish_workbench.md:210",
     "deploy/psychosisbank-review/worker.js:4"
    ],
    "touches": [
@@ -209,7 +210,7 @@
    "default": "The recommendation: the 1.0 claim is limited to agreement with the authors' coding.",
    "answer_words": "\"author coding is enough\" / \"need a researcher\"",
    "sources": [
-    "docs/plans/008_finish_workbench.md:32",
+    "docs/plans/008_finish_workbench.md:42",
     "docs/ROADMAP.md:85"
    ],
    "touches": [
@@ -226,7 +227,7 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:42"
+    "docs/plans/008_finish_workbench.md:53"
    ],
    "touches": [
     "study_corpus"
@@ -241,7 +242,7 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:67"
+    "docs/plans/008_finish_workbench.md:80"
    ],
    "touches": [
     "source_segment",
@@ -257,12 +258,93 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:78",
+    "docs/plans/008_finish_workbench.md:102",
     "docs/ROADMAP.md:349"
    ],
    "touches": [
     "measurement_instrument",
     "qualitative_strand"
+   ]
+  },
+  {
+   "id": "Q16",
+   "short": "S2 keeps the quantitative-strand brief",
+   "question": "Does S2 keep every condition of the repository's 2026-07-12 quantitative-strand brief (word-list count baseline, always-majority and TF-IDF baselines, the language model as a challenger, no embedding or topic output as the first measure, a feasibility readout before choosing the instrument, prevalence error because accuracy alone is prohibited, grouped splits with no turn-level intervals), and how are the cases a second model re-judges chosen?",
+   "blocks": "S2's design and acceptance A4",
+   "resolves_with": "Argument, no test: the brief is the repository's own reviewed method decision and Plan #8 states no reason to drop any condition, so all are adopted (plan S2). The second model is removed from S2; if traces later show a gap, the cases it re-judges are chosen without the author's codes (for example where the language model and the regression disagree), so agreement with her coding is never inflated by giving only the misses a second chance.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "docs/plans/008_finish_workbench.md:109 and :121 now carry each condition; the brief's conditions are at docs/decisions/2026-07-12-first-quantitative-text-strand.md:18, :22 and :118.",
+   "sources": [
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:18",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:22",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118",
+    "docs/plans/008_finish_workbench.md:109",
+    "docs/plans/008_finish_workbench.md:121"
+   ],
+   "touches": [
+    "measurement_instrument",
+    "measured_result",
+    "author_coding"
+   ]
+  },
+  {
+   "id": "Q17",
+   "short": "S2's unit of analysis",
+   "question": "What unit does S2 label, and how do the author's coded passages (variable length, overlapping, exported from OpenQDA) map onto it?",
+   "blocks": "S2's denominator, its reference labels and its splits",
+   "resolves_with": "Argument from the data, no test: the unit is one interviewee turn as Qualitative Coding segmented it, so the qualitative and quantitative strands share one unit and every label opens a passage QC already anchors. A turn is a positive reference case when any author passage with the matching code overlaps it; passages that touch only interviewer turns are counted and listed. Counted on the frozen S1 files (study_workbench.py's anchoring): 630 interviewee turns of 1277 segments; of the author's 830 located passages, 717 lie within one interviewee turn, 75 span two or more and 38 touch only interviewer turns; 481 turns carry at least one author code. The interview is the independent group for splits, intervals and prevalence.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:95.",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:95",
+    "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118"
+   ],
+   "touches": [
+    "source_segment",
+    "author_coding",
+    "measurement_instrument"
+   ]
+  },
+  {
+   "id": "Q18",
+   "short": "Is the 1.0 study the general investigation record",
+   "question": "Brian's \"it is part of my broader vision\": is the 1.0 study the general form of the workbench's investigation record from the Evidence-to-Action product map (one record per study keeping question, evidence, method runs, findings, unresolved questions, reviews and next actions), with the PsychosisBank investigation rebuilt as one instance of it?",
+   "blocks": "S5's shape and acceptance A11",
+   "resolves_with": "A product call about what his vision means: the repository's own map argues for it (one workbench-owned investigation spine; separate destinations named as the defect), but only Brian can say that map is the vision he meant.",
+   "owner": "brian",
+   "status": "open",
+   "blocking": false,
+   "recommendation": "Yes: each study is one investigation record built from its study definition, and S5 makes the PsychosisBank investigation one instance of it.",
+   "default": "The recommendation; Plan #8 proceeds with one investigation record per study.",
+   "answer_words": "\"one record yes\" / \"separate pages\"",
+   "sources": [
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:15",
+    "docs/EVIDENCE_TO_ACTION_PRODUCT_INTEGRATION_MAP.md:66",
+    "src/mixed_methods_workbench/investigation_spine.py:280",
+    "docs/plans/008_finish_workbench.md:18"
+   ],
+   "touches": [
+    "investigation_record",
+    "public_review"
+   ]
+  },
+  {
+   "id": "Q19",
+   "short": "How the second corpus must differ",
+   "question": "On what must S6's second corpus differ from the first so that passing on it shows the workbench is general?",
+   "blocks": "S6 and the 'not for a specific use case' claim (acceptance A10)",
+   "resolves_with": "Argument, no test: a second set of interviews by the same team, on the same subject, coded in the same tool would show only that the code handles a near-copy. It must differ in subject, in research team and in coding tool or export format; if no published corpus meets all three, the benchmark page states which it shares and narrows the claim to match.",
+   "owner": "agent",
+   "status": "resolved",
+   "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:53 and S6.",
+   "sources": [
+    "docs/plans/008_finish_workbench.md:53"
+   ],
+   "touches": [
+    "study_corpus",
+    "benchmark"
    ]
   }
  ]
