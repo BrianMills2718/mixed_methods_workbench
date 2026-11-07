@@ -17,5 +17,11 @@
    "segments"
   ]
  },
- "text_normalisation": "line endings: CRLF and CR read as LF before offsets are counted"
+ "text_normalisation": "line endings: CRLF and CR read as LF before offsets are counted",
+ "pin_label": {
+  "label": "Qualitative Coding's August 2026 theory (run expansion-4), not its current run",
+  "reason": "Qualitative Coding's status page names a later run as published and says that theory is being revised; it has committed no export of either, so this page keeps the August export it can check.",
+  "repin_when": "When Qualitative Coding commits the revised theory's export in its own repository, this pin moves to it (Plan #8, open question Q26).",
+  "source": "docs/planning/open-questions.json Q26; qualitative_coding docs/CURRENT_STATE_AND_ROADMAP.md:34 and :41-47"
+ }
 }

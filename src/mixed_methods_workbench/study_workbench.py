@@ -504,6 +504,7 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
             "schema_version": gt.schema_version,
             "model": gt.run.model_name,
             "producer_trace_id": gt.run.trace_id,
+            "pin_label": provenance["pin_label"],
             "text_normalisation": provenance["text_normalisation"],
             "core_process": gt.proposal.core_process.model_dump() if gt.proposal.core_process else None,
             "categories": categories,

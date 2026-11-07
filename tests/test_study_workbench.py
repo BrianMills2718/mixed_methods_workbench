@@ -72,6 +72,18 @@ def test_quantitative_and_integration_strands_say_not_built(payload: dict) -> No
     assert status["Quantitative strand"] == status["Joint display and meta-inference"] == "not built"
 
 
+def test_page_labels_the_pinned_producer_run(payload: dict) -> None:
+    """Plan #8 S1 and open question Q26: the August export is named and labelled as not QC's current run."""
+    strand = payload["qualitative_strand"]
+    assert strand["pin_label"]["label"] == (
+        "Qualitative Coding's August 2026 theory (run expansion-4), not its current run"
+    )
+    assert strand["producer_trace_id"].endswith("/expansion-4")
+    assert "Q26" in strand["pin_label"]["repin_when"]
+    template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
+    assert "S.pin_label.label" in template and 'id: "pin-label"' in template
+
+
 def test_unsupported_producer_schema_is_refused() -> None:
     raw = json.loads((STUDY / "qc" / "grounded_theory.json").read_text(encoding="utf-8"))
     assert read_grounded_theory(raw).schema_version == 3
