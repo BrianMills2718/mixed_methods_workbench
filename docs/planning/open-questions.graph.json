@@ -442,7 +442,7 @@
    "id": "pt_export",
    "label": "Process Tracing export (pt_export_v2)",
    "kind": "concept",
-   "explain": "Process Tracing's versioned export, read here by ProcessTracingExport; its own publication_gate.publishable field is read from Plan #8 S4."
+   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport. Plan #8 S4 reads instead the answer path's partial export (provisionally pt_draft_audit_export_v1, never a full V2 claim, no publication gate) through a second, partial reader; publication_gate.publishable is read when present, and shown on two made-up test exports."
   },
   {
    "id": "connected_run_receipt",

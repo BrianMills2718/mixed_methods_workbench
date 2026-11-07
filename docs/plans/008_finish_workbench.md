@@ -75,7 +75,7 @@ Each slice ends with something a person can open and try. Every slice: tests fir
 | S4 | Process Tracing on one proposition | A causal tab: QC handoff → Process Tracing's draft-audit answer path → its partial export, for one proposition in one interview; within-case verdicts shown apart from the measured prevalence, the conclusion "withheld" while no gate allows it, and a "how the gate behaves" panel opening two made-up test exports (one publishable, one blocked) |
 | S5 | Review, provenance and export, on one investigation record | The study page becomes the general investigation record (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), the PsychosisBank investigation rebuilt as one instance of it; accept, reject or annotate each meta-inference and see it saved; write a reflexivity memo; download one research bundle (corpus manifest, strand exports, joint display, decisions, traces, a GRAMMS reporting checklist). Served where open question Q11 says |
 | S6 | Second corpus and benchmark | A benchmark page: both corpora, each strand's agreement with the authors' coding, every planted failure and whether it was caught, cost and time per run, and for each corpus the files its addition changed ("data only" or the code paths, in orange) |
-| S7 | 1.0 release | The method-profile page marks what the workbench runs and what it does not; the crosswalk page (acceptance A2) shows the Plan #6 verdicts; the release bundle lists unsupported methods as prominently as supported ones |
+| S7 | 1.0 release | The method-profile page marks what the workbench runs and what it does not; the crosswalk page (acceptance A2) shows the Plan #6 verdicts; the release bundle lists unsupported methods as prominently as supported ones; a 1.0 readiness page lists every condition of this plan's "finished" bar, the slice that meets it, met or not yet, and a link to where it can be seen |
 
 ### S1 — Governed corpus and qualitative strand
 
@@ -341,7 +341,14 @@ finish).
 
 ### S7 — 1.0 release
 
-- **Build:** method-profile page states supported and unsupported paths; release notes; version tag.
+- **Build:** method-profile page states supported and unsupported paths; a 1.0 readiness page, one row per
+  condition in this plan's "finished" table (the eight rows of the 1.0 definition as kept or changed here),
+  each with the slice that meets it, its acceptance criterion, "met" (blue) or "not yet" (orange) read
+  from that criterion's recorded status and checks, and a link that opens the evidence; a changed condition
+  shows Brian's answer that approved the change (open question Q12) or "awaiting your answer"; at the top,
+  one end-to-end run on the second corpus, from frozen corpus to bundle with no code change, each step's
+  trace openable; 1.0 is tagged only when every row reads "met" and that run passed; release notes; version
+  tag.
 - **Cost:** none (no AI step).
 
 ## Relies on
