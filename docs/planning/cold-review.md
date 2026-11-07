@@ -3,6 +3,23 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 12 (read e75a424): revise
+
+The reviewer found R11-B1 fixed (S1's pin is byte-identical to QC's committed e131eb55 file, the
+construct table reproduces, and QC has committed no newer theory), the unit-of-analysis answer sound and
+notes n-i to n-k fixed. It returned **revise** on two blocking findings, both consequences of the pin
+move that had not been carried through, with notes n-l to n-r. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R12-B1 | A construct Brian picks below the bar has no qualifying category, so S3's join maps no proposition; "open data" has two rows (0.47 and 0.40) and the number of joined rows (0, 4 or 5) depended on which; A4 kept August counts and did not ask for the label | Brian picks a table row (a code for one category); the propositions naming that category are mapped and labelled "chosen by Brian below the rule's half-share bar" with the row's share. Plan S3, Q22 and `proposition_measure_map` say so. Q15 now recommends "open data" for "Conditional, usable, and situated traceability" (maps propositions 1, 2, 5 and 6), answer words "use open data for traceability" / "pick another row: <code> for <category>" / "no construct". A4 reads its counts from the pin (38 cited turns, 18 marked) and requires the label |
+| R12-B2 | The causal tab's P5 comes from an earlier QC theory (revision d921baaf, version p5-v1), not the pinned theory, whose own P5 is a different claim on the S1 page | S4, the slice table, the 1.0 row, A6 and Q25 name P5's theory version, show its statement and label it "proposition P5 of an earlier Qualitative Coding theory, not this page's P5", naming the closest pinned claim (P4); the case packet may carry its own theory pin (revision, version id, sha256); A6 adds that failure example |
+| n-l, n-m, n-n, n-o | Q22's category count, Q14's passage resolution, F23's test count, Q12's citation | 4 categories; Q14 says the 100 cited passages resolve through the 194 the pin carries; four QC tests; `:471` |
+| n-p | The disproof did not list "no author code holds half of a category's cited turns on the second corpus" | Added |
+| n-q | The pin record was read as a raw dict, was missing from the system model, and named QC's repository wrongly | S1 commit 7f07c52 types it (`ProducerInputPin`, unknown fields refused, new test), the freeze script validates it, the repository reads `BrianMills2718/qc`; SYSTEM_MODEL's S1 row lists it |
+| Missed question 3 | Why not save QC's published a67d7d6a theory through its saved-view route | Q26 now states the reason: QC revised that theory twice on 2026-11-06, a live read would pin a theory QC has not released, and the workbench reads producers' committed results |
+| n-r | QC's own pages disagree on which run is current | No change: Q26 records both |
+
 ## Plan #8, round 11 (read 7d29e71): revise
 
 The reviewer found R10-B2 and notes n-c to n-h fixed, and reran the overlap scripts, `make check` and
@@ -1260,5 +1277,171 @@ I found one blocking problem, so this round is **revise**. Round 10's second blo
 - **Need anything from human:** No. The fix is agent work.
 
 Reviewed revision: 7d29e713d6110bb23f407ce02194813e628fcc45
+
+Verdict: revise
+
+## Plan #8, round 12 reviewer's report (verbatim)
+
+#### Cold review, round 12: Plan #8 package (mixed_methods_workbench, branch plan-008-finish)
+
+The verdict is **revise**, on two new blocking findings. Round 11's blocking finding is fixed:
+
+- S1's pinned theory is byte-identical to Qualitative Coding's (QC's) committed e131eb55 file.
+- Its construct table reproduces exactly.
+- QC really has committed no newer theory.
+
+The fix moved the pin, though, without carrying two of its consequences through the plan:
+
+- **Construct below the bar:** Brian's new option to pick a construct below the bar has no way into S3. As S3's rule is written, no proposition would be joined to the measure.
+- **P5:** the causal tab's "proposition P5" comes from an older QC theory. The S1 study page already labels a different claim "P5".
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head ad1df4e): **exit 1**, as expected.
+
+- Parts: 9 of 10 ok. Only the cold review fails, because its verdict is `revise`.
+- Substance checks: 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are by the contract's design: the plain baseline is still `planned`, and 3 stages are untested.
+- Other figures: 97 citations checked; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- Initiative and spectrum-tier checks: 4 of 4 ok.
+- Coverage ok: of 3 requirements, 2 are covered and 1 is about the planning process.
+- Goal provenance ok.
+- Freshness ok, with 1 commit of work since the subject revision (ad1df4e, the checklist rewrite).
+
+**Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at fc0f3b7) | 630 interviewee turns, 4 categories, 28 codes (11 numbered codes left out), 112 pairs, **0 qualify**. Best: "open data" 18/38 (0.47, chance 7.9e-9). Next: 16/40 (0.40, 1.2e-6), then "(lack of) incentives/motivation" 11/40 (0.28). Highest two-way overlap 0.204. All 194 carried passages sit exactly at their offsets | Matches plan :160-177, Q15 and F24 |
+| Pin hashes | sha256 a77661f9… is the same for S1's `qc/theory.json`, QC's working file and `git show 7f5a8af9:` of that file | Matches provenance.json |
+| Cited passages | 71 passages cited through categories, plus the propositions' passages, make 100 (S1's test asserts 100 cited and 194 carried). The four categories rest on 38, 35, 40 and 43 turns | F10 and F19 hold |
+| S1 tests (`pytest tests/test_study_workbench.py`) | 12 passed | — |
+| Computed costs | Every computed entry recomputes, including the new $0.1846 and $0.0086 | Match |
+| Measured $4.94 | llm_client's log (opened read-only) now shows 2,088 calls and $5.01 for `qualitative_coding*` tasks on 2026-11-05 to 06. The 13 extra calls ran after the figure was taken | Matches |
+| Stop search | `git log --all -i -E --grep 'pause\|archive\|overbuilt\|start over\|stop'` finds the NYC pause (91a69a5) and the Phase 3 pause and its lift (e37fd80, 680c4d5) | Both are recorded; no stop missed |
+
+#### Round 11 findings
+
+- **R11-B1: fixed, as to its claims.**
+  - QC's only committed a67d7d6a file (`public_demo_assets/grounded_theory_school_readings/a67d7d6a-….json`, last changed 8546fb47 on 2026-11-06) holds eight school readings and their comparison. It has no categories with cited passages, so "committed neither" is true.
+  - Q26, F22–F24 and plan :43, :97-101 and :160-177 are correct.
+  - The new route still has two gaps: R12-B1 and R12-B2 below.
+- **Missed question 3 (does S2's unit move with the pin): answered, and the answer holds.**
+  - The e131eb55 passages are not QC's July segments: 0 of 194 ids are shared.
+  - Even so, all 194 sit at their offsets in the frozen text, so they map onto the 630 turns.
+- **n-i: fixed for A3 and A5.** A4 was missed; it is part of R12-B1.
+- **n-j: fixed.** The three Q12(c) cost entries recompute.
+- **n-k: fixed in the plan** (:252). Q12's source list still says :470 (note n-o).
+- **n8–n11: not fixed, by choice.** They stay notes.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R12-B1 | plan S3, open questions, domain model, acceptance | plan :241-242; Q22 `open-questions.json:424`; `DOMAIN.md:54`; Q15 `:285-287`; A4 `acceptance-criteria.json:69` | Brian's below-bar construct choice has no category to join to, so S3's rule as written joins 0 of 6 propositions. A4 still shows August counts and does not ask for the below-bar label | Name the table row (code and category) Brian picks, and say its propositions are joined with the label. Update A4 | **blocking** |
+| R12-B2 | plan S4, acceptance A6, Q25 | plan :45, :288-289, :301-311; A6 `:102-106`; Q25 `:491-498` | The "Open Science proposition P5" on the causal tab comes from an older QC theory (d921baaf, version p5-v1). The pinned theory's "P5." on the S1 page is a different claim | Say where P5 comes from, show its text, label the collision, and give the case packet its own theory pin | **blocking** |
+| n-l | open questions | `open-questions.json:427` | Q22's evidence says "6 propositions over 8 categories" (the August figure); the pin has 4 categories | Say 4 | note |
+| n-m | open questions | `open-questions.json:263` | Q14's evidence says "including the 90 passages its theory cites", which describes the August export. e131eb55's 100 passages are resolved through the passages the pin carries | Add one line | note |
+| n-n | investigation | `investigation.json:377` | F23 says three of QC's tests read the pinned file; four do (`test_grounded_theory_memo_revision`, `_schools`, `_view`, `test_gt_verdict_report`) | Say four | note |
+| n-o | open questions | Q12 `sources` | Cites `METHODS_AND_THEORY.md:470`; the sentence is at :471-473 | Correct the line | note |
+| n-p | goal fields | `review-page.json` (`disproof`) | The disproof does not list "on the second corpus no author code holds half of a category's cited turns", which bears on the thesis's "chosen by how much of a category's evidence it holds" | Add it, or say why not | note |
+| n-q | system model (S1 branch) | mmw-s1 `study_workbench.py:267-275`, `:526-535`; `qc/provenance.json` | The pin record (`producer_input_pin`) is read as a raw dict, against AGENTS.md's "no raw dict … at durable boundaries". It is missing from SYSTEM_MODEL.md's S1 row. Its `repository` says `BrianMills2718/qualitative_coding`, but QC's remote is `BrianMills2718/qc` | Type it, list it, correct the name | note |
+| n-r | open questions | Q26 | QC's own pages disagree: CURRENT_STATE `:34` says "the published run is a67d7d6a", while REVIEW_QUEUE `:28-29` says "not yet published" and `:40` says "e131eb55 is current". Q26 records both, but the page label takes the status page's side | None needed; optionally word the label neutrally | note |
+| n8–n11 | carried | — | Unchanged since round 5 | — | note |
+
+##### R12-B1: a construct Brian picks below the bar has no category, so S3 joins no row
+
+**What is wrong:**
+
+- **S3's rule:** a proposition is joined to the measure only if "it names a QC category the measured code qualified for" (plan :241-242; Q22 :424; glossary `proposition_measure_map`, DOMAIN.md:54). On the pinned theory no code qualifies.
+- **Effect under the recommended answer:** if Brian answers Q15 with "use open data" (below the bar), the rule as written joins none of the six propositions. S3 then drafts no meta-inference, so the integration condition and A5 cannot be met.
+- **Q15 asks for a code, not a category.** "Open data" has two rows in the table:
+  - 0.47 for "Conditional, usable, and situated traceability", which pinned propositions 1, 2, 5 and 6 name;
+  - 0.40 for "Academic-capital, legal, and infrastructural negotiation", which propositions 1 and 4 name.
+- So 0, 4 or 5 of the 6 rows end up joined, depending on how the rule is read. Brian's Q15 decision does not show him which.
+- **A4 (`acceptance-criteria.json:69`):**
+  - It still gives the August counts ("QC cites 22 turns; the code marks 14 of them"), from a theory the plan says it no longer reads.
+  - It does not require the "chosen by Brian below the rule's half-share bar (0.47)" label. Q15 relies on that label "so no reader takes it for a rule pick".
+  - A build that presented a rule pick with August counts would therefore pass A4.
+
+**What would fix it:**
+
+- In S3, Q22 and `proposition_measure_map`, say that a construct Brian picks below the bar is joined to the category of the table row he picks, and that those rows carry the below-bar label.
+- Make Q15's recommendation and answer words name that row, for example "use open data for traceability", which joins rows 1, 2, 5 and 6.
+- Change A4's example to the pin's counts (QC cites 38 turns; the code marks 18) and require the label in its expected result.
+
+**Weight:** blocking. It decides whether S3 produces any row, and what Brian's Q15 answer leads to.
+
+##### R12-B2: the causal tab's P5 is not the study page's P5
+
+**What is wrong:**
+
+- **Where P5 comes from:** S4 and A6 show "Open Science proposition P5" on the study page's causal tab. That proposition comes from QC revision d921baaf (route `/public/example/data/theory-model`, version `p5-v1`; see `examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json`).
+- **Its text:** "Where cleaning, anonymization, repository curation, permissions, priority concerns, criticism, and publication pressure remain individualized, researchers may favor delayed, restricted, or minimum-compliance disclosure even while valuing openness."
+- **It is not one of the pinned theory's six propositions.**
+- **The collision on the page:**
+  - The S1 study page already numbers the pinned propositions "P1."–"P6." (mmw-s1 `src/mixed_methods_workbench/static/study_workbench.html:175`).
+  - Its "P5." is a different claim: "Accountable openness in linguistics must accommodate exploratory and qualitative reasoning…".
+  - The closest pinned claim is P4.
+  - A reader on the same page would take the appraisal as a test of the pinned P5.
+- **The packet rule:** the plan's packet takes "the proposition (by id, from the pinned grounded-theory export)" (:288-289), so it would refuse the very P5 input it says it generalises.
+- **Nothing says it:** the plan, A6 and Q25 never say the appraised proposition comes from an earlier QC theory version.
+
+**What would fix it:**
+
+- In S4, A6 and Q25, say that P5 comes from QC's earlier public example (d921baaf, `p5-v1`). Show its statement and label it, for example "proposition P5 of an earlier QC theory, not this page's P5", optionally naming the closest pinned proposition.
+- Let a case packet carry its own theory pin (commit and sha256) when its proposition is not from the study's pin.
+- Add a failure example to A6: the causal tab's P5 reads as the study page's P5.
+
+**Weight:** blocking. It gives a wrong reading of which claim was appraised, on the page Brian uses to judge A6 and to answer Q25.
+
+#### Questions the ledger misses
+
+1. Which QC category does a construct Brian picks below the bar speak to in S3? (R12-B1)
+2. Which theory version is P5 from, and how is it labelled beside the pinned propositions? (R12-B2)
+3. Why not save QC's published a67d7d6a theory through QC's documented route and pin it by sha256, instead of waiting for QC to commit a file? (Note.)
+   - That route is `/projects/{id}/analysis/grounded-theory`, the saved view QC's own quantitative-design script takes as input (`METHODS_AND_THEORY.md:517-519`).
+   - A good reason exists: QC revised that theory twice on 2026-11-06, so a live read would keep moving, and a committed file is the producer's own release. But the ledger does not state that reason.
+
+#### Checked and found sound
+
+- **QC's rules:**
+  - S4 keeps QC's independence condition (`METHODS_AND_THEORY.md:453-463`) and its anti-circularity rule (:465-474).
+  - Q12(c)'s held-out requirement matches :471-473 and decision 0017 :50.
+  - S2 measures prevalence with an instrument checked against the author's coding on held-out interviews. That is not "code counts as validated indicators" (:498-500).
+- **Decision 0017**, read in full, matches the stop entry, Q24 and Q25. QC's paused "workbench sequence" (CURRENT_STATE :79) is the NYC sequence, as round 11 traced.
+- **Process Tracing:**
+  - ADR 0004 :61-70 says the prototype is the answer path and keeps the pipeline as the reference, including for the workbench.
+  - The efficiency README :161-163 says what S4 cites: $0.0555 over 7 calls, with 277,101 of 352,770 input tokens cached.
+  - So showing P5's pipeline export does not read a Process Tracing result that Process Tracing has moved past.
+- **Plan figures:** :171-177 (35–43 cited turns per category, highest two-way overlap 0.20, four distinct sets) match the data.
+- **Review page:**
+  - It shows revision e75a424f0fb0 and draws its diagrams on the page (`GraphViewer.mount` on the index, review and diagram pages).
+  - It shows Q26, A3, A5 and Q15's new figures.
+  - The repository is in Brian's own account, so the company-organization rule does not apply. The `/blob/main/` links return 404 until the branch merges (n10).
+- **Coverage:** my own reading of Brian's words gives the same three requirements: finish → A12; not for one use case → A10; broader vision → A11. The outcome line keeps all three.
+- **Goal fields:** the north star is a direction, the thesis can be wrong, and the disproof lists single observations.
+
+#### Judgments I was unsure about
+
+- **R12-B2's weight.** The causal tab is not built yet. QC's own review queue (:71) still names "proposition P5" as a live question, so QC may not regard it as superseded. The label collision on the page holds either way.
+- **R12-B1.** Someone building S3 might treat Brian's pick as qualifying the table row he chose. Even so, the plan does not say which of "open data"'s two rows, and the number of joined rows (0, 4 or 5) depends on it.
+- **No browser tool was available,** so I read the review page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT).
+  - `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify; best 0.47.
+  - `sha256sum` of the pin and `git show 7f5a8af9:` agree (a77661f9…).
+  - S1 tests: 12 passed.
+  - Cost entries recompute; the log query for the measured figure gives 2,088 calls and $5.01.
+  - `git log --grep` stop search: no stop missed.
+- **Feedback:** each pin move needs a downstream sweep. Every claim that names a theory's ids, counts or proposition labels (the S3 join, the acceptance examples, S4's P5) should be re-read whenever the pin changes, not only the figures the reviewer named.
+- **Need anything from human:** No. Both fixes are agent work.
+
+Reviewed revision: e75a424f0fb08486309f94cbe646c61765f37511
 
 Verdict: revise

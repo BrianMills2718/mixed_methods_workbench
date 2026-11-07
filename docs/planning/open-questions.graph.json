@@ -268,7 +268,7 @@
    "id": "Q15",
    "label": "Q15: Which coded theme S2 measures (the construct)",
    "kind": "question_brian",
-   "explain": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349). On the theory S1 pins (run e131eb55, Q26) the written rule picks no code, so the construct is Brian's call from the rule's table; if the pin moves, S2's first test recomputes the table first."
+   "explain": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349). On the theory S1 pins (run e131eb55, Q26) the written rule picks no code, so the construct is Brian's call: he picks one row of the rule's table, a code for one QC category, and S3 maps the propositions naming that category; if the pin moves, S2's first test recomputes the table first."
   },
   {
    "id": "d_Q15",
@@ -490,7 +490,7 @@
    "id": "Q25",
    "label": "Q25: Should 1.0 include a real causal test on a case with its own records",
    "kind": "question_brian",
-   "explain": "Your decision 0017 (2026-09-25) allows a process-tracing test of a grounded-theory proposition only on a named case's own records (decision records, timelines, correspondence), with the six method-selection questions answered by a person, and says the combined demonstration is built only when such a case exists. Neither 1.0 corpus has one. Should 1.0 stop at the gated handoff (the gate shown, the existing bounded P5 appraisal on PsychosisBank's and TalkBank's records with its conclusion withheld, no new causal run), or should finding a real case with both an interview corpus and its own decision record be part of 1.0?"
+   "explain": "Your decision 0017 (2026-09-25) allows a process-tracing test of a grounded-theory proposition only on a named case's own records (decision records, timelines, correspondence), with the six method-selection questions answered by a person, and says the combined demonstration is built only when such a case exists. Neither 1.0 corpus has one. Should 1.0 stop at the gated handoff (the gate shown, the existing bounded appraisal of proposition P5 of an earlier QC theory (revision d921baaf, version p5-v1, not the pinned theory's P5) on PsychosisBank's and TalkBank's records with its conclusion withheld, no new causal run), or should finding a real case with both an interview corpus and its own decision record be part of 1.0?"
   },
   {
    "id": "d_Q25",

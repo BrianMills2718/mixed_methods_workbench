@@ -266,7 +266,7 @@
    "id": "proposition_measure_map",
    "label": "Proposition-to-measure map",
    "kind": "planned",
-   "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
+   "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for, or, when Brian picks a code below the bar, the category of the table row he picks, labelled as his pick), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
   },
   {
    "id": "integration_check",
@@ -284,7 +284,7 @@
    "id": "independent_case_packet",
    "label": "Independent case packet",
    "kind": "planned",
-   "explain": "One named case's own records for a process-tracing test of one QC proposition: the proposition (by id, from the pinned grounded-theory export), the case's name, focal window and outcome, its source records and known gaps. Generalises the P5 input (qc-p5-process-tracing-input/1) and the implemented IndependentCaseSources packet (src/mixed_methods_workbench/investigation_spine.py:79); the reader refuses any of the study's own interviews (decision 0017). Plan #8 S4 (Q24, Q25)."
+   "explain": "One named case's own records for a process-tracing test of one QC proposition: the proposition (by id, from the pinned grounded-theory export, or with its own theory pin when it comes from another QC theory version, as P5 does), the case's name, focal window and outcome, its source records and known gaps. Generalises the P5 input (qc-p5-process-tracing-input/1) and the implemented IndependentCaseSources packet (src/mixed_methods_workbench/investigation_spine.py:79); the reader refuses any of the study's own interviews (decision 0017). Plan #8 S4 (Q24, Q25)."
   },
   {
    "id": "selection_gate",

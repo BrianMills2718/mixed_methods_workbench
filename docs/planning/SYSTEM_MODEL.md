@@ -43,7 +43,7 @@ Everything is files in git; there is no database.
 
 | Slice | Type or module (planned) | Built by | Read by |
 | --- | --- | --- | --- |
-| S1 | `StudyDefinition`, `CorpusManifest` (`study_workbench.py`); `scripts/freeze_study_inputs.py` | the freeze script, from a study's `study.json` and the Zenodo record | `build_study_payload`, the study page builder |
+| S1 | `StudyDefinition`, `CorpusManifest`, `ProducerInputPin` (the `producer_input_pin` record in `qc/provenance.json`: QC's repository, commit, path, sha256, form and the pin label) (`study_workbench.py`); `scripts/freeze_study_inputs.py` | the freeze script, from a study's `study.json` and the Zenodo record | `build_study_payload`, the study page builder |
 | S1 | Grounded-theory view of QC's export (schema major 3), segment and document records | `read_grounded_theory` from the frozen `qc/` files | the study payload |
 | S1 | Study page `proposals/<study>-study/index.html` and `build_receipt.json` | `scripts/build_study_page.py` | a person; the stale-page test |
 | S2 | Feasibility readout (the author's code measured and why), split manifest with the instrument's versioned definition, measured result per measure, run receipt | the measure step (task `mixed_methods_workbench.open_science.measure`) | the measurement tab, S3 |

@@ -333,7 +333,7 @@
    "evidence": [
     "/home/brian/code2/qualitative_coding/qc_clean/core/process_tracing_handoff.py:221",
     "/home/brian/code2/qualitative_coding/qc_clean/core/claims.py:999",
-    "docs/plans/008_finish_workbench.md:281"
+    "docs/plans/008_finish_workbench.md:285"
    ],
    "verdict": "fails",
    "question_id": "Q24",
@@ -374,7 +374,7 @@
    ],
    "verdict": "fails",
    "question_id": "Q26",
-   "note": "QC commit 7f5a8af9 (2026-10-09) holds the theory of run e131eb55 (QC's review-candidate file proposals/qc-gt-review-candidate/expected-view.json, QC commit 7f5a8af9, 2026-10-09, sha256 a77661f9...: 4 categories, 6 propositions, 194 passages with offsets); three of QC's tests read it. Round 10's answer missed it because it searched only public_demo_assets/. Found by the round-11 cold review; S1 now pins it."
+   "note": "QC commit 7f5a8af9 (2026-10-09) holds the theory of run e131eb55 (QC's review-candidate file proposals/qc-gt-review-candidate/expected-view.json, QC commit 7f5a8af9, 2026-10-09, sha256 a77661f9...: 4 categories, 6 propositions, 194 passages with offsets); four of QC's tests read it (test_grounded_theory_memo_revision, test_grounded_theory_schools, test_grounded_theory_view, test_gt_verdict_report). Round 10's answer missed it because it searched only public_demo_assets/. Found by the round-11 cold review; S1 now pins it."
   },
   {
    "id": "F24",
