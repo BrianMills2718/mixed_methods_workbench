@@ -10,18 +10,25 @@ from mixed_methods_workbench.investigation_spine import investigation_spine_payl
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "deploy" / "psychosisbank-review" / "public"
 SOURCE_HTML = ROOT / "src" / "mixed_methods_workbench" / "static" / "investigation_spine.html"
-API_PATH = PUBLIC / "api" / "investigation" / "psychosisbank-disclosure.json"
+API_RELATIVE = Path("api") / "investigation" / "psychosisbank-disclosure.json"
+API_PATH = PUBLIC / API_RELATIVE
+BUILT_FILES = (Path("index.html"), API_RELATIVE)
 
 
-def build() -> None:
-    """Refuse to emit public bytes unless the full source-bound projection validates."""
+def build(out_dir: Path = PUBLIC) -> Path:
+    """Refuse to emit public bytes unless the full source-bound projection validates.
+
+    Writes into ``out_dir`` (the committed ``deploy/`` folder by default) and returns it.
+    Tests pass a temporary folder so they never change tracked files.
+    """
     payload = investigation_spine_payload()
     if payload["connected_run"]["planning_receipt"]["human_decision"] != "withhold_causal_publication":
         raise ValueError("public review export requires the human publication block")
-    PUBLIC.mkdir(parents=True, exist_ok=True)
-    API_PATH.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(SOURCE_HTML, PUBLIC / "index.html")
-    API_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    api_path = out_dir / API_RELATIVE
+    api_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(SOURCE_HTML, out_dir / "index.html")
+    api_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return out_dir
 
 
 if __name__ == "__main__":
