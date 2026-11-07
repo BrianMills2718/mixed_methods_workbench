@@ -396,7 +396,7 @@
   },
   "compositionPlan": {
     "title": "Review each meta-inference and download the bundle",
-    "question": "Accept, reject or annotate each meta-inference, see the decision saved, and download one research bundle with every trace.",
+    "question": "Accept, reject or annotate each meta-inference, write the researcher's reflexivity memo, see each decision saved (or, on the served page, recorded as a GitHub issue and waiting to be imported), and download one research bundle whose file hashes the page rechecks.",
     "audience": "Brian, project owner, non-specialist in the code",
     "viewport": {
       "width": 390,
@@ -450,11 +450,19 @@
         },
         "labelled": true
       },
-      "bundle": {
+      "reflexivity memo": {
         "role": "section of the detail pane",
         "encoding": {
           "colour": "grey",
           "shape": "rounded box"
+        },
+        "labelled": true
+      },
+      "bundle": {
+        "role": "section of the detail pane",
+        "encoding": {
+          "colour": "grey",
+          "shape": "circle"
         },
         "labelled": true
       }
@@ -482,12 +490,15 @@
       "review decision": [
         "its source and when it was recorded"
       ],
+      "reflexivity memo": [
+        "its source and when it was recorded"
+      ],
       "bundle": [
         "its source and when it was recorded"
       ]
     },
     "designGaps": [],
-    "coldReadTarget": "After a minute a newcomer can say what the page answers: Accept, reject or annotate each meta-inference, see the decision saved, and download one research bundle with every trace.",
+    "coldReadTarget": "After a minute a newcomer can say what the page answers: Accept, reject or annotate each meta-inference, write the researcher's reflexivity memo, see each decision saved (or, on the served page, recorded as a GitHub issue and waiting to be imported), and download one research bundle whose file hashes the page rechecks.",
     "heuristics": [
       "one-question-title",
       "whole-on-one-screen",
@@ -606,7 +617,7 @@
   "viewSpec": {
     "version": "0.1",
     "id": "mmw-A7--master-detail",
-    "concern": "Accept, reject or annotate each meta-inference, see the decision saved, and download one research bundle with every trace.",
+    "concern": "Accept, reject or annotate each meta-inference, write the researcher's reflexivity memo, see each decision saved (or, on the served page, recorded as a GitHub issue and waiting to be imported), and download one research bundle whose file hashes the page rechecks.",
     "viewpoint": {
       "stakeholder": "Brian, project owner, non-specialist in the code",
       "intent": [
@@ -638,6 +649,7 @@
       "entities": [
         "meta-inference",
         "review decision",
+        "reflexivity memo",
         "bundle"
       ],
       "relationships": [],

@@ -202,94 +202,113 @@
     "reflexivity_memo",
     "split_manifest",
     "feasibility_readout",
-    "route_plan"
+    "route_plan",
+    "proposition_measure_map",
+    "integration_check"
    ],
    "cost_basis": {
     "steps": [
      {
-      "step": "S2 measure: the language-model challenger applies the instrument to each interviewee turn (mixed_methods_workbench.open_science.measure)",
+      "step": "S2 plain version: the language model labels every interviewee turn of one split in one call, two calls per pass (tuning interviews, held-out interviews) (mixed_methods_workbench.open_science.measure)",
       "per": "full pass over the corpus",
       "basis": "computed",
       "computation": {
-       "calls": 630,
-       "input_tokens_per_call": 4052,
+       "calls": 2,
+       "input_tokens_per_call": 58150,
+       "output_tokens_per_call": 18900,
        "input_usd_per_mtok": 0.2168,
        "cached_share": 0,
        "cached_usd_per_mtok": 0.2168,
-       "output_tokens_per_call": 268,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "630 interviewee turns (counted from QC's segments, Q17) x the closest measured task's median tokens per call (llm-cost estimate --task qualitative_coding.gt_constant_comparison.application, 2026-11-05: 4,052 input, 268 output, 0% cached; median $0.0011, p90 $0.0019 per call) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Cached share set to 0 although the instrument will be a cached prefix, so this is an upper figure.",
-      "cost_per_run_usd": 0.791,
-      "calls_per_run": 630
+      "evidence": "2 calls x 58,150 input tokens (the instrument, 3,924 tokens as measured for QC's comparable instrument, plus half of the corpus's 108,452 tokens: all 1,277 turns of the 25 interviews counted with the o200k tokenizer from QC's segments.json) and 18,900 output tokens (315 interviewee turns, half of the 630 counted from QC's segments, x about 60 tokens per label: turn id, yes or no, quoted words capped by the schema at about 40 tokens) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Both calls fit gpt-5.6-luna's limits (922,000 input, 128,000 output tokens; litellm.get_model_info('gpt-5.6-luna')).",
+      "cost_per_run_usd": 0.0783,
+      "calls_per_run": 2
      },
      {
-      "step": "S2 feasibility comparison: one call per interview labelling all its turns, on the tuning interviews only",
+      "step": "S2 stage, only if the plain version shows a gap on the tuning interviews: one call per interview labelling its turns",
       "per": "one comparison on about 13 tuning interviews",
       "basis": "computed",
       "computation": {
        "calls": 13,
        "input_tokens_per_call": 8262,
+       "output_tokens_per_call": 6754,
        "input_usd_per_mtok": 0.2168,
        "cached_share": 0,
        "cached_usd_per_mtok": 0.2168,
-       "output_tokens_per_call": 6754,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "13 calls x 8,262 input tokens (the instrument prompt, 3,924 tokens, plus a mean interview of 4,338 tokens: 108,452 tokens for all 1,277 turns of the 25 interviews, counted with the o200k tokenizer from QC's segments.json) and 6,754 output tokens (25.2 interviewee turns per interview x the measured 268 per label) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Run once, to choose per-turn or per-interview calls by agreement. A full per-interview pass (25 calls) is about $0.28.",
-      "cost_per_run_usd": 0.147,
+      "evidence": "13 calls x 8,262 input tokens (instrument 3,924 plus a mean interview of 4,338 tokens, o200k counts from QC's segments.json) and 6,754 output tokens (25.2 interviewee turns per interview x the measured 268 per label of qualitative_coding.gt_constant_comparison.application, an upper figure) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it).",
+      "cost_per_run_usd": 0.1467,
       "calls_per_run": 13
      },
      {
-      "step": "S2 language-model controls: repeat, reordered examples, swapped label and codebook ablation, each a rerun on the tuning interviews",
-      "per": "once per corpus",
+      "step": "S2 stage, only if the per-interview stage still shows a gap: one call per interviewee turn",
+      "per": "one comparison on the tuning interviews (about 315 turns)",
       "basis": "computed",
       "computation": {
-       "calls": 1260,
+       "calls": 315,
        "input_tokens_per_call": 4052,
-       "cached_share": 0,
        "output_tokens_per_call": 268,
        "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
        "cached_usd_per_mtok": 0.2168,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "4 controls x about 315 interviewee turns (the tuning half of the 630 counted from QC's segments) x the S2 measure's per-call figures (4,052 input and 268 output tokens from llm-cost estimate --task qualitative_coding.gt_constant_comparison.application; gpt-5.6-luna prices fitted to its 708 recorded calls: input $0.2168, output $1.4057 per million tokens). The fresh reviewer (plan S2) is a Claude Code session, not an API call.",
-      "cost_per_run_usd": 1.5816,
-      "calls_per_run": 1260
+      "evidence": "315 tuning turns x the closest measured task's median tokens per call (llm-cost estimate --task qualitative_coding.gt_constant_comparison.application, 2026-11-05: 4,052 input, 268 output, 0% cached) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it).",
+      "cost_per_run_usd": 0.3954,
+      "calls_per_run": 315
      },
      {
-      "step": "S3 integrate: one draft verdict and meta-inference per comparable proposition, checked by a deterministic number and passage check, no second model (mixed_methods_workbench.open_science.integrate)",
-      "per": "run over at most 6 comparable propositions",
+      "step": "S2 language-model controls: repeat, reordered examples, swapped label and codebook ablation, each a rerun of the plain version on the tuning interviews",
+      "per": "once per corpus",
       "basis": "computed",
       "computation": {
-       "calls": 6,
-       "input_tokens_per_call": 15196,
+       "calls": 4,
+       "input_tokens_per_call": 58150,
+       "output_tokens_per_call": 18900,
+       "input_usd_per_mtok": 0.2168,
        "cached_share": 0,
-       "output_tokens_per_call": 807,
-       "input_usd_per_mtok": 0.1354,
-       "cached_usd_per_mtok": 0.1354,
-       "output_usd_per_mtok": 0.2895
+       "cached_usd_per_mtok": 0.2168,
+       "output_usd_per_mtok": 1.4057
       },
-      "evidence": "At most 6 calls (one per comparable proposition, Q22) x the median tokens of the closest measured task, qualitative_coding.grounded_theory_verdict (llm-cost estimate --task qualitative_coding.grounded_theory_verdict, 55 calls: median 15,196 input and 807 output tokens, 0% cached) x per-token prices for gpt-6-luna fitted by least squares to that task's recorded calls in ~/projects/data/llm_observability.db (input $0.1354, output $0.2895 per million tokens). At the task's measured median of $0.0038 per call it would be $0.023, the upper figure. Redone from S3's own receipt.",
-      "cost_per_run_usd": 0.0137,
-      "calls_per_run": 6
+      "evidence": "4 controls x the S2 plain-version tuning call (58,150 input, 18,900 output tokens, worked out above) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). If a stage is adopted instead, the controls rerun that stage and are redone from its figures. The fresh reviewer (plan S2) is a Claude Code session on the subscription, not an API call.",
+      "cost_per_run_usd": 0.1567,
+      "calls_per_run": 4
      },
      {
-      "step": "S3 plain version: one call given all six propositions, the measured result and the passages, for the side-by-side comparison",
-      "per": "one comparison per corpus",
+      "step": "S3 plain version: one call given all six propositions, the proposition-to-measure mapping, the measured result and the passages, returning every row's verdict and bounded meta-inference, then the deterministic number and passage check (mixed_methods_workbench.open_science.integrate)",
+      "per": "run",
       "basis": "computed",
       "computation": {
        "calls": 1,
        "input_tokens_per_call": 91176,
-       "cached_share": 0,
        "output_tokens_per_call": 4842,
        "input_usd_per_mtok": 0.1354,
+       "cached_share": 0,
        "cached_usd_per_mtok": 0.1354,
        "output_usd_per_mtok": 0.2895
       },
-      "evidence": "One call whose input is the six per-proposition inputs together (6 x 15,196 tokens, an upper figure since the measured result and shared passages repeat) and output six verdicts (6 x 807 tokens), at the same fitted gpt-6-luna prices as the S3 step.",
+      "evidence": "One call whose input is at most six times the closest measured task's median input (llm-cost estimate --task qualitative_coding.grounded_theory_verdict, 55 calls: median 15,196 input and 807 output tokens, 0% cached; an upper figure since shared passages repeat) and six verdicts out (6 x 807), x per-token prices for gpt-6-luna fitted by least squares to that task's recorded calls in ~/projects/data/llm_observability.db (input $0.1354, output $0.2895 per million tokens). Redone from S3's own receipt.",
       "cost_per_run_usd": 0.0137,
       "calls_per_run": 1
+     },
+     {
+      "step": "S3 stage, only if the plain call shows a gap on the number and passage check or Brian's review: one draft per mapped proposition",
+      "per": "run over at most 6 mapped propositions",
+      "basis": "computed",
+      "computation": {
+       "calls": 6,
+       "input_tokens_per_call": 15196,
+       "output_tokens_per_call": 807,
+       "input_usd_per_mtok": 0.1354,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.1354,
+       "output_usd_per_mtok": 0.2895
+      },
+      "evidence": "At most 6 calls x the median tokens of qualitative_coding.grounded_theory_verdict (llm-cost estimate, 55 calls: 15,196 input, 807 output) x the fitted gpt-6-luna prices above (input $0.1354, output $0.2895 per million tokens).",
+      "cost_per_run_usd": 0.0137,
+      "calls_per_run": 6
      },
      {
       "step": "S4 Process Tracing draft-audit on one proposition",
@@ -300,21 +319,21 @@
       "calls_per_run": 5
      },
      {
-      "step": "S6 rerun of the S2 measure on the second corpus (S3 adds about $0.05 per run)",
+      "step": "S6 rerun of the S2 plain version on the second corpus (S3's plain call adds about $0.014 per run)",
       "per": "run",
       "basis": "computed",
       "computation": {
-       "calls": 630,
-       "input_tokens_per_call": 4052,
+       "calls": 2,
+       "input_tokens_per_call": 58150,
+       "output_tokens_per_call": 18900,
        "input_usd_per_mtok": 0.2168,
        "cached_share": 0,
        "cached_usd_per_mtok": 0.2168,
-       "output_tokens_per_call": 268,
        "output_usd_per_mtok": 1.4057
       },
-      "evidence": "The S2 computation for a corpus of similar size, $0.79, plus S3's computed $0.014: about $0.81 per run, three runs to show variation about $2.42, plus the S2 language-model controls once per corpus (about $1.58, the step above). Redone with llm-cost estimate on S2's own task after S2 runs.",
-      "cost_per_run_usd": 0.791,
-      "calls_per_run": 630
+      "evidence": "The S2 plain-version computation for a corpus of similar size, $0.079, plus S3's computed $0.014: about $0.093 per run, three runs to show variation about $0.28, plus the S2 language-model controls once per corpus (about $0.16). Redone with llm-cost estimate on S2's own task after S2 runs.",
+      "cost_per_run_usd": 0.0783,
+      "calls_per_run": 2
      },
      {
       "step": "S6 Qualitative Coding's grounded-theory pass on the second corpus, run in its own repository if Q21 needs one",
@@ -325,26 +344,31 @@
       "evidence": "Every qualitative_coding call on the Open Science corpus recorded in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: 2,075 calls, $4.94 in total, including partial reruns and four grounded-theory school variants, so one clean pass on a corpus of similar size costs at most about that."
      }
     ],
-    "cheapest_design": "One call per interviewee turn with the instrument as a cached prefix (about $0.79 per pass), and no second model in S2 or S3 until traces show a gap: S3's drafts are checked by a deterministic number and passage check instead of a challenger, because the PsychosisBank challenge changed no answer. One call per interview labelling all its turns costs about a third as much (about $0.28 per pass, worked out from the o200k token counts of QC's segments); it is tried once on the tuning interviews (about $0.15) and adopted if its agreement is no worse, because labels from one long call can influence one another. The four language-model controls (about $1.58 once per corpus) are kept because the brief requires them. The dummy, word-list count and TF-IDF regression run locally at no model cost; the fresh reviewer is a Claude Code session; S1, S5 and S7 call no model. Quality decides, not cost."
+    "cheapest_design": "The plain version, which is also the starting design: S2 labels every interviewee turn in two calls (tuning interviews, held-out interviews; about $0.08 per pass) and S3 drafts every row in one call (about $0.014), and no second model in S2 or S3. Per-interview calls (about $0.15 on the tuning interviews), per-turn calls (about $0.40 on the tuning interviews) and per-proposition drafts (at most 6 calls) are stages added only if the plain version shows a gap on the tuning interviews or on the number and passage check; per-turn calls are not the cheapest design. The four language-model controls (about $0.16 once per corpus with the plain version) are kept because the brief requires them. The dummy, word-list count and TF-IDF regression run locally at no model cost; the fresh reviewer is a Claude Code session on the subscription; S1, S5 and S7 call no model. Quality decides, not cost."
    },
    "plain_baseline": {
     "kind": "planned",
     "answer_path": "S2's measured labels per interviewee turn (shown in the Measurement tab) and S3's verdicts and meta-inferences (shown in the Joint display tab)",
     "cases": [
-     "Open Science S2: one call per interview labelling all its turns at once, against one call per turn, on the tuning interviews",
-     "Open Science S3: one call over all six propositions with the measured result, against one call per comparable proposition"
+     "Open Science S2: the plain version (the instrument and every interviewee turn of one split in one call, two calls) is the starting design, scored on the tuning interviews against the word-list count and the author's coding",
+     "Open Science S3: the plain version (one call over all six propositions with the mapping and the measured result) is the starting design, checked by the number and passage check"
     ],
-    "when": "S2's feasibility readout (the per-interview comparison) and S3's first run (the all-propositions call), both before the built version is adopted"
+    "when": "S2's tuning-interview run and S3's first run; a stage below is built only if that run shows a gap, and is then compared with the plain version on the same tuning interviews or propositions"
    },
    "stage_effects": [
+    {
+     "stage": "S2 one call per interview, instead of the plain version's one call per split",
+     "gap": "a call over half the corpus can leave turns unlabelled, copy a neighbour's label, or agree with the author's coding less than the word-list count does",
+     "status": "untested"
+    },
     {
      "stage": "S2 one call per interviewee turn, instead of one call per interview",
      "gap": "labels from one long call can influence one another and long-context labelling can lose accuracy",
      "status": "untested"
     },
     {
-     "stage": "S3 one draft per comparable proposition plus a deterministic number and passage check, instead of one call over all propositions",
-     "gap": "one call over all propositions can cite a number not in the measured result or blur which proposition a figure speaks to",
+     "stage": "S3 one draft per mapped proposition, instead of the plain version's one call over all propositions",
+     "gap": "one call over all propositions can cite a number not in the measured result, give a verdict the mapping refuses, or blur which proposition a figure speaks to",
      "status": "untested"
     }
    ],
@@ -352,7 +376,8 @@
     "searched": [
      "brian-positions 'mixed methods workbench overbuilt start over archive stop' (12 matches, no stop statement about the workbench)",
      "git log -i --grep 'pause|archive|overbuilt|start over' (finds the NYC pause, PR #41, and the Phase 3 pause lifted 2026-10-08)",
-     "docs/plans history and AGENTS.md, docs/PLANNING_STATUS.md"
+     "docs/plans history and AGENTS.md, docs/PLANNING_STATUS.md",
+     "docs/PLANNING_STATUS.md:208-218 (2026-08-13 integration assessment's limits, agent-written under Brian's approval of that assessment, not his words): 'must not rerun QC, Process Tracing ... merely to populate the Workbench'; read as still holding for the purpose it names, honoured in plan 'Not in this plan' (S4 and S6 run producers in their own repositories to test a 1.0 condition, never to fill the page); its limit on authorizing implementation beyond the Investigation Spine is superseded by Brian's 2026-11-06 direction to finish (open-questions.json Q1)"
     ],
     "found": [
      {

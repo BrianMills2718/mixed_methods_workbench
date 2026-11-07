@@ -391,7 +391,7 @@
   },
   "compositionPlan": {
     "title": "One investigation record per study",
-    "question": "Open one study and see, in one place, its question, the evidence it rests on, each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
+    "question": "Open one study and see, in one place, its question, the evidence it rests on, its analytical plan (which strands run and the integration design), each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
     "audience": "Brian, project owner, non-specialist in the code",
     "viewport": {
       "width": 390,
@@ -570,7 +570,7 @@
       "8 object kinds are drawn but a reader tells at most 6 apart at a glance; merge kinds, filter to the ones the question needs, or show the kind as a property in the detail panel.",
       "relationshipEnds does not say which object kinds finding rests on evidence, finding produced by method run, review decision about finding join, so the reveal map cannot list each kind's own links; add {relationship, from, to} for each."
     ],
-    "coldReadTarget": "After a minute a newcomer can say what the page answers: Open one study and see, in one place, its question, the evidence it rests on, each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
+    "coldReadTarget": "After a minute a newcomer can say what the page answers: Open one study and see, in one place, its question, the evidence it rests on, its analytical plan (which strands run and the integration design), each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
     "heuristics": [
       "one-question-title",
       "whole-on-one-screen",
@@ -731,7 +731,7 @@
   "viewSpec": {
     "version": "0.1",
     "id": "mmw-A11--schema-explorer",
-    "concern": "Open one study and see, in one place, its question, the evidence it rests on, each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
+    "concern": "Open one study and see, in one place, its question, the evidence it rests on, its analytical plan (which strands run and the integration design), each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
     "viewpoint": {
       "stakeholder": "Brian, project owner, non-specialist in the code",
       "intent": [

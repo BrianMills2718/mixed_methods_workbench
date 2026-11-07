@@ -1,7 +1,7 @@
 {
  "id": "mmw-A11",
  "title": "One investigation record per study",
- "concern": "Open one study and see, in one place, its question, the evidence it rests on, each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
+ "concern": "Open one study and see, in one place, its question, the evidence it rests on, its analytical plan (which strands run and the integration design), each method run, the findings, the questions still open, the review decisions and the next actions; the PsychosisBank investigation is one such record.",
  "intent": [
   "understand",
   "navigate"

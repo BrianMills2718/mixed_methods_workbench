@@ -176,7 +176,7 @@
    "id": "measurement_instrument",
    "label": "Measurement instrument",
    "kind": "planned",
-   "explain": "A qualitative category turned into a rule applied to every interviewee turn, with included and excluded examples, so it can be counted and checked against human coding."
+   "explain": "One of the corpus author's codes turned into a definition applied to every interviewee turn, with included and excluded examples drafted from her tuning-interview passages, so its prevalence can be counted and checked against her coding of the same code."
   },
   {
    "id": "joint_display",
@@ -236,7 +236,7 @@
    "id": "planted_failure",
    "label": "Planted failure",
    "kind": "planned",
-   "explain": "A deliberate fault (an altered quote, a wrong-interview passage, a swapped label, a fabricated id) the checks must catch. Plan #8 S1 and S6."
+   "explain": "A deliberate fault (an altered quote, a wrong-interview passage, a swapped label, a fabricated id, and an overclaimed meta-inference citing a number not in the measured result) the checks must catch. Plan #8 S1 and S6."
   },
   {
    "id": "benchmark",
@@ -260,7 +260,19 @@
    "id": "feasibility_readout",
    "label": "Feasibility readout",
    "kind": "planned",
-   "explain": "What is known before an instrument is chosen: the construct, its two-way overlap with the author's matched code, the unit, the frame, intended and prohibited uses, prevalence among turns, how many interviews carry positive cases, and where the author's coding is hard. Plan #8 S2."
+   "explain": "What is known before an instrument is chosen: the author's code measured and why (the share of a QC category's cited turns it marks, the chance test, and the two-way overlap shown but not gating), the unit, the frame, intended and prohibited uses, prevalence among turns, how many interviews carry positive cases, and where the author's coding is hard. Plan #8 S2."
+  },
+  {
+   "id": "proposition_measure_map",
+   "label": "Proposition-to-measure map",
+   "kind": "planned",
+   "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
+  },
+  {
+   "id": "integration_check",
+   "label": "Number and passage check",
+   "kind": "planned",
+   "explain": "The deterministic check on every S3 draft: each number it cites equals the measured result, each passage id resolves, and a verdict the map refuses (converges or diverges on a prevalence-only row) is refused; a failing draft is shown in orange, never silently corrected. Plan #8 S3."
   }
  ],
  "edges": [
@@ -487,12 +499,6 @@
    "label": "feeds"
   },
   {
-   "id": "e38",
-   "source": "verification_challenge",
-   "target": "meta_inference",
-   "label": "challenges"
-  },
-  {
    "id": "e39",
    "source": "pt_export",
    "target": "publication_gate",
@@ -593,6 +599,30 @@
    "source": "feasibility_readout",
    "target": "author_coding",
    "label": "matches a category to"
+  },
+  {
+   "id": "e155",
+   "source": "proposition_measure_map",
+   "target": "joint_display",
+   "label": "decides which rows are compared in"
+  },
+  {
+   "id": "e156",
+   "source": "measured_result",
+   "target": "proposition_measure_map",
+   "label": "is mapped to propositions by"
+  },
+  {
+   "id": "e157",
+   "source": "integration_check",
+   "target": "meta_inference",
+   "label": "checks numbers and passages of"
+  },
+  {
+   "id": "e158",
+   "source": "proposition_measure_map",
+   "target": "integration_check",
+   "label": "sets the verdicts allowed by"
   }
  ]
 }

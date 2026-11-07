@@ -255,14 +255,14 @@
   },
   {
    "id": "Q15",
-   "short": "Which category S2 measures (the construct)",
-   "question": "Which Qualitative Coding category becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349).",
+   "short": "Which coded theme S2 measures (the construct)",
+   "question": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349).",
    "blocks": "S2's construct (S2 can start on the default)",
-   "resolves_with": "Brian's call, because the brief reserves it to him; a written rule gives the default. The two codings use different codebooks, so a match is measured, never by name. For each QC category and each of the author's codes, the overlap is two-way: interviewee turns both mark divided by turns either marks (Jaccard, over the 630 turns), so a broad code does not match everything. Her 11 numbered interview-question codes (names beginning with the question's number, such as \"1. subdisciplines\") say which question a passage answers, not a theme, and are left out by that label format and listed. A category's match is the code with the highest overlap if it reaches a minimum preregistered from the feasibility readout (0.3 unless the readout gives a reason to change it, recorded before measuring). The rule picks the category with the most supporting passages that has a match; if none qualifies, S2 stops and says so. The page shows the overlap with both counts (\"both mark 14 turns; either marks 31; overlap 0.45\").",
+   "resolves_with": "Brian's call, because the brief reserves it to him; a written rule, fixed from S1's data, gives the default. The measure is one of the author's codes, so the measure and its human reference name the same construct; it is chosen by how much of a QC category's evidence it holds, so it speaks to QC's theory. Her 11 numbered interview-question codes (names beginning with the question's number, such as \"1. subdisciplines\") say which question a passage answers, not a theme, and are left out and listed. A code qualifies for a QC category when it marks at least half of the interviewee turns QC cites for that category and a one-sided chance test over the 630 turns (hypergeometric) gives below 0.001; the qualifying code with the largest share is taken, and if none qualifies S2 stops and says so. Computed 2026-11-06 over 8 categories x 28 codes (224 pairs): only \"open data\" qualifies, marking 14 of the 22 turns QC cites for \"Conditional and claim-adequate disclosure\" (0.64, chance 3e-9) and 14 of 21 for \"Labour, governance, priority, credit, and scrutiny negotiation\" (0.67, chance 1e-9); the next share is 0.48. \"Open data\" marks 72 of 630 turns in 23 of 25 interviews. The round-3 two-way (Jaccard) floor of 0.3 is replaced: QC marks only the turns it cites as examples (18-24 per category), so the highest Jaccard among the 224 pairs is 0.18; it is shown on the page but does not gate.",
    "owner": "brian",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:136",
+    "docs/plans/008_finish_workbench.md:138",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:101",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:102",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:111",
@@ -273,9 +273,9 @@
     "qualitative_strand"
    ],
    "blocking": false,
-   "recommendation": "Use the written rule; the feasibility readout shows the chosen category, its matched code, the overlap with both counts and the excluded question codes before any measure is run, and Brian can switch category there.",
-   "default": "The rule's category is used, and the feasibility readout names it, its matched code and its overlap; S2 proceeds on it unless Brian names another, and stops if no category reaches the minimum overlap.",
-   "answer_words": "\"use the rule\" / \"pick another category: <name>\""
+   "recommendation": "Use the written rule: measure the author's \"open data\" code, the only code that holds at least half of a QC category's cited turns beyond chance. The feasibility readout shows it, both QC categories it qualifies for, the counts, the chance figure and the excluded question codes before any measure is run, and Brian can switch there.",
+   "default": "S2 measures \"open data\" and proceeds unless Brian names another of the author's codes; the instrument's definition is drafted from her tuning-interview passages and versioned before held-out scoring.",
+   "answer_words": "\"use the rule\" / \"pick another code: <name>\""
   },
   {
    "id": "Q16",
@@ -285,7 +285,7 @@
    "resolves_with": "Argument, no test: the brief is the most careful method statement the repository has, and nothing found on 2026-11-06 argues against any condition, so S2 adopts it condition by condition (plan S2's table). Two are not met, with reasons: no fine-tuned encoder (25 interviews give too few groups for a grouped held-out fine-tune; the codebook-prompted model is the contextual comparator) and no independently coded, adjudicated pilot (the reference is the author's single-coder coding, stated beside every figure). Ordinal shuffling and topic-stability controls do not arise. Brian's two calls in the brief stay his: the construct (Q15) and authorising the slice, which his 2026-11-06 direction to finish gives. A second model is removed from S2; if traces later show a gap, the cases it re-judges are chosen without the author's codes. The brief's other reservation to Brian, approving the task/owner pattern (brief :6, ROADMAP.md:349: the workbench owns the narrow adapter, QC supplies strict exports, PT owns within-case inference), is recorded as an agent working default under his 2026-11-06 direction to finish; the brief's \"narrow, case-specific\" adapter (:25) is overridden by his \"not for a specific use case\", so the adapter reads any study definition.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S2's brief-condition table lists each condition with its brief line and how S2 meets it, including :25, :83-85, :102-103, :113 and :114 (docs/plans/008_finish_workbench.md:109-128); brief status line at :4.",
+   "evidence": "Plan S2's brief-condition table lists each condition with its brief line and how S2 meets it, including :25, :83-85, :102-103, :113 and :114 (docs/plans/008_finish_workbench.md:109-129); brief status line at :4.",
    "sources": [
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:4",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:18",
@@ -294,7 +294,7 @@
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118",
     "docs/plans/008_finish_workbench.md:102",
     "docs/plans/008_finish_workbench.md:109",
-    "docs/plans/008_finish_workbench.md:121",
+    "docs/plans/008_finish_workbench.md:122",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:6",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:25",
     "docs/ROADMAP.md:349"
@@ -313,9 +313,9 @@
    "resolves_with": "Argument from the data, no test: the unit is one interviewee turn as Qualitative Coding segmented it, so the qualitative and quantitative strands share one unit and every label opens a passage QC already anchors. A turn is a positive reference case when any author passage with the matching code overlaps it; passages that touch only interviewer turns are counted and listed. Counted on the frozen S1 files (study_workbench.py's anchoring): 630 interviewee turns of 1277 segments; of the author's 830 located passages, 717 lie within one interviewee turn, 75 span two or more and 38 touch only interviewer turns; 481 turns carry at least one author code. The interview is the independent group for splits, intervals and prevalence.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:129.",
+   "evidence": "Counts computed 2026-11-06 from examples/studies/open_science/qc/segments.json and the author's passages located by S1 (landing in the S1 pull request); plan S2 at docs/plans/008_finish_workbench.md:131.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:129",
+    "docs/plans/008_finish_workbench.md:131",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:118"
    ],
    "touches": [
@@ -359,10 +359,10 @@
    "resolves_with": "Argument, no test: a second set of interviews by the same team, on the same subject, coded in the same tool would show only that the code handles a near-copy. It must differ in subject, in research team and in coding tool or export format; if no published corpus meets all three, the benchmark page states which it shares and narrows the claim to match.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:60 and S6 (:232).",
+   "evidence": "Rule written into the plan, docs/plans/008_finish_workbench.md:60 and S6 (:291-292).",
    "sources": [
     "docs/plans/008_finish_workbench.md:60",
-    "docs/plans/008_finish_workbench.md:266"
+    "docs/plans/008_finish_workbench.md:292"
    ],
    "touches": [
     "study_corpus",
@@ -377,10 +377,10 @@
    "resolves_with": "Argument and prior art, no test: GitHub issues are already where this repository's tasks live and need no new server or credential. Each action on the served page opens a pre-filled issue in this repository (decision, meta-inference id, bundle hash, his note) that he submits; `make import-reviews` turns labelled issues into the same typed files the local server writes, and the page shows \"recorded, waiting to be imported\" until the next build. Locally, the server in the method_dashboard_server.py pattern writes the files directly.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:246-253) and acceptance A7 carry the route.",
+   "evidence": "Plan S5 (docs/plans/008_finish_workbench.md:272-279) and acceptance A7 carry the route.",
    "sources": [
-    "docs/plans/008_finish_workbench.md:246",
-    "docs/plans/008_finish_workbench.md:248",
+    "docs/plans/008_finish_workbench.md:272",
+    "docs/plans/008_finish_workbench.md:274",
     "src/mixed_methods_workbench/method_dashboard_server.py:1"
    ],
    "touches": [
@@ -398,8 +398,8 @@
    "owner": "agent",
    "status": "open",
    "sources": [
-    "docs/plans/008_finish_workbench.md:259",
-    "docs/plans/008_finish_workbench.md:262"
+    "docs/plans/008_finish_workbench.md:285",
+    "docs/plans/008_finish_workbench.md:288"
    ],
    "touches": [
     "qc_theory_export",
@@ -410,20 +410,22 @@
   {
    "id": "Q22",
    "short": "Which propositions the measure speaks to (the S3 join)",
-   "question": "QC's six propositions are conditional statements spanning several categories, and S2 measures one category's prevalence. Which proposition does the measured number speak to, and how (prevalence by interview, or co-occurrence with another category in the same interviews)?",
+   "question": "QC's six propositions are conditional statements (\"when X, then Y\") that each name two or three categories, and S2 measures one theme's prevalence. Which proposition does the measured number speak to, and what verdict may such a row carry?",
    "blocks": "S3's joint display and acceptance A5",
-   "resolves_with": "A written rule, no test: before any verdict is drafted, each proposition is mapped to the measure only if it names the measured category, as prevalence by interview or as co-occurrence with another category in the same interviews; otherwise it is \"silent: not measured\", with the reason. Rows whose units differ block aggregation and meta-inference, as the brief requires (:143-144). A5 states how many of the six rows are comparable. Measuring the other categories' conditions too is after 1.0 unless the count of comparable rows is zero.",
+   "resolves_with": "A written rule, no test, because a prevalence cannot confirm or contradict a conditional: before any verdict is drafted, each proposition is mapped to the measure only if it names a QC category the measured code qualified for (Q15); otherwise it is \"silent: not measured\", with the reason. A mapped row matched by prevalence alone may only say \"complements\"; the number and passage check refuses \"converges\" or \"diverges\" on it. The round-3 co-occurrence branch is dropped: S2 labels one theme, and QC's segments carry no category codes, so there is nothing to co-occur with. Rows whose units differ block aggregation and meta-inference, as the brief requires (:143-144). A5 states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so a row could converge or diverge, is a later slice's choice.",
    "owner": "agent",
    "status": "resolved",
-   "evidence": "Plan S3 carries the rule (docs/plans/008_finish_workbench.md:195); acceptance A5's expected result states the count of comparable rows; QC's theory export has 6 propositions over 8 categories (S1 receipt).",
+   "evidence": "Plan S3 carries the rule (docs/plans/008_finish_workbench.md:215); acceptance A5's expected result states the count of mapped rows and its failure example is a prevalence-only row marked \"converges\"; QC's theory export has 6 propositions over 8 categories (S1 receipt).",
    "sources": [
-    "docs/plans/008_finish_workbench.md:195",
+    "docs/plans/008_finish_workbench.md:215",
     "docs/decisions/2026-07-12-first-quantitative-text-strand.md:143"
    ],
    "touches": [
+    "integration_check",
     "joint_display",
     "measured_result",
-    "meta_inference"
+    "meta_inference",
+    "proposition_measure_map"
    ]
   }
  ]

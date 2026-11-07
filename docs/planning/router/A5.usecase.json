@@ -1,7 +1,7 @@
 {
  "id": "mmw-A5",
- "title": "Joint display: each proposition beside its measured distribution",
- "concern": "For each proposition, compare the qualitative claim with the measured numbers, read the convergence, complementarity, divergence or silence verdict and the bounded meta-inference.",
+ "title": "Joint display: each proposition beside the measured theme",
+ "concern": "For each proposition, see whether it is mapped to the measure or silent, compare a mapped claim with the measured count by interview, read its verdict (a prevalence-only row may only complement) and the bounded meta-inference with its number and passage check.",
  "intent": [
   "compare",
   "decide"
@@ -21,7 +21,8 @@
   "meta-inference"
  ],
  "relationships": [
-  "proposition measured by"
+  "proposition mapped to measure",
+  "meta-inference checked against measured count"
  ],
  "scale": {
   "items": 6,

@@ -58,15 +58,15 @@
   },
   {
    "id": "A4",
-   "criterion": "I can see one category measured across every interview, and how well that measure agrees with the author's own coding on interviews it was not tuned on",
+   "criterion": "I can see one coded theme measured across every interview, and how well that measure agrees with the author's own coding on interviews it was not tuned on",
    "demonstration": [
     "Open the study page's Measurement tab (the study page's address in the slice report (open question Q11 decides where it is served: hive.brianmills.dev or the PsychosisBank Worker; until he answers, the report links the committed page and carries screenshots))",
-    "Read the feasibility readout and the instrument: the rule and its included and excluded examples",
-    "Read the table of measures: always-majority, word-list count, TF-IDF regression and the language model, each with per-class agreement, prevalence error and its interval by interview",
+    "Read the feasibility readout and the instrument: which of the author's codes is measured and why (how many of QC's cited turns it holds), its definition, and its included and excluded examples",
+    "Read the table of measures: always-majority, word-list count, TF-IDF regression and the language model, each with how often it finds the author's coded turns and how often its finds are right, how far its count of the theme per interview is from the author's, and the range of that count",
     "Read which interviews tuned each measure and which tested it, and the shuffled-label control row with the chance level printed beside it",
     "Click a disagreement and read the turn, the model's quoted reason and the author's code"
    ],
-   "expected": "Every figure names its held-out interviews, none of which tuned it; the shuffled-label control sits near the chance level printed beside it and the always-majority row shows its null; prevalence error is shown beside agreement (never accuracy alone); every disagreement opens its turn and its model trace. The construct's match to the author's code is shown as a two-way overlap with both counts, and every agreement figure carries \"one coder, no adjudication, a different codebook\".",
+   "expected": "Every figure names the interviews it was tested on, none of which were used to tune it. The shuffled-label row sits near the chance level printed beside it, and the always-majority row scores no better than its own baseline. The count error per interview is shown beside agreement (never accuracy alone). Every disagreement opens its turn and its model trace. The readout shows why this code was chosen, with the counts (\"QC cites 22 turns; the code marks 14 of them and 72 in all\"), and every agreement figure carries \"one coder, no adjudication, definition drafted from her passages\".",
    "failure_example": "A build that let tuning see the held-out interviews: the page shows an interview on both the tuned and tested lists in orange and refuses the figure; or the shuffled-label control scores well above chance, shown in orange, which means the measure is reading something other than the construct.",
    "representation": {
     "view": "data-table",
@@ -80,12 +80,12 @@
    "criterion": "I can compare each qualitative proposition with the measured numbers and read whether they agree, and what may be concluded from both together",
    "demonstration": [
     "Open the Joint display tab",
-    "Read the count of comparable rows at the top (how many of the six propositions the measure speaks to)",
+    "Read the count of mapped rows at the top (how many of the six propositions the measure speaks to)",
     "Read one row per proposition: the claim, then either the measured figure it is compared with and the verdict, or \"silent: not measured\" in grey with the reason",
-    "Open a comparable row's meta-inference and its number and passage check"
+    "Open a mapped row's meta-inference and its number and passage check"
    ],
-   "expected": "The page states how many of the six rows are comparable; each comparable row shows a verdict word (converges, complements, diverges) with the passages and numbers it rests on, and its number check passed; each other row says \"silent: not measured\" with its reason; a row whose units differ says aggregation is blocked; every meta-inference says 'pending review' until reviewed.",
-   "failure_example": "A meta-inference citing a number that is not in the measured result (S6 plants one): the number check shows it in orange with the number it could not find, and it cannot be marked accepted. Or every row shows the same measured distribution as if each proposition were measured: the mapping to the measure is missing.",
+   "expected": "The page states how many of the six rows are mapped. A mapped row is matched by prevalence alone, so it shows the verdict word \"complements\" with the passages and numbers it rests on and a passed number and passage check; the page says why it cannot say converges or diverges. Each other row says \"silent: not measured\" in grey with its reason; a row whose units differ says aggregation is blocked; every meta-inference says 'pending review' until reviewed.",
+   "failure_example": "A prevalence-only row marked \"converges\": the check shows it in orange, says a prevalence cannot confirm a when-then claim, and it cannot be accepted. Or a meta-inference citing a number that is not in the measured result (S6 plants one): the check shows it in orange with the number it could not find. Or every row shows the same measured figure as if each proposition were measured: the mapping is missing.",
    "representation": {
     "view": "composite-linked-view",
     "router_record": "docs/planning/router/A5.recommendation.json"
@@ -173,7 +173,7 @@
     "Read, for each corpus, the line 'files changed to add this corpus' and open its commit link",
     "Open the second corpus's study definition file (the only file added for it) from its link"
    ],
-   "expected": "The second corpus's study page has the same panels as the first; its line reads 'data only' in blue (one study definition file plus frozen data), computed by a test from `git diff --name-only` of the commit that added the corpus, not by the builder that reads it, and the commit link shows the same file list; the page states which corpus fields were required and which optional, and on what the second corpus differs from the first.",
+   "expected": "The second corpus's study page has the same panels as the first. Its line reads 'data only' in blue (one study definition file plus frozen data). A test works this out from the list of files changed by the commit that added the corpus, not the builder that reads it, and the commit link shows the same file list. The page states which corpus fields were required and which optional, and on what the second corpus differs from the first.",
    "failure_example": "A corpus name, file layout or code list written into the workbench's code: the 'files changed' line lists a code path in orange instead of 'data only', and the commit link shows the same path.",
    "representation": {
     "view": "data-table",

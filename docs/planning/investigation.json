@@ -316,5 +316,5 @@
    "source": "examples/runs/psychosisbank-synthesis-20260923/connected_run_receipt.json:35"
   }
  },
- "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts. Plan #8 (2026-11-06) added findings F9-F15 and their searches; AI-step costs for Plan #8 are recorded per step in the manifest's plan.cost_basis: S3, S4 and Qualitative Coding's pass are measured per call from llm_client's log (llm-cost estimate or the call table); S2 and S6 are worked out from a measured analogue task's token counts and fitted per-token prices."
+ "note": "The workbench calls models only in two hand-run live modules (investigation_run.py, investigation_verification.py); make check and pytest call none. No llm_client log query was run for this repository; the figures are the recorded run receipts. Plan #8 (2026-11-06) added findings F9-F15 and their searches; AI-step costs for Plan #8 are recorded per step in the manifest's plan.cost_basis: S4 and Qualitative Coding's pass are measured from llm_client's log (the call table); S2, S3 and S6 are worked out (computed) from a measured analogue task's token counts (llm-cost estimate) and fitted per-token prices."
 }

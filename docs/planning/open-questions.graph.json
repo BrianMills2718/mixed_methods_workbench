@@ -176,7 +176,7 @@
   },
   {
    "id": "d_Q9",
-   "label": "whether Plan 007 keeps the public page current or only makes it current once",
+   "label": "whether Plan 007 keeps the public page current or only makes it current",
    "kind": "decision",
    "explain": "whether Plan 007 keeps the public page current or only makes it current once"
   },
@@ -226,7 +226,7 @@
    "id": "measurement_instrument",
    "label": "Measurement instrument",
    "kind": "concept",
-   "explain": "A qualitative category turned into a rule applied to every interviewee turn, with included and excluded examples, so it can be counted and checked against human coding."
+   "explain": "One of the corpus author's codes turned into a definition applied to every interviewee turn, with included and excluded examples drafted from her tuning-interview passages, so its prevalence can be counted and checked against her coding of the same code."
   },
   {
    "id": "Q13",
@@ -266,9 +266,9 @@
   },
   {
    "id": "Q15",
-   "label": "Q15: Which category S2 measures (the construct)",
+   "label": "Q15: Which coded theme S2 measures (the construct)",
    "kind": "question_brian",
-   "explain": "Which Qualitative Coding category becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349)."
+   "explain": "Which theme becomes S2's measurement construct? The quantitative-strand brief leaves the exact construct to Brian (brief :101, ROADMAP.md:349)."
   },
   {
    "id": "d_Q15",
@@ -400,7 +400,7 @@
    "id": "Q22",
    "label": "Q22: Which propositions the measure speaks to (the S3 join)",
    "kind": "question_agent_resolved",
-   "explain": "QC's six propositions are conditional statements spanning several categories, and S2 measures one category's prevalence. Which proposition does the measured number speak to, and how (prevalence by interview, or co-occurrence with another category in the same interviews)?"
+   "explain": "QC's six propositions are conditional statements (\"when X, then Y\") that each name two or three categories, and S2 measures one theme's prevalence. Which proposition does the measured number speak to, and what verdict may such a row carry?"
   },
   {
    "id": "d_Q22",
@@ -413,6 +413,18 @@
    "label": "Joint display",
    "kind": "concept",
    "explain": "One row per proposition placing the qualitative claim beside the measured numbers, with a convergence, complementarity, divergence or silence verdict."
+  },
+  {
+   "id": "integration_check",
+   "label": "Number and passage check",
+   "kind": "concept",
+   "explain": "The deterministic check on every S3 draft: each number it cites equals the measured result, each passage id resolves, and a verdict the map refuses (converges or diverges on a prevalence-only row) is refused; a failing draft is shown in orange, never silently corrected. Plan #8 S3."
+  },
+  {
+   "id": "proposition_measure_map",
+   "label": "Proposition-to-measure map",
+   "kind": "concept",
+   "explain": "For each of QC's propositions, written before any verdict is drafted: mapped to the measure (it names a QC category the measured code qualified for), or \"silent: not measured\" with the reason; a mapped row matched by prevalence alone may only say \"complements\". Plan #8 S3."
   }
  ],
  "edges": [
@@ -771,6 +783,12 @@
    "label": "blocks"
   },
   {
+   "id": "tQ22_integration_check",
+   "source": "Q22",
+   "target": "integration_check",
+   "label": "touches"
+  },
+  {
    "id": "tQ22_joint_display",
    "source": "Q22",
    "target": "joint_display",
@@ -786,6 +804,12 @@
    "id": "tQ22_meta_inference",
    "source": "Q22",
    "target": "meta_inference",
+   "label": "touches"
+  },
+  {
+   "id": "tQ22_proposition_measure_map",
+   "source": "Q22",
+   "target": "proposition_measure_map",
    "label": "touches"
   }
  ]

@@ -1,7 +1,7 @@
 {
  "id": "mmw-A4",
- "title": "Quantitative strand: one category measured across every interview",
- "concern": "See the measurement rule, the measure per interview, and how often it agrees with the author's coding on held-out interviews, then open each disagreement.",
+ "title": "Quantitative strand: one coded theme measured across every interview",
+ "concern": "See which of the author's codes is measured and why (how many of QC's cited turns it holds), its definition, the count per interview and the comparable count from the author's coding, how often each measure agrees with her coding on held-out interviews, then open each disagreement.",
  "intent": [
   "inspect",
   "compare"

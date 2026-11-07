@@ -212,6 +212,22 @@
    "aliases": [
     "readout"
    ]
+  },
+  {
+   "id": "proposition_measure_map",
+   "kind": "planned",
+   "aliases": [
+    "proposition map",
+    "mapping"
+   ]
+  },
+  {
+   "id": "integration_check",
+   "kind": "planned",
+   "aliases": [
+    "number and passage check",
+    "number check"
+   ]
   }
  ],
  "classes": [

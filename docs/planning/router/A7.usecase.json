@@ -1,7 +1,7 @@
 {
  "id": "mmw-A7",
  "title": "Review each meta-inference and download the bundle",
- "concern": "Accept, reject or annotate each meta-inference, see the decision saved, and download one research bundle with every trace.",
+ "concern": "Accept, reject or annotate each meta-inference, write the researcher's reflexivity memo, see each decision saved (or, on the served page, recorded as a GitHub issue and waiting to be imported), and download one research bundle whose file hashes the page rechecks.",
  "intent": [
   "decide",
   "modify"
@@ -17,6 +17,7 @@
  "entities": [
   "meta-inference",
   "review decision",
+  "reflexivity memo",
   "bundle"
  ],
  "relationships": [],

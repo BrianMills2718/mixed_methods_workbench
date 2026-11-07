@@ -389,8 +389,8 @@
     ]
   },
   "compositionPlan": {
-    "title": "Joint display: each proposition beside its measured distribution",
-    "question": "For each proposition, compare the qualitative claim with the measured numbers, read the convergence, complementarity, divergence or silence verdict and the bounded meta-inference.",
+    "title": "Joint display: each proposition beside the measured theme",
+    "question": "For each proposition, see whether it is mapped to the measure or silent, compare a mapped claim with the measured count by interview, read its verdict (a prevalence-only row may only complement) and the bounded meta-inference with its number and passage check.",
     "audience": "Brian, project owner, non-specialist in the code",
     "viewport": {
       "width": 390,
@@ -400,7 +400,8 @@
       "representation": "composite-linked-view",
       "form": "list-detail",
       "carries": [
-        "proposition measured by"
+        "proposition mapped to measure",
+        "meta-inference checked against measured count"
       ]
     },
     "secondary": [
@@ -470,7 +471,11 @@
     },
     "links": [
       {
-        "relationship": "proposition measured by",
+        "relationship": "proposition mapped to measure",
+        "drawnAs": "link inside the detail pane to the related item"
+      },
+      {
+        "relationship": "meta-inference checked against measured count",
         "drawnAs": "link inside the detail pane to the related item"
       }
     ],
@@ -516,9 +521,9 @@
       ]
     },
     "designGaps": [
-      "relationshipEnds does not say which object kinds proposition measured by join, so the reveal map cannot list each kind's own links; add {relationship, from, to} for each."
+      "relationshipEnds does not say which object kinds proposition mapped to measure, meta-inference checked against measured count join, so the reveal map cannot list each kind's own links; add {relationship, from, to} for each."
     ],
-    "coldReadTarget": "After a minute a newcomer can say what the page answers: For each proposition, compare the qualitative claim with the measured numbers, read the convergence, complementarity, divergence or silence verdict and the bounded meta-inference.",
+    "coldReadTarget": "After a minute a newcomer can say what the page answers: For each proposition, see whether it is mapped to the measure or silent, compare a mapped claim with the measured count by interview, read its verdict (a prevalence-only row may only complement) and the bounded meta-inference with its number and passage check.",
     "heuristics": [
       "one-question-title",
       "whole-on-one-screen",
@@ -652,7 +657,7 @@
   "viewSpec": {
     "version": "0.1",
     "id": "mmw-A5--composite-linked-view",
-    "concern": "For each proposition, compare the qualitative claim with the measured numbers, read the convergence, complementarity, divergence or silence verdict and the bounded meta-inference.",
+    "concern": "For each proposition, see whether it is mapped to the measure or silent, compare a mapped claim with the measured count by interview, read its verdict (a prevalence-only row may only complement) and the bounded meta-inference with its number and passage check.",
     "viewpoint": {
       "stakeholder": "Brian, project owner, non-specialist in the code",
       "intent": [
@@ -688,7 +693,8 @@
         "meta-inference"
       ],
       "relationships": [
-        "proposition measured by"
+        "proposition mapped to measure",
+        "meta-inference checked against measured count"
       ],
       "focus": null,
       "operations": []

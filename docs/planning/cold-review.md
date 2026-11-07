@@ -3,6 +3,29 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 4 (read bdf06d7): revise
+
+The reviewer found B1 and B3 fixed, B2 and B4 fixed only in part, and returned **revise** with three
+blocking findings (F1, F2, V) and notes n1 to n10. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| F1 | The S2 "plain" version was 25 per-interview calls, not the same model given the whole source in one or two calls; per-turn S2 calls and per-proposition S3 drafts were built first | Plan S2 and S3 and the manifest: the plain version is the starting design. S2 labels every interviewee turn of one split in one call (two calls: tuning, held-out; about 58,000 input and 19,000 output tokens each, inside gpt-5.6-luna's 922,000 input and 128,000 output limits from LiteLLM's model information), about $0.08 per pass. Per-interview and per-turn calls, and S3's per-proposition drafts, are stages added only if the plain version shows a gap; `cheapest_design` no longer calls per-turn the cheapest |
+| F2 | A prevalence cannot confirm or contradict QC's conditional propositions, yet a row could say "converges" or "diverges"; the co-occurrence branch had nothing to compare | Q22, plan S3 and A5: a row matched by prevalence alone may only say "complements", and the number and passage check refuses any other verdict; the co-occurrence branch is dropped; A5's failure example is a prevalence-only row marked "converges" |
+| V | The validator's record showed the plain-version and stage-effects checks failing | Those two lines show `WAIT`, not a failure: the package contract makes `plain_baseline.kind: planned` and each `stage_effects` entry with status `untested` show `WAIT` until the comparison runs, "even after the field is due, never a pass". They stay `WAIT` until S2 and S3 run their plain versions; the validator still exits 0 with them pending |
+| n1 | Edge e38 (a second model challenges each meta-inference) remained; the number and passage check and the proposition-to-measure map were not concepts | e38 dropped; `proposition_measure_map` and `integration_check` added to the domain graph, DOMAIN.md, the spectrum file and `relies_on`; the planted overclaim added to `planted_failure` |
+| n2 | QC marks only its cited turns, so a two-way overlap floor of 0.3 might be unreachable; compute the table now | Computed from S1's data over 8 categories × 28 codes: the highest two-way overlap is 0.18, so the floor could never be met. The construct is redesigned (Q15, plan S2): S2 measures one of the author's codes, so the measure and its reference name the same construct, chosen as the code holding at least half of a QC category's cited turns with a chance test below 0.001. Only "open data" qualifies (14 of 22 and 14 of 21 cited turns of two categories; chance 3e-9 and 1e-9); it marks 72 turns in 23 of 25 interviews |
+| n3 | S2's table left out brief :110 and :118-121 | Two rows added: error costs and Brian as accountable reviewer; a count over the complete corpus has measurement error only, so its interval is the instrument's held-out error resampled by interview, while agreement keeps its by-interview interval |
+| n4 | PLANNING_STATUS.md:208-218 forbids rerunning QC or PT "merely to populate the Workbench" | Plan "Not in this plan" and `stops.searched`: the limit was written by an agent under Brian's approval of the 2026-08-13 assessment; its rerun limit still holds as written (S4 and S6 run producers in their own repositories to test a 1.0 condition, never to fill the page); its limit on authorising implementation is superseded by Brian's 2026-11-06 direction |
+| n5 | Router records A5, A7 and A11 predated later changes | A4, A5, A7 and A11 use cases updated and rerun through the Representation Router; each still recommends the view its entry names |
+| n6 | Stale citations (Q19 to S4; investigation.json said S3 is measured) | Every plan citation in the package remapped to the edited plan; Q19 cites S6; the investigation note says S3 is computed |
+| n7 | The GitHub-issue review route and `make import-reviews` missing from the system model and context diagram | Added to SYSTEM_MODEL.md's S5 row and as a `github_issues` source in the context graph |
+| n8 | The page does not show the cost table, plain-version record, stage effects or stops | Not fixed here: the shared review-page builder does not render those fields; the plan text and the checklist carry them |
+| n9 | A4 and A10 wording was technical | Reworded in plain terms |
+| n10 | The fresh reviewer is a model step mentioned only in prose | It is a Claude Code session on the subscription, named in the S2 controls step's evidence and in `cheapest_design` |
+
+The reviewer's own text for round 4 was kept in the session scratchpad; its findings are restated above.
+
 ## Plan #8, round 3 (read 3957779): revise
 
 The reviewer confirmed all five round-2 findings fixed and returned **revise** with four new blocking

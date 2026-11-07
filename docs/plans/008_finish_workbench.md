@@ -43,7 +43,7 @@ change follows from evidence gathered on 2026-11-06 (`docs/planning/investigatio
 | At least one validated qualitative path | kept, **consumed, not rebuilt** | Qualitative Coding's grounded-theory export is the path; the workbench reads it. Its outside-researcher check (QC step 5) is still not done, so "validated" here means agreement with the corpus author's own coding, stated as such. |
 | At least one computational or quantitative text path | kept, **workbench-owned** | No repository in `~/code2` measures text quantitatively (survey of capabilities.md and repo names, 2026-11-06); QC's quantitative follow-up can only say `conceptual_follow_up_only`. The workbench owns a narrow adapter around established libraries (roadmap 0.5 already says so). |
 | Causal and theory work without category errors | **changed: within-case causal reasoning kept (Process Tracing); theory operationalization after 1.0** | PT's `pt_export_v2` already takes a QC handoff. Theory Forge has no consumer export and a stale roadmap; theory operationalization joins after 1.0. This narrows what 1.0 promises, so it is Brian's call with the benchmark change (open question Q12). |
-| One genuine qualitative–quantitative design with joint display and meta-inference | kept: exploratory sequential | The roadmap's recommended first design; a QC category becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). |
+| One genuine qualitative–quantitative design with joint display and meta-inference | kept: exploratory sequential | The roadmap's recommended first design; one of the author's codes, picked by how much of a QC category's evidence it holds, becomes the measurement instrument under the conditions of the repository's quantitative-strand brief, with the two it cannot meet named (S2, open question Q16). |
 | Human review, reflexivity, provenance, reporting, exports | kept | Slice S5; reflexivity is a researcher-positioning memo per study, kept with the review log and the bundle. |
 | An observed benchmark | **changed** | From "multi-domain benchmark with expert review" to "two rights-clear corpora, each with its authors' own human coding as the reference, held-out interviews, and planted failures that must be caught". Whether 1.0 also needs an outside researcher's hour is open question Q12. |
 | Roadmap phases B–E (shared-profile gate, shared extraction action, NYC refactor, QC/PT seam proof) as prerequisites | **cut** | Their premise was a shared capability across methods. The Plan #6 crosswalk adjudicated 36 groups: 29 different capability, 7 shared shell only, 0 same capability (`docs/research/method_decomposition/phase5/adjudication.yaml`). There is nothing shared to build first. Shared code is extracted only after two real slices use the same thing. |
@@ -70,7 +70,7 @@ Each slice ends with something a person can open and try. Every slice: tests fir
 | --- | --- | --- |
 | S0 | Plan 007 upkeep: deploy the current public page, stale-page test (done 2026-11-06, PR #59); then the remaining Plan 007 steps (deploy rule, NYC relabel, repo.yaml, wiki, architecture pointer) alongside S1–S2 | The public PsychosisBank page serves the committed bytes; `pytest` fails on a stale `deploy/` page |
 | S1 | Governed corpus and qualitative strand | The study page (`make study-page`): the 26 frozen interviews with licence and hash status, QC's categories and propositions, each supporting passage opening the interview at that place with its speaker, the author's codes beside them, and the quantitative and integration strands shown as "not built" |
-| S2 | Quantitative strand: one QC category measured across every interviewee turn | The same page gains a measurement tab: the feasibility readout, the instrument (rule, included and excluded examples), each candidate measure beside its baselines, which interviews tuned and which tested it, prevalence error and agreement on held-out interviews, a shuffled-label control, and every disagreement listed and openable |
+| S2 | Quantitative strand: one coded theme measured across every interviewee turn | The same page gains a measurement tab: the feasibility readout, the instrument (rule, included and excluded examples), each candidate measure beside its baselines, which interviews tuned and which tested it, prevalence error and agreement on held-out interviews, a shuffled-label control, and every disagreement listed and openable |
 | S3 | Joint display and meta-inference | A joint-display tab: one row per proposition, the qualitative claim beside the measured distribution, a convergence / complementarity / divergence / silence verdict with the passages behind it, and a bounded meta-inference that stays "pending review" |
 | S4 | Process Tracing on one proposition | A causal tab: QC handoff → PT `pt_export_v2` for one proposition in one interview; within-case verdicts shown apart from the measured prevalence, and the publication gate respected |
 | S5 | Review, provenance and export, on one investigation record | The study page becomes the general investigation record (question, evidence, analytical plan, method runs, findings, unresolved questions, reviews, next actions), the PsychosisBank investigation rebuilt as one instance of it; accept, reject or annotate each meta-inference and see it saved; write a reflexivity memo; download one research bundle (corpus manifest, strand exports, joint display, decisions, traces, a GRAMMS reporting checklist). Served where open question Q11 says |
@@ -116,11 +116,13 @@ finish).
 | Language model is a challenger with behavioural and compliance tests (`:22-23`, `:136-137`, `:146-148`) | kept: label-free checks before any labelled evaluation (same answer when the turn is repeated, and when the instrument's order of examples changes), then a swapped-label control (another category's definition under this category's name), a codebook ablation (the instrument's rule removed) and an invented-label check (an answer outside yes/no is refused and counted) |
 | Topic or embedding output not the first measure (`:21-22`) | kept; no topic model is run, so the topic-stability controls (`:140-142`) do not arise |
 | Feasibility readout before choosing the instrument (`:87-99`) | kept |
-| Metric margins, split sizes and thresholds preregistered from the readout, not hard-coded (`:102-103`) | kept: after the readout and before any measure is scored on held-out interviews, the agreement bar, the minimum overlap and the split sizes are written into the split manifest with the readout's figures behind them, and the receipt shows they were not changed afterwards |
+| Metric margins, split sizes and thresholds preregistered from the readout, not hard-coded (`:102-103`) | kept: after the readout and before any measure is scored on held-out interviews, the agreement bar and the split sizes are written into the split manifest with the readout's figures behind them, and the receipt shows they were not changed afterwards; the construct-matching rule (Construct, below) was fixed in this plan from S1's data, before any measure exists |
 | Learning curve and slices (`:114`) | kept: agreement on tuning folds at increasing numbers of tuning interviews, and every figure sliced by interview |
-| Independently coded pilot and sealed set, with adjudication; a versioned codebook (`:111`) | **not met**: the human reference is the author's existing single-coder coding, under her own codebook, which differs from QC's categories; the page says "one coder, no adjudication, a different codebook" beside every agreement figure, and shows the two-way overlap that matched them (Construct, below) |
+| Error costs and an accountable reviewer (`:110`) | kept: a false positive counts a turn that is not about the theme and inflates its prevalence; a false negative hides the interviews where it is rare; both are listed by interview and neither is traded for the other. Brian is the accountable reviewer (he can reject the result on the page), after the fresh reviewer below |
+| Independently coded pilot and sealed set, with adjudication; a versioned codebook (`:111`) | **partly met**: the instrument is written for the author's own code, so the measure and its human reference name the same construct; but the reference is her existing single-coder coding with no adjudication, and her code has no written definition, so the instrument's definition is drafted from her tuning-interview passages and versioned in the split manifest. The page says "one coder, no adjudication, definition drafted from her passages" beside every agreement figure |
 | Immutable splits; nothing tuned sees sealed data (`:112`, `:126-129`) | kept: the split manifest fixes tuning and held-out interviews first; the receipt records which interviews each fitting step (word list, TF-IDF vocabulary, prompt edits) saw, and a check fails if any held-out interview appears there |
 | Per-class metrics, prevalence error, calibration, grouped uncertainty; accuracy alone prohibited; no turn-level intervals (`:114`, `:118-121`) | kept |
+| A count over a complete corpus has measurement error but no sampling error (`:118-121`) | kept: the 25 interviews are the whole corpus the count speaks for, so its interval is measurement error only (the instrument's held-out error rates, resampled by interview, applied to the count) and the page says it is not an estimate for linguists in general; agreement figures keep their by-interview interval, because those do generalise from tuning to held-out interviews |
 | Dictionary polysemy, negation, quotation and attribution reach their error readouts (`:130-131`) | kept: the word list's false positives and false negatives on tuning interviews are listed with their words, so these errors can be read |
 | Off-construct proxy, rare-case erasure, grouped shortcuts (`:132-135`) | kept as per-class recall and prevalence error by interview; there is one source, so source ablation does not arise |
 | Ordinal label shuffling (`:138-139`) | does not arise: the label is yes or no |
@@ -133,28 +135,34 @@ finish).
   passages that fall only on interviewer turns are counted and listed, not dropped. The interview, not the
   turn, is the independent group: splits, intervals and the prevalence estimate are by interview, and no
   turn-level confidence interval is reported.
-- **Construct** (open question Q15, Brian's call with a default): the QC category with the most supporting
-  passages that also has a matching author code, picked by that written rule and shown on the page with
-  the rule. The two codings come from different codebooks, so a match is measured, never assumed, and
-  never by name. For each QC category and each of the author's codes, the match is two-way: the interviewee
-  turns both mark, divided by the turns either marks (a Jaccard overlap over the 630 turns), so a broad
-  code that covers many turns does not match everything. The author's 11 numbered interview-question codes
-  (their names begin with the question's number, such as "1. subdisciplines") mark which question a passage
-  answers, not a theme; they are left out of matching by that label format and listed on the page. A
-  category's match is the code with the highest overlap, and only if that overlap reaches the minimum
-  preregistered from the readout (0.3 unless the readout shows a reason to change it, recorded before
-  measuring); otherwise S2 takes the next category by the same rule, and if none qualifies it stops and
-  says so on the page. The page shows the overlap and both counts, such as "both mark 14 turns; either
-  marks 31; overlap 0.45", never a clean match.
+- **Construct** (open question Q15, Brian's call with a default): one of the author's codes, measured with
+  its own human reference, chosen by how much of a QC category's evidence it holds, so the measure speaks to
+  QC's theory and is checked against coding of the same construct. The rule, fixed now from S1's data
+  (computed from S1's committed data: QC's segments and theory export, and the author's passages as S1
+  locates them; S2's first test recomputes it and fails if it differs): leave out the author's 11 numbered interview-question
+  codes (their names begin with the question's number, such as "1. subdisciplines"; they mark which
+  question a passage answers, not a theme), listed on the page; for each QC category and each remaining
+  code, count the interviewee turns QC cites for the category that the code also marks; a code qualifies for
+  a category when it marks at least half of them and a one-sided chance test over the 630 turns
+  (hypergeometric) gives below 0.001; take the code that qualifies with the largest share; if none does,
+  S2 stops and says so. On S1's data (8 categories × 28 codes, 224 pairs) one code qualifies: "open data"
+  marks 14 of the 22 turns QC cites for "Conditional and claim-adequate disclosure" (0.64, chance
+  3 × 10⁻⁹) and 14 of the 21 for "Labour, governance, priority, credit, and scrutiny negotiation" (0.67,
+  chance 1 × 10⁻⁹); the next best share is 0.48 ("resistance/reasons not to do OS"). "Open data" marks 72
+  of the 630 turns (11%) in 23 of the 25 interviews, so a grouped held-out test is possible. A two-way
+  overlap (turns both mark ÷ turns either marks) is shown but does not gate: QC marks only the turns it
+  cites as examples (18–24 per category), so the highest two-way overlap among the 224 pairs is 0.18 and a
+  0.3 floor could never be met. The page shows both counts, the share, the chance figure and the two-way
+  overlap, such as "QC cites 22 turns; the code marks 14 of them and 72 in all", never a clean match.
 - **Feasibility readout first:** before any instrument is chosen, the page shows the construct, unit,
   frame, intended and prohibited uses, its prevalence among the turns, how many interviews carry positive
   cases, whether it is lexical or contextual, and the disagreement locations in the author's own coding.
-  If too few interviews carry positive cases for a grouped held-out test, S2 stops there and says so,
-  choosing the next category by the same rule.
+  If too few interviews carry positive cases for a grouped held-out test, S2 stops there and says so
+  ("open data" has positive turns in 23 of the 25 interviews).
 - **Measures, all compared on the same grouped splits:** the always-majority (dummy) baseline; the
   mandatory word-list count (dictionary) baseline, its word list frozen from tuning interviews only; a
   word-weighting (TF-IDF) regularised logistic regression; and a codebook-prompted language model through
-  `llm_client` applying QC's instrument to each turn (structured output: yes or no, the quoted words it
+  `llm_client` applying the instrument to each turn (structured output: yes or no, the quoted words it
   rests on). The language model is a challenger, not ground truth; the primary instrument is chosen from the
   readout and the tuning folds, never from the held-out interviews. Embedding or topic output is not a
   candidate for the first measure.
@@ -167,58 +175,76 @@ finish).
 - **No second model in S2.** A second model is added only after the traces show a gap it would close, and
   then the cases it re-judges are chosen without the author's codes (for example, where the language model
   and the regression disagree); the author's coding never selects or changes a prediction.
-- **Known limit, stated on the page:** QC built its theory from all 25 interviews, so the construct was not
-  discovered on separate text; S2 reports measurement agreement, not an out-of-sample construct test. S6's
-  second corpus is the held-out test.
+- **Known limit, stated on the page:** QC built its theory from all 25 interviews, and the code was chosen
+  by its overlap with QC's cited turns across all of them, so the construct was not chosen on separate
+  text. The choice used no measure's output, and the instrument's definition is drafted from tuning
+  interviews only, so held-out agreement is not inflated by it; S2 reports measurement agreement, not an
+  out-of-sample construct test. S6's second corpus is the held-out test.
 - **Trace:** every model call through `llm_client` with task `mixed_methods_workbench.open_science.measure`
   and a trace id; a run receipt with inputs, the split manifest, each call's id, tokens and cost, and
   outputs. The agent reads every disagreement's full trace and a sample of 20 agreements before reporting.
-- **Cost (computed, not measured):** 630 turns × 1 call, at the token counts of the closest measured task,
-  QC's `qualitative_coding.gt_constant_comparison.application` (one inclusion rule applied to one passage:
-  median 4,052 input and 268 output tokens, 0% cached; median $0.0011, p90 $0.0019 per call; `llm-cost
-  estimate`, 708 calls, 2026-11-05), priced at gpt-5.6-luna's per-token rates fitted to those 708 recorded
-  calls (input $0.2168, output $1.4057 per million tokens). About $0.79 per full pass, counting no cache
-  discount. The dictionary, dummy and regression run locally at no model cost. The four language-model
-  controls (repeat, reordered examples, swapped label, codebook ablation) each rerun the language model on
-  the tuning interviews (about 315 turns): 4 × 315 calls at the same figures, about $1.58 once per corpus.
-- **Cheapest design that still does the job:** one call per turn with the instrument as a cached prefix.
-  The alternative, one call per interview labelling all its turns at once, costs about a third as much:
-  about $0.28 per pass against $0.79 (25 calls; the instrument once per interview plus the whole
-  interview, 108,452 tokens for all 1,277 turns, interviewee turns averaging 128 tokens, counted with the
-  o200k tokenizer from QC's segments; the same output tokens). It is run on the tuning interviews in the
-  feasibility readout (about $0.15) and adopted if its agreement is no worse; per-turn calls are the
-  default because labels from one long call can influence one another and long-context labelling can
-  lose accuracy. Quality decides, not cost: both are under a dollar per pass.
+- **Plain version first** (the comparison every AI answer path gets): the language model starts as the
+  plain version, the same model given the whole source in two calls: one call with the instrument and every
+  interviewee turn of the tuning interviews, and one with the instrument and every turn of the held-out
+  interviews, each returning one label per turn (turn id, yes or no, the quoted words it rests on, capped by
+  the output schema at about 40 tokens, so about 60 output tokens per label). The calls are split by
+  tuning and held-out so nothing held out is in the call the prompt is tuned on. The whole corpus is
+  108,452 tokens (all 1,277 turns, o200k tokenizer) and about 315 labels need about 19,000 output tokens,
+  inside gpt-5.6-luna's 922,000-token input and 128,000-token output limits (LiteLLM's model information).
+  Two stages are added only if the plain version shows a gap on the tuning interviews (turns left
+  unlabelled, labels that repeat a neighbour's, or agreement below the word-list count): one call per
+  interview, then one call per turn. Each is compared with the plain version on the tuning interviews
+  only, kept only if its agreement there is better, and the held-out interviews are scored once, with the
+  design chosen.
+- **Cost (computed, not measured):** the plain version is 2 calls of about 58,000 input tokens (the
+  instrument, 3,924 tokens, measured from QC's comparable instrument, plus half the corpus) and about
+  19,000 output tokens, at gpt-5.6-luna's per-token rates fitted to the 708 recorded calls of QC's
+  `qualitative_coding.gt_constant_comparison.application` (input $0.2168, output $1.4057 per million
+  tokens; `llm-cost estimate`, 2026-11-05): about $0.04 a call, $0.08 for both. The stages, if a gap
+  shows, on the tuning interviews only: one call per interview, 13 calls, about $0.15; one call per turn,
+  315 calls at that task's median 4,052 input and 268 output tokens, about $0.40. The four language-model
+  controls (repeat, reordered examples, swapped label, codebook ablation) each rerun the chosen design on
+  the tuning interviews: with the plain version, 4 calls, about $0.16. The dictionary, dummy and regression
+  run locally at no model cost.
+- **Cheapest design that still does the job:** the plain version, two calls, about $0.08 per pass. It is
+  also the starting design, so nothing more expensive is built unless the tuning interviews show the plain
+  version falls short; quality decides, not cost, and every design here is under a dollar per pass.
 
 ### S3 — Joint display and meta-inference
 
 - **Which rows can be compared** (open question Q22, resolved by a written rule): QC's six propositions
-  are conditional statements spanning several categories, and S2 measures one category's prevalence. Each
-  proposition is mapped, before any verdict is drafted, either to the measure (it names the measured
-  category, and the measure speaks to it as prevalence by interview or as co-occurrence with another
-  category in the same interviews) or to "silent: not measured". Only mapped rows get a convergence,
-  complementarity or divergence verdict; a silent row shows the qualitative claim and the word "silent" in
-  grey, with the reason. A row whose units differ (a turn-level claim against an interview-level figure)
-  blocks aggregation and meta-inference, as the brief requires (`:143-144`), and says so in orange. The
-  page states how many of the six rows are comparable.
-- **Build:** for each comparable row, a draft integration verdict and bounded meta-inference through
-  `llm_client`, citing passage ids and the measured numbers. A deterministic check then verifies that
-  every number the draft cites equals the measured result and every passage id resolves; a draft that
-  fails is shown in orange with the failing number or id, never silently corrected. No second model
+  are conditional statements ("when X, then Y") that each name two or three categories, and S2 measures one
+  theme's prevalence. A prevalence cannot confirm or contradict a conditional, so each proposition is
+  mapped, before any verdict is drafted, either to the measure (it names a QC category the measured code
+  qualified for, Construct above) or to "silent: not measured". A mapped row may say only
+  "complements" (the measure shows how widely the theme is talked about, beside the qualitative claim);
+  the number and passage check refuses "converges" or "diverges" on a row matched by prevalence alone,
+  and the page says why. A silent row shows the qualitative claim and the word "silent" in grey, with the
+  reason. A row whose units differ (a turn-level claim against an interview-level figure) blocks
+  aggregation and meta-inference, as the brief requires (`:143-144`), and says so in orange. The page
+  states how many of the six rows are mapped. Measuring a proposition's condition and outcome together, so
+  a row could converge or diverge, is a later slice's choice, not 1.0's.
+- **Build:** for each mapped row, a draft integration verdict and bounded meta-inference through
+  `llm_client` (the plain version below), citing passage ids and the measured numbers. A deterministic
+  check (the number and passage check) then verifies that every number the draft cites equals the measured
+  result, every passage id resolves, and no prevalence-only row says "converges" or "diverges"; a draft
+  that fails is shown in orange with the failing number, id or verdict, never silently corrected. No second model
   challenges the drafts: the PsychosisBank challenge (`verification_challenge`) returned "bounded
   support" on all three of its findings and changed no answer, so a challenger is added only when S3's
   traces show a gap it would close. Drafts stay "pending review" until S5's review.
-- **Plain version** (the comparison every AI answer path gets): one call given all six propositions, the
-  measured result and the passages, asked for the same verdicts. S3's per-proposition drafts are kept only
-  if they beat it on the number and passage check and on Brian's review; the two are shown side by side
-  on the first run.
+- **Plain version first:** S3 starts with one call given all six propositions, the mapping, the measured
+  result and the passages, returning every row's verdict and bounded meta-inference. One draft per mapped
+  proposition is a stage added only if the plain call shows a gap on the number and passage check (a
+  number not in the measured result, a passage id that does not resolve, a verdict the rule refuses) or on
+  Brian's review; the two are then shown side by side.
 - **Trace:** task `mixed_methods_workbench.open_science.integrate`; receipt as in S2. The agent reads every
   draft in full.
-- **Cost (computed):** at most 6 calls (one per comparable proposition) × the closest measured task's
-  median tokens, QC's `qualitative_coding.grounded_theory_verdict` (`llm-cost estimate`, 55 calls: median
-  15,196 input and 807 output tokens), at gpt-6-luna's per-token rates fitted to its recorded calls (input
-  $0.1354, output $0.2895 per million tokens): about $0.014 per run, plus one plain-version call. At that
-  task's measured median of $0.0038 per call it would be $0.023; redone from S3's receipt.
+- **Cost (computed):** the plain version is one call over all six propositions: at most 6 × the closest
+  measured task's median input, QC's `qualitative_coding.grounded_theory_verdict` (`llm-cost estimate`, 55
+  calls: median 15,196 input and 807 output tokens), so about 91,000 input and 4,800 output tokens, at
+  gpt-6-luna's per-token rates fitted to its recorded calls (input $0.1354, output $0.2895 per million
+  tokens): about $0.014 per run, an upper figure because the shared passages are counted six times. The
+  per-proposition stage, if a gap shows, is at most 6 calls at the same total. Redone from S3's receipt.
 
 ### S4 — Process Tracing on one proposition
 
@@ -273,9 +299,9 @@ finish).
 - **Trace:** one receipt per run; the benchmark page links each.
 - **Planted failures include an overclaim:** a meta-inference citing a number that is not in the measured
   result, which S3's number check must catch.
-- **Cost (computed):** S2 + S3 on a corpus of similar size from the same figures, about $0.81 per run;
-  three repeat runs to show variation, about $2.42, plus the S2 language-model controls once (about
-  $1.58), plus Qualitative Coding's own pass if Q21 needs one. Redone with `llm-cost estimate` on S2's own
+- **Cost (computed):** S2's plain version + S3 on a corpus of similar size from the same figures, about
+  $0.10 per run; three repeat runs to show variation, about $0.28, plus the S2 language-model controls once
+  (about $0.16), plus Qualitative Coding's own pass if Q21 needs one. Redone with `llm-cost estimate` on S2's own
   task once S2 has run.
 
 ### S7 — 1.0 release
@@ -290,14 +316,22 @@ finish).
 `joint_display`, `meta_inference`, `verification_challenge`, `pt_export`, `publication_gate`,
 `connected_run_receipt`, `investigation_record`, `review_decision`, `research_bundle`, `planted_failure`,
 `benchmark`, `method_profile`, `public_review`, `capability_verdict`, `reflexivity_memo`, `split_manifest`,
-`feasibility_readout`, `route_plan` (see `docs/planning/DOMAIN.md`).
+`feasibility_readout`, `route_plan`, `proposition_measure_map`, `integration_check` (see
+`docs/planning/DOMAIN.md`).
 
 ## Not in this plan
 
 Running a qualitative method inside the workbench; a universal schema or method planner; OntoCanon, DIGIMON
 or Theory Forge on the critical path; contacting any corpus author; publishing anything beyond the existing
 PsychosisBank Worker without Brian's answer to open question Q11. Brian's NYC pause (2026-10-04) still
-holds: NYC is not used as an example and its vertical is not extended.
+holds: NYC is not used as an example and its vertical is not extended. The 2026-08-13 integration
+assessment's limits (`docs/PLANNING_STATUS.md:208-218`, written by an agent under Brian's approval of
+that assessment) said work must not "rerun QC, Process Tracing, Theory Forge, or simulation analyses
+merely to populate the Workbench" nor infer authorization beyond the Investigation Spine. Brian's
+2026-11-06 direction to finish authorises this plan's slices; the rerun limit still holds in this sense:
+S4 runs Process Tracing and S6 may run Qualitative Coding in their own repositories to test a 1.0
+condition (a causal path; a second corpus for the benchmark), never to fill the page, and the workbench
+never runs either.
 
 ## Done when
 

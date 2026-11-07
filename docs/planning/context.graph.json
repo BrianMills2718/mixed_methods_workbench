@@ -121,6 +121,12 @@
    "kind": "producer",
    "label": "cybernetic_influence_v3",
    "explain": "Cybernetic Influence: retained simulation runs; its outbreak-comparison projection is read by the simulation policy appraisal (simulation_policy_appraisal.py:51, :146)."
+  },
+  {
+   "id": "github_issues",
+   "label": "GitHub issues (this repository)",
+   "kind": "source",
+   "explain": "Plan #8 S5, open question Q20: on the served page each accept, reject, annotation or memo opens a pre-filled issue Brian submits; make import-reviews turns labelled issues into the study's typed review files."
   }
  ],
  "edges": [
@@ -219,6 +225,18 @@
    "source": "data_contracts",
    "target": "cases",
    "label": "decision grammar for (guarded decision)"
+  },
+  {
+   "id": "c17",
+   "source": "study_page",
+   "target": "github_issues",
+   "label": "review actions opened as (served page)"
+  },
+  {
+   "id": "c18",
+   "source": "github_issues",
+   "target": "study",
+   "label": "imported by make import-reviews"
   }
  ]
 }
