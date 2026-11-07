@@ -95,7 +95,7 @@
    ]
   },
   {
-   "where": "method owners' rules",
+   "where": "prior_art",
    "how": "read qualitative_coding/docs/METHODS_AND_THEORY.md 'From qualitative theory to theory testing' and portfolio decision 0017; read examples/runs/psychosisbank-synthesis-20260923/qc_theory_input.json and investigation_spine.py's IndependentCaseSources",
    "found": [
     "/home/brian/code2/qualitative_coding/docs/METHODS_AND_THEORY.md:453",
