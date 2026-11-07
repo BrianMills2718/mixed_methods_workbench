@@ -13,6 +13,7 @@ from mixed_methods_workbench.study_workbench import (
     UnsupportedProducerSchema,
     anchor_text,
     build_study_payload,
+    chance_reading,
     read_grounded_theory,
 )
 from scripts.build_study_page import build, page_dir_for, render
@@ -100,6 +101,8 @@ def test_passage_location_is_shown_with_its_chance_rate_not_as_agreement(payload
     assert (location["author_coded_characters"], location["corpus_characters"]) == (397446, 571307)
     assert location["median_cited_passage_characters"] == 970
     assert (location["of_those_overlapping_an_author_passage"], location["interviewee_segments_at_least_that_long"]) == (135, 135)
+    assert location["of_those_inside_one_author_passage"] == 89
+    assert location["chance"]["tested"] is True and location["chance"]["above_chance"] is False
     assert location["reads_as"] == "location, not agreement"
     comparison = payload["qualitative_strand"]["agreement_with_author"]["producer_comparison"]
     assert comparison["recorded_for_pinned_run"] is False
@@ -108,6 +111,18 @@ def test_passage_location_is_shown_with_its_chance_rate_not_as_agreement(payload
     template = (REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html").read_text()
     assert "location, not agreement" in template and "Chance gives the same" in template
     assert "cannot show agreement" in template
+
+
+def test_chance_reading_follows_the_figures_not_fixed_text() -> None:
+    """Round-18 cold review, n-nn: the page's chance sentence is computed, so a moved pin cannot keep a stale claim."""
+    baseline = {
+        "interviewee_segments_at_least_that_long": 100,
+        "of_those_overlapping_an_author_passage": 50,
+        "of_those_inside_one_author_passage": 30,
+    }
+    assert chance_reading(100, 52, 31, baseline)["above_chance"] is False
+    assert chance_reading(100, 90, 31, baseline)["above_chance"] is True
+    assert chance_reading(0, 0, 0, baseline) == {"tested": False, "above_chance": False, "level": 0.05}
 
 
 def test_pin_record_is_typed_and_refuses_unknown_fields(tmp_path: Path) -> None:

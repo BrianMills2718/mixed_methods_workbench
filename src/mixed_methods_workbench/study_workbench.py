@@ -16,6 +16,7 @@ import difflib
 import hashlib
 import io
 import json
+import math
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
@@ -335,12 +336,42 @@ def _location_baseline(
     overlapping = sum(
         1 for r in long_turns if any(a["start"] < r["end"] and r["start"] < a["end"] for a in by_file.get(r["file"] or "", []))
     )
+    inside = sum(
+        1 for r in long_turns if any(a["start"] <= r["start"] and r["end"] <= a["end"] for a in by_file.get(r["file"] or "", []))
+    )
     return {
         "author_coded_characters": coded,
         "corpus_characters": total,
         "median_cited_passage_characters": median,
         "interviewee_segments_at_least_that_long": len(long_turns),
         "of_those_overlapping_an_author_passage": overlapping,
+        "of_those_inside_one_author_passage": inside,
+    }
+
+
+def _upper_tail(successes: int, trials: int, rate: float) -> float:
+    """One-sided binomial tail: the chance of at least `successes` in `trials` at `rate`."""
+    return sum(math.comb(trials, k) * rate**k * (1 - rate) ** (trials - k) for k in range(successes, trials + 1))
+
+
+def chance_reading(cited: int, overlapping: int, inside: int, baseline: dict[str, Any], level: float = 0.05) -> dict[str, Any]:
+    """Whether the cited passages sit in the author's coding more often than chance (round-18 cold review, n-nn).
+
+    Each measure is tested one-sided against the share of the baseline turns that meet it. The page words
+    its sentence from this result, so a moved pin cannot leave "chance gives the same" behind when it is
+    no longer true. Either way the figure shows location, not agreement.
+    """
+    n = baseline["interviewee_segments_at_least_that_long"]
+    if cited == 0 or n == 0:
+        return {"tested": False, "above_chance": False, "level": level}
+    p_overlap = _upper_tail(overlapping, cited, baseline["of_those_overlapping_an_author_passage"] / n)
+    p_inside = _upper_tail(inside, cited, baseline["of_those_inside_one_author_passage"] / n)
+    return {
+        "tested": True,
+        "level": level,
+        "p_overlap": round(p_overlap, 4),
+        "p_inside": round(p_inside, 4),
+        "above_chance": p_overlap < level or p_inside < level,
     }
 
 
@@ -630,6 +661,7 @@ def build_study_payload(study_dir: Path) -> dict[str, Any]:
                     "cited_passages_overlapping_an_author_passage": with_codes,
                     "cited_passages_inside_one_author_passage": inside_one,
                     **location,
+                    "chance": chance_reading(len(passages), with_codes, inside_one, location),
                     "reads_as": "location, not agreement",
                 },
                 "producer_comparison": pin.producer_human_comparison.model_dump(),

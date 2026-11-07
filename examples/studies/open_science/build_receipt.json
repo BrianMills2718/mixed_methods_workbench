@@ -147,7 +147,7 @@
   },
   {
    "path": "src/mixed_methods_workbench/static/study_workbench.html",
-   "sha256": "6d89fb2511193e87241eec7b220605878f36070cc2532685ba9bef916602bf0b"
+   "sha256": "abb161b4ab7df691d2ad2039d5c4611f9d6063839119e6f574e75d57b29284f0"
   }
  ],
  "steps": [
@@ -190,13 +190,14 @@
    "corpus_characters": 571307,
    "median_cited_passage_characters": 970,
    "interviewee_segments_at_least_that_long": 135,
-   "of_those_overlapping_an_author_passage": 135
+   "of_those_overlapping_an_author_passage": 135,
+   "of_those_inside_one_author_passage": 89
   }
  ],
  "outputs": [
   {
    "path": "proposals/open-science-study/index.html",
-   "sha256": "d55f9dec4fe3873fc1531edd3533f6ee8c186315bdb6a5d07bc97fe82ab021e1"
+   "sha256": "e94db42b0e086b8d5b0638b5a3c26863cdb95a0d181ee2587bd15df5a2930e6e"
   }
  ]
 }
