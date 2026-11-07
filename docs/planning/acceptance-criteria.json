@@ -231,9 +231,9 @@
  ],
  "coverage": {
   "model": "openrouter/anthropic/claude-sonnet-5.5",
-  "judged_at": "2026-11-06T21:51:20-0500",
+  "judged_at": "2026-11-06T22:06:10-0500",
   "asked_by_sha256": "055991eed82341a58b7497516eac5df05b30af13242b00f7fa354ce9c941a111",
-  "criteria_sha256": "0d496e5933faedb002b55e47d5de51647089d623d2ce9ab832d50a2baecddd10",
+  "criteria_sha256": "ddc2765540f202b112f9b8d78f62f868317a9a74d77dcb0bfed926220060f504",
   "outcome_sha256": "2e4aa6f53b264f2dfa1597843b832f5da33bb7d12a1ff78cfc33bb8a566aa566",
   "criteria_judged": {
    "A1": "ecd3c10513df0a475820237c7ebe60df384c47ac10a2263adc936e15ea313d44",
@@ -247,11 +247,11 @@
    "A9": "5e1955dc1910222855791c80032ae121b1145c74ff4649dfaac70600214e6fc5",
    "A10": "41360e9582af181c3f7809b05e317c2f7285fd7720dca003355afd31ce84e90b",
    "A11": "8a8b89a69614938901bdcfc733504dd519ddf27972d9de5d68038347a01f5932",
-   "A12": "e0df41e24fb5a5d5ea5ae5d16bdb08aea307807ac7172a3541c5543a3ce05d98"
+   "A12": "07dff0cb14364a9aed6d00aab5308491d8d109399fe6529fbd8811c5add401ff"
   },
   "deferrals_judged": [],
-  "trace_id": "planning-compliance/goal-coverage/20261106T215115-e300fe3a-run1",
-  "cost_usd": 0.038528,
+  "trace_id": "planning-compliance/goal-coverage/20261106T220605-aa166ec5-run1",
+  "cost_usd": 0.038644,
   "requirements": [
    {
     "id": "R1",
@@ -279,50 +279,51 @@
    {
     "requirement_id": "R1",
     "covered_by": [
-     "A12"
+     "A12",
+     "A9"
     ],
-    "coverage_reason": "A12 requires every condition of the 1.0 definition to read met, plus an end-to-end run, and the 1.0 tag only when all are met, so an unfinished workbench fails it.",
+    "coverage_reason": "A12 fails unless every 1.0 condition and gate is met with recorded judgement and an end-to-end run passes, so an unfinished workbench cannot pass.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says the Mixed Methods Workbench is finished to 1.0 with the full capability chain."
+    "outcome_reason": "The outcome line states the workbench is finished to 1.0 with the described capabilities."
    },
    {
     "requirement_id": "R2",
     "covered_by": [
      "A10"
     ],
-    "coverage_reason": "A10 fails if a new corpus needs code changes or its study page differs, so a tool tied to one use case would fail it.",
+    "coverage_reason": "A10 fails if adding a new corpus needs code changes or the second study page differs, so a use-case-specific workbench would fail.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line says it is a general tool, not for one use case, and runs on two corpora."
+    "outcome_reason": "The outcome line says it is a general tool, not for one use case, on two corpora."
    },
    {
     "requirement_id": "R3",
     "covered_by": [
      "A11"
     ],
-    "coverage_reason": "A11 shows each study as an investigation record of the evidence-to-action vision, linked to the product map, and PsychosisBank is one of them, which a working interface can demonstrate.",
+    "coverage_reason": "A11 requires each study to be the investigation record of the broader evidence-to-action vision, linked to the product map, and a workbench outside that vision would fail it.",
     "extent": "full",
     "missing": "",
     "deferral": 0,
     "in_outcome": true,
-    "outcome_reason": "The outcome line states it is part of Brian's broader evidence-to-action vision, with each study as an investigation record."
+    "outcome_reason": "The outcome line explicitly frames the work as part of Brian's broader evidence-to-action vision."
    }
   ],
   "agreement": {
    "runs": 2,
    "agreed": true,
    "trace_ids": [
-    "planning-compliance/goal-coverage/20261106T215115-e300fe3a-run1",
-    "planning-compliance/goal-coverage/20261106T215115-e300fe3a-run2"
+    "planning-compliance/goal-coverage/20261106T220605-aa166ec5-run1",
+    "planning-compliance/goal-coverage/20261106T220605-aa166ec5-run2"
    ],
    "costs_usd": [
-    0.019404,
-    0.019124
+    0.019462,
+    0.019182
    ]
   },
   "trace": "coverage-trace.json"

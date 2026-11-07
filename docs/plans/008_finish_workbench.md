@@ -408,7 +408,7 @@ Written by `plan_checklist.py --write`, not by hand. `--check` re-runs the valid
 if any line below differs from what it says now. Unticked pending items are not passes.
 
 Manifest: `docs/planning/planning-package.json`
-Package revision: `89aadea09941`
+Package revision: `9dd600945f7d`
 Verdict: not compliant
 
 - [x] part investigation: ok
@@ -427,7 +427,7 @@ Verdict: not compliant
 - [x] substance project layer checks against the planning layer: ok
 - [x] substance concepts point at their code: ok
 - [x] substance plan names the concepts it relies on: ok
-- [ ] substance plan records the cost basis of each AI step: failing
+- [x] substance plan records the cost basis of each AI step: ok
 - [ ] substance plan compares its AI answer path with the plain version: failing
 - [ ] substance plan shows what each stage adds over the plain version: failing
 - [x] substance plan records Brian's stops on this work: ok
