@@ -150,7 +150,7 @@
    ],
    "verdict": "fails",
    "question_id": "Q3",
-   "note": "docs/ROADMAP.md exists; md_file_cap counts 126 Markdown files (cap 100) and 112 not reachable from wiki/index.md (docs/planning/checks.txt, a95a519)."
+   "note": "docs/ROADMAP.md exists; md_file_cap counts 126 Markdown files (cap 100) and 112 not reachable from wiki/index.md (docs/planning/checks.txt, a9dc199)."
   },
   {
    "id": "F6",

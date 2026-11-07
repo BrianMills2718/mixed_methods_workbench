@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "a95a519d18d23a73032995b25a90b65c896ef314",
+ "subject_revision": "47475efe910bb22ba94f392881e01db03c537a03",
  "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -254,10 +254,11 @@
      },
      {
       "step": "S4 Process Tracing draft-audit on one proposition",
-      "cost_per_run_usd": 0.04,
+      "cost_per_run_usd": 0.03,
       "per": "run",
-      "basis": "guess",
-      "evidence": "llm-cost cost --group-by task, 2026-11-06: process_tracing.draft_audit.* total $0.233 (measured); the divisor, about 6 runs, is a guess. Replaced by S4's own run receipt total."
+      "basis": "measured",
+      "evidence": "Recorded calls in ~/projects/data/llm_observability.db (llm_client's log), 2026-11-05 to 06: one draft-audit pass is five stages; mean cost per call by stage: decompose $0.0036 (7 calls), inference $0.0046 (6), verify $0.0095 (7), rivals $0.0053 (6), test $0.0069 (6); sum about $0.03. Example trace ids: draft-audit/challenger/d0/decompose, draft-audit/challenger/d0/inference, draft-audit/challenger/d0/verify. Replaced by S4's own run receipt total.",
+      "calls_per_run": 5
      },
      {
       "step": "S6 rerun of the S2 measure on the second corpus (S3 adds about $0.03 per run)",
