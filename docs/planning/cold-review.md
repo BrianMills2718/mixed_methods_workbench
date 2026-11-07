@@ -3,6 +3,20 @@
 The latest review comes first. Each records the revision it read and its verdict; the package manifest's
 `cold_review` field carries the latest.
 
+## Plan #8, round 13 (read d7ec806): revise
+
+The reviewer found both round-12 blocking findings and notes n-l to n-q fixed, confirmed the category
+each pinned proposition names and P5's input, and swept every claim that names the pinned theory. It
+returned **revise** on two blocking findings, with notes n-s to n-u. What changed in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| R13-B1 | Plan `:46` and Q12(c) still said one author code qualifies as a measure; on the pinned theory none does | Both now say no code passes the rule on the pinned theory and the measured code is Brian's own pick below the bar (Q15, F24) |
+| R13-B2 | F10 called the pinned run a finished grounded-theory result; by QC's own pages it rejects 46% of proposed quotes (above its "wrong if" line of roughly a quarter) and predates its disprove test | F10 now fails, tied to Q26. Q26, the 1.0 qualitative-path row and S1's page label (S1 commit 871983e, with a test) state QC's figures (46% against the published run's 11.7%). The workbench asked QC to commit its current theory file: BrianMills2718/qc issue #205, cited in Q26 and the label |
+| n-s | A5 did not ask for the below-bar label on mapped rows | A5's expected result and failure example now do |
+| n-t | Q24, the system model's S4 row and the `pt_export` glossary row said "the bounded P5 appraisal" without the earlier-theory label | Labelled |
+| n-u | S4's conditional route named only ADR 0004's prototype; ADR 0005 sends a case above one call's window through evidence cards | S4 names Process Tracing's answer path for the case's size (ADR 0004, or ADR 0005 above the window) |
+
 ## Plan #8, round 12 (read e75a424): revise
 
 The reviewer found R11-B1 fixed (S1's pin is byte-identical to QC's committed e131eb55 file, the
@@ -1443,5 +1457,130 @@ The fix moved the pin, though, without carrying two of its consequences through 
 - **Need anything from human:** No. Both fixes are agent work.
 
 Reviewed revision: e75a424f0fb08486309f94cbe646c61765f37511
+
+Verdict: revise
+
+## Plan #8, round 13 reviewer's report (verbatim)
+
+#### Cold review, round 13: Plan #8 package (mixed_methods_workbench, branch plan-008-finish)
+
+The verdict is **revise**, on two new blocking findings. Both round-12 blocking findings are fixed, and the data supports each fix.
+
+The sweep found two claims that are wrong about the pinned theory (Qualitative Coding's, or QC's, run e131eb55):
+
+- **One code "qualifies":** Q12(c) and the plan's 1.0 table still say one author code qualifies as a measure. On the pinned theory none does.
+- **"Finished" result:** finding F10 calls the pinned run a finished grounded-theory result. QC's own current pages say it is not finished.
+
+Both are small text fixes.
+
+#### Validator and checklist
+
+**Validator** (`validate_planning_package.py --repo . docs/planning/planning-package.json`, branch head f5b38d1): **exit 1**, as expected.
+
+- **Parts:** 9 of 10 ok. Only the cold review fails, because its verdict is `revise`.
+- **Substance checks:** 10 of 12 ok, 0 failing, 2 WAIT. Both WAITs are there by the contract's design: the plain baseline is still `planned`, and 3 stages are untested.
+- **Other figures:** 98 citations checked; 15 AI steps (3 measured, 12 computed); 7 stops (5 hold, 2 lifted).
+- **Initiative and spectrum-tier checks:** 4 of 4 ok.
+- **Coverage:** ok. Of 3 requirements, 2 are covered and 1 is about the planning process.
+- **Goal provenance:** ok.
+- **Freshness:** ok, with 1 commit of work since the subject revision.
+
+**Plan checklist** (`plan_checklist.py --check`): **exit 0**, 0 differing lines.
+
+#### Checks I reran
+
+| Check | Result | Against the package |
+| --- | --- | --- |
+| `overlap_e131.py` on S1's pin (mmw-s1 at 7f07c52) | 630 turns, 4 categories, 28 codes (11 numbered codes left out), 112 pairs, **0 qualify**. Best three: 0.47 (18/38, 7.9e-9), 0.40 (16/40, 1.2e-6), 0.28 (11/40). Highest two-way overlap 0.204. All 194 carried passages sit at their offsets | Matches plan :160-177, Q15, F24 and A4 |
+| Pin hash | sha256 a77661f9… is the same for S1's `qc/theory.json` and QC's `expected-view.json`. That file last changed at 7f5a8af9 (2026-10-09). QC has committed no new theory since round 12 (the last asset commit is 8546fb47) | Matches Q26 |
+| Which categories each pinned proposition names (`category_indexes`, counted from 1) | P1 [1,3], P2 [1,2], P3 [2,4], P4 [2,3], P5 [1,4], P6 [1,2,4]. "Conditional, usable, and situated traceability" (category 1) → P1, P2, P5, P6. "Academic-capital…" (category 3) → P1, P4 | Matches S3 :245-246 and Q15 |
+| P5 input (`qc_theory_input.json`) | Revision d921baaf…, `proposition_version_id` p5-v1, `proposition_sha256` 7dc4da5a…. Its statement is the "individualized … minimum-compliance disclosure" claim. The closest pinned claim is P4; the pinned P5 is a different claim | Matches S4 :306-310, A6 and Q25 |
+| S1 tests (`pytest tests/test_study_workbench.py`) | 13 passed (round 12's 12, plus the new pin-record test) | — |
+| `crosswalk_phase4.py --check` | exit 0: 171 steps, 36 groups, 0 errors | Matches the manifest |
+| `validate_project_navigation.py .` | 0 findings, 2 delegated | Matches the manifest |
+
+#### Round-12 findings
+
+- **R12-B1: fixed.**
+  - S3 (:242-246), Q22, Q15 and the domain glossary entry now say Brian picks one table row: a code for one QC category.
+  - The recommended row, "open data" for traceability, maps propositions 1, 2, 5 and 6. The data confirms this.
+  - A4 now shows the pin's counts (38 cited turns, 18 marked) and requires the below-the-bar label.
+- **R12-B2: fixed.**
+  - S4, the slice table, the 1.0 row, A6 and Q25 now name P5's theory as revision d921baaf, version p5-v1, and show its statement.
+  - They label it "not this page's P5" and name P4 as the closest pinned claim.
+  - The case packet may carry its own theory pin, and the P5 input really does carry revision, version and sha256.
+- **n-l to n-q: fixed.** Q22 says 4 categories. Q14 has its line about the passages. F23 says four QC tests. Q12 cites `:471`. The disproof gains the second-corpus case. The pin record is now typed as `ProducerInputPin` (unknown fields refused, `BrianMills2718/qc`) and appears in the system model's S1 row.
+- **Missed question 3: answered.** Q26's reason for not reading QC's live view (QC revised that theory twice on 2026-11-06) holds.
+- **n-r and n8–n11:** unchanged by choice. They stay notes.
+
+#### Findings
+
+| Id | Part | File:line | What is wrong | Fix | Weight |
+| --- | --- | --- | --- | --- | --- |
+| R13-B1 | plan, open questions, review page | plan `:46` ("Only that one code qualifies"); Q12(c) `open-questions.json:203` ("only one of the author's 39 codes qualifies as a measure of a QC category"); shown at `review.html:54`, `open-questions.html:53`, `diagram-open-questions.html:46` | August-era text that the round-11 pin change never reached. On the pinned theory, 0 of 112 pairs qualify. The measure now rests on Brian's own pick below the bar (Q15, F24). Q12(c)'s own recommendation, in the same entry, says no code holds half. So the question Brian answers contradicts itself. The 1.0 table row, which S7's readiness page carries, misstates how the quantitative condition is met | Say that no code qualifies under the rule on the pinned theory, and that the measured code is Brian's below-bar pick (Q15). Then rebuild the page | **blocking** |
+| R13-B2 | investigation, open questions, plan | `investigation.json` F10 (verdict `holds`); Q26; plan `:43` | F10 says QC "has a finished grounded-theory result". QC's own current pages say the pinned run is not finished (detail below). Q26 drops the August export because it "predates QC's coding-quality step", yet does not say that the pinned run fails that step's own test. The roadmap's G2 asks for "one validated path". This is the route that reads a producer result its owner has moved past, without saying why the owner moved | Change F10's verdict to `fails`, tied to Q26. State QC's two figures in Q26, the 1.0 row and the page label's reason. File an issue in BrianMills2718/qc asking QC to commit its current theory file, and cite it in Q26, rather than waiting | **blocking** |
+| n-s | acceptance | A5 `acceptance-criteria.json` | S3 (:244) and Q15 put "chosen by Brian below the rule's half-share bar" on every mapped row. A5 does not ask for it, so a joint display without the label would pass A5 (A4 covers it only on the readout) | Add the label to A5's expected result and its failure example | note |
+| n-t | open questions, system model, domain model | Q24 `open-questions.json:467`; `SYSTEM_MODEL.md:51`; the domain glossary's `pt_export` row | These still say "the bounded P5 appraisal" without "of an earlier QC theory". The plan, Q25 and A6 carry the label | Add the label | note |
+| n-u | plan S4 | plan `:328-334` | Process Tracing's ADR 0005 (accepted 2026-11-06) sends a case whose records exceed one model call through its evidence-card path. S4's conditional route names only ADR 0004's prototype. This matters only if Q25 names a large case | Say "PT's answer path for the case's size (ADR 0004, or ADR 0005 above the window)" | note |
+| n-r, n8–n11, n10 | carried | — | Unchanged since earlier rounds. The `/blob/main/` links still return 404 until the branch merges | — | note |
+
+##### R13-B2 in detail
+
+QC's own pages say these things about the pinned run, e131eb55:
+
+- **It fails QC's own coding bar.** QC's finish line says it is wrong if "the misfit count stays above roughly a quarter of applications" (`CURRENT_STATE_AND_ROADMAP.md:21-25`). The status page then says "the published example rejects 46% of proposed quotes" (:32). That example is e131eb55: the evidence ledger (:165) and the review queue (:28, :40) both say so. The pin's own counts agree: 288 rejected against 330 accepted, which is 46.6%. The newer run, a67d7d6a, rejects 11.7%.
+- **It predates the disprove test** that QC's finish requirement now asks for (review queue D3). S1's page reason says this; F10 and Q26 do not.
+- **QC no longer calls its output a finished theory.** It calls it a "grounded-theory-inspired candidate theory" (review queue D2).
+
+#### Questions the ledger misses
+
+1. Does the pinned run meet QC's own coding-quality bar, and should the study page and the 1.0 row say so? (R13-B2)
+2. Should the workbench ask QC to commit its current theory file, instead of waiting for the pin to move? (R13-B2)
+3. If Brian names a case for Q25 whose records exceed one model call, which Process Tracing path reads it? (n-u)
+
+#### Checked and found sound
+
+- **Sweep against the pin.** These all agree with the pin, except plan :46 and Q12(c) (R13-B1):
+  - plan :43, :45, :81, :141-177, :238-253 and :285-347;
+  - Q14, Q15, Q22, Q25 and Q26;
+  - F19 and F22-F24;
+  - A3-A6;
+  - the domain glossary rows `qc_theory_export`, `independent_case_packet` and `proposition_measure_map`;
+  - the system model's S1 row.
+- **The method owners' rules:**
+  - S4 keeps QC's independence condition and anti-circularity rule (`METHODS_AND_THEORY.md:453-474`).
+  - S2 and S3 make the separate decisions QC's quantitative-projection rule lists (:485-500): construct, unit, aggregation, measurement validity and descriptive warrant.
+  - Decision 0017 (:27-58), read in full, matches.
+  - ADR 0004 (:61-80) and the efficiency README (:161-163) match S4 and Q23.
+  - QC's new plain-first decision (D8, Brian 2026-11-07) changes QC's own coding pipeline. Q26's repin rule already covers a theory from that pipeline.
+- **Review page:**
+  - It shows the subject revision d7ec806fe594 and draws its diagrams on the page (`GraphViewer.mount` on every page).
+  - It carries the round-12 wording.
+  - The repository is in Brian's own account, so the company-organization rule does not apply.
+- **Coverage:** my own split of Brian's words gives the same three requirements: finish → A12, not for one use case → A10, broader vision → A11. The outcome line keeps all three.
+
+#### Judgments I was unsure about
+
+- **R13-B2's weight.** The plan does label the pin "not its published run", and S1's page reason says it "predates its disprove test". So a reader is partly warned. I made it blocking for two reasons:
+  - F10's `holds` verdict and Q26's reasoning say something about the pinned run's standing that QC's own pages contradict.
+  - That standing bears on the roadmap's G2, "one validated path".
+- **R13-B1's weight.** The case for "complements only" holds either way. But the false premise sits inside a question Brian answers, and in the 1.0 table the readiness page will show.
+- **No browser tool was available,** so I read the review page as HTML.
+
+---
+
+- **Verification:**
+  - Validator: exit 1 (parts 9/10; substance 10/12 ok, 0 failing, 2 WAIT).
+  - `plan_checklist.py --check`: exit 0.
+  - `overlap_e131.py`: 0 of 112 pairs qualify; best 0.47.
+  - `sha256sum`: the pin and QC's file agree (a77661f9…).
+  - S1 tests: 13 passed.
+  - Crosswalk check: exit 0, 171/36/0.
+  - Navigation check: 0 findings.
+  - QC `git log` on `public_demo_assets/` and `proposals/` since 2026-11-04: no new theory file.
+- **Feedback:** a pin sweep has to cover the producer's own verdict on the pinned run (its status page's quality figures), not only the ids, counts and labels.
+- **Need anything from human:** No. Both fixes are agent work.
+
+Reviewed revision: d7ec806fe59442367008c1e1895cbb7bc17878bc
 
 Verdict: revise

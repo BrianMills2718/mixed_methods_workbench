@@ -212,7 +212,7 @@
    "id": "pt_export",
    "label": "Process Tracing export (pt_export_v2)",
    "kind": "concept",
-   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport (the PsychosisBank P5 appraisal's export is one). Plan #8 S4 extends the reader to read publication_gate.publishable when present and shows it on two made-up test exports."
+   "explain": "Process Tracing's versioned export, written by its frozen pipeline and read here by ProcessTracingExport (the PsychosisBank appraisal of an earlier QC theory's proposition P5 is one). Plan #8 S4 extends the reader to read publication_gate.publishable when present and shows it on two made-up test exports."
   },
   {
    "id": "investigation_record",
