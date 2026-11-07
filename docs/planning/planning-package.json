@@ -2,7 +2,7 @@
  "schema_version": "1.0",
  "record_type": "planning_package",
  "repository": "BrianMills2718/mixed_methods_workbench",
- "subject_revision": "a2952304143bc30c7bbe2adaa06ed7ac364031c9",
+ "subject_revision": "a95a519d18d23a73032995b25a90b65c896ef314",
  "request": "Brian, 2026-11-06, answering open question Q1: \"on mixed mtheod work bench finsih that is not for a specific use case it is part of my broader vision\". The parent session asked for an adopted plan to 1.0 with this package rebuilt under the full method, then the first slice built.",
  "initiative": {
   "id": "mixed-methods-workbench",
@@ -97,7 +97,7 @@
      "command": "PYTHONPATH=src .venv/bin/python -m pytest -q -p no:cacheprovider",
      "exit_status": 0,
      "counts": {
-      "passed": 203,
+      "passed": 204,
       "skipped": 1,
       "failed": 0
      }
@@ -203,27 +203,54 @@
     "steps": [
      {
       "step": "S2 measure: the language-model challenger applies the instrument to each interviewee turn (mixed_methods_workbench.open_science.measure)",
-      "cost_per_run_usd": 0.69,
       "per": "full pass over the corpus",
-      "calls_per_run": 630,
       "basis": "computed",
-      "evidence": "630 interviewee turns (counted from QC's segments, Q17) x 1 call x $0.0011, the measured median per call of the closest existing task, llm-cost estimate --task qualitative_coding.gt_constant_comparison.application (one inclusion rule applied to one passage; 4,052 input tokens, 0% cached; p90 $0.0019; 708 calls, 2026-11-05). p90 total $1.20."
+      "computation": {
+       "calls": 630,
+       "input_tokens_per_call": 4052,
+       "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.2168,
+       "output_tokens_per_call": 268,
+       "output_usd_per_mtok": 1.4057
+      },
+      "evidence": "630 interviewee turns (counted from QC's segments, Q17) x the closest measured task's median tokens per call (llm-cost estimate --task qualitative_coding.gt_constant_comparison.application, 2026-11-05: 4,052 input, 268 output, 0% cached; median $0.0011, p90 $0.0019 per call) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Cached share set to 0 although the instrument will be a cached prefix, so this is an upper figure.",
+      "cost_per_run_usd": 0.791,
+      "calls_per_run": 630
      },
      {
       "step": "S2 feasibility comparison: one call per interview labelling all its turns, on the tuning interviews only",
-      "cost_per_run_usd": 0.04,
-      "per": "comparison on about 13 tuning interviews",
-      "calls_per_run": 13,
+      "per": "one comparison on about 13 tuning interviews",
       "basis": "computed",
-      "evidence": "13 calls x about 10.5k input tokens (25 turns x about 300 tokens plus a 3k instrument; the reviewer's estimate, not measured) at the measured task's price per input token ($0.0011 per 4,052 tokens, so about $0.0029 per call): about $0.04. Run once, to decide per-turn versus per-interview by agreement."
+      "computation": {
+       "calls": 13,
+       "input_tokens_per_call": 10500,
+       "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.2168,
+       "output_tokens_per_call": 6700,
+       "output_usd_per_mtok": 1.4057
+      },
+      "evidence": "13 calls x about 10,500 input tokens (25 turns x about 300 tokens plus a 3,000-token instrument; the reviewer's estimate, not measured) and 6,700 output tokens (25 turns x the measured 268) x per-token prices for openrouter/openai/gpt-5.6-luna fitted by least squares to the 708 recorded calls of qualitative_coding.gt_constant_comparison.application in ~/projects/data/llm_observability.db (input $0.2168, output $1.4057 per million tokens; the registry and LiteLLM carry no price for it). Run once, to choose per-turn or per-interview calls by agreement.",
+      "cost_per_run_usd": 0.152,
+      "calls_per_run": 13
      },
      {
       "step": "S3 integrate: draft verdict and meta-inference, then a second model's challenge (mixed_methods_workbench.open_science.integrate)",
-      "cost_per_run_usd": 0.046,
       "per": "run over 6 propositions",
-      "calls_per_run": 12,
       "basis": "computed",
-      "evidence": "12 calls x $0.0038, the measured median per call of llm-cost estimate --task qualitative_coding.grounded_theory_verdict (a verdict over a category's passages; 15,196 input tokens; p90 $0.0111; 55 calls)."
+      "computation": {
+       "calls": 12,
+       "input_tokens_per_call": 15196,
+       "input_usd_per_mtok": 0.1354,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.1354,
+       "output_tokens_per_call": 807,
+       "output_usd_per_mtok": 0.2895
+      },
+      "evidence": "12 calls (6 propositions x draft and challenge) x the measured median tokens of qualitative_coding.grounded_theory_verdict (llm-cost estimate, 55 calls: 15,196 input, 807 output, 0% cached; median $0.0038, p90 $0.0111 per call) x per-token prices for openrouter/openai/gpt-6-luna (llm_client's default model) fitted by least squares to its 32 recorded qualitative_coding.grounded_theory_verdict calls in ~/projects/data/llm_observability.db (input $0.1354, output $0.2895 per million tokens). The challenge uses a different model, priced here at the same rates; redone from S3's receipt.",
+      "cost_per_run_usd": 0.027,
+      "calls_per_run": 12
      },
      {
       "step": "S4 Process Tracing draft-audit on one proposition",
@@ -233,15 +260,24 @@
       "evidence": "llm-cost cost --group-by task, 2026-11-06: process_tracing.draft_audit.* total $0.233 (measured); the divisor, about 6 runs, is a guess. Replaced by S4's own run receipt total."
      },
      {
-      "step": "S6 rerun of S2 + S3 on the second corpus",
-      "cost_per_run_usd": 0.74,
+      "step": "S6 rerun of the S2 measure on the second corpus (S3 adds about $0.03 per run)",
       "per": "run",
-      "calls_per_run": 642,
       "basis": "computed",
-      "evidence": "630 x $0.0011 + 12 x $0.0038 from the measured per-call figures above, assuming a corpus of similar size; three runs about $2.21. Redone with llm-cost estimate on S2's own task after S2 runs."
+      "computation": {
+       "calls": 630,
+       "input_tokens_per_call": 4052,
+       "input_usd_per_mtok": 0.2168,
+       "cached_share": 0,
+       "cached_usd_per_mtok": 0.2168,
+       "output_tokens_per_call": 268,
+       "output_usd_per_mtok": 1.4057
+      },
+      "evidence": "The S2 computation for a corpus of similar size; three runs to show variation about $2.46 with S3. Redone with llm-cost estimate on S2's own task after S2 runs.",
+      "cost_per_run_usd": 0.791,
+      "calls_per_run": 630
      }
     ],
-    "cheapest_design": "One call per interviewee turn with the instrument as a cached prefix, and no second model until traces show a gap; the per-interview alternative (one call labels all of an interview's turns) is measured on the tuning interviews and adopted if its agreement is no worse. The dummy, word-list count and TF-IDF regression run locally at no model cost; S1, S5 and S7 call no model. Quality decides between the two, not cost: both are under a dollar per pass."
+    "cheapest_design": "One call per interviewee turn with the instrument as a cached prefix (about $0.79 per pass), and no second model until traces show a gap; the per-interview alternative (one call labels all of an interview's turns) is tried once on the tuning interviews (about $0.15) and adopted if its agreement is no worse. The dummy, word-list count and TF-IDF regression run locally at no model cost; S1, S5 and S7 call no model. Quality decides between the two, not cost: both are under a dollar per pass."
    }
   },
   "acceptance": {
@@ -255,8 +291,8 @@
   "cold_review": {
    "status": "present",
    "path": "docs/planning/cold-review.md",
-   "verdict": "pass",
-   "reviewed_revision": "794be795fc69eb2a813300280539180266920d0a"
+   "verdict": "revise",
+   "reviewed_revision": "a2952304143bc30c7bbe2adaa06ed7ac364031c9"
   }
  },
  "full_method": true,

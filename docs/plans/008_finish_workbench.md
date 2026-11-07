@@ -127,17 +127,19 @@ does not relax any of them.
 - **Trace:** every model call through `llm_client` with task `mixed_methods_workbench.open_science.measure`
   and a trace id; a run receipt with inputs, the split manifest, each call's id, tokens and cost, and
   outputs. The agent reads every disagreement's full trace and a sample of 20 agreements before reporting.
-- **Cost (computed, not measured):** 630 turns × 1 call × a measured per-call figure from the closest
-  existing task, QC's `qualitative_coding.gt_constant_comparison.application` (one inclusion rule applied to
-  one passage: median $0.0011, p90 $0.0019 per call, 4,052 input tokens, 0% cached; `llm-cost estimate`,
-  708 calls, 2026-11-05). About $0.69 per full pass (p90 $1.20). The dictionary, dummy and regression run
-  locally at no model cost.
+- **Cost (computed, not measured):** 630 turns × 1 call, at the token counts of the closest measured task,
+  QC's `qualitative_coding.gt_constant_comparison.application` (one inclusion rule applied to one passage:
+  median 4,052 input and 268 output tokens, 0% cached; median $0.0011, p90 $0.0019 per call; `llm-cost
+  estimate`, 708 calls, 2026-11-05), priced at gpt-5.6-luna's per-token rates fitted to those 708 recorded
+  calls (input $0.2168, output $1.4057 per million tokens). About $0.79 per full pass, counting no cache
+  discount. The dictionary, dummy and regression run locally at no model cost.
 - **Cheapest design that still does the job:** one call per turn with the instrument as a cached prefix.
-  The cheaper alternative, one call per interview labelling all its turns at once (26 calls; about 0.27M
-  instead of 2.6M input tokens, by the reviewer's estimate of 300 tokens per turn), is run on the tuning
-  interviews in the feasibility readout and adopted if its agreement is no worse; per-turn calls are the
-  default because labels from one long call can influence one another and long-context labelling can lose
-  accuracy. Quality decides, not cost: both options cost under a dollar per pass.
+  The alternative, one call per interview labelling all its turns at once, needs about a tenth of the
+  input tokens (about 10,500 per interview by the reviewer's estimate of 300 tokens per turn, against
+  4,052 per turn) but the same output, so it is not much cheaper (about $0.15 for the 13 tuning
+  interviews, computed in the package). It is run on the tuning interviews in the feasibility readout and
+  adopted if its agreement is no worse; per-turn calls are the default because labels from one long call
+  can influence one another and long-context labelling can lose accuracy. Quality decides, not cost.
 
 ### S3 — Joint display and meta-inference
 
@@ -147,9 +149,10 @@ does not relax any of them.
   "pending review" until S5's review.
 - **Trace:** task `mixed_methods_workbench.open_science.integrate`; receipt as in S2. The agent reads every
   draft and challenge in full.
-- **Cost (computed):** 6 propositions × 2 calls × the measured per-call figure of QC's
-  `qualitative_coding.grounded_theory_verdict` (median $0.0038, p90 $0.0111 per call, 15,196 input tokens;
-  `llm-cost estimate`, 55 calls). About $0.05 per run (p90 $0.13).
+- **Cost (computed):** 6 propositions × 2 calls at the token counts of QC's
+  `qualitative_coding.grounded_theory_verdict` (median 15,196 input and 807 output tokens; `llm-cost
+  estimate`, 55 calls; median $0.0038, p90 $0.0111 per call), priced at gpt-6-luna's rates fitted to its
+  32 recorded calls. About $0.03 per run; redone from S3's receipt.
 
 ### S4 — Process Tracing on one proposition
 
@@ -186,9 +189,9 @@ does not relax any of them.
   (the test of "not for a specific use case"). If the second corpus's export format needs a new reader, that
   reader is general (named by format, not by corpus) and the page says so.
 - **Trace:** one receipt per run; the benchmark page links each.
-- **Cost (computed):** S2 + S3 on a corpus of similar size from the same per-call figures, about 642 calls
-  and $0.74 per run; three repeat runs to show variation, about $2.21. Redone with `llm-cost estimate` on
-  S2's own task once S2 has run.
+- **Cost (computed):** S2 + S3 on a corpus of similar size from the same figures, about $0.82 per run;
+  three repeat runs to show variation, about $2.46. Redone with `llm-cost estimate` on S2's own task once
+  S2 has run.
 
 ### S7 — 1.0 release
 

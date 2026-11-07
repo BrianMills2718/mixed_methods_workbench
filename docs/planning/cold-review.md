@@ -1,4 +1,32 @@
-**Re-review, round 2: Mixed Methods Workbench planning package**
+# Cold reviews of this planning package
+
+The latest review comes first. Each records the revision it read and its verdict; the package manifest's
+`cold_review` field carries the latest.
+
+## Plan #8, round 1 (read a295230): revise
+
+The reviewer (`company-planning:planning-compliance-reviewer`, run cold with `claude -p`) returned
+**revise** with ten blocking findings and thirteen notes. What changed in a95a519 in answer:
+
+| Finding | What it said | Fix |
+| --- | --- | --- |
+| B1 | S2 dropped the repository's quantitative-strand brief (word-list count baseline, dummy and TF-IDF baselines, language model as challenger, feasibility readout, prevalence error) | S2 rewritten to keep every condition; Q16 resolved by argument |
+| B2 | "Disagreements" undefined; re-judging only misses inflates agreement | No second model in S2; if added later, the cases are chosen without the author's codes (Q16) |
+| B3 | Unit of analysis and the 650 count unsourced; author passages vary and overlap | Unit = interviewee turn, 630 counted; author passages mapped by overlap (Q17) |
+| B4 | "Part of my broader vision" had no criterion | Read from the evidence-to-action map: one investigation record per study (Q18, Brian's call with that default); acceptance A11; S5 builds it |
+| B5 | Domain definitions did not match code; relies_on missed concepts | evidence_anchor, producer_export, publication_gate redefined; ten concepts added; planned concepts have their own kind |
+| B6 | System model listed no types | Generated type inventory (195 classes, stale-check test); planned types per slice; context diagram shows the inside |
+| B7 | A3, A7, A10 needed a command line or a git commit | Each opens an address (Q11 decides where); the benchmark page states the files each corpus changed |
+| B8 | The package carried an older review's pass | This record; manifest verdict set to revise until the next round passes |
+| B9 | No cheapest-design comparison | Per-interview calls measured against per-turn calls on tuning interviews; quality decides |
+| B10 | Second corpus had no difference rule | Must differ in subject, team and coding tool or export format (Q19) |
+
+Notes: costs relabelled computed or guess (N6); A2 scheduled in S7 (N7); A4 shows tuned and tested
+interviews and a shuffled-label control (N8); goal fields rewritten as direction, claim and disproof (N9);
+the "five changes" count corrected and reflexivity kept in S5 (N10); Q7 count 203 (N11); citations fixed
+(N1, N3, N4); the generator gap behind the hand-added wiki line filed as BrianMills2718/project-meta#2716 (N2).
+
+## Earlier: Plan #7 package, round 2 (read 794be795): pass
 
 The package now passes. Both blocking findings from round 1 are fixed, and nothing new would change a reader's conclusion. A few small notes remain.
 

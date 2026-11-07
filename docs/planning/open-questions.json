@@ -42,7 +42,7 @@
   {
    "id": "Q3",
    "short": "Wiki over cap and unreachable",
-   "question": "128 tracked Markdown files exceed the 100 cap and most are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
+   "question": "md_file_cap counts 126 Markdown files against a cap of 100, and 112 are not reachable from wiki/index.md, whose generated stub says there is no roadmap: which documents does a reader need linked, and which are history?",
    "blocks": "wiki compliance for this repository",
    "resolves_with": "Argument from reading: wiki/index.md is generated (wiki/index.md:25 says not to hand-edit it), and its generator (project-meta scripts/generate_wiki_routing_stub.py, NATIVE_SURFACES) knows docs/ROADMAP.md but not docs/index.md, the code2 reading-order entry. Root-cause fix: add docs/index.md to the generator's native surfaces and rerun it (filed as BrianMills2718/project-meta#2716); until then the one hand-added 'Read next' line (wiki/index.md:17) is the declared workaround. Declare a cap exception for the frozen research records under docs/research.",
    "owner": "agent",
@@ -189,7 +189,7 @@
    "default": "Both pages stay committed and local; each slice report carries screenshots and the GitHub path.",
    "answer_words": "\"hive yes\" / \"worker\" / \"local only\"",
    "sources": [
-    "docs/plans/008_finish_workbench.md:210",
+    "docs/plans/008_finish_workbench.md:213",
     "deploy/psychosisbank-review/worker.js:4"
    ],
    "touches": [
