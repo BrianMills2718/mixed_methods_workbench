@@ -560,6 +560,19 @@
         "docs/planning/planning-package.json"
       ],
       "nightly_key": "review"
+    },
+    {
+      "id": "Q28",
+      "short": "Nightly goals failed",
+      "question": "The nightly goal check found 1 problems in the goals' sources: docs/plans/008_finish_workbench.md: drift: part 4: Part claims the product map supports two readings and describes five sections with specific contents (investigation records, defect, policy-to-recommendation flow), but the only quote provided is the minimal phrase \"investigation spine\"; the detailed claims about the document's dual structure and each section's purpose are not supported by the quoted text.. Each part of a goal names its source (`(source: <locator>)`, with the quote in the page's .sources.json) or says `agent judgment, unconfirmed`; fix them, then run `python3 plugins/company-planning/scripts/goal_provenance.py --repo . --llm`. Full report: /home/brian/.local/state/planning-nightly/mixed_methods_workbench-goals.json.",
+      "blocks": "the package's claim that it still asks for what Brian asked for",
+      "resolves_with": "Fix what it names, then the next nightly run re-checks and closes this (planning-nightly issue).",
+      "owner": "agent",
+      "status": "open",
+      "sources": [
+        "docs/plans/008_finish_workbench.md"
+      ],
+      "nightly_key": "goals"
     }
   ]
 }
