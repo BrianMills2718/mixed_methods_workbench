@@ -80,6 +80,10 @@ Reverify revisions and Project Graph routing before implementation.
 
 ## Repository-level dispositions
 
+### KGAS preserved example consumer 2026-11-12
+
+Source: Brian, 2026-11-12, "i approve", accepting the theory-to-Workbench connection described in [Plan 9](plans/009_kgas_theory_context.md). Selection: `adopt_now` for this bounded artifact review; tactic: `wrap` the pinned KGAS example and `extend` the existing study payload/page builder. No KGAS runtime or general theory producer is adopted. The authentic input is `kgas1/docs/examples/stakeholder_theory_v10.json` at `0fb0d7873e1510091a89a8c08e7dcbe82f7b1e35`, digest `dc9f2366366de704414752ed609ce36ae3e10f90b1e4c2af972071fb94df6c5b`. Its scholarly fidelity and numeric rules are unverified; the consumer must disclose this. The intended consumer is `build_study_payload`/`build_study_page.py`, with frozen bytes, artifact references, declared/implemented operation distinctions and a hash-bound receipt. This does not promote the general `TF-SPEC`/`TF-RUN` rows.
+
 | Owner | What exists now | Seam/adoption truth | Selection disposition | Implementation tactic if selected |
 | --- | --- | --- | --- | --- |
 | Data Contracts | Strict producer/permissive consumer models; action descriptors and packs; typed inputs, outputs, resources, effects, and determinism; pure compilation; invocation and transition guards. | Stable typed substrate. DIGIMON genuinely consumes compiled manifests and guarded transitions. It intentionally does not load or dispatch implementations. | `adopt_now` | `reuse` composition grammar; `extend` only after two authentic consumers prove a missing neutral field. |

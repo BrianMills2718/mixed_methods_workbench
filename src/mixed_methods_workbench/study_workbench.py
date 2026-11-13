@@ -300,7 +300,7 @@ def _sha256(data: bytes) -> str:
 
 
 def _md5(data: bytes) -> str:
-    return hashlib.md5(data).hexdigest()  # noqa: S324 (compared with the publisher's md5)
+    return hashlib.md5(data).hexdigest()
 
 
 def _read_json(path: Path) -> Any:
@@ -377,6 +377,10 @@ def chance_reading(cited: int, overlapping: int, inside: int, baseline: dict[str
 
 def build_study_payload(study_dir: Path) -> dict[str, Any]:
     """Every panel of the study page, built only from the frozen files in ``study_dir``."""
+    if (study_dir / "theory_context.json").exists():
+        from .theory_context import build_theory_context
+
+        return build_theory_context(study_dir)
     study = StudyDefinition.model_validate(_read_json(study_dir / "study.json"))
     manifest = CorpusManifest.model_validate(_read_json(study_dir / "corpus_manifest.json"))
     pin = ProducerInputPin.model_validate(_read_json(study_dir / "qc" / "provenance.json"))

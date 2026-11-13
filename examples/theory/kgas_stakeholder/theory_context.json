@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "record_type": "theory_context_definition",
+  "study_id": "kgas_stakeholder",
+  "title": "Stakeholder theory: inspect an unverified KGAS example",
+  "artifact": {
+    "schema_version": "1.0",
+    "repository": "BrianMills2718/kgas1",
+    "revision": "0fb0d7873e1510091a89a8c08e7dcbe82f7b1e35",
+    "source_path": "docs/examples/stakeholder_theory_v10.json",
+    "file": "stakeholder_theory_v10.json",
+    "sha256": "dc9f2366366de704414752ed609ce36ae3e10f90b1e4c2af972071fb94df6c5b"
+  },
+  "analyst_inputs": {
+    "legitimacy": 0.8,
+    "urgency": 0.6,
+    "power": 0.4
+  }
+}

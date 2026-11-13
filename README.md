@@ -38,6 +38,18 @@ Reference material:
   policy-research methods taxonomy preserved from `rand_ai_analysis`, with
   source lineage and use limits.
 
+## Preserved KGAS theory context
+
+Build a source-bound review of KGAS's Stakeholder Theory example:
+
+```bash
+uv run --extra dev python scripts/build_study_page.py examples/theory/kgas_stakeholder
+```
+
+Open `proposals/kgas-stakeholder-study/index.html`. The same build writes machine-readable `payload.json` and a build receipt. The review retains construct definitions and exact artifact references, required observations and assumptions, declared operations and the limits on conclusions. Explicit illustrative inputs can exercise the preserved geometric-mean rule; they are not observed stakeholder measurements. No model or method engine runs.
+
+This is an unverified operationalization preserved from KGAS. It has no verified paper-level anchors. Its recorded validation and coverage claims are source assertions, not Workbench evidence. The pinned source is retained byte-for-byte with its origin and digest under `examples/theory/kgas_stakeholder/`. See [Plan 9](docs/plans/009_kgas_theory_context.md) and the [capability specification](openspec/specs/kgas-theory-context/spec.md).
+
 Plan #8 slices S0–S7 are authorized (Brian, 2026-11-06). Earlier wording:
 no implementation slice, engine integration, or product version was active
 beyond the explicitly authorized local `METHOD-DASH-C1` review prototype. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1

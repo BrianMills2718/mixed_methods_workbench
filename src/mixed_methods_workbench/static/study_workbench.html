@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Study Workbench</title>
+<link rel="icon" href="data:,">
 <style>
 :root {
   --bg: #f7f8fa; --panel: #ffffff; --ink: #1c2330; --muted: #5d6675; --line: #d9dee6;
@@ -63,6 +64,10 @@ th { color: var(--muted); font-weight: 600; }
 .pair div { border: 1px solid var(--line); border-radius: 6px; padding: 6px; white-space: pre-wrap; font-size: .85rem; overflow-wrap: anywhere; }
 a { color: var(--blue); }
 details summary { cursor: pointer; }
+.theory-source { position: relative; overflow-wrap: anywhere; }
+.theory-source .tip { display: none; background: var(--blue-soft); color: var(--ink); border: 1px solid var(--blue); border-radius: 4px; padding: 4px 8px; margin: 4px 0; font-size: .85rem; }
+.theory-source:hover .tip, .theory-source:focus .tip, details[open] > .theory-source .tip { display: block; }
+pre.reader { white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
 </style>
 </head>
 <body>
@@ -84,6 +89,36 @@ const $ = (tag, attrs = {}, ...kids) => {
   for (const kid of kids.flat()) if (kid !== null && kid !== undefined) el.append(kid.nodeType ? kid : String(kid));
   return el;
 };
+function renderTheoryContext() {
+  const T = P.theory_context;
+  document.getElementById("title").textContent = P.title;
+  document.getElementById("sub").textContent = "Review a preserved theory artifact and its limits. This is not an empirical study.";
+  const main = document.getElementById("main");
+  const source = r => $("details", {}, $("summary", {class: "theory-source"}, "Artifact source: " + r.pointer, $("span", {class: "tip"}, "Open to inspect the exact value in the preserved artifact. This is not a paper citation.")),
+    $("pre", {class: "reader"}, JSON.stringify(r.value, null, 2)));
+  main.append($("div", {class: "pin"}, $("strong", {}, "Provenance gap: artifact-only context"),
+    $("ul", {}, T.limits.map(x => $("li", {}, x)))));
+  main.append($("div", {class: "panel"}, $("h2", {}, "Constructs and exact artifact sources"),
+    ...T.constructs.map(c => $("div", {}, $("h3", {}, c.name + " · " + c.kind), $("p", {}, c.source_ref.value.description || "No description supplied in artifact."), source(c.source_ref)))));
+  main.append($("div", {class: "panel"}, $("h2", {}, "Required observations · no empirical data supplied"),
+    $("p", {}, "These are declared input names, not collected observations or validated measurements."),
+    ...T.required_observations.map(source), $("h2", {}, "Assumptions and illustrative scenarios"),
+    ...T.assumptions_and_examples.map(source)));
+  main.append($("div", {class: "panel"}, $("h2", {}, "Available operation and declared operations"),
+    ...T.operations.map(o => $("div", {}, $("h3", {}, o.name),
+      $("span", {class: "chip " + (o.status === "unavailable_unexecuted" ? "off" : "ok")}, o.status.replaceAll("_", " ")),
+      $("p", {}, o.reason), source(o.source_ref)))));
+  main.append($("div", {class: "panel"}, $("h2", {}, "Geometric mean under an unverified example rule"),
+    T.calculation ? $("div", {}, $("p", {}, "Illustrative analyst supplied inputs; not observed data: " + JSON.stringify(T.calculation.inputs)),
+      $("p", {}, "Computed salience score: " + T.calculation.result), $("p", {class: "pin"}, T.calculation.claim_limit),
+      source(T.calculation.formula_source_ref)) : $("p", {}, "Available, unexecuted: supply analyst_inputs in theory_context.json and rebuild. Each of legitimacy, urgency and power must be a finite number from 0 to 1. No scores are inferred from text.")));
+  main.append($("div", {class: "panel"}, $("h2", {}, "Custody, producer claims and build trace"),
+    $("p", {}, "Recorded producer claims and declared test expectations are unverified. Inspect the calculation operation source for its original examples; its recorded expectations are not arithmetic validation results."),
+    $("pre", {class: "reader"}, JSON.stringify({reference: T.reference, producer_claims: T.producer_claims, steps: P.steps}, null, 2))));
+}
+if (P.mode === "theory_context") {
+  renderTheoryContext();
+} else {
 const S = P.qualitative_strand, C = P.corpus, H = P.human_coding;
 const docs = Object.fromEntries(C.documents.map(d => [d.file, d]));
 const step = w => P.steps.find(s => s.step.includes(w));
@@ -271,6 +306,7 @@ show(sections[start] ? start : "theory");
 if (pressed.length === 0) catList.querySelector("button").click();
 const first = detail.querySelector(".passage"); if (first) first.click();
 booting = false;
+}
 </script>
 </body>
 </html>

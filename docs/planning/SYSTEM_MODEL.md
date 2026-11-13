@@ -39,6 +39,7 @@ Everything is files in git; there is no database.
 | `scripts/validate_phase3_methods.py`, `scripts/crosswalk_phase4.py`, `scripts/fetch_stato.py` | Validate the 14 decompositions; generate and check the crosswalk collisions and verdicts |
 | `scripts/build_psychosisbank_public_review.py` | Copies the investigation page and payload into `deploy/` |
 | `study_workbench.py`, `scripts/freeze_study_inputs.py`, `scripts/build_study_page.py` | Plan #8 S1 (built): study definition, frozen corpus manifest, the reader for QC's grounded-theory export, the author's coding located by its words, the study page and its build receipt |
+| `theory_context.py`, `study_workbench.py`, `scripts/build_study_page.py` | Plan 9: pinned KGAS example consumer, exact artifact references, theory-context review through the existing page, explicit-input geometric-mean calculation and deterministic receipt; no empirical validity claim |
 
 ### Planned by Plan #8
 

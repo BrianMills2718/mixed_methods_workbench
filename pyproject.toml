@@ -21,6 +21,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-rfE"
+markers = ["req(capability_scenario): behavior specification covered by this test"]
 [tool.mypy]
 python_version = "3.12"
 strict = true

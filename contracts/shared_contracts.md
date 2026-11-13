@@ -204,6 +204,8 @@ Fields:
 
 ### TheoryOperationalizationArtifact
 
+The separately authorized [KGAS context consumer](../docs/plans/009_kgas_theory_context.md) is an implemented narrow consumer of a preserved example, not an implementation or renaming of the general Theory Forge stub below. It uses a strict pinned reference, a permissive KGAS major-version-1 view and a typed review context; the original fields and artifact JSON Pointers remain available. Theory context is not empirical evidence, and declared methods are not automatically executable. Its standalone definition enters through the existing study-page builder. Only the declared geometric-mean arithmetic runs with explicit finite inputs; arbitrary producer scripts and prompts never execute.
+
 Future workbench-safe view of a `theory-forge` theory artifact. This is a broad
 stub until a real Theory Forge fixture exists.
 
