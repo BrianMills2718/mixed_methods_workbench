@@ -1,0 +1,2 @@
+# Preserved producer bytes are hash-bound evidence, including original whitespace.
+examples/theory/kgas_stakeholder/stakeholder_theory_v10.json -text -whitespace
