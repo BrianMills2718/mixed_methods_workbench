@@ -8,3 +8,7 @@ build/
 worktrees/
 *.pyc
 *.egg-info/
+
+.import_linter_cache/
+.code2check/
+.lefthook/

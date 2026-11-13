@@ -1,6 +1,6 @@
 """Freeze a study's inputs: the published corpus and the qualitative producer's export.
 
-Implements: study_corpus/freeze (Plan #8, slice S1).
+Legacy trace: study_corpus/freeze (Plan #8, slice S1).
 
 Reads a study definition (``examples/studies/<id>/study.json``), downloads the corpus files from
 the record it names, checks each against the record's published md5, and writes them unchanged

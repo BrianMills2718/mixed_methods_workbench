@@ -10,7 +10,7 @@ requires-python = ">=3.12"
 dependencies = ["data_contracts==0.1.0", "pydantic>=2.11,<3"]
 
 [project.optional-dependencies]
-dev = ["mypy>=1.10", "pytest>=8.0", "PyYAML>=6.0", "ruff>=0.8"]
+dev = ["agentic-engineering-system", "mypy>=1.10", "pytest>=8.0", "PyYAML>=6.0", "ruff>=0.8"]
 
 [project.scripts]
 mmw-demo = "mixed_methods_workbench.cli:main"
@@ -35,7 +35,12 @@ module = ["llm_client", "llm_client.*"]
 ignore_missing_imports = true
 
 # data_contracts is not on PyPI; it resolves from the local checkout (README "Install").
+[tool.lockstep]
+source = ["src", "scripts"]
+tests = ["tests"]
+
 [tool.uv.sources]
+agentic-engineering-system = { git = "https://github.com/BrianMills2718/agentic-engineering-system-canonical.git", rev = "05ee80c1a9cc77f692954b6de09a81ab0d9bdb0a" }
 data-contracts = { path = "/home/brian/code2/data-contracts", editable = true }
 
 [tool.ruff]

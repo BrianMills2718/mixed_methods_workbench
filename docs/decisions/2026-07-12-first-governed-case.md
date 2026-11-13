@@ -1,6 +1,7 @@
 # Decision Brief: First Governed Public Case
 
 Date: 2026-07-12
+Source: Inferred by agent from the research and references recorded in this historical brief; proposed for Brian’s decision, not an adopted owner instruction.
 Status: decision required; documentation only
 Decision owner: Brian
 Recommended disposition: select `GOV-FRUS-CMC` for later governance-only

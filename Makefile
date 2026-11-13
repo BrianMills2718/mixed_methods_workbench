@@ -58,6 +58,11 @@ test-study-workbench:  ## Run the Plan #8 study workbench checks
 test-theory-context:  ## Check pinned KGAS theory context and calculation controls
 	@PYTHONPATH=src:. $(PYTHON) -m pytest -q tests/test_theory_context.py
 
+test-specifications:  ## Record focused requirement tests using the native Lockstep contract
+	@mkdir -p .code2check
+	@$(PYTHON) -c 'import json, pathlib, subprocess; pathlib.Path(".code2check/run.json").write_text(json.dumps({"commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(), "clean": not subprocess.check_output(["git", "status", "--porcelain"], text=True).strip()}))'
+	@PYTHONPATH=src:. $(PYTHON) -m pytest -q tests/test_study_workbench.py tests/test_theory_context.py --junitxml=.code2check/junit.xml
+
 docs-specs:  ## Validate the maintained behavior specifications
 	@openspec validate --specs --strict --no-interactive
 
@@ -85,7 +90,7 @@ coverage:  ## Generate human-readable coverage report
 coverage-json:  ## Print machine-readable coverage without changing files
 	@python3 scripts/check_coverage.py --format json
 
-check: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts validate-demo-fixtures validate-demo-controls typecheck-demo test-study-workbench test-theory-context  ## Run all current repo checks
+check: fast architecture-check validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts validate-demo-fixtures validate-demo-controls typecheck-demo test-specifications  ## Run all current repo checks
 
 # ─── Help ────────────────────────────────────────────────────────────────
 
@@ -96,3 +101,12 @@ help:  ## Show available targets
 	@echo ""
 	@grep -E '^[a-z][-a-zA-Z0-9_]*:.*## ' $(MAKEFILE_LIST) | \
 		awk -F ':.*## ' '{printf "  make %-20s %s\n", $$1, $$2}'
+
+.PHONY: fast architecture-check
+fast:  ## Check maintained specification trace, sources and generated context
+	uv run --extra dev lockstep check trace
+	uv run --extra dev lockstep check sources
+	uv run --extra dev lockstep check project --check
+
+architecture-check:  ## Check generated import contracts against the architecture
+	uv run --extra dev lockstep check arch check

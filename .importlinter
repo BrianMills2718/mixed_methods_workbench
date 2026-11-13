@@ -1,0 +1,23 @@
+# Generated from docs/architecture/*.c4 by `lockstep check arch gen`. Do not edit by hand.
+
+[importlinter]
+root_packages =
+    mixed_methods_workbench
+    scripts
+
+[importlinter:contract:mixed_methods_workbench.study_workbench]
+name = mixed_methods_workbench.study_workbench imports only what the diagram allows
+type = forbidden
+source_modules = mixed_methods_workbench.study_workbench
+forbidden_modules =
+    scripts.build_study_page
+allow_indirect_imports = True
+
+[importlinter:contract:mixed_methods_workbench.theory_context]
+name = mixed_methods_workbench.theory_context imports only what the diagram allows
+type = forbidden
+source_modules = mixed_methods_workbench.theory_context
+forbidden_modules =
+    mixed_methods_workbench.study_workbench
+    scripts.build_study_page
+allow_indirect_imports = True

@@ -1633,7 +1633,7 @@
    "claim_limit": "Computation under an unverified example rule; not empirical or theory validation; no category assigned"
   },
   "limits": [
-   "Artifact-only JSON Pointers: no verified scholarly paper anchors or paper quotes.",
+   "Original artifact has no scholarly anchors. Attached source appraisal is an attributable authored interpretation, not automatic or empirical theory validation.",
    "Pinned origin is recorded; local SHA256 is checked. Upstream history is not revalidated by this build.",
    "Producer validation_status and test_coverage fields are declarations, not validated evidence.",
    "Required inputs and illustrative scenarios are not empirical observations.",
@@ -2244,7 +2244,201 @@
      "edge_cases": "uncertainty_propagation_with_explanation"
     }
    }
-  }
+  },
+  "source_review_reference": {
+   "file": "scholarly_review.json",
+   "sha256": "85258403dcac09f4d379577fbf15dee7049e176ee00d4827b704af6b9363829e"
+  },
+  "source_review": {
+   "schema_version": "1.0",
+   "record_type": "theory_source_review",
+   "artifact_sha256": "dc9f2366366de704414752ed609ce36ae3e10f90b1e4c2af972071fb94df6c5b",
+   "reviewed_at": "2026-11-13",
+   "reviewer": "Codex primary-source comparison; agent appraisal, not empirical validation",
+   "sources": [
+    {
+     "id": "maw1997",
+     "title": "Toward a Theory of Stakeholder Identification and Salience: Defining the Principle of Who and What Really Counts",
+     "url": "https://fenix.iseg.ulisboa.pt/downloadFile/1688983004261128/Mitchell%20et%20al.%201997%20%28AMR%29%20Toward%20a%20theory%20of%20stakeholder%20identification%20and%20salience%20Defining%20the%20principle%20of%20who%20and%20what%20really%20counts.pdf",
+     "doi": "10.5465/amr.1997.9711022105",
+     "printed_pages": [
+      853,
+      854,
+      855,
+      856,
+      859,
+      865,
+      866,
+      867,
+      869,
+      873,
+      874,
+      876
+     ]
+    }
+   ],
+   "claims": [
+    {
+     "id": "stakeholder",
+     "artifact_pointer": "/ontology/entities/0/description",
+     "artifact_value": "Any group or individual who can affect or is affected by the achievement of the organization's objectives",
+     "disposition": "supported",
+     "rationale": "The paper adopts Freeman’s broad definition; legitimacy is not a prerequisite.",
+     "source_id": "maw1997",
+     "pages": [
+      854,
+      856,
+      859
+     ]
+    },
+    {
+     "id": "legitimacy",
+     "artifact_pointer": "/ontology/entities/0/properties/0/description",
+     "artifact_value": "Degree to which stakeholder claims are valid and appropriate",
+     "disposition": "qualified",
+     "rationale": "Appropriateness is socially perceived and contextual; the artifact wording omits this qualification.",
+     "source_id": "maw1997",
+     "pages": [
+      866,
+      867,
+      869
+     ]
+    },
+    {
+     "id": "urgency",
+     "artifact_pointer": "/ontology/entities/0/properties/1/operationalization",
+     "artifact_value": {
+      "measurement_approach": "temporal_analysis",
+      "boundary_rules": [
+       {
+        "condition": "time_critical == true",
+        "urgency": 0.8
+       },
+       {
+        "condition": "legal_deadline_exists == true",
+        "urgency": 0.9
+       },
+       {
+        "condition": "public_pressure_mounting == true",
+        "urgency": 0.7
+       }
+      ],
+      "fuzzy_boundaries": true,
+      "validation_examples": [
+       {
+        "text": "Environmental group threatening lawsuit next week",
+        "expected_urgency": 0.9
+       },
+       {
+        "text": "Community requesting future consultation",
+        "expected_urgency": 0.3
+       }
+      ]
+     },
+     "disposition": "qualified",
+     "rationale": "Urgency requires time sensitivity and criticality, not time pressure alone.",
+     "source_id": "maw1997",
+     "pages": [
+      867,
+      869
+     ]
+    },
+    {
+     "id": "power_measure",
+     "artifact_pointer": "/ontology/entities/0/properties/2/operationalization/measurement_approach",
+     "artifact_value": "network_centrality",
+     "disposition": "not_established",
+     "rationale": "The paper does not establish network centrality as a sufficient power measure.",
+     "source_id": "maw1997",
+     "pages": [
+      865,
+      869
+     ]
+    },
+    {
+     "id": "salience_formula",
+     "artifact_pointer": "/execution/analysis_steps/4/custom_script/implementation_hint",
+     "artifact_value": "salience = (legitimacy * urgency * power) ^ (1/3)",
+     "disposition": "contradicted",
+     "rationale": "The rule alone collapses the paper’s distinct low- and moderate-salience classes to the same value.",
+     "source_id": "maw1997",
+     "pages": [
+      874,
+      876
+     ]
+    },
+    {
+     "id": "numeric_thresholds",
+     "artifact_pointer": "/ontology/entities/0/properties/0/operationalization/boundary_rules",
+     "artifact_value": [
+      {
+       "condition": "legal_right == true",
+       "legitimacy": 0.8
+      },
+      {
+       "condition": "moral_claim == true",
+       "legitimacy": 0.6
+      },
+      {
+       "condition": "contractual_relationship == true",
+       "legitimacy": 0.9
+      }
+     ],
+     "disposition": "not_established",
+     "rationale": "These numeric cutoffs are not established by the reviewed paper.",
+     "source_id": "maw1997",
+     "pages": [
+      866,
+      869,
+      873
+     ]
+    },
+    {
+     "id": "prescription",
+     "artifact_pointer": "/execution/analysis_steps/4/custom_script/business_logic",
+     "artifact_value": "Salience represents the overall priority managers should give to each stakeholder based on their possession of legitimacy, urgency, and power attributes. Uses geometric mean to ensure balanced consideration of all three dimensions.",
+     "disposition": "qualified",
+     "rationale": "Descriptive managerial attention does not by itself justify what managers should prioritize.",
+     "source_id": "maw1997",
+     "pages": [
+      854,
+      855
+     ]
+    },
+    {
+     "id": "publication_identity",
+     "artifact_pointer": "/publication_year",
+     "artifact_value": 1984,
+     "disposition": "qualified",
+     "rationale": "Freeman’s definition is dated 1984; the Mitchell–Agle–Wood salience article is a distinct 1997 publication.",
+     "source_id": "maw1997",
+     "pages": [
+      853,
+      854
+     ]
+    }
+   ],
+   "counterexample": {
+    "inputs": {
+     "legitimacy": 1.0,
+     "urgency": 1.0,
+     "power": 0.0
+    },
+    "comparator_inputs": {
+     "legitimacy": 1.0,
+     "urgency": 0.0,
+     "power": 0.0
+    },
+    "source_id": "maw1997",
+    "pages": [
+     874,
+     876
+    ],
+    "source_statement": "One perceived attribute has low salience; two have moderate salience. These are distinct classes, not calibrated numeric predictions."
+   }
+  },
+  "counterexample_result": 0.0,
+  "comparator_result": 0.0
  },
  "steps": [
   {
@@ -2255,6 +2449,11 @@
    "step": "project exact artifact fields",
    "constructs": 13,
    "operations": 7
+  },
+  {
+   "step": "verify attached authored source appraisal",
+   "claims": 8,
+   "sha256": "85258403dcac09f4d379577fbf15dee7049e176ee00d4827b704af6b9363829e"
   },
   {
    "step": "compute analyst supplied example rule",

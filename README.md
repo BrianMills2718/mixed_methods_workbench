@@ -50,6 +50,8 @@ Open `proposals/kgas-stakeholder-study/index.html`. The same build writes machin
 
 This is an unverified operationalization preserved from KGAS. It has no verified paper-level anchors. Its recorded validation and coverage claims are source assertions, not Workbench evidence. The pinned source is retained byte-for-byte with its origin and digest under `examples/theory/kgas_stakeholder/`. See [Plan 9](docs/plans/009_kgas_theory_context.md) and the [capability specification](openspec/specs/kgas-theory-context/spec.md).
 
+An optional, separately pinned scholarly appraisal now compares eight selected artifact claims with an original article. It exposes printed-page citations, review dispositions and an illustrative counterexample while retaining the original artifact. These are attributable agent appraisals; scholarly support for the entire artifact and empirical validity remain unestablished. See [Plan 10](docs/plans/010_kgas_source_appraisal.md).
+
 Plan #8 slices S0–S7 are authorized (Brian, 2026-11-06). Earlier wording:
 no implementation slice, engine integration, or product version was active
 beyond the explicitly authorized local `METHOD-DASH-C1` review prototype. `T0-PROV` and local `DEMO-C1` are completed bounded slices. DEMO-C1

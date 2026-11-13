@@ -200,6 +200,7 @@ def test_anchor_text_reports_how_exact_the_match_is() -> None:
     assert anchor_text(source, "nothing like this at all, unrelated words entirely").status == "not_found"
 
 
+@pytest.mark.req("kgas-theory-context/preserve-existing-studies", existing=True)
 def test_committed_page_and_receipt_match_the_builder(tmp_path: Path) -> None:
     page, payload, study_id = render(STUDY)
     committed = page_dir_for(study_id) / "index.html"

@@ -1,6 +1,7 @@
 # Decision Brief: First Quantitative-Text Strand
 
 Date: 2026-07-12
+Source: Inferred by agent from the research and references recorded in this historical brief; proposed for Brian’s decision, not an adopted owner instruction.
 Status: decision required; documentation only
 Decision owner: Brian
 Recommended disposition: approve a conditional task/owner pattern, not a

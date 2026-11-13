@@ -96,8 +96,24 @@ function renderTheoryContext() {
   const main = document.getElementById("main");
   const source = r => $("details", {}, $("summary", {class: "theory-source"}, "Artifact source: " + r.pointer, $("span", {class: "tip"}, "Open to inspect the exact value in the preserved artifact. This is not a paper citation.")),
     $("pre", {class: "reader"}, JSON.stringify(r.value, null, 2)));
-  main.append($("div", {class: "pin"}, $("strong", {}, "Provenance gap: artifact-only context"),
+  main.append($("div", {class: "pin"}, $("strong", {}, T.source_review ? "Original artifact lacks scholarly anchors · authored appraisal attached" : "Provenance gap: artifact-only context"),
     $("ul", {}, T.limits.map(x => $("li", {}, x)))));
+  if (T.source_review) {
+    const R = T.source_review;
+    const citation = item => {
+      const paper = R.sources.find(s => s.id === item.source_id);
+      return $("a", {class: "theory-source", href: paper.url, target: "_blank", rel: "noopener noreferrer"}, paper.title + " · printed pp. " + item.pages.join(", "), $("span", {class: "tip"}, "Opens the scholarly source in a new tab. Page numbers are printed article pages; the appraisal is authored by the named reviewer."));
+    };
+    main.append($("div", {class: "panel"}, $("h2", {}, "Scholarly source and authored interpretation"),
+      $("p", {}, "Appraisal by " + R.reviewer + " · " + R.reviewed_at + ". The original KGAS artifact is preserved. These are attributable source appraisals, not automatic or empirical validation."),
+      ...R.claims.map(c => $("div", {}, $("h3", {}, c.id + " · " + c.disposition.replaceAll("_", " ")),
+        $("p", {}, c.rationale), citation(c), source({pointer:c.artifact_pointer, value:c.artifact_value}))),
+      $("h3", {}, "Concrete comparison under the KGAS-specific rule"),
+      $("p", {}, "Inputs: " + JSON.stringify(R.counterexample.inputs) + " → " + T.counterexample_result),
+      R.counterexample.comparator_inputs ? $("p", {}, "Comparator inputs: " + JSON.stringify(R.counterexample.comparator_inputs) + " → " + T.comparator_result) : null,
+      $("p", {}, "Authored paraphrase of the source: " + R.counterexample.source_statement), citation(R.counterexample),
+      $("p", {}, "The workbench computes the preserved KGAS arithmetic only; it does not classify stakeholders or calibrate the paper's salience classes.")));
+  }
   main.append($("div", {class: "panel"}, $("h2", {}, "Constructs and exact artifact sources"),
     ...T.constructs.map(c => $("div", {}, $("h3", {}, c.name + " · " + c.kind), $("p", {}, c.source_ref.value.description || "No description supplied in artifact."), source(c.source_ref)))));
   main.append($("div", {class: "panel"}, $("h2", {}, "Required observations · no empirical data supplied"),
@@ -108,7 +124,7 @@ function renderTheoryContext() {
     ...T.operations.map(o => $("div", {}, $("h3", {}, o.name),
       $("span", {class: "chip " + (o.status === "unavailable_unexecuted" ? "off" : "ok")}, o.status.replaceAll("_", " ")),
       $("p", {}, o.reason), source(o.source_ref)))));
-  main.append($("div", {class: "panel"}, $("h2", {}, "Geometric mean under an unverified example rule"),
+  main.append($("div", {class: "panel"}, $("h2", {}, T.source_review ? "KGAS-specific geometric mean · inspect source appraisal above" : "Geometric mean under an unverified example rule"),
     T.calculation ? $("div", {}, $("p", {}, "Illustrative analyst supplied inputs; not observed data: " + JSON.stringify(T.calculation.inputs)),
       $("p", {}, "Computed salience score: " + T.calculation.result), $("p", {class: "pin"}, T.calculation.claim_limit),
       source(T.calculation.formula_source_ref)) : $("p", {}, "Available, unexecuted: supply analyst_inputs in theory_context.json and rebuild. Each of legitimacy, urgency and power must be a finite number from 0 to 1. No scores are inferred from text.")));
