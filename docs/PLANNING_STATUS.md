@@ -5,6 +5,8 @@ Updated: 2026-08-13; correction note added 2026-09-06; bounded portfolio note ad
 
 ## Current phase: finish to 1.0 (Plan #8, 2026-11-06)
 
+**Separately authorized KGAS consumer slice, 2026-11-12:** Brian approved the first preserved KGAS theory-to-Workbench connection. [Plan 9](plans/009_kgas_theory_context.md) adds artifact review and a bounded deterministic calculation through the existing study builder. It does not certify Theory Forge, empirical theory application or TF-RUN; Plan 8 remains the general finish sequence.
+
 Brian, 2026-11-06, answering open question Q1: "on mixed mtheod work bench
 finsih that is not for a specific use case it is part of my broader vision".
 Authorized work is the slice sequence in

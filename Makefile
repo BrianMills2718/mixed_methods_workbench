@@ -55,6 +55,12 @@ study-page:  ## Build the Open Science study page and receipt, then serve it at 
 test-study-workbench:  ## Run the Plan #8 study workbench checks
 	@PYTHONPATH=src:. $(PYTHON) -m pytest -q tests/test_study_workbench.py
 
+test-theory-context:  ## Check pinned KGAS theory context and calculation controls
+	@PYTHONPATH=src:. $(PYTHON) -m pytest -q tests/test_theory_context.py
+
+docs-specs:  ## Validate the maintained behavior specifications
+	@openspec validate --specs --strict --no-interactive
+
 method-dashboard:  ## Run the local METHOD-DASH-C1 review dashboard
 	@PYTHONPATH=src $(PYTHON) -m mixed_methods_workbench.method_dashboard_server
 
@@ -79,7 +85,7 @@ coverage:  ## Generate human-readable coverage report
 coverage-json:  ## Print machine-readable coverage without changing files
 	@python3 scripts/check_coverage.py --format json
 
-check: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts validate-demo-fixtures validate-demo-controls typecheck-demo test-study-workbench  ## Run all current repo checks
+check: validate-fixtures validate-negative-controls validate-coverage-negative-controls validate-interface-contracts validate-demo-fixtures validate-demo-controls typecheck-demo test-study-workbench test-theory-context  ## Run all current repo checks
 
 # ─── Help ────────────────────────────────────────────────────────────────
 

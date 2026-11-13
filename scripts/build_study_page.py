@@ -24,7 +24,7 @@ from typing import Any
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 
-from mixed_methods_workbench.study_workbench import build_study_payload  # noqa: E402
+from mixed_methods_workbench.study_workbench import build_study_payload  # noqa: E402, RUF100
 
 TEMPLATE = REPO / "src" / "mixed_methods_workbench" / "static" / "study_workbench.html"
 PLACEHOLDER = "/*STUDY_PAYLOAD*/null"
@@ -52,7 +52,7 @@ def receipt_for(study_dir: Path, payload: dict[str, Any], page: bytes, page_path
     inputs = sorted(
         p for p in study_dir.rglob("*") if p.is_file() and p.name != "build_receipt.json"
     )
-    return {
+    receipt = {
         "schema_version": "1.0",
         "record_type": "study_build_receipt",
         "study_id": payload["study_id"],
@@ -67,6 +67,17 @@ def receipt_for(study_dir: Path, payload: dict[str, Any], page: bytes, page_path
     }
 
 
+    if payload.get("mode") == "theory_context":
+        from mixed_methods_workbench.theory_context import TheoryCalculation
+
+        calculation = payload["theory_context"]["calculation"]
+        receipt["calculations"] = (
+            [TheoryCalculation.model_validate(calculation).model_dump()]
+            if calculation is not None else []
+        )
+    return receipt
+
+
 def build(study_dir: Path, out_dir: Path | None = None) -> tuple[Path, Path]:
     study_dir = study_dir.resolve()
     page, payload, study_id = render(study_dir)
@@ -75,6 +86,10 @@ def build(study_dir: Path, out_dir: Path | None = None) -> tuple[Path, Path]:
     page_path = target_dir / "index.html"
     page_path.write_bytes(page)
     receipt = receipt_for(study_dir, payload, page, page_dir_for(study_id) / "index.html")
+    if payload.get("mode") == "theory_context":
+        payload_bytes = (json.dumps(payload, ensure_ascii=False, indent=1) + "\n").encode()
+        (target_dir / "payload.json").write_bytes(payload_bytes)
+        receipt["outputs"].append({"path": str((page_dir_for(study_id) / "payload.json").relative_to(REPO)), "sha256": _sha256(payload_bytes)})
     receipt_path = (out_dir or study_dir) / "build_receipt.json"
     receipt_path.write_text(json.dumps(receipt, indent=1) + "\n", encoding="utf-8")
     return page_path, receipt_path

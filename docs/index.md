@@ -1,6 +1,7 @@
 # Mixed Methods Workbench: reading order
 
 1. [AGENTS.md](../AGENTS.md): operating rules and what work is authorized.
+   [KGAS theory context](plans/009_kgas_theory_context.md) is the separately authorized bounded consumer slice; [capability specification](../openspec/specs/kgas-theory-context/spec.md).
 2. [Plan #8: finish the workbench](plans/008_finish_workbench.md): the current plan, from today to 1.0.
 3. [Plan #7: keep shippable](plans/007_keep_shippable.md): upkeep that runs alongside Plan #8.
 4. [Roadmap](ROADMAP.md): north star, what 1.0 means, the version ladder (Plan #8 controls where they differ).

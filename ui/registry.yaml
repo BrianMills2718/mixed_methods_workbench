@@ -1,0 +1,9 @@
+version: 1
+surfaces:
+  - id: study-workbench
+    name: Study and theory context review
+    status: local
+    entrypoint: scripts/build_study_page.py
+    source: src/mixed_methods_workbench/static/study_workbench.html
+    purpose: Inspect source-bound study outputs and optional preserved theory context.
+    owner: mixed_methods_workbench
