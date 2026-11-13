@@ -1,0 +1,17 @@
+// Maintained theory/study consumer seam; other legacy modules remain outside this bounded contract.
+specification { element component }
+model {
+  theory = component 'Theory context consumer' {
+    metadata { python 'mixed_methods_workbench.theory_context' }
+  }
+  study = component 'Study payload builder' {
+    metadata { python 'mixed_methods_workbench.study_workbench' }
+  }
+  page = component 'Study page command' {
+    metadata { python 'scripts.build_study_page' }
+  }
+  study -> theory 'reads optional pinned context'
+  page -> study 'builds the machine payload'
+  page -> theory 'validates calculation and counterexample rendering'
+}
+views { view index { include * } }

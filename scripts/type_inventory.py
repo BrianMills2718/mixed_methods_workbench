@@ -1,6 +1,6 @@
 """Write the type inventory of the workbench's code: every class, where it is defined, what builds it and what reads it.
 
-Implements: system-model/type-inventory (Plan #8 planning package, docs/planning/SYSTEM_MODEL.md).
+Legacy trace: system-model/type-inventory (Plan #8 planning package, docs/planning/SYSTEM_MODEL.md).
 
     uv run python scripts/type_inventory.py            # writes docs/planning/TYPES.md
     uv run python scripts/type_inventory.py --check    # exits 1 if TYPES.md is stale

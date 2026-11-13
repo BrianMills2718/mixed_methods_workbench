@@ -1,6 +1,14 @@
 """Study workbench: a frozen corpus and a producer's qualitative strand, checked and joined.
 
-Implements: study_corpus/governed-corpus and qualitative_strand/consumer-view (Plan #8, slice S1).
+Legacy trace: study_corpus/governed-corpus and qualitative_strand/consumer-view (Plan #8, slice S1).
+
+Implements: kgas-theory-context/reuse-the-study-review-surface
+
+Requirement text (generated):
+    kgas-theory-context/reuse-the-study-review-surface: The existing study builder SHALL expose
+        matching machine and browser theory context, support a standalone review without fabricated
+        corpus evidence, and preserve ordinary study behavior when context is absent.
+
 
 The workbench does not run a qualitative method. It reads a frozen corpus (``corpus_manifest.json``
 and ``source/``), Qualitative Coding's grounded-theory export through a permissive consumer view,

@@ -147,7 +147,7 @@
   },
   {
    "path": "src/mixed_methods_workbench/static/study_workbench.html",
-   "sha256": "95c2b930f93ea24e6280258e2f39b0ce0ca23af160fda6a63e09f47e54e24904"
+   "sha256": "ab4008dbd592ff83322464041bef456f6e7154038810f8e4c5006f65af43acbf"
   }
  ],
  "steps": [
@@ -197,7 +197,7 @@
  "outputs": [
   {
    "path": "proposals/open-science-study/index.html",
-   "sha256": "86eb720d5856eec61911560a3c461b7cc9fa8052d6909c9721d4f7553bc4adcc"
+   "sha256": "fb610a3ae89f9f216487f716222cad049506941483915509deb17551c679e612"
   }
  ]
 }

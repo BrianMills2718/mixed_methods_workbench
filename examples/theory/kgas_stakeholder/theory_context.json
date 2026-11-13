@@ -15,5 +15,9 @@
     "legitimacy": 0.8,
     "urgency": 0.6,
     "power": 0.4
+  },
+  "source_review": {
+    "file": "scholarly_review.json",
+    "sha256": "85258403dcac09f4d379577fbf15dee7049e176ee00d4827b704af6b9363829e"
   }
 }

@@ -6,16 +6,20 @@
  "model_calls": 0,
  "inputs": [
   {
+   "path": "examples/theory/kgas_stakeholder/scholarly_review.json",
+   "sha256": "85258403dcac09f4d379577fbf15dee7049e176ee00d4827b704af6b9363829e"
+  },
+  {
    "path": "examples/theory/kgas_stakeholder/stakeholder_theory_v10.json",
    "sha256": "dc9f2366366de704414752ed609ce36ae3e10f90b1e4c2af972071fb94df6c5b"
   },
   {
    "path": "examples/theory/kgas_stakeholder/theory_context.json",
-   "sha256": "3e3050af55b1156d1070d2a5685a9f848e36449055ff253804efcc98ca6a535e"
+   "sha256": "be517ba24634530e60872a38d22e6c2dcc6369a13520b0316473a94e74953bbc"
   },
   {
    "path": "src/mixed_methods_workbench/static/study_workbench.html",
-   "sha256": "95c2b930f93ea24e6280258e2f39b0ce0ca23af160fda6a63e09f47e54e24904"
+   "sha256": "ab4008dbd592ff83322464041bef456f6e7154038810f8e4c5006f65af43acbf"
   }
  ],
  "steps": [
@@ -29,6 +33,11 @@
    "operations": 7
   },
   {
+   "step": "verify attached authored source appraisal",
+   "claims": 8,
+   "sha256": "85258403dcac09f4d379577fbf15dee7049e176ee00d4827b704af6b9363829e"
+  },
+  {
    "step": "compute analyst supplied example rule",
    "calculations": 1,
    "model_calls": 0
@@ -37,11 +46,11 @@
  "outputs": [
   {
    "path": "proposals/kgas-stakeholder-study/index.html",
-   "sha256": "2992cad8f8c16a0e2145738ace8d97cc2df8e948c5643ce3784e99ff36b949d3"
+   "sha256": "ec6092785b50af03be2e526b380c4cb301588a40994cf721c1c1b0475a74b939"
   },
   {
    "path": "proposals/kgas-stakeholder-study/payload.json",
-   "sha256": "2a879049cb9cb230fcde7e83a6364656be37e9e5b32869857da266ec1c35ebc8"
+   "sha256": "c85b4ed3ac4901d6f1fc32266681d40c265c5210dae6f546077b11615a5d759e"
   }
  ],
  "calculations": [
@@ -62,5 +71,33 @@
    },
    "claim_limit": "Computation under an unverified example rule; not empirical or theory validation; no category assigned"
   }
- ]
+ ],
+ "source_appraisal": {
+  "reference": {
+   "file": "scholarly_review.json",
+   "sha256": "85258403dcac09f4d379577fbf15dee7049e176ee00d4827b704af6b9363829e"
+  },
+  "claims": 8,
+  "counterexample": {
+   "inputs": {
+    "legitimacy": 1.0,
+    "urgency": 1.0,
+    "power": 0.0
+   },
+   "comparator_inputs": {
+    "legitimacy": 1.0,
+    "urgency": 0.0,
+    "power": 0.0
+   },
+   "source_id": "maw1997",
+   "pages": [
+    874,
+    876
+   ],
+   "source_statement": "One perceived attribute has low salience; two have moderate salience. These are distinct classes, not calibrated numeric predictions."
+  },
+  "kgas_result": 0.0,
+  "kgas_comparator_result": 0.0,
+  "claim_limit": "Authored agent source appraisal; no automatic or empirical theory validation"
+ }
 }

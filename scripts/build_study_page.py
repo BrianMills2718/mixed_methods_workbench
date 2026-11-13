@@ -1,6 +1,14 @@
 """Build a study's page and its build receipt from the study's frozen files.
 
-Implements: study_corpus/study-page (Plan #8, slice S1).
+Legacy trace: study_corpus/study-page (Plan #8, slice S1).
+
+Implements: kgas-theory-context/reuse-the-study-review-surface
+
+Requirement text (generated):
+    kgas-theory-context/reuse-the-study-review-surface: The existing study builder SHALL expose
+        matching machine and browser theory context, support a standalone review without fabricated
+        corpus evidence, and preserve ordinary study behavior when context is absent.
+
 
     uv run python scripts/build_study_page.py examples/studies/open_science
     uv run python scripts/build_study_page.py examples/studies/open_science --serve 8765
@@ -75,6 +83,17 @@ def receipt_for(study_dir: Path, payload: dict[str, Any], page: bytes, page_path
             [TheoryCalculation.model_validate(calculation).model_dump()]
             if calculation is not None else []
         )
+        context = payload['theory_context']
+        if context['source_review'] is not None:
+            from mixed_methods_workbench.theory_context import SourceCounterexample
+            receipt['source_appraisal'] = {
+                'reference': context['source_review_reference'],
+                'claims': len(context['source_review']['claims']),
+                'counterexample': SourceCounterexample.model_validate(context['source_review']['counterexample']).model_dump(mode='json'),
+                'kgas_result': context['counterexample_result'],
+                'kgas_comparator_result': context['comparator_result'],
+                'claim_limit': 'Authored agent source appraisal; no automatic or empirical theory validation',
+            }
     return receipt
 
 
