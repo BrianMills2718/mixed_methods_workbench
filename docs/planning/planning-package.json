@@ -72,7 +72,7 @@
     },
     {
      "name": "wiki compliance",
-     "command": "python3 ~/code/project-meta/scripts/md_file_cap.py --repo .",
+     "command": "python3 $HOME/code2/agentic-engineering-system-canonical/scripts/md_file_cap.py --repo .",
      "exit_status": 1,
      "counts": {
       "md_files": 126,
