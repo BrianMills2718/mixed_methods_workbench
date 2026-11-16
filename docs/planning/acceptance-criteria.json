@@ -273,7 +273,7 @@
     "requirement": "part of broader vision",
     "quote": "it is part of my broader vision",
     "asked_by_index": 1,
-    "kind": "process"
+    "kind": "constraint"
    }
   ],
   "mappings": [
@@ -327,6 +327,19 @@
     0.021694
    ]
   },
-  "trace": "coverage-trace.json"
+  "trace": "coverage-trace.json",
+  "reconciled": {
+   "date": "2026-11-16",
+   "why": "the record was stored before the two process rules (2026-11-14); they were applied to the stored mappings with no model call, so these requirements differ from the stored trace",
+   "reclassified": [
+    {
+     "requirement_id": "R3",
+     "from": "process",
+     "to": "constraint",
+     "why": "criteria fully cover it (the stored judgment 1: A11), so a working interface demonstrates it"
+    }
+   ],
+   "normalized": []
+  }
  }
 }
